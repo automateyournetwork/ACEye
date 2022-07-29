@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "aceye"
+version = "1.0.0"
+description = "Business ready documents from Cisco ACI"
+authors = ["John Capobianco <ptcapo@gmail.com>"]
+packages = [{ include = "aceye", from = "src"}]
+readme = "README.md"
+
+[tool.poetry.scripts]
+aceye = "aceye.script:run"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.28.1"
+rich-click = "^1.5.1"
+Jinja2 = "^3.1.2"
+PyYAML = "^6.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

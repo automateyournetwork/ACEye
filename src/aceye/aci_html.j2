@@ -1,0 +1,289 @@
+
+{%- include 'datatable_header.j2' %}
+{%- if "Tenant" in api %}
+<h1>Tenants</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Alias</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>DN</th>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>User Domain</th>
+    <th>Modified Timestamp</th>
+  </tr>
+</thead>  
+<tbody>
+{%-     for tenant in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ tenant.fvTenant.attributes.name }}</td>
+    <td>{{ tenant.fvTenant.attributes.nameAlias }}</td>
+    <td>{{ tenant.fvTenant.attributes.descr }}</td>
+    <td>{{ tenant.fvTenant.attributes.status }}</td>
+    <td>{{ tenant.fvTenant.attributes.dn }}</td>
+    <td>{{ tenant.fvTenant.attributes.uid }}</td>
+    <td>{{ tenant.fvTenant.attributes.annotation }}</td>
+    <td>{{ tenant.fvTenant.attributes.childAction }}</td>
+    <td>{{ tenant.fvTenant.attributes.extMngdBy }}</td>
+    <td>{{ tenant.fvTenant.attributes.lcOwn }}</td>
+    <td>{{ tenant.fvTenant.attributes.monPolDn }}</td>
+    <td>{{ tenant.fvTenant.attributes.ownerKey }}</td>
+    <td>{{ tenant.fvTenant.attributes.ownerTag }}</td>
+    <td>{{ tenant.fvTenant.attributes.userdom }}</td>
+    <td>{{ tenant.fvTenant.attributes.modTs }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "AEPg" in api %}
+<h1>Endpoint Groups</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Alias</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>DN</th>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Monitoring Policy DN</th>
+    <th>User Domain</th>
+    <th>Configuration Issues</th>
+    <th>Configuration State</th>
+    <th>Exception Tag</th>
+    <th>Flood On Encapsulation</th>
+    <th>Forward Control</th>
+    <th>Has Multicast Source</th>
+    <th>Is Attribute Based EPG</th>
+    <th>Is Shared Service Multicast Site EPG</th>
+    <th>Match T</th>
+    <th>PC Enforcement Preference</th>
+    <th>PC Tag</th>
+    <th>PC Tag Allocation Source</th>
+    <th>Preference Gr Member</th>
+    <th>Priority</th>
+    <th>Scope</th>
+    <th>Shutdown</th>
+    <th>Trigger State</th>
+    <th>TX Id</th>
+    <th>Modified Timestamp</th>
+  </tr>
+</thead>  
+<tbody>
+{%-     for epg in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ epg.fvAEPg.attributes.name }}</td>
+    <td>{{ epg.fvAEPg.attributes.nameAlias }}</td>
+    <td>{{ epg.fvAEPg.attributes.descr }}</td>
+    <td>{{ epg.fvAEPg.attributes.status }}</td>
+    <td>{{ epg.fvAEPg.attributes.dn }}</td>
+    <td>{{ epg.fvAEPg.attributes.uid }}</td>
+    <td>{{ epg.fvAEPg.attributes.annotation }}</td>
+    <td>{{ epg.fvAEPg.attributes.childAction }}</td>
+    <td>{{ epg.fvAEPg.attributes.extMngdBy }}</td>
+    <td>{{ epg.fvAEPg.attributes.lcOwn }}</td>
+    <td>{{ epg.fvAEPg.attributes.monPolDn }}</td>
+    <td>{{ epg.fvAEPg.attributes.userdom }}</td>
+    <td>{{ epg.fvAEPg.attributes.configIssues }}</td>
+    <td>{{ epg.fvAEPg.attributes.configSt }}</td>
+    <td>{{ epg.fvAEPg.attributes.exceptionTag }}</td>
+    <td>{{ epg.fvAEPg.attributes.floodOnEncap }}</td>
+    <td>{{ epg.fvAEPg.attributes.fwdCtrl }}</td>
+    <td>{{ epg.fvAEPg.attributes.hasMcastSource }}</td>
+    <td>{{ epg.fvAEPg.attributes.isAttrBasedEPg }}</td>
+    <td>{{ epg.fvAEPg.attributes.isSharedSrvMsiteEPg }}</td>
+    <td>{{ epg.fvAEPg.attributes.matchT }}</td>
+    <td>{{ epg.fvAEPg.attributes.pcEnfPref }}</td>
+    <td>{{ epg.fvAEPg.attributes.pcTag }}</td>
+    <td>{{ epg.fvAEPg.attributes.pcTagAllocSrc }}</td>
+    <td>{{ epg.fvAEPg.attributes.prefGrMemb }}</td>
+    <td>{{ epg.fvAEPg.attributes.prio }}</td>
+    <td>{{ epg.fvAEPg.attributes.scope }}</td>
+    <td>{{ epg.fvAEPg.attributes.shutdown }}</td>
+    <td>{{ epg.fvAEPg.attributes.triggerSt }}</td>
+    <td>{{ epg.fvAEPg.attributes.txId }}</td>
+    <td>{{ epg.fvAEPg.attributes.modTs }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "BD" in api %}
+<h1>Bridge Domains</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Alias</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>DN</th>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Monitoring Policy DN</th>
+    <th>User Domain</th>
+    <th>Configuration Issues</th>
+    <th>Optimize Wan Bandwidth</th>
+    <th>ARP Flood</th>
+    <th>Broadcast P</th>
+    <th>Endpoint Clear</th>
+    <th>Endpoint Move Detect Mode</th>
+    <th>Host Based Routing</th>
+    <th>Intersite BUM Traffic Allow</th>
+    <th>Intersite L2 Stretch</th>
+    <th>IP Learning</th>
+    <th>IPv6 Multicast Allow</th>
+    <th>Limit IP Learn To Subnets</th>
+    <th>Link Local Address</th>
+    <th>MAC</th>
+    <th>Multicast Allow</th>
+    <th>MTU</th>
+    <th>Multicase Destination Packet Action</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>PC Tag</th>
+    <th>Scope</th>
+    <th>Segment</th>
+    <th>Type</th>
+    <th>Unicast Route</th>
+    <th>Unknown MAC Unicast Action</th>
+    <th>Unknown Multicast Action</th>
+    <th>IPv6 Unknown Multicast Action</th>
+    <th>Virtual MAC</th>
+    <th>Modified Timestamp</th>
+  </tr>
+</thead>  
+<tbody>
+{%-     for bd in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ bd.fvBD.attributes.name }}</td>
+    <td>{{ bd.fvBD.attributes.nameAlias }}</td>
+    <td>{{ bd.fvBD.attributes.descr }}</td>
+    <td>{{ bd.fvBD.attributes.status }}</td>
+    <td>{{ bd.fvBD.attributes.dn }}</td>
+    <td>{{ bd.fvBD.attributes.uid }}</td>
+    <td>{{ bd.fvBD.attributes.annotation }}</td>
+    <td>{{ bd.fvBD.attributes.childAction }}</td>
+    <td>{{ bd.fvBD.attributes.extMngdBy }}</td>
+    <td>{{ bd.fvBD.attributes.lcOwn }}</td>
+    <td>{{ bd.fvBD.attributes.monPolDn }}</td>
+    <td>{{ bd.fvBD.attributes.userdom }}</td>
+    <td>{{ bd.fvBD.attributes.configIssues }}</td>
+    <td>{{ bd.fvBD.attributes.OptimizeWanBandwidth }}</td>
+    <td>{{ bd.fvBD.attributes.arpFlood }}</td>
+    <td>{{ bd.fvBD.attributes.bcastP }}</td>
+    <td>{{ bd.fvBD.attributes.epClear }}</td>
+    <td>{{ bd.fvBD.attributes.epMoveDetectMode }}</td>
+    <td>{{ bd.fvBD.attributes.hostBasedRouting }}</td>
+    <td>{{ bd.fvBD.attributes.intersiteBumTrafficAllow }}</td>
+    <td>{{ bd.fvBD.attributes.intersiteL2Stretch }}</td>
+    <td>{{ bd.fvBD.attributes.ipLearning }}</td>
+    <td>{{ bd.fvBD.attributes.ipv6McastAllow }}</td>
+    <td>{{ bd.fvBD.attributes.limitIpLearnToSubnets }}</td>
+    <td>{{ bd.fvBD.attributes.llAddr }}</td>
+    <td>{{ bd.fvBD.attributes.mac }}</td>
+    <td>{{ bd.fvBD.attributes.mcastAllow }}</td>
+    <td>{{ bd.fvBD.attributes.mtu }}</td>
+    <td>{{ bd.fvBD.attributes.multiDstPktAct }}</td>
+    <td>{{ bd.fvBD.attributes.ownerKey }}</td>
+    <td>{{ bd.fvBD.attributes.ownerTag }}</td>
+    <td>{{ bd.fvBD.attributes.pcTag }}</td>
+    <td>{{ bd.fvBD.attributes.scope }}</td>
+    <td>{{ bd.fvBD.attributes.seg }}</td>
+    <td>{{ bd.fvBD.attributes.type }}</td>
+    <td>{{ bd.fvBD.attributes.unicastRoute }}</td>
+    <td>{{ bd.fvBD.attributes.unkMacUcastAct }}</td>
+    <td>{{ bd.fvBD.attributes.unkMcastAct }}</td>
+    <td>{{ bd.fvBD.attributes.v6unkMcastAct }}</td>
+    <td>{{ bd.fvBD.attributes.vmac }}</td>
+    <td>{{ bd.fvBD.attributes.modTs }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "Ctx" in api %}
+<h1>Contexts</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Alias</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>DN</th>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Monitoring Policy DN</th>
+    <th>User Domain</th>
+    <th>Bridge Domain Enforced Enable</th>
+    <th>IP Data Plane Learning</th>
+    <th>Known Multicast Action</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>PC Enforce Directory</th>
+    <th>PC Enforce Directory Updated</th>
+    <th>PC Enforce Preference</th>
+    <th>PC Tag</th>
+    <th>Scope</th>
+    <th>Seg</th>
+    <th>VRF ID</th>
+    <th>VRF Index</th>
+    <th>Modified Timestamp</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for context in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ context.fvCtx.attributes.name }}</td>
+    <td>{{ context.fvCtx.attributes.nameAlias }}</td>
+    <td>{{ context.fvCtx.attributes.descr }}</td>
+    <td>{{ context.fvCtx.attributes.status }}</td>
+    <td>{{ context.fvCtx.attributes.dn }}</td>
+    <td>{{ context.fvCtx.attributes.uid }}</td>
+    <td>{{ context.fvCtx.attributes.annotation }}</td>
+    <td>{{ context.fvCtx.attributes.childAction }}</td>
+    <td>{{ context.fvCtx.attributes.extMngdBy }}</td>
+    <td>{{ context.fvCtx.attributes.lcOwn }}</td>
+    <td>{{ context.fvCtx.attributes.monPolDn }}</td>
+    <td>{{ context.fvCtx.attributes.userdom }}</td>
+    <td>{{ context.fvCtx.attributes.bdEnforcedEnable }}</td>
+    <td>{{ context.fvCtx.attributes.ipDataPlaneLearning }}</td>
+    <td>{{ context.fvCtx.attributes.knwMcastAct }}</td>
+    <td>{{ context.fvCtx.attributes.ownerKey }}</td>
+    <td>{{ context.fvCtx.attributes.ownerTag }}</td>
+    <td>{{ context.fvCtx.attributes.pcEnfDir }}</td>
+    <td>{{ context.fvCtx.attributes.pcEnfDirUpdated }}</td>
+    <td>{{ context.fvCtx.attributes.pcEnfPref }}</td>
+    <td>{{ context.fvCtx.attributes.pcTag }}</td>
+    <td>{{ context.fvCtx.attributes.scope }}</td>
+    <td>{{ context.fvCtx.attributes.seg }}</td>
+    <td>{{ context.fvCtx.attributes.vrfId }}</td>
+    <td>{{ context.fvCtx.attributes.vrfIndex }}</td>
+    <td>{{ context.fvCtx.attributes.modTs }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- include 'datatable_footer.j2' %}
