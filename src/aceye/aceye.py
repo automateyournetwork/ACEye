@@ -30,6 +30,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.contexts(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.application_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def get_token(self):
         url = f"{ self.aci }/api/aaaLogin.json"
@@ -74,6 +76,13 @@ class ACEye():
         response_dict  = response.json()
         return(response_dict)        
 
+    def application_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/fvAp.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Application Profiles Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)    
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -89,6 +98,10 @@ class ACEye():
 
         if "Ctx" in self.url:
             with open('Contexts/JSON/Contexts.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "Ap" in self.url:
+            with open('Application Profiles/JSON/Application Profiles.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -107,6 +120,10 @@ class ACEye():
 
         if "Ctx" in self.url:
             with open('Contexts/YAML/Contexts.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "Ap" in self.url:
+            with open('Application Profiles/YAML/Application Profiles.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -129,6 +146,10 @@ class ACEye():
 
         if "Ctx" in self.url:
             with open('Contexts/CSV/Contexts.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "Ap" in self.url:
+            with open('Application Profiles/CSV/Application Profiles.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -154,6 +175,10 @@ class ACEye():
             with open('Contexts/Markdown/Contexts.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "Ap" in self.url:
+            with open('Application Profiles/Markdown/Application Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -177,6 +202,10 @@ class ACEye():
             with open('Contexts/HTML/Contexts.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "Ap" in self.url:
+            with open('Application Profiles/HTML/Application Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -198,6 +227,10 @@ class ACEye():
 
         if "Ctx" in self.url:
             with open('Contexts/Mindmap/Contexts.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "Ap" in self.url:
+            with open('Application Profiles/Mindmap/Application Profiles.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

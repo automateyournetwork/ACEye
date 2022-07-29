@@ -285,5 +285,52 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "Ap" in api %}
+<h1>Application Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Alias</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>DN</th>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Monitoring Policy DN</th>
+    <th>User Domain</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Priority</th>
+    <th>Modified Timestamp</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for application_profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ application_profile.fvAp.attributes.name }}</td>
+    <td>{{ application_profile.fvAp.attributes.nameAlias }}</td>
+    <td>{{ application_profile.fvAp.attributes.descr }}</td>
+    <td>{{ application_profile.fvAp.attributes.status }}</td>
+    <td>{{ application_profile.fvAp.attributes.dn }}</td>
+    <td>{{ application_profile.fvAp.attributes.uid }}</td>
+    <td>{{ application_profile.fvAp.attributes.annotation }}</td>
+    <td>{{ application_profile.fvAp.attributes.childAction }}</td>
+    <td>{{ application_profile.fvAp.attributes.extMngdBy }}</td>
+    <td>{{ application_profile.fvAp.attributes.lcOwn }}</td>
+    <td>{{ application_profile.fvAp.attributes.monPolDn }}</td>
+    <td>{{ application_profile.fvAp.attributes.userdom }}</td>
+    <td>{{ application_profile.fvAp.attributes.ownerKey }}</td>
+    <td>{{ application_profile.fvAp.attributes.ownerTag }}</td>
+    <td>{{ application_profile.fvAp.attributes.prio }}</td>
+    <td>{{ application_profile.fvAp.attributes.modTs }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
