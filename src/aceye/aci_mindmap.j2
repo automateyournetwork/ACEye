@@ -143,4 +143,26 @@
 #### Index: {{ context.fvCtx.attributes.vrfIndex }}
 ### Modified Timestamp: {{ context.fvCtx.attributes.modTs }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "Ap" in api %}
+# Application Profiles
+{%-     for application_profile in data_to_template['imdata'] %}
+## {{ application_profile.fvAp.attributes.name }}
+### Alias: {{ application_profile.fvAp.attributes.nameAlias }}
+### Description: {{ application_profile.fvAp.attributes.descr }}
+### Status: {{ application_profile.fvAp.attributes.status }}
+### DN: {{ application_profile.fvAp.attributes.dn }}
+### UID: {{ application_profile.fvAp.attributes.uid }}
+### Annotation: {{ application_profile.fvAp.attributes.annotation }}
+### Child Action: {{ application_profile.fvAp.attributes.childAction }}
+### Externally Managed By: {{ application_profile.fvAp.attributes.extMngdBy }}
+### Local Owner: {{ application_profile.fvAp.attributes.lcOwn }}
+### Monitoring Policy DN: {{ application_profile.fvAp.attributes.monPolDn }}
+### User Domain: {{ application_profile.fvAp.attributes.userdom }}
+### Owner
+#### Key: {{ application_profile.fvAp.attributes.ownerKey }}
+#### Tag: {{ application_profile.fvAp.attributes.ownerTag }}
+### Priority: {{ application_profile.fvAp.attributes.prio }}
+### Modified Timestamp: {{ application_profile.fvAp.attributes.modTs }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
