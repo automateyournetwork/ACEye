@@ -165,4 +165,28 @@
 ### Priority: {{ application_profile.fvAp.attributes.prio }}
 ### Modified Timestamp: {{ application_profile.fvAp.attributes.modTs }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "l3extOut" in api %}
+# L3Outs
+{%-     for l3out in data_to_template['imdata'] %}
+## {{ l3out.l3extOut.attributes.name }}
+### Alias: {{ l3out.l3extOut.attributes.nameAlias }}
+### Description: {{ l3out.l3extOut.attributes.descr }}
+### Status: {{ l3out.l3extOut.attributes.status }}
+### DN: {{ l3out.l3extOut.attributes.dn }}
+### UID: {{ l3out.l3extOut.attributes.uid }}
+### Annotation: {{ l3out.l3extOut.attributes.annotation }}
+### Child Action: {{ l3out.l3extOut.attributes.childAction }}
+### Externally Managed By: {{ l3out.l3extOut.attributes.extMngdBy }}
+### Local Owner: {{ l3out.l3extOut.attributes.lcOwn }}
+### Monitoring Policy DN: {{ l3out.l3extOut.attributes.monPolDn }}
+### User Domain: {{ l3out.l3extOut.attributes.userdom }}
+### Owner
+#### Key: {{ l3out.l3extOut.attributes.ownerKey }}
+#### Tag: {{ l3out.l3extOut.attributes.ownerTag }}
+### Priority: {{ l3out.l3extOut.attributes.prio }}
+### Enforce Route Control: {{ l3out.l3extOut.attributes.enforceRtctrl }}
+### Target DSCP: {{ l3out.l3extOut.attributes.targetDscp }}
+### Modified Timestamp: {{ l3out.l3extOut.attributes.modTs }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

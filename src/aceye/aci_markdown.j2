@@ -32,5 +32,11 @@
 {%-     for application_profile in data_to_template['imdata'] %}
 | {{ application_profile.fvAp.attributes.name }} | {{ application_profile.fvAp.attributes.nameAlias }} | {{ application_profile.fvAp.attributes.descr }} | {{ application_profile.fvAp.attributes.status }} | {{ application_profile.fvAp.attributes.dn }} | {{ application_profile.fvAp.attributes.uid }} | {{ application_profile.fvAp.attributes.annotation }} | {{ application_profile.fvAp.attributes.childAction }} | {{ application_profile.fvAp.attributes.extMngdBy }} | {{ application_profile.fvAp.attributes.lcOwn }} | {{ application_profile.fvAp.attributes.monPolDn }} | {{ application_profile.fvAp.attributes.userdom }} | {{ application_profile.fvAp.attributes.ownerKey }} | {{ application_profile.fvAp.attributes.ownerTag }} | {{ application_profile.fvAp.attributes.prio }} | {{ application_profile.fvAp.attributes.modTs }} |
 {%-     endfor %}
-{%- endif %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "l3extOut" in api %}# L3Outs
+| Name | Alias | Description | Status | DN | UID | Annotation | Child Action | Externally Managed By | Local Owner | Monitoring Policy DN | User Domain | Owner Key | Owner Tag | Priority | Enforce Route Control | Target DSCP | Modified Timestamp |
+| ---- | ----- | ----------- | ------ | -- | --- | ---------- | ------------ | --------------------- | ----------- | -------------------- | ----------- | --------- | --------- | -------- | --------------------- | ----------- | ------------------ |
+{%-     for l3out in data_to_template['imdata'] %}
+{{ l3out.l3extOut.attributes.name }} | {{ l3out.l3extOut.attributes.nameAlias }} | {{ l3out.l3extOut.attributes.descr }} | {{ l3out.l3extOut.attributes.status }} | {{ l3out.l3extOut.attributes.dn }} | {{ l3out.l3extOut.attributes.uid }} | {{ l3out.l3extOut.attributes.annotation }} | {{ l3out.l3extOut.attributes.childAction }} | {{ l3out.l3extOut.attributes.extMngdBy }} | {{ l3out.l3extOut.attributes.lcOwn }} | {{ l3out.l3extOut.attributes.monPolDn }} | {{ l3out.l3extOut.attributes.userdom }} | {{ l3out.l3extOut.attributes.ownerKey }} | {{ l3out.l3extOut.attributes.ownerTag }} | {{ l3out.l3extOut.attributes.prio }} | {{ l3out.l3extOut.attributes.enforceRtctrl }} | {{ l3out.l3extOut.attributes.targetDscp }} | {{ l3out.l3extOut.attributes.modTs }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
