@@ -32,6 +32,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.application_profiles(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l3outs(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def get_token(self):
         url = f"{ self.aci }/api/aaaLogin.json"
@@ -82,6 +84,13 @@ class ACEye():
         print(f"<Application Profiles Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
         return(response_dict)    
+    
+    def l3outs(self):
+        self.url = f"{ self.aci }/api/node/class/l3extOut.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L3Outs Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)     
 
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
@@ -104,6 +113,10 @@ class ACEye():
             with open('Application Profiles/JSON/Application Profiles.json', 'w' ) as f:
                 f.write(parsed_json)
 
+        if "l3extOut" in self.url:
+            with open('L3Outs/JSON/L3Outs.json', 'w' ) as f:
+                f.write(parsed_json)
+
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
         if "Tenant" in self.url:
@@ -124,6 +137,10 @@ class ACEye():
 
         if "Ap" in self.url:
             with open('Application Profiles/YAML/Application Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l3extOut" in self.url:
+            with open('L3Outs/YAML/L3Outs.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -150,6 +167,10 @@ class ACEye():
 
         if "Ap" in self.url:
             with open('Application Profiles/CSV/Application Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l3extOut" in self.url:
+            with open('L3Outs/CSV/L3Outs.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -179,6 +200,10 @@ class ACEye():
             with open('Application Profiles/Markdown/Application Profiles.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "l3extOut" in self.url:
+            with open('L3Outs/Markdown/L3Outs.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -206,6 +231,10 @@ class ACEye():
             with open('Application Profiles/HTML/Application Profiles.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "l3extOut" in self.url:
+            with open('L3Outs/HTML/L3Outs.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -231,6 +260,10 @@ class ACEye():
 
         if "Ap" in self.url:
             with open('Application Profiles/Mindmap/Application Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l3extOut" in self.url:
+            with open('L3Outs/Mindmap/L3Outs.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

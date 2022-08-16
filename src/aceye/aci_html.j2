@@ -332,5 +332,56 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "l3extOut" in api %}
+<h1>L3Outs</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Alias</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>DN</th>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Monitoring Policy DN</th>
+    <th>User Domain</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Priority</th>
+    <th>Enforce Route Control</th>
+    <th>Target DSCP</th>
+    <th>Modified Timestamp</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for l3out in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ l3out.l3extOut.attributes.name }}</td>
+    <td>{{ l3out.l3extOut.attributes.nameAlias }}</td>
+    <td>{{ l3out.l3extOut.attributes.descr }}</td>
+    <td>{{ l3out.l3extOut.attributes.status }}</td>
+    <td>{{ l3out.l3extOut.attributes.dn }}</td>
+    <td>{{ l3out.l3extOut.attributes.uid }}</td>
+    <td>{{ l3out.l3extOut.attributes.annotation }}</td>
+    <td>{{ l3out.l3extOut.attributes.childAction }}</td>
+    <td>{{ l3out.l3extOut.attributes.extMngdBy }}</td>
+    <td>{{ l3out.l3extOut.attributes.lcOwn }}</td>
+    <td>{{ l3out.l3extOut.attributes.monPolDn }}</td>
+    <td>{{ l3out.l3extOut.attributes.userdom }}</td>
+    <td>{{ l3out.l3extOut.attributes.ownerKey }}</td>
+    <td>{{ l3out.l3extOut.attributes.ownerTag }}</td>
+    <td>{{ l3out.l3extOut.attributes.prio }}</td>
+    <td>{{ l3out.l3extOut.attributes.enforceRtctrl }}</td>
+    <td>{{ l3out.l3extOut.attributes.targetDscp }}</td>
+    <td>{{ l3out.l3extOut.attributes.modTs }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
