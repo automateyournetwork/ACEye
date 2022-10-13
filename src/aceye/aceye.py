@@ -36,6 +36,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.topSystem(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.subnets(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def get_token(self):
         url = f"{ self.aci }/api/aaaLogin.json"
@@ -101,6 +103,13 @@ class ACEye():
         response_dict  = response.json()
         return(response_dict)
 
+    def subnets(self):
+        self.url = f"{ self.aci }/api/node/class/fvSubnet.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Subnet Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -128,6 +137,10 @@ class ACEye():
 
         if "topSystem" in self.url:
             with open('Top System/JSON/Top System.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "Subnet" in self.url:
+            with open('Subnets/JSON/Subnets.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -158,6 +171,10 @@ class ACEye():
 
         if "topSystem" in self.url:
             with open('Top System/YAML/Top System.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "Subnet" in self.url:
+            with open('Subnets/YAML/Subnets.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
