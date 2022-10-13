@@ -502,5 +502,62 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "Subnet" in api %}
+<h1>Subnets</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Config Issues</th>
+    <th>Control</th>
+    <th>Debug Message</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>IP</th>
+    <th>IP Data Plane Learning</th>
+    <th>LC Owner</th>
+    <th>Monitoring Policy DN</th>
+    <th>Preferred</th>
+    <th>Scope</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User Domain</th>
+    <th>Virtual</th>
+    <th>Last Modified</th>
+  </tr>
+</thead>
+<tbody>    
+{%-     for subnet in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ subnet.fvSubnet.attributes.name }}</td>
+    <td>{{ subnet.fvSubnet.attributes.nameAlias }}</td>
+    <td>{{ subnet.fvSubnet.attributes.annotation }}</td>
+    <td>{{ subnet.fvSubnet.attributes.childAction }}</td>
+    <td>{{ subnet.fvSubnet.attributes.configIssues }}</td>
+    <td>{{ subnet.fvSubnet.attributes.ctrl }}</td>
+    <td>{{ subnet.fvSubnet.attributes.debugMessage }}</td>
+    <td>{{ subnet.fvSubnet.attributes.descr }}</td>
+    <td>{{ subnet.fvSubnet.attributes.dn }}</td>
+    <td>{{ subnet.fvSubnet.attributes.extMngdBy }}</td>
+    <td>{{ subnet.fvSubnet.attributes.ip }}</td>
+    <td>{{ subnet.fvSubnet.attributes.ipDPLearning }}</td>
+    <td>{{ subnet.fvSubnet.attributes.lcOwn }}</td>
+    <td>{{ subnet.fvSubnet.attributes.monPolDn }}</td>
+    <td>{{ subnet.fvSubnet.attributes.preferred }}</td>
+    <td>{{ subnet.fvSubnet.attributes.scope }}</td>
+    <td>{{ subnet.fvSubnet.attributes.status }}</td>
+    <td>{{ subnet.fvSubnet.attributes.uid }}</td>
+    <td>{{ subnet.fvSubnet.attributes.userdom }}</td>
+    <td>{{ subnet.fvSubnet.attributes.virtual }}</td>
+    <td>{{ subnet.fvSubnet.attributes.modTs }}</td>
+</tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

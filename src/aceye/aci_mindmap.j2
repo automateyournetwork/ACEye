@@ -246,4 +246,30 @@
 ### Version: {{ topSystem.topSystem.attributes.version }}
 ### Virtual Mode: {{ topSystem.topSystem.attributes.virtualMode }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "Subnet" in api %}
+# Subnets
+{%-     for subnet in data_to_template['imdata'] %}
+## Name: {{ subnet.fvSubnet.attributes.name }}
+## Alias: {{ subnet.fvSubnet.attributes.nameAlias }}
+## Annotation: {{ subnet.fvSubnet.attributes.annotation }}
+## Child Action: {{ subnet.fvSubnet.attributes.childAction }}
+## Config Issues: {{ subnet.fvSubnet.attributes.configIssues }}
+## Control: {{ subnet.fvSubnet.attributes.ctrl }}
+## Debug Message: {{ subnet.fvSubnet.attributes.debugMessage }}
+## Description: {{ subnet.fvSubnet.attributes.descr }}
+## DN: {{ subnet.fvSubnet.attributes.dn }}
+## Externally Managed By: {{ subnet.fvSubnet.attributes.extMngdBy }}
+## IP: {{ subnet.fvSubnet.attributes.ip }}
+## IP Data Plane Learning: {{ subnet.fvSubnet.attributes.ipDPLearning }}
+## LC Owner: {{ subnet.fvSubnet.attributes.lcOwn }}
+## Monitoring Policy DN: {{ subnet.fvSubnet.attributes.monPolDn }}
+## Preferred: {{ subnet.fvSubnet.attributes.preferred }}
+## Scope: {{ subnet.fvSubnet.attributes.scope }}
+## Status: {{ subnet.fvSubnet.attributes.status }}
+## UID: {{ subnet.fvSubnet.attributes.uid }}
+## User Domain: {{ subnet.fvSubnet.attributes.userdom }}
+## Virtual: {{ subnet.fvSubnet.attributes.virtual }}
+## Last Modified: {{ subnet.fvSubnet.attributes.modTs }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
