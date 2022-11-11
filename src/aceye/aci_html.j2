@@ -384,6 +384,53 @@
 </tbody>
 </table>
 {%- else %}
+{%- if "l2extOut" in api %}
+<h1>L2Outs</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>LC Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>Target DSCP</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody>    
+{%-     for l2out in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ l2out.l2extOut.attributes.name }}</td>
+    <td>{{ l2out.l2extOut.attributes.nameAlias }}</td>
+    <td>{{ l2out.l2extOut.attributes.annotation }}</td>
+    <td>{{ l2out.l2extOut.attributes.childAction }}</td>
+    <td>{{ l2out.l2extOut.attributes.descr }}</td>
+    <td>{{ l2out.l2extOut.attributes.dn }}</td>
+    <td>{{ l2out.l2extOut.attributes.extMngdBy }}</td>
+    <td>{{ l2out.l2extOut.attributes.lcOwn }}</td>
+    <td>{{ l2out.l2extOut.attributes.modTs }}</td>
+    <td>{{ l2out.l2extOut.attributes.monPolDn }}</td>
+    <td>{{ l2out.l2extOut.attributes.ownerKey }}</td>
+    <td>{{ l2out.l2extOut.attributes.ownerTag }}</td>
+    <td>{{ l2out.l2extOut.attributes.status }}</td>
+    <td>{{ l2out.l2extOut.attributes.targetDscp }}</td>
+    <td>{{ l2out.l2extOut.attributes.uid }}</td>
+    <td>{{ l2out.l2extOut.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
 {%- if "topSystem" in api %}
 <h1>Top System</h1>
 <table id = "datatable">
@@ -626,5 +673,5 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
