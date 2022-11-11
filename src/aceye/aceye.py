@@ -38,6 +38,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.subnets(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.endpoints(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def get_token(self):
         url = f"{ self.aci }/api/aaaLogin.json"
@@ -110,6 +112,15 @@ class ACEye():
         response_dict  = response.json()
         return(response_dict)
 
+    def endpoints(self):
+        self.url = f"{ self.aci }/api/node/class/fvCEp.json"
+        # response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        # print(f"<Connected Endpoints Status code { response.status_code } for { self.url }>")
+        # response_dict  = response.json()
+        with open('fvCEp.json') as f:
+            response_dict = json.load(f)
+        return(response_dict)
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -141,6 +152,10 @@ class ACEye():
 
         if "Subnet" in self.url:
             with open('Subnets/JSON/Subnets.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "CEp" in self.url:
+            with open('Endpoints/JSON/Endpoints.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -175,6 +190,10 @@ class ACEye():
 
         if "Subnet" in self.url:
             with open('Subnets/YAML/Subnets.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "CEp" in self.url:
+            with open('Endpoints/YAML/Endpoints.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -213,6 +232,10 @@ class ACEye():
 
         if "Subnet" in self.url:
             with open('Subnets/CSV/Subnets.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "CEp" in self.url:
+            with open('Endpoints/CSV/Endpoints.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -254,6 +277,10 @@ class ACEye():
             with open('Subnets/Markdown/Subnets.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "CEp" in self.url:
+            with open('Endpoints/Markdown/Endpoints.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -293,6 +320,10 @@ class ACEye():
             with open('Subnets/HTML/Subnets.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "CEp" in self.url:
+            with open('Endpoints/HTML/Endpoints.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -330,6 +361,10 @@ class ACEye():
 
         if "Subnet" in self.url:
             with open('Subnets/Mindmap/Subnets.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "CEp" in self.url:
+            with open('Endpoints/Mindmap/Endpoints.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
