@@ -2,6 +2,19 @@
 
 Business Ready Documents for Cisco ACI
 
+## Current API Coverage
+
+Application Profiles
+Bridge Domains
+Contexts (VRFs)
+Endpoints (All Connected Fabric Endpoints)
+EPG (Endpoint Groups)
+L2Outs
+L3Outs
+Subnets
+Tenant
+Top System
+
 ## Installation
 
 ```console
