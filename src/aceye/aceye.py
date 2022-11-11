@@ -114,11 +114,9 @@ class ACEye():
 
     def endpoints(self):
         self.url = f"{ self.aci }/api/node/class/fvCEp.json"
-        # response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        # print(f"<Connected Endpoints Status code { response.status_code } for { self.url }>")
-        # response_dict  = response.json()
-        with open('fvCEp.json') as f:
-            response_dict = json.load(f)
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Connected Endpoints Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
         return(response_dict)
 
     def json_file(self, parsed_json):
