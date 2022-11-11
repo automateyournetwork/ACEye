@@ -272,4 +272,35 @@
 ## Virtual: {{ subnet.fvSubnet.attributes.virtual }}
 ## Last Modified: {{ subnet.fvSubnet.attributes.modTs }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "CEp" in api %}
+# Endpoints
+{%-     for endpoint in data_to_template['imdata'] %}
+## Name: {{ endpoint.fvCEp.attributes.name }}
+### Name Alias: {{ endpoint.fvCEp.attributes.nameAlias }}
+### MAC: {{ endpoint.fvCEp.attributes.mac }}
+### Annotation: {{ endpoint.fvCEp.attributes.annotation }}
+### Base EPG DN: {{ endpoint.fvCEp.attributes.baseEpgDn }}
+### Bridge Domain DN: {{ endpoint.fvCEp.attributes.bdDn }}
+### Child Action: {{ endpoint.fvCEp.attributes.childAction }}
+### Container Name: {{ endpoint.fvCEp.attributes.contName }}
+### DN: {{ endpoint.fvCEp.attributes.dn }}
+### Encapsulation: {{ endpoint.fvCEp.attributes.encap }}
+### ESG Use gDN: {{ endpoint.fvCEp.attributes.esgUsegDn }}
+### Externally Managed By: {{ endpoint.fvCEp.attributes.extMngdBy }}
+### Fabric Path DN: {{ endpoint.fvCEp.attributes.fabricPathDn }}
+### ID: {{ endpoint.fvCEp.attributes.id }}
+### ID Endpoint DN: {{ endpoint.fvCEp.attributes.idepdn }}
+### LCC: {{ endpoint.fvCEp.attributes.lcC }}
+### LC Owner: {{ endpoint.fvCEp.attributes.lcOwn }}
+### Multicast Address: {{ endpoint.fvCEp.attributes.mcastAddr }}
+### Last Modified: {{ endpoint.fvCEp.attributes.modTs }}
+### Monitoring Policy DN: {{ endpoint.fvCEp.attributes.monPolDn }}
+### Status: {{ endpoint.fvCEp.attributes.status }}
+### UID: {{ endpoint.fvCEp.attributes.uid }}
+### User Domain: {{ endpoint.fvCEp.attributes.userdom }}
+### UUID: {{ endpoint.fvCEp.attributes.uuid }}
+### VMM Source: {{ endpoint.fvCEp.attributes.vmmSrc }}
+### VRF DN: {{ endpoint.fvCEp.attributes.vrfDn }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

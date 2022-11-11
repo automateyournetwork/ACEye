@@ -559,5 +559,72 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "CEp" in api %}
+<h1>Endpoints</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>MAC</th>
+    <th>Annotation</th>
+    <th>Base EPG DN</th>
+    <th>Bridge Domain DN</th>
+    <th>Child Action</th>
+    <th>Container Name</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>ESG Use gDN</th>
+    <th>Externally Managed By</th>
+    <th>Full Fabric Path DN</th>
+    <th>ID</th>
+    <th>ID Endpoint DN</th>
+    <th>LCC</th>
+    <th>LC Owner</th>
+    <th>Multicast Address</th>
+    <th>Last Modified</th>
+    <th>Monitor Policy DN</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User Domain</th>
+    <th>UUID</th>
+    <th>VMM Source</th>
+    <th>VRF DN</th>
+  </tr>
+</thead>
+<tbody>    
+{%-     for endpoint in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ endpoint.fvCEp.attributes.name }}</td>
+    <td>{{ endpoint.fvCEp.attributes.nameAlias }}</td>
+    <td>{{ endpoint.fvCEp.attributes.mac }}</td>
+    <td>{{ endpoint.fvCEp.attributes.annotation }}</td>
+    <td>{{ endpoint.fvCEp.attributes.baseEpgDn }}</td>
+    <td>{{ endpoint.fvCEp.attributes.bdDn }}</td>
+    <td>{{ endpoint.fvCEp.attributes.childAction }}</td>
+    <td>{{ endpoint.fvCEp.attributes.contName }}</td>
+    <td>{{ endpoint.fvCEp.attributes.dn }}</td>
+    <td>{{ endpoint.fvCEp.attributes.encap }}</td>
+    <td>{{ endpoint.fvCEp.attributes.esgUsegDn }}</td>
+    <td>{{ endpoint.fvCEp.attributes.extMngdBy }}</td>
+    <td>{{ endpoint.fvCEp.attributes.fabricPathDn }}</td>
+    <td>{{ endpoint.fvCEp.attributes.id }}</td>
+    <td>{{ endpoint.fvCEp.attributes.idepdn }}</td>
+    <td>{{ endpoint.fvCEp.attributes.lcC }}</td>
+    <td>{{ endpoint.fvCEp.attributes.lcOwn }}</td>
+    <td>{{ endpoint.fvCEp.attributes.mcastAddr }}</td>
+    <td>{{ endpoint.fvCEp.attributes.modTs }}</td>
+    <td>{{ endpoint.fvCEp.attributes.monPolDn }}</td>
+    <td>{{ endpoint.fvCEp.attributes.status }}</td>
+    <td>{{ endpoint.fvCEp.attributes.uid }}</td>
+    <td>{{ endpoint.fvCEp.attributes.userdom }}</td>
+    <td>{{ endpoint.fvCEp.attributes.uuid }}</td>
+    <td>{{ endpoint.fvCEp.attributes.vmmSrc }}</td>
+    <td>{{ endpoint.fvCEp.attributes.vrfDn }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
