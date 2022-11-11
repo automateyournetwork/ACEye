@@ -1,6 +1,4 @@
-import sys
 import os
-import time
 import json
 import requests
 import rich_click as click
@@ -21,6 +19,7 @@ class ACEye():
         self.password = password
 
     def aceye(self):
+        self.make_directories()
         self.cookie = self.get_token()
         parsed_json = json.dumps(self.tenants(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
@@ -40,6 +39,171 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.endpoints(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+
+    def make_directories(self):
+        current_directory = os.getcwd()
+        final_directory = os.path.join(current_directory, r'Tenant/JSON')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Tenant/YAML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Tenant/CSV')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Tenant/HTML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Tenant/Markdown')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Tenant/Mindmap')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Application Profiles/JSON')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Application Profiles/YAML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Application Profiles/CSV')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Application Profiles/HTML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Application Profiles/Markdown')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Application Profiles/Mindmap')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Bridge Domains/JSON')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Bridge Domains/YAML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Bridge Domains/CSV')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Bridge Domains/HTML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Bridge Domains/Markdown')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Bridge Domains/Mindmap')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)                                    
+        final_directory = os.path.join(current_directory, r'Contexts/JSON')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Contexts/YAML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Contexts/CSV')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Contexts/HTML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Contexts/Markdown')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Contexts/Mindmap')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)                                    
+        final_directory = os.path.join(current_directory, r'Endpoints/JSON')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Endpoints/YAML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Endpoints/CSV')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Endpoints/HTML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Endpoints/Markdown')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Endpoints/Mindmap')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'EPG/JSON')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'EPG/YAML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'EPG/CSV')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'EPG/HTML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'EPG/Markdown')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'EPG/Mindmap')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'L3Outs/JSON')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'L3Outs/YAML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'L3Outs/CSV')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'L3Outs/HTML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'L3Outs/Markdown')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'L3Outs/Mindmap')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Subnets/JSON')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Subnets/YAML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Subnets/CSV')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Subnets/HTML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Subnets/Markdown')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Subnets/Mindmap')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)          
+        final_directory = os.path.join(current_directory, r'Top System/JSON')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Top System/YAML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Top System/CSV')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Top System/HTML')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Top System/Markdown')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)
+        final_directory = os.path.join(current_directory, r'Top System/Mindmap')
+        if not os.path.exists(final_directory):
+            os.makedirs(final_directory)        
 
     def get_token(self):
         url = f"{ self.aci }/api/aaaLogin.json"
