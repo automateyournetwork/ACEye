@@ -190,6 +190,28 @@
 ### Modified Timestamp: {{ l3out.l3extOut.attributes.modTs }}
 {%-     endfor %}
 {%- else %}
+{%- if "l2extOut" in api %}
+# L2Outs
+{%-     for l2out in data_to_template['imdata'] %}
+## Name: {{ l2out.l2extOut.attributes.name }}
+### Name Alias: {{ l2out.l2extOut.attributes.nameAlias }}
+### Annotation: {{ l2out.l2extOut.attributes.annotation }}
+### Child Action: {{ l2out.l2extOut.attributes.childAction }}
+### Description: {{ l2out.l2extOut.attributes.descr }}
+### DN: {{ l2out.l2extOut.attributes.dn }}
+### Externally Managed By: {{ l2out.l2extOut.attributes.extMngdBy }}
+### LC Owner: {{ l2out.l2extOut.attributes.lcOwn }}
+### Last Modified: {{ l2out.l2extOut.attributes.modTs }}
+### Monitoring Policy DN: {{ l2out.l2extOut.attributes.monPolDn }}
+### Owner:
+#### Key: {{ l2out.l2extOut.attributes.ownerKey }}
+#### Tag: {{ l2out.l2extOut.attributes.ownerTag }}
+### Status: {{ l2out.l2extOut.attributes.status }}
+### Target DSCP: {{ l2out.l2extOut.attributes.targetDscp }}
+### UID: {{ l2out.l2extOut.attributes.uid }}
+### User Domain: {{ l2out.l2extOut.attributes.userdom }}
+{%-     endfor %}
+{%- else %}
 {%- if "topSystem" in api %}
 # topSystem
 {%-     for topSystem in data_to_template['imdata'] %}
@@ -303,4 +325,4 @@
 ### VMM Source: {{ endpoint.fvCEp.attributes.vmmSrc }}
 ### VRF DN: {{ endpoint.fvCEp.attributes.vrfDn }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
