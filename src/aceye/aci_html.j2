@@ -1072,5 +1072,54 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "infraAttEntityP" in api %}
+<h1>Attachable Access Entity Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Allocation Mode</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Configuration Issues</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody> 
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.infraAttEntityP.attributes.name }}</td>
+    <td>{{ profile.infraAttEntityP.attributes.nameAlias }}</td>
+    <td>{{ profile.infraAttEntityP.attributes.allocMode }}</td>
+    <td>{{ profile.infraAttEntityP.attributes.annotation }}</td>
+    <td>{{ profile.infraAttEntityP.attributes.childAction }}</td>
+    <td>{{ profile.infraAttEntityP.attributes.configIssues }}</td>
+    <td>{{ profile.infraAttEntityP.attributes.descr }}</td>
+    <td>{{ profile.infraAttEntityP.attributes.dn }}</td>
+    <td>{{ profile.infraAttEntityP.attributes.extMngdBy }}</td>
+    <td>{{ profile.infraAttEntityP.attributes.lcOwn }}</td>
+    <td>{{ profile.infraAttEntityP.attributes.modTs }}</td>
+    <td>{{ profile.infraAttEntityP.attributes.monPolDn }}</td>
+    <td>{{ profile.infraAttEntityP.attributes.ownerKey }}</td>
+    <td>{{ profile.infraAttEntityP.attributes.ownerTag }}</td>
+    <td>{{ profile.infraAttEntityP.attributes.status }}</td>
+    <td>{{ profile.infraAttEntityP.attributes.uid }}</td>
+    <td>{{ profile.infraAttEntityP.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
