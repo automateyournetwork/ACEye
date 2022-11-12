@@ -673,5 +673,404 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "fabricNode" in api %}
+<h1>Fabric Nodes</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>AD St</th>
+    <th>Address</th>
+    <th>Annotation</th>
+    <th>APIC Type</th>
+    <th>Child Action</th>
+    <th>Delayed Heartbeat</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Fabric State</th>
+    <th>ID</th>
+    <th>Last State Modified</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Node Type</th>
+    <th>Role</th>
+    <th>Serial</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User Domain</th>
+    <th>Vendor</th>
+    <th>Version</th>
+  </tr>
+</thead>
+<tbody>  
+{%-     for node in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ node.fabricNode.attributes.name }}</td>
+    <td>{{ node.fabricNode.attributes.nameAlias }}</td>
+    <td>{{ node.fabricNode.attributes.adSt }}</td>
+    <td>{{ node.fabricNode.attributes.address }}</td>
+    <td>{{ node.fabricNode.attributes.annotation }}</td>
+    <td>{{ node.fabricNode.attributes.apicType }}</td>
+    <td>{{ node.fabricNode.attributes.childAction }}</td>
+    <td>{{ node.fabricNode.attributes.delayedHeartbeat }}</td>
+    <td>{{ node.fabricNode.attributes.dn }}</td>
+    <td>{{ node.fabricNode.attributes.extMngdBy }}</td>
+    <td>{{ node.fabricNode.attributes.fabricSt }}</td>
+    <td>{{ node.fabricNode.attributes.id }}</td>
+    <td>{{ node.fabricNode.attributes.lastStateModTs }}</td>
+    <td>{{ node.fabricNode.attributes.lcOwn }}</td>
+    <td>{{ node.fabricNode.attributes.modTs }}</td>
+    <td>{{ node.fabricNode.attributes.model }}</td>
+    <td>{{ node.fabricNode.attributes.monPolDn }}</td>
+    <td>{{ node.fabricNode.attributes.nodeType }}</td>
+    <td>{{ node.fabricNode.attributes.role }}</td>
+    <td>{{ node.fabricNode.attributes.serial }}</td>
+    <td>{{ node.fabricNode.attributes.status }}</td>
+    <td>{{ node.fabricNode.attributes.uid }}</td>
+    <td>{{ node.fabricNode.attributes.userdom }}</td>
+    <td>{{ node.fabricNode.attributes.vendor }}</td>
+    <td>{{ node.fabricNode.attributes.version }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "l1PhysIf" in api %}
+<h1>Physical Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Admin State</th>
+    <th>Auto Negotiate</th>
+    <th>Breakout Map</th>
+    <th>Bandwidth</th>
+    <th>Child Action</th>
+    <th>Delay</th>
+    <th>Description</th>
+    <th>DFE Delay MS</th>
+    <th>DN</th>
+    <th>Dot1q EtherType</th>
+    <th>Eth PM Cfg Failed Bmp</th>
+    <th>Eth PM Cfg Failed Timestamp</th>
+    <th>Eth PM Cfg State</th>
+    <th>FCOT Channel Number</th>
+    <th>FEC Mode</th>
+    <th>ID</th>
+    <th>Inherited Bandwidth</th>
+    <th>Is Reflective Relay Config Supported</th>
+    <th>Layer</th>
+    <th>Local Owner</th>
+    <th>Link Debounce</th>
+    <th>Link Flap Error Max</th>
+    <th>Link Flap Error Seconds</th>
+    <th>Link Log</th>
+    <th>MDIX</th>
+    <th>Medium</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>MTU</th>
+    <th>Name</th>
+    <th>Path S Description</th>
+    <th>Port Physical Media Type</th>
+    <th>Port T</th>
+    <th>Priority Flow Control</th>
+    <th>Reflective Relay Enable</th>
+    <th>Router MAC</th>
+    <th>SNMP Trap State</th>
+    <th>Span Mode</th>
+    <th>Speed</th>
+    <th>Status</th>
+    <th>Switching State</th>
+    <th>Trunk Log</th>
+    <th>Usage</th>
+  </tr>
+</thead>
+<tbody>  
+{%-     for outer_list in data_to_template %}
+{%-         for interface in outer_list %}
+  <tr>
+    <td>{{ interface.l1PhysIf.attributes.adminSt }}</td>
+    <td>{{ interface.l1PhysIf.attributes.autoNeg }}</td>
+    <td>{{ interface.l1PhysIf.attributes.brkoutMap }}</td>
+    <td>{{ interface.l1PhysIf.attributes.bw }}</td>
+    <td>{{ interface.l1PhysIf.attributes.childAction }}</td>
+    <td>{{ interface.l1PhysIf.attributes.delay }}</td>
+    <td>{{ interface.l1PhysIf.attributes.descr }}</td>
+    <td>{{ interface.l1PhysIf.attributes.dfeDelayMs }}</td>
+    <td>{{ interface.l1PhysIf.attributes.dn }}</td>
+    <td>{{ interface.l1PhysIf.attributes.dot1qEtherType }}</td>
+    <td>{{ interface.l1PhysIf.attributes.ethpmCfgFailedBmp }}</td>
+    <td>{{ interface.l1PhysIf.attributes.ethpmCfgFailedTs }}</td>
+    <td>{{ interface.l1PhysIf.attributes.ethpmCfgState }}</td>
+    <td>{{ interface.l1PhysIf.attributes.fcotChannelNumber }}</td>
+    <td>{{ interface.l1PhysIf.attributes.fecMode }}</td>
+    <td>{{ interface.l1PhysIf.attributes.id }}</td>
+    <td>{{ interface.l1PhysIf.attributes.inhBw }}</td>
+    <td>{{ interface.l1PhysIf.attributes.isReflectiveRelayCfgSupported }}</td>
+    <td>{{ interface.l1PhysIf.attributes.layer }}</td>
+    <td>{{ interface.l1PhysIf.attributes.lcOwn }}</td>
+    <td>{{ interface.l1PhysIf.attributes.linkDebounce }}</td>
+    <td>{{ interface.l1PhysIf.attributes.linkFlapErrorMax }}</td>
+    <td>{{ interface.l1PhysIf.attributes.linkFlapErrorSeconds }}</td>
+    <td>{{ interface.l1PhysIf.attributes.linkLog }}</td>
+    <td>{{ interface.l1PhysIf.attributes.mdix }}</td>
+    <td>{{ interface.l1PhysIf.attributes.medium }}</td>
+    <td>{{ interface.l1PhysIf.attributes.modTs }}</td>
+    <td>{{ interface.l1PhysIf.attributes.mode }}</td>
+    <td>{{ interface.l1PhysIf.attributes.monPolDn }}</td>
+    <td>{{ interface.l1PhysIf.attributes.mtu }}</td>
+    <td>{{ interface.l1PhysIf.attributes.name }}</td>
+    <td>{{ interface.l1PhysIf.attributes.pathSDescr }}</td>
+    <td>{{ interface.l1PhysIf.attributes.portPhyMediaType }}</td>
+    <td>{{ interface.l1PhysIf.attributes.portT }}</td>
+    <td>{{ interface.l1PhysIf.attributes.prioFlowCtrl }}</td>
+    <td>{{ interface.l1PhysIf.attributes.reflectiveRelayEn }}</td>
+    <td>{{ interface.l1PhysIf.attributes.routerMac }}</td>
+    <td>{{ interface.l1PhysIf.attributes.snmpTrapSt }}</td>
+    <td>{{ interface.l1PhysIf.attributes.spanMode }}</td>
+    <td>{{ interface.l1PhysIf.attributes.speed }}</td>
+    <td>{{ interface.l1PhysIf.attributes.status }}</td>
+    <td>{{ interface.l1PhysIf.attributes.switchingSt }}</td>
+    <td>{{ interface.l1PhysIf.attributes.trunkLog }}</td>
+    <td>{{ interface.l1PhysIf.attributes.usage }}</td>
+  </tr>
+{%-         endfor %}
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "infraAccPortP" in api %}
+<h1>Leaf Interface Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody>  
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.infraAccPortP.attributes.name }}</td>
+    <td>{{ profile.infraAccPortP.attributes.nameAlias }}</td>
+    <td>{{ profile.infraAccPortP.attributes.annotation }}</td>
+    <td>{{ profile.infraAccPortP.attributes.childAction }}</td>
+    <td>{{ profile.infraAccPortP.attributes.descr }}</td>
+    <td>{{ profile.infraAccPortP.attributes.dn }}</td>
+    <td>{{ profile.infraAccPortP.attributes.extMngdBy }}</td>
+    <td>{{ profile.infraAccPortP.attributes.lcOwn }}</td>
+    <td>{{ profile.infraAccPortP.attributes.modTs }}</td>
+    <td>{{ profile.infraAccPortP.attributes.monPolDn }}</td>
+    <td>{{ profile.infraAccPortP.attributes.ownerKey }}</td>
+    <td>{{ profile.infraAccPortP.attributes.ownerTag }}</td>
+    <td>{{ profile.infraAccPortP.attributes.status }}</td>
+    <td>{{ profile.infraAccPortP.attributes.uid }}</td>
+    <td>{{ profile.infraAccPortP.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "infraSpAccPortP" in api %}
+<h1>Spine Interface Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody>  
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.infraSpAccPortP.attributes.name }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.nameAlias }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.annotation }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.childAction }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.descr }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.dn }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.extMngdBy }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.lcOwn }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.modTs }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.monPolDn }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.ownerKey }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.ownerTag }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.status }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.uid }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "infraNodeP" in api %}
+<h1>Leaf Switch Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody>  
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.infraNodeP.attributes.name }}</td>
+    <td>{{ profile.infraNodeP.attributes.nameAlias }}</td>
+    <td>{{ profile.infraNodeP.attributes.annotation }}</td>
+    <td>{{ profile.infraNodeP.attributes.childAction }}</td>
+    <td>{{ profile.infraNodeP.attributes.descr }}</td>
+    <td>{{ profile.infraNodeP.attributes.dn }}</td>
+    <td>{{ profile.infraNodeP.attributes.extMngdBy }}</td>
+    <td>{{ profile.infraNodeP.attributes.lcOwn }}</td>
+    <td>{{ profile.infraNodeP.attributes.modTs }}</td>
+    <td>{{ profile.infraNodeP.attributes.monPolDn }}</td>
+    <td>{{ profile.infraNodeP.attributes.ownerKey }}</td>
+    <td>{{ profile.infraNodeP.attributes.ownerTag }}</td>
+    <td>{{ profile.infraNodeP.attributes.status }}</td>
+    <td>{{ profile.infraNodeP.attributes.uid }}</td>
+    <td>{{ profile.infraNodeP.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "infraSpineP" in api %}
+<h1>Spine Switch Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody>  
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.infraSpineP.attributes.name }}</td>
+    <td>{{ profile.infraSpineP.attributes.nameAlias }}</td>
+    <td>{{ profile.infraSpineP.attributes.annotation }}</td>
+    <td>{{ profile.infraSpineP.attributes.childAction }}</td>
+    <td>{{ profile.infraSpineP.attributes.descr }}</td>
+    <td>{{ profile.infraSpineP.attributes.dn }}</td>
+    <td>{{ profile.infraSpineP.attributes.extMngdBy }}</td>
+    <td>{{ profile.infraSpineP.attributes.lcOwn }}</td>
+    <td>{{ profile.infraSpineP.attributes.modTs }}</td>
+    <td>{{ profile.infraSpineP.attributes.monPolDn }}</td>
+    <td>{{ profile.infraSpineP.attributes.ownerKey }}</td>
+    <td>{{ profile.infraSpineP.attributes.ownerTag }}</td>
+    <td>{{ profile.infraSpineP.attributes.status }}</td>
+    <td>{{ profile.infraSpineP.attributes.uid }}</td>
+    <td>{{ profile.infraSpineP.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "fvnsVlanInstP" in api %}
+<h1>VLAN Pools</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Allocation Mode</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Configuration Issues</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody> 
+{%-     for pool in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ pool.fvnsVlanInstP.attributes.name }}</td>
+    <td>{{ pool.fvnsVlanInstP.attributes.nameAlias }}</td>
+    <td>{{ pool.fvnsVlanInstP.attributes.allocMode }}</td>
+    <td>{{ pool.fvnsVlanInstP.attributes.annotation }}</td>
+    <td>{{ pool.fvnsVlanInstP.attributes.childAction }}</td>
+    <td>{{ pool.fvnsVlanInstP.attributes.configIssues }}</td>
+    <td>{{ pool.fvnsVlanInstP.attributes.descr }}</td>
+    <td>{{ pool.fvnsVlanInstP.attributes.dn }}</td>
+    <td>{{ pool.fvnsVlanInstP.attributes.extMngdBy }}</td>
+    <td>{{ pool.fvnsVlanInstP.attributes.lcOwn }}</td>
+    <td>{{ pool.fvnsVlanInstP.attributes.modTs }}</td>
+    <td>{{ pool.fvnsVlanInstP.attributes.monPolDn }}</td>
+    <td>{{ pool.fvnsVlanInstP.attributes.ownerKey }}</td>
+    <td>{{ pool.fvnsVlanInstP.attributes.ownerTag }}</td>
+    <td>{{ pool.fvnsVlanInstP.attributes.status }}</td>
+    <td>{{ pool.fvnsVlanInstP.attributes.uid }}</td>
+    <td>{{ pool.fvnsVlanInstP.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

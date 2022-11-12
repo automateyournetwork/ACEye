@@ -41,189 +41,55 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.endpoints(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.fabric_nodes(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.physical_interfaces(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)        
+        parsed_json = json.dumps(self.leaf_interface_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.spine_interface_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.leaf_switch_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.spine_switch_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vlan_pools(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+
 
     def make_directories(self):
+        api_list = ['Tenant',
+                    'Application Profiles',
+                    'Bridge Domains',
+                    'Contexts',
+                    'Endpoints',
+                    'EPG',
+                    'Fabric Nodes',
+                    'L2Outs',
+                    'L3Outs',
+                    'Leaf Interface Profiles',
+                    'Leaf Switch Profiles',
+                    'Physical Interfaces',
+                    'Spine Interface Profiles',
+                    'Spine Switch Profiles',
+                    'Subnets',
+                    'Tenant',
+                    'Top System',
+                    'VLAN Pools']
         current_directory = os.getcwd()
-        final_directory = os.path.join(current_directory, r'Tenant/JSON')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Tenant/YAML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Tenant/CSV')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Tenant/HTML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Tenant/Markdown')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Tenant/Mindmap')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Application Profiles/JSON')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Application Profiles/YAML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Application Profiles/CSV')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Application Profiles/HTML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Application Profiles/Markdown')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Application Profiles/Mindmap')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Bridge Domains/JSON')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Bridge Domains/YAML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Bridge Domains/CSV')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Bridge Domains/HTML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Bridge Domains/Markdown')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Bridge Domains/Mindmap')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)                                    
-        final_directory = os.path.join(current_directory, r'Contexts/JSON')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Contexts/YAML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Contexts/CSV')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Contexts/HTML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Contexts/Markdown')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Contexts/Mindmap')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)                                    
-        final_directory = os.path.join(current_directory, r'Endpoints/JSON')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Endpoints/YAML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Endpoints/CSV')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Endpoints/HTML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Endpoints/Markdown')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Endpoints/Mindmap')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'EPG/JSON')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'EPG/YAML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'EPG/CSV')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'EPG/HTML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'EPG/Markdown')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'EPG/Mindmap')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'L3Outs/JSON')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'L3Outs/YAML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'L3Outs/CSV')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'L3Outs/HTML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'L3Outs/Markdown')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'L3Outs/Mindmap')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'L2Outs/JSON')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'L2Outs/YAML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'L2Outs/CSV')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'L2Outs/HTML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'L2Outs/Markdown')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'L2Outs/Mindmap')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)            
-        final_directory = os.path.join(current_directory, r'Subnets/JSON')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Subnets/YAML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Subnets/CSV')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Subnets/HTML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Subnets/Markdown')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Subnets/Mindmap')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)          
-        final_directory = os.path.join(current_directory, r'Top System/JSON')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Top System/YAML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Top System/CSV')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Top System/HTML')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Top System/Markdown')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)
-        final_directory = os.path.join(current_directory, r'Top System/Mindmap')
-        if not os.path.exists(final_directory):
-            os.makedirs(final_directory)        
+        for api in api_list:
+            final_directory = os.path.join(current_directory, rf'{ api }/JSON')
+            os.makedirs(final_directory, exist_ok=True)
+            final_directory = os.path.join(current_directory, rf'{ api }//YAML')
+            os.makedirs(final_directory, exist_ok=True)
+            final_directory = os.path.join(current_directory, rf'{ api }//CSV')
+            os.makedirs(final_directory, exist_ok=True)
+            final_directory = os.path.join(current_directory, rf'{ api }//HTML')
+            os.makedirs(final_directory, exist_ok=True)
+            final_directory = os.path.join(current_directory, rf'{ api }//Markdown')
+            os.makedirs(final_directory, exist_ok=True)
+            final_directory = os.path.join(current_directory, rf'{ api }//Mindmap')
+            os.makedirs(final_directory, exist_ok=True)
 
     def get_token(self):
         url = f"{ self.aci }/api/aaaLogin.json"
@@ -310,6 +176,62 @@ class ACEye():
         response_dict  = response.json()
         return(response_dict)
 
+    def fabric_nodes(self):
+        self.url = f"{ self.aci }/api/node/class/fabricNode.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Fabric Nodes Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
+    def physical_interfaces(self):
+        self.url = f"{ self.aci }/api/node/class/fabricNode.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Fabric Nodes Status code { response.status_code } for { self.url }>")
+        node_response_dict  = response.json()
+        physical_interfaces = []
+        for node in node_response_dict['imdata']:
+            self.url = f"{ self.aci }/api/node/class/{ node['fabricNode']['attributes']['dn']}/l1PhysIf.json"
+            response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+            print(f"<Physical Interface Status code { response.status_code } for { self.url }>")
+            response_dict  = response.json()
+            physical_interfaces.append(response_dict['imdata'])
+        return(physical_interfaces)
+
+    def leaf_interface_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/infraAccPortP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Leaf Interface Profiles Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
+    def spine_interface_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/infraSpAccPortP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Spine Interface Profiles Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
+    def leaf_switch_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/infraNodeP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Leaf Switch Profiles Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
+    def spine_switch_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/infraSpineP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Spine Switch Profiles Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
+    def vlan_pools(self):
+        self.url = f"{ self.aci }/api/node/class/fvnsVlanInstP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<VLAN Pools Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -349,6 +271,34 @@ class ACEye():
 
         if "CEp" in self.url:
             with open('Endpoints/JSON/Endpoints.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "fabricNode" in self.url:
+            with open('Fabric Nodes/JSON/Fabric Nodes.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l1PhysIf" in self.url:
+            with open('Physical Interfaces/JSON/Physical Interfaces.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "infraAccPortP" in self.url:
+            with open('Leaf Interface Profiles/JSON/Leaf Interface Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "infraSpAccPortP" in self.url:
+            with open('Spine Interface Profiles/JSON/Spine Interface Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "infraNodeP" in self.url:
+            with open('Leaf Switch Profiles/JSON/Leaf Switch Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "infraSpineP" in self.url:
+            with open('Spine Switch Profiles/JSON/Spine Switch Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "fvnsVlanInstP" in self.url:
+            with open('VLAN Pools/JSON/VLAN Pools.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -391,6 +341,34 @@ class ACEye():
 
         if "CEp" in self.url:
             with open('Endpoints/YAML/Endpoints.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "fabricNode" in self.url:
+            with open('Fabric Nodes/YAML/Fabric Nodes.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l1PhysIf" in self.url:
+            with open('Physical Interfaces/YAML/Physical Interfaces.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "infraAccPortP" in self.url:
+            with open('Leaf Interface Profiles/YAML/Leaf Interface Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "infraSpAccPortP" in self.url:
+            with open('Spine Interface Profiles/YAML/Spine Interface Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "infraNodeP" in self.url:
+            with open('Leaf Switch Profiles/YAML/Leaf Switch Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "infraSpineP" in self.url:
+            with open('Spine Switch Profiles/YAML/Spine Switch Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "fvnsVlanInstP" in self.url:
+            with open('VLAN Pools/YAML/VLAN Pools.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -437,6 +415,34 @@ class ACEye():
 
         if "CEp" in self.url:
             with open('Endpoints/CSV/Endpoints.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "fabricNode" in self.url:
+            with open('Fabric Nodes/CSV/Fabric Nodes.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l1PhysIf" in self.url:
+            with open('Physical Interfaces/CSV/Physical Interfaces.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "infraAccPortP" in self.url:
+            with open('Leaf Interface Profiles/CSV/Leaf Interface Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "infraSpAccPortP" in self.url:
+            with open('Spine Interface Profiles/CSV/Spine Interface Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "infraNodeP" in self.url:
+            with open('Leaf Switch Profiles/CSV/Leaf Switch Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "infraSpineP" in self.url:
+            with open('Spine Switch Profiles/CSV/Spine Switch Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "fvnsVlanInstP" in self.url:
+            with open('VLAN Pools/CSV/VLAN Pools.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -486,6 +492,34 @@ class ACEye():
             with open('Endpoints/Markdown/Endpoints.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "fabricNode" in self.url:
+            with open('Fabric Nodes/Markdown/Fabric Nodes.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "l1PhysIf" in self.url:
+            with open('Physical Interfaces/Markdown/Physical Interfaces.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "infraAccPortP" in self.url:
+            with open('Leaf Interface Profiles/Markdown/Leaf Interface Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "infraSpAccPortP" in self.url:
+            with open('Spine Interface Profiles/Markdown/Spine Interface Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "infraNodeP" in self.url:
+            with open('Leaf Switch Profiles/Markdown/Leaf Switch Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "infraSpineP" in self.url:
+            with open('Spine Switch Profiles/Markdown/Spine Switch Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "fvnsVlanInstP" in self.url:
+            with open('VLAN Pools/Markdown/VLAN Pools.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -533,6 +567,34 @@ class ACEye():
             with open('Endpoints/HTML/Endpoints.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "fabricNode" in self.url:
+            with open('Fabric Nodes/HTML/Fabric Nodes.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "l1PhysIf" in self.url:
+            with open('Physical Interfaces/HTML/Physical Interfaces.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "infraAccPortP" in self.url:
+            with open('Leaf Interface Profiles/HTML/Leaf Interface Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "infraSpAccPortP" in self.url:
+            with open('Spine Interface Profiles/HTML/Spine Interface Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "infraNodeP" in self.url:
+            with open('Leaf Switch Profiles/HTML/Leaf Switch Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "infraSpineP" in self.url:
+            with open('Spine Switch Profiles/HTML/Spine Switch Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "fvnsVlanInstP" in self.url:
+            with open('VLAN Pools/HTML/VLAN Pools.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -578,6 +640,34 @@ class ACEye():
 
         if "CEp" in self.url:
             with open('Endpoints/Mindmap/Endpoints.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "fabricNode" in self.url:
+            with open('Fabric Nodes/Mindmap/Fabric Nodes.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l1PhysIf" in self.url:
+            with open('Physical Interfaces/Mindmap/Physical Interfaces.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "infraAccPortP" in self.url:
+            with open('Leaf Interface Profiles/Mindmap/Leaf Interface Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "infraSpAccPortP" in self.url:
+            with open('Spine Interface Profiles/Mindmap/Spine Interface Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "infraNodeP" in self.url:
+            with open('Leaf Switch Profiles/Mindmap/Leaf Switch Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "infraSpineP" in self.url:
+            with open('Spine Switch Profiles/Mindmap/Spine Switch Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "fvnsVlanInstP" in self.url:
+            with open('VLAN Pools/Mindmap/VLAN Pools.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
