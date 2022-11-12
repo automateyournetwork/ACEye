@@ -516,4 +516,27 @@
 ### UID: {{ pool.fvnsVlanInstP.attributes.uid }}
 ### User Domain: {{ pool.fvnsVlanInstP.attributes.userdom }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "infraAttEntityP" in api %}
+# Attachable Access Entity Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.infraAttEntityP.attributes.name }}
+### Name Alias: {{ profile.infraAttEntityP.attributes.nameAlias }}
+### Allocation Mode: {{ profile.infraAttEntityP.attributes.allocMode }}
+### Annotation: {{ profile.infraAttEntityP.attributes.annotation }}
+### Child Action: {{ profile.infraAttEntityP.attributes.childAction }}
+### Configuration Issues: {{ profile.infraAttEntityP.attributes.configIssues }}
+### Description: {{ profile.infraAttEntityP.attributes.descr }}
+### DN: {{ profile.infraAttEntityP.attributes.dn }}
+### Externally Managed By: {{ profile.infraAttEntityP.attributes.extMngdBy }}
+### Local Owner: {{ profile.infraAttEntityP.attributes.lcOwn }}
+### Last Modified: {{ profile.infraAttEntityP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.infraAttEntityP.attributes.monPolDn }}
+### Owner
+#### Key: {{ profile.infraAttEntityP.attributes.ownerKey }}
+#### Tag: {{ profile.infraAttEntityP.attributes.ownerTag }}
+### Status: {{ profile.infraAttEntityP.attributes.status }}
+### UID: {{ profile.infraAttEntityP.attributes.uid }}
+### User Domain: {{ profile.infraAttEntityP.attributes.userdom }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
