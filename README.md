@@ -5,6 +5,7 @@ Business Ready Documents for Cisco ACI
 ## Current API Coverage
 
 Application Profiles
+Attachable Access Entity Profiles
 Bridge Domains
 Contexts (VRFs)
 Endpoints (All Connected Fabric Endpoints)
