@@ -325,4 +325,195 @@
 ### VMM Source: {{ endpoint.fvCEp.attributes.vmmSrc }}
 ### VRF DN: {{ endpoint.fvCEp.attributes.vrfDn }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "fabricNode" in api %}
+# Fabric Nodes
+{%-     for node in data_to_template['imdata'] %}
+## Name: {{ node.fabricNode.attributes.name }}
+### Name Alias: {{ node.fabricNode.attributes.nameAlias }}
+### AD ST: {{ node.fabricNode.attributes.adSt }}
+### Address: {{ node.fabricNode.attributes.address }}
+### Annotation: {{ node.fabricNode.attributes.annotation }}
+### APIC Type: {{ node.fabricNode.attributes.apicType }}
+### Child Action: {{ node.fabricNode.attributes.childAction }}
+### Delayed Heartbeat: {{ node.fabricNode.attributes.delayedHeartbeat }}
+### DN: {{ node.fabricNode.attributes.dn }}
+### Externally Managed By: {{ node.fabricNode.attributes.extMngdBy }}
+### Fabric State: {{ node.fabricNode.attributes.fabricSt }}
+### ID: {{ node.fabricNode.attributes.id }}
+### Last State Modified: {{ node.fabricNode.attributes.lastStateModTs }}
+### Local Owner: {{ node.fabricNode.attributes.lcOwn }}
+### Last Modified: {{ node.fabricNode.attributes.modTs }}
+### Model: {{ node.fabricNode.attributes.model }}
+### Monitoring Policy DN: {{ node.fabricNode.attributes.monPolDn }}
+### Node Type: {{ node.fabricNode.attributes.nodeType }}
+### Role: {{ node.fabricNode.attributes.role }}
+### Serial: {{ node.fabricNode.attributes.serial }}
+### Status: {{ node.fabricNode.attributes.status }}
+### UID: {{ node.fabricNode.attributes.uid }}
+### User Domain: {{ node.fabricNode.attributes.userdom }}
+### Vendor: {{ node.fabricNode.attributes.vendor }}
+### Version: {{ node.fabricNode.attributes.version }}
+{%-     endfor %}
+{%- else %}
+{%- if "l1PhysIf" in api %}
+# Physical Interfaces
+{%-     for outer_list in data_to_template %}
+{%-         for interface in outer_list %}
+## ID: {{ interface.l1PhysIf.attributes.id }}
+### Admin State: {{ interface.l1PhysIf.attributes.adminSt }}
+### Auto Negotiate: {{ interface.l1PhysIf.attributes.autoNeg }}
+### Breakout Map: {{ interface.l1PhysIf.attributes.brkoutMap }}
+### Bandwidth: {{ interface.l1PhysIf.attributes.bw }}
+### Child Action: {{ interface.l1PhysIf.attributes.childAction }}
+### Delay: {{ interface.l1PhysIf.attributes.delay }}
+### Description: {{ interface.l1PhysIf.attributes.descr }}
+### DFE Delay MS: {{ interface.l1PhysIf.attributes.dfeDelayMs }}
+### DN: {{ interface.l1PhysIf.attributes.dn }}
+### Dot1q EtherType: {{ interface.l1PhysIf.attributes.dot1qEtherType }}
+### Eth PM Config:
+#### Failed Bmp: {{ interface.l1PhysIf.attributes.ethpmCfgFailedBmp }}
+#### FailedTimestamp: {{ interface.l1PhysIf.attributes.ethpmCfgFailedTs }}
+#### State: {{ interface.l1PhysIf.attributes.ethpmCfgState }}
+### FCOT Channel Number: {{ interface.l1PhysIf.attributes.fcotChannelNumber }}
+### FEC Mode: {{ interface.l1PhysIf.attributes.fecMode }}
+### Inherited Bandwidth: {{ interface.l1PhysIf.attributes.inhBw }}
+### Is Reflective Relay Config Supported: {{ interface.l1PhysIf.attributes.isReflectiveRelayCfgSupported }}
+### Layer: {{ interface.l1PhysIf.attributes.layer }}
+### Local Owner: {{ interface.l1PhysIf.attributes.lcOwn }}
+### Link:
+#### Debounce: {{ interface.l1PhysIf.attributes.linkDebounce }}
+#### Flap Error:
+##### Max: {{ interface.l1PhysIf.attributes.linkFlapErrorMax }}
+##### Seconds: {{ interface.l1PhysIf.attributes.linkFlapErrorSeconds }}
+#### Log: {{ interface.l1PhysIf.attributes.linkLog }}
+### MDIX: {{ interface.l1PhysIf.attributes.mdix }}
+### Medium: {{ interface.l1PhysIf.attributes.medium }}
+### Last Modified: {{ interface.l1PhysIf.attributes.modTs }}
+### Mode: {{ interface.l1PhysIf.attributes.mode }}
+### Monitoring Policy DN: {{ interface.l1PhysIf.attributes.monPolDn }}
+### MTU: {{ interface.l1PhysIf.attributes.mtu }}
+### Name: {{ interface.l1PhysIf.attributes.name }}
+### Path S Description: {{ interface.l1PhysIf.attributes.pathSDescr }}
+### Port Physical Media Type: {{ interface.l1PhysIf.attributes.portPhyMediaType }}
+### Port T: {{ interface.l1PhysIf.attributes.portT }}
+### Priority Flow Control: {{ interface.l1PhysIf.attributes.prioFlowCtrl }}
+### Reflective Relay Enabled: {{ interface.l1PhysIf.attributes.reflectiveRelayEn }}
+### Router MAC: {{ interface.l1PhysIf.attributes.routerMac }}
+### SNMP Trap State: {{ interface.l1PhysIf.attributes.snmpTrapSt }}
+### Span Mode: {{ interface.l1PhysIf.attributes.spanMode }}
+### Speed: {{ interface.l1PhysIf.attributes.speed }}
+### Status: {{ interface.l1PhysIf.attributes.status }}
+### Switching State: {{ interface.l1PhysIf.attributes.switchingSt }}
+### Trunk Log: {{ interface.l1PhysIf.attributes.trunkLog }}
+### Usage: {{ interface.l1PhysIf.attributes.usage }}
+{%-         endfor %}
+{%-     endfor %}
+{%- else %}
+{%- if "infraAccPortP" in api %}
+# Leaf Interface Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.infraAccPortP.attributes.name }}
+### Name Alias: {{ profile.infraAccPortP.attributes.nameAlias }}
+### Annotation: {{ profile.infraAccPortP.attributes.annotation }}
+### Child Action: {{ profile.infraAccPortP.attributes.childAction }}
+### Description: {{ profile.infraAccPortP.attributes.descr }}
+### DN: {{ profile.infraAccPortP.attributes.dn }}
+### Externally Managed By: {{ profile.infraAccPortP.attributes.extMngdBy }}
+### Local Owner: {{ profile.infraAccPortP.attributes.lcOwn }}
+### Last Modified: {{ profile.infraAccPortP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.infraAccPortP.attributes.monPolDn }}
+### Owner
+#### Key: {{ profile.infraAccPortP.attributes.ownerKey }}
+#### Tag: {{ profile.infraAccPortP.attributes.ownerTag }}
+### Status: {{ profile.infraAccPortP.attributes.status }}
+### UID: {{ profile.infraAccPortP.attributes.uid }}
+### User Domain: {{ profile.infraAccPortP.attributes.userdom }}
+{%-     endfor %}
+{%- else %}
+{%- if "infraSpAccPortP" in api %}
+# Spine Interface Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.infraSpAccPortP.attributes.name }}
+### Name Alias: {{ profile.infraSpAccPortP.attributes.nameAlias }}
+### Annotation: {{ profile.infraSpAccPortP.attributes.annotation }}
+### Child Action: {{ profile.infraSpAccPortP.attributes.childAction }}
+### Description: {{ profile.infraSpAccPortP.attributes.descr }}
+### DN: {{ profile.infraSpAccPortP.attributes.dn }}
+### Externally Managed By: {{ profile.infraSpAccPortP.attributes.extMngdBy }}
+### Local Owner: {{ profile.infraSpAccPortP.attributes.lcOwn }}
+### Last Modified: {{ profile.infraSpAccPortP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.infraSpAccPortP.attributes.monPolDn }}
+### Owner
+#### Key: {{ profile.infraSpAccPortP.attributes.ownerKey }}
+#### Tag: {{ profile.infraSpAccPortP.attributes.ownerTag }}
+### Status: {{ profile.infraSpAccPortP.attributes.status }}
+### UID: {{ profile.infraSpAccPortP.attributes.uid }}
+### User Domain: {{ profile.infraSpAccPortP.attributes.userdom }}
+{%-     endfor %}
+{%- else %}
+{%- if "infraNodeP" in api %}
+# Leaf Switch Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.infraNodeP.attributes.name }}
+### Name Alias: {{ profile.infraNodeP.attributes.nameAlias }}
+### Annotation: {{ profile.infraNodeP.attributes.annotation }}
+### Child Action: {{ profile.infraNodeP.attributes.childAction }}
+### Description: {{ profile.infraNodeP.attributes.descr }}
+### DN: {{ profile.infraNodeP.attributes.dn }}
+### Externally Managed By: {{ profile.infraNodeP.attributes.extMngdBy }}
+### Local Owner: {{ profile.infraNodeP.attributes.lcOwn }}
+### Last Modified: {{ profile.infraNodeP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.infraNodeP.attributes.monPolDn }}
+### Owner
+#### Key: {{ profile.infraNodeP.attributes.ownerKey }}
+#### Tag: {{ profile.infraNodeP.attributes.ownerTag }}
+### Status: {{ profile.infraNodeP.attributes.status }}
+### UID: {{ profile.infraNodeP.attributes.uid }}
+### User Domain: {{ profile.infraNodeP.attributes.userdom }}
+{%-     endfor %}
+{%- else %}
+{%- if "infraSpineP" in api %}
+# Spine Switch Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.infraSpineP.attributes.name }}
+### Name Alias: {{ profile.infraSpineP.attributes.nameAlias }}
+### Annotation: {{ profile.infraSpineP.attributes.annotation }}
+### Child Action: {{ profile.infraSpineP.attributes.childAction }}
+### Description: {{ profile.infraSpineP.attributes.descr }}
+### DN: {{ profile.infraSpineP.attributes.dn }}
+### Externally Managed By: {{ profile.infraSpineP.attributes.extMngdBy }}
+### Local Owner: {{ profile.infraSpineP.attributes.lcOwn }}
+### Last Modified: {{ profile.infraSpineP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.infraSpineP.attributes.monPolDn }}
+### Owner
+#### Key: {{ profile.infraSpineP.attributes.ownerKey }}
+#### Tag: {{ profile.infraSpineP.attributes.ownerTag }}
+### Status: {{ profile.infraSpineP.attributes.status }}
+### UID: {{ profile.infraSpineP.attributes.uid }}
+### User Domain: {{ profile.infraSpineP.attributes.userdom }}
+{%-     endfor %}
+{%- else %}
+{%- if "fvnsVlanInstP" in api %}
+# VLAN Pools
+{%-     for pool in data_to_template['imdata'] %}
+## Name: {{ pool.fvnsVlanInstP.attributes.name }}
+### Name Alias: {{ pool.fvnsVlanInstP.attributes.nameAlias }}
+### Allocation Mode: {{ pool.fvnsVlanInstP.attributes.allocMode }}
+### Annotation: {{ pool.fvnsVlanInstP.attributes.annotation }}
+### Child Action: {{ pool.fvnsVlanInstP.attributes.childAction }}
+### Configuration Issues: {{ pool.fvnsVlanInstP.attributes.configIssues }}
+### Description: {{ pool.fvnsVlanInstP.attributes.descr }}
+### DN: {{ pool.fvnsVlanInstP.attributes.dn }}
+### Externally Managed By: {{ pool.fvnsVlanInstP.attributes.extMngdBy }}
+### Local Owner: {{ pool.fvnsVlanInstP.attributes.lcOwn }}
+### Last Modified: {{ pool.fvnsVlanInstP.attributes.modTs }}
+### Monitoring Policy DN: {{ pool.fvnsVlanInstP.attributes.monPolDn }}
+### Owner
+#### Key: {{ pool.fvnsVlanInstP.attributes.ownerKey }}
+#### Tag: {{ pool.fvnsVlanInstP.attributes.ownerTag }}
+### Status: {{ pool.fvnsVlanInstP.attributes.status }}
+### UID: {{ pool.fvnsVlanInstP.attributes.uid }}
+### User Domain: {{ pool.fvnsVlanInstP.attributes.userdom }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
