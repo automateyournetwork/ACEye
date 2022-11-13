@@ -567,4 +567,39 @@
 ### UID: {{ contract.vzBrCP.attributes.uid }}
 ### User Domain: {{ contract.vzBrCP.attributes.userdom }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "vzEntry" in api %}
+# Filters
+{%-     for entry in data_to_template['imdata'] %}
+## Name: {{ entry.vzEntry.attributes.name }}
+### Name Alias: {{ entry.vzEntry.attributes.nameAlias }}
+### Access Privilege: {{ entry.vzEntry.attributes.accessPrivilege }}
+### Annotation: {{ entry.vzEntry.attributes.annotation }}
+### Apply To Fragments: {{ entry.vzEntry.attributes.applyToFrag }}
+### ARP OPC: {{ entry.vzEntry.attributes.arpOpc }}
+### Child Action: {{ entry.vzEntry.attributes.childAction }}
+### Destination
+#### From Port: {{ entry.vzEntry.attributes.dFromPort }}
+#### To Port: {{ entry.vzEntry.attributes.dToPort }}
+### Description: {{ entry.vzEntry.attributes.descr }}
+### DN: {{ entry.vzEntry.attributes.dn }}
+### EtherType: {{ entry.vzEntry.attributes.etherT }}
+### Externally Managed By: {{ entry.vzEntry.attributes.extMngdBy }}
+### ICMP
+#### v4 T: {{ entry.vzEntry.attributes.icmpv4T }}
+#### v6 T: {{ entry.vzEntry.attributes.icmpv6T }}
+### Local Owner: {{ entry.vzEntry.attributes.lcOwn }}
+### Match DSCP: {{ entry.vzEntry.attributes.matchDscp }}
+### Last Modified: {{ entry.vzEntry.attributes.modTs }}
+### Monitoring Policy DN: {{ entry.vzEntry.attributes.monPolDn }}
+### Protocol: {{ entry.vzEntry.attributes.prot }}
+### Source
+#### From Port: {{ entry.vzEntry.attributes.sFromPort }}
+#### To Port: {{ entry.vzEntry.attributes.sToPort }}
+### Stateful: {{ entry.vzEntry.attributes.stateful }}
+### Status: {{ entry.vzEntry.attributes.status }}
+### TCP Rules: {{ entry.vzEntry.attributes.tcpRules }}
+### UID: {{ entry.vzEntry.attributes.uid }}
+### User Domain: {{ entry.vzEntry.attributes.userdom }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

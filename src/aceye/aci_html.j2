@@ -1180,5 +1180,74 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "vzEntry" in api %}
+<h1>Filters</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Access Privilege</th>
+    <th>Annotation</th>
+    <th>Apply To Fragments</th>
+    <th>ARP Opc</th>
+    <th>Child Action</th>
+    <th>Destination From Port</th>
+    <th>Destination To Port</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>EtherType</th>
+    <th>Externally Managed By</th>
+    <th>ICMPv4 T</th>
+    <th>ICMPv6 T</th>
+    <th>Local Owner</th>
+    <th>Match DSCP</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Protocol</th>
+    <th>Source From Port</th>
+    <th>Source To Port</th>
+    <th>Stateful</th>
+    <th>Status</th>
+    <th>TCP Rules</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody>  
+{%-     for entry in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ entry.vzEntry.attributes.name }}</td>
+    <td>{{ entry.vzEntry.attributes.nameAlias }}</td>
+    <td>{{ entry.vzEntry.attributes.accessPrivilege }}</td>
+    <td>{{ entry.vzEntry.attributes.annotation }}</td>
+    <td>{{ entry.vzEntry.attributes.applyToFrag }}</td>
+    <td>{{ entry.vzEntry.attributes.arpOpc }}</td>
+    <td>{{ entry.vzEntry.attributes.childAction }}</td>
+    <td>{{ entry.vzEntry.attributes.dFromPort }}</td>
+    <td>{{ entry.vzEntry.attributes.dToPort }}</td>
+    <td>{{ entry.vzEntry.attributes.descr }}</td>
+    <td>{{ entry.vzEntry.attributes.dn }}</td>
+    <td>{{ entry.vzEntry.attributes.etherT }}</td>
+    <td>{{ entry.vzEntry.attributes.extMngdBy }}</td>
+    <td>{{ entry.vzEntry.attributes.icmpv4T }}</td>
+    <td>{{ entry.vzEntry.attributes.icmpv6T }}</td>
+    <td>{{ entry.vzEntry.attributes.lcOwn }}</td>
+    <td>{{ entry.vzEntry.attributes.matchDscp }}</td>
+    <td>{{ entry.vzEntry.attributes.modTs }}</td>
+    <td>{{ entry.vzEntry.attributes.monPolDn }}</td>
+    <td>{{ entry.vzEntry.attributes.prot }}</td>
+    <td>{{ entry.vzEntry.attributes.sFromPort }}</td>
+    <td>{{ entry.vzEntry.attributes.sToPort }}</td>
+    <td>{{ entry.vzEntry.attributes.stateful }}</td>
+    <td>{{ entry.vzEntry.attributes.status }}</td>
+    <td>{{ entry.vzEntry.attributes.tcpRules }}</td>
+    <td>{{ entry.vzEntry.attributes.uid }}</td>
+    <td>{{ entry.vzEntry.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
