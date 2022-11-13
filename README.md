@@ -20,6 +20,8 @@ EPG (Endpoint Groups)
 
 Fabric Nodes
 
+Filters
+
 L2Outs
 
 L3Outs
