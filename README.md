@@ -30,6 +30,8 @@ Leaf Interface Profiles
 
 Leaf Switch Profiles
 
+Physical Domains
+
 Physical Interfaces
 
 Spine Interface Profiles

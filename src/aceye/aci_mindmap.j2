@@ -602,4 +602,25 @@
 ### UID: {{ entry.vzEntry.attributes.uid }}
 ### User Domain: {{ entry.vzEntry.attributes.userdom }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "physDomP" in api %}
+# Physical Domains
+{%-     for domain in data_to_template['imdata'] %}
+## Name: {{ domain.physDomP.attributes.name }}
+### Name Alias: {{ domain.physDomP.attributes.nameAlias }}
+### Annotation: {{ domain.physDomP.attributes.annotation }}
+### Child Action: {{ domain.physDomP.attributes.childAction }}
+### Configuration Issues: {{ domain.physDomP.attributes.configIssues }}
+### DN: {{ domain.physDomP.attributes.dn }}
+### Externally Managed By: {{ domain.physDomP.attributes.extMngdBy }}
+### Local Owner: {{ domain.physDomP.attributes.lcOwn }}
+### Last Modified: {{ domain.physDomP.attributes.modTs }}
+### Monitoring Policy DN: {{ domain.physDomP.attributes.monPolDn }}
+### Owner
+#### Key: {{ domain.physDomP.attributes.ownerKey }}
+#### Tag: {{ domain.physDomP.attributes.ownerTag }}
+### Status: {{ domain.physDomP.attributes.status }}
+### UID: {{ domain.physDomP.attributes.uid }}
+### User Domain: {{ domain.physDomP.attributes.userdom }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
