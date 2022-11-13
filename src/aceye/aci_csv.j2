@@ -104,4 +104,9 @@
 {%-     for domain in data_to_template['imdata'] %}
 {{ domain.physDomP.attributes.name }},{{ domain.physDomP.attributes.nameAlias }},{{ domain.physDomP.attributes.annotation }},{{ domain.physDomP.attributes.childAction }},{{ domain.physDomP.attributes.configIssues }},{{ domain.physDomP.attributes.dn }},{{ domain.physDomP.attributes.extMngdBy }},{{ domain.physDomP.attributes.lcOwn }},{{ domain.physDomP.attributes.modTs }},{{ domain.physDomP.attributes.monPolDn }},{{ domain.physDomP.attributes.ownerKey }},{{ domain.physDomP.attributes.ownerTag }},{{ domain.physDomP.attributes.status }},{{ domain.physDomP.attributes.uid }},{{ domain.physDomP.attributes.userdom }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "l3extDomP" in api %}Name,Name Alias,Annotation,Child Action,Configuration Issues,DN,Externally Managed By,Local Owner,Last Modified,Monitoring Policy DN,Owner Key,Owner Tag,Status,UID,User Domain
+{%-     for domain in data_to_template['imdata'] %}
+{{ domain.l3extDomP.attributes.name }},{{ domain.l3extDomP.attributes.nameAlias }},{{ domain.l3extDomP.attributes.annotation }},{{ domain.l3extDomP.attributes.childAction }},{{ domain.l3extDomP.attributes.configIssues }},{{ domain.l3extDomP.attributes.dn }},{{ domain.l3extDomP.attributes.extMngdBy }},{{ domain.l3extDomP.attributes.lcOwn }},{{ domain.l3extDomP.attributes.modTs }},{{ domain.l3extDomP.attributes.monPolDn }},{{ domain.l3extDomP.attributes.ownerKey }},{{ domain.l3extDomP.attributes.ownerTag }},{{ domain.l3extDomP.attributes.status }},{{ domain.l3extDomP.attributes.uid }},{{ domain.l3extDomP.attributes.userdom }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

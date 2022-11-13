@@ -1294,5 +1294,51 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- else %}
+{%- if "l3extDomP" in api %}
+<h1>L3 Domains</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Configuration Issues</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody> 
+{%-     for domain in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ domain.l3extDomP.attributes.name }}</td>
+    <td>{{ domain.l3extDomP.attributes.nameAlias }}</td>
+    <td>{{ domain.l3extDomP.attributes.annotation }}</td>
+    <td>{{ domain.l3extDomP.attributes.childAction }}</td>
+    <td>{{ domain.l3extDomP.attributes.configIssues }}</td>
+    <td>{{ domain.l3extDomP.attributes.dn }}</td>
+    <td>{{ domain.l3extDomP.attributes.extMngdBy }}</td>
+    <td>{{ domain.l3extDomP.attributes.lcOwn }}</td>
+    <td>{{ domain.l3extDomP.attributes.modTs }}</td>
+    <td>{{ domain.l3extDomP.attributes.monPolDn }}</td>
+    <td>{{ domain.l3extDomP.attributes.ownerKey }}</td>
+    <td>{{ domain.l3extDomP.attributes.ownerTag }}</td>
+    <td>{{ domain.l3extDomP.attributes.status }}</td>
+    <td>{{ domain.l3extDomP.attributes.uid }}</td>
+    <td>{{ domain.l3extDomP.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
