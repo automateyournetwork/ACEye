@@ -644,5 +644,27 @@
 ### UID: {{ domain.l3extDomP.attributes.uid }}
 ### User Domain: {{ domain.l3extDomP.attributes.userdom }}
 {%-     endfor %}
-{%- endif %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "qosClass" in api %}
+# QOS Classes
+{%-     for class in data_to_template['imdata'] %}
+## Name: {{ class.qosClass.attributes.name }}
+### Name Alias: {{ class.qosClass.attributes.nameAlias }}
+### Admin: {{ class.qosClass.attributes.admin }}
+### Annotation: {{ class.qosClass.attributes.annotation }}
+### Child Action: {{ class.qosClass.attributes.childAction }}
+### Description: {{ class.qosClass.attributes.descr }}
+### DN: {{ class.qosClass.attributes.dn }}
+### Externally Managed By: {{ class.qosClass.attributes.extMngdBy }}
+### Local Owner: {{ class.qosClass.attributes.lcOwn }}
+### Last Modified: {{ class.qosClass.attributes.modTs }}
+### MTU: {{ class.qosClass.attributes.mtu }}
+### Owner
+#### Key: {{ class.qosClass.attributes.ownerKey }}
+#### Tag: {{ class.qosClass.attributes.ownerTag }}
+### Priority: {{ class.qosClass.attributes.prio }}
+### Status: {{ class.qosClass.attributes.status }}
+### UID: {{ class.qosClass.attributes.uid }}
+### User Domain: {{ class.qosClass.attributes.userdom }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
