@@ -1388,5 +1388,50 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "faultSummary" in api %}
+<h1>Fault Summary</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Cause</th>
+    <th>Child Action</th>
+    <th>Code</th>
+    <th>Count</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Domain</th>
+    <th>Non Acknowledged</th>
+    <th>Non Delegated</th>
+    <th>Non Delegated And Non Acknowledged</th>
+    <th>Rule</th>
+    <th>Severity</th>
+    <th>Status</th>
+    <th>Subject</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>   
+{%-     for fault in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ fault.faultSummary.attributes.cause }}</td>
+    <td>{{ fault.faultSummary.attributes.childAction }}</td>
+    <td>{{ fault.faultSummary.attributes.code }}</td>
+    <td>{{ fault.faultSummary.attributes.count }}</td>
+    <td>{{ fault.faultSummary.attributes.descr }}</td>
+    <td>{{ fault.faultSummary.attributes.dn }}</td>
+    <td>{{ fault.faultSummary.attributes.domain }}</td>
+    <td>{{ fault.faultSummary.attributes.nonAcked }}</td>
+    <td>{{ fault.faultSummary.attributes.nonDelegated }}</td>
+    <td>{{ fault.faultSummary.attributes.nonDelegatedAndNonAcked }}</td>
+    <td>{{ fault.faultSummary.attributes.rule }}</td>
+    <td>{{ fault.faultSummary.attributes.severity }}</td>
+    <td>{{ fault.faultSummary.attributes.status }}</td>
+    <td>{{ fault.faultSummary.attributes.subject }}</td>
+    <td>{{ fault.faultSummary.attributes.type }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
