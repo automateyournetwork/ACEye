@@ -623,4 +623,26 @@
 ### UID: {{ domain.physDomP.attributes.uid }}
 ### User Domain: {{ domain.physDomP.attributes.userdom }}
 {%-     endfor %}
+{%- else %}
+{%- if "l3extDomP" in api %}
+# L3 Domains
+{%-     for domain in data_to_template['imdata'] %}
+## Name: {{ domain.l3extDomP.attributes.name }}
+### Name Alias: {{ domain.l3extDomP.attributes.nameAlias }}
+### Annotation: {{ domain.l3extDomP.attributes.annotation }}
+### Child Action: {{ domain.l3extDomP.attributes.childAction }}
+### Configuration Issues: {{ domain.l3extDomP.attributes.configIssues }}
+### DN: {{ domain.l3extDomP.attributes.dn }}
+### Externally Managed By: {{ domain.l3extDomP.attributes.extMngdBy }}
+### Local Owner: {{ domain.l3extDomP.attributes.lcOwn }}
+### Last Modified: {{ domain.l3extDomP.attributes.modTs }}
+### Monitoring Policy DN: {{ domain.l3extDomP.attributes.monPolDn }}
+### Owner
+#### Key: {{ domain.l3extDomP.attributes.ownerKey }}
+#### Tag: {{ domain.l3extDomP.attributes.ownerTag }}
+### Status: {{ domain.l3extDomP.attributes.status }}
+### UID: {{ domain.l3extDomP.attributes.uid }}
+### User Domain: {{ domain.l3extDomP.attributes.userdom }}
+{%-     endfor %}
+{%- endif %}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
