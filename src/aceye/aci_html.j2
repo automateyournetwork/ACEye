@@ -1249,5 +1249,50 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "physDomP" in api %}
+<h1>Physical Domains</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Configuration Issues</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody> 
+{%-     for domain in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ domain.physDomP.attributes.name }}</td>
+    <td>{{ domain.physDomP.attributes.nameAlias }}</td>
+    <td>{{ domain.physDomP.attributes.annotation }}</td>
+    <td>{{ domain.physDomP.attributes.childAction }}</td>
+    <td>{{ domain.physDomP.attributes.configIssues }}</td>
+    <td>{{ domain.physDomP.attributes.dn }}</td>
+    <td>{{ domain.physDomP.attributes.extMngdBy }}</td>
+    <td>{{ domain.physDomP.attributes.lcOwn }}</td>
+    <td>{{ domain.physDomP.attributes.modTs }}</td>
+    <td>{{ domain.physDomP.attributes.monPolDn }}</td>
+    <td>{{ domain.physDomP.attributes.ownerKey }}</td>
+    <td>{{ domain.physDomP.attributes.ownerTag }}</td>
+    <td>{{ domain.physDomP.attributes.status }}</td>
+    <td>{{ domain.physDomP.attributes.uid }}</td>
+    <td>{{ domain.physDomP.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
