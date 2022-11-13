@@ -36,6 +36,8 @@ Physical Domains
 
 Physical Interfaces
 
+QOS Classes
+
 Spine Interface Profiles
 
 Spine Switch Profiles
