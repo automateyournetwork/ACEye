@@ -153,5 +153,11 @@
 {%-     for domain in data_to_template['imdata'] %}
 | {{ domain.l3extDomP.attributes.name }} | {{ domain.l3extDomP.attributes.nameAlias }} | {{ domain.l3extDomP.attributes.annotation }} | {{ domain.l3extDomP.attributes.childAction }} | {{ domain.l3extDomP.attributes.configIssues }} | {{ domain.l3extDomP.attributes.dn }} | {{ domain.l3extDomP.attributes.extMngdBy }} | {{ domain.l3extDomP.attributes.lcOwn }} | {{ domain.l3extDomP.attributes.modTs }} | {{ domain.l3extDomP.attributes.monPolDn }} | {{ domain.l3extDomP.attributes.ownerKey }} | {{ domain.l3extDomP.attributes.ownerTag }} | {{ domain.l3extDomP.attributes.status }} | {{ domain.l3extDomP.attributes.uid }} | {{ domain.l3extDomP.attributes.userdom }} |
 {%-     endfor %}
-{%- endif %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "qosClass" in api %}# QOS Classes
+| Name | Name Alias | Admin | Annotation | Child Action | Description | DN | Externally Managed By | Local Owner | Last Modified | MTU | Owner Key | Owner Tag | Priority | Status | UID | User Domain |
+| ---- | ---------- | ----- | ---------- | ------------ | ----------- | -- | --------------------- | ----------- | ------------- | --- | --------- | --------- | -------- | ------ | --- | ----------- |
+{%-     for class in data_to_template['imdata'] %}
+| {{ class.qosClass.attributes.name }} | {{ class.qosClass.attributes.nameAlias }} | {{ class.qosClass.attributes.admin }} | {{ class.qosClass.attributes.annotation }} | {{ class.qosClass.attributes.childAction }} | {{ class.qosClass.attributes.descr }} | {{ class.qosClass.attributes.dn }} | {{ class.qosClass.attributes.extMngdBy }} | {{ class.qosClass.attributes.lcOwn }} | {{ class.qosClass.attributes.modTs }} | {{ class.qosClass.attributes.mtu }} | {{ class.qosClass.attributes.ownerKey }} | {{ class.qosClass.attributes.ownerTag }} | {{ class.qosClass.attributes.prio }} | {{ class.qosClass.attributes.status }} | {{ class.qosClass.attributes.uid }} | {{ class.qosClass.attributes.userdom }} |
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

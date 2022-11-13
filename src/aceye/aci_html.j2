@@ -1339,6 +1339,54 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "qosClass" in api %}
+<h1>QOS Classes</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <td>Name</th>
+    <th>Name Alias</th>
+    <th>Admin</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>MTU</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Priority</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User Domain</td>
+  </tr>
+</thead>
+<tbody>  
+{%-     for class in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ class.qosClass.attributes.name }}</td>
+    <td>{{ class.qosClass.attributes.nameAlias }}</td>
+    <td>{{ class.qosClass.attributes.admin }}</td>
+    <td>{{ class.qosClass.attributes.annotation }}</td>
+    <td>{{ class.qosClass.attributes.childAction }}</td>
+    <td>{{ class.qosClass.attributes.descr }}</td>
+    <td>{{ class.qosClass.attributes.dn }}</td>
+    <td>{{ class.qosClass.attributes.extMngdBy }}</td>
+    <td>{{ class.qosClass.attributes.lcOwn }}</td>
+    <td>{{ class.qosClass.attributes.modTs }}</td>
+    <td>{{ class.qosClass.attributes.mtu }}</td>
+    <td>{{ class.qosClass.attributes.ownerKey }}</td>
+    <td>{{ class.qosClass.attributes.ownerTag }}</td>
+    <td>{{ class.qosClass.attributes.prio }}</td>
+    <td>{{ class.qosClass.attributes.status }}</td>
+    <td>{{ class.qosClass.attributes.uid }}</td>
+    <td>{{ class.qosClass.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
