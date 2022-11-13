@@ -69,11 +69,14 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.fault_summary(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.audit_log(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Tenant',
                     'Application Profiles',
                     'Attachable Access Entity Profiles',
+                    'Audit Log',
                     'Bridge Domains',
                     'Contexts',
                     'Contracts',
@@ -301,6 +304,13 @@ class ACEye():
         response_dict  = response.json()
         return(response_dict)
 
+    def audit_log(self):
+        self.url = f"{ self.aci }/api/node/class/aaaModLR.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Audit Log Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -396,6 +406,10 @@ class ACEye():
 
         if "faultSummary" in self.url:
             with open('Fault Summary/JSON/Fault Summary.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "aaaModLR" in self.url:
+            with open('Audit Log/JSON/Audit Log.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -494,6 +508,10 @@ class ACEye():
 
         if "faultSummary" in self.url:
             with open('Fault Summary/YAML/Fault Summary.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "aaaModLR" in self.url:
+            with open('Audit Log/YAML/Audit Log.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -596,6 +614,10 @@ class ACEye():
 
         if "faultSummary" in self.url:
             with open('Fault Summary/CSV/Fault Summary.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "aaaModLR" in self.url:
+            with open('Audit Log/CSV/Audit Log.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -701,6 +723,10 @@ class ACEye():
             with open('Fault Summary/Markdown/Fault Summary.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "aaaModLR" in self.url:
+            with open('Audit Log/Markdown/Audit Log.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -804,6 +830,10 @@ class ACEye():
             with open('Fault Summary/HTML/Fault Summary.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "aaaModLR" in self.url:
+            with open('Audit Log/HTML/Audit Log.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -905,6 +935,10 @@ class ACEye():
 
         if "faultSummary" in self.url:
             with open('Fault Summary/Mindmap/Fault Summary.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "aaaModLR" in self.url:
+            with open('Audit Log/Mindmap/Audit Log.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

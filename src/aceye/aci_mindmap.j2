@@ -688,4 +688,27 @@
 ### Subject: {{ fault.faultSummary.attributes.subject }}
 ### Type: {{ fault.faultSummary.attributes.type }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "aaaModLR" in api %}
+# Audit Log
+{%-     for log in data_to_template['imdata'] %}
+## ID: {{ log.aaaModLR.attributes.id }}
+### Affected: {{ log.aaaModLR.attributes.affected }}
+### Cause: {{ log.aaaModLR.attributes.cause }}
+### Change Set: {{ log.aaaModLR.attributes.changeSet }}
+### Child Action: {{ log.aaaModLR.attributes.childAction }}
+### Client Tag: {{ log.aaaModLR.attributes.clientTag }}
+### Code: {{ log.aaaModLR.attributes.code }}
+### Created: {{ log.aaaModLR.attributes.created }}
+### Description: {{ log.aaaModLR.attributes.descr }}
+### DN: {{ log.aaaModLR.attributes.dn }}
+### IND: {{ log.aaaModLR.attributes.ind }}
+### Last Modified: {{ log.aaaModLR.attributes.modTs }}
+### Session ID: {{ log.aaaModLR.attributes.sessionId }}
+### Severity: {{ log.aaaModLR.attributes.severity }}
+### Status: {{ log.aaaModLR.attributes.status }}
+### Trigger: {{ log.aaaModLR.attributes.trig }}
+### TX ID: {{ log.aaaModLR.attributes.txId }}
+### User: {{ log.aaaModLR.attributes.user }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

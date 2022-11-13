@@ -1433,5 +1433,56 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "aaaModLR" in api %}
+<h1>Audit Log</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Affected</th>
+    <th>Cause</th>
+    <th>Change Set</th>
+    <th>Child Action</th>
+    <th>Client Tag</th>
+    <th>Code</th>
+    <th>Created</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>IND</th>
+    <th>Last Modified</th>
+    <th>Session ID</th>
+    <th>Severity</th>
+    <th>Status</th>
+    <th>Trigger</th>
+    <th>TX ID</th>
+    <th>User</th>
+  </tr>
+</thead>
+<tbody>    
+{%-     for log in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ log.aaaModLR.attributes.id }}</td>
+    <td>{{ log.aaaModLR.attributes.affected }}</td>
+    <td>{{ log.aaaModLR.attributes.cause }}</td>
+    <td>{{ log.aaaModLR.attributes.changeSet }}</td>
+    <td>{{ log.aaaModLR.attributes.childAction }}</td>
+    <td>{{ log.aaaModLR.attributes.clientTag }}</td>
+    <td>{{ log.aaaModLR.attributes.code }}</td>
+    <td>{{ log.aaaModLR.attributes.created }}</td>
+    <td>{{ log.aaaModLR.attributes.descr }}</td>
+    <td>{{ log.aaaModLR.attributes.dn }}</td>
+    <td>{{ log.aaaModLR.attributes.ind }}</td>
+    <td>{{ log.aaaModLR.attributes.modTs }}</td>
+    <td>{{ log.aaaModLR.attributes.sessionId }}</td>
+    <td>{{ log.aaaModLR.attributes.severity }}</td>
+    <td>{{ log.aaaModLR.attributes.status }}</td>
+    <td>{{ log.aaaModLR.attributes.trig }}</td>
+    <td>{{ log.aaaModLR.attributes.txId }}</td>
+    <td>{{ log.aaaModLR.attributes.user }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

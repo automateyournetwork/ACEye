@@ -8,6 +8,8 @@ Application Profiles
 
 Attachable Access Entity Profiles
 
+Audit Log
+
 Bridge Domains
 
 Contexts (VRFs)
