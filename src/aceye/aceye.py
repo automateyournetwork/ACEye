@@ -82,15 +82,15 @@ class ACEye():
         for api in api_list:
             final_directory = os.path.join(current_directory, rf'{ api }/JSON')
             os.makedirs(final_directory, exist_ok=True)
-            final_directory = os.path.join(current_directory, rf'{ api }//YAML')
+            final_directory = os.path.join(current_directory, rf'{ api }/YAML')
             os.makedirs(final_directory, exist_ok=True)
-            final_directory = os.path.join(current_directory, rf'{ api }//CSV')
+            final_directory = os.path.join(current_directory, rf'{ api }/CSV')
             os.makedirs(final_directory, exist_ok=True)
-            final_directory = os.path.join(current_directory, rf'{ api }//HTML')
+            final_directory = os.path.join(current_directory, rf'{ api }/HTML')
             os.makedirs(final_directory, exist_ok=True)
-            final_directory = os.path.join(current_directory, rf'{ api }//Markdown')
+            final_directory = os.path.join(current_directory, rf'{ api }/Markdown')
             os.makedirs(final_directory, exist_ok=True)
-            final_directory = os.path.join(current_directory, rf'{ api }//Mindmap')
+            final_directory = os.path.join(current_directory, rf'{ api }/Mindmap')
             os.makedirs(final_directory, exist_ok=True)
 
     def get_token(self):
