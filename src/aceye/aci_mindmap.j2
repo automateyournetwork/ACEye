@@ -667,4 +667,25 @@
 ### UID: {{ class.qosClass.attributes.uid }}
 ### User Domain: {{ class.qosClass.attributes.userdom }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "faultSummary" in api %}
+# Fault Summary 
+{%-     for fault in data_to_template['imdata'] %}
+## Cause: {{ fault.faultSummary.attributes.cause }}
+### Child Action: {{ fault.faultSummary.attributes.childAction }}
+### Code: {{ fault.faultSummary.attributes.code }}
+### Count: {{ fault.faultSummary.attributes.count }}
+### Description: {{ fault.faultSummary.attributes.descr }}
+### DN: {{ fault.faultSummary.attributes.dn }}
+### Domain: {{ fault.faultSummary.attributes.domain }}
+### Non
+#### Acknowledged: {{ fault.faultSummary.attributes.nonAcked }}
+#### Delegated: {{ fault.faultSummary.attributes.nonDelegated }}
+#### Delagated And Acknowledged: {{ fault.faultSummary.attributes.nonDelegatedAndNonAcked }}
+### Rule: {{ fault.faultSummary.attributes.rule }}
+### Severity: {{ fault.faultSummary.attributes.severity }}
+### Status: {{ fault.faultSummary.attributes.status }}
+### Subject: {{ fault.faultSummary.attributes.subject }}
+### Type: {{ fault.faultSummary.attributes.type }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
