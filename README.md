@@ -12,6 +12,8 @@ Bridge Domains
 
 Contexts (VRFs)
 
+Contracts
+
 Endpoints (All Connected Fabric Endpoints)
 
 EPG (Endpoint Groups)

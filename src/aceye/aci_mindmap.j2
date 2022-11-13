@@ -539,4 +539,32 @@
 ### UID: {{ profile.infraAttEntityP.attributes.uid }}
 ### User Domain: {{ profile.infraAttEntityP.attributes.userdom }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "vzBrCP" in api %}
+# Contracts
+{%-     for contract in data_to_template['imdata'] %}
+## Name: {{ contract.vzBrCP.attributes.name }}
+### Name Alias: {{ contract.vzBrCP.attributes.nameAlias }}
+### Access Privilege: {{ contract.vzBrCP.attributes.accessPrivilege }}
+### Annotation: {{ contract.vzBrCP.attributes.annotation }}
+### Child Action: {{ contract.vzBrCP.attributes.childAction }}
+### Configuration Issues: {{ contract.vzBrCP.attributes.configIssues }}
+### Description: {{ contract.vzBrCP.attributes.descr }}
+### DN: {{ contract.vzBrCP.attributes.dn }}
+### Externally Managed By: {{ contract.vzBrCP.attributes.extMngdBy }}
+### Intent: {{ contract.vzBrCP.attributes.intent }}
+### Local Owner: {{ contract.vzBrCP.attributes.lcOwn }}
+### Last Modified: {{ contract.vzBrCP.attributes.modTs }}
+### Monitoring Policy DN: {{ contract.vzBrCP.attributes.monPolDn }}
+### Owner
+#### Key: {{ contract.vzBrCP.attributes.ownerKey }}
+#### Tag: {{ contract.vzBrCP.attributes.ownerTag }}
+### Priority: {{ contract.vzBrCP.attributes.prio }}
+### Re Evaluate All: {{ contract.vzBrCP.attributes.reevaluateAll }}
+### Scope: {{ contract.vzBrCP.attributes.scope }}
+### Status: {{ contract.vzBrCP.attributes.status }}
+### Targer DSCP: {{ contract.vzBrCP.attributes.targetDscp }}
+### UID: {{ contract.vzBrCP.attributes.uid }}
+### User Domain: {{ contract.vzBrCP.attributes.userdom }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

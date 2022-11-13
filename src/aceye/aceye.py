@@ -57,6 +57,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.attachable_access_entity_profiles(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.contracts(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Tenant',
@@ -64,6 +66,7 @@ class ACEye():
                     'Attachable Access Entity Profiles',
                     'Bridge Domains',
                     'Contexts',
+                    'Contracts',
                     'Endpoints',
                     'EPG',
                     'Fabric Nodes',
@@ -241,6 +244,13 @@ class ACEye():
         response_dict  = response.json()
         return(response_dict)
 
+    def contracts(self):
+        self.url = f"{ self.aci }/api/node/class/vzBrCP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Contracts Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -312,6 +322,10 @@ class ACEye():
 
         if "infraAttEntityP" in self.url:
             with open('Attachable Access Entity Profiles/JSON/Attachable Access Entity Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vzBrCP" in self.url:
+            with open('Contracts/JSON/Contracts.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -386,6 +400,10 @@ class ACEye():
 
         if "infraAttEntityP" in self.url:
             with open('Attachable Access Entity Profiles/YAML/Attachable Access Entity Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vzBrCP" in self.url:
+            with open('Contracts/YAML/Contracts.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -464,6 +482,10 @@ class ACEye():
 
         if "infraAttEntityP" in self.url:
             with open('Attachable Access Entity Profiles/CSV/Attachable Access Entity Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vzBrCP" in self.url:
+            with open('Contracts/CSV/Contracts.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -545,6 +567,10 @@ class ACEye():
             with open('Attachable Access Entity Profiles/Markdown/Attachable Access Entity Profiles.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "vzBrCP" in self.url:
+            with open('Contracts/Markdown/Contracts.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -624,6 +650,10 @@ class ACEye():
             with open('Attachable Access Entity Profiles/HTML/Attachable Access Entity Profiles.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "vzBrCP" in self.url:
+            with open('Contracts/HTML/Contracts.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -701,6 +731,10 @@ class ACEye():
 
         if "infraAttEntityP" in self.url:
             with open('Attachable Access Entity Profiles/Mindmap/Attachable Access Entity Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzBrCP" in self.url:
+            with open('Contracts/Mindmap/Contracts.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

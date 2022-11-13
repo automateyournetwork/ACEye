@@ -1121,5 +1121,64 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "vzBrCP" in api %}
+<h1>Contracts</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Access Privilege</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Configuration Issues</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Intent</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Priority</th>
+    <th>Re Evaluate All</th>
+    <th>Scope</th>
+    <th>Status</th>
+    <th>Target DSCP</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody>   
+{%-     for contract in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ contract.vzBrCP.attributes.name }}</td>
+    <td>{{ contract.vzBrCP.attributes.nameAlias }}</td>
+    <td>{{ contract.vzBrCP.attributes.accessPrivilege }}</td>
+    <td>{{ contract.vzBrCP.attributes.annotation }}</td>
+    <td>{{ contract.vzBrCP.attributes.childAction }}</td>
+    <td>{{ contract.vzBrCP.attributes.configIssues }}</td>
+    <td>{{ contract.vzBrCP.attributes.descr }}</td>
+    <td>{{ contract.vzBrCP.attributes.dn }}</td>
+    <td>{{ contract.vzBrCP.attributes.extMngdBy }}</td>
+    <td>{{ contract.vzBrCP.attributes.intent }}</td>
+    <td>{{ contract.vzBrCP.attributes.lcOwn }}</td>
+    <td>{{ contract.vzBrCP.attributes.modTs }}</td>
+    <td>{{ contract.vzBrCP.attributes.monPolDn }}</td>
+    <td>{{ contract.vzBrCP.attributes.ownerKey }}</td>
+    <td>{{ contract.vzBrCP.attributes.ownerTag }}</td>
+    <td>{{ contract.vzBrCP.attributes.prio }}</td>
+    <td>{{ contract.vzBrCP.attributes.reevaluateAll }}</td>
+    <td>{{ contract.vzBrCP.attributes.scope }}</td>
+    <td>{{ contract.vzBrCP.attributes.status }}</td>
+    <td>{{ contract.vzBrCP.attributes.targetDscp }}</td>
+    <td>{{ contract.vzBrCP.attributes.uid }}</td>
+    <td>{{ contract.vzBrCP.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
