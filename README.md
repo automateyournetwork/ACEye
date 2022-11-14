@@ -28,6 +28,8 @@ Fault Summary
 
 Filters
 
+IP Addresses
+
 L2Outs
 
 L3 Domains

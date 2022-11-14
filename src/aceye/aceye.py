@@ -71,6 +71,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.audit_log(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.ip_addresses(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Tenant',
@@ -85,6 +87,7 @@ class ACEye():
                     'Fabric Nodes',
                     'Fault Summary',
                     'Filters',
+                    'IP Addresses',
                     'L2Outs',
                     'L3 Domains',
                     'L3Outs',
@@ -311,6 +314,13 @@ class ACEye():
         response_dict  = response.json()
         return(response_dict)
 
+    def ip_addresses(self):
+        self.url = f"{ self.aci }/api/node/class/fvIp.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<IP Addresses Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -410,6 +420,10 @@ class ACEye():
 
         if "aaaModLR" in self.url:
             with open('Audit Log/JSON/Audit Log.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "fvIp" in self.url:
+            with open('IP Addresses/JSON/IP Addresses.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -512,6 +526,10 @@ class ACEye():
 
         if "aaaModLR" in self.url:
             with open('Audit Log/YAML/Audit Log.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "fvIp" in self.url:
+            with open('IP Addresses/YAML/IP Addresses.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -618,6 +636,10 @@ class ACEye():
 
         if "aaaModLR" in self.url:
             with open('Audit Log/CSV/Audit Log.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "fvIp" in self.url:
+            with open('IP Addresses/CSV/IP Addresses.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -727,6 +749,10 @@ class ACEye():
             with open('Audit Log/Markdown/Audit Log.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "fvIp" in self.url:
+            with open('IP Addresses/Markdown/IP Addresses.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -834,6 +860,10 @@ class ACEye():
             with open('Audit Log/HTML/Audit Log.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "fvIp" in self.url:
+            with open('IP Addresses/HTML/IP Addresses.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -939,6 +969,10 @@ class ACEye():
 
         if "aaaModLR" in self.url:
             with open('Audit Log/Mindmap/Audit Log.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "fvIp" in self.url:
+            with open('IP Addresses/Mindmap/IP Addresses.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

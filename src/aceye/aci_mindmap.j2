@@ -711,4 +711,28 @@
 ### TX ID: {{ log.aaaModLR.attributes.txId }}
 ### User: {{ log.aaaModLR.attributes.user }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "fvIp" in api %}
+# IP Addresses
+{%-     for ip in data_to_template['imdata'] %}
+## {{ ip.fvIp.attributes.addr }}
+### Annotation: {{ ip.fvIp.attributes.annotation }}
+### Base EPG DN: {{ ip.fvIp.attributes.baseEpgDn }}
+### Bridge Domain DN: {{ ip.fvIp.attributes.bdDn }}
+### Child Action: {{ ip.fvIp.attributes.childAction }}
+### Created: {{ ip.fvIp.attributes.createTs }}
+### Debug MAC Message: {{ ip.fvIp.attributes.debugMACMessage }}
+### ESG Use gDN: {{ ip.fvIp.attributes.esgUsegDn }}
+### Externally Managed By: {{ ip.fvIp.attributes.extMngdBy }}
+### Fabric Path DN: {{ ip.fvIp.attributes.fabricPathDn }}
+### Flags: {{ ip.fvIp.attributes.flags }}
+### Local Owner: {{ ip.fvIp.attributes.lcOwn }}
+### Last Modified: {{ ip.fvIp.attributes.modTs }}
+### Monitoring Policy DN: {{ ip.fvIp.attributes.monPolDn }}
+### RN: {{ ip.fvIp.attributes.rn }}
+### Status: {{ ip.fvIp.attributes.status }}
+### UID: {{ ip.fvIp.attributes.uid }}
+### User Domain: {{ ip.fvIp.attributes.userdom }}
+### VRF DN: {{ ip.fvIp.attributes.vrfDn }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
