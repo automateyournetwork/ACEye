@@ -54,6 +54,8 @@ Top System
 
 VLAN Pools
 
+Endpoints IP Addresses (All Connected Fabric Endpoints)
+
 
 ## Installation
 
