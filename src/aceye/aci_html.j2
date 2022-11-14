@@ -1484,5 +1484,58 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "fvIp" in api %}
+<h1>IP Addresses</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>IP Address</th>
+    <th>Annotation</th>
+    <th>Base EPG DN</th>
+    <th>Bridge Domain DN</th>
+    <th>Child Action</th>
+    <th>Created</th>
+    <th>Debug MAC Message</th>
+    <th>ESG Use gDN</th>
+    <th>Externally Managed By</th>
+    <th>Fabric Path DN</th>
+    <th>Flags</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>RN</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User Domain</th>
+    <th>VRF DN</th>
+  </tr>
+</thead>
+<tbody>   
+{%-     for ip in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ ip.fvIp.attributes.addr }}</td>
+    <td>{{ ip.fvIp.attributes.annotation }}</td>
+    <td>{{ ip.fvIp.attributes.baseEpgDn }}</td>
+    <td>{{ ip.fvIp.attributes.bdDn }}</td>
+    <td>{{ ip.fvIp.attributes.childAction }}</td>
+    <td>{{ ip.fvIp.attributes.createTs }}</td>
+    <td>{{ ip.fvIp.attributes.debugMACMessage }}</td>
+    <td>{{ ip.fvIp.attributes.esgUsegDn }}</td>
+    <td>{{ ip.fvIp.attributes.extMngdBy }}</td>
+    <td>{{ ip.fvIp.attributes.fabricPathDn }}</td>
+    <td>{{ ip.fvIp.attributes.flags }}</td>
+    <td>{{ ip.fvIp.attributes.lcOwn }}</td>
+    <td>{{ ip.fvIp.attributes.modTs }}</td>
+    <td>{{ ip.fvIp.attributes.monPolDn }}</td>
+    <td>{{ ip.fvIp.attributes.rn }}</td>
+    <td>{{ ip.fvIp.attributes.status }}</td>
+    <td>{{ ip.fvIp.attributes.uid }}</td>
+    <td>{{ ip.fvIp.attributes.userdom }}</td>
+    <td>{{ ip.fvIp.attributes.vrfDn }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
