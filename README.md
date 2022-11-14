@@ -101,8 +101,11 @@ APIC Password: <APIC Password>
 ## Recommended VS Code Extensions
 
 Excel Viewer - CSV Files
+
 Markdown Preview - Markdown Files
+
 Markmap - Mindmap Files
+
 Open in Default Browser - HTML Files
 
 ## Contact
