@@ -34,6 +34,8 @@ Filters
 
 Interface Policies
 
+Interface Profiles
+
 IP Addresses
 
 License Entitlements
