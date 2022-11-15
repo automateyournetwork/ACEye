@@ -32,6 +32,8 @@ Filters
 
 IP Addresses
 
+License Entitlement
+
 L2Outs
 
 L3 Domains
