@@ -188,4 +188,11 @@
 {%-     for event in data_to_template['imdata'] %}
 | {{ event.eventRecord.attributes.id }} | {{ event.eventRecord.attributes.affected }} | {{ event.eventRecord.attributes.cause }} | {{ event.eventRecord.attributes.changeSet }} | {{ event.eventRecord.attributes.childAction }} | {{ event.eventRecord.attributes.code }} | {{ event.eventRecord.attributes.created }} | {{ event.eventRecord.attributes.descr }} | {{ event.eventRecord.attributes.dn }} | {{ event.eventRecord.attributes.ind }} | {{ event.eventRecord.attributes.modTs }} | {{ event.eventRecord.attributes.severity }} | {{ event.eventRecord.attributes.status }} | {{ event.eventRecord.attributes.trig }} | {{ event.eventRecord.attributes.txId }} | {{ event.eventRecord.attributes.user }} |
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "licenseEntitlement" in api %}# License Entitlements
+| Name | Auth Status | Child Action | Count | Description | DN | Local Owner | Last Modified | Status | Tag | Version |
+| ---- | ----------- | ------------ | ----- | ----------- | -- | ----------- | ------------- | ------ | ----| ------- |
+{%-     for license in data_to_template['imdata'] %}
+| {{ license.licenseEntitlement.attributes.name }} | {{ license.licenseEntitlement.attributes.authStatus }} | {{ license.licenseEntitlement.attributes.childAction }} | {{ license.licenseEntitlement.attributes.count }} | {{ license.licenseEntitlement.attributes.descr }} | {{ license.licenseEntitlement.attributes.dn }} | {{ license.licenseEntitlement.attributes.lcOwn }} | {{ license.licenseEntitlement.attributes.modTs }} | {{ license.licenseEntitlement.attributes.status }} | {{ license.licenseEntitlement.attributes.tag }} | {{ license.licenseEntitlement.attributes.version }} |
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

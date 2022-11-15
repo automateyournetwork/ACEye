@@ -1584,5 +1584,42 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "licenseEntitlement" in api %}
+<h1>License Entitlements</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Auth Status</th>
+    <th>Child Action</th>
+    <th>Count</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Status</th>
+    <th>Tag</th>
+    <th>Version</th>
+  </tr>
+</thead>
+<tbody> 
+{%-     for license in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ license.licenseEntitlement.attributes.name }}</th>
+    <th>{{ license.licenseEntitlement.attributes.authStatus }}</th>
+    <th>{{ license.licenseEntitlement.attributes.childAction }}</th>
+    <th>{{ license.licenseEntitlement.attributes.count }}</th>
+    <th>{{ license.licenseEntitlement.attributes.descr }}</th>
+    <th>{{ license.licenseEntitlement.attributes.dn }}</th>
+    <th>{{ license.licenseEntitlement.attributes.lcOwn }}</th>
+    <th>{{ license.licenseEntitlement.attributes.modTs }}</th>
+    <th>{{ license.licenseEntitlement.attributes.status }}</th>
+    <th>{{ license.licenseEntitlement.attributes.tag }}</th>
+    <th>{{ license.licenseEntitlement.attributes.version }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
