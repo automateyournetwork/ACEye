@@ -73,6 +73,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.ip_addresses(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.events(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Tenant',
@@ -84,6 +86,7 @@ class ACEye():
                     'Contracts',
                     'Endpoints',
                     'EPG',
+                    'Events',
                     'Fabric Nodes',
                     'Fault Summary',
                     'Filters',
@@ -321,6 +324,13 @@ class ACEye():
         response_dict  = response.json()
         return(response_dict)
 
+    def events(self):
+        self.url = f"{ self.aci }/api/node/class/eventRecord.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Events Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -426,6 +436,10 @@ class ACEye():
             with open('IP Addresses/JSON/IP Addresses.json', 'w' ) as f:
                 f.write(parsed_json)
 
+        if "eventRecord" in self.url:
+            with open('Events/JSON/Events.json', 'w' ) as f:
+                f.write(parsed_json)
+                
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
         if "Tenant" in self.url:
@@ -530,6 +544,10 @@ class ACEye():
 
         if "fvIp" in self.url:
             with open('IP Addresses/YAML/IP Addresses.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "eventRecord" in self.url:
+            with open('Events/YAML/Events.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -640,6 +658,10 @@ class ACEye():
 
         if "fvIp" in self.url:
             with open('IP Addresses/CSV/IP Addresses.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "eventRecord" in self.url:
+            with open('Events/CSV/Events.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -753,6 +775,10 @@ class ACEye():
             with open('IP Addresses/Markdown/IP Addresses.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "eventRecord" in self.url:
+            with open('Events/Markdown/Events.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -864,6 +890,10 @@ class ACEye():
             with open('IP Addresses/HTML/IP Addresses.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "eventRecord" in self.url:
+            with open('Events/HTML/Events.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -973,6 +1003,10 @@ class ACEye():
 
         if "fvIp" in self.url:
             with open('IP Addresses/Mindmap/IP Addresses.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "eventRecord" in self.url:
+            with open('Events/Mindmap/Events.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
