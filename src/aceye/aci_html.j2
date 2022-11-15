@@ -1713,5 +1713,194 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "infraProfile" in api %}
+<h1>Interface Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody>  
+{%-     for policy in data_to_template['imdata'] %}
+{%-         if policy.infraAccPortP %}
+  <tr>
+    <td>{{ policy.infraAccPortP.attributes.name }}</td>
+    <td>{{ policy.infraAccPortP.attributes.nameAlias }}</td>
+    <td>{{ policy.infraAccPortP.attributes.annotation }}</td>
+    <td>{{ policy.infraAccPortP.attributes.childAction }}</td>
+    <td>{{ policy.infraAccPortP.attributes.descr }}</td>
+    <td>{{ policy.infraAccPortP.attributes.dn }}</td>
+    <td>{{ policy.infraAccPortP.attributes.extMngdBy }}</td>
+    <td>{{ policy.infraAccPortP.attributes.lcOwn }}</td>
+    <td>{{ policy.infraAccPortP.attributes.modTs }}</td>
+    <td>{{ policy.infraAccPortP.attributes.monPolDn }}</td>
+    <td>{{ policy.infraAccPortP.attributes.ownerKey }}</td>
+    <td>{{ policy.infraAccPortP.attributes.ownerTag }}</td>
+    <td>{{ policy.infraAccPortP.attributes.status }}</td>
+    <td>{{ policy.infraAccPortP.attributes.type }}</td>
+    <td>{{ policy.infraAccPortP.attributes.uid }}</td>
+    <td>{{ policy.infraAccPortP.attributes.userdom }}</td>
+  </tr>
+{%-         endif %}
+{%-         if policy.infraAttEntityP %}
+  <tr>
+    <td>{{ policy.infraAttEntityP.attributes.name }}</td>
+    <td>{{ policy.infraAttEntityP.attributes.nameAlias }}</td>
+    <td>{{ policy.infraAttEntityP.attributes.annotation }}</td>
+    <td>{{ policy.infraAttEntityP.attributes.childAction }}</td>
+    <td>{{ policy.infraAttEntityP.attributes.descr }}</td>
+    <td>{{ policy.infraAttEntityP.attributes.dn }}</td>
+    <td>{{ policy.infraAttEntityP.attributes.extMngdBy }}</td>
+    <td>{{ policy.infraAttEntityP.attributes.lcOwn }}</td>
+    <td>{{ policy.infraAttEntityP.attributes.modTs }}</td>
+    <td>{{ policy.infraAttEntityP.attributes.monPolDn }}</td>
+    <td>{{ policy.infraAttEntityP.attributes.ownerKey }}</td>
+    <td>{{ policy.infraAttEntityP.attributes.ownerTag }}</td>
+    <td>{{ policy.infraAttEntityP.attributes.status }}</td>
+    <td>{{ policy.infraAttEntityP.attributes.type }}</td>
+    <td>{{ policy.infraAttEntityP.attributes.uid }}</td>
+    <td>{{ policy.infraAttEntityP.attributes.userdom }}</td>
+  </tr>
+{%-         endif %}
+{%-         if policy.infraFexP %}
+  <tr>
+    <td>{{ policy.infraFexP.attributes.name }}</td>
+    <td>{{ policy.infraFexP.attributes.nameAlias }}</td>
+    <td>{{ policy.infraFexP.attributes.annotation }}</td>
+    <td>{{ policy.infraFexP.attributes.childAction }}</td>
+    <td>{{ policy.infraFexP.attributes.descr }}</td>
+    <td>{{ policy.infraFexP.attributes.dn }}</td>
+    <td>{{ policy.infraFexP.attributes.extMngdBy }}</td>
+    <td>{{ policy.infraFexP.attributes.lcOwn }}</td>
+    <td>{{ policy.infraFexP.attributes.modTs }}</td>
+    <td>{{ policy.infraFexP.attributes.monPolDn }}</td>
+    <td>{{ policy.infraFexP.attributes.ownerKey }}</td>
+    <td>{{ policy.infraFexP.attributes.ownerTag }}</td>
+    <td>{{ policy.infraFexP.attributes.status }}</td>
+    <td>{{ policy.infraFexP.attributes.type }}</td>
+    <td>{{ policy.infraFexP.attributes.uid }}</td>
+    <td>{{ policy.infraFexP.attributes.userdom }}</td>
+  </tr>
+{%-         endif %}
+{%-         if policy.infraFuncP %}
+  <tr>
+    <td>{{ policy.infraFuncP.attributes.name }}</td>
+    <td>{{ policy.infraFuncP.attributes.nameAlias }}</td>
+    <td>{{ policy.infraFuncP.attributes.annotation }}</td>
+    <td>{{ policy.infraFuncP.attributes.childAction }}</td>
+    <td>{{ policy.infraFuncP.attributes.descr }}</td>
+    <td>{{ policy.infraFuncP.attributes.dn }}</td>
+    <td>{{ policy.infraFuncP.attributes.extMngdBy }}</td>
+    <td>{{ policy.infraFuncP.attributes.lcOwn }}</td>
+    <td>{{ policy.infraFuncP.attributes.modTs }}</td>
+    <td>{{ policy.infraFuncP.attributes.monPolDn }}</td>
+    <td>{{ policy.infraFuncP.attributes.ownerKey }}</td>
+    <td>{{ policy.infraFuncP.attributes.ownerTag }}</td>
+    <td>{{ policy.infraFuncP.attributes.status }}</td>
+    <td>{{ policy.infraFuncP.attributes.type }}</td>
+    <td>{{ policy.infraFuncP.attributes.uid }}</td>
+    <td>{{ policy.infraFuncP.attributes.userdom }}</td>
+  </tr>
+{%-         endif %}
+{%-         if policy.infraNodeP %}
+  <tr>
+    <td>{{ policy.infraNodeP.attributes.name }}</td>
+    <td>{{ policy.infraNodeP.attributes.nameAlias }}</td>
+    <td>{{ policy.infraNodeP.attributes.annotation }}</td>
+    <td>{{ policy.infraNodeP.attributes.childAction }}</td>
+    <td>{{ policy.infraNodeP.attributes.descr }}</td>
+    <td>{{ policy.infraNodeP.attributes.dn }}</td>
+    <td>{{ policy.infraNodeP.attributes.extMngdBy }}</td>
+    <td>{{ policy.infraNodeP.attributes.lcOwn }}</td>
+    <td>{{ policy.infraNodeP.attributes.modTs }}</td>
+    <td>{{ policy.infraNodeP.attributes.monPolDn }}</td>
+    <td>{{ policy.infraNodeP.attributes.ownerKey }}</td>
+    <td>{{ policy.infraNodeP.attributes.ownerTag }}</td>
+    <td>{{ policy.infraNodeP.attributes.status }}</td>
+    <td>{{ policy.infraNodeP.attributes.type }}</td>
+    <td>{{ policy.infraNodeP.attributes.uid }}</td>
+    <td>{{ policy.infraNodeP.attributes.userdom }}</td>
+  </tr>
+{%-         endif %}
+{%-         if policy.infraPodP %}
+  <tr>
+    <td>{{ policy.infraPodP.attributes.name }}</td>
+    <td>{{ policy.infraPodP.attributes.nameAlias }}</td>
+    <td>{{ policy.infraPodP.attributes.annotation }}</td>
+    <td>{{ policy.infraPodP.attributes.childAction }}</td>
+    <td>{{ policy.infraPodP.attributes.descr }}</td>
+    <td>{{ policy.infraPodP.attributes.dn }}</td>
+    <td>{{ policy.infraPodP.attributes.extMngdBy }}</td>
+    <td>{{ policy.infraPodP.attributes.lcOwn }}</td>
+    <td>{{ policy.infraPodP.attributes.modTs }}</td>
+    <td>{{ policy.infraPodP.attributes.monPolDn }}</td>
+    <td>{{ policy.infraPodP.attributes.ownerKey }}</td>
+    <td>{{ policy.infraPodP.attributes.ownerTag }}</td>
+    <td>{{ policy.infraPodP.attributes.status }}</td>
+    <td>{{ policy.infraPodP.attributes.type }}</td>
+    <td>{{ policy.infraPodP.attributes.uid }}</td>
+    <td>{{ policy.infraPodP.attributes.userdom }}</td>
+  </tr>
+{%-         endif %}
+{%-         if policy.infraSpAccPortP %}
+  <tr>
+    <td>{{ policy.infraSpAccPortP.attributes.name }}</td>
+    <td>{{ policy.infraSpAccPortP.attributes.nameAlias }}</td>
+    <td>{{ policy.infraSpAccPortP.attributes.annotation }}</td>
+    <td>{{ policy.infraSpAccPortP.attributes.childAction }}</td>
+    <td>{{ policy.infraSpAccPortP.attributes.descr }}</td>
+    <td>{{ policy.infraSpAccPortP.attributes.dn }}</td>
+    <td>{{ policy.infraSpAccPortP.attributes.extMngdBy }}</td>
+    <td>{{ policy.infraSpAccPortP.attributes.lcOwn }}</td>
+    <td>{{ policy.infraSpAccPortP.attributes.modTs }}</td>
+    <td>{{ policy.infraSpAccPortP.attributes.monPolDn }}</td>
+    <td>{{ policy.infraSpAccPortP.attributes.ownerKey }}</td>
+    <td>{{ policy.infraSpAccPortP.attributes.ownerTag }}</td>
+    <td>{{ policy.infraSpAccPortP.attributes.status }}</td>
+    <td>{{ policy.infraSpAccPortP.attributes.type }}</td>
+    <td>{{ policy.infraSpAccPortP.attributes.uid }}</td>
+    <td>{{ policy.infraSpAccPortP.attributes.userdom }}</td>
+  </tr>
+{%-         endif %}
+{%-         if policy.infraSpineP %}
+  <tr>
+    <td>{{ policy.infraSpineP.attributes.name }}</td>
+    <td>{{ policy.infraSpineP.attributes.nameAlias }}</td>
+    <td>{{ policy.infraSpineP.attributes.annotation }}</td>
+    <td>{{ policy.infraSpineP.attributes.childAction }}</td>
+    <td>{{ policy.infraSpineP.attributes.descr }}</td>
+    <td>{{ policy.infraSpineP.attributes.dn }}</td>
+    <td>{{ policy.infraSpineP.attributes.extMngdBy }}</td>
+    <td>{{ policy.infraSpineP.attributes.lcOwn }}</td>
+    <td>{{ policy.infraSpineP.attributes.modTs }}</td>
+    <td>{{ policy.infraSpineP.attributes.monPolDn }}</td>
+    <td>{{ policy.infraSpineP.attributes.ownerKey }}</td>
+    <td>{{ policy.infraSpineP.attributes.ownerTag }}</td>
+    <td>{{ policy.infraSpineP.attributes.status }}</td>
+    <td>{{ policy.infraSpineP.attributes.type }}</td>
+    <td>{{ policy.infraSpineP.attributes.uid }}</td>
+    <td>{{ policy.infraSpineP.attributes.userdom }}</td>
+  </tr>
+{%-         endif %}
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

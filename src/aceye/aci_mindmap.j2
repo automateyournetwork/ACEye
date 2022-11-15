@@ -814,4 +814,161 @@
 ### UID: {{ policy.infraHPortS.attributes.uid }}
 ### User Domain: {{ policy.infraHPortS.attributes.userdom }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "infraProfile" in api %}
+# Interface Profiles
+{%-     for policy in data_to_template['imdata'] %}
+{%-         if policy.infraAccPortP %}
+## Name: {{ policy.infraAccPortP.attributes.name }}
+### Name Alias: {{ policy.infraAccPortP.attributes.nameAlias }}
+### Annotation: {{ policy.infraAccPortP.attributes.annotation }}
+### Child Action: {{ policy.infraAccPortP.attributes.childAction }}
+### Description: {{ policy.infraAccPortP.attributes.descr }}
+### DN: {{ policy.infraAccPortP.attributes.dn }}
+### Externally Managed By: {{ policy.infraAccPortP.attributes.extMngdBy }}
+### Local Owner: {{ policy.infraAccPortP.attributes.lcOwn }}
+### Last Modified: {{ policy.infraAccPortP.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.infraAccPortP.attributes.monPolDn }}
+### Owner
+#### Key: {{ policy.infraAccPortP.attributes.ownerKey }}
+#### Tag: {{ policy.infraAccPortP.attributes.ownerTag }}
+### Status: {{ policy.infraAccPortP.attributes.status }}
+### Type: {{ policy.infraAccPortP.attributes.type }}
+### UID: {{ policy.infraAccPortP.attributes.uid }}
+### User Domain: {{ policy.infraAccPortP.attributes.userdom }}
+{%-         endif %}
+{%-         if policy.infraAttEntityP %}
+## Name: {{ policy.infraAttEntityP.attributes.name }}
+### Name Alias: {{ policy.infraAttEntityP.attributes.nameAlias }}
+### Annotation: {{ policy.infraAttEntityP.attributes.annotation }}
+### Child Action: {{ policy.infraAttEntityP.attributes.childAction }}
+### Description: {{ policy.infraAttEntityP.attributes.descr }}
+### DN: {{ policy.infraAttEntityP.attributes.dn }}
+### Externally Managed By: {{ policy.infraAttEntityP.attributes.extMngdBy }}
+### Local Owner: {{ policy.infraAttEntityP.attributes.lcOwn }}
+### Last Modified: {{ policy.infraAttEntityP.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.infraAttEntityP.attributes.monPolDn }}
+### Owner
+#### Key: {{ policy.infraAttEntityP.attributes.ownerKey }}
+#### Tag: {{ policy.infraAttEntityP.attributes.ownerTag }}
+### Status: {{ policy.infraAttEntityP.attributes.status }}
+### Type: {{ policy.infraAttEntityP.attributes.type }}
+### UID: {{ policy.infraAttEntityP.attributes.uid }}
+### User Domain: {{ policy.infraAttEntityP.attributes.userdom }}
+{%-         endif %}
+{%-         if policy.infraFexP %}
+## Name: {{ policy.infraFexP.attributes.name }}
+### Name Alias: {{ policy.infraFexP.attributes.nameAlias }}
+### Annotation: {{ policy.infraFexP.attributes.annotation }}
+### Child Action: {{ policy.infraFexP.attributes.childAction }}
+### Description: {{ policy.infraFexP.attributes.descr }}
+### DN: {{ policy.infraFexP.attributes.dn }}
+### Externally Managed By: {{ policy.infraFexP.attributes.extMngdBy }}
+### Local Owner: {{ policy.infraFexP.attributes.lcOwn }}
+### Last Modified: {{ policy.infraFexP.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.infraFexP.attributes.monPolDn }}
+### Owner
+#### Key: {{ policy.infraFexP.attributes.ownerKey }}
+#### Tag: {{ policy.infraFexP.attributes.ownerTag }}
+### Status: {{ policy.infraFexP.attributes.status }}
+### Type: {{ policy.infraFexP.attributes.type }}
+### UID: {{ policy.infraFexP.attributes.uid }}
+### User Domain: {{ policy.infraFexP.attributes.userdom }}
+{%-         endif %}
+{%-         if policy.infraFuncP %}
+## Name: {{ policy.infraFuncP.attributes.name }}
+### Name Alias: {{ policy.infraFuncP.attributes.nameAlias }}
+### Annotation: {{ policy.infraFuncP.attributes.annotation }}
+### Child Action: {{ policy.infraFuncP.attributes.childAction }}
+### Description: {{ policy.infraFuncP.attributes.descr }}
+### DN: {{ policy.infraFuncP.attributes.dn }}
+### Externally Managed By: {{ policy.infraFuncP.attributes.extMngdBy }}
+### Local Owner: {{ policy.infraFuncP.attributes.lcOwn }}
+### Last Modified: {{ policy.infraFuncP.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.infraFuncP.attributes.monPolDn }}
+### Owner
+#### Key: {{ policy.infraFuncP.attributes.ownerKey }}
+#### Tag: {{ policy.infraFuncP.attributes.ownerTag }}
+### Status: {{ policy.infraFuncP.attributes.status }}
+### Type: {{ policy.infraFuncP.attributes.type }}
+### UID: {{ policy.infraFuncP.attributes.uid }}
+### User Domain: {{ policy.infraFuncP.attributes.userdom }}
+{%-         endif %}
+{%-         if policy.infraNodeP %}
+## Name: {{ policy.infraNodeP.attributes.name }}
+### Name Alias: {{ policy.infraNodeP.attributes.nameAlias }}
+### Annotation: {{ policy.infraNodeP.attributes.annotation }}
+### Child Action: {{ policy.infraNodeP.attributes.childAction }}
+### Description: {{ policy.infraNodeP.attributes.descr }}
+### DN: {{ policy.infraNodeP.attributes.dn }}
+### Externally Managed By: {{ policy.infraNodeP.attributes.extMngdBy }}
+### Local Owner: {{ policy.infraNodeP.attributes.lcOwn }}
+### Last Modified: {{ policy.infraNodeP.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.infraNodeP.attributes.monPolDn }}
+### Owner
+#### Key: {{ policy.infraNodeP.attributes.ownerKey }}
+#### Tag: {{ policy.infraNodeP.attributes.ownerTag }}
+### Status: {{ policy.infraNodeP.attributes.status }}
+### Type: {{ policy.infraNodeP.attributes.type }}
+### UID: {{ policy.infraNodeP.attributes.uid }}
+### User Domain: {{ policy.infraNodeP.attributes.userdom }}
+{%-         endif %}
+{%-         if policy.infraPodP %}
+## Name: {{ policy.infraPodP.attributes.name }}
+### Name Alias: {{ policy.infraPodP.attributes.nameAlias }}
+### Annotation: {{ policy.infraPodP.attributes.annotation }}
+### Child Action: {{ policy.infraPodP.attributes.childAction }}
+### Description: {{ policy.infraPodP.attributes.descr }}
+### DN: {{ policy.infraPodP.attributes.dn }}
+### Externally Managed By: {{ policy.infraPodP.attributes.extMngdBy }}
+### Local Owner: {{ policy.infraPodP.attributes.lcOwn }}
+### Last Modified: {{ policy.infraPodP.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.infraPodP.attributes.monPolDn }}
+### Owner
+#### Key: {{ policy.infraPodP.attributes.ownerKey }}
+#### Tag: {{ policy.infraPodP.attributes.ownerTag }}
+### Status: {{ policy.infraPodP.attributes.status }}
+### Type: {{ policy.infraPodP.attributes.type }}
+### UID: {{ policy.infraPodP.attributes.uid }}
+### User Domain: {{ policy.infraPodP.attributes.userdom }}
+{%-         endif %}
+{%-         if policy.infraSpAccPortP %}
+## Name: {{ policy.infraSpAccPortP.attributes.name }}
+### Name Alias: {{ policy.infraSpAccPortP.attributes.nameAlias }}
+### Annotation: {{ policy.infraSpAccPortP.attributes.annotation }}
+### Child Action: {{ policy.infraSpAccPortP.attributes.childAction }}
+### Description: {{ policy.infraSpAccPortP.attributes.descr }}
+### DN: {{ policy.infraSpAccPortP.attributes.dn }}
+### Externally Managed By: {{ policy.infraSpAccPortP.attributes.extMngdBy }}
+### Local Owner: {{ policy.infraSpAccPortP.attributes.lcOwn }}
+### Last Modified: {{ policy.infraSpAccPortP.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.infraSpAccPortP.attributes.monPolDn }}
+### Owner
+#### Key: {{ policy.infraSpAccPortP.attributes.ownerKey }}
+#### Tag: {{ policy.infraSpAccPortP.attributes.ownerTag }}
+### Status: {{ policy.infraSpAccPortP.attributes.status }}
+### Type: {{ policy.infraSpAccPortP.attributes.type }}
+### UID: {{ policy.infraSpAccPortP.attributes.uid }}
+### User Domain: {{ policy.infraSpAccPortP.attributes.userdom }}
+{%-         endif %}
+{%-         if policy.infraSpineP %}
+## Name: {{ policy.infraSpineP.attributes.name }}
+### Name Alias: {{ policy.infraSpineP.attributes.nameAlias }}
+### Annotation: {{ policy.infraSpineP.attributes.annotation }}
+### Child Action: {{ policy.infraSpineP.attributes.childAction }}
+### Description: {{ policy.infraSpineP.attributes.descr }}
+### DN: {{ policy.infraSpineP.attributes.dn }}
+### Externally Managed By: {{ policy.infraSpineP.attributes.extMngdBy }}
+### Local Owner: {{ policy.infraSpineP.attributes.lcOwn }}
+### Last Modified: {{ policy.infraSpineP.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.infraSpineP.attributes.monPolDn }}
+### Owner
+#### Key: {{ policy.infraSpineP.attributes.ownerKey }}
+#### Tag: {{ policy.infraSpineP.attributes.ownerTag }}
+### Status: {{ policy.infraSpineP.attributes.status }}
+### Type: {{ policy.infraSpineP.attributes.type }}
+### UID: {{ policy.infraSpineP.attributes.uid }}
+### User Domain: {{ policy.infraSpineP.attributes.userdom }}
+{%-         endif %}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
