@@ -756,4 +756,20 @@
 ### TX ID: {{ event.eventRecord.attributes.txId }}
 ### User: {{ event.eventRecord.attributes.user }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "licenseEntitlement" in api %}
+# License Entitlements
+{%-     for license in data_to_template['imdata'] %}
+## Name: {{ license.licenseEntitlement.attributes.name }}</th>
+### Auth Status: {{ license.licenseEntitlement.attributes.authStatus }}
+### Child Action: {{ license.licenseEntitlement.attributes.childAction }}
+### Count: {{ license.licenseEntitlement.attributes.count }}
+### Description: {{ license.licenseEntitlement.attributes.descr }}
+### DN: {{ license.licenseEntitlement.attributes.dn }}
+### Local Owner: {{ license.licenseEntitlement.attributes.lcOwn }}
+### Last Modified: {{ license.licenseEntitlement.attributes.modTs }}
+### Status: {{ license.licenseEntitlement.attributes.status }}
+### Tag: {{ license.licenseEntitlement.attributes.tag }}
+### Version: {{ license.licenseEntitlement.attributes.version }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

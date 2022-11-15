@@ -451,7 +451,7 @@ class ACEye():
                 f.write(parsed_json)
                 
         if "licenseEntitlement" in self.url:
-            with open('License Entitlements/JSON/Events.json', 'w' ) as f:
+            with open('License Entitlements/JSON/License Entitlements.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -562,6 +562,10 @@ class ACEye():
 
         if "eventRecord" in self.url:
             with open('Events/YAML/Events.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "licenseEntitlement" in self.url:
+            with open('License Entitlements/YAML/License Entitlements.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -676,6 +680,10 @@ class ACEye():
 
         if "eventRecord" in self.url:
             with open('Events/CSV/Events.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "licenseEntitlement" in self.url:
+            with open('License Entitlements/CSV/License Entitlements.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -793,6 +801,10 @@ class ACEye():
             with open('Events/Markdown/Events.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "licenseEntitlement" in self.url:
+            with open('License Entitlements/Markdown/License Entitlements.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -906,6 +918,10 @@ class ACEye():
 
         if "eventRecord" in self.url:
             with open('Events/HTML/Events.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "licenseEntitlement" in self.url:
+            with open('License Entitlements/HTML/License Entitlements.html', 'w' ) as f:
                 f.write(html_output)
 
     def mindmap_file(self, parsed_json):
@@ -1023,13 +1039,17 @@ class ACEye():
             with open('Events/Mindmap/Events.md', 'w' ) as f:
                 f.write(mindmap_output)
 
+        if "licenseEntitlement" in self.url:
+            with open('License Entitlements/Mindmap/License Entitlements.md', 'w' ) as f:
+                f.write(mindmap_output)
+
     def all_files(self, parsed_json):
         self.json_file(parsed_json)
         self.yaml_file(parsed_json)
-        # self.csv_file(parsed_json)
-        # self.markdown_file(parsed_json)
-        # self.html_file(parsed_json)
-        # self.mindmap_file(parsed_json)
+        self.csv_file(parsed_json)
+        self.markdown_file(parsed_json)
+        self.html_file(parsed_json)
+        self.mindmap_file(parsed_json)
         
 @click.command()
 @click.option('--url',
