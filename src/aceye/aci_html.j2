@@ -1902,5 +1902,36 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "fabricPod" in api %}
+<h1>Fabric Pods</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Pod Type</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody> 
+{%-     for pod in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ pod.fabricPod.attributes.id }}</td>
+    <td>{{ pod.fabricPod.attributes.childAction }}</td>
+    <td>{{ pod.fabricPod.attributes.dn }}</td>
+    <td>{{ pod.fabricPod.attributes.lcOwn }}</td>
+    <td>{{ pod.fabricPod.attributes.modTs }}</td>
+    <td>{{ pod.fabricPod.attributes.monPolDn }}</td>
+    <td>{{ pod.fabricPod.attributes.podType }}</td>
+    <td>{{ pod.fabricPod.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

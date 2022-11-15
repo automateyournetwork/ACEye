@@ -971,4 +971,17 @@
 ### User Domain: {{ policy.infraSpineP.attributes.userdom }}
 {%-         endif %}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "fabricPod" in api %}
+# Fabric Pods
+{%-     for pod in data_to_template['imdata'] %}
+## ID: {{ pod.fabricPod.attributes.id }}
+### Child Action: {{ pod.fabricPod.attributes.childAction }}
+### DN: {{ pod.fabricPod.attributes.dn }}
+### Local Owner: {{ pod.fabricPod.attributes.lcOwn }}
+### Last Timestamp: {{ pod.fabricPod.attributes.modTs }}
+### Monitoring Policy DN: {{ pod.fabricPod.attributes.monPolDn }}
+### Pod Type: {{ pod.fabricPod.attributes.podType }}
+### Status: {{ pod.fabricPod.attributes.status }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

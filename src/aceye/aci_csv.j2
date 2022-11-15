@@ -177,4 +177,9 @@
 {{ policy.infraSpineP.attributes.name }},{{ policy.infraSpineP.attributes.nameAlias }},{{ policy.infraSpineP.attributes.annotation }},{{ policy.infraSpineP.attributes.childAction }},{{ policy.infraSpineP.attributes.descr | replace(","," ")}},{{ policy.infraSpineP.attributes.dn }},{{ policy.infraSpineP.attributes.extMngdBy }},{{ policy.infraSpineP.attributes.lcOwn }},{{ policy.infraSpineP.attributes.modTs }},{{ policy.infraSpineP.attributes.monPolDn }},{{ policy.infraSpineP.attributes.ownerKey }},{{ policy.infraSpineP.attributes.ownerTag }},{{ policy.infraSpineP.attributes.status }},{{ policy.infraSpineP.attributes.type }},{{ policy.infraSpineP.attributes.uid }},{{ policy.infraSpineP.attributes.userdom }}
 {%-         endif %}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "fabricPod" in api %}ID,Child Action,DN,Local Owner,Last Modified,Monitoring Policy DN,Pod Type,Status
+{%-     for pod in data_to_template['imdata'] %}
+{{ pod.fabricPod.attributes.id }},{{ pod.fabricPod.attributes.childAction }},{{ pod.fabricPod.attributes.dn }},{{ pod.fabricPod.attributes.lcOwn }},{{ pod.fabricPod.attributes.modTs }},{{ pod.fabricPod.attributes.monPolDn }},{{ pod.fabricPod.attributes.podType }},{{ pod.fabricPod.attributes.status }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
