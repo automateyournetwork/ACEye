@@ -1933,5 +1933,36 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "fabricPath" in api %}
+<h1>Fabric Paths</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Node 1</th>
+    <th>Node 2</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Last Updated</th>
+    <th>Monitoring Policy DN</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody> 
+{%-     for path in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ path.fabricPath.attributes.n1 }}</td>
+    <td>{{ path.fabricPath.attributes.n2 }}</td>
+    <td>{{ path.fabricPath.attributes.childAction }}</td>
+    <td>{{ path.fabricPath.attributes.dn }}</td>
+    <td>{{ path.fabricPath.attributes.lcOwn }}</td>
+    <td>{{ path.fabricPath.attributes.modTs }}</td>
+    <td>{{ path.fabricPath.attributes.monPolDn }}</td>
+    <td>{{ path.fabricPath.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

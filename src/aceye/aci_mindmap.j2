@@ -984,4 +984,18 @@
 ### Pod Type: {{ pod.fabricPod.attributes.podType }}
 ### Status: {{ pod.fabricPod.attributes.status }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "fabricPath" in api %}
+# Fabric Paths
+{%-     for path in data_to_template['imdata'] %}
+## DN: {{ path.fabricPath.attributes.dn }}
+### Nodes
+#### Node 1: {{ path.fabricPath.attributes.n1 }}
+#### Node 2: {{ path.fabricPath.attributes.n2 }}
+### Child Action: {{ path.fabricPath.attributes.childAction }}
+### Local Owner: {{ path.fabricPath.attributes.lcOwn }}
+### Last Modified: {{ path.fabricPath.attributes.modTs }}
+### Monitoring Policy DN: {{ path.fabricPath.attributes.monPolDn }}
+### Status: {{ path.fabricPath.attributes.status }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
