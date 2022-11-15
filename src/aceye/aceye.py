@@ -77,12 +77,15 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.licenses(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.bgp_rr(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Tenant',
                     'Application Profiles',
                     'Attachable Access Entity Profiles',
                     'Audit Log',
+                    'BGP Route Reflectors',
                     'Bridge Domains',
                     'Contexts',
                     'Contracts',
@@ -341,6 +344,13 @@ class ACEye():
         response_dict  = response.json()
         return(response_dict)
 
+    def bgp_rr(self):
+        self.url = f"{ self.aci }/api/node/class/bgpRRNodePEp.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<BGP Route Reflectors Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -452,6 +462,10 @@ class ACEye():
                 
         if "licenseEntitlement" in self.url:
             with open('License Entitlements/JSON/License Entitlements.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "bgpRRNodePEp" in self.url:
+            with open('BGP Route Reflectors/JSON/BGP Route Reflectors.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -566,6 +580,10 @@ class ACEye():
 
         if "licenseEntitlement" in self.url:
             with open('License Entitlements/YAML/License Entitlements.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "bgpRRNodePEp" in self.url:
+            with open('BGP Route Reflectors/YAML/BGP Route Reflectors.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -684,6 +702,10 @@ class ACEye():
 
         if "licenseEntitlement" in self.url:
             with open('License Entitlements/CSV/License Entitlements.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "bgpRRNodePEp" in self.url:
+            with open('BGP Route Reflectors/CSV/BGP Route Reflectors.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -805,6 +827,10 @@ class ACEye():
             with open('License Entitlements/Markdown/License Entitlements.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "bgpRRNodePEp" in self.url:
+            with open('BGP Route Reflectors/Markdown/BGP Route Reflectors.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -924,6 +950,10 @@ class ACEye():
             with open('License Entitlements/HTML/License Entitlements.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "bgpRRNodePEp" in self.url:
+            with open('BGP Route Reflectors/HTML/BGP Route Reflectors.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1041,6 +1071,10 @@ class ACEye():
 
         if "licenseEntitlement" in self.url:
             with open('License Entitlements/Mindmap/License Entitlements.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "bgpRRNodePEp" in self.url:
+            with open('BGP Route Reflectors/Mindmap/BGP Route Reflectors.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

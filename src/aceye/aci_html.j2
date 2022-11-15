@@ -1621,5 +1621,50 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "bgpRRNodePEp" in api %}
+<h1>BGP Route Reflectors</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>POD ID</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for rr in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ rr.bgpRRNodePEp.attributes.name }}</td>
+    <td>{{ rr.bgpRRNodePEp.attributes.nameAlias }}</td>
+    <td>{{ rr.bgpRRNodePEp.attributes.annotation }}</td>
+    <td>{{ rr.bgpRRNodePEp.attributes.childAction }}</td>
+    <td>{{ rr.bgpRRNodePEp.attributes.descr }}</td>
+    <td>{{ rr.bgpRRNodePEp.attributes.dn }}</td>
+    <td>{{ rr.bgpRRNodePEp.attributes.extMngdBy }}</td>
+    <td>{{ rr.bgpRRNodePEp.attributes.id }}</td>
+    <td>{{ rr.bgpRRNodePEp.attributes.lcOwn }}</td>
+    <td>{{ rr.bgpRRNodePEp.attributes.modTs }}</td>
+    <td>{{ rr.bgpRRNodePEp.attributes.monPolDn }}</td>
+    <td>{{ rr.bgpRRNodePEp.attributes.podId }}</td>
+    <td>{{ rr.bgpRRNodePEp.attributes.status }}</td>
+    <td>{{ rr.bgpRRNodePEp.attributes.uid }}</td>
+    <td>{{ rr.bgpRRNodePEp.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
