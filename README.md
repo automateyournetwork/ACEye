@@ -28,6 +28,8 @@ Events
 
 Fabric Nodes
 
+Fabric Pods
+
 Fault Summary
 
 Filters
