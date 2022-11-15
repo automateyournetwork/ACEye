@@ -181,4 +181,11 @@
 {%-     for ip in data_to_template['imdata'] %}
 | {{ ip.fvIp.attributes.addr }} | {{ ip.fvIp.attributes.annotation }} | {{ ip.fvIp.attributes.baseEpgDn }} | {{ ip.fvIp.attributes.bdDn }} | {{ ip.fvIp.attributes.childAction }} | {{ ip.fvIp.attributes.createTs }} | {{ ip.fvIp.attributes.debugMACMessage }} | {{ ip.fvIp.attributes.esgUsegDn }} | {{ ip.fvIp.attributes.extMngdBy }} | {{ ip.fvIp.attributes.fabricPathDn }} | {{ ip.fvIp.attributes.flags }} | {{ ip.fvIp.attributes.lcOwn }} | {{ ip.fvIp.attributes.modTs }} | {{ ip.fvIp.attributes.monPolDn }} | {{ ip.fvIp.attributes.dn }} | {{ ip.fvIp.attributes.status }} | {{ ip.fvIp.attributes.uid }} | {{ ip.fvIp.attributes.userdom }} | {{ ip.fvIp.attributes.vrfDn }} |
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eventRecord" in api %}# Events
+| ID | Affected | Cause | Change Set | Child Action | Code | Created | Description | DN | IND | Last Modified | Severity | Status | Trigger | TX ID | User |
+| -- | -------- | ----- | ---------- | ------------ | ---- | ------- | ----------- | -- | --- | ------------- | -------- | ------ | ------- | ----- | ---- |
+{%-     for event in data_to_template['imdata'] %}
+| {{ event.eventRecord.attributes.id }} | {{ event.eventRecord.attributes.affected }} | {{ event.eventRecord.attributes.cause }} | {{ event.eventRecord.attributes.changeSet }} | {{ event.eventRecord.attributes.childAction }} | {{ event.eventRecord.attributes.code }} | {{ event.eventRecord.attributes.created }} | {{ event.eventRecord.attributes.descr }} | {{ event.eventRecord.attributes.dn }} | {{ event.eventRecord.attributes.ind }} | {{ event.eventRecord.attributes.modTs }} | {{ event.eventRecord.attributes.severity }} | {{ event.eventRecord.attributes.status }} | {{ event.eventRecord.attributes.trig }} | {{ event.eventRecord.attributes.txId }} | {{ event.eventRecord.attributes.user }} |
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

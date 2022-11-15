@@ -735,4 +735,25 @@
 ### User Domain: {{ ip.fvIp.attributes.userdom }}
 ### VRF DN: {{ ip.fvIp.attributes.vrfDn }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eventRecord" in api %}
+# Events
+{%-     for event in data_to_template['imdata'] %}
+## ID: {{ event.eventRecord.attributes.id }}
+### Affected: {{ event.eventRecord.attributes.affected }}
+### Cause: {{ event.eventRecord.attributes.cause }}
+### Change Set: {{ event.eventRecord.attributes.changeSet }}
+### Child Action: {{ event.eventRecord.attributes.childAction }}
+### Code: {{ event.eventRecord.attributes.code }}
+### Created: {{ event.eventRecord.attributes.created }}
+### Description: {{ event.eventRecord.attributes.descr }}
+### DN: {{ event.eventRecord.attributes.dn }}
+### IND: {{ event.eventRecord.attributes.ind }}
+### Last Modified: {{ event.eventRecord.attributes.modTs }}
+### Severity: {{ event.eventRecord.attributes.severity }}
+### Status: {{ event.eventRecord.attributes.status }}
+### Trigger: {{ event.eventRecord.attributes.trig }}
+### TX ID: {{ event.eventRecord.attributes.txId }}
+### User: {{ event.eventRecord.attributes.user }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

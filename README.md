@@ -22,6 +22,8 @@ Endpoints (All Connected Fabric Endpoints)
 
 EPG (Endpoint Groups)
 
+Events
+
 Fabric Nodes
 
 Fault Summary
