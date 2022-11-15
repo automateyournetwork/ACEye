@@ -772,4 +772,24 @@
 ### Tag: {{ license.licenseEntitlement.attributes.tag }}
 ### Version: {{ license.licenseEntitlement.attributes.version }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "bgpRRNodePEp" in api %}
+# BGP Route Reflectors
+{%-     for rr in data_to_template['imdata'] %}
+## Name: {{ rr.bgpRRNodePEp.attributes.name }}
+### Name Alias: {{ rr.bgpRRNodePEp.attributes.nameAlias }}
+### Annotation: {{ rr.bgpRRNodePEp.attributes.annotation }}
+### Child Action: {{ rr.bgpRRNodePEp.attributes.childAction }}
+### Description: {{ rr.bgpRRNodePEp.attributes.descr }}
+### DN: {{ rr.bgpRRNodePEp.attributes.dn }}
+### Externally Managed By: {{ rr.bgpRRNodePEp.attributes.extMngdBy }}
+### ID: {{ rr.bgpRRNodePEp.attributes.id }}
+### Local Owner: {{ rr.bgpRRNodePEp.attributes.lcOwn }}
+### Last Modified: {{ rr.bgpRRNodePEp.attributes.modTs }}
+### Monitoring Policy DN: {{ rr.bgpRRNodePEp.attributes.monPolDn }}
+### POD ID: {{ rr.bgpRRNodePEp.attributes.podId }}
+### Status: {{ rr.bgpRRNodePEp.attributes.status }}
+### UID: {{ rr.bgpRRNodePEp.attributes.uid }}
+### User Domain: {{ rr.bgpRRNodePEp.attributes.userdom }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
