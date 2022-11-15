@@ -32,6 +32,8 @@ Fault Summary
 
 Filters
 
+Interface Policies
+
 IP Addresses
 
 License Entitlements
