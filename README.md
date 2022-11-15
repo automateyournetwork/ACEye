@@ -28,6 +28,8 @@ Events
 
 Fabric Nodes
 
+Fabric Paths
+
 Fabric Pods
 
 Fault Summary
