@@ -32,7 +32,7 @@ Filters
 
 IP Addresses
 
-License Entitlement
+License Entitlements
 
 L2Outs
 

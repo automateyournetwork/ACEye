@@ -75,6 +75,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.events(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.licenses(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Tenant',
@@ -91,6 +93,7 @@ class ACEye():
                     'Fault Summary',
                     'Filters',
                     'IP Addresses',
+                    'License Entitlements',
                     'L2Outs',
                     'L3 Domains',
                     'L3Outs',
@@ -331,6 +334,13 @@ class ACEye():
         response_dict  = response.json()
         return(response_dict)
 
+    def licenses(self):
+        self.url = f"{ self.aci }/api/node/class/licenseEntitlement.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<License Entitlements Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -440,6 +450,10 @@ class ACEye():
             with open('Events/JSON/Events.json', 'w' ) as f:
                 f.write(parsed_json)
                 
+        if "licenseEntitlement" in self.url:
+            with open('License Entitlements/JSON/Events.json', 'w' ) as f:
+                f.write(parsed_json)
+
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
         if "Tenant" in self.url:
@@ -1012,10 +1026,10 @@ class ACEye():
     def all_files(self, parsed_json):
         self.json_file(parsed_json)
         self.yaml_file(parsed_json)
-        self.csv_file(parsed_json)
-        self.markdown_file(parsed_json)
-        self.html_file(parsed_json)
-        self.mindmap_file(parsed_json)
+        # self.csv_file(parsed_json)
+        # self.markdown_file(parsed_json)
+        # self.html_file(parsed_json)
+        # self.mindmap_file(parsed_json)
         
 @click.command()
 @click.option('--url',
