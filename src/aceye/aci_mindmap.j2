@@ -792,4 +792,26 @@
 ### UID: {{ rr.bgpRRNodePEp.attributes.uid }}
 ### User Domain: {{ rr.bgpRRNodePEp.attributes.userdom }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "infraPortS" in api %}
+# Interface Policies
+{%-     for policy in data_to_template['imdata'] %}
+## Name: {{ policy.infraHPortS.attributes.name }}
+### Name Alias: {{ policy.infraHPortS.attributes.nameAlias }}
+### Annotation: {{ policy.infraHPortS.attributes.annotation }}
+### Child Action: {{ policy.infraHPortS.attributes.childAction }}
+### Description: {{ policy.infraHPortS.attributes.descr }}
+### DN: {{ policy.infraHPortS.attributes.dn }}
+### Externally Managed By: {{ policy.infraHPortS.attributes.extMngdBy }}
+### Local Owner: {{ policy.infraHPortS.attributes.lcOwn }}
+### Last Modified: {{ policy.infraHPortS.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.infraHPortS.attributes.monPolDn }}
+### Owner
+#### Key: {{ policy.infraHPortS.attributes.ownerKey }}
+#### Tag: {{ policy.infraHPortS.attributes.ownerTag }}
+### Status: {{ policy.infraHPortS.attributes.status }}
+### Type: {{ policy.infraHPortS.attributes.type }}
+### UID: {{ policy.infraHPortS.attributes.uid }}
+### User Domain: {{ policy.infraHPortS.attributes.userdom }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

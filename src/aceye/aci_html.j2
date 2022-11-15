@@ -1666,5 +1666,52 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "infraPortS" in api %}
+<h1>Interface Policies</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for policy in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ policy.infraHPortS.attributes.name }}</td>
+    <td>{{ policy.infraHPortS.attributes.nameAlias }}</td>
+    <td>{{ policy.infraHPortS.attributes.annotation }}</td>
+    <td>{{ policy.infraHPortS.attributes.childAction }}</td>
+    <td>{{ policy.infraHPortS.attributes.descr }}</td>
+    <td>{{ policy.infraHPortS.attributes.dn }}</td>
+    <td>{{ policy.infraHPortS.attributes.extMngdBy }}</td>
+    <td>{{ policy.infraHPortS.attributes.lcOwn }}</td>
+    <td>{{ policy.infraHPortS.attributes.modTs }}</td>
+    <td>{{ policy.infraHPortS.attributes.monPolDn }}</td>
+    <td>{{ policy.infraHPortS.attributes.ownerKey }}</td>
+    <td>{{ policy.infraHPortS.attributes.ownerTag }}</td>
+    <td>{{ policy.infraHPortS.attributes.status }}</td>
+    <td>{{ policy.infraHPortS.attributes.type }}</td>
+    <td>{{ policy.infraHPortS.attributes.uid }}</td>
+    <td>{{ policy.infraHPortS.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
