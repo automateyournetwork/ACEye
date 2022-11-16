@@ -1102,4 +1102,30 @@
 ### UID: {{ domain.aaaDomain.attributes.uid }}
 ### User Domain: {{ domain.aaaDomain.attributes.userdom }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "vzSubj" in api %}
+# Contract Subjects
+{%-     for subject in data_to_template['imdata'] %}
+## Name: {{ subject.vzSubj.attributes.name }}
+### Name Alias: {{ subject.vzSubj.attributes.nameAlias }}
+### Access Privilege: {{ subject.vzSubj.attributes.accessPrivilege }}
+### Annotication: {{ subject.vzSubj.attributes.annotation }}
+### Child Action: {{ subject.vzSubj.attributes.childAction }}
+### Configuration Issues: {{ subject.vzSubj.attributes.configIssues }}
+### Match T
+#### Consumer: {{ subject.vzSubj.attributes.consMatchT }}
+#### Provider: {{ subject.vzSubj.attributes.provMatchT }}
+### Description: {{ subject.vzSubj.attributes.descr }}
+### DN: {{ subject.vzSubj.attributes.dn }}
+### Externally Managed By: {{ subject.vzSubj.attributes.extMngdBy }}
+### Local Onwer: {{ subject.vzSubj.attributes.lcOwn }}
+### Last Modified: {{ subject.vzSubj.attributes.modTs }}
+### Monitoring Policy DN: {{ subject.vzSubj.attributes.monPolDn }}
+### Priority: {{ subject.vzSubj.attributes.prio }}
+### Reverse Filter Ports: {{ subject.vzSubj.attributes.revFltPorts }}
+### Status: {{ subject.vzSubj.attributes.status }}
+### Target DSCP: {{ subject.vzSubj.attributes.targetDscp }}
+### UID: {{ subject.vzSubj.attributes.uid }}
+### User Domain: {{ subject.vzSubj.attributes.userdom }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

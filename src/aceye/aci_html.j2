@@ -2178,5 +2178,60 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "vzSubj" in api %}
+<h1>Contract Subjects</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Access Privilege</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Configuration Issues</th>
+    <th>Consumer Match T</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Priority</th>
+    <th>Provider Match T</th>
+    <th>Reverse Filter Ports</th>
+    <th>Status</th>
+    <th>Target DSCP</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for subject in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ subject.vzSubj.attributes.name }}</td>
+    <td>{{ subject.vzSubj.attributes.nameAlias }}</td>
+    <td>{{ subject.vzSubj.attributes.accessPrivilege }}</td>
+    <td>{{ subject.vzSubj.attributes.annotation }}</td>
+    <td>{{ subject.vzSubj.attributes.childAction }}</td>
+    <td>{{ subject.vzSubj.attributes.configIssues }}</td>
+    <td>{{ subject.vzSubj.attributes.consMatchT }}</td>
+    <td>{{ subject.vzSubj.attributes.descr }}</td>
+    <td>{{ subject.vzSubj.attributes.dn }}</td>
+    <td>{{ subject.vzSubj.attributes.extMngdBy }}</td>
+    <td>{{ subject.vzSubj.attributes.lcOwn }}</td>
+    <td>{{ subject.vzSubj.attributes.modTs }}</td>
+    <td>{{ subject.vzSubj.attributes.monPolDn }}</td>
+    <td>{{ subject.vzSubj.attributes.prio }}</td>
+    <td>{{ subject.vzSubj.attributes.provMatchT }}</td>
+    <td>{{ subject.vzSubj.attributes.revFltPorts }}</td>
+    <td>{{ subject.vzSubj.attributes.status }}</td>
+    <td>{{ subject.vzSubj.attributes.targetDscp }}</td>
+    <td>{{ subject.vzSubj.attributes.uid }}</td>
+    <td>{{ subject.vzSubj.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
