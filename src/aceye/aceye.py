@@ -98,6 +98,8 @@ class ACEye():
         parsed_json = json.dumps(self.contract_subjects(), indent=4, sort_keys=True)
         self.all_files(parsed_json) 
         parsed_json = json.dumps(self.health(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.fabric_node_ssl_certificate(), indent=4, sort_keys=True)
         self.all_files(parsed_json) 
 
     def make_directories(self):
@@ -114,6 +116,7 @@ class ACEye():
                     'EPG',
                     'Events',
                     'Fabric Nodes',
+                    'Fabric Node SSL Certificates',
                     'Fabric Paths',
                     'Fabric Pods',
                     'Fault Summary',
@@ -458,6 +461,13 @@ class ACEye():
         response_dict  = response.json()
         return(response_dict)
 
+    def fabric_node_ssl_certificate(self):
+        self.url = f"{ self.aci }/api/node/class/pkiFabricNodeSSLCertificate.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<PKI Fabric Node SSL Certificate code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -613,6 +623,10 @@ class ACEye():
 
         if "health" in self.url:
             with open('Health/JSON/Health.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "pkiFabricNodeSSLCertificate" in self.url:
+            with open('Fabric Node SSL Certificates/JSON/Fabric Node SSL Certificates.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -771,6 +785,10 @@ class ACEye():
 
         if "health" in self.url:
             with open('Health/YAML/Health.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "pkiFabricNodeSSLCertificate" in self.url:
+            with open('Fabric Node SSL Certificates/YAML/Fabric Node SSL Certificates.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -933,6 +951,10 @@ class ACEye():
 
         if "health" in self.url:
             with open('Health/CSV/Health.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "pkiFabricNodeSSLCertificate" in self.url:
+            with open('Fabric Node SSL Certificates/CSV/Fabric Node SSL Certificates.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -1098,6 +1120,10 @@ class ACEye():
             with open('Health/Markdown/Health.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "pkiFabricNodeSSLCertificate" in self.url:
+            with open('Fabric Node SSL Certificates/Markdown/Fabric Node SSL Certificates.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1261,6 +1287,10 @@ class ACEye():
             with open('Health/HTML/Health.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "pkiFabricNodeSSLCertificate" in self.url:
+            with open('Fabric Node SSL Certificates/HTML/Fabric Node SSL Certificates.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1422,6 +1452,10 @@ class ACEye():
 
         if "health" in self.url:
             with open('Health/Mindmap/Health.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "pkiFabricNodeSSLCertificate" in self.url:
+            with open('Fabric Node SSL Certificates/Mindmap/Fabric Node SSL Certificates.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

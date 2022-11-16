@@ -28,7 +28,7 @@ EPG (Endpoint Groups)
 
 *Events
 
-Fabric Node SSL Certifcate
+Fabric Node SSL Certifcates
 
 Fabric Nodes
 
