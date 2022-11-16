@@ -58,6 +58,10 @@ Physical Domains
 
 Physical Interfaces
 
+Prefix List
+
+Prefix List Detailed
+
 QOS Classes
 
 Spine Interface Profiles

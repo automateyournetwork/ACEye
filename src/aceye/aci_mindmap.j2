@@ -998,4 +998,45 @@
 ### Monitoring Policy DN: {{ path.fabricPath.attributes.monPolDn }}
 ### Status: {{ path.fabricPath.attributes.status }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "rtctrlSubjP" in api %}
+# Prefix List
+{%-     for prefix_list in data_to_template['imdata'] %}
+## Name: {{ prefix_list.rtctrlSubjP.attributes.name }}
+### Annotation: {{ prefix_list.rtctrlSubjP.attributes.annotation }}
+### Child Action: {{ prefix_list.rtctrlSubjP.attributes.childAction }}
+### Description: {{ prefix_list.rtctrlSubjP.attributes.description }}
+### DN: {{ prefix_list.rtctrlSubjP.attributes.dn }}
+### Externally Managed By: {{ prefix_list.rtctrlSubjP.attributes.extMngdBy }}
+### Local Owner: {{ prefix_list.rtctrlSubjP.attributes.lcOwn }}
+### Last Modified: {{ prefix_list.rtctrlSubjP.attributes.modTs }}
+### Name Alias: {{ prefix_list.rtctrlSubjP.attributes.nameAlias }}
+### Status: {{ prefix_list.rtctrlSubjP.attributes.status }}
+### UID: {{ prefix_list.rtctrlSubjP.attributes.uid }}
+### User Domain: {{ prefix_list.rtctrlSubjP.attributes.userdom }}
+{%-     endfor %}
+{%- else %}
+{%- if "rtctrlMatchRtDest" in api %}
+# Prefix List Detailed
+{%-     for outer_list in data_to_template %}
+{%-         for prefix_list_detailed in outer_list %}
+## Name: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.name }}
+### Aggregate: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.aggregate }}
+### Annotation: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.annotation }}
+### Child Action: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.childAction }}
+### Description: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.descr }}
+### DN: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.dn }}
+### Externally Managed By: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.extMngdBy }}
+### fromPfxLen: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.fromPfxLen }}
+### IP: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.ip }}
+### Local Owner: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.lcOwn }}
+### Last Modified: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.modTs }}
+### Name Alias: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.nameAlias }}
+### Status: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.status }}
+### toPfxLen: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.toPfxLen }}
+### Type: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.type }}
+### UID: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.uid }}
+### User Domain: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.userdom }}
+{%-         endfor %}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
