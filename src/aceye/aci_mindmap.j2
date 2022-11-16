@@ -1146,4 +1146,45 @@
 ### Last Updated: {{ score.fabricHealthTotal.attributes.updTs }}
 ## Status: {{ score.fabricHealthTotal.attributes.status }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "pkiFabricNodeSSLCertificate" in api %}
+# Fabric Node SSL Certificates
+{%-     for cert in data_to_template['imdata'] %}
+## Name: {{ cert.pkiFabricNodeSSLCertificate.attributes.name }}
+### Name Alias: {{ cert.pkiFabricNodeSSLCertificate.attributes.nameAlias }}
+### Authority Key Identifier: {{ cert.pkiFabricNodeSSLCertificate.attributes.authorityKeyIdentifier }}
+### Child Action: {{ cert.pkiFabricNodeSSLCertificate.attributes.childAction }}
+### Data: {{ cert.pkiFabricNodeSSLCertificate.attributes.data | replace("\n"," ") }}
+### Description: {{ cert.pkiFabricNodeSSLCertificate.attributes.descr }}
+### DN: {{ cert.pkiFabricNodeSSLCertificate.attributes.dn }}
+### Expired Certificate: {{ cert.pkiFabricNodeSSLCertificate.attributes.expiredCertificate }}
+### Invalid
+#### Issuer: {{ cert.pkiFabricNodeSSLCertificate.attributes.invalidIssuer }}
+#### Signing CA For Certificate: {{ cert.pkiFabricNodeSSLCertificate.attributes.invalidSigningCAForCertificate }}
+#### Subject Format: {{ cert.pkiFabricNodeSSLCertificate.attributes.invalidSubjectFormat }}
+### Issuer: {{ cert.pkiFabricNodeSSLCertificate.attributes.issuer }}
+### Key Size: {{ cert.pkiFabricNodeSSLCertificate.attributes.keySize }}
+### Local Owner: {{ cert.pkiFabricNodeSSLCertificate.attributes.lcOwn }}
+### Message: {{ cert.pkiFabricNodeSSLCertificate.attributes.message }}
+### Last Modified: {{ cert.pkiFabricNodeSSLCertificate.attributes.modTs }}
+### Monitoring Policy DN: {{ cert.pkiFabricNodeSSLCertificate.attributes.monPolDn }}
+### Node
+#### ID: {{ cert.pkiFabricNodeSSLCertificate.attributes.nodeId }}
+#### Type: {{ cert.pkiFabricNodeSSLCertificate.attributes.nodeType }}
+### Owner:
+#### Key: {{ cert.pkiFabricNodeSSLCertificate.attributes.ownerKey }}
+#### Tag: {{ cert.pkiFabricNodeSSLCertificate.attributes.ownerTag }}
+### Public Key Algorithm: {{ cert.pkiFabricNodeSSLCertificate.attributes.publicKeyAlgorithm }}
+### Serial Number: {{ cert.pkiFabricNodeSSLCertificate.attributes.serialNumber }}
+### Signature Algorithm: {{ cert.pkiFabricNodeSSLCertificate.attributes.signatureAlgorithm }}
+### Status: {{ cert.pkiFabricNodeSSLCertificate.attributes.status }}
+### Subject
+#### Subject: {{ cert.pkiFabricNodeSSLCertificate.attributes.subject }}
+#### Subject Key Identifier: {{ cert.pkiFabricNodeSSLCertificate.attributes.subjectKeyIdentifier }}
+### Validate
+#### Certificate: {{ cert.pkiFabricNodeSSLCertificate.attributes.validCertificate }}
+#### Validity Not After: {{ cert.pkiFabricNodeSSLCertificate.attributes.validityNotAfter }}
+#### Validity Not Before: {{ cert.pkiFabricNodeSSLCertificate.attributes.validityNotBefore }}
+### Version: {{ cert.pkiFabricNodeSSLCertificate.attributes.version }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

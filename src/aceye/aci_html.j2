@@ -2269,5 +2269,82 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "pkiFabricNodeSSLCertificate" in api %}
+<h1>Fabric Node SSL Certificates</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Authority Key Identifier</th>
+    <th>Child Action</th>
+    <th>Data</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Expired Certificate</th>
+    <th>Invalid Issuer</th>
+    <th>Invalid Signing CA For Certificate</th>
+    <th>Invalid Subject Format</th>
+    <th>Issuer</th>
+    <th>Key Size</th>
+    <th>Local Owner</th>
+    <th>Message</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Node ID</th>
+    <th>Node Type</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Public Key Algorithm</th>
+    <th>Serial Number</th>
+    <th>Signature Algorithm</th>
+    <th>Status</th>
+    <th>Subject</th>
+    <th>Subject Key Identifier</th>
+    <th>Valid Certificate</th>
+    <th>Validity Not After</th>
+    <th>Validity Not Before</th>
+    <th>Version</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for cert in data_to_template['imdata'] %}
+  <tr>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.name }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.nameAlias }}</th>
+    <td>{{ cert.pkiFabricNodeSSLCertificate.attributes.authorityKeyIdentifier }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.childAction }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.data | replace("\n"," ") }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.descr }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.dn }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.expiredCertificate }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.invalidIssuer }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.invalidSigningCAForCertificate }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.invalidSubjectFormat }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.issuer }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.keySize }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.lcOwn }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.message }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.modTs }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.monPolDn }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.nodeId }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.nodeType }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.ownerKey }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.ownerTag }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.publicKeyAlgorithm }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.serialNumber }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.signatureAlgorithm }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.status }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.subject }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.subjectKeyIdentifier }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.validCertificate }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.validityNotAfter }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.validityNotBefore }}</th>
+    <th>{{ cert.pkiFabricNodeSSLCertificate.attributes.version }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
