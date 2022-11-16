@@ -38,6 +38,8 @@ Fault Summary
 
 Filters
 
+Health
+
 Interface Policies
 
 Interface Profiles
