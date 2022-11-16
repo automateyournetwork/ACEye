@@ -91,6 +91,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.prefix_list_detailed(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.users(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)        
 
     def make_directories(self):
         api_list = ['Tenant',
@@ -128,6 +130,7 @@ class ACEye():
                     'Subnets',
                     'Tenant',
                     'Top System',
+                    'Users',
                     'VLAN Pools']
         current_directory = os.getcwd()
         for api in api_list:
@@ -418,6 +421,13 @@ class ACEye():
             ip_prefix_list.append(response_dict['imdata'])
         return(ip_prefix_list)
 
+    def users(self):
+        self.url = f"{ self.aci }/api/node/class/aaaUser.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Users Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -557,6 +567,10 @@ class ACEye():
 
         if "rtctrlMatchRtDest" in self.url:
             with open('Prefix List Detailed/JSON/Prefix List Detailed.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "aaaUser" in self.url:
+            with open('Users/JSON/Users.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -699,6 +713,10 @@ class ACEye():
 
         if "rtctrlMatchRtDest" in self.url:
             with open('Prefix List Detailed/YAML/Prefix List Detailed.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "aaaUser" in self.url:
+            with open('Users/YAML/Users.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -845,6 +863,10 @@ class ACEye():
 
         if "rtctrlMatchRtDest" in self.url:
             with open('Prefix List Detailed/CSV/Prefix List Detailed.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "aaaUser" in self.url:
+            with open('Users/CSV/Users.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -994,6 +1016,10 @@ class ACEye():
             with open('Prefix List Detailed/Markdown/Prefix List Detailed.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "aaaUser" in self.url:
+            with open('Users/Markdown/Users.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1141,6 +1167,10 @@ class ACEye():
             with open('Prefix List Detailed/HTML/Prefix List Detailed.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "aaaUser" in self.url:
+            with open('Users/HTML/Users.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1286,6 +1316,10 @@ class ACEye():
 
         if "rtctrlMatchRtDest" in self.url:
             with open('Prefix List Detailed/Mindmap/Prefix List Detailed.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "aaaUser" in self.url:
+            with open('Users/Mindmap/Users.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

@@ -2054,5 +2054,84 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "aaaUser" in api %}
+<h1>Users</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Account Status</th>
+    <th>Annotation</th>
+    <th>Cert Attribute</th>
+    <th>Child Action</th>
+    <th>Clear Password History</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Email</th>
+    <th>Expiration</th>
+    <th>Expires</th>
+    <th>Externally Managed By</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>OTP Enable</th>
+    <th>OTP Enforced</th>
+    <th>OTP Key</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Phone</th>
+    <th>Password Life Time</th>
+    <th>Password Update Required</th>
+    <th>RBAC String</th>
+    <th>Restricted RBAC User</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>UNIX User ID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for user in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ user.aaaUser.attributes.name }}</td>
+    <td>{{ user.aaaUser.attributes.nameAlias }}</td>
+    <td>{{ user.aaaUser.attributes.accountStatus }}</td>
+    <td>{{ user.aaaUser.attributes.annotation }}</td>
+    <td>{{ user.aaaUser.attributes.certAttribute }}</td>
+    <td>{{ user.aaaUser.attributes.childAction }}</td>
+    <td>{{ user.aaaUser.attributes.clearPwdHistory }}</td>
+    <td>{{ user.aaaUser.attributes.descr }}</td>
+    <td>{{ user.aaaUser.attributes.dn }}</td>
+    <td>{{ user.aaaUser.attributes.email }}</td>
+    <td>{{ user.aaaUser.attributes.expiration }}</td>
+    <td>{{ user.aaaUser.attributes.expires }}</td>
+    <td>{{ user.aaaUser.attributes.extMngdBy }}</td>
+    <td>{{ user.aaaUser.attributes.firstName }}</td>
+    <td>{{ user.aaaUser.attributes.lastName }}</td>
+    <td>{{ user.aaaUser.attributes.lcOwn }}</td>
+    <td>{{ user.aaaUser.attributes.modTs }}</td>
+    <td>{{ user.aaaUser.attributes.monPolDn }}</td>
+    <td>{{ user.aaaUser.attributes.otpenable }}</td>
+    <td>{{ user.aaaUser.attributes.otpenf }}</td>
+    <td>{{ user.aaaUser.attributes.otpkey }}</td>
+    <td>{{ user.aaaUser.attributes.ownerKey }}</td>
+    <td>{{ user.aaaUser.attributes.ownerTag }}</td>
+    <td>{{ user.aaaUser.attributes.phone }}</td>
+    <td>{{ user.aaaUser.attributes.pwdLifeTime }}</td>
+    <td>{{ user.aaaUser.attributes.pwdUpdateRequired }}</td>
+    <td>{{ user.aaaUser.attributes.rbacString }}</td>
+    <td>{{ user.aaaUser.attributes.restrictedRbacUser }}</td>
+    <td>{{ user.aaaUser.attributes.status }}</td>
+    <td>{{ user.aaaUser.attributes.uid }}</td>
+    <td>{{ user.aaaUser.attributes.unixUserId }}</td>
+    <td>{{ user.aaaUser.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

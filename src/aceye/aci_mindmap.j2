@@ -1039,4 +1039,46 @@
 ### User Domain: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.userdom }}
 {%-         endfor %}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "aaaUser" in api %}
+# Users
+{%-     for user in data_to_template['imdata'] %}
+## Name: {{ user.aaaUser.attributes.name }}
+### Name Alias: {{ user.aaaUser.attributes.nameAlias }}
+### Account Status: {{ user.aaaUser.attributes.accountStatus }}
+### Annotation: {{ user.aaaUser.attributes.annotation }}
+### Cert Attribute: {{ user.aaaUser.attributes.certAttribute }}
+### Child Action: {{ user.aaaUser.attributes.childAction }}
+### Clear Password History: {{ user.aaaUser.attributes.clearPwdHistory }}
+### Description: {{ user.aaaUser.attributes.descr }}
+### DN: {{ user.aaaUser.attributes.dn }}
+### Email: {{ user.aaaUser.attributes.email }}
+### Expiration: {{ user.aaaUser.attributes.expiration }}
+### Expires: {{ user.aaaUser.attributes.expires }}
+### Externally Managed By: {{ user.aaaUser.attributes.extMngdBy }}
+### Identity
+#### First Name: {{ user.aaaUser.attributes.firstName }}
+#### Last Name: {{ user.aaaUser.attributes.lastName }}
+#### Phone: {{ user.aaaUser.attributes.phone }}
+### Local Owner: {{ user.aaaUser.attributes.lcOwn }}
+### Last Modified: {{ user.aaaUser.attributes.modTs }}
+### Monitoring Policy DN: {{ user.aaaUser.attributes.monPolDn }}
+### OPT
+#### Enable: {{ user.aaaUser.attributes.otpenable }}
+#### Enforced: {{ user.aaaUser.attributes.otpenf }}
+#### Key: {{ user.aaaUser.attributes.otpkey }}
+### Owner
+#### Key: {{ user.aaaUser.attributes.ownerKey }}
+#### Tag: {{ user.aaaUser.attributes.ownerTag }}
+### Password
+#### Life Time: {{ user.aaaUser.attributes.pwdLifeTime }}
+#### Update Required: {{ user.aaaUser.attributes.pwdUpdateRequired }}
+### RBAC
+#### String: {{ user.aaaUser.attributes.rbacString }}
+#### Restricted User: {{ user.aaaUser.attributes.restrictedRbacUser }}
+### Status: {{ user.aaaUser.attributes.status }}
+### UID: {{ user.aaaUser.attributes.uid }}
+### UNIX User ID: {{ user.aaaUser.attributes.unixUserId }}
+### User Domain: {{ user.aaaUser.attributes.userdom }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
