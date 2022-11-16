@@ -120,15 +120,15 @@ class ACEye():
                     'Leaf Switch Profiles',
                     'Physical Domains',
                     'Physical Interfaces',
+                    'Prefix List',
+                    'Prefix List Detailed',
                     'QOS Classes',
                     'Spine Interface Profiles',
                     'Spine Switch Profiles',
                     'Subnets',
                     'Tenant',
                     'Top System',
-                    'VLAN Pools',
-                    'Prefix List',
-                    'Prefix List Detailed']
+                    'VLAN Pools']
         current_directory = os.getcwd()
         for api in api_list:
             final_directory = os.path.join(current_directory, rf'{ api }/JSON')
