@@ -1081,4 +1081,25 @@
 ### UNIX User ID: {{ user.aaaUser.attributes.unixUserId }}
 ### User Domain: {{ user.aaaUser.attributes.userdom }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "aaaDomain" in api %}
+# Security Domains
+{%-     for domain in data_to_template['imdata'] %}
+## Name: {{ domain.aaaDomain.attributes.name }}
+### Name Alias: {{ domain.aaaDomain.attributes.nameAlias }}
+### Annotation: {{ domain.aaaDomain.attributes.annotation }}
+### Child Action: {{ domain.aaaDomain.attributes.childAction }}
+### Description: {{ domain.aaaDomain.attributes.descr }}
+### DN: {{ domain.aaaDomain.attributes.dn }}
+### Externally Managed By: {{ domain.aaaDomain.attributes.extMngdBy }}
+### Local Owner: {{ domain.aaaDomain.attributes.lcOwn }}
+### Last Modified: {{ domain.aaaDomain.attributes.modTs }}
+### Owner
+#### Key: {{ domain.aaaDomain.attributes.ownerKey }}
+#### Tag: {{ domain.aaaDomain.attributes.ownerTag }}
+### Restricted RBAC Domain: {{ domain.aaaDomain.attributes.restrictedRbacDomain }}
+### Status: {{ domain.aaaDomain.attributes.status }}
+### UID: {{ domain.aaaDomain.attributes.uid }}
+### User Domain: {{ domain.aaaDomain.attributes.userdom }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

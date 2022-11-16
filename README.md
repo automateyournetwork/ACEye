@@ -64,6 +64,8 @@ Prefix List Detailed
 
 QOS Classes
 
+Security Domains
+
 Spine Interface Profiles
 
 Spine Switch Profiles
