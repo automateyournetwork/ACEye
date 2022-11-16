@@ -2133,5 +2133,50 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "aaaDomain" in api %}
+<h1>Security Domains</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Restricted RBAC Domain</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for domain in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ domain.aaaDomain.attributes.name }}</td>
+    <td>{{ domain.aaaDomain.attributes.nameAlias }}</td>
+    <td>{{ domain.aaaDomain.attributes.annotation }}</td>
+    <td>{{ domain.aaaDomain.attributes.childAction }}</td>
+    <td>{{ domain.aaaDomain.attributes.descr }}</td>
+    <td>{{ domain.aaaDomain.attributes.dn }}</td>
+    <td>{{ domain.aaaDomain.attributes.extMngdBy }}</td>
+    <td>{{ domain.aaaDomain.attributes.lcOwn }}</td>
+    <td>{{ domain.aaaDomain.attributes.modTs }}</td>
+    <td>{{ domain.aaaDomain.attributes.ownerKey }}</td>
+    <td>{{ domain.aaaDomain.attributes.ownerTag }}</td>
+    <td>{{ domain.aaaDomain.attributes.restrictedRbacDomain }}</td>
+    <td>{{ domain.aaaDomain.attributes.status }}</td>
+    <td>{{ domain.aaaDomain.attributes.uid }}</td>
+    <td>{{ domain.aaaDomain.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
