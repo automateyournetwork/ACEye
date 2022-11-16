@@ -87,6 +87,10 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.fabric_paths(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.prefix_list(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.prefix_list_detailed(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Tenant',
@@ -122,7 +126,9 @@ class ACEye():
                     'Subnets',
                     'Tenant',
                     'Top System',
-                    'VLAN Pools']
+                    'VLAN Pools',
+                    'Prefix List',
+                    'Prefix List Detailed']
         current_directory = os.getcwd()
         for api in api_list:
             final_directory = os.path.join(current_directory, rf'{ api }/JSON')
@@ -391,6 +397,27 @@ class ACEye():
         response_dict  = response.json()
         return(response_dict)
 
+    def prefix_list(self):
+        self.url = f"{ self.aci }/api/node/mo/uni/tn-PROD.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Prefix List Status code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+        
+    def prefix_list_detailed(self):
+        self.url = f"{ self.aci }/api/node/mo/uni/tn-PROD.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Prefix List Status code { response.status_code } for { self.url }>")
+        prefix_response_dict  = response.json()
+        ip_prefix_list = []
+        for prefix in prefix_response_dict['imdata']:
+            self.url = f"{ self.aci }/api/node/mo/uni/tn-PROD/subj-{ prefix['rtctrlSubjP']['attributes']['name']}.json?query-target=children&target-subtree-class=rtctrlMatchRtDest"
+            response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+            print(f"<Prefix List Detailed Status code { response.status_code } for { self.url }>")
+            response_dict  = response.json()
+            ip_prefix_list.append(response_dict['imdata'])
+        return(ip_prefix_list)
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -522,6 +549,14 @@ class ACEye():
 
         if "fabricPath" in self.url:
             with open('Fabric Paths/JSON/Fabric Paths.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "rtctrlSubjP" in self.url:
+            with open('Prefix List/JSON/Prefix List.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "rtctrlMatchRtDest" in self.url:
+            with open('Prefix List Detailed/JSON/Prefix List Detailed.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -656,6 +691,14 @@ class ACEye():
 
         if "fabricPath" in self.url:
             with open('Fabric Paths/YAML/Fabric Paths.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "rtctrlSubjP" in self.url:
+            with open('Prefix List/YAML/Prefix List.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "rtctrlMatchRtDest" in self.url:
+            with open('Prefix List Detailed/YAML/Prefix List Detailed.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -794,6 +837,14 @@ class ACEye():
 
         if "fabricPath" in self.url:
             with open('Fabric Paths/CSV/Fabric Paths.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "rtctrlSubjP" in self.url:
+            with open('Prefix List/CSV/Prefix List.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "rtctrlMatchRtDest" in self.url:
+            with open('Prefix List Detailed/CSV/Prefix List Detailed.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -935,6 +986,14 @@ class ACEye():
             with open('Fabric Paths/Markdown/Fabric Paths.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "rtctrlSubjP" in self.url:
+            with open('Prefix List/Markdown/Prefix List.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "rtctrlMatchRtDest" in self.url:
+            with open('Prefix List Detailed/Markdown/Prefix List Detailed.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1074,6 +1133,14 @@ class ACEye():
             with open('Fabric Paths/HTML/Fabric Paths.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "rtctrlSubjP" in self.url:
+            with open('Prefix List/HTML/Prefix List.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "rtctrlMatchRtDest" in self.url:
+            with open('Prefix List Detailed/HTML/Prefix List Detailed.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1211,6 +1278,14 @@ class ACEye():
 
         if "fabricPath" in self.url:
             with open('Fabric Paths/Mindmap/Fabric Paths.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "rtctrlSubjP" in self.url:
+            with open('Prefix List/Mindmap/Prefix List.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "rtctrlMatchRtDest" in self.url:
+            with open('Prefix List Detailed/Mindmap/Prefix List Detailed.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

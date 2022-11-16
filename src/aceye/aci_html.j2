@@ -1964,5 +1964,95 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "rtctrlSubjP" in api %}
+<h1>Prefix List</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>Used Domain</th>
+  </tr>
+</thead>
+<tbody>  
+{%-     for prefix_list in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ prefix_list.rtctrlSubjP.attributes.annotation }}</td>
+    <td>{{ prefix_list.rtctrlSubjP.attributes.childAction }}</td>
+    <td>{{ prefix_list.rtctrlSubjP.attributes.description }}</td>
+    <td>{{ prefix_list.rtctrlSubjP.attributes.dn }}</td>
+    <td>{{ prefix_list.rtctrlSubjP.attributes.extMngdBy }}</td>
+    <td>{{ prefix_list.rtctrlSubjP.attributes.lcOwn }}</td>
+    <td>{{ prefix_list.rtctrlSubjP.attributes.modTs }}</td>
+    <td>{{ prefix_list.rtctrlSubjP.attributes.name }}</td>
+    <td>{{ prefix_list.rtctrlSubjP.attributes.nameAlias }}</td>
+    <td>{{ prefix_list.rtctrlSubjP.attributes.status }}</td>
+    <td>{{ prefix_list.rtctrlSubjP.attributes.uid }}</td>
+    <td>{{ prefix_list.rtctrlSubjP.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "rtctrlMatchRtDest" in api %}
+<h1>Prefix List Detailed</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Aggregate</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>fromPfxLen</th>
+    <th>IP</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Status</th>
+    <th>toPfxLen</th>
+    <th>Type</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody>  
+{%-     for outer_list in data_to_template %}
+{%-         for prefix_list_detailed in outer_list %}
+  <tr>
+    <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.aggregate }}</td>
+    <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.annotation }}</td>
+    <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.childAction }}</td>
+    <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.descr }}</td>
+    <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.dn }}</td>
+    <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.extMngdBy }}</td>
+    <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.fromPfxLen }}</td>
+    <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.ip }}</td>
+    <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.lcOwn }}</td>
+    <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.modTs }}</td>
+    <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.name }}</td>
+    <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.nameAlias }}</td>
+    <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.status }}</td>
+    <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.toPfxLen }}</td>
+    <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.type }}</td>
+    <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.uid }}</td>
+    <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.userdom }}</td>
+  </tr>
+{%-         endfor %}
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

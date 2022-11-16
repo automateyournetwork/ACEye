@@ -253,5 +253,21 @@
 {%-     for path in data_to_template['imdata'] %}
 | {{ path.fabricPath.attributes.n1 }} | {{ path.fabricPath.attributes.n2 }} | {{ path.fabricPath.attributes.childAction }} | {{ path.fabricPath.attributes.dn }} | {{ path.fabricPath.attributes.lcOwn }} | {{ path.fabricPath.attributes.modTs }} | {{ path.fabricPath.attributes.monPolDn }} | {{ path.fabricPath.attributes.status }} |
 {%-     endfor %}
+{%- else %}
+{%- if "rtctrlSubjP" in api %}# Fabric Nodes
+| Annotation | Child Action | Description | DN | Externally Managed By | Local Owner | Last Modified | Name | Name Alias | Status | UID | User Domain |
+| ---------- | ------------ | ----------- | -- | --------------------- | ----------- | ------------- | ---- | ---------- | ------ | --- | ----------- |
+{%-     for prefix_list in data_to_template['imdata'] %}
+| {{ prefix_list.rtctrlSubjP.attributes.annotation }} | {{ prefix_list.rtctrlSubjP.attributes.childAction }} | {{ prefix_list.rtctrlSubjP.attributes.description }} | {{ prefix_list.rtctrlSubjP.attributes.dn }} | {{ prefix_list.rtctrlSubjP.attributes.extMngdBy }} | {{ prefix_list.rtctrlSubjP.attributes.lcOwn }} | {{ prefix_list.rtctrlSubjP.attributes.modTs }} | {{ prefix_list.rtctrlSubjP.attributes.name }} | {{ prefix_list.rtctrlSubjP.attributes.nameAlias }} | {{ prefix_list.rtctrlSubjP.attributes.status }} | {{ prefix_list.rtctrlSubjP.attributes.uid }} | {{ prefix_list.rtctrlSubjP.attributes.userdom }} |
+{%-     endfor %}
+{%- else %}
+{%- if "rtctrlMatchRtDest" in api %}# Physical Interfaces
+| Aggregate | Annotation | Child Action | Description | DN | Externally Managed By< | fromPfxLen | IP | Local Owner | Last Modified | Name | Name Alias | Status | toPfxLen | Type | UID | User Domain |
+| --------- | ---------- | ------------ | ----------- | -- | ---------------------- | ---------- | -- | ----------- | ------------- | ---- | ---------- | ------ | -------- | ---- | --- | ----------- |
+{%-     for outer_list in data_to_template %}
+{%-         for prefix_list_detailed in outer_list %}
+| {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.aggregate }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.annotation }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.childAction }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.descr }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.dn }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.extMngdBy }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.fromPfxLen }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.ip }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.lcOwn }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.modTs }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.name }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.nameAlias }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.status }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.toPfxLen }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.type }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.uid }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.userdom }} |
+{%-         endfor %}
+{%-     endfor %}
 {%- endif %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
