@@ -1128,4 +1128,22 @@
 ### UID: {{ subject.vzSubj.attributes.uid }}
 ### User Domain: {{ subject.vzSubj.attributes.userdom }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "health" in api %}
+# Fabric Total Health
+{%-     for score in data_to_template['imdata'] %}
+## Score
+### Change: {{ score.fabricHealthTotal.attributes.chng }}
+### Current: {{ score.fabricHealthTotal.attributes.cur }}
+### Previous: {{ score.fabricHealthTotal.attributes.prev }}
+### TW: {{ score.fabricHealthTotal.attributes.twScore }}
+## Child Action: {{ score.fabricHealthTotal.attributes.childAction }}
+## DN: {{ score.fabricHealthTotal.attributes.dn }}
+## Local Owner: {{ score.fabricHealthTotal.attributes.lcOwn }}
+## Maximum Severity: {{ score.fabricHealthTotal.attributes.maxSev }}
+## Timestamps
+### Last Modified: {{ score.fabricHealthTotal.attributes.modTs }}
+### Last Updated: {{ score.fabricHealthTotal.attributes.updTs }}
+## Status: {{ score.fabricHealthTotal.attributes.status }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

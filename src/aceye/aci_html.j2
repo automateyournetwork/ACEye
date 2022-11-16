@@ -2233,5 +2233,41 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "health" in api %}
+<h1>Fabric Total Health</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Change</th>
+    <th>Current</th>
+    <th>Child Action</th>
+    <th>DN:Local Owner</th>
+    <th>Maximum Severity</th>
+    <th>Last Modified</th>
+    <th>Previous</th>
+    <th>Status</th>
+    <th>TW Score</th>
+    <th>Updated</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for score in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ score.fabricHealthTotal.attributes.chng }}</td>
+    <td>{{ score.fabricHealthTotal.attributes.cur }}</td>
+    <td>{{ score.fabricHealthTotal.attributes.childAction }}</td>
+    <td>{{ score.fabricHealthTotal.attributes.dn }}</td>
+    <td>{{ score.fabricHealthTotal.attributes.lcOwn }}</td>
+    <td>{{ score.fabricHealthTotal.attributes.maxSev }}</td>
+    <td>{{ score.fabricHealthTotal.attributes.modTs }}</td>
+    <td>{{ score.fabricHealthTotal.attributes.prev }}</td>
+    <td>{{ score.fabricHealthTotal.attributes.status }}</td>
+    <td>{{ score.fabricHealthTotal.attributes.twScore }}</td>
+    <td>{{ score.fabricHealthTotal.attributes.updTs }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
