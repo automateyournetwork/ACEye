@@ -2541,5 +2541,92 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "cnwAggrIf" in api %}
+<h1>Aggregate Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Auto Negotiate</th>
+    <th>Bandwidth</th>
+    <th>Child Action</th>
+    <th>Delay</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Dot1q Ether Type</th>
+    <th>FCOT Channel Number</th>
+    <th>ID</th>
+    <th>Inherited Bandwidth</th>
+    <th>Is Reflective Relay Config Supported</th>
+    <th>Layer</th>
+    <th>Local Owner</th>
+    <th>Link Debounce</th>
+    <th>Link Log</th>
+    <th>MDIX</th>
+    <th>Medium</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>MTU</th>
+    <th>Oper State</th>
+    <th>Path S Description</th>
+    <th>Port T</th>
+    <th>Priority Flow Control</th>
+    <th>Reflective Relay Enable</th>
+    <th>Router MAC</th>
+    <th>SNMP Trap State</th>
+    <th>Span Mode</th>
+    <th>Speed</th>
+    <th>Status</th>
+    <th>Switching State</th>
+    <th>Trunk Log</th>
+    <th>Usage</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.cnwAggrIf.attributes.name }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.adminSt }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.autoNeg }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.bw }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.childAction }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.delay }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.descr }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.dn }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.dot1qEtherType }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.fcotChannelNumber }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.id }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.inhBw }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.isReflectiveRelayCfgSupported }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.layer }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.lcOwn }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.linkDebounce }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.linkLog }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.mdix }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.medium }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.modTs }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.mode }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.monPolDn }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.mtu }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.operSt }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.pathSDescr }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.portT }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.prioFlowCtrl }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.reflectiveRelayEn }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.routerMac }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.snmpTrapSt }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.spanMode }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.speed }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.status }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.switchingSt }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.trunkLog }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.usage }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
