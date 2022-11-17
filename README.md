@@ -6,6 +6,8 @@ Business Ready Documents for Cisco ACI
 
 ## Current API Coverage
 
+Aggregate Interfaces
+
 Application Profiles
 
 Attachable Access Entity Profiles
