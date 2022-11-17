@@ -1361,4 +1361,21 @@
 #### State: {{ acl.actrlEntity.attributes.operSt }}
 ### Status: {{ acl.actrlEntity.attributes.status }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "actrlInst" in api %}
+# Access Control Instances
+{%-     for acl in data_to_template['imdata'] %}
+## Name: {{ acl.actrlInst.attributes.name }}
+### Acc Control: {{ acl.actrlInst.attributes.accCtrl }}
+### Admin State: {{ acl.actrlInst.attributes.adminSt }}
+### Child Action: {{ acl.actrlInst.attributes.childAction }}
+### Control: {{ acl.actrlInst.attributes.ctrl }}
+### DN: {{ acl.actrlInst.attributes.dn }}
+### Local Owner: {{ acl.actrlInst.attributes.lcOwn }}
+### Log Clr Interval: {{ acl.actrlInst.attributes.logClrIntvl }}
+### Last Modified: {{ acl.actrlInst.attributes.modTs }}
+### Monitoring Policy DN: {{ acl.actrlInst.attributes.monPolDn }}
+### Operational State: {{ acl.actrlInst.attributes.operErr }}
+### Status: {{ acl.actrlInst.attributes.status }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

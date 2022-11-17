@@ -2766,5 +2766,44 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "actrlInst" in api %}
+<h1>Access Control Instances </h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Acc Control</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Log Clr Interval</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for acl in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ acl.actrlInst.attributes.name }}</td>
+    <td>{{ acl.actrlInst.attributes.accCtrl }}</td>
+    <td>{{ acl.actrlInst.attributes.adminSt }}</td>
+    <td>{{ acl.actrlInst.attributes.childAction }}</td>
+    <td>{{ acl.actrlInst.attributes.ctrl }}</td>
+    <td>{{ acl.actrlInst.attributes.dn }}</td>
+    <td>{{ acl.actrlInst.attributes.lcOwn }}</td>
+    <td>{{ acl.actrlInst.attributes.logClrIntvl }}</td>
+    <td>{{ acl.actrlInst.attributes.modTs }}</td>
+    <td>{{ acl.actrlInst.attributes.monPolDn }}</td>
+    <td>{{ acl.actrlInst.attributes.operErr }}</td>
+    <td>{{ acl.actrlInst.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
