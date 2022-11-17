@@ -107,6 +107,8 @@ class ACEye():
         self.all_files(parsed_json) 
         parsed_json = json.dumps(self.cluster_health(), indent=4, sort_keys=True)
         self.all_files(parsed_json) 
+        parsed_json = json.dumps(self.device_packages(), indent=4, sort_keys=True)
+        self.all_files(parsed_json) 
 
     def make_directories(self):
         api_list = ['Application Profiles',
@@ -118,6 +120,7 @@ class ACEye():
                     'Contexts',
                     'Contracts',
                     'Contract Subjects',
+                    'Device Packages',
                     'Endpoints',
                     'EPG',
                     'Events',
@@ -504,6 +507,13 @@ class ACEye():
         response_dict  = response.json()
         return(response_dict)
 
+    def device_packages(self):
+        self.url = f"{ self.aci }/api/node/class/vnsMDev.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Device Packages code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -676,6 +686,10 @@ class ACEye():
 
         if "infraWiNode" in self.url:
             with open('Cluster Health/JSON/Cluster Health.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vnsMDev" in self.url:
+            with open('Device Packages/JSON/Device Packages.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -851,6 +865,10 @@ class ACEye():
 
         if "infraWiNode" in self.url:
             with open('Cluster Health/YAML/Cluster Health.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vnsMDev" in self.url:
+            with open('Device Packages/YAML/Device Packages.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -1030,6 +1048,10 @@ class ACEye():
 
         if "infraWiNode" in self.url:
             with open('Cluster Health/CSV/Cluster Health.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vnsMDev" in self.url:
+            with open('Device Packages/CSV/Device Packages.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -1212,6 +1234,10 @@ class ACEye():
             with open('Cluster Health/Markdown/Cluster Health.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "vnsMDev" in self.url:
+            with open('Device Packages/Markdown/Device Packages.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1392,6 +1418,10 @@ class ACEye():
             with open('Cluster Health/HTML/Cluster Health.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "vnsMDev" in self.url:
+            with open('Device Packages/HTML/Device Packages.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1570,6 +1600,10 @@ class ACEye():
 
         if "infraWiNode" in self.url:
             with open('Cluster Health/Mindmap/Cluster Health.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vnsMDev" in self.url:
+            with open('Device Packages/Mindmap/Device Packages.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
