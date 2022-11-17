@@ -16,6 +16,8 @@ BGP Route Reflectors
 
 Bridge Domains
 
+Cluster Health
+
 Contexts (VRFs)
 
 Contracts
@@ -27,6 +29,8 @@ Endpoints (All Connected Fabric Endpoints)
 EPG (Endpoint Groups)
 
 *Events
+
+Fabric Membership
 
 Fabric Node SSL Certifcates
 

@@ -212,63 +212,6 @@
 ### User Domain: {{ l2out.l2extOut.attributes.userdom }}
 {%-     endfor %}
 {%- else %}
-{%- if "topSystem" in api %}
-# topSystem
-{%-     for topSystem in data_to_template['imdata'] %}
-## {{ topSystem.topSystem.attributes.name }}
-### Address: {{ topSystem.topSystem.attributes.address }}
-### Bootstrap State: {{ topSystem.topSystem.attributes.bootstrapState }}
-### Child Action: {{ topSystem.topSystem.attributes.childAction }}
-### Cluster Time Diff: {{ topSystem.topSystem.attributes.clusterTimeDiff }}
-### Configuration Issues: {{ topSystem.topSystem.attributes.configIssues }}
-### Control Plane MTU: {{ topSystem.topSystem.attributes.controlPlaneMTU }}
-### Current Time: {{ topSystem.topSystem.attributes.currentTime }}
-### DN: {{ topSystem.topSystem.attributes.dn }}
-### Enforce Subnet Check: {{ topSystem.topSystem.attributes.enforceSubnetCheck }}
-### ETEP Address: {{ topSystem.topSystem.attributes.etepAddr }}
-### Fabric Domain: {{ topSystem.topSystem.attributes.fabricDomain }}
-### Fabric ID: {{ topSystem.topSystem.attributes.fabricId }}
-### Fabric MAC: {{ topSystem.topSystem.attributes.fabricMAC }}
-### ID: {{ topSystem.topSystem.attributes.id }}
-### Inband Mgmt Address: {{ topSystem.topSystem.attributes.inbMgmtAddr }}
-### Inband Mgmt Address6: {{ topSystem.topSystem.attributes.inbMgmtAddr }}
-### Inband Mgmt Address6 Mask: {{ topSystem.topSystem.attributes.inbMgmtAddr6Mask }}
-### Inband Mgmt Address Mask: {{ topSystem.topSystem.attributes.inbMgmtAddrMask }}
-### Inband Mgmt Gateway: {{ topSystem.topSystem.attributes.inbMgmtGateway }}
-### Inband Mgmt Gateway6: {{ topSystem.topSystem.attributes.inbMgmtGateway6 }}
-### Last Reboot Time: {{ topSystem.topSystem.attributes.lastRebootTime }}
-### Last Reset Reason: {{ topSystem.topSystem.attributes.lastResetReason }}
-### LC Own: {{ topSystem.topSystem.attributes.lcOwn }}
-### Modified Timestamp: {{ topSystem.topSystem.attributes.modTs }}
-### Mode: {{ topSystem.topSystem.attributes.mode }}
-### Monitoring Policy DN: {{ topSystem.topSystem.attributes.monPolDn }}
-### Name Alias: {{ topSystem.topSystem.attributes.nameAlias }}
-### Node Type: {{ topSystem.topSystem.attributes.nodeType }}
-### Out of Band Mgmt Address: {{ topSystem.topSystem.attributes.oobMgmtAddr }}
-### Out of Band Mgmt Address6: {{ topSystem.topSystem.attributes.oobMgmtAddr6 }}
-### Out of Band Mgmt Address6 Mask: {{ topSystem.topSystem.attributes.oobMgmtAddr6Mask }}
-### Out of Band Mgmt Address Mask: {{ topSystem.topSystem.attributes.oobMgmtAddrMask }}
-### Out of Band Mgmt Gateway: {{ topSystem.topSystem.attributes.oobMgmtGateway }}
-### Out of Band Mgmt Gateway6: {{ topSystem.topSystem.attributes.oobMgmtGateway6 }}
-### Pod ID: {{ topSystem.topSystem.attributes.podId }}
-### Remote Network ID: {{ topSystem.topSystem.attributes.remoteNetworkId }}
-### Remote Node: {{ topSystem.topSystem.attributes.remoteNode }}
-### RL Oper Pod ID: {{ topSystem.topSystem.attributes.rlOperPodId }}
-### RL Routable Mode: {{ topSystem.topSystem.attributes.rlRoutableMode }}
-### RL Direct Mode: {{ topSystem.topSystem.attributes.rldirectMode }}
-### Role: {{ topSystem.topSystem.attributes.role }}
-### Serial Number: {{ topSystem.topSystem.attributes.serial }}
-### Server Type: {{ topSystem.topSystem.attributes.serverType }}
-### Site ID: {{ topSystem.topSystem.attributes.siteId }}
-### State: {{ topSystem.topSystem.attributes.state }}
-### Status: {{ topSystem.topSystem.attributes.status }}
-### System Uptime: {{ topSystem.topSystem.attributes.systemUpTime }}
-### TEP Pool: {{ topSystem.topSystem.attributes.tepPool }}
-### Unicast XR EP Learn Disable: {{ topSystem.topSystem.attributes.unicastXrEpLearnDisable }}
-### Version: {{ topSystem.topSystem.attributes.version }}
-### Virtual Mode: {{ topSystem.topSystem.attributes.virtualMode }}
-{%-     endfor %}
-{%- else %}
 {%- if "Subnet" in api %}
 # Subnets
 {%-     for subnet in data_to_template['imdata'] %}
@@ -1206,4 +1149,80 @@
 ### Status: {{ tenant.healthInst.attributes.status }}
 {%-         endfor %}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "firmwareCtrlrRunning" in api %}
+# Fabric Membership
+{%-     for member in data_to_template['imdata'] %}
+## DN: {{ member.firmwareCtrlrRunning.attributes.dn }}
+### Child Action: {{ member.firmwareCtrlrRunning.attributes.childAction }}
+### Description: {{ member.firmwareCtrlrRunning.attributes.descr }}
+### Internal Label: {{ member.firmwareCtrlrRunning.attributes.internalLabel }}
+### Local Owner: {{ member.firmwareCtrlrRunning.attributes.lcOwn }}
+### Last Modified: {{ member.firmwareCtrlrRunning.attributes.modTs }}
+### Mode: {{ member.firmwareCtrlrRunning.attributes.mode }}
+### Status: {{ member.firmwareCtrlrRunning.attributes.status }}
+### TPM In Use: {{ member.firmwareCtrlrRunning.attributes.tpmInUse }}
+### Timestamp: {{ member.firmwareCtrlrRunning.attributes.ts }}
+### Type: {{ member.firmwareCtrlrRunning.attributes.type }}
+### Version: {{ member.firmwareCtrlrRunning.attributes.version }}
+{%-     endfor %}
+{%- else %}
+{%- if "topSystem" in api %}
+{%-     if "?" not in api %}
+# topSystem
+{%-         for topSystem in data_to_template['imdata'] %}
+## {{ topSystem.topSystem.attributes.name }}
+### Address: {{ topSystem.topSystem.attributes.address }}
+### Bootstrap State: {{ topSystem.topSystem.attributes.bootstrapState }}
+### Child Action: {{ topSystem.topSystem.attributes.childAction }}
+### Cluster Time Diff: {{ topSystem.topSystem.attributes.clusterTimeDiff }}
+### Configuration Issues: {{ topSystem.topSystem.attributes.configIssues }}
+### Control Plane MTU: {{ topSystem.topSystem.attributes.controlPlaneMTU }}
+### Current Time: {{ topSystem.topSystem.attributes.currentTime }}
+### DN: {{ topSystem.topSystem.attributes.dn }}
+### Enforce Subnet Check: {{ topSystem.topSystem.attributes.enforceSubnetCheck }}
+### ETEP Address: {{ topSystem.topSystem.attributes.etepAddr }}
+### Fabric Domain: {{ topSystem.topSystem.attributes.fabricDomain }}
+### Fabric ID: {{ topSystem.topSystem.attributes.fabricId }}
+### Fabric MAC: {{ topSystem.topSystem.attributes.fabricMAC }}
+### ID: {{ topSystem.topSystem.attributes.id }}
+### Inband Mgmt Address: {{ topSystem.topSystem.attributes.inbMgmtAddr }}
+### Inband Mgmt Address6: {{ topSystem.topSystem.attributes.inbMgmtAddr }}
+### Inband Mgmt Address6 Mask: {{ topSystem.topSystem.attributes.inbMgmtAddr6Mask }}
+### Inband Mgmt Address Mask: {{ topSystem.topSystem.attributes.inbMgmtAddrMask }}
+### Inband Mgmt Gateway: {{ topSystem.topSystem.attributes.inbMgmtGateway }}
+### Inband Mgmt Gateway6: {{ topSystem.topSystem.attributes.inbMgmtGateway6 }}
+### Last Reboot Time: {{ topSystem.topSystem.attributes.lastRebootTime }}
+### Last Reset Reason: {{ topSystem.topSystem.attributes.lastResetReason }}
+### LC Own: {{ topSystem.topSystem.attributes.lcOwn }}
+### Modified Timestamp: {{ topSystem.topSystem.attributes.modTs }}
+### Mode: {{ topSystem.topSystem.attributes.mode }}
+### Monitoring Policy DN: {{ topSystem.topSystem.attributes.monPolDn }}
+### Name Alias: {{ topSystem.topSystem.attributes.nameAlias }}
+### Node Type: {{ topSystem.topSystem.attributes.nodeType }}
+### Out of Band Mgmt Address: {{ topSystem.topSystem.attributes.oobMgmtAddr }}
+### Out of Band Mgmt Address6: {{ topSystem.topSystem.attributes.oobMgmtAddr6 }}
+### Out of Band Mgmt Address6 Mask: {{ topSystem.topSystem.attributes.oobMgmtAddr6Mask }}
+### Out of Band Mgmt Address Mask: {{ topSystem.topSystem.attributes.oobMgmtAddrMask }}
+### Out of Band Mgmt Gateway: {{ topSystem.topSystem.attributes.oobMgmtGateway }}
+### Out of Band Mgmt Gateway6: {{ topSystem.topSystem.attributes.oobMgmtGateway6 }}
+### Pod ID: {{ topSystem.topSystem.attributes.podId }}
+### Remote Network ID: {{ topSystem.topSystem.attributes.remoteNetworkId }}
+### Remote Node: {{ topSystem.topSystem.attributes.remoteNode }}
+### RL Oper Pod ID: {{ topSystem.topSystem.attributes.rlOperPodId }}
+### RL Routable Mode: {{ topSystem.topSystem.attributes.rlRoutableMode }}
+### RL Direct Mode: {{ topSystem.topSystem.attributes.rldirectMode }}
+### Role: {{ topSystem.topSystem.attributes.role }}
+### Serial Number: {{ topSystem.topSystem.attributes.serial }}
+### Server Type: {{ topSystem.topSystem.attributes.serverType }}
+### Site ID: {{ topSystem.topSystem.attributes.siteId }}
+### State: {{ topSystem.topSystem.attributes.state }}
+### Status: {{ topSystem.topSystem.attributes.status }}
+### System Uptime: {{ topSystem.topSystem.attributes.systemUpTime }}
+### TEP Pool: {{ topSystem.topSystem.attributes.tepPool }}
+### Unicast XR EP Learn Disable: {{ topSystem.topSystem.attributes.unicastXrEpLearnDisable }}
+### Version: {{ topSystem.topSystem.attributes.version }}
+### Virtual Mode: {{ topSystem.topSystem.attributes.virtualMode }}
+{%-         endfor %}
+{%-     endif %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

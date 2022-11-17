@@ -103,6 +103,10 @@ class ACEye():
         self.all_files(parsed_json) 
         parsed_json = json.dumps(self.tenant_health(), indent=4, sort_keys=True)
         self.all_files(parsed_json) 
+        parsed_json = json.dumps(self.fabric_membership(), indent=4, sort_keys=True)
+        self.all_files(parsed_json) 
+        parsed_json = json.dumps(self.cluster_health(), indent=4, sort_keys=True)
+        self.all_files(parsed_json) 
 
     def make_directories(self):
         api_list = ['Application Profiles',
@@ -110,12 +114,14 @@ class ACEye():
                     'Audit Log',
                     'BGP Route Reflectors',
                     'Bridge Domains',
+                    'Cluster Health',
                     'Contexts',
                     'Contracts',
                     'Contract Subjects',
                     'Endpoints',
                     'EPG',
                     'Events',
+                    'Fabric Membership',
                     'Fabric Nodes',
                     'Fabric Node SSL Certificates',
                     'Fabric Paths',
@@ -484,6 +490,20 @@ class ACEye():
             tenant_health.append(response_dict['imdata'])
         return(tenant_health)
 
+    def fabric_membership(self):
+        self.url = f"{ self.aci }/api/node/class/topSystem.json?query-target=subtree&target-subtree-class=firmwareCtrlrRunning"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Fabric Membership code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
+    def cluster_health(self):
+        self.url = f"{ self.aci }/api/node/mo/topology/pod-1/node-1/av.json?query-target=children&target-subtree-class=infraWiNode"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Cluster Health code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -514,8 +534,9 @@ class ACEye():
                 f.write(parsed_json)
 
         if "topSystem" in self.url:
-            with open('Top System/JSON/Top System.json', 'w' ) as f:
-                f.write(parsed_json)
+            if "?" not in self.url:
+                with open('Top System/JSON/Top System.json', 'w' ) as f:
+                    f.write(parsed_json)
 
         if "Subnet" in self.url:
             with open('Subnets/JSON/Subnets.json', 'w' ) as f:
@@ -649,6 +670,14 @@ class ACEye():
             with open('Tenant Health/JSON/Tenant Health.json', 'w' ) as f:
                 f.write(parsed_json)
 
+        if "firmwareCtrlrRunning" in self.url:
+            with open('Fabric Membership/JSON/Fabric Membership.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "infraWiNode" in self.url:
+            with open('Cluster Health/JSON/Cluster Health.json', 'w' ) as f:
+                f.write(parsed_json)
+
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
         if "Tenant" in self.url:
@@ -680,8 +709,9 @@ class ACEye():
                 f.write(clean_yaml)
 
         if "topSystem" in self.url:
-            with open('Top System/YAML/Top System.yaml', 'w' ) as f:
-                f.write(clean_yaml)
+            if "?" not in self.url:
+                with open('Top System/YAML/Top System.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
 
         if "Subnet" in self.url:
             with open('Subnets/YAML/Subnets.yaml', 'w' ) as f:
@@ -815,6 +845,14 @@ class ACEye():
             with open('Tenant Health/YAML/Tenant Health.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
+        if "firmwareCtrlrRunning" in self.url:
+            with open('Fabric Membership/YAML/Fabric Membership.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "infraWiNode" in self.url:
+            with open('Cluster Health/YAML/Cluster Health.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
     def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -850,8 +888,9 @@ class ACEye():
                 f.write(csv_output)
 
         if "topSystem" in self.url:
-            with open('Top System/CSV/Top System.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "?" not in self.url:
+                with open('Top System/CSV/Top System.csv', 'w' ) as f:
+                    f.write(csv_output)
 
         if "Subnet" in self.url:
             with open('Subnets/CSV/Subnets.csv', 'w' ) as f:
@@ -985,6 +1024,14 @@ class ACEye():
             with open('Tenant Health/CSV/Tenant Health.csv', 'w' ) as f:
                 f.write(csv_output)
 
+        if "firmwareCtrlrRunning" in self.url:
+            with open('Fabric Membership/CSV/Fabric Membership.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "infraWiNode" in self.url:
+            with open('Cluster Health/CSV/Cluster Health.csv', 'w' ) as f:
+                f.write(csv_output)
+
     def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1021,8 +1068,9 @@ class ACEye():
                 f.write(markdown_output)
 
         if "topSystem" in self.url:
-            with open('Top System/Markdown/Top System.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "?" not in self.url:
+                with open('Top System/Markdown/Top System.md', 'w' ) as f:
+                    f.write(markdown_output)
 
         if "Subnet" in self.url:
             with open('Subnets/Markdown/Subnets.md', 'w' ) as f:
@@ -1156,6 +1204,14 @@ class ACEye():
             with open('Tenant Health/Markdown/Tenant Health.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "firmwareCtrlrRunning" in self.url:
+            with open('Fabric Membership/Markdown/Fabric Membership.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "infraWiNode" in self.url:
+            with open('Cluster Health/Markdown/Cluster Health.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1192,8 +1248,9 @@ class ACEye():
                 f.write(html_output)
 
         if "topSystem" in self.url:
-            with open('Top System/HTML/Top System.html', 'w' ) as f:
-                f.write(html_output)
+            if "?" not in self.url:
+                with open('Top System/HTML/Top System.html', 'w' ) as f:
+                    f.write(html_output)
 
         if "Subnet" in self.url:
             with open('Subnets/HTML/Subnets.html', 'w' ) as f:
@@ -1327,6 +1384,14 @@ class ACEye():
             with open('Tenant Health/HTML/Tenant Health.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "firmwareCtrlrRunning" in self.url:
+            with open('Fabric Membership/HTML/Fabric Membership.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "infraWiNode" in self.url:
+            with open('Cluster Health/HTML/Cluster Health.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1363,8 +1428,9 @@ class ACEye():
                 f.write(mindmap_output)
 
         if "topSystem" in self.url:
-            with open('Top System/Mindmap/Top System.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "?" not in self.url:
+                with open('Top System/Mindmap/Top System.md', 'w' ) as f:
+                    f.write(mindmap_output)
 
         if "Subnet" in self.url:
             with open('Subnets/Mindmap/Subnets.md', 'w' ) as f:
@@ -1496,6 +1562,14 @@ class ACEye():
 
         if "tn-" and "health" in self.url:
             with open('Tenant Health/Mindmap/Tenant Health.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "firmwareCtrlrRunning" in self.url:
+            with open('Fabric Membership/Mindmap/Fabric Membership.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "infraWiNode" in self.url:
+            with open('Cluster Health/Mindmap/Cluster Health.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

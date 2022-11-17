@@ -431,125 +431,6 @@
 </tbody>
 </table>
 {%- else %}
-{%- if "topSystem" in api %}
-<h1>Top System</h1>
-<table id = "datatable">
-<thead>
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Bootstrap State</th>
-    <th>Child Action</th>
-    <th>Cluster Time Diff</th>
-    <th>Configuration Issues</th>
-    <th>Control Plane MTU</th>
-    <th>Current Time</th>
-    <th>DN</th>
-    <th>Enforce Subnet Check</th>
-    <th>ETEP Address</th>
-    <th>Fabric Domain</th>
-    <th>Fabric ID</th>
-    <th>Fabric MAC</th>
-    <th>ID</th>
-    <th>Inband Mgmt Address</th>
-    <th>Inband Mgmt Address6</th>
-    <th>Inband Mgmt Address6 Mask</th>
-    <th>Inband Mgmt Address Mask</th>
-    <th>Inband Mgmt Gateway</th>
-    <th>Inband Mgmt Gateway6</th>
-    <th>Last Reboot Time</th>
-    <th>Last Reset Reason</th>
-    <th>LC Own</th>
-    <th>Modified Timestamp</th>
-    <th>Mode</th>
-    <th>Monitoring Policy DN</th>
-    <th>Name Alias</th>
-    <th>Node Type</th>
-    <th>Out of Band Mgmt Address</th>
-    <th>Out of Band Mgmt Address6</th>
-    <th>Out of Band Mgmt Address6 Mask</th>
-    <th>Out of Band Mgmt Address Mask</th>
-    <th>Out of Band Mgmt Gateway</th>
-    <th>Out of Band Mgmt Gateway6</th>
-    <th>Pod ID</th>
-    <th>Remote Network ID</th>
-    <th>Remote Node</th>
-    <th>RL Oper Pod ID</th>
-    <th>RL Routable Mode</th>
-    <th>RL Direct Mode</th>
-    <th>Role</th>
-    <th>Serial Number</th>
-    <th>Server Type</th>
-    <th>Site ID</th>
-    <th>State</th>
-    <th>Status</th>
-    <th>System Uptime</th>
-    <th>TEP Pool</th>
-    <th>Unicast XR EP Learn Disable</th>
-    <th>Version</th>
-    <th>Virtual Mode</th>
-  </tr>
-</thead>
-<tbody>
-{%-     for topSystem in data_to_template['imdata'] %}
-  <tr>
-    <td>{{ topSystem.topSystem.attributes.name }}</td>
-    <td>{{ topSystem.topSystem.attributes.address }}</td>
-    <td>{{ topSystem.topSystem.attributes.bootstrapState }}</td>
-    <td>{{ topSystem.topSystem.attributes.childAction }}</td>
-    <td>{{ topSystem.topSystem.attributes.clusterTimeDiff }}</td>
-    <td>{{ topSystem.topSystem.attributes.configIssues }}</td>
-    <td>{{ topSystem.topSystem.attributes.controlPlaneMTU }}</td>
-    <td>{{ topSystem.topSystem.attributes.currentTime }}</td>
-    <td>{{ topSystem.topSystem.attributes.dn }}</td>
-    <td>{{ topSystem.topSystem.attributes.enforceSubnetCheck }}</td>
-    <td>{{ topSystem.topSystem.attributes.etepAddr }}</td>
-    <td>{{ topSystem.topSystem.attributes.fabricDomain }}</td>
-    <td>{{ topSystem.topSystem.attributes.fabricId }}</td>
-    <td>{{ topSystem.topSystem.attributes.fabricMAC }}</td>
-    <td>{{ topSystem.topSystem.attributes.id }}</td>
-    <td>{{ topSystem.topSystem.attributes.inbMgmtAddr }}</td>
-    <td>{{ topSystem.topSystem.attributes.inbMgmtAddr }}</td>
-    <td>{{ topSystem.topSystem.attributes.inbMgmtAddr6Mask }}</td>
-    <td>{{ topSystem.topSystem.attributes.inbMgmtAddrMask }}</td>
-    <td>{{ topSystem.topSystem.attributes.inbMgmtGateway }}</td>
-    <td>{{ topSystem.topSystem.attributes.inbMgmtGateway6 }}</td>
-    <td>{{ topSystem.topSystem.attributes.lastRebootTime }}</td>
-    <td>{{ topSystem.topSystem.attributes.lastResetReason }}</td>
-    <td>{{ topSystem.topSystem.attributes.lcOwn }}</td>
-    <td>{{ topSystem.topSystem.attributes.modTs }}</td>
-    <td>{{ topSystem.topSystem.attributes.mode }}</td>
-    <td>{{ topSystem.topSystem.attributes.monPolDn }}</td>
-    <td>{{ topSystem.topSystem.attributes.nameAlias }}</td>
-    <td>{{ topSystem.topSystem.attributes.nodeType }}</td>
-    <td>{{ topSystem.topSystem.attributes.oobMgmtAddr }}</td>
-    <td>{{ topSystem.topSystem.attributes.oobMgmtAddr6 }}</td>
-    <td>{{ topSystem.topSystem.attributes.oobMgmtAddr6Mask }}</td>
-    <td>{{ topSystem.topSystem.attributes.oobMgmtAddrMask }}</td>
-    <td>{{ topSystem.topSystem.attributes.oobMgmtGateway }}</td>
-    <td>{{ topSystem.topSystem.attributes.oobMgmtGateway6 }}</td>
-    <td>{{ topSystem.topSystem.attributes.podId }}</td>
-    <td>{{ topSystem.topSystem.attributes.remoteNetworkId }}</td>
-    <td>{{ topSystem.topSystem.attributes.remoteNode }}</td>
-    <td>{{ topSystem.topSystem.attributes.rlOperPodId }}</td>
-    <td>{{ topSystem.topSystem.attributes.rlRoutableMode }}</td>
-    <td>{{ topSystem.topSystem.attributes.rldirectMode }}</td>
-    <td>{{ topSystem.topSystem.attributes.role }}</td>
-    <td>{{ topSystem.topSystem.attributes.serial }}</td>
-    <td>{{ topSystem.topSystem.attributes.serverType }}</td>
-    <td>{{ topSystem.topSystem.attributes.siteId }}</td>
-    <td>{{ topSystem.topSystem.attributes.state }}</td>
-    <td>{{ topSystem.topSystem.attributes.status }}</td>
-    <td>{{ topSystem.topSystem.attributes.systemUpTime }}</td>
-    <td>{{ topSystem.topSystem.attributes.tepPool }}</td>
-    <td>{{ topSystem.topSystem.attributes.unicastXrEpLearnDisable }}</td>
-    <td>{{ topSystem.topSystem.attributes.version }}</td>
-    <td>{{ topSystem.topSystem.attributes.virtualMode }}</td>
-  </tr>
-{%-     endfor %}
-</tbody>
-</table>
-{%- else %}
 {%- if "Subnet" in api %}
 <h1>Subnets</h1>
 <table id = "datatable">
@@ -2384,5 +2265,233 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "firmwareCtrlrRunning" in api %}
+<h1>Fabric Membership</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>Internal Label</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Status</th>
+    <th>TPM In Use</th>
+    <th>Timestamp</th>
+    <th>Type</th>
+    <th>Version</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for member in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ member.firmwareCtrlrRunning.attributes.dn }}</td>
+    <td>{{ member.firmwareCtrlrRunning.attributes.childAction }}</td>
+    <td>{{ member.firmwareCtrlrRunning.attributes.descr }}</td>
+    <td>{{ member.firmwareCtrlrRunning.attributes.internalLabel }}</td>
+    <td>{{ member.firmwareCtrlrRunning.attributes.lcOwn }}</td>
+    <td>{{ member.firmwareCtrlrRunning.attributes.modTs }}</td>
+    <td>{{ member.firmwareCtrlrRunning.attributes.mode }}</td>
+    <td>{{ member.firmwareCtrlrRunning.attributes.status }}</td>
+    <td>{{ member.firmwareCtrlrRunning.attributes.tpmInUse }}</td>
+    <td>{{ member.firmwareCtrlrRunning.attributes.ts }}</td>
+    <td>{{ member.firmwareCtrlrRunning.attributes.type }}</td>
+    <td>{{ member.firmwareCtrlrRunning.attributes.version }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- if "topSystem" in api %}
+{%-     if "?" not in api %}
+<h1>Top System</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Bootstrap State</th>
+    <th>Child Action</th>
+    <th>Cluster Time Diff</th>
+    <th>Configuration Issues</th>
+    <th>Control Plane MTU</th>
+    <th>Current Time</th>
+    <th>DN</th>
+    <th>Enforce Subnet Check</th>
+    <th>ETEP Address</th>
+    <th>Fabric Domain</th>
+    <th>Fabric ID</th>
+    <th>Fabric MAC</th>
+    <th>ID</th>
+    <th>Inband Mgmt Address</th>
+    <th>Inband Mgmt Address6</th>
+    <th>Inband Mgmt Address6 Mask</th>
+    <th>Inband Mgmt Address Mask</th>
+    <th>Inband Mgmt Gateway</th>
+    <th>Inband Mgmt Gateway6</th>
+    <th>Last Reboot Time</th>
+    <th>Last Reset Reason</th>
+    <th>LC Own</th>
+    <th>Modified Timestamp</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>Name Alias</th>
+    <th>Node Type</th>
+    <th>Out of Band Mgmt Address</th>
+    <th>Out of Band Mgmt Address6</th>
+    <th>Out of Band Mgmt Address6 Mask</th>
+    <th>Out of Band Mgmt Address Mask</th>
+    <th>Out of Band Mgmt Gateway</th>
+    <th>Out of Band Mgmt Gateway6</th>
+    <th>Pod ID</th>
+    <th>Remote Network ID</th>
+    <th>Remote Node</th>
+    <th>RL Oper Pod ID</th>
+    <th>RL Routable Mode</th>
+    <th>RL Direct Mode</th>
+    <th>Role</th>
+    <th>Serial Number</th>
+    <th>Server Type</th>
+    <th>Site ID</th>
+    <th>State</th>
+    <th>Status</th>
+    <th>System Uptime</th>
+    <th>TEP Pool</th>
+    <th>Unicast XR EP Learn Disable</th>
+    <th>Version</th>
+    <th>Virtual Mode</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for topSystem in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ topSystem.topSystem.attributes.name }}</td>
+    <td>{{ topSystem.topSystem.attributes.address }}</td>
+    <td>{{ topSystem.topSystem.attributes.bootstrapState }}</td>
+    <td>{{ topSystem.topSystem.attributes.childAction }}</td>
+    <td>{{ topSystem.topSystem.attributes.clusterTimeDiff }}</td>
+    <td>{{ topSystem.topSystem.attributes.configIssues }}</td>
+    <td>{{ topSystem.topSystem.attributes.controlPlaneMTU }}</td>
+    <td>{{ topSystem.topSystem.attributes.currentTime }}</td>
+    <td>{{ topSystem.topSystem.attributes.dn }}</td>
+    <td>{{ topSystem.topSystem.attributes.enforceSubnetCheck }}</td>
+    <td>{{ topSystem.topSystem.attributes.etepAddr }}</td>
+    <td>{{ topSystem.topSystem.attributes.fabricDomain }}</td>
+    <td>{{ topSystem.topSystem.attributes.fabricId }}</td>
+    <td>{{ topSystem.topSystem.attributes.fabricMAC }}</td>
+    <td>{{ topSystem.topSystem.attributes.id }}</td>
+    <td>{{ topSystem.topSystem.attributes.inbMgmtAddr }}</td>
+    <td>{{ topSystem.topSystem.attributes.inbMgmtAddr }}</td>
+    <td>{{ topSystem.topSystem.attributes.inbMgmtAddr6Mask }}</td>
+    <td>{{ topSystem.topSystem.attributes.inbMgmtAddrMask }}</td>
+    <td>{{ topSystem.topSystem.attributes.inbMgmtGateway }}</td>
+    <td>{{ topSystem.topSystem.attributes.inbMgmtGateway6 }}</td>
+    <td>{{ topSystem.topSystem.attributes.lastRebootTime }}</td>
+    <td>{{ topSystem.topSystem.attributes.lastResetReason }}</td>
+    <td>{{ topSystem.topSystem.attributes.lcOwn }}</td>
+    <td>{{ topSystem.topSystem.attributes.modTs }}</td>
+    <td>{{ topSystem.topSystem.attributes.mode }}</td>
+    <td>{{ topSystem.topSystem.attributes.monPolDn }}</td>
+    <td>{{ topSystem.topSystem.attributes.nameAlias }}</td>
+    <td>{{ topSystem.topSystem.attributes.nodeType }}</td>
+    <td>{{ topSystem.topSystem.attributes.oobMgmtAddr }}</td>
+    <td>{{ topSystem.topSystem.attributes.oobMgmtAddr6 }}</td>
+    <td>{{ topSystem.topSystem.attributes.oobMgmtAddr6Mask }}</td>
+    <td>{{ topSystem.topSystem.attributes.oobMgmtAddrMask }}</td>
+    <td>{{ topSystem.topSystem.attributes.oobMgmtGateway }}</td>
+    <td>{{ topSystem.topSystem.attributes.oobMgmtGateway6 }}</td>
+    <td>{{ topSystem.topSystem.attributes.podId }}</td>
+    <td>{{ topSystem.topSystem.attributes.remoteNetworkId }}</td>
+    <td>{{ topSystem.topSystem.attributes.remoteNode }}</td>
+    <td>{{ topSystem.topSystem.attributes.rlOperPodId }}</td>
+    <td>{{ topSystem.topSystem.attributes.rlRoutableMode }}</td>
+    <td>{{ topSystem.topSystem.attributes.rldirectMode }}</td>
+    <td>{{ topSystem.topSystem.attributes.role }}</td>
+    <td>{{ topSystem.topSystem.attributes.serial }}</td>
+    <td>{{ topSystem.topSystem.attributes.serverType }}</td>
+    <td>{{ topSystem.topSystem.attributes.siteId }}</td>
+    <td>{{ topSystem.topSystem.attributes.state }}</td>
+    <td>{{ topSystem.topSystem.attributes.status }}</td>
+    <td>{{ topSystem.topSystem.attributes.systemUpTime }}</td>
+    <td>{{ topSystem.topSystem.attributes.tepPool }}</td>
+    <td>{{ topSystem.topSystem.attributes.unicastXrEpLearnDisable }}</td>
+    <td>{{ topSystem.topSystem.attributes.version }}</td>
+    <td>{{ topSystem.topSystem.attributes.virtualMode }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     endif %}
+{%- else %}
+{%- if "infraWiNode" in api %}
+<h1>Cluster Health</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Node Name</th>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>IP Address</th>
+    <th>Admin State</th>
+    <th>Annotation</th>
+    <th>APIC Mode</th>
+    <th>Chassis</th>
+    <th>Child Action</th>
+    <th>Control Sbst State</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Failover Status</th>
+    <th>Health</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Member Serial Number</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Mutn Timestamp</th>
+    <th>Operational State</th>
+    <th>Pod ID</th>
+    <th>Routable IP Address</th>
+    <th>Status</th>
+    <th>Target Member Serial Number</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for node in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ node.infraWiNode.attributes.nodeName }}</td>
+    <td>{{ node.infraWiNode.attributes.name }}</td>
+    <td>{{ node.infraWiNode.attributes.nameAlias }}</td>
+    <td>{{ node.infraWiNode.attributes.addr }}</td>
+    <td>{{ node.infraWiNode.attributes.adminSt }}</td>
+    <td>{{ node.infraWiNode.attributes.annotation }}</td>
+    <td>{{ node.infraWiNode.attributes.apicMode }}</td>
+    <td>{{ node.infraWiNode.attributes.chassis }}</td>
+    <td>{{ node.infraWiNode.attributes.childAction }}</td>
+    <td>{{ node.infraWiNode.attributes.cntrlSbstState }}</td>
+    <td>{{ node.infraWiNode.attributes.dn }}</td>
+    <td>{{ node.infraWiNode.attributes.extMngdBy }}</td>
+    <td>{{ node.infraWiNode.attributes.failoverStatus }}</td>
+    <td>{{ node.infraWiNode.attributes.health }}</td>
+    <td>{{ node.infraWiNode.attributes.id }}</td>
+    <td>{{ node.infraWiNode.attributes.lcOwn }}</td>
+    <td>{{ node.infraWiNode.attributes.mbSn }}</td>
+    <td>{{ node.infraWiNode.attributes.modTs }}</td>
+    <td>{{ node.infraWiNode.attributes.monPolDn }}</td>
+    <td>{{ node.infraWiNode.attributes.mutnTs }}</td>
+    <td>{{ node.infraWiNode.attributes.operSt }}</td>
+    <td>{{ node.infraWiNode.attributes.podId }}</td>
+    <td>{{ node.infraWiNode.attributes.routableIpAddr }}</td>
+    <td>{{ node.infraWiNode.attributes.status }}</td>
+    <td>{{ node.infraWiNode.attributes.targetMbSn }}</td>
+    <td>{{ node.infraWiNode.attributes.uid }}</td>
+    <td>{{ node.infraWiNode.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
