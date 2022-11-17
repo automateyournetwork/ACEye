@@ -2424,5 +2424,74 @@
 </tbody>
 </table>
 {%-     endif %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "infraWiNode" in api %}
+<h1>Cluster Health</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Node Name</th>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>IP Address</th>
+    <th>Admin State</th>
+    <th>Annotation</th>
+    <th>APIC Mode</th>
+    <th>Chassis</th>
+    <th>Child Action</th>
+    <th>Control Sbst State</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Failover Status</th>
+    <th>Health</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Member Serial Number</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Mutn Timestamp</th>
+    <th>Operational State</th>
+    <th>Pod ID</th>
+    <th>Routable IP Address</th>
+    <th>Status</th>
+    <th>Target Member Serial Number</th>
+    <th>UID</th>
+    <th>User Domain</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for node in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ node.infraWiNode.attributes.nodeName }}</td>
+    <td>{{ node.infraWiNode.attributes.name }}</td>
+    <td>{{ node.infraWiNode.attributes.nameAlias }}</td>
+    <td>{{ node.infraWiNode.attributes.addr }}</td>
+    <td>{{ node.infraWiNode.attributes.adminSt }}</td>
+    <td>{{ node.infraWiNode.attributes.annotation }}</td>
+    <td>{{ node.infraWiNode.attributes.apicMode }}</td>
+    <td>{{ node.infraWiNode.attributes.chassis }}</td>
+    <td>{{ node.infraWiNode.attributes.childAction }}</td>
+    <td>{{ node.infraWiNode.attributes.cntrlSbstState }}</td>
+    <td>{{ node.infraWiNode.attributes.dn }}</td>
+    <td>{{ node.infraWiNode.attributes.extMngdBy }}</td>
+    <td>{{ node.infraWiNode.attributes.failoverStatus }}</td>
+    <td>{{ node.infraWiNode.attributes.health }}</td>
+    <td>{{ node.infraWiNode.attributes.id }}</td>
+    <td>{{ node.infraWiNode.attributes.lcOwn }}</td>
+    <td>{{ node.infraWiNode.attributes.mbSn }}</td>
+    <td>{{ node.infraWiNode.attributes.modTs }}</td>
+    <td>{{ node.infraWiNode.attributes.monPolDn }}</td>
+    <td>{{ node.infraWiNode.attributes.mutnTs }}</td>
+    <td>{{ node.infraWiNode.attributes.operSt }}</td>
+    <td>{{ node.infraWiNode.attributes.podId }}</td>
+    <td>{{ node.infraWiNode.attributes.routableIpAddr }}</td>
+    <td>{{ node.infraWiNode.attributes.status }}</td>
+    <td>{{ node.infraWiNode.attributes.targetMbSn }}</td>
+    <td>{{ node.infraWiNode.attributes.uid }}</td>
+    <td>{{ node.infraWiNode.attributes.userdom }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
