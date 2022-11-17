@@ -89,8 +89,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.prefix_list(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
-        parsed_json = json.dumps(self.prefix_list_detailed(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
+        # parsed_json = json.dumps(self.prefix_list_detailed(), indent=4, sort_keys=True)
+        # self.all_files(parsed_json)
         parsed_json = json.dumps(self.users(), indent=4, sort_keys=True)
         self.all_files(parsed_json)        
         parsed_json = json.dumps(self.security_domains(), indent=4, sort_keys=True)
@@ -115,9 +115,12 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.access_control_entities(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.access_control_instances(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
+                    'Access Control Instances',
                     'Aggregate Interfaces',
                     'Application Profiles',
                     'Attachable Access Entity Profiles',
@@ -433,25 +436,37 @@ class ACEye():
         return(response_dict)
 
     def prefix_list(self):
-        self.url = f"{ self.aci }/api/node/mo/uni/tn-PROD.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
+        self.url = f"{ self.aci }/api/node/class/fvTenant.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Prefix List Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return(response_dict)
-        
-    def prefix_list_detailed(self):
-        self.url = f"{ self.aci }/api/node/mo/uni/tn-PROD.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Prefix List Status code { response.status_code } for { self.url }>")
-        prefix_response_dict  = response.json()
-        ip_prefix_list = []
-        for prefix in prefix_response_dict['imdata']:
-            self.url = f"{ self.aci }/api/node/mo/uni/tn-PROD/subj-{ prefix['rtctrlSubjP']['attributes']['name']}.json?query-target=children&target-subtree-class=rtctrlMatchRtDest"
+        print(f"<Tenant Status code { response.status_code } for { self.url }>")
+        tenants  = response.json()
+        prefix_lists = []
+        for tenant in tenants['imdata']:        
+            self.url = f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
             response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-            print(f"<Prefix List Detailed Status code { response.status_code } for { self.url }>")
+            print(f"<Prefix List Status code { response.status_code } for { self.url }>")
             response_dict  = response.json()
-            ip_prefix_list.append(response_dict['imdata'])
-        return(ip_prefix_list)
+            prefix_lists.append(response_dict['imdata'])
+        return(prefix_lists)
+        
+    # def prefix_list_detailed(self):
+    #     self.url = f"{ self.aci }/api/node/class/fvTenant.json"
+    #     response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+    #     print(f"<Tenant Status code { response.status_code } for { self.url }>")
+    #     tenants  = response.json()
+    #     ip_prefix_list_details = []
+    #     for tenant in tenants['imdata']:
+    #         self.url = f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }?query-target=subtree&target-subtree-class=rtctrlSubjP"
+    #         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+    #         print(f"<Prefix List Status code { response.status_code } for { self.url }>")
+    #         prefix_response_dict  = response.json()      
+    #         for prefix in prefix_response_dict['imdata']:
+    #             self.url = f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }/subj-{ prefix['rtctrlSubjP']['attributes']['name']}.json?query-target=children&target-subtree-class=rtctrlMatchRtDest"
+    #             response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+    #             print(f"<Prefix List Detailed Status code { response.status_code } for { self.url }>")
+    #             response_dict  = response.json()
+    #             ip_prefix_list_details.append(response_dict['imdata'])
+    #     return(ip_prefix_list_details)
 
     def users(self):
         self.url = f"{ self.aci }/api/node/class/aaaUser.json"
@@ -541,6 +556,13 @@ class ACEye():
         self.url = f"{ self.aci }/api/node/class/actrlEntity.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Access Control Entities code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
+    def access_control_instances(self):
+        self.url = f"{ self.aci }/api/node/class/actrlInst.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Access Control Instances code { response.status_code } for { self.url }>")
         response_dict  = response.json()
         return(response_dict)
 
@@ -734,6 +756,10 @@ class ACEye():
             with open('Access Control Entities/JSON/Access Control Entities.json', 'w' ) as f:
                 f.write(parsed_json)
 
+        if "actrlInst" in self.url:
+            with open('Access Control Instances/JSON/Access Control Instances.json', 'w' ) as f:
+                f.write(parsed_json)
+
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
         if "Tenant" in self.url:
@@ -923,6 +949,10 @@ class ACEye():
 
         if "actrlEntity" in self.url:
             with open('Access Control Entities/YAML/Access Control Entities.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "actrlInst" in self.url:
+            with open('Access Control Instances/YAML/Access Control Instances.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -1118,6 +1148,10 @@ class ACEye():
 
         if "actrlEntity" in self.url:
             with open('Access Control Entities/CSV/Access Control Entities.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "actrlInst" in self.url:
+            with open('Access Control Instances/CSV/Access Control Instances.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -1316,6 +1350,10 @@ class ACEye():
             with open('Access Control Entities/Markdown/Access Control Entities.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "actrlInst" in self.url:
+            with open('Access Control Instances/Markdown/Access Control Instances.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1512,6 +1550,10 @@ class ACEye():
             with open('Access Control Entities/HTML/Access Control Entities.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "actrlInst" in self.url:
+            with open('Access Control Instances/HTML/Access Control Instances.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1706,6 +1748,10 @@ class ACEye():
 
         if "actrlEntity" in self.url:
             with open('Access Control Entities/Mindmap/Access Control Entities.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "actrlInst" in self.url:
+            with open('Access Control Instances/Mindmap/Access Control Instances.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

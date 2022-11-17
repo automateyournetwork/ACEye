@@ -944,7 +944,8 @@
 {%- else %}
 {%- if "rtctrlSubjP" in api %}
 # Prefix List
-{%-     for prefix_list in data_to_template['imdata'] %}
+{%-     for outer_list in data_to_template %}
+{%-         for prefix_list in outer_list %}
 ## Name: {{ prefix_list.rtctrlSubjP.attributes.name }}
 ### Annotation: {{ prefix_list.rtctrlSubjP.attributes.annotation }}
 ### Child Action: {{ prefix_list.rtctrlSubjP.attributes.childAction }}
@@ -957,6 +958,7 @@
 ### Status: {{ prefix_list.rtctrlSubjP.attributes.status }}
 ### UID: {{ prefix_list.rtctrlSubjP.attributes.uid }}
 ### User Domain: {{ prefix_list.rtctrlSubjP.attributes.userdom }}
+{%-         endfor %}
 {%-     endfor %}
 {%- else %}
 {%- if "rtctrlMatchRtDest" in api %}
@@ -1361,4 +1363,21 @@
 #### State: {{ acl.actrlEntity.attributes.operSt }}
 ### Status: {{ acl.actrlEntity.attributes.status }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "actrlInst" in api %}
+# Access Control Instances
+{%-     for acl in data_to_template['imdata'] %}
+## Name: {{ acl.actrlInst.attributes.name }}
+### Acc Control: {{ acl.actrlInst.attributes.accCtrl }}
+### Admin State: {{ acl.actrlInst.attributes.adminSt }}
+### Child Action: {{ acl.actrlInst.attributes.childAction }}
+### Control: {{ acl.actrlInst.attributes.ctrl }}
+### DN: {{ acl.actrlInst.attributes.dn }}
+### Local Owner: {{ acl.actrlInst.attributes.lcOwn }}
+### Log Clr Interval: {{ acl.actrlInst.attributes.logClrIntvl }}
+### Last Modified: {{ acl.actrlInst.attributes.modTs }}
+### Monitoring Policy DN: {{ acl.actrlInst.attributes.monPolDn }}
+### Operational State: {{ acl.actrlInst.attributes.operErr }}
+### Status: {{ acl.actrlInst.attributes.status }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

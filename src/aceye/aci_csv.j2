@@ -184,8 +184,10 @@
 {%-     endfor %}
 {%- else %}
 {%- if "rtctrlSubjP" in api %}Annotation,Child Action,Description,DN,Externally Managed By,Local Owner,Last Modified,Name,Name Alias,Status,UID,User Domain
-{%-     for prefix_list in data_to_template['imdata'] %}
+{%-     for outer_list in data_to_template %}
+{%-         for prefix_list in outer_list %}
 {{ prefix_list.rtctrlSubjP.attributes.annotation }},{{ prefix_list.rtctrlSubjP.attributes.childAction }},{{ prefix_list.rtctrlSubjP.attributes.description }},{{ prefix_list.rtctrlSubjP.attributes.dn }},{{ prefix_list.rtctrlSubjP.attributes.extMngdBy }},{{ prefix_list.rtctrlSubjP.attributes.lcOwn }},{{ prefix_list.rtctrlSubjP.attributes.modTs }},{{ prefix_list.rtctrlSubjP.attributes.name }},{{ prefix_list.rtctrlSubjP.attributes.nameAlias }},{{ prefix_list.rtctrlSubjP.attributes.status }},{{ prefix_list.rtctrlSubjP.attributes.uid }},{{ prefix_list.rtctrlSubjP.attributes.userdom }}
+{%-         endfor %}
 {%-     endfor %}
 {%- else %}
 {%- if "rtctrlMatchRtDest" in api %}Aggregate,Annotation,Child Action,Description,DN,Externally Managed By,fromPfxLen,IP,Local Owner,Last Modified,Name,Name Alias,Status,toPfxLen,Type,UID,User Domain
@@ -263,4 +265,9 @@
 {%-     for acl in data_to_template['imdata'] %}
 {{ acl.actrlEntity.attributes.name }},{{ acl.actrlEntity.attributes.adminSt }},{{ acl.actrlEntity.attributes.childAction }},{{ acl.actrlEntity.attributes.dn }},{{ acl.actrlEntity.attributes.lcOwn }},{{ acl.actrlEntity.attributes.modTs }},{{ acl.actrlEntity.attributes.monPolDn }},{{ acl.actrlEntity.attributes.operErr }},{{ acl.actrlEntity.attributes.operSt }},{{ acl.actrlEntity.attributes.status }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "actrlInst" in api %}Name,Acc Control,Admin State,Child Action,Control,DN,Local Owner,Log Clr Interval,Last Modified,Monitoring Policy DN,Oper Error,Status
+{%-     for acl in data_to_template['imdata'] %}
+{{ acl.actrlInst.attributes.name }},{{ acl.actrlInst.attributes.accCtrl }},{{ acl.actrlInst.attributes.adminSt }},{{ acl.actrlInst.attributes.childAction }},{{ acl.actrlInst.attributes.ctrl }},{{ acl.actrlInst.attributes.dn }},{{ acl.actrlInst.attributes.lcOwn }},{{ acl.actrlInst.attributes.logClrIntvl }},{{ acl.actrlInst.attributes.modTs }},{{ acl.actrlInst.attributes.monPolDn }},{{ acl.actrlInst.attributes.operErr }},{{ acl.actrlInst.attributes.status }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
