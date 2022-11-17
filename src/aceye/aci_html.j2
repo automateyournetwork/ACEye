@@ -2234,7 +2234,7 @@
 </tbody>
 </table>
 {%- else %}
-{%- if "health" in api %}
+{%- if "topology/health" in api %}
 <h1>Fabric Total Health</h1>
 <table id = "datatable">
 <thead>
@@ -2242,7 +2242,8 @@
     <th>Change</th>
     <th>Current</th>
     <th>Child Action</th>
-    <th>DN:Local Owner</th>
+    <th>DN</th>
+    <th>Local Owner</th>
     <th>Maximum Severity</th>
     <th>Last Modified</th>
     <th>Previous</th>
@@ -2346,5 +2347,42 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "tn-" and "health" in api %}
+<h1>Tenant Health</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Change</th>
+    <th>Current</th>
+    <th>Previous</th>
+    <th>TW Score</th>
+    <th>Child Action</th>
+    <th>Max Severity</th>
+    <th>Last Modified</th>
+    <th>Status</th>
+    <th>Last Updated</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for outer_list in data_to_template %}
+{%-         for tenant in outer_list %}
+  <tr>
+    <td>{{ tenant.healthInst.attributes.dn }}</td>
+    <td>{{ tenant.healthInst.attributes.chng }}</td>
+    <td>{{ tenant.healthInst.attributes.cur }}</td>
+    <td>{{ tenant.healthInst.attributes.prev }}</td>
+    <td>{{ tenant.healthInst.attributes.twScore }}</td>
+    <td>{{ tenant.healthInst.attributes.childAction }}</td>
+    <td>{{ tenant.healthInst.attributes.maxSev }}</td>
+    <td>{{ tenant.healthInst.attributes.modTs }}</td>
+    <td>{{ tenant.healthInst.attributes.status }}</td>
+    <td>{{ tenant.healthInst.attributes.updTs }}</td>
+  </tr>
+{%-         endfor %}
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
