@@ -1129,7 +1129,7 @@
 ### User Domain: {{ subject.vzSubj.attributes.userdom }}
 {%-     endfor %}
 {%- else %}
-{%- if "health" in api %}
+{%- if "topology/health" in api %}
 # Fabric Total Health
 {%-     for score in data_to_template['imdata'] %}
 ## Score
@@ -1187,4 +1187,23 @@
 #### Validity Not Before: {{ cert.pkiFabricNodeSSLCertificate.attributes.validityNotBefore }}
 ### Version: {{ cert.pkiFabricNodeSSLCertificate.attributes.version }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "tn-" and "health" in api %}
+# Tenant Health
+{%-     for outer_list in data_to_template %}
+{%-         for tenant in outer_list %}
+## DN: {{ tenant.healthInst.attributes.dn }}
+### Scores
+#### Change: {{ tenant.healthInst.attributes.chng }}</td>
+#### Current: {{ tenant.healthInst.attributes.cur }}
+#### Previous: {{ tenant.healthInst.attributes.prev }}
+#### TW Score: {{ tenant.healthInst.attributes.twScore }}
+### Child Action: {{ tenant.healthInst.attributes.childAction }}
+### Maximum Severity: {{ tenant.healthInst.attributes.maxSev }}
+### Timestamps
+#### Last Modified: {{ tenant.healthInst.attributes.modTs }}
+#### Last Updated: {{ tenant.healthInst.attributes.updTs }}
+### Status: {{ tenant.healthInst.attributes.status }}
+{%-         endfor %}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
