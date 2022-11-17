@@ -2807,5 +2807,74 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "actrlRule" in api %}
+<h1>Access Control Rules </h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Action</th>
+    <th>Access Control Config Failed Bmp</th>
+    <th>Access Control Config Failed Timestamp</th>
+    <th>Access Control Config State</th>
+    <th>Child Action</th>
+    <th>Contract Name</th>
+    <th>Destination PC Tag</th>
+    <th>Description</th>
+    <th>Direction</th>
+    <th>DN</th>
+    <th>Filter ID</th>
+    <th>ID</th>
+    <th>Intent</th>
+    <th>Local Owner</th>
+    <th>Mark DSCP</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Operational State</th>
+    <th>Operational State Quality</th>
+    <th>Priority</th>
+    <th>QOS Group</th>
+    <th>Source PC Tag</th>
+    <th>Scope ID</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for acl in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ acl.actrlRule.attributes.name }}</td>
+    <td>{{ acl.actrlRule.attributes.nameAlias }}</td>
+    <td>{{ acl.actrlRule.attributes.action }}</td>
+    <td>{{ acl.actrlRule.attributes.actrlCfgFailedBmp }}</td>
+    <td>{{ acl.actrlRule.attributes.actrlCfgFailedTs }}</td>
+    <td>{{ acl.actrlRule.attributes.actrlCfgState }}</td>
+    <td>{{ acl.actrlRule.attributes.childAction }}</td>
+    <td>{{ acl.actrlRule.attributes.ctrctName }}</td>
+    <td>{{ acl.actrlRule.attributes.dPcTag }}</td>
+    <td>{{ acl.actrlRule.attributes.descr }}</td>
+    <td>{{ acl.actrlRule.attributes.direction }}</td>
+    <td>{{ acl.actrlRule.attributes.dn }}</td>
+    <td>{{ acl.actrlRule.attributes.fltId }}</td>
+    <td>{{ acl.actrlRule.attributes.id }}</td>
+    <td>{{ acl.actrlRule.attributes.intent }}</td>
+    <td>{{ acl.actrlRule.attributes.lcOwn }}</td>
+    <td>{{ acl.actrlRule.attributes.markDscp }}</td>
+    <td>{{ acl.actrlRule.attributes.modTs }}</td>
+    <td>{{ acl.actrlRule.attributes.monPolDn }}</td>
+    <td>{{ acl.actrlRule.attributes.operSt }}</td>
+    <td>{{ acl.actrlRule.attributes.operStQual }}</td>
+    <td>{{ acl.actrlRule.attributes.prio }}</td>
+    <td>{{ acl.actrlRule.attributes.qosGrp }}</td>
+    <td>{{ acl.actrlRule.attributes.sPcTag }}</td>
+    <td>{{ acl.actrlRule.attributes.scopeId }}</td>
+    <td>{{ acl.actrlRule.attributes.status }}</td>
+    <td>{{ acl.actrlRule.attributes.type }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
