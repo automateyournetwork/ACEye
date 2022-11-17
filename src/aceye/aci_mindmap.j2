@@ -1345,4 +1345,20 @@
 ##### Valid: {{ interface.l3Inst.attributes.v6TibValid }}
 ### VPN ID: {{ interface.l3Inst.attributes.vpnId }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "actrlEntity" in api %}
+# Access Control Entities
+{%-     for acl in data_to_template['imdata'] %}
+## Name: {{ acl.actrlEntity.attributes.name }}
+### Admin State: {{ acl.actrlEntity.attributes.adminSt }}
+### Child Action: {{ acl.actrlEntity.attributes.childAction }}
+### DN: {{ acl.actrlEntity.attributes.dn }}
+### Local Owner: {{ acl.actrlEntity.attributes.lcOwn }}
+### Last Modified: {{ acl.actrlEntity.attributes.modTs }}
+### Monitoring Policy DN: {{ acl.actrlEntity.attributes.monPolDn }}
+### Operational
+#### Error: {{ acl.actrlEntity.attributes.operErr }}
+#### State: {{ acl.actrlEntity.attributes.operSt }}
+### Status: {{ acl.actrlEntity.attributes.status }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
