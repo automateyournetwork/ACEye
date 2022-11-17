@@ -944,7 +944,8 @@
 {%- else %}
 {%- if "rtctrlSubjP" in api %}
 # Prefix List
-{%-     for prefix_list in data_to_template['imdata'] %}
+{%-     for outer_list in data_to_template %}
+{%-         for prefix_list in outer_list %}
 ## Name: {{ prefix_list.rtctrlSubjP.attributes.name }}
 ### Annotation: {{ prefix_list.rtctrlSubjP.attributes.annotation }}
 ### Child Action: {{ prefix_list.rtctrlSubjP.attributes.childAction }}
@@ -957,6 +958,7 @@
 ### Status: {{ prefix_list.rtctrlSubjP.attributes.status }}
 ### UID: {{ prefix_list.rtctrlSubjP.attributes.uid }}
 ### User Domain: {{ prefix_list.rtctrlSubjP.attributes.userdom }}
+{%-         endfor %}
 {%-     endfor %}
 {%- else %}
 {%- if "rtctrlMatchRtDest" in api %}

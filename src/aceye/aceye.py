@@ -89,8 +89,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.prefix_list(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
-        parsed_json = json.dumps(self.prefix_list_detailed(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
+        # parsed_json = json.dumps(self.prefix_list_detailed(), indent=4, sort_keys=True)
+        # self.all_files(parsed_json)
         parsed_json = json.dumps(self.users(), indent=4, sort_keys=True)
         self.all_files(parsed_json)        
         parsed_json = json.dumps(self.security_domains(), indent=4, sort_keys=True)
@@ -436,25 +436,37 @@ class ACEye():
         return(response_dict)
 
     def prefix_list(self):
-        self.url = f"{ self.aci }/api/node/mo/uni/tn-PROD.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
+        self.url = f"{ self.aci }/api/node/class/fvTenant.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Prefix List Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return(response_dict)
-        
-    def prefix_list_detailed(self):
-        self.url = f"{ self.aci }/api/node/mo/uni/tn-PROD.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Prefix List Status code { response.status_code } for { self.url }>")
-        prefix_response_dict  = response.json()
-        ip_prefix_list = []
-        for prefix in prefix_response_dict['imdata']:
-            self.url = f"{ self.aci }/api/node/mo/uni/tn-PROD/subj-{ prefix['rtctrlSubjP']['attributes']['name']}.json?query-target=children&target-subtree-class=rtctrlMatchRtDest"
+        print(f"<Tenant Status code { response.status_code } for { self.url }>")
+        tenants  = response.json()
+        prefix_lists = []
+        for tenant in tenants['imdata']:        
+            self.url = f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
             response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-            print(f"<Prefix List Detailed Status code { response.status_code } for { self.url }>")
+            print(f"<Prefix List Status code { response.status_code } for { self.url }>")
             response_dict  = response.json()
-            ip_prefix_list.append(response_dict['imdata'])
-        return(ip_prefix_list)
+            prefix_lists.append(response_dict['imdata'])
+        return(prefix_lists)
+        
+    # def prefix_list_detailed(self):
+    #     self.url = f"{ self.aci }/api/node/class/fvTenant.json"
+    #     response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+    #     print(f"<Tenant Status code { response.status_code } for { self.url }>")
+    #     tenants  = response.json()
+    #     ip_prefix_list_details = []
+    #     for tenant in tenants['imdata']:
+    #         self.url = f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }?query-target=subtree&target-subtree-class=rtctrlSubjP"
+    #         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+    #         print(f"<Prefix List Status code { response.status_code } for { self.url }>")
+    #         prefix_response_dict  = response.json()      
+    #         for prefix in prefix_response_dict['imdata']:
+    #             self.url = f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }/subj-{ prefix['rtctrlSubjP']['attributes']['name']}.json?query-target=children&target-subtree-class=rtctrlMatchRtDest"
+    #             response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+    #             print(f"<Prefix List Detailed Status code { response.status_code } for { self.url }>")
+    #             response_dict  = response.json()
+    #             ip_prefix_list_details.append(response_dict['imdata'])
+    #     return(ip_prefix_list_details)
 
     def users(self):
         self.url = f"{ self.aci }/api/node/class/aaaUser.json"

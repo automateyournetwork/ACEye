@@ -1865,8 +1865,9 @@
     <th>Used Domain</th>
   </tr>
 </thead>
-<tbody>  
-{%-     for prefix_list in data_to_template['imdata'] %}
+<tbody>
+{%-     for outer_list in data_to_template %}
+{%-         for prefix_list in outer_list %}
   <tr>
     <td>{{ prefix_list.rtctrlSubjP.attributes.annotation }}</td>
     <td>{{ prefix_list.rtctrlSubjP.attributes.childAction }}</td>
@@ -1881,6 +1882,7 @@
     <td>{{ prefix_list.rtctrlSubjP.attributes.uid }}</td>
     <td>{{ prefix_list.rtctrlSubjP.attributes.userdom }}</td>
   </tr>
+{%-         endfor %}
 {%-     endfor %}
 </tbody>
 </table>

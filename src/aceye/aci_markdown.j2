@@ -250,8 +250,10 @@
 {%- if "rtctrlSubjP" in api %}# Fabric Nodes
 | Annotation | Child Action | Description | DN | Externally Managed By | Local Owner | Last Modified | Name | Name Alias | Status | UID | User Domain |
 | ---------- | ------------ | ----------- | -- | --------------------- | ----------- | ------------- | ---- | ---------- | ------ | --- | ----------- |
-{%-     for prefix_list in data_to_template['imdata'] %}
+{%-     for outer_list in data_to_template %}
+{%-         for prefix_list in outer_list %}
 | {{ prefix_list.rtctrlSubjP.attributes.annotation }} | {{ prefix_list.rtctrlSubjP.attributes.childAction }} | {{ prefix_list.rtctrlSubjP.attributes.description }} | {{ prefix_list.rtctrlSubjP.attributes.dn }} | {{ prefix_list.rtctrlSubjP.attributes.extMngdBy }} | {{ prefix_list.rtctrlSubjP.attributes.lcOwn }} | {{ prefix_list.rtctrlSubjP.attributes.modTs }} | {{ prefix_list.rtctrlSubjP.attributes.name }} | {{ prefix_list.rtctrlSubjP.attributes.nameAlias }} | {{ prefix_list.rtctrlSubjP.attributes.status }} | {{ prefix_list.rtctrlSubjP.attributes.uid }} | {{ prefix_list.rtctrlSubjP.attributes.userdom }} |
+{%-         endfor %}
 {%-     endfor %}
 {%- else %}
 {%- if "rtctrlMatchRtDest" in api %}# Physical Interfaces
