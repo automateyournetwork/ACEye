@@ -1246,4 +1246,103 @@
 ### User Domain: {{ package.vnsMDev.attributes.userdom }}
 ### Version: {{ package.vnsMDev.attributes.version }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "cnwAggrIf" in api %}
+# Aggregate Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## {{ interface.cnwAggrIf.attributes.name }}
+### Admin State: {{ interface.cnwAggrIf.attributes.adminSt }}</td>
+### Auto Negotiate: {{ interface.cnwAggrIf.attributes.autoNeg }}</td>
+### Bandwidth: {{ interface.cnwAggrIf.attributes.bw }}</td>
+### Child Action: {{ interface.cnwAggrIf.attributes.childAction }}</td>
+### Delay: {{ interface.cnwAggrIf.attributes.delay }}</td>
+### Description: {{ interface.cnwAggrIf.attributes.descr }}</td>
+### DN: {{ interface.cnwAggrIf.attributes.dn }}</td>
+### Dot1q Ether Type: {{ interface.cnwAggrIf.attributes.dot1qEtherType }}</td>
+### FCOT Channel Number: {{ interface.cnwAggrIf.attributes.fcotChannelNumber }}</td>
+### ID: {{ interface.cnwAggrIf.attributes.id }}</td>
+### Inherited Bandwidth: {{ interface.cnwAggrIf.attributes.inhBw }}</td>
+### Is Reflective Relay Config Supported: {{ interface.cnwAggrIf.attributes.isReflectiveRelayCfgSupported }}</td>
+### Layer: {{ interface.cnwAggrIf.attributes.layer }}</td>
+### Local Owner: {{ interface.cnwAggrIf.attributes.lcOwn }}</td>
+### Link Debounce: {{ interface.cnwAggrIf.attributes.linkDebounce }}</td>
+### Link Log: {{ interface.cnwAggrIf.attributes.linkLog }}</td>
+### MDIX: {{ interface.cnwAggrIf.attributes.mdix }}</td>
+### Medium: {{ interface.cnwAggrIf.attributes.medium }}</td>
+### Last Modified: {{ interface.cnwAggrIf.attributes.modTs }}</td>
+### Mode: {{ interface.cnwAggrIf.attributes.mode }}</td>
+### Monitoring Policy DN: {{ interface.cnwAggrIf.attributes.monPolDn }}</td>
+### MTU: {{ interface.cnwAggrIf.attributes.mtu }}</td>
+### Oper State: {{ interface.cnwAggrIf.attributes.operSt }}</td>
+### Path S Description: {{ interface.cnwAggrIf.attributes.pathSDescr }}</td>
+### Port T: {{ interface.cnwAggrIf.attributes.portT }}</td>
+### Priority Flow Control: {{ interface.cnwAggrIf.attributes.prioFlowCtrl }}</td>
+### Reflective Relay Enable: {{ interface.cnwAggrIf.attributes.reflectiveRelayEn }}</td>
+### Router MAC: {{ interface.cnwAggrIf.attributes.routerMac }}</td>
+### SNMP Trap State: {{ interface.cnwAggrIf.attributes.snmpTrapSt }}</td>
+### Span Mode: {{ interface.cnwAggrIf.attributes.spanMode }}</td>
+### Speed: {{ interface.cnwAggrIf.attributes.speed }}</td>
+### Status: {{ interface.cnwAggrIf.attributes.status }}</td>
+### Switching State: {{ interface.cnwAggrIf.attributes.switchingSt }}</td>
+### Trunk Log: {{ interface.cnwAggrIf.attributes.trunkLog }}</td>
+### Usage: {{ interface.cnwAggrIf.attributes.usage }}</td>
+{%-     endfor %}
+{%- else %}
+{%- if "l3Inst" in api %}
+# Layer3 Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.l3Inst.attributes.name }}
+### Admin State: {{ interface.l3Inst.attributes.adminState }}
+### BGP
+#### RD: {{ interface.l3Inst.attributes.bgpRd }}
+#### RD Display: {{ interface.l3Inst.attributes.bgpRdDisp }}
+### Child Action: {{ interface.l3Inst.attributes.childAction }}
+### Timestamps
+#### Created: {{ interface.l3Inst.attributes.createTs }}
+#### Last Changed: {{ interface.l3Inst.attributes.lastChgdTs }}
+#### Modified: {{ interface.l3Inst.attributes.modTs }}
+### CTX PKey: {{ interface.l3Inst.attributes.ctxPKey }}
+### DN: {{ interface.l3Inst.attributes.dn }}
+### Domain ID: {{ interface.l3Inst.attributes.domainId }}
+### Encapsulation: {{ interface.l3Inst.attributes.encap }}
+### GSDB CTX: {{ interface.l3Inst.attributes.gsdbCtx }}
+### ID: {{ interface.l3Inst.attributes.id }}
+### L3 VM Config
+#### Failed Bmp: {{ interface.l3Inst.attributes.l3vmCfgFailedBmp }}
+#### Failed Timestamp: {{ interface.l3Inst.attributes.l3vmCfgFailedTs }}
+#### State: {{ interface.l3Inst.attributes.l3vmCfgState }}
+### Local Owner: {{ interface.l3Inst.attributes.lcOwn }}
+### Monitoring Policy DN: {{ interface.l3Inst.attributes.monPolDn }}
+### MPLS VPN Label Index: {{ interface.l3Inst.attributes.mplsVPNLabelIndex }}
+### Oper State
+#### Old Quality: {{ interface.l3Inst.attributes.oldOperStQual }}
+#### Quality: {{ interface.l3Inst.attributes.operStQual }}
+#### State: {{ interface.l3Inst.attributes.operState }}
+### Oui: {{ interface.l3Inst.attributes.oui }}
+### Pending: {{ interface.l3Inst.attributes.pending }}
+### Port Control Bmp: {{ interface.l3Inst.attributes.prtclBmp }}
+### Resource ID: {{ interface.l3Inst.attributes.resourceId }}
+### Scope: {{ interface.l3Inst.attributes.scope }}
+### Status: {{ interface.l3Inst.attributes.status }}
+### TIB
+#### v4
+##### ID: {{ interface.l3Inst.attributes.v4TibId }}
+##### Name:  {{ interface.l3Inst.attributes.v4TibName }}
+##### Oper State
+###### Old Quality: {{ interface.l3Inst.attributes.v4TibOldOperStQual }}
+###### Quality: {{ interface.l3Inst.attributes.v4TibOperStQual }}
+###### State: {{ interface.l3Inst.attributes.v4TibOperState }}
+##### Pending: {{ interface.l3Inst.attributes.v4TibPending }}
+##### Valid: {{ interface.l3Inst.attributes.v4TibValid }}
+#### v6
+##### ID: {{ interface.l3Inst.attributes.v6TibId }}
+##### Name: {{ interface.l3Inst.attributes.v6TibName }}
+##### Oper State
+###### Old Quality: {{ interface.l3Inst.attributes.v6TibOldOperStQual }}
+###### Quality: {{ interface.l3Inst.attributes.v6TibOperStQual }}
+###### State: {{ interface.l3Inst.attributes.v6TibOperState }}
+##### Pending: {{ interface.l3Inst.attributes.v6TibPending }}
+##### Valid: {{ interface.l3Inst.attributes.v6TibValid }}
+### VPN ID: {{ interface.l3Inst.attributes.vpnId }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

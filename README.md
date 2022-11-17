@@ -6,6 +6,8 @@ Business Ready Documents for Cisco ACI
 
 ## Current API Coverage
 
+Aggregate Interfaces
+
 Application Profiles
 
 Attachable Access Entity Profiles
@@ -59,6 +61,8 @@ License Entitlements
 L2Outs
 
 L3 Domains
+
+L3 Interfaces
 
 L3Outs
 

@@ -2541,5 +2541,195 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "cnwAggrIf" in api %}
+<h1>Aggregate Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Auto Negotiate</th>
+    <th>Bandwidth</th>
+    <th>Child Action</th>
+    <th>Delay</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Dot1q Ether Type</th>
+    <th>FCOT Channel Number</th>
+    <th>ID</th>
+    <th>Inherited Bandwidth</th>
+    <th>Is Reflective Relay Config Supported</th>
+    <th>Layer</th>
+    <th>Local Owner</th>
+    <th>Link Debounce</th>
+    <th>Link Log</th>
+    <th>MDIX</th>
+    <th>Medium</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>MTU</th>
+    <th>Oper State</th>
+    <th>Path S Description</th>
+    <th>Port T</th>
+    <th>Priority Flow Control</th>
+    <th>Reflective Relay Enable</th>
+    <th>Router MAC</th>
+    <th>SNMP Trap State</th>
+    <th>Span Mode</th>
+    <th>Speed</th>
+    <th>Status</th>
+    <th>Switching State</th>
+    <th>Trunk Log</th>
+    <th>Usage</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.cnwAggrIf.attributes.name }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.adminSt }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.autoNeg }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.bw }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.childAction }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.delay }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.descr }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.dn }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.dot1qEtherType }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.fcotChannelNumber }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.id }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.inhBw }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.isReflectiveRelayCfgSupported }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.layer }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.lcOwn }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.linkDebounce }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.linkLog }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.mdix }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.medium }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.modTs }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.mode }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.monPolDn }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.mtu }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.operSt }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.pathSDescr }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.portT }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.prioFlowCtrl }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.reflectiveRelayEn }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.routerMac }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.snmpTrapSt }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.spanMode }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.speed }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.status }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.switchingSt }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.trunkLog }}</td>
+    <td>{{ interface.cnwAggrIf.attributes.usage }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "l3Inst" in api %}
+<h1>Layer3 Interfaces </h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>BGP RD</th>
+    <th>BGP RD Display</th>
+    <th>Child Action</th>
+    <th>Created Timestamp</th>
+    <th>CTX PKey</th>
+    <th>DN</th>
+    <th>Domain ID</th>
+    <th>Encapsulation</th>
+    <th>GSDB CTX</th>
+    <th>ID</th>
+    <th>L3 VM Config Failed Bmp</th>
+    <th>L3 VM Config Failed Timestamp</th>
+    <th>L3 VM Config State</th>
+    <th>Last Changed Timestamp</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>MPLS VPN Label Index</th>
+    <th>Old Oper State Quality</th>
+    <th>Oper State Quality</th>
+    <th>Oper State</th>
+    <th>Oui</th>
+    <th>Pending</th>
+    <th>Port CL Bmp</th>
+    <th>Resource ID</th>
+    <th>Scope</th>
+    <th>Status</th>
+    <th>v4 Tib ID</th>
+    <th>v4 Tib Name</th>
+    <th>v4 Tib Old Oper State Quality</th>
+    <th>v4 Tib Oper State Quality</th>
+    <th>v4 Tib Oper State</th>
+    <th>v4 Tib Pending</th>
+    <th>v4 Tib Valid</th>
+    <th>v6 Tib ID</th>
+    <th>v6 Tib Name</th>
+    <th>v6 Tib Old Oper State Quality</th>
+    <th>v6 Tib Oper State Quality</th>
+    <th>v6 Tib Oper State</th>
+    <th>v6 Tib Pending</th>
+    <th>v6 Tib Valid</th>
+    <th>VPN ID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.l3Inst.attributes.name }}</td>
+    <td>{{ interface.l3Inst.attributes.adminState }}</td>
+    <td>{{ interface.l3Inst.attributes.bgpRd }}</td>
+    <td>{{ interface.l3Inst.attributes.bgpRdDisp }}</td>
+    <td>{{ interface.l3Inst.attributes.childAction }}</td>
+    <td>{{ interface.l3Inst.attributes.createTs }}</td>
+    <td>{{ interface.l3Inst.attributes.ctxPKey }}</td>
+    <td>{{ interface.l3Inst.attributes.dn }}</td>
+    <td>{{ interface.l3Inst.attributes.domainId }}</td>
+    <td>{{ interface.l3Inst.attributes.encap }}</td>
+    <td>{{ interface.l3Inst.attributes.gsdbCtx }}</td>
+    <td>{{ interface.l3Inst.attributes.id }}</td>
+    <td>{{ interface.l3Inst.attributes.l3vmCfgFailedBmp }}</td>
+    <td>{{ interface.l3Inst.attributes.l3vmCfgFailedTs }}</td>
+    <td>{{ interface.l3Inst.attributes.l3vmCfgState }}</td>
+    <td>{{ interface.l3Inst.attributes.lastChgdTs }}</td>
+    <td>{{ interface.l3Inst.attributes.lcOwn }}</td>
+    <td>{{ interface.l3Inst.attributes.modTs }}</td>
+    <td>{{ interface.l3Inst.attributes.monPolDn }}</td>
+    <td>{{ interface.l3Inst.attributes.mplsVPNLabelIndex }}</td>
+    <td>{{ interface.l3Inst.attributes.oldOperStQual }}</td>
+    <td>{{ interface.l3Inst.attributes.operStQual }}</td>
+    <td>{{ interface.l3Inst.attributes.operState }}</td>
+    <td>{{ interface.l3Inst.attributes.oui }}</td>
+    <td>{{ interface.l3Inst.attributes.pending }}</td>
+    <td>{{ interface.l3Inst.attributes.prtclBmp }}</td>
+    <td>{{ interface.l3Inst.attributes.resourceId }}</td>
+    <td>{{ interface.l3Inst.attributes.scope }}</td>
+    <td>{{ interface.l3Inst.attributes.status }}</td>
+    <td>{{ interface.l3Inst.attributes.v4TibId }}</td>
+    <td>{{ interface.l3Inst.attributes.v4TibName }}</td>
+    <td>{{ interface.l3Inst.attributes.v4TibOldOperStQual }}</td>
+    <td>{{ interface.l3Inst.attributes.v4TibOperStQual }}</td>
+    <td>{{ interface.l3Inst.attributes.v4TibOperState }}</td>
+    <td>{{ interface.l3Inst.attributes.v4TibPending }}</td>
+    <td>{{ interface.l3Inst.attributes.v4TibValid }}</td>
+    <td>{{ interface.l3Inst.attributes.v6TibId }}</td>
+    <td>{{ interface.l3Inst.attributes.v6TibName }}</td>
+    <td>{{ interface.l3Inst.attributes.v6TibOldOperStQual }}</td>
+    <td>{{ interface.l3Inst.attributes.v6TibOperStQual }}</td>
+    <td>{{ interface.l3Inst.attributes.v6TibOperState }}</td>
+    <td>{{ interface.l3Inst.attributes.v6TibPending }}</td>
+    <td>{{ interface.l3Inst.attributes.v6TibValid }}</td>
+    <td>{{ interface.l3Inst.attributes.vpnId }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
