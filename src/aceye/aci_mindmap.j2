@@ -1380,4 +1380,39 @@
 ### Operational State: {{ acl.actrlInst.attributes.operErr }}
 ### Status: {{ acl.actrlInst.attributes.status }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "actrlRule" in api %}
+# Access Control Rules
+{%-     for acl in data_to_template['imdata'] %}
+## Name: {{ acl.actrlRule.attributes.name }}
+### Name Alias: {{ acl.actrlRule.attributes.nameAlias }}
+### Action: {{ acl.actrlRule.attributes.action }}
+### Access Control Configuration
+#### Failed Bmp: {{ acl.actrlRule.attributes.actrlCfgFailedBmp }}
+#### Failed Timestamp: {{ acl.actrlRule.attributes.actrlCfgFailedTs }}
+#### State: {{ acl.actrlRule.attributes.actrlCfgState }}
+### Child Action: {{ acl.actrlRule.attributes.childAction }}
+### Contract Name: {{ acl.actrlRule.attributes.ctrctName }}
+### PC Tags
+#### Destination: {{ acl.actrlRule.attributes.dPcTag }}
+#### Source: {{ acl.actrlRule.attributes.sPcTag }}
+### Description: {{ acl.actrlRule.attributes.descr }}
+### Direction: {{ acl.actrlRule.attributes.direction }}
+### DN: {{ acl.actrlRule.attributes.dn }}
+### Filter ID: {{ acl.actrlRule.attributes.fltId }}
+### ID: {{ acl.actrlRule.attributes.id }}
+### Intent: {{ acl.actrlRule.attributes.intent }}
+### Local Owner: {{ acl.actrlRule.attributes.lcOwn }}
+### Mark DSCP: {{ acl.actrlRule.attributes.markDscp }}
+### Last Modified: {{ acl.actrlRule.attributes.modTs }}
+### Monitoring Policy DN: {{ acl.actrlRule.attributes.monPolDn }}
+### Operational
+#### State: {{ acl.actrlRule.attributes.operSt }}
+#### State Quality: {{ acl.actrlRule.attributes.operStQual }}
+### Priority: {{ acl.actrlRule.attributes.prio }}
+### QOS Group: {{ acl.actrlRule.attributes.qosGrp }}
+### Scope ID: {{ acl.actrlRule.attributes.scopeId }}
+### Status: {{ acl.actrlRule.attributes.status }}
+### Type: {{ acl.actrlRule.attributes.type }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

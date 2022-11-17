@@ -10,6 +10,8 @@ Access Control Entities
 
 Access Control Instances
 
+Access Control Rules
+
 Aggregate Interfaces
 
 Application Profiles
