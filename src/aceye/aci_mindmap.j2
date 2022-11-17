@@ -1287,4 +1287,62 @@
 ### Trunk Log: {{ interface.cnwAggrIf.attributes.trunkLog }}</td>
 ### Usage: {{ interface.cnwAggrIf.attributes.usage }}</td>
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "l3Inst" in api %}
+# Layer3 Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.l3Inst.attributes.name }}
+### Admin State: {{ interface.l3Inst.attributes.adminState }}
+### BGP
+#### RD: {{ interface.l3Inst.attributes.bgpRd }}
+#### RD Display: {{ interface.l3Inst.attributes.bgpRdDisp }}
+### Child Action: {{ interface.l3Inst.attributes.childAction }}
+### Timestamps
+#### Created: {{ interface.l3Inst.attributes.createTs }}
+#### Last Changed: {{ interface.l3Inst.attributes.lastChgdTs }}
+#### Modified: {{ interface.l3Inst.attributes.modTs }}
+### CTX PKey: {{ interface.l3Inst.attributes.ctxPKey }}
+### DN: {{ interface.l3Inst.attributes.dn }}
+### Domain ID: {{ interface.l3Inst.attributes.domainId }}
+### Encapsulation: {{ interface.l3Inst.attributes.encap }}
+### GSDB CTX: {{ interface.l3Inst.attributes.gsdbCtx }}
+### ID: {{ interface.l3Inst.attributes.id }}
+### L3 VM Config
+#### Failed Bmp: {{ interface.l3Inst.attributes.l3vmCfgFailedBmp }}
+#### Failed Timestamp: {{ interface.l3Inst.attributes.l3vmCfgFailedTs }}
+#### State: {{ interface.l3Inst.attributes.l3vmCfgState }}
+### Local Owner: {{ interface.l3Inst.attributes.lcOwn }}
+### Monitoring Policy DN: {{ interface.l3Inst.attributes.monPolDn }}
+### MPLS VPN Label Index: {{ interface.l3Inst.attributes.mplsVPNLabelIndex }}
+### Oper State
+#### Old Quality: {{ interface.l3Inst.attributes.oldOperStQual }}
+#### Quality: {{ interface.l3Inst.attributes.operStQual }}
+#### State: {{ interface.l3Inst.attributes.operState }}
+### Oui: {{ interface.l3Inst.attributes.oui }}
+### Pending: {{ interface.l3Inst.attributes.pending }}
+### Port Control Bmp: {{ interface.l3Inst.attributes.prtclBmp }}
+### Resource ID: {{ interface.l3Inst.attributes.resourceId }}
+### Scope: {{ interface.l3Inst.attributes.scope }}
+### Status: {{ interface.l3Inst.attributes.status }}
+### TIB
+#### v4
+##### ID: {{ interface.l3Inst.attributes.v4TibId }}
+##### Name:  {{ interface.l3Inst.attributes.v4TibName }}
+##### Oper State
+###### Old Quality: {{ interface.l3Inst.attributes.v4TibOldOperStQual }}
+###### Quality: {{ interface.l3Inst.attributes.v4TibOperStQual }}
+###### State: {{ interface.l3Inst.attributes.v4TibOperState }}
+##### Pending: {{ interface.l3Inst.attributes.v4TibPending }}
+##### Valid: {{ interface.l3Inst.attributes.v4TibValid }}
+#### v6
+##### ID: {{ interface.l3Inst.attributes.v6TibId }}
+##### Name: {{ interface.l3Inst.attributes.v6TibName }}
+##### Oper State
+###### Old Quality: {{ interface.l3Inst.attributes.v6TibOldOperStQual }}
+###### Quality: {{ interface.l3Inst.attributes.v6TibOperStQual }}
+###### State: {{ interface.l3Inst.attributes.v6TibOperState }}
+##### Pending: {{ interface.l3Inst.attributes.v6TibPending }}
+##### Valid: {{ interface.l3Inst.attributes.v6TibValid }}
+### VPN ID: {{ interface.l3Inst.attributes.vpnId }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
