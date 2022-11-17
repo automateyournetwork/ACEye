@@ -16,6 +16,8 @@ BGP Route Reflectors
 
 Bridge Domains
 
+Cluster Health
+
 Contexts (VRFs)
 
 Contracts
