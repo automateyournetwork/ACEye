@@ -24,6 +24,8 @@ Contracts
 
 Contract Subjects
 
+Device Packages
+
 Endpoints (All Connected Fabric Endpoints)
 
 EPG (Endpoint Groups)

@@ -2304,6 +2304,7 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- else %}
 {%- if "topSystem" in api %}
 {%-     if "?" not in api %}
 <h1>Top System</h1>
@@ -2493,5 +2494,52 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "vnsMDev" in api %}
+<h1>Device Packages</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Vendor</th>
+    <th>Annotation</th>
+    <th>Audit On Busy</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Function Mask</th>
+    <th>Local Owner</th>
+    <th>Managed</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User Domain</th>
+    <th>Version</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for package in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ package.vnsMDev.attributes.vendor }}</td>
+    <td>{{ package.vnsMDev.attributes.annotation }}</td>
+    <td>{{ package.vnsMDev.attributes.auditOnBusy }}</td>
+    <td>{{ package.vnsMDev.attributes.childAction }}</td>
+    <td>{{ package.vnsMDev.attributes.dn }}</td>
+    <td>{{ package.vnsMDev.attributes.extMngdBy }}</td>
+    <td>{{ package.vnsMDev.attributes.funcMask }}</td>
+    <td>{{ package.vnsMDev.attributes.lcOwn }}</td>
+    <td>{{ package.vnsMDev.attributes.managed }}</td>
+    <td>{{ package.vnsMDev.attributes.modTs }}</td>
+    <td>{{ package.vnsMDev.attributes.model }}</td>
+    <td>{{ package.vnsMDev.attributes.monPolDn }}</td>
+    <td>{{ package.vnsMDev.attributes.status }}</td>
+    <td>{{ package.vnsMDev.attributes.uid }}</td>
+    <td>{{ package.vnsMDev.attributes.userdom }}</td>
+    <td>{{ package.vnsMDev.attributes.version }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

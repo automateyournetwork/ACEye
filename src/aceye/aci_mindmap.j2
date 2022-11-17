@@ -1225,4 +1225,25 @@
 ### Virtual Mode: {{ topSystem.topSystem.attributes.virtualMode }}
 {%-         endfor %}
 {%-     endif %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "vnsMDev" in api %}
+# Device Packages
+{%-     for package in data_to_template['imdata'] %}
+## Vendor: {{ package.vnsMDev.attributes.vendor }}
+### Annotation: {{ package.vnsMDev.attributes.annotation }}
+### Audit On Busy: {{ package.vnsMDev.attributes.auditOnBusy }}
+### Child Action: {{ package.vnsMDev.attributes.childAction }}
+### DN: {{ package.vnsMDev.attributes.dn }}
+### Externally Managed By: {{ package.vnsMDev.attributes.extMngdBy }}
+### Function Mask: {{ package.vnsMDev.attributes.funcMask }}
+### Local Owner: {{ package.vnsMDev.attributes.lcOwn }}
+### Managed: {{ package.vnsMDev.attributes.managed }}
+### Last Modified: {{ package.vnsMDev.attributes.modTs }}
+### Mode: {{ package.vnsMDev.attributes.model }}
+### Monitoring Policy DN: {{ package.vnsMDev.attributes.monPolDn }}
+### Status: {{ package.vnsMDev.attributes.status }}
+### UID: {{ package.vnsMDev.attributes.uid }}
+### User Domain: {{ package.vnsMDev.attributes.userdom }}
+### Version: {{ package.vnsMDev.attributes.version }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
