@@ -124,7 +124,7 @@ class ACEye():
         api_list = ['Access Control Entities',
                     'Access Control Instances',
                     'Access Control Rules',
-                    'Aggregate Interfaces',
+                    'Cluster Aggregate Interfaces',
                     'Application Profiles',
                     'Attachable Access Entity Profiles',
                     'Audit Log',
@@ -547,7 +547,7 @@ class ACEye():
     def aggregate_interfaces(self):
         self.url = f"{ self.aci }/api/node/class/cnwAggrIf.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Aggregate Interfaces code { response.status_code } for { self.url }>")
+        print(f"<Cluster Aggregate Interfaces code { response.status_code } for { self.url }>")
         response_dict  = response.json()
         return(response_dict)
 
@@ -758,7 +758,7 @@ class ACEye():
                 f.write(parsed_json)
 
         if "cnwAggrIf" in self.url:
-            with open('Aggregate Interfaces/JSON/Aggregate Interfaces.json', 'w' ) as f:
+            with open('Cluster Aggregate Interfaces/JSON/Cluster Aggregate Interfaces.json', 'w' ) as f:
                 f.write(parsed_json)
 
         if "l3Inst" in self.url:
@@ -957,7 +957,7 @@ class ACEye():
                 f.write(clean_yaml)
 
         if "cnwAggrIf" in self.url:
-            with open('Aggregate Interfaces/YAML/Aggregate Interfaces.yaml', 'w' ) as f:
+            with open('Cluster Aggregate Interfaces/YAML/Cluster Aggregate Interfaces.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
         if "l3Inst" in self.url:
@@ -1160,7 +1160,7 @@ class ACEye():
                 f.write(csv_output)
 
         if "cnwAggrIf" in self.url:
-            with open('Aggregate Interfaces/CSV/Aggregate Interfaces.csv', 'w' ) as f:
+            with open('Cluster Aggregate Interfaces/CSV/Cluster Aggregate Interfaces.csv', 'w' ) as f:
                 f.write(csv_output)
 
         if "l3Inst" in self.url:
@@ -1364,7 +1364,7 @@ class ACEye():
                 f.write(markdown_output)
 
         if "cnwAggrIf" in self.url:
-            with open('Aggregate Interfaces/Markdown/Aggregate Interfaces.md', 'w' ) as f:
+            with open('Cluster Aggregate Interfaces/Markdown/Cluster Aggregate Interfaces.md', 'w' ) as f:
                 f.write(markdown_output)
 
         if "l3Inst" in self.url:
@@ -1568,7 +1568,7 @@ class ACEye():
                 f.write(html_output)
 
         if "cnwAggrIf" in self.url:
-            with open('Aggregate Interfaces/HTML/Aggregate Interfaces.html', 'w' ) as f:
+            with open('Cluster Aggregate Interfaces/HTML/Cluster Aggregate Interfaces.html', 'w' ) as f:
                 f.write(html_output)
 
         if "l3Inst" in self.url:
@@ -1772,7 +1772,7 @@ class ACEye():
                 f.write(mindmap_output)
 
         if "cnwAggrIf" in self.url:
-            with open('Aggregate Interfaces/Mindmap/Aggregate Interfaces.md', 'w' ) as f:
+            with open('Cluster Aggregate Interfaces/Mindmap/Cluster Aggregate Interfaces.md', 'w' ) as f:
                 f.write(mindmap_output)
 
         if "l3Inst" in self.url:
