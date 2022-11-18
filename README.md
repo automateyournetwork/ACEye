@@ -12,8 +12,6 @@ Access Control Instances
 
 Access Control Rules
 
-Aggregate Interfaces
-
 Application Profiles
 
 Attachable Access Entity Profiles
@@ -24,7 +22,11 @@ BGP Route Reflectors
 
 Bridge Domains
 
+Cluster Aggregate Interfaces
+
 Cluster Health
+
+Cluster Physical Interfaces
 
 Contexts (VRFs)
 
