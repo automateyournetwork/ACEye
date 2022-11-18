@@ -30,6 +30,8 @@ Cluster Physical Interfaces
 
 Compute Controllers
 
+Compute Domains
+
 Contexts (VRFs)
 
 Contracts
