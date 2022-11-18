@@ -1551,4 +1551,79 @@
 ### Monitoring Policy DN: {{ domain.compDom.attributes.monPolDn }}
 ### Status: {{ domain.compDom.attributes.status }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "compEpPD" in api %}
+# Compute Endpoint Policy Description
+{%-     for policy in data_to_template['imdata'] %}
+## Name: {{ policy.compEpPD.attributes.name }}
+### Name Alias: {{ policy.compEpPD.attributes.nameAlias }}
+### Allocation Mode: {{ policy.compEpPD.attributes.allocMode }}
+### Bridge Domain DN: {{ policy.compEpPD.attributes.bdDn }}
+### Binding Type: {{ policy.compEpPD.attributes.bindingType }}
+### Block All Ports: {{ policy.compEpPD.attributes.blockAllPorts }}
+### Configured Delimeter: {{ policy.compEpPD.attributes.cfgdDelimiter }}
+### Child Action: {{ policy.compEpPD.attributes.childAction }}
+### Class Preference: {{ policy.compEpPD.attributes.classPref }}
+### Configuration Flags: {{ policy.compEpPD.attributes.configFlags }}
+### Controller Enabled: {{ policy.compEpPD.attributes.crtrnEnabled }}
+### Context DN: {{ policy.compEpPD.attributes.ctxDn }}
+### Custom EPG Name: {{ policy.compEpPD.attributes.customEpgName }}
+### Deployment Issues: {{ policy.compEpPD.attributes.deployIssues }}
+### Description: {{ policy.compEpPD.attributes.descr }}
+### DN: {{ policy.compEpPD.attributes.dn }}
+### Encapsulation
+#### Encapsulation: {{ policy.compEpPD.attributes.encap }}
+#### Allocated Key: {{ policy.compEpPD.attributes.encapAllocKey }}
+#### Changed: {{ policy.compEpPD.attributes.encapChanged }}
+#### Context: {{ policy.compEpPD.attributes.encapCtx }}
+#### Mode: {{ policy.compEpPD.attributes.encapMode }}
+#### Mode Override: {{ policy.compEpPD.attributes.encapModeOverride }}
+### EPG
+#### COS: {{ policy.compEpPD.attributes.epgCos }}
+#### COS Preference: {{ policy.compEpPD.attributes.epgCosPref }}
+#### PKey: {{ policy.compEpPD.attributes.epgPKey }}
+### EPP DN: {{ policy.compEpPD.attributes.eppDn }}
+### Fault D Key: {{ policy.compEpPD.attributes.faultDKey }}
+### Forged Transmit: {{ policy.compEpPD.attributes.forgedTransmit }}
+### ID: {{ policy.compEpPD.attributes.id }}
+### ID Consumer DN: {{ policy.compEpPD.attributes.idConsumerDn }}
+### Inherited: {{ policy.compEpPD.attributes.inherited }}
+### Instr Immediacy: {{ policy.compEpPD.attributes.instrImedcy }}
+### Intra Sec Conf: {{ policy.compEpPD.attributes.intraSecConf }}
+### Issues: {{ policy.compEpPD.attributes.issues }}
+### Lag Policy Name: {{ policy.compEpPD.attributes.lagPolicyName }}
+### Load Balance Algorithm: {{ policy.compEpPD.attributes.lbAlgo }}
+### Local Owner: {{ policy.compEpPD.attributes.lcOwn }}
+### MAC Change: {{ policy.compEpPD.attributes.macChange }}
+### Multicast Address: {{ policy.compEpPD.attributes.mcastAddr }}
+### Last Modified: {{ policy.compEpPD.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.compEpPD.attributes.monPolDn }}
+### Netflow
+#### Direction: {{ policy.compEpPD.attributes.netflowDir }}
+#### Preference: {{ policy.compEpPD.attributes.netflowPref }}
+### Number Ports: {{ policy.compEpPD.attributes.numPorts }}
+### Operational
+#### Delimeter: {{ policy.compEpPD.attributes.operDelimiter }}
+#### Flags: {{ policy.compEpPD.attributes.operFlags }}
+### PC Enforced Preference: {{ policy.compEpPD.attributes.pcEnfPref }}
+### Port Allocation: {{ policy.compEpPD.attributes.portAllocation }}
+### Primary Encapsulation
+#### Primary Encapsulation: {{ policy.compEpPD.attributes.primaryEncap }}
+#### Inner: {{ policy.compEpPD.attributes.primaryEncapInner }}
+### Prom Mode: {{ policy.compEpPD.attributes.promMode }}
+### Remote 
+#### Error Message: {{ policy.compEpPD.attributes.remoteErrMsg }}
+#### Oper Issues: {{ policy.compEpPD.attributes.remoteOperIssues }}
+### Res Immediacy: {{ policy.compEpPD.attributes.resImedcy }}
+### Secondary Encapsulation Inner: {{ policy.compEpPD.attributes.secondaryEncapInner }}
+### Stats Collection State: {{ policy.compEpPD.attributes.statsCollectionState }}
+### Status: {{ policy.compEpPD.attributes.status }}
+### Switching Mode: {{ policy.compEpPD.attributes.switchingMode }}
+### TX ID: {{ policy.compEpPD.attributes.txId }}
+### Type: {{ policy.compEpPD.attributes.type }}
+### Untagged: {{ policy.compEpPD.attributes.untagged }}
+### Update Timestamp: {{ policy.compEpPD.attributes.updateTs }}
+### VNET Only: {{ policy.compEpPD.attributes.vnetOnly }}
+### VXLAN Deployment Preferred: {{ policy.compEpPD.attributes.vxlanDeplPref }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

@@ -3143,5 +3143,148 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "compEpPD" in api %}
+<h1>Compute Endpoint Policy Description</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Allocation Mode</th>
+    <th>Bridge Domain DN</th>
+    <th>Binding Type</th>
+    <th>Block All Ports</th>
+    <th>Configured Delimiter</th>
+    <th>Child Action</th>
+    <th>Class Preference</th>
+    <th>Configuration Flags</th>
+    <th>Controller Enabled</th>
+    <th>Context DN</th>
+    <th>Custom EPG Name</th>
+    <th>Deployment Issues</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>Encapsulation Allocated Key</th>
+    <th>Encapsulation Changed</th>
+    <th>Encapsulation Context</th>
+    <th>Encapsulation Mode</th>
+    <th>Encapsulation Mode Override</th>
+    <th>EPG COS</th>
+    <th>EPG COS Preference</th>
+    <th>EPG P Key</th>
+    <th>EPP DN</th>
+    <th>Fault D Key</th>
+    <th>Forged Transmit</th>
+    <th>ID</th>
+    <th>ID Consumer DN</th>
+    <th>Inherited</th>
+    <th>Instr Immediacy</th>
+    <th>Intra Sec Conf</th>
+    <th>Issues</th>
+    <th>Lag Policy Name</th>
+    <th>Load Balance Algorithm</th>
+    <th>Local Owner</th>
+    <th>MAC Change</th>
+    <th>Multicast Address</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Netflow Direction</th>
+    <th>Netflow Preferred</th>
+    <th>Number Ports</th>
+    <th>Oper Delimiter</th>
+    <th>Oper Flags</th>
+    <th>PC Enforced Preference</th>
+    <th>Port Allocation</th>
+    <th>Primary Encapsulation</th>
+    <th>Primary Encapsulation Inner</th>
+    <th>Prom Mode</th>
+    <th>Remote Error Message</th>
+    <th>Remote Oper Issues</th>
+    <th>Res Immediacy</th>
+    <th>Secondary Encapsulation Inner</th>
+    <th>Stats Collection State</th>
+    <th>Status</th>
+    <th>Switching Mode</th>
+    <th>TX ID</th>
+    <th>Type</th>
+    <th>Untagged</th>
+    <th>Update Timestamp</th>
+    <th>VNET Only</th>
+    <th>VXVLAN Deploy Preference</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for policy in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ policy.compEpPD.attributes.name }}</td>
+    <td>{{ policy.compEpPD.attributes.nameAlias }}</td>
+    <td>{{ policy.compEpPD.attributes.allocMode }}</td>
+    <td>{{ policy.compEpPD.attributes.bdDn }}</td>
+    <td>{{ policy.compEpPD.attributes.bindingType }}</td>
+    <td>{{ policy.compEpPD.attributes.blockAllPorts }}</td>
+    <td>{{ policy.compEpPD.attributes.cfgdDelimiter }}</td>
+    <td>{{ policy.compEpPD.attributes.childAction }}</td>
+    <td>{{ policy.compEpPD.attributes.classPref }}</td>
+    <td>{{ policy.compEpPD.attributes.configFlags }}</td>
+    <td>{{ policy.compEpPD.attributes.crtrnEnabled }}</td>
+    <td>{{ policy.compEpPD.attributes.ctxDn }}</td>
+    <td>{{ policy.compEpPD.attributes.customEpgName }}</td>
+    <td>{{ policy.compEpPD.attributes.deployIssues }}</td>
+    <td>{{ policy.compEpPD.attributes.descr }}</td>
+    <td>{{ policy.compEpPD.attributes.dn }}</td>
+    <td>{{ policy.compEpPD.attributes.encap }}</td>
+    <td>{{ policy.compEpPD.attributes.encapAllocKey }}</td>
+    <td>{{ policy.compEpPD.attributes.encapChanged }}</td>
+    <td>{{ policy.compEpPD.attributes.encapCtx }}</td>
+    <td>{{ policy.compEpPD.attributes.encapMode }}</td>
+    <td>{{ policy.compEpPD.attributes.encapModeOverride }}</td>
+    <td>{{ policy.compEpPD.attributes.epgCos }}</td>
+    <td>{{ policy.compEpPD.attributes.epgCosPref }}</td>
+    <td>{{ policy.compEpPD.attributes.epgPKey }}</td>
+    <td>{{ policy.compEpPD.attributes.eppDn }}</td>
+    <td>{{ policy.compEpPD.attributes.faultDKey }}</td>
+    <td>{{ policy.compEpPD.attributes.forgedTransmit }}</td>
+    <td>{{ policy.compEpPD.attributes.id }}</td>
+    <td>{{ policy.compEpPD.attributes.idConsumerDn }}</td>
+    <td>{{ policy.compEpPD.attributes.inherited }}</td>
+    <td>{{ policy.compEpPD.attributes.instrImedcy }}</td>
+    <td>{{ policy.compEpPD.attributes.intraSecConf }}</td>
+    <td>{{ policy.compEpPD.attributes.issues }}</td>
+    <td>{{ policy.compEpPD.attributes.lagPolicyName }}</td>
+    <td>{{ policy.compEpPD.attributes.lbAlgo }}</td>
+    <td>{{ policy.compEpPD.attributes.lcOwn }}</td>
+    <td>{{ policy.compEpPD.attributes.macChange }}</td>
+    <td>{{ policy.compEpPD.attributes.mcastAddr }}</td>
+    <td>{{ policy.compEpPD.attributes.modTs }}</td>
+    <td>{{ policy.compEpPD.attributes.monPolDn }}</td>
+    <td>{{ policy.compEpPD.attributes.netflowDir }}</td>
+    <td>{{ policy.compEpPD.attributes.netflowPref }}</td>
+    <td>{{ policy.compEpPD.attributes.numPorts }}</td>
+    <td>{{ policy.compEpPD.attributes.operDelimiter }}</td>
+    <td>{{ policy.compEpPD.attributes.operFlags }}</td>
+    <td>{{ policy.compEpPD.attributes.pcEnfPref }}</td>
+    <td>{{ policy.compEpPD.attributes.portAllocation }}</td>
+    <td>{{ policy.compEpPD.attributes.primaryEncap }}</td>
+    <td>{{ policy.compEpPD.attributes.primaryEncapInner }}</td>
+    <td>{{ policy.compEpPD.attributes.promMode }}</td>
+    <td>{{ policy.compEpPD.attributes.remoteErrMsg }}</td>
+    <td>{{ policy.compEpPD.attributes.remoteOperIssues }}</td>
+    <td>{{ policy.compEpPD.attributes.resImedcy }}</td>
+    <td>{{ policy.compEpPD.attributes.secondaryEncapInner }}</td>
+    <td>{{ policy.compEpPD.attributes.statsCollectionState }}</td>
+    <td>{{ policy.compEpPD.attributes.status }}</td>
+    <td>{{ policy.compEpPD.attributes.switchingMode }}</td>
+    <td>{{ policy.compEpPD.attributes.txId }}</td>
+    <td>{{ policy.compEpPD.attributes.type }}</td>
+    <td>{{ policy.compEpPD.attributes.untagged }}</td>
+    <td>{{ policy.compEpPD.attributes.updateTs }}</td>
+    <td>{{ policy.compEpPD.attributes.vnetOnly }}</td>
+    <td>{{ policy.compEpPD.attributes.vxlanDeplPref }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
