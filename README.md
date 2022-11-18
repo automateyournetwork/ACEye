@@ -32,6 +32,8 @@ Compute Controllers
 
 Compute Domains
 
+Compute Endpoint Policy Descriptions
+
 Contexts (VRFs)
 
 Contracts
