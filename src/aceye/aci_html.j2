@@ -1,50 +1,5 @@
 
 {%- include 'datatable_header.j2' %}
-{%- if "Tenant" in api %}
-<h1>Tenants</h1>
-<table id = "datatable">
-<thead>
-  <tr>
-    <th>Name</th>
-    <th>Alias</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th>DN</th>
-    <th>UID</th>
-    <th>Annotation</th>
-    <th>Child Action</th>
-    <th>Externally Managed By</th>
-    <th>Local Owner</th>
-    <th>Monitoring Policy DN</th>
-    <th>Owner Key</th>
-    <th>Owner Tag</th>
-    <th>User Domain</th>
-    <th>Modified Timestamp</th>
-  </tr>
-</thead>  
-<tbody>
-{%-     for tenant in data_to_template['imdata'] %}
-  <tr>
-    <td>{{ tenant.fvTenant.attributes.name }}</td>
-    <td>{{ tenant.fvTenant.attributes.nameAlias }}</td>
-    <td>{{ tenant.fvTenant.attributes.descr }}</td>
-    <td>{{ tenant.fvTenant.attributes.status }}</td>
-    <td>{{ tenant.fvTenant.attributes.dn }}</td>
-    <td>{{ tenant.fvTenant.attributes.uid }}</td>
-    <td>{{ tenant.fvTenant.attributes.annotation }}</td>
-    <td>{{ tenant.fvTenant.attributes.childAction }}</td>
-    <td>{{ tenant.fvTenant.attributes.extMngdBy }}</td>
-    <td>{{ tenant.fvTenant.attributes.lcOwn }}</td>
-    <td>{{ tenant.fvTenant.attributes.monPolDn }}</td>
-    <td>{{ tenant.fvTenant.attributes.ownerKey }}</td>
-    <td>{{ tenant.fvTenant.attributes.ownerTag }}</td>
-    <td>{{ tenant.fvTenant.attributes.userdom }}</td>
-    <td>{{ tenant.fvTenant.attributes.modTs }}</td>
-  </tr>
-{%-     endfor %}
-</tbody>
-</table>
-{%- else %}
 {%- if "AEPg" in api %}
 <h1>Endpoint Groups</h1>
 <table id = "datatable">
@@ -1934,6 +1889,51 @@
     <td>{{ prefix_list_detailed.rtctrlMatchRtDest.attributes.userdom }}</td>
   </tr>
 {%-         endfor %}
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "Tenant" in api %}
+<h1>Tenants</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Alias</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>DN</th>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>User Domain</th>
+    <th>Modified Timestamp</th>
+  </tr>
+</thead>  
+<tbody>
+{%-     for tenant in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ tenant.fvTenant.attributes.name }}</td>
+    <td>{{ tenant.fvTenant.attributes.nameAlias }}</td>
+    <td>{{ tenant.fvTenant.attributes.descr }}</td>
+    <td>{{ tenant.fvTenant.attributes.status }}</td>
+    <td>{{ tenant.fvTenant.attributes.dn }}</td>
+    <td>{{ tenant.fvTenant.attributes.uid }}</td>
+    <td>{{ tenant.fvTenant.attributes.annotation }}</td>
+    <td>{{ tenant.fvTenant.attributes.childAction }}</td>
+    <td>{{ tenant.fvTenant.attributes.extMngdBy }}</td>
+    <td>{{ tenant.fvTenant.attributes.lcOwn }}</td>
+    <td>{{ tenant.fvTenant.attributes.monPolDn }}</td>
+    <td>{{ tenant.fvTenant.attributes.ownerKey }}</td>
+    <td>{{ tenant.fvTenant.attributes.ownerTag }}</td>
+    <td>{{ tenant.fvTenant.attributes.userdom }}</td>
+    <td>{{ tenant.fvTenant.attributes.modTs }}</td>
+  </tr>
 {%-     endfor %}
 </tbody>
 </table>

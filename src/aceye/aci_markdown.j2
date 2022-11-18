@@ -1,10 +1,3 @@
-{%- if "Tenant" in api %}# Tenants
-| Name | Alias | Description | Status | DN | UID | Annotation | Child Action | Externally Managed By | Local Owner | Monitoring Policy DN | Owner Key | Owner Tag | User Domain | Modified Timestamp |
-| ---- | ----- | ----------- | ------ | -- | --- | ---------- | ------------ | -------------- | ----------- | ---------- | --------- | --------- | ----------- | ------------------ |
-{%-     for tenant in data_to_template['imdata'] %}
-| {{ tenant.fvTenant.attributes.name }} | {{ tenant.fvTenant.attributes.nameAlias }} | {{ tenant.fvTenant.attributes.descr }} | {{ tenant.fvTenant.attributes.status }} | {{ tenant.fvTenant.attributes.dn }} | {{ tenant.fvTenant.attributes.uid }} | {{ tenant.fvTenant.attributes.annotation }} | {{ tenant.fvTenant.attributes.childAction }} | {{ tenant.fvTenant.attributes.extMngdBy }} | {{ tenant.fvTenant.attributes.lcOwn }} | {{ tenant.fvTenant.attributes.monPolDn }} | {{ tenant.fvTenant.attributes.ownerKey }} | {{ tenant.fvTenant.attributes.ownerTag }} | {{ tenant.fvTenant.attributes.userdom }} | {{ tenant.fvTenant.attributes.modTs }} |
-{%-     endfor %}
-{%- else %}
 {%- if "AEPg" in api %}# Endpoint Groups
 | Name | Alias | Description | Status | DN | UID | Annotation | Child Action | Externally Managed By | Local Owner | Monitoring Policy DN | User Domain | Configuration Issues | Configuration State | Exception Tag | Flood On Encapsulation | Forward Control | Has Multicast Source | Is Attribute Based EPG | Is Shared Service Multicast Site EPG | Match T | PC Enforcement Preference | PC Tag | PC Tag Allocation Source | Preference Gr Member | Priority | Scope | Shutdown | Trigger State | TX Id | Modified Timestamp |
 | ---- | ----- | ----------- | ------ | -- | --- | ---------- | ------------ | -------------- | ----------- | ---------- | ----------- | -------------------- | ------------------- | ------------- | ---------------------- | --------------- | -------------------- | ---------------------- | ----------------------------------- | ------- | ------------------------- | ------ | ------------------------ | -------------------- | -------- | ----- | -------- | ------------- | ----- | ------------------ |
@@ -263,6 +256,13 @@
 {%-         for prefix_list_detailed in outer_list %}
 | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.aggregate }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.annotation }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.childAction }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.descr }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.dn }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.extMngdBy }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.fromPfxLen }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.ip }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.lcOwn }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.modTs }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.name }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.nameAlias }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.status }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.toPfxLen }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.type }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.uid }} | {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.userdom }} |
 {%-         endfor %}
+{%-     endfor %}
+{%- else %}
+{%- if "Tenant" in api %}# Tenants
+| Name | Alias | Description | Status | DN | UID | Annotation | Child Action | Externally Managed By | Local Owner | Monitoring Policy DN | Owner Key | Owner Tag | User Domain | Modified Timestamp |
+| ---- | ----- | ----------- | ------ | -- | --- | ---------- | ------------ | -------------- | ----------- | ---------- | --------- | --------- | ----------- | ------------------ |
+{%-     for tenant in data_to_template['imdata'] %}
+| {{ tenant.fvTenant.attributes.name }} | {{ tenant.fvTenant.attributes.nameAlias }} | {{ tenant.fvTenant.attributes.descr }} | {{ tenant.fvTenant.attributes.status }} | {{ tenant.fvTenant.attributes.dn }} | {{ tenant.fvTenant.attributes.uid }} | {{ tenant.fvTenant.attributes.annotation }} | {{ tenant.fvTenant.attributes.childAction }} | {{ tenant.fvTenant.attributes.extMngdBy }} | {{ tenant.fvTenant.attributes.lcOwn }} | {{ tenant.fvTenant.attributes.monPolDn }} | {{ tenant.fvTenant.attributes.ownerKey }} | {{ tenant.fvTenant.attributes.ownerTag }} | {{ tenant.fvTenant.attributes.userdom }} | {{ tenant.fvTenant.attributes.modTs }} |
 {%-     endfor %}
 {%- else %}
 {%- if "aaaUser" in api %}# Users
