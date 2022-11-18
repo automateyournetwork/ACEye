@@ -34,6 +34,8 @@ Compute Domains
 
 Compute Endpoint Policy Descriptions
 
+Compute Providers
+
 Contexts (VRFs)
 
 Contracts
