@@ -1533,4 +1533,22 @@
 #### Tag: {{ controller.compCtrlr.attributes.vsphereTag }}
 ### VXLAN Deployment Preferred: {{ controller.compCtrlr.attributes.vxlanDeplPref }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "compDom" in api %}
+# Compute Domains
+{%-     for domain in data_to_template['imdata'] %}
+## Name: {{ domain.compDom.attributes.name }}
+### Name Alias: {{ domain.compDom.attributes.nameAlias }}
+### Child Action: {{ domain.compDom.attributes.childAction }}
+### Description: {{ domain.compDom.attributes.descr }}
+### DN: {{ domain.compDom.attributes.dn }}
+### Enable AVE: {{ domain.compDom.attributes.enableAVE }}
+### ID: {{ domain.compDom.attributes.id }}
+### Issues: {{ domain.compDom.attributes.issues }}
+### Local Owner: {{ domain.compDom.attributes.lcOwn }}
+### Last Modified: {{ domain.compDom.attributes.modTs }}
+### Mode: {{ domain.compDom.attributes.mode }}
+### Monitoring Policy DN: {{ domain.compDom.attributes.monPolDn }}
+### Status: {{ domain.compDom.attributes.status }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
