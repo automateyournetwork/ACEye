@@ -28,6 +28,8 @@ Cluster Health
 
 Cluster Physical Interfaces
 
+Compute Controllers
+
 Contexts (VRFs)
 
 Contracts
