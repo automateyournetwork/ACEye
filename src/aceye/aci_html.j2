@@ -2977,5 +2977,130 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "compCtrlr" in api %}
+<h1>Compute Controllers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Access Mode</th>
+    <th>API Version</th>
+    <th>AVE Switching Active</th>
+    <th>AVE Time Out</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Control Knob</th>
+    <th>Control rP Key</th>
+    <th>Deploy Issues</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Domain Name</th>
+    <th>DVS Version</th>
+    <th>Enable AVE</th>
+    <th>Enable Tag</th>
+    <th>Enable VM Folder</th>
+    <th>EP Ret Time</th>
+    <th>Host Or IP</th>
+    <th>ID</th>
+    <th>Inventory Start Timestamp</th>
+    <th>Inventory Trigger State</th>
+    <th>Issues</th>
+    <th>Key</th>
+    <th>Lag Policy Name</th>
+    <th>Last Event Collector ID</th>
+    <th>Last Event ID</th>
+    <th>Last Event Timestamp</th>
+    <th>Last Inventory State</th>
+    <th>Last Inventory Timestamp</th>
+    <th>Local Owner</th>
+    <th>Max Worker Q Size</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Port</th>
+    <th>Remote Error Message</th>
+    <th>Remote Oper Issues</th>
+    <th>Rev</th>
+    <th>Root Cont Name</th>
+    <th>Scope</th>
+    <th>Ser</th>
+    <th>Set Deploy Issues</th>
+    <th>Set Remote Oper Issues</th>
+    <th>Status</th>
+    <th>Unset Deploy Issues</th>
+    <th>Unset Remote Oper Issues</th>
+    <th>User</th>
+    <th>Vendor</th>
+    <th>vSphere PHA</th>
+    <th>vSphere Tag</th>
+    <th>VXLAN Deploy Preferred</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for controller in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ controller.compCtrlr.attributes.name }}</td>
+    <td>{{ controller.compCtrlr.attributes.nameAlias }}</td>
+    <td>{{ controller.compCtrlr.attributes.accessMode }}</td>
+    <td>{{ controller.compCtrlr.attributes.apiVer }}</td>
+    <td>{{ controller.compCtrlr.attributes.aveSwitchingActive }}</td>
+    <td>{{ controller.compCtrlr.attributes.aveTimeOut }}</td>
+    <td>{{ controller.compCtrlr.attributes.childAction }}</td>
+    <td>{{ controller.compCtrlr.attributes.cimcVersion }}</td>
+    <td>{{ controller.compCtrlr.attributes.ctrlKnob }}</td>
+    <td>{{ controller.compCtrlr.attributes.ctrlrPKey }}</td>
+    <td>{{ controller.compCtrlr.attributes.deployIssues }}</td>
+    <td>{{ controller.compCtrlr.attributes.descr }}</td>
+    <td>{{ controller.compCtrlr.attributes.dn }}</td>
+    <td>{{ controller.compCtrlr.attributes.domName }}</td>
+    <td>{{ controller.compCtrlr.attributes.dvsVersion }}</td>
+    <td>{{ controller.compCtrlr.attributes.enableAVE }}</td>
+    <td>{{ controller.compCtrlr.attributes.enableTag }}</td>
+    <td>{{ controller.compCtrlr.attributes.enableVmFolder }}</td>
+    <td>{{ controller.compCtrlr.attributes.epRetTime }}</td>
+    <td>{{ controller.compCtrlr.attributes.hostOrIp }}</td>
+    <td>{{ controller.compCtrlr.attributes.id }}</td>
+    <td>{{ controller.compCtrlr.attributes.inventoryStartTS }}</td>
+    <td>{{ controller.compCtrlr.attributes.inventoryTrigSt }}</td>
+    <td>{{ controller.compCtrlr.attributes.issues }}</td>
+    <td>{{ controller.compCtrlr.attributes.key }}</td>
+    <td>{{ controller.compCtrlr.attributes.lagPolicyName }}</td>
+    <td>{{ controller.compCtrlr.attributes.lastEventCollectorId }}</td>
+    <td>{{ controller.compCtrlr.attributes.lastEventId }}</td>
+    <td>{{ controller.compCtrlr.attributes.lastEventTS }}</td>
+    <td>{{ controller.compCtrlr.attributes.lastInventorySt }}</td>
+    <td>{{ controller.compCtrlr.attributes.lastInventoryTS }}</td>
+    <td>{{ controller.compCtrlr.attributes.lcOwn }}</td>
+    <td>{{ controller.compCtrlr.attributes.maxWorkerQSize }}</td>
+    <td>{{ controller.compCtrlr.attributes.modTs }}</td>
+    <td>{{ controller.compCtrlr.attributes.mode }}</td>
+    <td>{{ controller.compCtrlr.attributes.model }}</td>
+    <td>{{ controller.compCtrlr.attributes.monPolDn }}</td>
+    <td>{{ controller.compCtrlr.attributes.operSt }}</td>
+    <td>{{ controller.compCtrlr.attributes.port }}</td>
+    <td>{{ controller.compCtrlr.attributes.remoteErrMsg }}</td>
+    <td>{{ controller.compCtrlr.attributes.remoteOperIssues }}</td>
+    <td>{{ controller.compCtrlr.attributes.rev }}</td>
+    <td>{{ controller.compCtrlr.attributes.rootContName }}</td>
+    <td>{{ controller.compCtrlr.attributes.scope }}</td>
+    <td>{{ controller.compCtrlr.attributes.ser }}</td>
+    <td>{{ controller.compCtrlr.attributes.setDeployIssues }}</td>
+    <td>{{ controller.compCtrlr.attributes.setRemoteOperIssues }}</td>
+    <td>{{ controller.compCtrlr.attributes.status }}</td>
+    <td>{{ controller.compCtrlr.attributes.unsetDeployIssues }}</td>
+    <td>{{ controller.compCtrlr.attributes.unsetRemoteOperIssues }}</td>
+    <td>{{ controller.compCtrlr.attributes.usr }}</td>
+    <td>{{ controller.compCtrlr.attributes.vendor }}</td>
+    <td>{{ controller.compCtrlr.attributes.vspherePHA }}</td>
+    <td>{{ controller.compCtrlr.attributes.vsphereTag }}</td>
+    <td>{{ controller.compCtrlr.attributes.vxlanDeplPref }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

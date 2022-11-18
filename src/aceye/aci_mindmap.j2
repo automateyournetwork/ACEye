@@ -1462,4 +1462,75 @@
 ### Vendor ID: {{ interface.cnwPhysIf.attributes.vendorId }}
 ### Wiring Issues: {{ interface.cnwPhysIf.attributes.wiringIssues }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "compCtrlr" in api %}
+# Compute Controllers
+{%-     for controller in data_to_template['imdata'] %}
+## Name: {{ controller.compCtrlr.attributes.name }}
+### Name Alias: {{ controller.compCtrlr.attributes.nameAlias }}
+### Access Mode: {{ controller.compCtrlr.attributes.accessMode }}
+### API Version: {{ controller.compCtrlr.attributes.apiVer }}
+### AVE 
+#### Switching Active: {{ controller.compCtrlr.attributes.aveSwitchingActive }}
+#### Time Out:  {{ controller.compCtrlr.attributes.aveTimeOut }}
+### Child Action: {{ controller.compCtrlr.attributes.childAction }}
+### CIMC Version: {{ controller.compCtrlr.attributes.cimcVersion }}
+### Control
+#### Knob: {{ controller.compCtrlr.attributes.ctrlKnob }}
+#### rP Key: {{ controller.compCtrlr.attributes.ctrlrPKey }}
+### Deployment Issues: {{ controller.compCtrlr.attributes.deployIssues }}
+### Description: {{ controller.compCtrlr.attributes.descr }}
+### DN: {{ controller.compCtrlr.attributes.dn }}
+### Domain Name: {{ controller.compCtrlr.attributes.domName }}
+### DVS Version: {{ controller.compCtrlr.attributes.dvsVersion }}
+### Enable
+#### AVE: {{ controller.compCtrlr.attributes.enableAVE }}
+#### Tag: {{ controller.compCtrlr.attributes.enableTag }}
+#### VM Folder: {{ controller.compCtrlr.attributes.enableVmFolder }}
+### EP Ret Time: {{ controller.compCtrlr.attributes.epRetTime }}
+### Host Or IP: {{ controller.compCtrlr.attributes.hostOrIp }}
+### ID: {{ controller.compCtrlr.attributes.id }}
+### Inventory
+#### Start Timestamp: {{ controller.compCtrlr.attributes.inventoryStartTS }}
+#### Trigger State: {{ controller.compCtrlr.attributes.inventoryTrigSt }}
+### Issues: {{ controller.compCtrlr.attributes.issues }}
+### Key: {{ controller.compCtrlr.attributes.key }}
+### Lag Policy Name: {{ controller.compCtrlr.attributes.lagPolicyName }}
+### Last 
+#### Event
+##### Collector ID: {{ controller.compCtrlr.attributes.lastEventCollectorId }}
+##### ID: {{ controller.compCtrlr.attributes.lastEventId }}
+##### Timestamp: {{ controller.compCtrlr.attributes.lastEventTS }}
+#### Inventory
+##### State: {{ controller.compCtrlr.attributes.lastInventorySt }}
+##### Timestamp: {{ controller.compCtrlr.attributes.lastInventoryTS }}
+### Local Owner: {{ controller.compCtrlr.attributes.lcOwn }}
+### Max Worker Q Size: {{ controller.compCtrlr.attributes.maxWorkerQSize }}
+### Last Modified: {{ controller.compCtrlr.attributes.modTs }}
+### Mode: {{ controller.compCtrlr.attributes.mode }}
+### Model: {{ controller.compCtrlr.attributes.model }}
+### Monitoring Policy DN: {{ controller.compCtrlr.attributes.monPolDn }}
+### Oper State: {{ controller.compCtrlr.attributes.operSt }}
+### Port: {{ controller.compCtrlr.attributes.port }}
+### Remote
+#### Error Message: {{ controller.compCtrlr.attributes.remoteErrMsg }}
+#### Oper Issues: {{ controller.compCtrlr.attributes.remoteOperIssues }}
+### Rev: {{ controller.compCtrlr.attributes.rev }}
+### Root Cont Name: {{ controller.compCtrlr.attributes.rootContName }}
+### Scope: {{ controller.compCtrlr.attributes.scope }}
+### Ser: {{ controller.compCtrlr.attributes.ser }}
+### Set
+#### Deployment Issues: {{ controller.compCtrlr.attributes.setDeployIssues }}
+#### Oper Issues: {{ controller.compCtrlr.attributes.setRemoteOperIssues }}
+### Status: {{ controller.compCtrlr.attributes.status }}
+### Unset
+#### Deployment Issues: {{ controller.compCtrlr.attributes.unsetDeployIssues }}
+#### Oper Issues: {{ controller.compCtrlr.attributes.unsetRemoteOperIssues }}
+### User: {{ controller.compCtrlr.attributes.usr }}
+### Vendor: {{ controller.compCtrlr.attributes.vendor }}
+### vSphere
+#### PHA: {{ controller.compCtrlr.attributes.vspherePHA }}
+#### Tag: {{ controller.compCtrlr.attributes.vsphereTag }}
+### VXLAN Deployment Preferred: {{ controller.compCtrlr.attributes.vxlanDeplPref }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
