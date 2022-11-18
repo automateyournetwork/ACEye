@@ -109,7 +109,7 @@ class ACEye():
         self.all_files(parsed_json) 
         parsed_json = json.dumps(self.device_packages(), indent=4, sort_keys=True)
         self.all_files(parsed_json) 
-        parsed_json = json.dumps(self.aggregate_interfaces(), indent=4, sort_keys=True)
+        parsed_json = json.dumps(self.cluster_aggregate_interfaces(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.l3_interfaces(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
@@ -119,6 +119,9 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.access_control_rules(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.cluster_physical_interfaces(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -544,7 +547,7 @@ class ACEye():
         response_dict  = response.json()
         return(response_dict)
 
-    def aggregate_interfaces(self):
+    def cluster_aggregate_interfaces(self):
         self.url = f"{ self.aci }/api/node/class/cnwAggrIf.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Cluster Aggregate Interfaces code { response.status_code } for { self.url }>")
@@ -576,6 +579,13 @@ class ACEye():
         self.url = f"{ self.aci }/api/node/class/actrlRule.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Access Control Rules code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
+    def cluster_physical_interfaces(self):
+        self.url = f"{ self.aci }/api/node/class/cnwPhysIf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Cluster Physical Interfaces code { response.status_code } for { self.url }>")
         response_dict  = response.json()
         return(response_dict)
 
@@ -777,6 +787,10 @@ class ACEye():
             with open('Access Control Rules/JSON/Access Control Rules.json', 'w' ) as f:
                 f.write(parsed_json)
 
+        if "cnwPhysIf" in self.url:
+            with open('Cluster Physical Interfaces/JSON/Cluster Physical Interfaces.json', 'w' ) as f:
+                f.write(parsed_json)
+
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
         if "Tenant" in self.url:
@@ -974,6 +988,10 @@ class ACEye():
 
         if "actrlRule" in self.url:
             with open('Access Control Rules/YAML/Access Control Rules.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "cnwPhysIf" in self.url:
+            with open('Cluster Physical Interfaces/YAML/Cluster Physical Interfaces.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -1177,6 +1195,10 @@ class ACEye():
 
         if "actrlRule" in self.url:
             with open('Access Control Rules/CSV/Access Control Rules.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "cnwPhysIf" in self.url:
+            with open('Cluster Physical Interfaces/CSV/Cluster Physical Interfaces.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -1383,6 +1405,10 @@ class ACEye():
             with open('Access Control Rules/Markdown/Access Control Rules.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "cnwPhysIf" in self.url:
+            with open('Cluster Physical Interfaces/Markdown/Cluster Physical Interfaces.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1587,6 +1613,10 @@ class ACEye():
             with open('Access Control Rules/HTML/Access Control Rules.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "cnwPhysIf" in self.url:
+            with open('Cluster Physical Interfaces/HTML/Cluster Physical Interfaces.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1789,6 +1819,10 @@ class ACEye():
 
         if "actrlRule" in self.url:
             with open('Access Control Rules/Mindmap/Access Control Rules.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "cnwPhysIf" in self.url:
+            with open('Cluster Physical Interfaces/Mindmap/Cluster Physical Interfaces.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

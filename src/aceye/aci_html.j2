@@ -2545,7 +2545,7 @@
 </table>
 {%- else %}
 {%- if "cnwAggrIf" in api %}
-<h1>Aggregate Interfaces</h1>
+<h1>Cluster Aggregate Interfaces</h1>
 <table id = "datatable">
 <thead>
   <tr>
@@ -2876,5 +2876,106 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "cnwPhysIf" in api %}
+<h1>Cluster Physical Interfaces </h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Annotation</th>
+    <th>Auto Negotiate</th>
+    <th>Bandwidth</th>
+    <th>Child Action</th>
+    <th>Delay</th>
+    <th>Description</th>
+    <th>Device ID</th>
+    <th>DN</th>
+    <th>Dot1q Ether Type</th>
+    <th>Externally Managed By</th>
+    <th>FCOT Channel Number</th>
+    <th>ID</th>
+    <th>Inherited Bandwidth</th>
+    <th>Is Reflective Relay Config Supported</th>
+    <th>Layer</th>
+    <th>Local Owner</th>
+    <th>Link Debounce</th>
+    <th>Link Log</th>
+    <th>MDIX</th>
+    <th>Medium</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>MTU</th>
+    <th>Oper State</th>
+    <th>Path S Description</th>
+    <th>Port T</th>
+    <th>Priority Flow Control</th>
+    <th>Reflective Relay Enable</th>
+    <th>Router MAC</th>
+    <th>SNMP Trap State</th>
+    <th>Span Mode</th>
+    <th>Speed</th>
+    <th>Status</th>
+    <th>Switching State</th>
+    <th>Trunk Log</th>
+    <th>UID</th>
+    <th>Usage</th>
+    <th>User Domain</th>
+    <th>Vendor ID</th>
+    <th>Wiring Issues</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.cnwPhysIf.attributes.name }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.adminSt }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.annotation }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.autoNeg }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.bw }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.childAction }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.delay }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.descr }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.deviceId }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.dn }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.dot1qEtherType }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.extMngdBy }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.fcotChannelNumber }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.id }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.inhBw }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.isReflectiveRelayCfgSupported }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.layer }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.lcOwn }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.linkDebounce }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.linkLog }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.mdix }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.medium }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.modTs }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.mode }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.monPolDn }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.mtu }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.operSt }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.pathSDescr }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.portT }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.prioFlowCtrl }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.reflectiveRelayEn }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.routerMac }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.snmpTrapSt }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.spanMode }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.speed }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.status }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.switchingSt }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.trunkLog }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.uid }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.usage }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.userdom }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.vendorId }}</td>
+    <td>{{ interface.cnwPhysIf.attributes.wiringIssues }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

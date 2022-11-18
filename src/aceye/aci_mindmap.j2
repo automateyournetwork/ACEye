@@ -1249,7 +1249,7 @@
 {%-     endfor %}
 {%- else %}
 {%- if "cnwAggrIf" in api %}
-# Aggregate Interfaces
+# Cluster Aggregate Interfaces
 {%-     for interface in data_to_template['imdata'] %}
 ## {{ interface.cnwAggrIf.attributes.name }}
 ### Admin State: {{ interface.cnwAggrIf.attributes.adminSt }}</td>
@@ -1414,4 +1414,52 @@
 ### Status: {{ acl.actrlRule.attributes.status }}
 ### Type: {{ acl.actrlRule.attributes.type }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "cnwPhysIf" in api %}
+# Cluster Physical Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.cnwPhysIf.attributes.name }}
+### Admin State: {{ interface.cnwPhysIf.attributes.adminSt }}
+### Annotation: {{ interface.cnwPhysIf.attributes.annotation }}
+### Auto Negotiate: {{ interface.cnwPhysIf.attributes.autoNeg }}
+### Bandwidth: {{ interface.cnwPhysIf.attributes.bw }}
+### Child Action: {{ interface.cnwPhysIf.attributes.childAction }}
+### Delay: {{ interface.cnwPhysIf.attributes.delay }}
+### Description: {{ interface.cnwPhysIf.attributes.descr }}
+### Device ID: {{ interface.cnwPhysIf.attributes.deviceId }}
+### DN: {{ interface.cnwPhysIf.attributes.dn }}
+### Dot1q Ether Type: {{ interface.cnwPhysIf.attributes.dot1qEtherType }}
+### Externally Managed By: {{ interface.cnwPhysIf.attributes.extMngdBy }}
+### FCOT Channel Number: {{ interface.cnwPhysIf.attributes.fcotChannelNumber }}
+### ID: {{ interface.cnwPhysIf.attributes.id }}
+### Inherited Bandwidth: {{ interface.cnwPhysIf.attributes.inhBw }}
+### Is Reflective Relay Config Supported: {{ interface.cnwPhysIf.attributes.isReflectiveRelayCfgSupported }}
+### Layer: {{ interface.cnwPhysIf.attributes.layer }}
+### Local Owner: {{ interface.cnwPhysIf.attributes.lcOwn }}
+### Link Debounce: {{ interface.cnwPhysIf.attributes.linkDebounce }}
+### Link Log: {{ interface.cnwPhysIf.attributes.linkLog }}
+### MDIX: {{ interface.cnwPhysIf.attributes.mdix }}
+### Medium: {{ interface.cnwPhysIf.attributes.medium }}
+### Last Modified: {{ interface.cnwPhysIf.attributes.modTs }}
+### Mode: {{ interface.cnwPhysIf.attributes.mode }}
+### Monitoring Policy DN: {{ interface.cnwPhysIf.attributes.monPolDn }}
+### MTU: {{ interface.cnwPhysIf.attributes.mtu }}
+### Oper State: {{ interface.cnwPhysIf.attributes.operSt }}
+### Path S Description: {{ interface.cnwPhysIf.attributes.pathSDescr }}
+### Port T: {{ interface.cnwPhysIf.attributes.portT }}
+### Priority Flow Control: {{ interface.cnwPhysIf.attributes.prioFlowCtrl }}
+### Reflective Relay Enable: {{ interface.cnwPhysIf.attributes.reflectiveRelayEn }}
+### Router MAC: {{ interface.cnwPhysIf.attributes.routerMac }}
+### SNMP Trap State: {{ interface.cnwPhysIf.attributes.snmpTrapSt }}
+### Span Mode: {{ interface.cnwPhysIf.attributes.spanMode }}
+### Speed: {{ interface.cnwPhysIf.attributes.speed }}
+### Status: {{ interface.cnwPhysIf.attributes.status }}
+### Switching State: {{ interface.cnwPhysIf.attributes.switchingSt }}
+### Trunk Log: {{ interface.cnwPhysIf.attributes.trunkLog }}
+### UID: {{ interface.cnwPhysIf.attributes.uid }}
+### Usage: {{ interface.cnwPhysIf.attributes.usage }}
+### User Domain: {{ interface.cnwPhysIf.attributes.userdom }}
+### Vendor ID: {{ interface.cnwPhysIf.attributes.vendorId }}
+### Wiring Issues: {{ interface.cnwPhysIf.attributes.wiringIssues }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
