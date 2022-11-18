@@ -1,25 +1,3 @@
-
-{%- if "Tenant" in api %}
-# Tenants
-{%-     for tenant in data_to_template['imdata'] %}
-## {{ tenant.fvTenant.attributes.name }}
-### Alias: {{ tenant.fvTenant.attributes.nameAlias }}
-### Description: {{ tenant.fvTenant.attributes.descr }}
-### Status: {{ tenant.fvTenant.attributes.status }}
-### DN: {{ tenant.fvTenant.attributes.dn }}
-### UID: {{ tenant.fvTenant.attributes.uid }}
-### Annotation: {{ tenant.fvTenant.attributes.annotation }}
-### Child Action: {{ tenant.fvTenant.attributes.childAction }}
-### Externally Managed By: {{ tenant.fvTenant.attributes.extMngdBy }}
-### Local Owner: {{ tenant.fvTenant.attributes.lcOwn }}
-### Monitoring Policy DN: {{ tenant.fvTenant.attributes.monPolDn }}
-### Owner
-#### Key: {{ tenant.fvTenant.attributes.ownerKey }}
-#### Tag: {{ tenant.fvTenant.attributes.ownerTag }}
-### User Domain: {{ tenant.fvTenant.attributes.userdom }}
-### Modified Timestamp: {{ tenant.fvTenant.attributes.modTs }}
-{%-     endfor %}
-{%- else %}
 {%- if "AEPg" in api %}
 # Endpoint Groups
 {%-     for epg in data_to_template['imdata'] %}
@@ -983,6 +961,27 @@
 ### UID: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.uid }}
 ### User Domain: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.userdom }}
 {%-         endfor %}
+{%-     endfor %}
+{%- else %}
+{%- if "Tenant" in api %}
+# Tenants
+{%-     for tenant in data_to_template['imdata'] %}
+## {{ tenant.fvTenant.attributes.name }}
+### Alias: {{ tenant.fvTenant.attributes.nameAlias }}
+### Description: {{ tenant.fvTenant.attributes.descr }}
+### Status: {{ tenant.fvTenant.attributes.status }}
+### DN: {{ tenant.fvTenant.attributes.dn }}
+### UID: {{ tenant.fvTenant.attributes.uid }}
+### Annotation: {{ tenant.fvTenant.attributes.annotation }}
+### Child Action: {{ tenant.fvTenant.attributes.childAction }}
+### Externally Managed By: {{ tenant.fvTenant.attributes.extMngdBy }}
+### Local Owner: {{ tenant.fvTenant.attributes.lcOwn }}
+### Monitoring Policy DN: {{ tenant.fvTenant.attributes.monPolDn }}
+### Owner
+#### Key: {{ tenant.fvTenant.attributes.ownerKey }}
+#### Tag: {{ tenant.fvTenant.attributes.ownerTag }}
+### User Domain: {{ tenant.fvTenant.attributes.userdom }}
+### Modified Timestamp: {{ tenant.fvTenant.attributes.modTs }}
 {%-     endfor %}
 {%- else %}
 {%- if "aaaUser" in api %}
