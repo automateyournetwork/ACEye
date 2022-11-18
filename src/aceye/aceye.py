@@ -125,6 +125,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.compute_domains(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.compute_endpoint_policy_descriptions(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -140,6 +142,7 @@ class ACEye():
                     'Cluster Physical Interfaces',
                     'Compute Controllers',
                     'Compute Domains',
+                    'Compute Endpoint Policy Descriptions',
                     'Contexts',
                     'Contracts',
                     'Contract Subjects',
@@ -609,6 +612,13 @@ class ACEye():
         response_dict  = response.json()
         return(response_dict)
 
+    def compute_endpoint_policy_descriptions(self):
+        self.url = f"{ self.aci }/api/node/class/compEpPD.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Compute Endpoint Policy Descriptions code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -817,6 +827,10 @@ class ACEye():
 
         if "compDom" in self.url:
             with open('Compute Domains/JSON/Compute Domains.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "compEpPD" in self.url:
+            with open('Compute Endpoint Policy Descriptions/JSON/Compute Endpoint Policy Descriptions.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -1028,6 +1042,10 @@ class ACEye():
 
         if "compDom" in self.url:
             with open('Compute Domains/YAML/Compute Domains.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "compEpPD" in self.url:
+            with open('Compute Endpoint Policy Descriptions/YAML/Compute Endpoint Policy Descriptions.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -1243,6 +1261,10 @@ class ACEye():
 
         if "compDom" in self.url:
             with open('Compute Domains/CSV/Compute Domains.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "compEpPD" in self.url:
+            with open('Compute Endpoint Policy Descriptions/CSV/Compute Endpoint Policy Descriptions.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -1461,6 +1483,10 @@ class ACEye():
             with open('Compute Domains/Markdown/Compute Domains.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "compEpPD" in self.url:
+            with open('Compute Endpoint Policy Descriptions/Markdown/Compute Endpoint Policy Descriptions.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1677,6 +1703,10 @@ class ACEye():
             with open('Compute Domains/HTML/Compute Domains.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "compEpPD" in self.url:
+            with open('Compute Endpoint Policy Descriptions/HTML/Compute Endpoint Policy Descriptions.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1891,6 +1921,10 @@ class ACEye():
 
         if "compDom" in self.url:
             with open('Compute Domains/Mindmap/Compute Domains.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "compEpPD" in self.url:
+            with open('Compute Endpoint Policy Descriptions/Mindmap/Compute Endpoint Policy Descriptions.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
