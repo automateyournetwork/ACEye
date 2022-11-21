@@ -717,6 +717,24 @@
 {%- if "infraPortS" in api %}
 # Interface Policies
 {%-     for policy in data_to_template['imdata'] %}
+{%-         if "infraSHPortS" in policy%}
+## Name: {{ policy.infraSHPortS.attributes.name }}
+### Name Alias: {{ policy.infraSHPortS.attributes.nameAlias }}
+### Annotation: {{ policy.infraSHPortS.attributes.annotation }}
+### Child Action: {{ policy.infraSHPortS.attributes.childAction }}
+### Description: {{ policy.infraSHPortS.attributes.descr }}
+### DN: {{ policy.infraSHPortS.attributes.dn }}
+### Externally Managed By: {{ policy.infraSHPortS.attributes.extMngdBy }}
+### Loca Owner: {{ policy.infraSHPortS.attributes.lcOwn }}
+### Last Modified: {{ policy.infraSHPortS.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.infraSHPortS.attributes.monPolDn }}
+### Owner
+#### Key: {{ policy.infraSHPortS.attributes.ownerKey }}
+#### Tag: {{ policy.infraSHPortS.attributes.ownerTag }}
+### Status: {{ policy.infraSHPortS.attributes.status }}
+### Type: {{ policy.infraSHPortS.attributes.type }}
+### UID: {{ policy.infraSHPortS.attributes.uid }}
+{%-         else %}
 ## Name: {{ policy.infraHPortS.attributes.name }}
 ### Name Alias: {{ policy.infraHPortS.attributes.nameAlias }}
 ### Annotation: {{ policy.infraHPortS.attributes.annotation }}
@@ -734,6 +752,8 @@
 ### Type: {{ policy.infraHPortS.attributes.type }}
 ### UID: {{ policy.infraHPortS.attributes.uid }}
 ### User Domain: {{ policy.infraHPortS.attributes.userdom }}
+{%-         endif %}
+  </tr>
 {%-     endfor %}
 {%- else %}
 {%- if "infraProfile" in api %}
@@ -1643,4 +1663,22 @@
 ### Status: {{ provider.compProv.attributes.status }}
 ### Vendor: {{ provider.compProv.attributes.vendor }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "arpAdjEp" in api %}
+# ARP Adjacency Endpoints
+{%-     for endpoint in data_to_template['imdata'] %}
+## Name: {{ endpoint.arpAdjEp.attributes.name }}
+### Child Action: {{ endpoint.arpAdjEp.attributes.childAction }}
+### DN: {{ endpoint.arpAdjEp.attributes.dn }}
+### Interface
+#### Interface ID: {{ endpoint.arpAdjEp.attributes.ifId }}
+#### Physical Interface ID: {{ endpoint.arpAdjEp.attributes.physIfId }}
+### IP: {{ endpoint.arpAdjEp.attributes.ip }}
+### MAC: {{ endpoint.arpAdjEp.attributes.mac }}
+### Timestamps
+#### Last Modified: {{ endpoint.arpAdjEp.attributes.modTs }}
+#### Last Updated: {{ endpoint.arpAdjEp.attributes.upTS }}
+### Operational State: {{ endpoint.arpAdjEp.attributes.operSt }}
+### Status{{ endpoint.arpAdjEp.attributes.status }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
