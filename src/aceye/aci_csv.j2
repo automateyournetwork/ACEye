@@ -319,4 +319,9 @@
 {%-     for entry in data_to_template['imdata'] %}
 {{ entry.arpDb.attributes.name }},{{ entry.arpDb.attributes.childAction }},{{ entry.arpDb.attributes.dn }},{{ entry.arpDb.attributes.modTs }},{{ entry.arpDb.attributes.status }},{{ entry.arpDb.attributes.type }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "arpDom" in api %}Name,Child Action,DN,Encapsulation,Local Owner,Last Modified,Monitoring Policy DN,Status
+{%-     for domain in data_to_template['imdata'] %}
+{{ domain.arpDom.attributes.name }},{{ domain.arpDom.attributes.childAction }},{{ domain.arpDom.attributes.dn }},{{ domain.arpDom.attributes.encap }},{{ domain.arpDom.attributes.lcOwn }},{{ domain.arpDom.attributes.modTs }},{{ domain.arpDom.attributes.monPolDn }},{{ domain.arpDom.attributes.status }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

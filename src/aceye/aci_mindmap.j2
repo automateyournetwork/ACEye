@@ -1708,4 +1708,17 @@
 ### Status: {{ entry.arpDb.attributes.status }}
 ### Type: {{ entry.arpDb.attributes.type }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "arpDom" in api %}
+# ARP Domain
+{%-     for domain in data_to_template['imdata'] %}
+## Name:  {{ domain.arpDom.attributes.name }}
+### Child Action: {{ domain.arpDom.attributes.childAction }}
+### DN: {{ domain.arpDom.attributes.dn }}
+### Encapsulation: {{ domain.arpDom.attributes.encap }}
+### Local Owner: {{ domain.arpDom.attributes.lcOwn }}
+### Last Modified: {{ domain.arpDom.attributes.modTs }}
+### Monitoring Policy DN: {{ domain.arpDom.attributes.monPolDn }}
+### Status: {{ domain.arpDom.attributes.status }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
