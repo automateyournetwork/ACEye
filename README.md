@@ -22,6 +22,8 @@ ARP Database
 
 ARP Domain
 
+ARP Entity
+
 Attachable Access Entity Profiles
 
 *Audit Log
