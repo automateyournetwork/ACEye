@@ -3383,7 +3383,7 @@
 </table>
 {%- else %}
 {%- if "arpAdjEp" in api %}
-<h1>Compute Providers</h1>
+<h1>ARP Adjacency Endpoints</h1>
 <table id = "datatable">
 <thead>
   <tr>
@@ -3418,5 +3418,63 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "arpDb" in api %}
+<h1>ARP Database</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Last Modified</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for entry in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ entry.arpDb.attributes.name }}</td>
+    <td>{{ entry.arpDb.attributes.childAction }}</td>
+    <td>{{ entry.arpDb.attributes.dn }}</td>
+    <td>{{ entry.arpDb.attributes.modTs }}</td>
+    <td>{{ entry.arpDb.attributes.status }}</td>
+    <td>{{ entry.arpDb.attributes.type }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "arpDom" in api %}
+<h1>ARP Domain</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for domain in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ domain.arpDom.attributes.name }}</td>
+    <td>{{ domain.arpDom.attributes.childAction }}</td>
+    <td>{{ domain.arpDom.attributes.dn }}</td>
+    <td>{{ domain.arpDom.attributes.encap }}</td>
+    <td>{{ domain.arpDom.attributes.lcOwn }}</td>
+    <td>{{ domain.arpDom.attributes.modTs }}</td>
+    <td>{{ domain.arpDom.attributes.monPolDn }}</td>
+    <td>{{ domain.arpDom.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
