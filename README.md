@@ -18,6 +18,8 @@ Application Profiles
 
 ARP Adjacency Endpoints
 
+ARP Database
+
 Attachable Access Entity Profiles
 
 *Audit Log
