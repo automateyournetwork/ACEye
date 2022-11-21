@@ -14,6 +14,8 @@ Access Control Rules
 
 Application Profiles
 
+ARP Adjacency Endpoints
+
 Attachable Access Entity Profiles
 
 *Audit Log
