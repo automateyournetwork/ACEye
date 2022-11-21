@@ -20,6 +20,8 @@ ARP Adjacency Endpoints
 
 ARP Database
 
+ARP Domain
+
 Attachable Access Entity Profiles
 
 *Audit Log
