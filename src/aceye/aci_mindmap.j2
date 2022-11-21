@@ -1435,6 +1435,22 @@
 ### Type: {{ acl.actrlRule.attributes.type }}
 {%-     endfor %}
 {%- else %}
+{%- if "actrlScope" in api %}
+# Access Control Scopes
+{%-     for acl in data_to_template['imdata'] %}
+## Name: {{ acl.actrlScope.attributes.name }}
+### Name Alias: {{ acl.actrlScope.attributes.nameAlias }}
+### Child Action: {{ acl.actrlScope.attributes.childAction }}
+### Description: {{ acl.actrlScope.attributes.descr }}
+### DN: {{ acl.actrlScope.attributes.dn }}
+### ID: {{ acl.actrlScope.attributes.id }}
+### Local Owner: {{ acl.actrlScope.attributes.lcOwn }}
+### Last Modified: {{ acl.actrlScope.attributes.modTs }}
+### Monitoring Policy DN: {{ acl.actrlScope.attributes.monPolDn }}
+### Security Label: {{ acl.actrlScope.attributes.secLbl }}
+### Status: {{ acl.actrlScope.attributes.status }}
+{%-     endfor %}
+{%- else %}
 {%- if "cnwPhysIf" in api %}
 # Cluster Physical Interfaces
 {%-     for interface in data_to_template['imdata'] %}
@@ -1681,4 +1697,4 @@
 ### Operational State: {{ endpoint.arpAdjEp.attributes.operSt }}
 ### Status{{ endpoint.arpAdjEp.attributes.status }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

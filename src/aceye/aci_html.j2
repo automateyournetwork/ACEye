@@ -2896,6 +2896,43 @@
 </tbody>
 </table>
 {%- else %}
+{%- if "actrlScope" in api %}
+<h1>Access Control Scopes </h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Security Label</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for acl in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ acl.actrlScope.attributes.name }}</td>
+    <td>{{ acl.actrlScope.attributes.nameAlias }}</td>
+    <td>{{ acl.actrlScope.attributes.childAction }}</td>
+    <td>{{ acl.actrlScope.attributes.descr }}</td>
+    <td>{{ acl.actrlScope.attributes.dn }}</td>
+    <td>{{ acl.actrlScope.attributes.id }}</td>
+    <td>{{ acl.actrlScope.attributes.lcOwn }}</td>
+    <td>{{ acl.actrlScope.attributes.modTs }}</td>
+    <td>{{ acl.actrlScope.attributes.monPolDn }}</td>
+    <td>{{ acl.actrlScope.attributes.secLbl }}</td>
+    <td>{{ acl.actrlScope.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
 {%- if "cnwPhysIf" in api %}
 <h1>Cluster Physical Interfaces </h1>
 <table id = "datatable">
@@ -3381,5 +3418,5 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
