@@ -12,6 +12,8 @@ Access Control Instances
 
 Access Control Rules
 
+Access Control Scope
+
 Application Profiles
 
 ARP Adjacency Endpoints

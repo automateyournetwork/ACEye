@@ -119,6 +119,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.access_control_rules(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.access_control_scopes(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
         parsed_json = json.dumps(self.cluster_physical_interfaces(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.compute_controllers(), indent=4, sort_keys=True)
@@ -136,6 +138,7 @@ class ACEye():
         api_list = ['Access Control Entities',
                     'Access Control Instances',
                     'Access Control Rules',
+                    'Access Control Scopes',
                     'Application Profiles',
                     'ARP Adjacency Endpoints',
                     'Attachable Access Entity Profiles',
@@ -597,6 +600,13 @@ class ACEye():
         response_dict  = response.json()
         return(response_dict)
 
+    def access_control_scopes(self):
+        self.url = f"{ self.aci }/api/node/class/actrlScope.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Access Control Scopes code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
     def cluster_physical_interfaces(self):
         self.url = f"{ self.aci }/api/node/class/cnwPhysIf.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
@@ -837,6 +847,10 @@ class ACEye():
             with open('Access Control Rules/JSON/Access Control Rules.json', 'w' ) as f:
                 f.write(parsed_json)
 
+        if "actrlScope" in self.url:
+            with open('Access Control Scope/JSON/Access Control Scope.json', 'w' ) as f:
+                f.write(parsed_json)
+
         if "cnwPhysIf" in self.url:
             with open('Cluster Physical Interfaces/JSON/Cluster Physical Interfaces.json', 'w' ) as f:
                 f.write(parsed_json)
@@ -1058,6 +1072,10 @@ class ACEye():
 
         if "actrlRule" in self.url:
             with open('Access Control Rules/YAML/Access Control Rules.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "actrlScope" in self.url:
+            with open('Access Control Scope/YAML/Access Control Scope.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
         if "cnwPhysIf" in self.url:
@@ -1285,6 +1303,10 @@ class ACEye():
 
         if "actrlRule" in self.url:
             with open('Access Control Rules/CSV/Access Control Rules.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "actrlScope" in self.url:
+            with open('Access Control Scope/CSV/Access Control Scope.csv', 'w' ) as f:
                 f.write(csv_output)
 
         if "cnwPhysIf" in self.url:
@@ -1515,6 +1537,10 @@ class ACEye():
             with open('Access Control Rules/Markdown/Access Control Rules.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "actrlScope" in self.url:
+            with open('Access Control Scope/Markdown/Access Control Scope.md', 'w' ) as f:
+                f.write(markdown_output)
+
         if "cnwPhysIf" in self.url:
             with open('Cluster Physical Interfaces/Markdown/Cluster Physical Interfaces.md', 'w' ) as f:
                 f.write(markdown_output)
@@ -1743,6 +1769,10 @@ class ACEye():
             with open('Access Control Rules/HTML/Access Control Rules.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "actrlScope" in self.url:
+            with open('Access Control Scope/HTML/Access Control Scope.html', 'w' ) as f:
+                f.write(html_output)
+
         if "cnwPhysIf" in self.url:
             with open('Cluster Physical Interfaces/HTML/Cluster Physical Interfaces.html', 'w' ) as f:
                 f.write(html_output)
@@ -1969,6 +1999,10 @@ class ACEye():
 
         if "actrlRule" in self.url:
             with open('Access Control Rules/Mindmap/Access Control Rules.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "actrlScope" in self.url:
+            with open('Access Control Scope/Mindmap/Access Control Scope.md', 'w' ) as f:
                 f.write(mindmap_output)
 
         if "cnwPhysIf" in self.url:
