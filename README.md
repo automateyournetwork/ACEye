@@ -32,6 +32,8 @@ Attachable Access Entity Profiles
 
 *Audit Log
 
+BGP Domains
+
 BGP Route Reflectors
 
 Bridge Domains
