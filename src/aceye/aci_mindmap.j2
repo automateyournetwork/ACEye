@@ -1753,4 +1753,19 @@
 ### Monitoring Policy DN: {{ interface.arpIf.attributes.monPolDn }}
 ### Status: {{ interface.arpIf.attributes.status }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "arpInst" in api %}
+# ARP Instances
+{%-     for instance in data_to_template['imdata'] %}
+## Name: {{ instance.arpInst.attributes.name }}
+### Admin State: {{ instance.arpInst.attributes.adminSt }}
+### Child Action: {{ instance.arpInst.attributes.childAction }}
+### Control: {{ instance.arpInst.attributes.ctrl }}
+### DN: {{ instance.arpInst.attributes.dn }}
+### Local Owner: {{ instance.arpInst.attributes.lcOwn }}
+### Last Modified: {{ instance.arpInst.attributes.modTs }}
+### Monitoring Policy DN: {{ instance.arpInst.attributes.monPolDn }}
+### Oper Error: {{ instance.arpInst.attributes.operErr }}
+### Status: {{ instance.arpInst.attributes.status }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
