@@ -1770,6 +1770,28 @@
 {%-     endfor %}
 {%- else %}
 {%- if "bgpDom" in api %}
+{%-     if "Af" in api%}
+# BGP Domain Address Families
+{%-          for family in data_to_template['imdata'] %}
+## Name: {{ family.bgpDomAf.attributes.name }}
+### Best Path Timestamps
+#### Completed: {{ family.bgpDomAf.attributes.bestPathCmpltTs }}
+#### Signature: {{ family.bgpDomAf.attributes.bestPathSigTs }}
+### Child Action: {{ family.bgpDomAf.attributes.childAction }}
+### Nh Timeout
+#### Critial: {{ family.bgpDomAf.attributes.critNhTimeout }}
+#### Non-Critical: ### {{ family.bgpDomAf.attributes.nonCritNhTimeout }}
+### DN: {{ family.bgpDomAf.attributes.dn }}
+### Local Owner: {{ family.bgpDomAf.attributes.lcOwn }}
+### ECMP
+#### Max: {{ family.bgpDomAf.attributes.maxEcmp }}
+#### Max IBGP: {{ family.bgpDomAf.attributes.maxEcmpIbgp }}
+### Last Modified: {{ family.bgpDomAf.attributes.modTs }}
+### Status: {{ family.bgpDomAf.attributes.status }}
+### Table Version: {{ family.bgpDomAf.attributes.tblVer }}
+### Type: {{ family.bgpDomAf.attributes.type }}
+{%-          endfor %}
+{%-     else %}
 # ARP Instances
 {%-     for domain in data_to_template['imdata'] %}
 ## Name: {{ domain.bgpDom.attributes.name }}
@@ -1805,4 +1827,5 @@
 ### Status: {{ domain.bgpDom.attributes.status }}
 ### Type: {{ domain.bgpDom.attributes.type }}
 {%-     endfor %}
+{%-     endif %}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

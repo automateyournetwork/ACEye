@@ -3585,7 +3585,48 @@
 </table>
 {%- else %}
 {%- if "bgpDom" in api %}
-<h1>ARP Instances</h1>
+{%-     if "Af" in api%}
+<h1>BGP Domain Address Families</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Best Path Complete Timestamp</th>
+    <th>Best Path Signature Timestamp</th>
+    <th>Child Action</th>
+    <th>Crit Nh Timeout</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Max ECMP</th>
+    <th>Max ECMP IBGP</th>
+    <th>Last Modified</th>
+    <th>Non Crit Nh Timeout</th>
+    <th>Status</th>
+    <th>Table Version</th>
+    <th>Type</th>
+  </tr
+{%-          for family in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ family.bgpDomAf.attributes.name }}</td>
+    <td>{{ family.bgpDomAf.attributes.bestPathCmpltTs }}</td>
+    <td>{{ family.bgpDomAf.attributes.bestPathSigTs }}</td>
+    <td>{{ family.bgpDomAf.attributes.childAction }}</td>
+    <td>{{ family.bgpDomAf.attributes.critNhTimeout }}</td>
+    <td>{{ family.bgpDomAf.attributes.dn }}</td>
+    <td>{{ family.bgpDomAf.attributes.lcOwn }}</td>
+    <td>{{ family.bgpDomAf.attributes.maxEcmp }}</td>
+    <td>{{ family.bgpDomAf.attributes.maxEcmpIbgp }}</td>
+    <td>{{ family.bgpDomAf.attributes.modTs }}</td>
+    <td>{{ family.bgpDomAf.attributes.nonCritNhTimeout }}</td>
+    <td>{{ family.bgpDomAf.attributes.status }}</td>
+    <td>{{ family.bgpDomAf.attributes.tblVer }}</td>
+    <td>{{ family.bgpDomAf.attributes.type }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%-     else %}
+<h1>BGP Domains</h1>
 <table id = "datatable">
 <thead>
   <tr>
@@ -3654,5 +3695,6 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%-     endif %}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
