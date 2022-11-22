@@ -139,6 +139,8 @@ class ACEye():
         self.all_files(parsed_json)        
         parsed_json = json.dumps(self.arp_entity(), indent=4, sort_keys=True)
         self.all_files(parsed_json)  
+        parsed_json = json.dumps(self.arp_interface(), indent=4, sort_keys=True)
+        self.all_files(parsed_json) 
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -150,6 +152,7 @@ class ACEye():
                     'ARP Database',
                     'ARP Domain',
                     'ARP Entity',
+                    'ARP Interfaces',
                     'Attachable Access Entity Profiles',
                     'Audit Log',
                     'BGP Route Reflectors',
@@ -679,6 +682,13 @@ class ACEye():
         response_dict  = response.json()
         return(response_dict)
 
+    def arp_interface(self):
+        self.url = f"{ self.aci }/api/node/class/arpIf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<ARP Interfaces code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return(response_dict)
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -915,6 +925,10 @@ class ACEye():
 
         if "arpEntity" in self.url:
             with open('ARP Entity/JSON/ARP Entity.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "arpIf" in self.url:
+            with open('ARP Interfaces/JSON/ARP Interfaces.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -1154,6 +1168,10 @@ class ACEye():
 
         if "arpEntity" in self.url:
             with open('ARP Entity/YAML/ARP Entity.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "arpIf" in self.url:
+            with open('ARP Interfaces/YAML/ARP Interfaces.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -1397,6 +1415,10 @@ class ACEye():
 
         if "arpEntity" in self.url:
             with open('ARP Entity/CSV/ARP Entity.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "arpIf" in self.url:
+            with open('ARP Interfaces/CSV/ARP Interfaces.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -1643,6 +1665,10 @@ class ACEye():
             with open('ARP Entity/Markdown/ARP Entity.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "arpIf" in self.url:
+            with open('ARP Interfaces/Markdown/ARP Interfaces.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1887,6 +1913,10 @@ class ACEye():
             with open('ARP Entity/HTML/ARP Entity.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "arpIf" in self.url:
+            with open('ARP Interfaces/HTML/ARP Interfaces.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2129,6 +2159,10 @@ class ACEye():
 
         if "arpEntity" in self.url:
             with open('ARP Entity/Mindmap/ARP Entity.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "arpIf" in self.url:
+            with open('ARP Interfaces/Mindmap/ARP Interfaces.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

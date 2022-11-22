@@ -3478,7 +3478,7 @@
 </table>
 {%- else %}
 {%- if "arpEntity" in api %}
-<h1>ARP Domain</h1>
+<h1>ARP Entity</h1>
 <table id = "datatable">
 <thead>
   <tr>
@@ -3511,5 +3511,42 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "arpIf" in api %}
+<h1>ARP Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <thName</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.arpIf.attributes.name }}</td>
+    <td>{{ interface.arpIf.attributes.adminSt }}</td>
+    <td>{{ interface.arpIf.attributes.childAction }}</td>
+    <td>{{ interface.arpIf.attributes.ctrl }}</td>
+    <td>{{ interface.arpIf.attributes.descr }}</td>
+    <td>{{ interface.arpIf.attributes.dn }}</td>
+    <td>{{ interface.arpIf.attributes.id }}</td>
+    <td>{{ interface.arpIf.attributes.lcOwn }}</td>
+    <td>{{ interface.arpIf.attributes.modTs }}</td>
+    <td>{{ interface.arpIf.attributes.monPolDn }}</td>
+    <td>{{ interface.arpIf.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
