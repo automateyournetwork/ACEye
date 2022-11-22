@@ -3583,5 +3583,76 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "bgpDom" in api %}
+<h1>ARP Instances</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>BGP Configuration Failed Bmp</th>
+    <th>BGP Configuration Failed Timestamp</th>
+    <th>BGP Configuration State</th>
+    <th>Child Action</th>
+    <th>Cluster ID</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>First Best Path Delay</th>
+    <th>First Peer Uptime Timestamp</th>
+    <th>Flags</th>
+    <th>Hold Interval</th>
+    <th>ka Interval</th>
+    <th>Local Owner</th>
+    <th>Max AS Limit</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>MSite Cluster ID</th>
+    <th>Number of Established Peers</th>
+    <th>Number of Peers</th>
+    <th>Oper Router ID</th>
+    <th>Oper State</th>
+    <th>RD</th>
+    <th>Router ID</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for domain in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ domain.bgpDom.attributes.name }}</td>
+    <td>{{ domain.bgpDom.attributes.bgpCfgFailedBmp }}</td>
+    <td>{{ domain.bgpDom.attributes.bgpCfgFailedTs }}</td>
+    <td>{{ domain.bgpDom.attributes.bgpCfgState }}</td>
+    <td>{{ domain.bgpDom.attributes.childAction }}</td>
+    <td>{{ domain.bgpDom.attributes.clusterId }}</td>
+    <td>{{ domain.bgpDom.attributes.ctrl }}</td>
+    <td>{{ domain.bgpDom.attributes.dn }}</td>
+    <td>{{ domain.bgpDom.attributes.encap }}</td>
+    <td>{{ domain.bgpDom.attributes.firstBestPathDelay }}</td>
+    <td>{{ domain.bgpDom.attributes.firstPeerUpTs }}</td>
+    <td>{{ domain.bgpDom.attributes.flags }}</td>
+    <td>{{ domain.bgpDom.attributes.holdIntvl }}</td>
+    <td>{{ domain.bgpDom.attributes.kaIntvl }}</td>
+    <td>{{ domain.bgpDom.attributes.lcOwn }}</td>
+    <td>{{ domain.bgpDom.attributes.maxAsLimit }}</td>
+    <td>{{ domain.bgpDom.attributes.modTs }}</td>
+    <td>{{ domain.bgpDom.attributes.mode }}</td>
+    <td>{{ domain.bgpDom.attributes.monPolDn }}</td>
+    <td>{{ domain.bgpDom.attributes.msiteClusterId }}</td>
+    <td>{{ domain.bgpDom.attributes.numEstPeers }}</td>
+    <td>{{ domain.bgpDom.attributes.numPeers }}</td>
+    <td>{{ domain.bgpDom.attributes.operRtrId }}</td>
+    <td>{{ domain.bgpDom.attributes.operSt }}</td>
+    <td>{{ domain.bgpDom.attributes.rd }}</td>
+    <td>{{ domain.bgpDom.attributes.rtrId }}</td>
+    <td>{{ domain.bgpDom.attributes.status }}</td>
+    <td>{{ domain.bgpDom.attributes.type }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

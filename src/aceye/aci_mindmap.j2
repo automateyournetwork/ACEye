@@ -1768,4 +1768,41 @@
 ### Oper Error: {{ instance.arpInst.attributes.operErr }}
 ### Status: {{ instance.arpInst.attributes.status }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "bgpDom" in api %}
+# ARP Instances
+{%-     for domain in data_to_template['imdata'] %}
+## Name: {{ domain.bgpDom.attributes.name }}
+### BGP Config
+#### Failed Bmp: {{ domain.bgpDom.attributes.bgpCfgFailedBmp }}
+#### Failed Timestamp: {{ domain.bgpDom.attributes.bgpCfgFailedTs }}
+#### State: {{ domain.bgpDom.attributes.bgpCfgState }}
+### Child Action: {{ domain.bgpDom.attributes.childAction }}
+### Cluster ID: {{ domain.bgpDom.attributes.clusterId }}
+### Control: {{ domain.bgpDom.attributes.ctrl }}
+### DN: {{ domain.bgpDom.attributes.dn }}
+### Encapsulation: {{ domain.bgpDom.attributes.encap }}
+### First Path
+#### Best Path Delay: {{ domain.bgpDom.attributes.firstBestPathDelay }}
+#### Peer Uptime Timestamp: {{ domain.bgpDom.attributes.firstPeerUpTs }}
+### Flags: {{ domain.bgpDom.attributes.flags }}
+### Hold Interval: {{ domain.bgpDom.attributes.holdIntvl }}
+### ka Interval: {{ domain.bgpDom.attributes.kaIntvl }}
+### Local Owner: {{ domain.bgpDom.attributes.lcOwn }}
+### Max AS Limit: {{ domain.bgpDom.attributes.maxAsLimit }}
+### Last Modified: {{ domain.bgpDom.attributes.modTs }}
+### Mode: {{ domain.bgpDom.attributes.mode }}
+### Monitoring Policy DN: {{ domain.bgpDom.attributes.monPolDn }}
+### MSite Cluster ID: {{ domain.bgpDom.attributes.msiteClusterId }}
+### Peers
+#### Number of Established Peers: {{ domain.bgpDom.attributes.numEstPeers }}
+#### Number of Peers: {{ domain.bgpDom.attributes.numPeers }}
+### Operational
+#### Router ID: {{ domain.bgpDom.attributes.operRtrId }}
+#### State: {{ domain.bgpDom.attributes.operSt }}
+### RD: {{ domain.bgpDom.attributes.rd }}
+### Router ID: {{ domain.bgpDom.attributes.rtrId }}
+### Status: {{ domain.bgpDom.attributes.status }}
+### Type: {{ domain.bgpDom.attributes.type }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
