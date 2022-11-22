@@ -24,6 +24,8 @@ ARP Domain
 
 ARP Entity
 
+ARP Interface
+
 Attachable Access Entity Profiles
 
 *Audit Log
