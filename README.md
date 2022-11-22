@@ -24,7 +24,7 @@ ARP Domain
 
 ARP Entity
 
-ARP Interface
+ARP Interfaces
 
 Attachable Access Entity Profiles
 
