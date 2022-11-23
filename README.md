@@ -36,6 +36,10 @@ Bridge Domains Address Families
 
 BGP Domains
 
+BGP Entities
+
+BGP Instances
+
 BGP Route Reflectors
 
 Bridge Domains

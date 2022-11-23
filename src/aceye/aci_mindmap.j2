@@ -1828,4 +1828,54 @@
 ### Type: {{ domain.bgpDom.attributes.type }}
 {%-     endfor %}
 {%-     endif %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "bgpEntity" in api %}
+# BGP Entities
+{%-     for entity in data_to_template['imdata'] %}
+## Name: {{ entity.bgpEntity.attributes.name }}
+### Admin State: {{ entity.bgpEntity.attributes.adminSt }}
+### Child Action: {{ entity.bgpEntity.attributes.childAction }}
+### DN: {{ entity.bgpEntity.attributes.dn }}
+### Local Owner: {{ entity.bgpEntity.attributes.lcOwn }}
+### Last Modified: {{ entity.bgpEntity.attributes.modTs }}
+### Monitoring Policy DN: {{ entity.bgpEntity.attributes.monPolDn }}
+### Operational
+#### Error: {{ entity.bgpEntity.attributes.operErr }}
+#### State: {{ entity.bgpEntity.attributes.operSt }}
+### Status: {{ entity.bgpEntity.attributes.status }}
+{%-     endfor %}
+{%- else %}
+{%- if "bgpInst" in api %}
+# BGP Instances
+{%-     for instance in data_to_template['imdata'] %}
+## Name: {{ instance.bgpInst.attributes.name }}
+### Activated Timestamp: {{ instance.bgpInst.attributes.activateTs }}
+### Admin State: {{ instance.bgpInst.attributes.adminSt }}
+### AS Path DB Size: {{ instance.bgpInst.attributes.asPathDbSz }}
+### ASN: {{ instance.bgpInst.attributes.asn }}
+### Attributes DB Size: {{ instance.bgpInst.attributes.attribDbSz }}
+### Child Action: {{ instance.bgpInst.attributes.childAction }}
+### Created Timestamp: {{ instance.bgpInst.attributes.createTs }}
+### Control: {{ instance.bgpInst.attributes.ctrl }}
+### DN: {{ instance.bgpInst.attributes.dn }}
+### Local Owner: {{ instance.bgpInst.attributes.lcOwn }}
+### SoO
+#### Fabric: {{ instance.bgpInst.attributes.fabricSoO }}
+#### mSite: {{ instance.bgpInst.attributes.mSiteSoO }}
+#### Pod: {{ instance.bgpInst.attributes.podSoO }}
+### Memory Alerts: {{ instance.bgpInst.attributes.memAlert }}
+### Last Modified: {{ instance.bgpInst.attributes.modTs }}
+### Monitoring Policy DN: {{ instance.bgpInst.attributes.monPolDn }}
+### Number
+#### AS Paths: {{ instance.bgpInst.attributes.numAsPath }}
+#### RT Attributes: {{ instance.bgpInst.attributes.numRtAttrib }}
+### Oper Error:{{ instance.bgpInst.attributes.operErr }}
+### SNMP Trap State: {{ instance.bgpInst.attributes.snmpTrapSt }}
+### Spine Role: {{ instance.bgpInst.attributes.spineRole }}
+### Status: {{ instance.bgpInst.attributes.status }}
+### Support RT: {{ instance.bgpInst.attributes.supprRt }}
+### Syslog Level: {{ instance.bgpInst.attributes.syslogLvl }}
+### Version: {{ instance.bgpInst.attributes.ver }}
+### Wait Done Timestamp: {{ instance.bgpInst.attributes.waitDoneTs }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
