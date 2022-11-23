@@ -3731,5 +3731,74 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "bgpInst" in api %}
+<h1>BGP Instances</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Activated Timestamp</th>
+    <th>Admin State</th>
+    <th>AS Path DB Size</th>
+    <th>ASN</th>
+    <th>Attribute DB Size</th>
+    <th>Child Action</th>
+    <th>Created Timestamp</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>Fabric SoO</th>
+    <th>Local Owner</th>
+    <th>mSite SoO</th>
+    <th>Memory Alert</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Number AS Path</th>
+    <th>Number RT Attributes</th>
+    <th>Oper Error</th>
+    <th>Pod SoO</th>
+    <th>SNMP Trap State</th>
+    <th>Spine Role</th>
+    <th>Status</th>
+    <th>Suppr RT</th>
+    <th>Syslog Level</th>
+    <th>Version</th>
+    <th>Wait Done Timestamp</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for instance in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ instance.bgpInst.attributes.name }}</td>
+    <td>{{ instance.bgpInst.attributes.activateTs }}</td>
+    <td>{{ instance.bgpInst.attributes.adminSt }}</td>
+    <td>{{ instance.bgpInst.attributes.asPathDbSz }}</td>
+    <td>{{ instance.bgpInst.attributes.asn }}</td>
+    <td>{{ instance.bgpInst.attributes.attribDbSz }}</td>
+    <td>{{ instance.bgpInst.attributes.childAction }}</td>
+    <td>{{ instance.bgpInst.attributes.createTs }}</td>
+    <td>{{ instance.bgpInst.attributes.ctrl }}</td>
+    <td>{{ instance.bgpInst.attributes.dn }}</td>
+    <td>{{ instance.bgpInst.attributes.fabricSoO }}</td>
+    <td>{{ instance.bgpInst.attributes.lcOwn }}</td>
+    <td>{{ instance.bgpInst.attributes.mSiteSoO }}</td>
+    <td>{{ instance.bgpInst.attributes.memAlert }}</td>
+    <td>{{ instance.bgpInst.attributes.modTs }}</td>
+    <td>{{ instance.bgpInst.attributes.monPolDn }}</td>
+    <td>{{ instance.bgpInst.attributes.numAsPath }}</td>
+    <td>{{ instance.bgpInst.attributes.numRtAttrib }}</td>
+    <td>{{ instance.bgpInst.attributes.operErr }}</td>
+    <td>{{ instance.bgpInst.attributes.podSoO }}</td>
+    <td>{{ instance.bgpInst.attributes.snmpTrapSt }}</td>
+    <td>{{ instance.bgpInst.attributes.spineRole }}</td>
+    <td>{{ instance.bgpInst.attributes.status }}</td>
+    <td>{{ instance.bgpInst.attributes.supprRt }}</td>
+    <td>{{ instance.bgpInst.attributes.syslogLvl }}</td>
+    <td>{{ instance.bgpInst.attributes.ver }}</td>
+    <td>{{ instance.bgpInst.attributes.waitDoneTs }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
