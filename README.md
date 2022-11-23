@@ -40,6 +40,8 @@ BGP Entities
 
 BGP Instances
 
+BGP Instances Policy
+
 BGP Route Reflectors
 
 Bridge Domains
