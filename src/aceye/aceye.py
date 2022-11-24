@@ -1036,7 +1036,7 @@ class ACEye():
                     f.write(parsed_json)
 
         if "bgpPeer" in self.url:
-            if "bgpPeerAF" in self.url:
+            if "bgpPeerAf" in self.url:
                 with open('BGP Peer AF Entries/JSON/BGP Peer AF Entries.json', 'w' ) as f:
                     f.write(parsed_json)
             else:
@@ -1311,7 +1311,7 @@ class ACEye():
                     f.write(clean_yaml)
 
         if "bgpPeer" in self.url:
-            if "bgpPeerAF" in self.url:
+            if "bgpPeerAf" in self.url:
                 with open('BGP Peer AF Entries/YAML/BGP Peer AF Entries.yaml', 'w' ) as f:
                     f.write(clean_yaml)
             else:            
@@ -1590,7 +1590,7 @@ class ACEye():
                     f.write(csv_output)
 
         if "bgpPeer" in self.url:
-            if "bgpPeerAF" in self.url:
+            if "bgpPeerAf" in self.url:
                 with open('BGP Peer AF Entries/CSV/BGP Peer AF Entries.csv', 'w' ) as f:
                     f.write(csv_output)
             else:
@@ -1870,7 +1870,7 @@ class ACEye():
                     f.write(markdown_output)
 
         if "bgpPeer" in self.url:
-            if "bgpPeerAF" in self.url:
+            if "bgpPeerAf" in self.url:
                 with open('BGP Peer AF Entries/Markdown/BGP Peer AF Entries.md', 'w' ) as f:
                     f.write(markdown_output)
             else:
@@ -2150,7 +2150,7 @@ class ACEye():
                     f.write(html_output)
 
         if "bgpPeer" in self.url:
-            if "bgpPeerAF" in self.url:
+            if "bgpPeerAf" in self.url:
                 with open('BGP Peer AF Entries/HTML/BGP Peer AF Entries.html', 'w' ) as f:
                     f.write(html_output)
             else:
@@ -2430,7 +2430,7 @@ class ACEye():
                     f.write(mindmap_output)
 
         if "bgpPeer" in self.url:
-            if "bgpPeerAF" in self.url:
+            if "bgpPeerAf" in self.url:
                 with open('BGP Peer AF Entries/Mindmap/BGP Peer AF Entries.md', 'w' ) as f:
                     f.write(mindmap_output)
             else:
