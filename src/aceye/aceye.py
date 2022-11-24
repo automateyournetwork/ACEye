@@ -159,6 +159,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.bgp_peer_entries(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.bgp_rr_nodes(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -182,6 +184,7 @@ class ACEye():
                     'BGP Peers',
                     'BGP Peers AF Entries',
                     'BGP Peers Entries',
+                    'BGP Route Reflector Nodes',
                     'BGP Route Reflectors',
                     'Bridge Domains',
                     'Cluster Aggregate Interfaces',
@@ -779,6 +782,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def bgp_rr_nodes(self):
+        self.url = f"{ self.aci }/api/node/class/bgpRRNodePEp.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<BGP Route Reflector Nodes code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict    
+    
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1056,6 +1066,10 @@ class ACEye():
                 with open('BGP Peers/JSON/BGP Peers.json', 'w' ) as f:
                     f.write(parsed_json)
 
+        if "bgpRRNodePEp" in self.url:
+            with open('BGP Route Reflector Nodes/JSON/BGP Route Reflector Nodes.json', 'w' ) as f:
+                f.write(parsed_json)
+                    
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
         if "Tenant" in self.url:
@@ -1334,6 +1348,10 @@ class ACEye():
                 with open('BGP Peers/YAML/BGP Peers.yaml', 'w' ) as f:
                     f.write(clean_yaml)
 
+        if "bgpRRNodePEp" in self.url:
+            with open('BGP Route Reflector Nodes/YAML/BGP Route Reflector Nodes.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+                    
     def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -1615,6 +1633,10 @@ class ACEye():
             else:
                 with open('BGP Peers/CSV/BGP Peers.csv', 'w' ) as f:
                     f.write(csv_output)
+
+        if "bgpRRNodePEp" in self.url:
+            with open('BGP Route Reflector Nodes/CSV/BGP Route Reflector Nodes.csv', 'w' ) as f:
+                f.write(csv_output)
 
     def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -1899,6 +1921,10 @@ class ACEye():
                 with open('BGP Peers/Markdown/BGP Peers.md', 'w' ) as f:
                     f.write(markdown_output)
 
+        if "bgpRRNodePEp" in self.url:
+            with open('BGP Route Reflector Nodes/Markdown/BGP Route Reflector Nodes.md', 'w' ) as f:
+                f.write(markdown_output)
+                    
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2182,6 +2208,10 @@ class ACEye():
                 with open('BGP Peers/HTML/BGP Peers.html', 'w' ) as f:
                     f.write(html_output)
 
+        if "bgpRRNodePEp" in self.url:
+            with open('BGP Route Reflector Nodes/HTML/BGP Route Reflector Nodes.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2464,6 +2494,10 @@ class ACEye():
             else:
                 with open('BGP Peers/Mindmap/BGP Peers.md', 'w' ) as f:
                     f.write(mindmap_output)
+
+        if "bgpRRNodePEp" in self.url:
+            with open('BGP Route Reflector Nodes/Mindmap/BGP Route Reflector Nodes.md', 'w' ) as f:
+                f.write(mindmap_output)
 
     def all_files(self, parsed_json):
         self.json_file(parsed_json)
