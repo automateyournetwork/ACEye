@@ -1901,8 +1901,34 @@
 {%-     endif %}
 {%- else %}
 {%- if "bgpPeer" in api %}
+{%-     if "bgpPeerAf" in api %}
+# BGP Peer AF Entries
+{%-         for af in data_to_template['imdata'] %}
+# Name: {{ af.bgpPeerAfEntry.attributes.name }}
+### Accepted Paths: {{ af.bgpPeerAfEntry.attributes.acceptedPaths }}
+### Child Action: {{ af.bgpPeerAfEntry.attributes.childAction }}
+### DN: {{ af.bgpPeerAfEntry.attributes.dn }}
+### Eor Received Timestamps
+#### First {{ af.bgpPeerAfEntry.attributes.firstEorRcvdTs }}
+#### Last: {{ af.bgpPeerAfEntry.attributes.lastEorRcvdTs }}
+### Flags: {{ af.bgpPeerAfEntry.attributes.flags }}
+### Memory Acc Paths: {{ af.bgpPeerAfEntry.attributes.memAccPaths }}
+### Last Modified: {{ af.bgpPeerAfEntry.attributes.modTs }}
+### Monitoring Policy DN: {{ af.bgpPeerAfEntry.attributes.monPolDn }}
+### Peer Table Version: {{ af.bgpPeerAfEntry.attributes.peerTblVer }}
+### Prefix
+#### Flushed: {{ af.bgpPeerAfEntry.attributes.pfxFlushed }}
+#### Saved: {{ af.bgpPeerAfEntry.attributes.pfxSaved }}
+#### Sent: {{ af.bgpPeerAfEntry.attributes.pfxSent }}
+### Status: {{ af.bgpPeerAfEntry.attributes.status }}
+### Table
+#### State: {{ af.bgpPeerAfEntry.attributes.tblSt }}
+#### Version {{ af.bgpPeerAfEntry.attributes.tblVer }}
+### Type: {{ af.bgpPeerAfEntry.attributes.type }}
+{%-         endfor %}
+{%-     else %}
 # BGP Peers
-{%-     for peer in data_to_template['imdata'] %}
+{%-         for peer in data_to_template['imdata'] %}
 ## Name: {{ peer.bgpPeer.attributes.name }}
 ### Prefix Peers
 #### Active: {{ peer.bgpPeer.attributes.activePfxPeers }}
@@ -1930,5 +1956,6 @@
 ### Status: {{ peer.bgpPeer.attributes.status }}
 ### TTL: {{ peer.bgpPeer.attributes.ttl }}
 ### Type: {{ peer.bgpPeer.attributes.type }}
-{%-     endfor %}
+{%-         endfor %}
+{%-     endif%}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
