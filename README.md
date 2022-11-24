@@ -56,6 +56,8 @@ Bridge Domains
 
 CDP Adjacency Endpoints
 
+CDP Entities
+
 Cluster Aggregate Interfaces
 
 Cluster Health
