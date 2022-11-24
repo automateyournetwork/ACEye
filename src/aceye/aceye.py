@@ -34,7 +34,7 @@ class ACEye():
         parsed_json = json.dumps(self.l3outs(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.l2outs(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)        
+        self.all_files(parsed_json)
         parsed_json = json.dumps(self.topSystem(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.subnets(), indent=4, sort_keys=True)
@@ -92,23 +92,23 @@ class ACEye():
         parsed_json = json.dumps(self.prefix_list_detailed(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.users(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)        
+        self.all_files(parsed_json)
         parsed_json = json.dumps(self.security_domains(), indent=4, sort_keys=True)
-        self.all_files(parsed_json) 
+        self.all_files(parsed_json)
         parsed_json = json.dumps(self.contract_subjects(), indent=4, sort_keys=True)
-        self.all_files(parsed_json) 
+        self.all_files(parsed_json)
         parsed_json = json.dumps(self.health(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.fabric_node_ssl_certificate(), indent=4, sort_keys=True)
-        self.all_files(parsed_json) 
+        self.all_files(parsed_json)
         parsed_json = json.dumps(self.tenant_health(), indent=4, sort_keys=True)
-        self.all_files(parsed_json) 
+        self.all_files(parsed_json)
         parsed_json = json.dumps(self.fabric_membership(), indent=4, sort_keys=True)
-        self.all_files(parsed_json) 
+        self.all_files(parsed_json)
         parsed_json = json.dumps(self.cluster_health(), indent=4, sort_keys=True)
-        self.all_files(parsed_json) 
+        self.all_files(parsed_json)
         parsed_json = json.dumps(self.device_packages(), indent=4, sort_keys=True)
-        self.all_files(parsed_json) 
+        self.all_files(parsed_json)
         parsed_json = json.dumps(self.cluster_aggregate_interfaces(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.l3_interfaces(), indent=4, sort_keys=True)
@@ -136,11 +136,11 @@ class ACEye():
         parsed_json = json.dumps(self.arp_db(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.arp_domain(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)        
+        self.all_files(parsed_json)
         parsed_json = json.dumps(self.arp_entity(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)  
+        self.all_files(parsed_json)
         parsed_json = json.dumps(self.arp_interface(), indent=4, sort_keys=True)
-        self.all_files(parsed_json) 
+        self.all_files(parsed_json)
         parsed_json = json.dumps(self.arp_instances(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.bgp_domains(), indent=4, sort_keys=True)
@@ -156,6 +156,8 @@ class ACEye():
         parsed_json = json.dumps(self.bgp_peers(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.bgp_peer_af_entries(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.bgp_peer_entries(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
 
     def make_directories(self):
@@ -179,6 +181,7 @@ class ACEye():
                     'BGP Instances Policy',
                     'BGP Peers',
                     'BGP Peers AF Entries',
+                    'BGP Peers Entries',
                     'BGP Route Reflectors',
                     'Bridge Domains',
                     'Cluster Aggregate Interfaces',
@@ -262,77 +265,77 @@ class ACEye():
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Tenant Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def epgs(self):
         self.url = f"{ self.aci }/api/node/class/fvAEPg.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<EPG Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def bridge_domains(self):
         self.url = f"{ self.aci }/api/node/class/fvBD.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Bridge Domains Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def contexts(self):
         self.url = f"{ self.aci }/api/node/class/fvCtx.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Contexts Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)        
+        return response_dict
 
     def application_profiles(self):
         self.url = f"{ self.aci }/api/node/class/fvAp.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Application Profiles Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)    
-    
+        return response_dict
+
     def l3outs(self):
         self.url = f"{ self.aci }/api/node/class/l3extOut.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<L3Outs Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)     
+        return response_dict
 
     def l2outs(self):
         self.url = f"{ self.aci }/api/node/class/l2extOut.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<L2Outs Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def topSystem(self):
         self.url = f"{ self.aci }/api/node/class/topSystem.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Top System Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def subnets(self):
         self.url = f"{ self.aci }/api/node/class/fvSubnet.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Subnet Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def endpoints(self):
         self.url = f"{ self.aci }/api/node/class/fvCEp.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Connected Endpoints Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def fabric_nodes(self):
         self.url = f"{ self.aci }/api/node/class/fabricNode.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Fabric Nodes Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def physical_interfaces(self):
         self.url = f"{ self.aci }/api/node/class/fabricNode.json"
@@ -346,154 +349,154 @@ class ACEye():
             print(f"<Physical Interface Status code { response.status_code } for { self.url }>")
             response_dict  = response.json()
             physical_interfaces.append(response_dict['imdata'])
-        return(physical_interfaces)
+        return physical_interfaces
 
     def leaf_interface_profiles(self):
         self.url = f"{ self.aci }/api/node/class/infraAccPortP.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Leaf Interface Profiles Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def spine_interface_profiles(self):
         self.url = f"{ self.aci }/api/node/class/infraSpAccPortP.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Spine Interface Profiles Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def leaf_switch_profiles(self):
         self.url = f"{ self.aci }/api/node/class/infraNodeP.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Leaf Switch Profiles Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def spine_switch_profiles(self):
         self.url = f"{ self.aci }/api/node/class/infraSpineP.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Spine Switch Profiles Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def vlan_pools(self):
         self.url = f"{ self.aci }/api/node/class/fvnsVlanInstP.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<VLAN Pools Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def attachable_access_entity_profiles(self):
         self.url = f"{ self.aci }/api/node/class/infraAttEntityP.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Attachable Access Entity Profiles Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def contracts(self):
         self.url = f"{ self.aci }/api/node/class/vzBrCP.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Contracts Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def filters(self):
         self.url = f"{ self.aci }/api/node/class/vzEntry.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Filters Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def physical_domains(self):
         self.url = f"{ self.aci }/api/node/class/physDomP.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Physical Domains Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def l3_domains(self):
         self.url = f"{ self.aci }/api/node/class/l3extDomP.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<L3 Domains Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def qos_classes(self):
         self.url = f"{ self.aci }/api/node/class/qosClass.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<QOS Classes Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def fault_summary(self):
         self.url = f"{ self.aci }/api/node/class/faultSummary.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Fault Summary Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def audit_log(self):
         self.url = f"{ self.aci }/api/node/class/aaaModLR.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Audit Log Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def ip_addresses(self):
         self.url = f"{ self.aci }/api/node/class/fvIp.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<IP Addresses Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def events(self):
         self.url = f"{ self.aci }/api/node/class/eventRecord.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Events Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def licenses(self):
         self.url = f"{ self.aci }/api/node/class/licenseEntitlement.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<License Entitlements Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def bgp_rr(self):
         self.url = f"{ self.aci }/api/node/class/bgpRRNodePEp.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<BGP Route Reflectors Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def interface_policies(self):
         self.url = f"{ self.aci }/api/node/class/infraPortS.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Interface Policies Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def interface_profiles(self):
         self.url = f"{ self.aci }/api/node/class/infraProfile.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Interface Profiles Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def fabric_pods(self):
         self.url = f"{ self.aci }/api/node/class/fabricPod.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Fabric Pods Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def fabric_paths(self):
         self.url = f"{ self.aci }/api/node/class/fabricPath.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Fabric Paths Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def prefix_list(self):
         self.url = f"{ self.aci }/api/node/class/fvTenant.json"
@@ -501,14 +504,14 @@ class ACEye():
         print(f"<Tenant Status code { response.status_code } for { self.url }>")
         tenants  = response.json()
         prefix_lists = []
-        for tenant in tenants['imdata']:        
+        for tenant in tenants['imdata']:
             self.url = f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
             response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
             print(f"<Prefix List Status code { response.status_code } for { self.url }>")
             response_dict  = response.json()
             prefix_lists.append(response_dict['imdata'])
-        return(prefix_lists)
-        
+        return prefix_lists
+
     def prefix_list_detailed(self):
         self.url = f"{ self.aci }/api/node/class/fvTenant.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
@@ -516,12 +519,12 @@ class ACEye():
         tenants  = response.json()
         prefix_lists = []
         ip_prefix_list_details = []
-        for tenant in tenants['imdata']:        
+        for tenant in tenants['imdata']:
             self.url = f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
             response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
             print(f"<Prefix List Status code { response.status_code } for { self.url }>")
             response_dict  = response.json()
-            prefix_lists.append(response_dict['imdata'])     
+            prefix_lists.append(response_dict['imdata'])
             for item in prefix_lists:
                 for prefix in item:
                     self.url = f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }/subj-{ prefix['rtctrlSubjP']['attributes']['name']}.json?query-target=children&target-subtree-class=rtctrlMatchRtDest"
@@ -529,42 +532,42 @@ class ACEye():
                     print(f"<Prefix List Detailed Status code { response.status_code } for { self.url }>")
                     response_dict  = response.json()
                     ip_prefix_list_details.append(response_dict['imdata'])
-        return(ip_prefix_list_details)
+        return ip_prefix_list_details
 
     def users(self):
         self.url = f"{ self.aci }/api/node/class/aaaUser.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Users Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def security_domains(self):
         self.url = f"{ self.aci }/api/node/class/aaaDomain.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Security Domains Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def contract_subjects(self):
         self.url = f"{ self.aci }/api/node/class/vzSubj.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Contract Subjects Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def health(self):
         self.url = f"{ self.aci }/api/node/mo/topology/health.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Health Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def fabric_node_ssl_certificate(self):
         self.url = f"{ self.aci }/api/node/class/pkiFabricNodeSSLCertificate.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<PKI Fabric Node SSL Certificate code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def tenant_health(self):
         self.url = f"{ self.aci }/api/node/class/fvTenant.json"
@@ -578,196 +581,203 @@ class ACEye():
             print(f"<Tenant Health Status code { response.status_code } for { self.url }>")
             response_dict  = response.json()
             tenant_health.append(response_dict['imdata'])
-        return(tenant_health)
+        return tenant_health
 
     def fabric_membership(self):
         self.url = f"{ self.aci }/api/node/class/topSystem.json?query-target=subtree&target-subtree-class=firmwareCtrlrRunning"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Fabric Membership code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def cluster_health(self):
         self.url = f"{ self.aci }/api/node/mo/topology/pod-1/node-1/av.json?query-target=children&target-subtree-class=infraWiNode"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Cluster Health code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def device_packages(self):
         self.url = f"{ self.aci }/api/node/class/vnsMDev.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Device Packages code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def cluster_aggregate_interfaces(self):
         self.url = f"{ self.aci }/api/node/class/cnwAggrIf.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Cluster Aggregate Interfaces code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def l3_interfaces(self):
         self.url = f"{ self.aci }/api/node/class/l3Inst.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<L3 Interfaces code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def access_control_entities(self):
         self.url = f"{ self.aci }/api/node/class/actrlEntity.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Access Control Entities code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def access_control_instances(self):
         self.url = f"{ self.aci }/api/node/class/actrlInst.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Access Control Instances code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def access_control_rules(self):
         self.url = f"{ self.aci }/api/node/class/actrlRule.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Access Control Rules code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def access_control_scopes(self):
         self.url = f"{ self.aci }/api/node/class/actrlScope.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Access Control Scopes code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def cluster_physical_interfaces(self):
         self.url = f"{ self.aci }/api/node/class/cnwPhysIf.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Cluster Physical Interfaces code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def compute_controllers(self):
         self.url = f"{ self.aci }/api/node/class/compCtrlr.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Compute Controllers code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def compute_domains(self):
         self.url = f"{ self.aci }/api/node/class/compDom.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Compute Domains code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def compute_endpoint_policy_descriptions(self):
         self.url = f"{ self.aci }/api/node/class/compEpPD.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Compute Endpoint Policy Descriptions code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def compute_providers(self):
         self.url = f"{ self.aci }/api/node/class/compProv.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Compute Providers code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def arp_adjacency_endpoints(self):
         self.url = f"{ self.aci }/api/node/class/arpAdjEp.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<ARP Adjacency Endpoints code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def arp_db(self):
         self.url = f"{ self.aci }/api/node/class/arpDb.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<ARP Database code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def arp_domain(self):
         self.url = f"{ self.aci }/api/node/class/arpDom.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<ARP Domain code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def arp_entity(self):
         self.url = f"{ self.aci }/api/node/class/arpEntity.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<ARP Entity code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def arp_interface(self):
         self.url = f"{ self.aci }/api/node/class/arpIf.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<ARP Interfaces code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def arp_instances(self):
         self.url = f"{ self.aci }/api/node/class/arpInst.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<ARP Instances code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def bgp_domains(self):
         self.url = f"{ self.aci }/api/node/class/bgpDom.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<BGP Domains code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def bgp_domain_af(self):
         self.url = f"{ self.aci }/api/node/class/bgpDomAf.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<BGP Domain Address Family code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def bgp_entities(self):
         self.url = f"{ self.aci }/api/node/class/bgpEntity.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<BGP Entity code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def bgp_instances(self):
         self.url = f"{ self.aci }/api/node/class/bgpInst.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<BGP Instances code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def bgp_instances_policy(self):
         self.url = f"{ self.aci }/api/node/class/bgpInstPol.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<BGP Instances Policy code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
 
     def bgp_peers(self):
         self.url = f"{ self.aci }/api/node/class/bgpPeer.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<BGP Peers code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
-    
+        return response_dict
+
     def bgp_peer_af_entries(self):
         self.url = f"{ self.aci }/api/node/class/bgpPeerAfEntry.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<BGP Peers AF Entries code { response.status_code } for { self.url }>")
         response_dict  = response.json()
-        return(response_dict)
+        return response_dict
+
+    def bgp_peer_entries(self):
+        self.url = f"{ self.aci }/api/node/class/bgpPeerEntry.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<BGP Peers Entries code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
 
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
@@ -878,7 +888,7 @@ class ACEye():
         if "eventRecord" in self.url:
             with open('Events/JSON/Events.json', 'w' ) as f:
                 f.write(parsed_json)
-                
+
         if "licenseEntitlement" in self.url:
             with open('License Entitlements/JSON/License Entitlements.json', 'w' ) as f:
                 f.write(parsed_json)
@@ -1016,7 +1026,7 @@ class ACEye():
                 f.write(parsed_json)
 
         if "bgpDom" in self.url:
-            if "Af" in self.url:   
+            if "Af" in self.url:
                 with open('BGP Domain Address Families/JSON/BGP Domain Address Families.json', 'w' ) as f:
                     f.write(parsed_json)
             else:
@@ -1039,6 +1049,9 @@ class ACEye():
             if "bgpPeerAf" in self.url:
                 with open('BGP Peers AF Entries/JSON/BGP Peers AF Entries.json', 'w' ) as f:
                     f.write(parsed_json)
+            elif "bgpPeerEntry" in self.url:
+                with open('BGP Peers Entries/JSON/BGP Peers Entries.json', 'w' ) as f:
+                    f.write(parsed_json)
             else:
                 with open('BGP Peers/JSON/BGP Peers.json', 'w' ) as f:
                     f.write(parsed_json)
@@ -1047,7 +1060,7 @@ class ACEye():
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
         if "Tenant" in self.url:
             with open('Tenant/YAML/Tenants.yaml', 'w' ) as f:
-                f.write(clean_yaml)        
+                f.write(clean_yaml)
 
         if "AEPg" in self.url:
             with open('EPG/YAML/EPGs.yaml', 'w' ) as f:
@@ -1314,17 +1327,20 @@ class ACEye():
             if "bgpPeerAf" in self.url:
                 with open('BGP Peers AF Entries/YAML/BGP Peers AF Entries.yaml', 'w' ) as f:
                     f.write(clean_yaml)
-            else:            
+            elif "bgpPeerEntry" in self.url:
+                with open('BGP Peers Entries/YAML/BGP Peers Entries.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
+            else:
                 with open('BGP Peers/YAML/BGP Peers.yaml', 'w' ) as f:
-                    f.write(clean_yaml)                    
+                    f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
-        csv_template = env.get_template('aci_csv.j2')      
+        csv_template = env.get_template('aci_csv.j2')
         csv_output = csv_template.render(api = self.url,
                                          data_to_template = json.loads(parsed_json))
-        if "Tenant" in self.url:                                         
+        if "Tenant" in self.url:
             with open('Tenant/CSV/Tenants.csv', 'w' ) as f:
                 f.write(csv_output)
 
@@ -1593,18 +1609,21 @@ class ACEye():
             if "bgpPeerAf" in self.url:
                 with open('BGP Peers AF Entries/CSV/BGP Peers AF Entries.csv', 'w' ) as f:
                     f.write(csv_output)
+            elif "bgpPeerEntry" in self.url:
+                with open('BGP Peers Entries/CSV/BGP Peers Entries.csv', 'w' ) as f:
+                    f.write(csv_output)
             else:
                 with open('BGP Peers/CSV/BGP Peers.csv', 'w' ) as f:
-                    f.write(csv_output)                     
-                    
+                    f.write(csv_output)
+
     def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
-        markdown_template = env.get_template('aci_markdown.j2')      
+        markdown_template = env.get_template('aci_markdown.j2')
         markdown_output = markdown_template.render(api = self.url,
                                          data_to_template = json.loads(parsed_json),
                                          url = self.aci)
-        if "Tenant" in self.url:                                         
+        if "Tenant" in self.url:
             with open('Tenant/Markdown/Tenants.md', 'w' ) as f:
                 f.write(markdown_output)
 
@@ -1873,18 +1892,21 @@ class ACEye():
             if "bgpPeerAf" in self.url:
                 with open('BGP Peers AF Entries/Markdown/BGP Peers AF Entries.md', 'w' ) as f:
                     f.write(markdown_output)
+            elif "bgpPeerEntry" in self.url:
+                with open('BGP Peers Entries/Markdown/BGP Peers Entries.md', 'w' ) as f:
+                    f.write(markdown_output)
             else:
                 with open('BGP Peers/Markdown/BGP Peers.md', 'w' ) as f:
-                    f.write(markdown_output)                      
+                    f.write(markdown_output)
 
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
-        html_template = env.get_template('aci_html.j2')      
+        html_template = env.get_template('aci_html.j2')
         html_output = html_template.render(api = self.url,
                                          data_to_template = json.loads(parsed_json),
                                          url = self.aci)
-        if "Tenant" in self.url:                                         
+        if "Tenant" in self.url:
             with open('Tenant/HTML/Tenants.html', 'w' ) as f:
                 f.write(html_output)
 
@@ -2153,18 +2175,21 @@ class ACEye():
             if "bgpPeerAf" in self.url:
                 with open('BGP Peers AF Entries/HTML/BGP Peers AF Entries.html', 'w' ) as f:
                     f.write(html_output)
+            elif "bgpPeerEntry" in self.url:
+                with open('BGP Peers Entries/HTML/BGP Peers Entries.html', 'w' ) as f:
+                    f.write(html_output)
             else:
                 with open('BGP Peers/HTML/BGP Peers.html', 'w' ) as f:
-                    f.write(html_output)                    
+                    f.write(html_output)
 
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
-        mindmap_template = env.get_template('aci_mindmap.j2')      
+        mindmap_template = env.get_template('aci_mindmap.j2')
         mindmap_output = mindmap_template.render(api = self.url,
                                          data_to_template = json.loads(parsed_json),
                                          url = self.aci)
-        if "Tenant" in self.url:                                         
+        if "Tenant" in self.url:
             with open('Tenant/Mindmap/Tenants.md', 'w' ) as f:
                 f.write(mindmap_output)
 
@@ -2433,9 +2458,12 @@ class ACEye():
             if "bgpPeerAf" in self.url:
                 with open('BGP Peers AF Entries/Mindmap/BGP Peers AF Entries.md', 'w' ) as f:
                     f.write(mindmap_output)
+            elif "bgpPeerEntry" in self.url:
+                with open('BGP Peers Entries/Mindmap/BGP Peers Entries.md', 'w' ) as f:
+                    f.write(mindmap_output)
             else:
                 with open('BGP Peers/Mindmap/BGP Peers.md', 'w' ) as f:
-                    f.write(mindmap_output)                    
+                    f.write(mindmap_output)
 
     def all_files(self, parsed_json):
         self.json_file(parsed_json)
@@ -2444,7 +2472,7 @@ class ACEye():
         self.markdown_file(parsed_json)
         self.html_file(parsed_json)
         self.mindmap_file(parsed_json)
-        
+
 @click.command()
 @click.option('--url',
     prompt="APIC URL",
