@@ -3846,6 +3846,57 @@
 {%-     endif %}
 {%- else %}
 {%- if "bgpPeer" in api %}
+{%-     if "bgpPeerAf" in api %}
+<h1>BGP Peer AF Entries</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Accepted Paths</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>First Eor Received Timestamp</th>
+    <th>Flags</th>
+    <th>Last Eor Received Timestamp</th>
+    <th>Memory Acc Paths</th>
+    <th>Last Modifed</th>
+    <th>Monitoring Policy DN</th>
+    <th>Peer Table Version</th>
+    <th>Prefix Flushed</th>
+    <th>Prefix Saved</th>
+    <th>Prefix Sent</th>
+    <th>Status</th>
+    <th>Table State</th>
+    <th>Table Version</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for af in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ af.bgpPeerAfEntry.attributes.name }}</td>
+    <td>{{ af.bgpPeerAfEntry.attributes.acceptedPaths }}</td>
+    <td>{{ af.bgpPeerAfEntry.attributes.childAction }}</td>
+    <td>{{ af.bgpPeerAfEntry.attributes.dn }}</td>
+    <td>{{ af.bgpPeerAfEntry.attributes.firstEorRcvdTs }}</td>
+    <td>{{ af.bgpPeerAfEntry.attributes.flags }}</td>
+    <td>{{ af.bgpPeerAfEntry.attributes.lastEorRcvdTs }}</td>
+    <td>{{ af.bgpPeerAfEntry.attributes.memAccPaths }}</td>
+    <td>{{ af.bgpPeerAfEntry.attributes.modTs }}</td>
+    <td>{{ af.bgpPeerAfEntry.attributes.monPolDn }}</td>
+    <td>{{ af.bgpPeerAfEntry.attributes.peerTblVer }}</td>
+    <td>{{ af.bgpPeerAfEntry.attributes.pfxFlushed }}</td>
+    <td>{{ af.bgpPeerAfEntry.attributes.pfxSaved }}</td>
+    <td>{{ af.bgpPeerAfEntry.attributes.pfxSent }}</td>
+    <td>{{ af.bgpPeerAfEntry.attributes.status }}</td>
+    <td>{{ af.bgpPeerAfEntry.attributes.tblSt }}</td>
+    <td>{{ af.bgpPeerAfEntry.attributes.tblVer }}</td>
+    <td>{{ af.bgpPeerAfEntry.attributes.type }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     else %}
 <h1>BGP Peers</h1>
 <table id = "datatable">
 <thead>
@@ -3878,7 +3929,7 @@
   </tr>
 </thead>
 <tbody>
-{%-     for peer in data_to_template['imdata'] %}
+{%-         for peer in data_to_template['imdata'] %}
   <tr>
     <td>{{ peer.bgpPeer.attributes.name }}</td>
     <td>{{ peer.bgpPeer.attributes.activePfxPeers }}</td>
@@ -3906,8 +3957,9 @@
     <td>{{ peer.bgpPeer.attributes.ttl }}</td>
     <td>{{ peer.bgpPeer.attributes.type }}</td>
   </tr>
-{%-     endfor %}
+{%-         endfor %}
 </tbody>
 </table>
+{%-     endif %}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
