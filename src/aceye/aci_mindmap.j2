@@ -2079,4 +2079,25 @@
 ### Port Description: {{ interface.cdpIf.attributes.portDesc }}
 ### Status: {{ interface.cdpIf.attributes.status }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "cdpInst" in api %}
+# CDP Instances
+{%-     for instance in data_to_template['imdata'] %}
+## Name: {{ instance.cdpInst.attributes.name }}
+### Admin State: {{ instance.cdpInst.attributes.adminSt }}
+### Child Action: {{ instance.cdpInst.attributes.childAction }}
+### Control: {{ instance.cdpInst.attributes.ctrl }}
+### Device ID Type: {{ instance.cdpInst.attributes.devIdType }}
+### DN: {{ instance.cdpInst.attributes.dn }}
+### Hold Interval: {{ instance.cdpInst.attributes.holdIntvl }}
+### Local Owner: {{ instance.cdpInst.attributes.lcOwn }}
+### Last Modified: {{ instance.cdpInst.attributes.modTs }}
+### Monitoring Policy DN: {{ instance.cdpInst.attributes.monPolDn }}
+### Number of CDP Hifs: {{ instance.cdpInst.attributes.numCdpHifs }}
+### Oper Error: {{ instance.cdpInst.attributes.operErr }}
+### Status: {{ instance.cdpInst.attributes.status }}
+### System Name: {{ instance.cdpInst.attributes.sysName }}
+### TX Frequency: {{ instance.cdpInst.attributes.txFreq }}
+### Version: {{ instance.cdpInst.attributes.ver }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

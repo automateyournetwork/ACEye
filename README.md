@@ -60,6 +60,8 @@ CDP Entities
 
 CDP Interfaces
 
+CDP Instances
+
 Cluster Aggregate Interfaces
 
 Cluster Health

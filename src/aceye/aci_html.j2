@@ -4209,5 +4209,52 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "cdpInst" in api %}
+<h1>CDP Instances</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <td>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>Device ID Type</th>
+    <th>DN</th>
+    <th>Hold Interval</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Number CDP Hifs</th>
+    <th>Oper Error</th>
+    <th>Status</th>
+    <th>System Name</th>
+    <th>TX Frequency</th>
+    <th>Version</td>
+  </tr>
+</thead>
+<tbody>
+{%-     for instance in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ instance.cdpInst.attributes.name }}</td>
+    <td>{{ instance.cdpInst.attributes.adminSt }}</td>
+    <td>{{ instance.cdpInst.attributes.childAction }}</td>
+    <td>{{ instance.cdpInst.attributes.ctrl }}</td>
+    <td>{{ instance.cdpInst.attributes.devIdType }}</td>
+    <td>{{ instance.cdpInst.attributes.dn }}</td>
+    <td>{{ instance.cdpInst.attributes.holdIntvl }}</td>
+    <td>{{ instance.cdpInst.attributes.lcOwn }}</td>
+    <td>{{ instance.cdpInst.attributes.modTs }}</td>
+    <td>{{ instance.cdpInst.attributes.monPolDn }}</td>
+    <td>{{ instance.cdpInst.attributes.numCdpHifs }}</td>
+    <td>{{ instance.cdpInst.attributes.operErr }}</td>
+    <td>{{ instance.cdpInst.attributes.status }}</td>
+    <td>{{ instance.cdpInst.attributes.sysName }}</td>
+    <td>{{ instance.cdpInst.attributes.txFreq }}</td>
+    <td>{{ instance.cdpInst.attributes.ver }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

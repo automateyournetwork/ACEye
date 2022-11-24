@@ -167,6 +167,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.cdp_interfaces(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.cdp_instances(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -196,6 +198,7 @@ class ACEye():
                     'CDP Adjacency Endpoints',
                     'CDP Entities',
                     'CDP Interfaces',
+                    'CDP Instances',
                     'Cluster Aggregate Interfaces',
                     'Cluster Health',
                     'Cluster Physical Interfaces',
@@ -819,6 +822,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def cdp_instances(self):
+        self.url = f"{ self.aci }/api/node/class/cdpInst.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<CDP Instances code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1110,6 +1120,10 @@ class ACEye():
 
         if "cdpIf" in self.url:
             with open('CDP Interfaces/JSON/CDP Interfaces.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "cdpInst" in self.url:
+            with open('CDP Instances/JSON/CDP Instances.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -1404,6 +1418,10 @@ class ACEye():
 
         if "cdpIf" in self.url:
             with open('CDP Interfaces/YAML/CDP Interfaces.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "cdpInst" in self.url:
+            with open('CDP Instances/YAML/CDP Instances.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -1702,6 +1720,10 @@ class ACEye():
 
         if "cdpIf" in self.url:
             with open('CDP Interfaces/CSV/CDP Interfaces.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "cdpInst" in self.url:
+            with open('CDP Instances/CSV/CDP Instances.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -2003,6 +2025,10 @@ class ACEye():
             with open('CDP Interfaces/Markdown/CDP Interfaces.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "cdpInst" in self.url:
+            with open('CDP Instances/Markdown/CDP Instances.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2302,6 +2328,10 @@ class ACEye():
             with open('CDP Interfaces/HTML/CDP Interfaces.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "cdpInst" in self.url:
+            with open('CDP Instances/HTML/CDP Instances.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2599,6 +2629,10 @@ class ACEye():
 
         if "cdpIf" in self.url:
             with open('CDP Interfaces/Mindmap/CDP Interfaces.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "cdpInst" in self.url:
+            with open('CDP Instances/Mindmap/CDP Instances.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
