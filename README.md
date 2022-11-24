@@ -58,6 +58,8 @@ CDP Adjacency Endpoints
 
 CDP Entities
 
+CDP Interfaces
+
 Cluster Aggregate Interfaces
 
 Cluster Health

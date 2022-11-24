@@ -4164,5 +4164,50 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "cdpIf" in api %}
+<h1>CDP Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Local Description</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Native VLAN</th>
+    <th>Oper State</th>
+    <th>Oper State Quality</th>
+    <th>Port Description</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.cdpIf.attributes.name }}</td>
+    <td>{{ interface.cdpIf.attributes.adminSt }}</td>
+    <td>{{ interface.cdpIf.attributes.childAction }}</td>
+    <td>{{ interface.cdpIf.attributes.descr }}</td>
+    <td>{{ interface.cdpIf.attributes.dn }}</td>
+    <td>{{ interface.cdpIf.attributes.id }}</td>
+    <td>{{ interface.cdpIf.attributes.lcOwn }}</td>
+    <td>{{ interface.cdpIf.attributes.locDesc }}</td>
+    <td>{{ interface.cdpIf.attributes.modTs }}</td>
+    <td>{{ interface.cdpIf.attributes.monPolDn }}</td>
+    <td>{{ interface.cdpIf.attributes.nativeVlan }}</td>
+    <td>{{ interface.cdpIf.attributes.operSt }}</td>
+    <td>{{ interface.cdpIf.attributes.operStQual }}</td>
+    <td>{{ interface.cdpIf.attributes.portDesc }}</td>
+    <td>{{ interface.cdpIf.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
