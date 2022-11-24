@@ -2046,15 +2046,15 @@
 {%- if "cdpEntity" in api %}
 # CDP Adjacency Endpoints
 {%-     for entity in data_to_template['imdata'] %}
-## Name: {{ name.cdpEntity.attributes.name }}
-### Admin State: {{ name.cdpEntity.attributes.adminSt }}
-### Child Action: {{ name.cdpEntity.attributes.childAction }}
-### DN: {{ name.cdpEntity.attributes.dn }}
-### Local Owner: {{ name.cdpEntity.attributes.lcOwn }}
-### Last Modified: {{ name.cdpEntity.attributes.modTs }}
+## Name: {{ entity.cdpEntity.attributes.name }}
+### Admin State: {{ entity.cdpEntity.attributes.adminSt }}
+### Child Action: {{ entity.cdpEntity.attributes.childAction }}
+### DN: {{ entity.cdpEntity.attributes.dn }}
+### Local Owner: {{ entity.cdpEntity.attributes.lcOwn }}
+### Last Modified: {{ entity.cdpEntity.attributes.modTs }}
 ### Oper
-#### Error: {{ name.cdpEntity.attributes.operErr }}
-#### State: {{ name.cdpEntity.attributes.operSt }}
-### Status: {{ name.cdpEntity.attributes.status }}
+#### Error: {{ entity.cdpEntity.attributes.operErr }}
+#### State: {{ entity.cdpEntity.attributes.operSt }}
+### Status: {{ entity.cdpEntity.attributes.status }}
 {%-     endfor %}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

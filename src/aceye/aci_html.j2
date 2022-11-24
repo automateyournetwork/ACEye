@@ -4151,15 +4151,15 @@
 <tbody>
 {%-     for entity in data_to_template['imdata'] %}
   <tr>
-    <td>{{ name.cdpEntity.attributes.name }}</td>
-    <td>{{ name.cdpEntity.attributes.adminSt }}</td>
-    <td>{{ name.cdpEntity.attributes.childAction }}</td>
-    <td>{{ name.cdpEntity.attributes.dn }}</td>
-    <td>{{ name.cdpEntity.attributes.lcOwn }}</td>
-    <td>{{ name.cdpEntity.attributes.modTs }}</td>
-    <td>{{ name.cdpEntity.attributes.operErr }}</td>
-    <td>{{ name.cdpEntity.attributes.operSt }}</td>
-    <td>{{ name.cdpEntity.attributes.status }}</td>
+    <td>{{ entity.cdpEntity.attributes.name }}</td>
+    <td>{{ entity.cdpEntity.attributes.adminSt }}</td>
+    <td>{{ entity.cdpEntity.attributes.childAction }}</td>
+    <td>{{ entity.cdpEntity.attributes.dn }}</td>
+    <td>{{ entity.cdpEntity.attributes.lcOwn }}</td>
+    <td>{{ entity.cdpEntity.attributes.modTs }}</td>
+    <td>{{ entity.cdpEntity.attributes.operErr }}</td>
+    <td>{{ entity.cdpEntity.attributes.operSt }}</td>
+    <td>{{ entity.cdpEntity.attributes.status }}</td>
   </tr>
 {%-     endfor %}
 </tbody>
