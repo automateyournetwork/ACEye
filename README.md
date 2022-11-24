@@ -54,6 +54,8 @@ BGP Route Reflectors
 
 Bridge Domains
 
+CDP Adjacency Endpoints
+
 Cluster Aggregate Interfaces
 
 Cluster Health
