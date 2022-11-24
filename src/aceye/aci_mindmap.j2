@@ -1997,4 +1997,21 @@
 {%-             endfor %}
 {%-         endif %}
 {%-     endif %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "bgpRRP" in api %}
+# BGP Route Reflector Policies
+{%-     for policy in data_to_template['imdata'] %}
+## Name: {{ policy.bgpRRP.attributes.name }}
+### Name Alias: {{ policy.bgpRRP.attributes.nameAlias }}
+### Annotation: {{ policy.bgpRRP.attributes.annotation }}
+### Child Action: {{ policy.bgpRRP.attributes.childAction }}
+### Description: {{ policy.bgpRRP.attributes.descr }}
+### DN: {{ policy.bgpRRP.attributes.dn }}
+### Externally Managed By: {{ policy.bgpRRP.attributes.extMngdBy }}
+### Local Owner: {{ policy.bgpRRP.attributes.lcOwn }}
+### Last Modified: {{ policy.bgpRRP.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.bgpRRP.attributes.monPolDn }}
+### Status: {{ policy.bgpRRP.attributes.status }}
+### UID: {{ policy.bgpRRP.attributes.uid }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
