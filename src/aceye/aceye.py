@@ -178,7 +178,7 @@ class ACEye():
                     'BGP Instances',
                     'BGP Instances Policy',
                     'BGP Peers',
-                    'BGP Peer AF Entries',
+                    'BGP Peers AF Entries',
                     'BGP Route Reflectors',
                     'Bridge Domains',
                     'Cluster Aggregate Interfaces',
@@ -765,7 +765,7 @@ class ACEye():
     def bgp_peer_af_entries(self):
         self.url = f"{ self.aci }/api/node/class/bgpPeerAfEntry.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<BGP Peer AF Entries code { response.status_code } for { self.url }>")
+        print(f"<BGP Peers AF Entries code { response.status_code } for { self.url }>")
         response_dict  = response.json()
         return(response_dict)
 
@@ -1037,7 +1037,7 @@ class ACEye():
 
         if "bgpPeer" in self.url:
             if "bgpPeerAf" in self.url:
-                with open('BGP Peer AF Entries/JSON/BGP Peer AF Entries.json', 'w' ) as f:
+                with open('BGP Peers AF Entries/JSON/BGP Peers AF Entries.json', 'w' ) as f:
                     f.write(parsed_json)
             else:
                 with open('BGP Peers/JSON/BGP Peers.json', 'w' ) as f:
@@ -1312,7 +1312,7 @@ class ACEye():
 
         if "bgpPeer" in self.url:
             if "bgpPeerAf" in self.url:
-                with open('BGP Peer AF Entries/YAML/BGP Peer AF Entries.yaml', 'w' ) as f:
+                with open('BGP Peers AF Entries/YAML/BGP Peers AF Entries.yaml', 'w' ) as f:
                     f.write(clean_yaml)
             else:            
                 with open('BGP Peers/YAML/BGP Peers.yaml', 'w' ) as f:
@@ -1591,7 +1591,7 @@ class ACEye():
 
         if "bgpPeer" in self.url:
             if "bgpPeerAf" in self.url:
-                with open('BGP Peer AF Entries/CSV/BGP Peer AF Entries.csv', 'w' ) as f:
+                with open('BGP Peers AF Entries/CSV/BGP Peers AF Entries.csv', 'w' ) as f:
                     f.write(csv_output)
             else:
                 with open('BGP Peers/CSV/BGP Peers.csv', 'w' ) as f:
@@ -1871,7 +1871,7 @@ class ACEye():
 
         if "bgpPeer" in self.url:
             if "bgpPeerAf" in self.url:
-                with open('BGP Peer AF Entries/Markdown/BGP Peer AF Entries.md', 'w' ) as f:
+                with open('BGP Peers AF Entries/Markdown/BGP Peers AF Entries.md', 'w' ) as f:
                     f.write(markdown_output)
             else:
                 with open('BGP Peers/Markdown/BGP Peers.md', 'w' ) as f:
@@ -2151,7 +2151,7 @@ class ACEye():
 
         if "bgpPeer" in self.url:
             if "bgpPeerAf" in self.url:
-                with open('BGP Peer AF Entries/HTML/BGP Peer AF Entries.html', 'w' ) as f:
+                with open('BGP Peers AF Entries/HTML/BGP Peers AF Entries.html', 'w' ) as f:
                     f.write(html_output)
             else:
                 with open('BGP Peers/HTML/BGP Peers.html', 'w' ) as f:
@@ -2431,7 +2431,7 @@ class ACEye():
 
         if "bgpPeer" in self.url:
             if "bgpPeerAf" in self.url:
-                with open('BGP Peer AF Entries/Mindmap/BGP Peer AF Entries.md', 'w' ) as f:
+                with open('BGP Peers AF Entries/Mindmap/BGP Peers AF Entries.md', 'w' ) as f:
                     f.write(mindmap_output)
             else:
                 with open('BGP Peers/Mindmap/BGP Peers.md', 'w' ) as f:
