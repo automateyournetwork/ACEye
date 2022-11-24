@@ -2104,7 +2104,7 @@
 {%- if "cdpIntfAddr" in api %}
 # CDP Interface Addresses
 {%-     for address in data_to_template['imdata'] %}
-## Address: {{ address.cdpIntfAddr.attributes.address }}
+## Address: {{ address.cdpIntfAddr.attributes.addr }}
 ### Child Action: {{ address.cdpIntfAddr.attributes.childAction }}
 ### DN: {{ address.cdpIntfAddr.attributes.DN }}
 ### Last Modified: {{ address.cdpIntfAddr.attributes.modTs }}
