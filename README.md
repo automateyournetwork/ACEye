@@ -60,6 +60,8 @@ CDP Entities
 
 CDP Instances
 
+CDP Interface Addresses
+
 CDP Interfaces
 
 Cluster Aggregate Interfaces
