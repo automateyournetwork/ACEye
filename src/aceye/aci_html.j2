@@ -3733,6 +3733,49 @@
 </table>
 {%- else %}
 {%- if "bgpInst" in api %}
+{%-     if "InstPol" in api %}
+<h1>BGP Instances Policy</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for policy in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ policy.bgpInstPol.attributes.name }}</td>
+    <td>{{ policy.bgpInstPol.attributes.nameAlias }}</td>
+    <td>{{ policy.bgpInstPol.attributes.annotation }}</td>
+    <td>{{ policy.bgpInstPol.attributes.childAction }}</td>
+    <td>{{ policy.bgpInstPol.attributes.descr }}</td>
+    <td>{{ policy.bgpInstPol.attributes.dn }}</td>
+    <td>{{ policy.bgpInstPol.attributes.extMngdBy }}</td>
+    <td>{{ policy.bgpInstPol.attributes.lcOwn }}</td>
+    <td>{{ policy.bgpInstPol.attributes.modTs }}</td>
+    <td>{{ policy.bgpInstPol.attributes.monPolDn }}</td>
+    <td>{{ policy.bgpInstPol.attributes.ownerKey }}</td>
+    <td>{{ policy.bgpInstPol.attributes.ownerTag }}</td>
+    <td>{{ policy.bgpInstPol.attributes.status }}</td>
+    <td>{{ policy.bgpInstPol.attributes.uid }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     else %}
 <h1>BGP Instances</h1>
 <table id = "datatable">
 <thead>
@@ -3767,7 +3810,7 @@
   </tr>
 </thead>
 <tbody>
-{%-     for instance in data_to_template['imdata'] %}
+{%-         for instance in data_to_template['imdata'] %}
   <tr>
     <td>{{ instance.bgpInst.attributes.name }}</td>
     <td>{{ instance.bgpInst.attributes.activateTs }}</td>
@@ -3797,8 +3840,9 @@
     <td>{{ instance.bgpInst.attributes.ver }}</td>
     <td>{{ instance.bgpInst.attributes.waitDoneTs }}</td>
   </tr>
-{%-     endfor %}
+{%-         endfor %}
 </tbody>
 </table>
+{%-     endif %}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

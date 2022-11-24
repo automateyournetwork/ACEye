@@ -1846,8 +1846,28 @@
 {%-     endfor %}
 {%- else %}
 {%- if "bgpInst" in api %}
+{%-     if "InstPol" in api %}
+# BGP Instances Policy
+{%-         for policy in data_to_template['imdata'] %}
+## Name: {{ policy.bgpInstPol.attributes.name }}
+### Name Alias: {{ policy.bgpInstPol.attributes.nameAlias }}
+### Annotation: {{ policy.bgpInstPol.attributes.annotation }}
+### Child Action: {{ policy.bgpInstPol.attributes.childAction }}
+### Description: {{ policy.bgpInstPol.attributes.descr }}
+### DN: {{ policy.bgpInstPol.attributes.dn }}
+### Externally Managed By: {{ policy.bgpInstPol.attributes.extMngdBy }}
+### Local Owner: {{ policy.bgpInstPol.attributes.lcOwn }}
+### Last Modifed: {{ policy.bgpInstPol.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.bgpInstPol.attributes.monPolDn }}
+### Owner
+#### Key: {{ policy.bgpInstPol.attributes.ownerKey }}
+#### Tag: {{ policy.bgpInstPol.attributes.ownerTag }}
+### Status: {{ policy.bgpInstPol.attributes.status }}
+### UID: {{ policy.bgpInstPol.attributes.uid }}
+{%-         endfor %}
+{%-     else %}
 # BGP Instances
-{%-     for instance in data_to_template['imdata'] %}
+{%-         for instance in data_to_template['imdata'] %}
 ## Name: {{ instance.bgpInst.attributes.name }}
 ### Activated Timestamp: {{ instance.bgpInst.attributes.activateTs }}
 ### Admin State: {{ instance.bgpInst.attributes.adminSt }}
@@ -1877,5 +1897,6 @@
 ### Syslog Level: {{ instance.bgpInst.attributes.syslogLvl }}
 ### Version: {{ instance.bgpInst.attributes.ver }}
 ### Wait Done Timestamp: {{ instance.bgpInst.attributes.waitDoneTs }}
-{%-     endfor %}
+{%-         endfor %}
+{%-     endif %}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
