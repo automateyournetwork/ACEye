@@ -48,7 +48,7 @@ BGP Peers AF Entries
 
 BGP Peers Entries
 
-BGP Route Reflector Nodes
+BGP Route Reflector Policy
 
 BGP Route Reflectors
 
