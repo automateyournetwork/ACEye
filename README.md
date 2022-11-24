@@ -58,9 +58,9 @@ CDP Adjacency Endpoints
 
 CDP Entities
 
-CDP Interfaces
-
 CDP Instances
+
+CDP Interfaces
 
 Cluster Aggregate Interfaces
 
