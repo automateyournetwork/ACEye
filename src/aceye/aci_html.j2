@@ -4126,7 +4126,7 @@
     <td>{{ endpoint.cdpAdjEp.attributes.sysName }}</td>
     <td>{{ endpoint.cdpAdjEp.attributes.sysObjIdL }}</td>
     <td>{{ endpoint.cdpAdjEp.attributes.sysObjIdV }}</td>
-    <td>{{ endpoint.cdpAdjEp.attributes.ver }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.ver | replace("\n"," ") }}</td>
   </tr>
 {%-     endfor %}
 </tbody>
