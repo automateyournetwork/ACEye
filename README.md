@@ -42,6 +42,8 @@ BGP Instances
 
 BGP Instances Policy
 
+BGP Peers
+
 BGP Route Reflectors
 
 Bridge Domains
