@@ -48,9 +48,13 @@ BGP Peers AF Entries
 
 BGP Peers Entries
 
+BGP Route Reflector Policy
+
 BGP Route Reflectors
 
 Bridge Domains
+
+CDP Adjacency Endpoints
 
 Cluster Aggregate Interfaces
 

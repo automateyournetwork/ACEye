@@ -4037,5 +4037,99 @@
 </table>
 {%-         endif %}
 {%-     endif %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "bgpRRP" in api %}
+<h1>BGP Route Reflector Policies</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for policy in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ policy.bgpRRP.attributes.name }}</td>
+    <td>{{ policy.bgpRRP.attributes.nameAlias }}</td>
+    <td>{{ policy.bgpRRP.attributes.annotation }}</td>
+    <td>{{ policy.bgpRRP.attributes.childAction }}</td>
+    <td>{{ policy.bgpRRP.attributes.descr }}</td>
+    <td>{{ policy.bgpRRP.attributes.dn }}</td>
+    <td>{{ policy.bgpRRP.attributes.extMngdBy }}</td>
+    <td>{{ policy.bgpRRP.attributes.lcOwn }}</td>
+    <td>{{ policy.bgpRRP.attributes.modTs }}</td>
+    <td>{{ policy.bgpRRP.attributes.monPolDn }}</td>
+    <td>{{ policy.bgpRRP.attributes.status }}</td>
+    <td>{{ policy.bgpRRP.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "cdpAdjEp" in api %}
+<h1>CDP Adjacency Endpoints</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Capabilites</th>
+    <th>Child Action</th>
+    <th>Device ID</th>
+    <th>DN</th>
+    <th>Duplex</th>
+    <th>Index</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>MTU</th>
+    <th>Native VLAN</th>
+    <th>Platform ID</th>
+    <th>Port ID</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>System Location</th>
+    <th>System Name</th>
+    <th>System Object ID L</th>
+    <th>System Object ID V</th>
+    <th>Version</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for endpoint in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ endpoint.cdpAdjEp.attributes.name }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.cap }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.childAction }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.devId }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.dn }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.duplex }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.index }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.modTs }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.monPolDn }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.mtu }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.nativeVlan }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.platId }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.portId }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.stQual }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.status }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.sysLoc }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.sysName }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.sysObjIdL }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.sysObjIdV }}</td>
+    <td>{{ endpoint.cdpAdjEp.attributes.ver | replace("\n"," ") }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

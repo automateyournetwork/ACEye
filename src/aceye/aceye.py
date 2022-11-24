@@ -159,6 +159,10 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.bgp_peer_entries(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.bgp_rr_policies(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.cdp_adjacency_endpoints(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -182,8 +186,10 @@ class ACEye():
                     'BGP Peers',
                     'BGP Peers AF Entries',
                     'BGP Peers Entries',
+                    'BGP Route Reflector Policies',
                     'BGP Route Reflectors',
                     'Bridge Domains',
+                    'CDP Adjacency Endpoints',
                     'Cluster Aggregate Interfaces',
                     'Cluster Health',
                     'Cluster Physical Interfaces',
@@ -779,6 +785,20 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def bgp_rr_policies(self):
+        self.url = f"{ self.aci }/api/node/class/bgpRRP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<BGP Route Reflector Policies code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def cdp_adjacency_endpoints(self):
+        self.url = f"{ self.aci }/api/node/class/cdpAdjEp.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<CDP Adjacency Endpoints code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1055,6 +1075,14 @@ class ACEye():
             else:
                 with open('BGP Peers/JSON/BGP Peers.json', 'w' ) as f:
                     f.write(parsed_json)
+
+        if "bgpRRP" in self.url:
+            with open('BGP Route Reflector Policies/JSON/BGP Route Reflector Policies.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "cdpAdjEp" in self.url:
+            with open('CDP Adjacency Endpoints/JSON/CDP Adjacency Endpoints.json', 'w' ) as f:
+                f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
@@ -1333,6 +1361,14 @@ class ACEye():
             else:
                 with open('BGP Peers/YAML/BGP Peers.yaml', 'w' ) as f:
                     f.write(clean_yaml)
+
+        if "bgpRRP" in self.url:
+            with open('BGP Route Reflector Policies/YAML/BGP Route Reflector Policies.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "cdpAdjEp" in self.url:
+            with open('CDP Adjacency Endpoints/YAML/CDP Adjacency Endpoints.yaml', 'w' ) as f:
+                f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -1615,6 +1651,14 @@ class ACEye():
             else:
                 with open('BGP Peers/CSV/BGP Peers.csv', 'w' ) as f:
                     f.write(csv_output)
+
+        if "bgpRRP" in self.url:
+            with open('BGP Route Reflector Policies/CSV/BGP Route Reflector Policies.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "cdpAdjEp" in self.url:
+            with open('CDP Adjacency Endpoints/CSV/CDP Adjacency Endpoints.csv', 'w' ) as f:
+                f.write(csv_output)
 
     def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -1899,6 +1943,14 @@ class ACEye():
                 with open('BGP Peers/Markdown/BGP Peers.md', 'w' ) as f:
                     f.write(markdown_output)
 
+        if "bgpRRP" in self.url:
+            with open('BGP Route Reflector Policies/Markdown/BGP Route Reflector Policies.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "cdpAdjEp" in self.url:
+            with open('CDP Adjacency Endpoints/Markdown/CDP Adjacency Endpoints.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2182,6 +2234,14 @@ class ACEye():
                 with open('BGP Peers/HTML/BGP Peers.html', 'w' ) as f:
                     f.write(html_output)
 
+        if "bgpRRP" in self.url:
+            with open('BGP Route Reflector Policies/HTML/BGP Route Reflector Policies.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "cdpAdjEp" in self.url:
+            with open('CDP Adjacency Endpoints/HTML/CDP Adjacency Endpoints.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2464,6 +2524,14 @@ class ACEye():
             else:
                 with open('BGP Peers/Mindmap/BGP Peers.md', 'w' ) as f:
                     f.write(mindmap_output)
+
+        if "bgpRRP" in self.url:
+            with open('BGP Route Reflector Policies/Mindmap/BGP Route Reflector Policies.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "cdpAdjEp" in self.url:
+            with open('CDP Adjacency Endpoints/Mindmap/CDP Adjacency Endpoints.md', 'w' ) as f:
+                f.write(mindmap_output)
 
     def all_files(self, parsed_json):
         self.json_file(parsed_json)
