@@ -3897,6 +3897,81 @@
 </tbody>
 </table>
 {%-     else %}
+{%-         if "bgpPeerEntry" in api %}
+<h1>BGP Peer Entries</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Advertised Capabilites</th>
+    <th>Child Action</th>
+    <th>Connection Attempts</th>
+    <th>Connection Drop</th>
+    <th>Connection Established</th>
+    <th>Connection Interface</th>
+    <th>DN</th>
+    <th>FD</th>
+    <th>Flags</th>
+    <th>Hold Interval</th>
+    <th>ka Interval</th>
+    <th>Last Flap Timestamp</th>
+    <th>Local IP</th>
+    <th>Local Port</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Password Set</th>
+    <th>Peer Index</th>
+    <th>Previous Oper State</th>
+    <th>Received Capabilites</th>
+    <th>Remote Port</th>
+    <th>Router ID</th>
+    <th>Shut State Quality</th>
+    <th>State Reason</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>Update Elapsed Timestamp</th>
+  </tr>
+</thead>
+<tbody>
+{%-             for entry in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ entry.bgpPeerEntry.attributes.name }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.addr }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.advCap }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.childAction }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.connAttempts }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.connDrop }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.connEst }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.connIf }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.dn }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.fd }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.flags }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.holdIntvl }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.kaIntvl }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.lastFlapTs }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.localIp }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.localPort }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.modTs }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.monPolDn }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.operSt }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.passwdSet }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.peerIdx }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.prevOperSt }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.rcvCap }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.remotePort }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.rtrId }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.shutStQual }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.stReason }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.status }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.type }}</td>
+    <td>{{ entry.bgpPeerEntry.attributes.updateElapsedTs }}</td>
+  </tr>
+{%-             endfor %}
+</tbody>
+</table>
+{%-         else %}
 <h1>BGP Peers</h1>
 <table id = "datatable">
 <thead>
@@ -3929,7 +4004,7 @@
   </tr>
 </thead>
 <tbody>
-{%-         for peer in data_to_template['imdata'] %}
+{%-             for peer in data_to_template['imdata'] %}
   <tr>
     <td>{{ peer.bgpPeer.attributes.name }}</td>
     <td>{{ peer.bgpPeer.attributes.activePfxPeers }}</td>
@@ -3957,9 +4032,10 @@
     <td>{{ peer.bgpPeer.attributes.ttl }}</td>
     <td>{{ peer.bgpPeer.attributes.type }}</td>
   </tr>
-{%-         endfor %}
+{%-             endfor %}
 </tbody>
 </table>
+{%-         endif %}
 {%-     endif %}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

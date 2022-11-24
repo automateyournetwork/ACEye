@@ -1927,8 +1927,46 @@
 ### Type: {{ af.bgpPeerAfEntry.attributes.type }}
 {%-         endfor %}
 {%-     else %}
+{%-         if "bgpPeerEntry" in api %}
+# BGP Peer Entries
+{%-             for entry in data_to_template['imdata'] %}
+## Name: {{ entry.bgpPeerEntry.attributes.name }}
+### Address: {{ entry.bgpPeerEntry.attributes.addr }}
+### Capabilites
+#### Advertised: {{ entry.bgpPeerEntry.attributes.advCap }}
+#### Received: {{ entry.bgpPeerEntry.attributes.rcvCap }}
+### Child Action: {{ entry.bgpPeerEntry.attributes.childAction }}
+### Connection
+#### Attempts: {{ entry.bgpPeerEntry.attributes.connAttempts }}
+#### Drops: {{ entry.bgpPeerEntry.attributes.connDrop }}
+#### Established: {{ entry.bgpPeerEntry.attributes.connEst }}
+#### Interface: {{ entry.bgpPeerEntry.attributes.connIf }}
+### DN: {{ entry.bgpPeerEntry.attributes.dn }}
+### FD: {{ entry.bgpPeerEntry.attributes.fd }}
+### Flags: {{ entry.bgpPeerEntry.attributes.flags }}
+### Hold Interval: {{ entry.bgpPeerEntry.attributes.holdIntvl }}
+### ka Interval: {{ entry.bgpPeerEntry.attributes.kaIntvl }}
+### Last Flap Timestamp: {{ entry.bgpPeerEntry.attributes.lastFlapTs }}
+### Local
+#### IP: {{ entry.bgpPeerEntry.attributes.localIp }}
+#### Port: {{ entry.bgpPeerEntry.attributes.localPort }}
+### Last Modified: {{ entry.bgpPeerEntry.attributes.modTs }}
+### Monitoring Policy DN: {{ entry.bgpPeerEntry.attributes.monPolDn }}
+### Oper State: {{ entry.bgpPeerEntry.attributes.operSt }}
+### Password Set: {{ entry.bgpPeerEntry.attributes.passwdSet }}
+### Peer Index: {{ entry.bgpPeerEntry.attributes.peerIdx }}
+### Previous Oper State: {{ entry.bgpPeerEntry.attributes.prevOperSt }}
+### Remote Port: {{ entry.bgpPeerEntry.attributes.remotePort }}
+### Router ID: {{ entry.bgpPeerEntry.attributes.rtrId }}
+### Shut State Quality: {{ entry.bgpPeerEntry.attributes.shutStQual }}
+### State Reason: {{ entry.bgpPeerEntry.attributes.stReason }}
+### Status: {{ entry.bgpPeerEntry.attributes.status }}
+### Type: {{ entry.bgpPeerEntry.attributes.type }}
+### Update Elapsed Timestamp: {{ entry.bgpPeerEntry.attributes.updateElapsedTs }}
+{%-             endfor %}
+{%-         else %}
 # BGP Peers
-{%-         for peer in data_to_template['imdata'] %}
+{%-             for peer in data_to_template['imdata'] %}
 ## Name: {{ peer.bgpPeer.attributes.name }}
 ### Prefix Peers
 #### Active: {{ peer.bgpPeer.attributes.activePfxPeers }}
@@ -1956,6 +1994,7 @@
 ### Status: {{ peer.bgpPeer.attributes.status }}
 ### TTL: {{ peer.bgpPeer.attributes.ttl }}
 ### Type: {{ peer.bgpPeer.attributes.type }}
-{%-         endfor %}
+{%-             endfor %}
+{%-         endif %}
 {%-     endif%}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

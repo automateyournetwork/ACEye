@@ -44,7 +44,9 @@ BGP Instances Policy
 
 BGP Peers
 
-BGP Peer AF Entries
+BGP Peers AF Entries
+
+BGP Peers Entries
 
 BGP Route Reflectors
 
