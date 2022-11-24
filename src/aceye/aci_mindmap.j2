@@ -1899,4 +1899,36 @@
 ### Wait Done Timestamp: {{ instance.bgpInst.attributes.waitDoneTs }}
 {%-         endfor %}
 {%-     endif %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "bgpPeer" in api %}
+# BGP Peers
+{%-     for peer in data_to_template['imdata'] %}
+## Name: {{ peer.bgpPeer.attributes.name }}
+### Prefix Peers
+#### Active: {{ peer.bgpPeer.attributes.activePfxPeers }}
+#### Current: {{ peer.bgpPeer.attributes.curPfxPeers }}
+#### Maximum: {{ peer.bgpPeer.attributes.maxPfxPeers }}
+#### Total: {{ peer.bgpPeer.attributes.totalPfxPeers }}
+### Address: {{ peer.bgpPeer.attributes.addr }}
+### Admin State: {{ peer.bgpPeer.attributes.adminSt }}
+### ASN: {{ peer.bgpPeer.attributes.asn }}
+### BGP Config
+#### Failed Bmp: {{ peer.bgpPeer.attributes.bgpCfgFailedBmp }}
+#### Failed Timestamp: {{ peer.bgpPeer.attributes.bgpCfgFailedTs }}
+#### State: {{ peer.bgpPeer.attributes.bgpCfgState }}
+### Child Action: {{ peer.bgpPeer.attributes.childAction }}
+### Control: {{ peer.bgpPeer.attributes.ctrl }}
+### DN: {{ peer.bgpPeer.attributes.dn }}
+### Local Owner: {{ peer.bgpPeer.attributes.lcOwn }}
+### Maximum Current Peers: {{ peer.bgpPeer.attributes.maxCurPeers }}
+### Last Modified: {{ peer.bgpPeer.attributes.modTs }}
+### Monitoring Policy DN: {{ peer.bgpPeer.attributes.monPolDn }}
+### Password Set: {{ peer.bgpPeer.attributes.passwdSet }}
+### Peer Role: {{ peer.bgpPeer.attributes.peerRole }}
+### Private AS Control: {{ peer.bgpPeer.attributes.privateASctrl }}
+### Source Interface: {{ peer.bgpPeer.attributes.srcIf }}
+### Status: {{ peer.bgpPeer.attributes.status }}
+### TTL: {{ peer.bgpPeer.attributes.ttl }}
+### Type: {{ peer.bgpPeer.attributes.type }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

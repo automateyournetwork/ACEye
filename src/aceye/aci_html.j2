@@ -3844,5 +3844,70 @@
 </tbody>
 </table>
 {%-     endif %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "bgpPeer" in api %}
+<h1>BGP Peers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Active Prefix Peers</th>
+    <th>Address</th>
+    <th>Admin State</th>
+    <th>ASN</th>
+    <th>BGP Config Failed Bmp</th>
+    <th>BGP Config Failed Timestamp</th>
+    <th>BGP Config State</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>Current Prefix Peers</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Maximum Current Peers</th>
+    <th>Maximum Prefix Peers</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Password Set</th>
+    <th>Peer Role</th>
+    <th>Private AS Control</th>
+    <th>Source Interface</th>
+    <th>Status</th>
+    <th>Total Prefix Peers</th>
+    <th>TTL</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for peer in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ peer.bgpPeer.attributes.name }}</td>
+    <td>{{ peer.bgpPeer.attributes.activePfxPeers }}</td>
+    <td>{{ peer.bgpPeer.attributes.addr }}</td>
+    <td>{{ peer.bgpPeer.attributes.adminSt }}</td>
+    <td>{{ peer.bgpPeer.attributes.asn }}</td>
+    <td>{{ peer.bgpPeer.attributes.bgpCfgFailedBmp }}</td>
+    <td>{{ peer.bgpPeer.attributes.bgpCfgFailedTs }}</td>
+    <td>{{ peer.bgpPeer.attributes.bgpCfgState }}</td>
+    <td>{{ peer.bgpPeer.attributes.childAction }}</td>
+    <td>{{ peer.bgpPeer.attributes.ctrl }}</td>
+    <td>{{ peer.bgpPeer.attributes.curPfxPeers }}</td>
+    <td>{{ peer.bgpPeer.attributes.dn }}</td>
+    <td>{{ peer.bgpPeer.attributes.lcOwn }}</td>
+    <td>{{ peer.bgpPeer.attributes.maxCurPeers }}</td>
+    <td>{{ peer.bgpPeer.attributes.maxPfxPeers }}</td>
+    <td>{{ peer.bgpPeer.attributes.modTs }}</td>
+    <td>{{ peer.bgpPeer.attributes.monPolDn }}</td>
+    <td>{{ peer.bgpPeer.attributes.passwdSet }}</td>
+    <td>{{ peer.bgpPeer.attributes.peerRole }}</td>
+    <td>{{ peer.bgpPeer.attributes.privateASctrl }}</td>
+    <td>{{ peer.bgpPeer.attributes.srcIf }}</td>
+    <td>{{ peer.bgpPeer.attributes.status }}</td>
+    <td>{{ peer.bgpPeer.attributes.totalPfxPeers }}</td>
+    <td>{{ peer.bgpPeer.attributes.ttl }}</td>
+    <td>{{ peer.bgpPeer.attributes.type }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
