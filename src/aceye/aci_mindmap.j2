@@ -2014,4 +2014,32 @@
 ### Status: {{ policy.bgpRRP.attributes.status }}
 ### UID: {{ policy.bgpRRP.attributes.uid }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "cdpAdjEp" in api %}
+# CDP Adjacency Endpoints
+{%-     for endpoint in data_to_template['imdata'] %}
+## Name: {{ endpoint.cdpAdjEp.attributes.name }}
+### Capabilites: {{ endpoint.cdpAdjEp.attributes.cap }}
+### Child Action: {{ endpoint.cdpAdjEp.attributes.childAction }}
+### ID
+#### Device: {{ endpoint.cdpAdjEp.attributes.devId }}
+#### Platform: {{ endpoint.cdpAdjEp.attributes.platId }}
+#### Port: {{ endpoint.cdpAdjEp.attributes.portId }}
+### Native VLAN: {{ endpoint.cdpAdjEp.attributes.nativeVlan }}
+### DN: {{ endpoint.cdpAdjEp.attributes.dn }}
+### Duplex: {{ endpoint.cdpAdjEp.attributes.duplex }}
+### Index: {{ endpoint.cdpAdjEp.attributes.index }}
+### Last Modifed: {{ endpoint.cdpAdjEp.attributes.modTs }}
+### Monitoring Policy DN: {{ endpoint.cdpAdjEp.attributes.monPolDn }}
+### MTU: {{ endpoint.cdpAdjEp.attributes.mtu }}
+### State Quality: {{ endpoint.cdpAdjEp.attributes.stQual }}
+### Status: {{ endpoint.cdpAdjEp.attributes.status }}
+### System
+#### Location: {{ endpoint.cdpAdjEp.attributes.sysLoc }}
+#### Name: {{ endpoint.cdpAdjEp.attributes.sysName }}
+#### Object ID
+##### L: {{ endpoint.cdpAdjEp.attributes.sysObjIdL }}
+##### V: {{ endpoint.cdpAdjEp.attributes.sysObjIdV }}
+### Version: {{ endpoint.cdpAdjEp.attributes.ver }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
