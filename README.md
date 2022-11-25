@@ -72,6 +72,8 @@ Cluster Health
 
 Cluster Physical Interfaces
 
+Cluster RS Member Interfaces
+
 Compute Controllers
 
 Compute Domains

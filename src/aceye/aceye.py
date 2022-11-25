@@ -173,6 +173,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.cdp_management_addresses(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.cluster_rs_member_interfaces(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -208,6 +210,7 @@ class ACEye():
                     'Cluster Aggregate Interfaces',
                     'Cluster Health',
                     'Cluster Physical Interfaces',
+                    'Cluster RS Member Interfaces',
                     'Compute Controllers',
                     'Compute Domains',
                     'Compute Endpoint Policy Descriptions',
@@ -849,6 +852,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def cluster_rs_member_interfaces(self):
+        self.url = f"{ self.aci }/api/node/class/cnwRsMbrIfs.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Cluster Node RS Member Interfaces code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1152,6 +1162,10 @@ class ACEye():
 
         if "cdpMgmtAddr" in self.url:
             with open('CDP Management Addresses/JSON/CDP Management Addresses.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "cnwRsMbrIfs" in self.url:
+            with open('Cluster RS Member Interfaces/JSON/Cluster RS Member Interfaces.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -1458,6 +1472,10 @@ class ACEye():
 
         if "cdpMgmtAddr" in self.url:
             with open('CDP Management Addresses/YAML/CDP Management Addresses.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "cnwRsMbrIfs" in self.url:
+            with open('Cluster RS Member Interfaces/YAML/Cluster RS Member Interfaces.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -1768,6 +1786,10 @@ class ACEye():
 
         if "cdpMgmtAddr" in self.url:
             with open('CDP Management Addresses/CSV/CDP Management Addresses.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "cnwRsMbrIfs" in self.url:
+            with open('Cluster RS Member Interfaces/CSV/Cluster RS Member Interfaces.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -2081,6 +2103,10 @@ class ACEye():
             with open('CDP Management Addresses/Markdown/CDP Management Addresses.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "cnwRsMbrIfs" in self.url:
+            with open('Cluster RS Member Interfaces/Markdown/Cluster RS Member Interfaces.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2392,6 +2418,10 @@ class ACEye():
             with open('CDP Management Addresses/HTML/CDP Management Addresses.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "cnwRsMbrIfs" in self.url:
+            with open('Cluster RS Member Interfaces/HTML/Cluster RS Member Interfaces.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2701,6 +2731,10 @@ class ACEye():
 
         if "cdpMgmtAddr" in self.url:
             with open('CDP Management Addresses/Mindmap/CDP Management Addresses.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "cnwRsMbrIfs" in self.url:
+            with open('Cluster RS Member Interfaces/Mindmap/Cluster RS Member Interfaces.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
