@@ -2111,13 +2111,13 @@
 ### Status: {{ address.cdpIntfAddr.attributes.status }}
 {%-     endfor %}
 {%- else %}
-{%- if "cdpIntfAddr" in api %}
+{%- if "cdpMgmtAddr" in api %}
 # CDP Management Addresses
 {%-     for address in data_to_template['imdata'] %}
-## Address: {{ address.cdpIntfAddr.attributes.addr }}
-### Child Action: {{ address.cdpIntfAddr.attributes.childAction }}
-### DN: {{ address.cdpIntfAddr.attributes.DN }}
-### Last Modified: {{ address.cdpIntfAddr.attributes.modTs }}
-### Status: {{ address.cdpIntfAddr.attributes.status }}
+## Address: {{ address.cdpMgmtAddr.attributes.addr }}
+### Child Action: {{ address.cdpMgmtAddr.attributes.childAction }}
+### DN: {{ address.cdpMgmtAddr.attributes.DN }}
+### Last Modified: {{ address.cdpMgmtAddr.attributes.modTs }}
+### Status: {{ address.cdpMgmtAddr.attributes.status }}
 {%-     endfor %}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

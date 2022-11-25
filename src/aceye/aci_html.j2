@@ -4282,7 +4282,7 @@
 </tbody>
 </table>
 {%- else %}
-{%- if "cdpIntfAddr" in api %}
+{%- if "cdpMgmtAddr" in api %}
 <h1>CDP Management Addresses</h1>
 <table id = "datatable">
 <thead>
@@ -4297,11 +4297,11 @@
 <tbody>
 {%-     for address in data_to_template['imdata'] %}
   <tr>
-    <td>{{ address.cdpIntfAddr.attributes.addr }}</td>
-    <td>{{ address.cdpIntfAddr.attributes.childAction }}</td>
-    <td>{{ address.cdpIntfAddr.attributes.DN }}</td>
-    <td>{{ address.cdpIntfAddr.attributes.modTs }}</td>
-    <td>{{ address.cdpIntfAddr.attributes.status }}</td>
+    <td>{{ address.cdpMgmtAddr.attributes.addr }}</td>
+    <td>{{ address.cdpMgmtAddr.attributes.childAction }}</td>
+    <td>{{ address.cdpMgmtAddr.attributes.DN }}</td>
+    <td>{{ address.cdpMgmtAddr.attributes.modTs }}</td>
+    <td>{{ address.cdpMgmtAddr.attributes.status }}</td>
   </tr>
 {%-     endfor %}
 </tbody>
