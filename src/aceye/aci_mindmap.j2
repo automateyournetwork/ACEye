@@ -2139,4 +2139,21 @@
 ### tSKey: {{ interface.cnwRsMbrIfs.attributes.tSKey }}
 ### tType: {{ interface.cnwRsMbrIfs.attributes.tType }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "compRsDomP" in api %}
+# Compute RS Domain Policies
+{%-     for policy in data_to_template['imdata'] %}
+## DN: {{ policy.cmpRsDomP.attributes.dn }}
+### Child Action: {{ policy.cmpRsDomP.attributes.childAction }}
+### Force Resolve: {{ policy.cmpRsDomP.attributes.forceResolve }}
+### Local Owner: {{ policy.cmpRsDomP.attributes.lcOwn }}
+### Last Modified: {{ policy.cmpRsDomP.attributes.modTs }}
+### rType: {{ policy.cmpRsDomP.attributes.rType }}
+### State: {{ policy.cmpRsDomP.attributes.state }}
+### State Quality: {{ policy.cmpRsDomP.attributes.stateQual }}
+### Status: {{ policy.cmpRsDomP.attributes.status }}
+### tCl: {{ policy.cmpRsDomP.attributes.tCl }}
+### tDN: {{ policy.cmpRsDomP.attributes.tDn }}
+### tType: {{ policy.cmpRsDomP.attributes.tType }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

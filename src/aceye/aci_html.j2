@@ -4349,5 +4349,44 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "compRsDomP" in api %}
+<h1>Compute RS Domain Policies</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDn</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for policy in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ policy.cmpRsDomP.attributes.dn }}</td>
+    <td>{{ policy.cmpRsDomP.attributes.childAction }}</td>
+    <td>{{ policy.cmpRsDomP.attributes.forceResolve }}</td>
+    <td>{{ policy.cmpRsDomP.attributes.lcOwn }}</td>
+    <td>{{ policy.cmpRsDomP.attributes.modTs }}</td>
+    <td>{{ policy.cmpRsDomP.attributes.rType }}</td>
+    <td>{{ policy.cmpRsDomP.attributes.state }}</td>
+    <td>{{ policy.cmpRsDomP.attributes.stateQual }}</td>
+    <td>{{ policy.cmpRsDomP.attributes.status }}</td>
+    <td>{{ policy.cmpRsDomP.attributes.tCl }}</td>
+    <td>{{ policy.cmpRsDomP.attributes.tDn }}</td>
+    <td>{{ policy.cmpRsDomP.attributes.tType }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
