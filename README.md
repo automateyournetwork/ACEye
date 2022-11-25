@@ -100,6 +100,8 @@ Equipment Board Slots
 
 Equipment Boards
 
+Equipment CPUs
+
 *Events
 
 Fabric Membership
