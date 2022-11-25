@@ -82,6 +82,8 @@ Compute Endpoint Policy Descriptions
 
 Compute Providers
 
+Compute RS Domain Policies
+
 Contexts (VRFs)
 
 Contracts
@@ -93,6 +95,10 @@ Device Packages
 Endpoints (All Connected Fabric Endpoints)
 
 EPG (Endpoint Groups)
+
+Equipment Board Slots
+
+Equipment Boards
 
 *Events
 
