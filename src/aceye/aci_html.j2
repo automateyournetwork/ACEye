@@ -4494,5 +4494,56 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptCPU" in api %}
+<h1>Equipment CPUs</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Architecture</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Cores</th>
+    <th>Cores Enabled</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>MFG TM</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Socket</th>
+    <th>Speed</th>
+    <th>Status</th>
+    <th>Threads</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for cpu in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ cpu.eqptCPU.attributes.id }}</td>
+    <td>{{ cpu.eqptCPU.attributes.arch }}</td>
+    <td>{{ cpu.eqptCPU.attributes.childAction }}</td>
+    <td>{{ cpu.eqptCPU.attributes.cimcVersion }}</td>
+    <td>{{ cpu.eqptCPU.attributes.cores }}</td>
+    <td>{{ cpu.eqptCPU.attributes.coresEn }}</td>
+    <td>{{ cpu.eqptCPU.attributes.descr }}</td>
+    <td>{{ cpu.eqptCPU.attributes.dn }}</td>
+    <td>{{ cpu.eqptCPU.attributes.mfgTm }}</td>
+    <td>{{ cpu.eqptCPU.attributes.modTs }}</td>
+    <td>{{ cpu.eqptCPU.attributes.model }}</td>
+    <td>{{ cpu.eqptCPU.attributes.rev }}</td>
+    <td>{{ cpu.eqptCPU.attributes.ser }}</td>
+    <td>{{ cpu.eqptCPU.attributes.sock }}</td>
+    <td>{{ cpu.eqptCPU.attributes.speed }}</td>
+    <td>{{ cpu.eqptCPU.attributes.status }}</td>
+    <td>{{ cpu.eqptCPU.attributes.thrds }}</td>
+    <td>{{ cpu.eqptCPU.attributes.vendor }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

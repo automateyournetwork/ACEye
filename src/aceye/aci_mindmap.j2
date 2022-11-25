@@ -2206,4 +2206,27 @@
 ### vID: {{ board.eqptBoard.attributes.vId }}
 ### Vendor: {{ board.eqptBoard.attributes.vendor }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptCPU" in api %}
+# Equipment CPUs
+{%-     for cpu in data_to_template['imdata'] %}
+## ID: {{ cpu.eqptCPU.attributes.id }}
+### Architecture: {{ cpu.eqptCPU.attributes.arch }}
+### Child Action: {{ cpu.eqptCPU.attributes.childAction }}
+### CIMC Version: {{ cpu.eqptCPU.attributes.cimcVersion }}
+### Cores: {{ cpu.eqptCPU.attributes.cores }}
+### Cores Enabled: {{ cpu.eqptCPU.attributes.coresEn }}
+### Description: {{ cpu.eqptCPU.attributes.descr }}
+### DN: {{ cpu.eqptCPU.attributes.dn }}
+### MFG TM: {{ cpu.eqptCPU.attributes.mfgTm }}
+### Last Modified: {{ cpu.eqptCPU.attributes.modTs }}
+### Model: {{ cpu.eqptCPU.attributes.model }}
+### Revision: {{ cpu.eqptCPU.attributes.rev }}
+### Serial Number: {{ cpu.eqptCPU.attributes.ser }}
+### Socket: {{ cpu.eqptCPU.attributes.sock }}
+### Speed: {{ cpu.eqptCPU.attributes.speed }}
+### Status: {{ cpu.eqptCPU.attributes.status }}
+### Threads: {{ cpu.eqptCPU.attributes.thrds }}
+### Vendor: {{ cpu.eqptCPU.attributes.vendor }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
