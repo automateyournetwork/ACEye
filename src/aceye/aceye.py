@@ -204,7 +204,7 @@ class ACEye():
                     'CDP Instances',
                     'CDP Interface Addresses',
                     'CDP Interfaces',
-                    'CDP Management Interfaces',
+                    'CDP Management Addresses',
                     'Cluster Aggregate Interfaces',
                     'Cluster Health',
                     'Cluster Physical Interfaces',
