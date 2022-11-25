@@ -561,6 +561,20 @@
 | Address | Child Action | DN | Last Modified | Status |
 | ------- | ------------ | -- | ------------- | ------ |
 {%-     for address in data_to_template['imdata'] %}
-| {{ address.cdpIntfAddr.attributes.addr }} | {{ address.cdpIntfAddr.attributes.childAction }} | {{ address.cdpIntfAddr.attributes.DN }} | {{ address.cdpIntfAddr.attributes.modTs }} | {{ address.cdpIntfAddr.attributes.status }} |
+| {{ address.cdpIntfAddr.attributes.addr }} | {{ address.cdpIntfAddr.attributes.childAction }} | {{ address.cdpIntfAddr.attributes.dn }} | {{ address.cdpIntfAddr.attributes.modTs }} | {{ address.cdpIntfAddr.attributes.status }} |
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "cdpMgmtAddr" in api %}# CDP Management Addresses
+| Address | Child Action | DN | Last Modified | Status |
+| ------- | ------------ | -- | ------------- | ------ |
+{%-     for address in data_to_template['imdata'] %}
+| {{ address.cdpMgmtAddr.attributes.addr }} | {{ address.cdpMgmtAddr.attributes.childAction }} | {{ address.cdpMgmtAddr.attributes.dn }} | {{ address.cdpMgmtAddr.attributes.modTs }} | {{ address.cdpMgmtAddr.attributes.status }} |
+{%-     endfor %}
+{%- else %}
+{%- if "cnwRsMbrIfs" in api %}# Cluster RS Member Interfaces
+| tDN | Child Action | DN | Force Resolve | Local Owner | Last Modified | Parent SKey | rType | State | State Quality | Status | tCl | tSKey | tType |
+| --- | ------------ | -- | ------------- | ----------- | ------------- | ----------- | ----- | ----- | ------------- | ------ | --- | ----- | ----- |
+{%-     for interface in data_to_template['imdata'] %}
+| {{ interface.cnwRsMbrIfs.attributes.tDn }} | {{ interface.cnwRsMbrIfs.attributes.childAction }} | {{ interface.cnwRsMbrIfs.attributes.dn }} | {{ interface.cnwRsMbrIfs.attributes.forceResolve }} | {{ interface.cnwRsMbrIfs.attributes.lcOwn }} | {{ interface.cnwRsMbrIfs.attributes.modTs }} | {{ interface.cnwRsMbrIfs.attributes.parentSKey }} | {{ interface.cnwRsMbrIfs.attributes.rType }} | {{ interface.cnwRsMbrIfs.attributes.state }} | {{ interface.cnwRsMbrIfs.attributes.stateQual }} | {{ interface.cnwRsMbrIfs.attributes.status }} | {{ interface.cnwRsMbrIfs.attributes.tCl }} | {{ interface.cnwRsMbrIfs.attributes.tSKey }} | {{ interface.cnwRsMbrIfs.attributes.tType }} |
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

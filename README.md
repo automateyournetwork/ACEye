@@ -64,11 +64,15 @@ CDP Interface Addresses
 
 CDP Interfaces
 
+CDP Management Addresses
+
 Cluster Aggregate Interfaces
 
 Cluster Health
 
 Cluster Physical Interfaces
+
+Cluster RS Member Interfaces
 
 Compute Controllers
 

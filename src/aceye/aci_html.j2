@@ -4274,12 +4274,80 @@
   <tr>
     <td>{{ address.cdpIntfAddr.attributes.addr }}</td>
     <td>{{ address.cdpIntfAddr.attributes.childAction }}</td>
-    <td>{{ address.cdpIntfAddr.attributes.DN }}</td>
+    <td>{{ address.cdpIntfAddr.attributes.dn }}</td>
     <td>{{ address.cdpIntfAddr.attributes.modTs }}</td>
     <td>{{ address.cdpIntfAddr.attributes.status }}</td>
   </tr>
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "cdpMgmtAddr" in api %}
+<h1>CDP Management Addresses</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Address</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Last Modified</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for address in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ address.cdpMgmtAddr.attributes.addr }}</td>
+    <td>{{ address.cdpMgmtAddr.attributes.childAction }}</td>
+    <td>{{ address.cdpMgmtAddr.attributes.dn }}</td>
+    <td>{{ address.cdpMgmtAddr.attributes.modTs }}</td>
+    <td>{{ address.cdpMgmtAddr.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "cnwRsMbrIfs" in api %}
+<h1>Node RS Member Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>tDN</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Parent SKey</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tSKey</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.cnwRsMbrIfs.attributes.tDn }}</td>
+    <td>{{ interface.cnwRsMbrIfs.attributes.childAction }}</td>
+    <td>{{ interface.cnwRsMbrIfs.attributes.dn }}</td>
+    <td>{{ interface.cnwRsMbrIfs.attributes.forceResolve }}</td>
+    <td>{{ interface.cnwRsMbrIfs.attributes.lcOwn }}</td>
+    <td>{{ interface.cnwRsMbrIfs.attributes.modTs }}</td>
+    <td>{{ interface.cnwRsMbrIfs.attributes.parentSKey }}</td>
+    <td>{{ interface.cnwRsMbrIfs.attributes.rType }}</td>
+    <td>{{ interface.cnwRsMbrIfs.attributes.state }}</td>
+    <td>{{ interface.cnwRsMbrIfs.attributes.stateQual }}</td>
+    <td>{{ interface.cnwRsMbrIfs.attributes.status }}</td>
+    <td>{{ interface.cnwRsMbrIfs.attributes.tCl }}</td>
+    <td>{{ interface.cnwRsMbrIfs.attributes.tSKey }}</td>
+    <td>{{ interface.cnwRsMbrIfs.attributes.tType }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

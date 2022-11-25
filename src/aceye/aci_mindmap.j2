@@ -2106,8 +2106,37 @@
 {%-     for address in data_to_template['imdata'] %}
 ## Address: {{ address.cdpIntfAddr.attributes.addr }}
 ### Child Action: {{ address.cdpIntfAddr.attributes.childAction }}
-### DN: {{ address.cdpIntfAddr.attributes.DN }}
+### DN: {{ address.cdpIntfAddr.attributes.dn }}
 ### Last Modified: {{ address.cdpIntfAddr.attributes.modTs }}
 ### Status: {{ address.cdpIntfAddr.attributes.status }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "cdpMgmtAddr" in api %}
+# CDP Management Addresses
+{%-     for address in data_to_template['imdata'] %}
+## Address: {{ address.cdpMgmtAddr.attributes.addr }}
+### Child Action: {{ address.cdpMgmtAddr.attributes.childAction }}
+### DN: {{ address.cdpMgmtAddr.attributes.dn }}
+### Last Modified: {{ address.cdpMgmtAddr.attributes.modTs }}
+### Status: {{ address.cdpMgmtAddr.attributes.status }}
+{%-     endfor %}
+{%- else %}
+{%- if "cnwRsMbrIfs" in api %}
+# Node RS Member Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## tDN: {{ interface.cnwRsMbrIfs.attributes.tDn }}
+### Child Action: {{ interface.cnwRsMbrIfs.attributes.childAction }}
+### DN: {{ interface.cnwRsMbrIfs.attributes.dn }}
+### Force Resolve: {{ interface.cnwRsMbrIfs.attributes.forceResolve }}
+### Local Owner: {{ interface.cnwRsMbrIfs.attributes.lcOwn }}
+### Last Modified: {{ interface.cnwRsMbrIfs.attributes.modTs }}
+### Parent SKey: {{ interface.cnwRsMbrIfs.attributes.parentSKey }}
+### rType: {{ interface.cnwRsMbrIfs.attributes.rType }}
+### State: {{ interface.cnwRsMbrIfs.attributes.state }}
+### State Quality: {{ interface.cnwRsMbrIfs.attributes.stateQual }}
+### Status: {{ interface.cnwRsMbrIfs.attributes.status }}
+### tCl: {{ interface.cnwRsMbrIfs.attributes.tCl }}
+### tSKey: {{ interface.cnwRsMbrIfs.attributes.tSKey }}
+### tType: {{ interface.cnwRsMbrIfs.attributes.tType }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
