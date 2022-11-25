@@ -2174,4 +2174,36 @@
 ### Status: {{ slot.eqptBSlot.attributes.status }}
 ### Type: {{ slot.eqptBSlot.attributes.type }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptBoard" in api %}
+# Equipment Boards
+{%-     for board in data_to_template['imdata'] %}
+## ID: {{ board.eqptBoard.attributes.id }}
+### Child Action: {{ board.eqptBoard.attributes.childAction }}
+### CIMC Version: {{ board.eqptBoard.attributes.cimcVersion }}
+### Description: {{ board.eqptBoard.attributes.descr }}
+### DN: {{ board.eqptBoard.attributes.dn }}
+### Hardware Version: {{ board.eqptBoard.attributes.hwVer }}
+### Local Owner: {{ board.eqptBoard.attributes.lcOwn }}
+### MAC
+#### B: {{ board.eqptBoard.attributes.macB }}
+#### L: {{ board.eqptBoard.attributes.macL }}
+### MFG TM: {{ board.eqptBoard.attributes.mfgTm }}
+### Last Modified: {{ board.eqptBoard.attributes.modTs }}
+### Model: {{ board.eqptBoard.attributes.model }}
+### Monitoring Policy DN: {{ board.eqptBoard.attributes.monPolDn }}
+### NumP: {{ board.eqptBoard.attributes.numP }}
+### State
+#### Oper: {{ board.eqptBoard.attributes.operSt }}
+#### Power: {{ board.eqptBoard.attributes.pwrSt }}
+#### rd: {{ board.eqptBoard.attributes.rdSt }}
+### Revision: {{ board.eqptBoard.attributes.rev }}
+### Serial Number: {{ board.eqptBoard.attributes.ser }}
+### Status: {{ board.eqptBoard.attributes.status }}
+### SW CID: {{ board.eqptBoard.attributes.swCId }}
+### Type: {{ board.eqptBoard.attributes.type }}
+### Uptime: {{ board.eqptBoard.attributes.upTs }}
+### vID: {{ board.eqptBoard.attributes.vId }}
+### Vendor: {{ board.eqptBoard.attributes.vendor }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

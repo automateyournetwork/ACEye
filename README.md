@@ -98,6 +98,8 @@ EPG (Endpoint Groups)
 
 Equipment Board Slots
 
+Equipment Boards
+
 *Events
 
 Fabric Membership

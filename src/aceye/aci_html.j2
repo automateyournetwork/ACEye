@@ -4429,5 +4429,70 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptBoard" in api %}
+<h1>Equipment Boards</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Hardware Version</th>
+    <th>Local Owner</th>
+    <th>MAC B</th>
+    <th>MAC L</th>
+    <th>MFG TM</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Number P</th>
+    <th>Oper State</th>
+    <th>Power State</th>
+    <th>rd State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>SW CID</th>
+    <th>Type</th>
+    <th>Uptime</th>
+    <th>vID</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for board in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ board.eqptBoard.attributes.id }}</td>
+    <td>{{ board.eqptBoard.attributes.childAction }}</td>
+    <td>{{ board.eqptBoard.attributes.cimcVersion }}</td>
+    <td>{{ board.eqptBoard.attributes.descr }}</td>
+    <td>{{ board.eqptBoard.attributes.dn }}</td>
+    <td>{{ board.eqptBoard.attributes.hwVer }}</td>
+    <td>{{ board.eqptBoard.attributes.lcOwn }}</td>
+    <td>{{ board.eqptBoard.attributes.macB }}</td>
+    <td>{{ board.eqptBoard.attributes.macL }}</td>
+    <td>{{ board.eqptBoard.attributes.mfgTm }}</td>
+    <td>{{ board.eqptBoard.attributes.modTs }}</td>
+    <td>{{ board.eqptBoard.attributes.model }}</td>
+    <td>{{ board.eqptBoard.attributes.monPolDn }}</td>
+    <td>{{ board.eqptBoard.attributes.numP }}</td>
+    <td>{{ board.eqptBoard.attributes.operSt }}</td>
+    <td>{{ board.eqptBoard.attributes.pwrSt }}</td>
+    <td>{{ board.eqptBoard.attributes.rdSt }}</td>
+    <td>{{ board.eqptBoard.attributes.rev }}</td>
+    <td>{{ board.eqptBoard.attributes.ser }}</td>
+    <td>{{ board.eqptBoard.attributes.status }}</td>
+    <td>{{ board.eqptBoard.attributes.swCId }}</td>
+    <td>{{ board.eqptBoard.attributes.type }}</td>
+    <td>{{ board.eqptBoard.attributes.upTs }}</td>
+    <td>{{ board.eqptBoard.attributes.vId }}</td>
+    <td>{{ board.eqptBoard.attributes.vendor }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
