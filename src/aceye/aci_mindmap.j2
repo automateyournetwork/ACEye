@@ -2106,7 +2106,7 @@
 {%-     for address in data_to_template['imdata'] %}
 ## Address: {{ address.cdpIntfAddr.attributes.addr }}
 ### Child Action: {{ address.cdpIntfAddr.attributes.childAction }}
-### DN: {{ address.cdpIntfAddr.attributes.DN }}
+### DN: {{ address.cdpIntfAddr.attributes.dn }}
 ### Last Modified: {{ address.cdpIntfAddr.attributes.modTs }}
 ### Status: {{ address.cdpIntfAddr.attributes.status }}
 {%-     endfor %}
@@ -2116,7 +2116,7 @@
 {%-     for address in data_to_template['imdata'] %}
 ## Address: {{ address.cdpMgmtAddr.attributes.addr }}
 ### Child Action: {{ address.cdpMgmtAddr.attributes.childAction }}
-### DN: {{ address.cdpMgmtAddr.attributes.DN }}
+### DN: {{ address.cdpMgmtAddr.attributes.dn }}
 ### Last Modified: {{ address.cdpMgmtAddr.attributes.modTs }}
 ### Status: {{ address.cdpMgmtAddr.attributes.status }}
 {%-     endfor %}
