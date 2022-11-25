@@ -2156,4 +2156,22 @@
 ### tDN: {{ policy.compRsDomP.attributes.tDn }}
 ### tType: {{ policy.compRsDomP.attributes.tType }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptBSlot" in api %}
+# Equipment Board Slots
+{%-     for slot in data_to_template['imdata'] %}
+## ID: {{ slot.eqptBSlot.attributes.id }}
+### Card Oper State: {{ slot.eqptBSlot.attributes.cardOperSt }}
+### Child Action: {{ slot.eqptBSlot.attributes.childAction }}
+### Description: {{ slot.eqptBSlot.attributes.descr }}
+### DN: {{ slot.eqptBSlot.attributes.dn }}
+### Local Owner: {{ slot.eqptBSlot.attributes.lcOwn }}
+### Location: {{ slot.eqptBSlot.attributes.loc }}
+### Last Modified: {{ slot.eqptBSlot.attributes.modTs }}
+### Monitoring Policy DN: {{ slot.eqptBSlot.attributes.monPolDn }}
+### Oper State: {{ slot.eqptBSlot.attributes.operSt }}
+### Physical ID: {{ slot.eqptBSlot.attributes.physId }}
+### Status: {{ slot.eqptBSlot.attributes.status }}
+### Type: {{ slot.eqptBSlot.attributes.type }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

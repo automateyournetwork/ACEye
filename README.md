@@ -96,6 +96,8 @@ Endpoints (All Connected Fabric Endpoints)
 
 EPG (Endpoint Groups)
 
+Equipment Board Slots
+
 *Events
 
 Fabric Membership
