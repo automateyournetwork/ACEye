@@ -199,6 +199,12 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.equipment_indicator_leds(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_line_cards(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_line_card_slots(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_leaf_ports(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -258,6 +264,9 @@ class ACEye():
                     'Equipment Fans',
                     'Equipment Field Programmable Gate Arrays',
                     'Equipment Indicator LEDs',
+                    'Equipment Leaf Ports',
+                    'Equipment Line Card Slots',
+                    'Equipment Line Cards',
                     'Events',
                     'Fabric Membership',
                     'Fabric Nodes',
@@ -987,6 +996,27 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def equipment_line_cards(self):
+        self.url = f"{ self.aci }/api/node/class/eqptLC.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment Line Cards code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def equipment_line_card_slots(self):
+        self.url = f"{ self.aci }/api/node/class/eqptLCSlot.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment Line Card Slots code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def equipment_leaf_ports(self):
+        self.url = f"{ self.aci }/api/node/class/eqptLeafP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment Leaf Ports code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1346,6 +1376,18 @@ class ACEye():
 
         if "eqptIndLed" in self.url:
             with open('Equipment Indicator LEDs/JSON/Equipment Indicator LEDs.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "eqptLC" in self.url:
+            if "Slot" in self.url:
+                with open('Equipment Line Card Slots/JSON/Equipment Line Card Slots.json', 'w' ) as f:
+                    f.write(parsed_json)
+            else:
+                with open('Equipment Line Cards/JSON/Equipment Line Cards.json', 'w' ) as f:
+                    f.write(parsed_json)
+
+        if "eqptLeafP" in self.url:
+            with open('Equipment Leaf Ports/JSON/Equipment Leaf Ports.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -1708,6 +1750,18 @@ class ACEye():
 
         if "eqptIndLed" in self.url:
             with open('Equipment Indicator LEDs/YAML/Equipment Indicator LEDs.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "eqptLC" in self.url:
+            if "Slot" in self.url:
+                with open('Equipment Line Card Slots/YAML/Equipment Line Card Slots.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
+            else:
+                with open('Equipment Line Cards/YAML/Equipment Line Cards.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
+
+        if "eqptLeafP" in self.url:
+            with open('Equipment Leaf Ports/YAML/Equipment Leaf Ports.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -2074,6 +2128,18 @@ class ACEye():
 
         if "eqptIndLed" in self.url:
             with open('Equipment Indicator LEDs/CSV/Equipment Indicator LEDs.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "eqptLC" in self.url:
+            if "Slot" in self.url:
+                with open('Equipment Line Card Slots/CSV/Equipment Line Card Slots.csv', 'w' ) as f:
+                    f.write(csv_output)
+            else:
+                with open('Equipment Line Cards/CSV/Equipment Line Cards.csv', 'w' ) as f:
+                    f.write(csv_output)
+
+        if "eqptLeafP" in self.url:
+            with open('Equipment Leaf Ports/CSV/Equipment Leaf Ports.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -2443,6 +2509,18 @@ class ACEye():
             with open('Equipment Indicator LEDs/Markdown/Equipment Indicator LEDs.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "eqptLC" in self.url:
+            if "Slot" in self.url:
+                with open('Equipment Line Card Slots/Markdown/Equipment Line Card Slots.md', 'w' ) as f:
+                    f.write(markdown_output)
+            else:
+                with open('Equipment Line Cards/Markdown/Equipment Line Cards.md', 'w' ) as f:
+                    f.write(markdown_output)
+
+        if "eqptLeafP" in self.url:
+            with open('Equipment Leaf Ports/Markdown/Equipment Leaf Ports.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2810,6 +2888,18 @@ class ACEye():
             with open('Equipment Indicator LEDs/HTML/Equipment Indicator LEDs.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "eqptLC" in self.url:
+            if "Slot" in self.url:
+                with open('Equipment Line Card Slots/HTML/Equipment Line Card Slots.html', 'w' ) as f:
+                    f.write(html_output)
+            else:
+                with open('Equipment Line Cards/HTML/Equipment Line Cards.html', 'w' ) as f:
+                    f.write(html_output)
+
+        if "eqptLeafP" in self.url:
+            with open('Equipment Leaf Ports/HTML/Equipment Leaf Ports.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3175,6 +3265,14 @@ class ACEye():
 
         if "eqptIndLed" in self.url:
             with open('Equipment Indicator LEDs/Mindmap/Equipment Indicator LEDs.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "eqptLC" in self.url:
+            with open('Equipment Line Cards/Mindmap/Equipment Line Cards.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "eqptLeafP" in self.url:
+            with open('Equipment Leaf Ports/Mindmap/Equipment Leaf Ports.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

@@ -2417,4 +2417,68 @@
 ### Type: {{ led.eqptIndLed.attributes.type }}
 ### Vendor: {{ led.eqptIndLed.attributes.vendor }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptLC" in api %}
+{%-     if "Slot" in api %}
+# Equipment Line Card Slots
+{%-         for slot in data_to_template['imdata'] %}
+## ID: {{ slot.eqptLCSlot.attributes.id }}
+### Card Oper State: {{ slot.eqptLCSlot.attributes.cardOperSt }}
+### Child Action: {{ slot.eqptLCSlot.attributes.childAction }}
+### Description: {{ slot.eqptLCSlot.attributes.descr }}
+### DN: {{ slot.eqptLCSlot.attributes.dn }}
+### Location: {{ slot.eqptLCSlot.attributes.loc }}
+### Last Modified: {{ slot.eqptLCSlot.attributes.modTs }}
+### Monitoring Policy DN: {{ slot.eqptLCSlot.attributes.monPolDn }}
+### Oper State: {{ slot.eqptLCSlot.attributes.operSt }}
+### Physical ID: {{ slot.eqptLCSlot.attributes.physId }}
+### Status: {{ slot.eqptLCSlot.attributes.status }}
+### Type: {{ slot.eqptLCSlot.attributes.type }}
+{%-         endfor %}
+{%-     else %}
+# Equipment Line Cards
+{%-         for card in data_to_template['imdata'] %}
+## ID: {{ card.eqptLC.attributes.id }}
+### Child Action: {{ card.eqptLC.attributes.childAction }}
+### CIMC Version: {{ card.eqptLC.attributes.cimcVersion }}
+### Description: {{ card.eqptLC.attributes.descr }}
+### DN: {{ card.eqptLC.attributes.dn }}
+### Hardware Version: {{ card.eqptLC.attributes.hwVer }}
+### MAC
+#### B: {{ card.eqptLC.attributes.macB }}
+#### L: {{ card.eqptLC.attributes.macL }}
+### MFG Timestamp: {{ card.eqptLC.attributes.mfgTm }}
+### Last Modified: {{ card.eqptLC.attributes.modTs }}
+### Model: {{ card.eqptLC.attributes.model }}
+### Monitoring Policy DN: {{ card.eqptLC.attributes.monPolDn }}
+### Number of Ports: {{ card.eqptLC.attributes.numP }}
+### State
+#### Oper: {{ card.eqptLC.attributes.operSt }}
+#### Power: {{ card.eqptLC.attributes.pwrSt }}
+#### rd: {{ card.eqptLC.attributes.rdSt }}
+### Revision: {{ card.eqptLC.attributes.rev }}
+### Serial Number: {{ card.eqptLC.attributes.ser }}
+### Status: {{ card.eqptLC.attributes.status }}
+### Software CID: {{ card.eqptLC.attributes.swCId }}
+### Type: {{ card.eqptLC.attributes.type }}
+### Uptime: {{ card.eqptLC.attributes.upTs }}
+### vID: {{ card.eqptLC.attributes.vId }}
+### Vendor: {{ card.eqptLC.attributes.vendor }}
+{%-         endfor %}
+{%-     endif %}
+{%- else %}
+{%- if "eqptLeafP" in api %}
+# Equipment Leaf Ports
+{%-     for port in data_to_template['imdata'] %}
+## ID: {{ port.eqptLeafP.attributes.id }}
+### Child Action: {{ port.eqptLeafP.attributes.childAction }}
+### Description: {{ port.eqptLeafP.attributes.descr }}
+### DN: {{ port.eqptLeafP.attributes.dn }}
+### Flags: {{ port.eqptLeafP.attributes.flags }}
+### Last Modifed: {{ port.eqptLeafP.attributes.modTs }}
+### Monitoring Policy DN: {{ port.eqptLeafP.attributes.monPolDn }}
+### Speed: {{ port.eqptLeafP.attributes.speed }}
+### Status: {{ port.eqptLeafP.attributes.status }}
+### Type: {{ port.eqptLeafP.attributes.type }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

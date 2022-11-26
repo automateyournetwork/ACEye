@@ -120,6 +120,12 @@ Equipment Field Programmable Gate Arrays
 
 Equipment Indicator LEDs
 
+Equipment Leaf Ports
+
+Equipment Line Card Slots
+
+Equipment Line Cards
+
 *Events
 
 Fabric Membership
