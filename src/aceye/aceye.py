@@ -195,6 +195,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.equipment_fan_trays(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_fan_tray_slots(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -249,6 +251,7 @@ class ACEye():
                     'Equipment DIMMs',
                     'Equipment Fabric Extenders',
                     'Equipment Fabric Ports',
+                    'Equipment Fan Tray Slots',
                     'Equipment Fan Trays',
                     'Equipment Fans',
                     'Equipment Field Programmable Gate Arrays',
@@ -910,7 +913,7 @@ class ACEye():
         print(f"<Equipment Boards code { response.status_code } for { self.url }>")
         response_dict  = response.json()
         return response_dict
-    
+
     def equipment_cpus(self):
         self.url = f"{ self.aci }/api/node/class/eqptCPU.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
@@ -964,6 +967,13 @@ class ACEye():
         self.url = f"{ self.aci }/api/node/class/eqptFt.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Equipment Fan Trays code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def equipment_fan_tray_slots(self):
+        self.url = f"{ self.aci }/api/node/class/eqptFtSlot.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment Fan Tray Slots code { response.status_code } for { self.url }>")
         response_dict  = response.json()
         return response_dict
 
@@ -1317,8 +1327,12 @@ class ACEye():
                 f.write(parsed_json)
 
         if "eqptFt" in self.url:
-            with open('Equipment Fan Trays/JSON/Equipment Fan Trays.json', 'w' ) as f:
-                f.write(parsed_json)
+            if "Slot" in self.url:
+                with open('Equipment Fan Tray Slots/JSON/Equipment Fan Tray Slots.json', 'w' ) as f:
+                    f.write(parsed_json)
+            else:
+                with open('Equipment Fan Trays/JSON/Equipment Fan Trays.json', 'w' ) as f:
+                    f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
@@ -1671,8 +1685,12 @@ class ACEye():
                 f.write(clean_yaml)
 
         if "eqptFt" in self.url:
-            with open('Equipment Fan Trays/YAML/Equipment Fan Trays.yaml', 'w' ) as f:
-                f.write(clean_yaml)
+            if "Slot" in self.url:
+                with open('Equipment Fan Tray Slots/YAML/Equipment Fan Tray Slots.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
+            else:
+                with open('Equipment Fan Trays/YAML/Equipment Fan Trays.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -2029,8 +2047,12 @@ class ACEye():
                 f.write(csv_output)
 
         if "eqptFt" in self.url:
-            with open('Equipment Fan Trays/CSV/Equipment Fan Trays.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "Slot" in self.url:
+                with open('Equipment Fan Tray Slots/CSV/Equipment Fan Tray Slots.csv', 'w' ) as f:
+                    f.write(csv_output)
+            else:
+                with open('Equipment Fan Trays/CSV/Equipment Fan Trays.csv', 'w' ) as f:
+                    f.write(csv_output)
 
     def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -2388,8 +2410,12 @@ class ACEye():
                 f.write(markdown_output)
 
         if "eqptFt" in self.url:
-            with open('Equipment Fan Trays/Markdown/Equipment Fan Trays.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "Slot" in self.url:
+                with open('Equipment Fan Tray Slots/Markdown/Equipment Fan Tray Slots.md', 'w' ) as f:
+                    f.write(markdown_output)
+            else:
+                with open('Equipment Fan Trays/Markdown/Equipment Fan Trays.md', 'w' ) as f:
+                    f.write(markdown_output)
 
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -2747,8 +2773,12 @@ class ACEye():
                 f.write(html_output)
 
         if "eqptFt" in self.url:
-            with open('Equipment Fan Trays/HTML/Equipment Fan Trays.html', 'w' ) as f:
-                f.write(html_output)
+            if "Slot" in self.url:
+                with open('Equipment Fan Tray Slots/HTML/Equipment Fan Tray Slots.html', 'w' ) as f:
+                    f.write(html_output)
+            else:
+                with open('Equipment Fan Trays/HTML/Equipment Fan Trays.html', 'w' ) as f:
+                    f.write(html_output)
 
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -3106,8 +3136,12 @@ class ACEye():
                 f.write(mindmap_output)
 
         if "eqptFt" in self.url:
-            with open('Equipment Fan Trays/Mindmap/Equipment Fan Trays.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "Slot" in self.url:
+                with open('Equipment Fan Tray Slots/Mindmap/Equipment Fan Tray Slots.md', 'w' ) as f:
+                    f.write(mindmap_output)
+            else:
+                with open('Equipment Fan Trays/Mindmap/Equipment Fan Trays.md', 'w' ) as f:
+                    f.write(mindmap_output)
 
     def all_files(self, parsed_json):
         self.json_file(parsed_json)
