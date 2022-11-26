@@ -4967,6 +4967,45 @@
 </table>
 {%- else %}
 {%- if "eqptLC" in api %}
+{%-     if "Slot" in api %}
+<h1>Equipment Line Card Slots</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Card Oper State</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Location</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Physical ID</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for slot in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ slot.eqptLCSlot.attributes.id }}</td>
+    <td>{{ slot.eqptLCSlot.attributes.cardOperSt }}</td>
+    <td>{{ slot.eqptLCSlot.attributes.childAction }}</td>
+    <td>{{ slot.eqptLCSlot.attributes.descr }}</td>
+    <td>{{ slot.eqptLCSlot.attributes.dn }}</td>
+    <td>{{ slot.eqptLCSlot.attributes.loc }}</td>
+    <td>{{ slot.eqptLCSlot.attributes.modTs }}</td>
+    <td>{{ slot.eqptLCSlot.attributes.monPolDn }}</td>
+    <td>{{ slot.eqptLCSlot.attributes.operSt }}</td>
+    <td>{{ slot.eqptLCSlot.attributes.physId }}</td>
+    <td>{{ slot.eqptLCSlot.attributes.status }}</td>
+    <td>{{ slot.eqptLCSlot.attributes.type }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     else %}
 <h1>Equipment Line Cards</h1>
 <table id = "datatable">
 <thead>
@@ -4998,7 +5037,7 @@
   </tr>
 </thead>
 <tbody>
-{%-     for card in data_to_template['imdata'] %}
+{%-         for card in data_to_template['imdata'] %}
   <tr>
     <td>{{ card.eqptLC.attributes.id }}</td>
     <td>{{ card.eqptLC.attributes.childAction }}</td>
@@ -5025,8 +5064,9 @@
     <td>{{ card.eqptLC.attributes.vId }}</td>
     <td>{{ card.eqptLC.attributes.vendor }}</td>
   </tr>
-{%-     endfor %}
+{%-         endfor %}
 </tbody>
 </table>
+{%-     endif %}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

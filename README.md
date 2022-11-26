@@ -120,6 +120,8 @@ Equipment Field Programmable Gate Arrays
 
 Equipment Indicator LEDs
 
+Equipment Line Card Slots
+
 Equipment Line Cards
 
 *Events

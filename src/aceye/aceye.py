@@ -201,6 +201,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.equipment_line_cards(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_line_card_slots(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -260,6 +262,7 @@ class ACEye():
                     'Equipment Fans',
                     'Equipment Field Programmable Gate Arrays',
                     'Equipment Indicator LEDs',
+                    'Equipment Line Card Slots',
                     'Equipment Line Cards',
                     'Events',
                     'Fabric Membership',
@@ -997,6 +1000,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def equipment_line_card_slots(self):
+        self.url = f"{ self.aci }/api/node/class/eqptLCSlot.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment Line Card Slots code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1359,8 +1369,12 @@ class ACEye():
                 f.write(parsed_json)
 
         if "eqptLC" in self.url:
-            with open('Equipment Line Cards/JSON/Equipment Line Cards.json', 'w' ) as f:
-                f.write(parsed_json)
+            if "Slot" in self.url:
+                with open('Equipment Line Card Slots/JSON/Equipment Line Card Slots.json', 'w' ) as f:
+                    f.write(parsed_json)
+            else:
+                with open('Equipment Line Cards/JSON/Equipment Line Cards.json', 'w' ) as f:
+                    f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
@@ -1725,8 +1739,12 @@ class ACEye():
                 f.write(clean_yaml)
 
         if "eqptLC" in self.url:
-            with open('Equipment Line Cards/YAML/Equipment Line Cards.yaml', 'w' ) as f:
-                f.write(clean_yaml)
+            if "Slot" in self.url:
+                with open('Equipment Line Card Slots/YAML/Equipment Line Card Slots.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
+            else:
+                with open('Equipment Line Cards/YAML/Equipment Line Cards.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -2095,8 +2113,12 @@ class ACEye():
                 f.write(csv_output)
 
         if "eqptLC" in self.url:
-            with open('Equipment Line Cards/CSV/Equipment Line Cards.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "Slot" in self.url:
+                with open('Equipment Line Card Slots/CSV/Equipment Line Card Slots.csv', 'w' ) as f:
+                    f.write(csv_output)
+            else:
+                with open('Equipment Line Cards/CSV/Equipment Line Cards.csv', 'w' ) as f:
+                    f.write(csv_output)
                 
     def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -2466,8 +2488,12 @@ class ACEye():
                 f.write(markdown_output)
 
         if "eqptLC" in self.url:
-            with open('Equipment Line Cards/Markdown/Equipment Line Cards.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "Slot" in self.url:
+                with open('Equipment Line Card Slots/Markdown/Equipment Line Card Slots.md', 'w' ) as f:
+                    f.write(markdown_output)
+            else:
+                with open('Equipment Line Cards/Markdown/Equipment Line Cards.md', 'w' ) as f:
+                    f.write(markdown_output)
 
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -2837,8 +2863,12 @@ class ACEye():
                 f.write(html_output)
 
         if "eqptLC" in self.url:
-            with open('Equipment Line Cards/HTML/Equipment Line Cards.html', 'w' ) as f:
-                f.write(html_output)
+            if "Slot" in self.url:
+                with open('Equipment Line Card Slots/HTML/Equipment Line Card Slots.html', 'w' ) as f:
+                    f.write(html_output)
+            else:
+                with open('Equipment Line Cards/HTML/Equipment Line Cards.html', 'w' ) as f:
+                    f.write(html_output)
 
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent

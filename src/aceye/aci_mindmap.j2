@@ -2419,8 +2419,25 @@
 {%-     endfor %}
 {%- else %}
 {%- if "eqptLC" in api %}
+{%-     if "Slot" in api %}
+# Equipment Line Card Slots
+{%-         for slot in data_to_template['imdata'] %}
+## ID: {{ slot.eqptLCSlot.attributes.id }}
+### Card Oper State: {{ slot.eqptLCSlot.attributes.cardOperSt }}
+### Child Action: {{ slot.eqptLCSlot.attributes.childAction }}
+### Description: {{ slot.eqptLCSlot.attributes.descr }}
+### DN: {{ slot.eqptLCSlot.attributes.dn }}
+### Location: {{ slot.eqptLCSlot.attributes.loc }}
+### Last Modified: {{ slot.eqptLCSlot.attributes.modTs }}
+### Monitoring Policy DN: {{ slot.eqptLCSlot.attributes.monPolDn }}
+### Oper State: {{ slot.eqptLCSlot.attributes.operSt }}
+### Physical ID: {{ slot.eqptLCSlot.attributes.physId }}
+### Status: {{ slot.eqptLCSlot.attributes.status }}
+### Type: {{ slot.eqptLCSlot.attributes.type }}
+{%-         endfor %}
+{%-     else %}
 # Equipment Line Cards
-{%-     for card in data_to_template['imdata'] %}
+{%-         for card in data_to_template['imdata'] %}
 ## ID: {{ card.eqptLC.attributes.id }}
 ### Child Action: {{ card.eqptLC.attributes.childAction }}
 ### CIMC Version: {{ card.eqptLC.attributes.cimcVersion }}
@@ -2447,5 +2464,6 @@
 ### Uptime: {{ card.eqptLC.attributes.upTs }}
 ### vID: {{ card.eqptLC.attributes.vId }}
 ### Vendor: {{ card.eqptLC.attributes.vendor }}
-{%-     endfor %}
+{%-         endfor %}
+{%-     endif %}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
