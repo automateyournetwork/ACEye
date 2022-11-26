@@ -4444,7 +4444,7 @@
     <th>Local Owner</th>
     <th>MAC B</th>
     <th>MAC L</th>
-    <th>MFG TM</th>
+    <th>MFG Timestamp</th>
     <th>Last Modified</th>
     <th>Model</th>
     <th>Monitoring Policy DN</th>
@@ -4508,7 +4508,7 @@
     <th>Cores Enabled</th>
     <th>Description</th>
     <th>DN</th>
-    <th>MFG TM</th>
+    <th>MFG Timestamp</th>
     <th>Last Modified</th>
     <th>Model</th>
     <th>Revision</th>
@@ -4545,5 +4545,195 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptCh" in api %}
+<h1>Equipment Chassis</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Configured Role</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Hybrid Mode</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Oper State Quality</th>
+    <th>Revision</th>
+    <th>Role</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>vID</th>
+    <th>Vendor</th>
+    <th>Virtual Mode</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for chassis in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ chassis.eqptCh.attributes.id }}</td>
+    <td>{{ chassis.eqptCh.attributes.childAction }}</td>
+    <td>{{ chassis.eqptCh.attributes.cimcVersion }}</td>
+    <td>{{ chassis.eqptCh.attributes.configRole }}</td>
+    <td>{{ chassis.eqptCh.attributes.descr }}</td>
+    <td>{{ chassis.eqptCh.attributes.dn }}</td>
+    <td>{{ chassis.eqptCh.attributes.hybridMode }}</td>
+    <td>{{ chassis.eqptCh.attributes.mfgTm }}</td>
+    <td>{{ chassis.eqptCh.attributes.modTs }}</td>
+    <td>{{ chassis.eqptCh.attributes.model }}</td>
+    <td>{{ chassis.eqptCh.attributes.monPolDn }}</td>
+    <td>{{ chassis.eqptCh.attributes.operSt }}</td>
+    <td>{{ chassis.eqptCh.attributes.operStQual }}</td>
+    <td>{{ chassis.eqptCh.attributes.rev }}</td>
+    <td>{{ chassis.eqptCh.attributes.role }}</td>
+    <td>{{ chassis.eqptCh.attributes.ser }}</td>
+    <td>{{ chassis.eqptCh.attributes.status }}</td>
+    <td>{{ chassis.eqptCh.attributes.vId }}</td>
+    <td>{{ chassis.eqptCh.attributes.vendor }}</td>
+    <td>{{ chassis.eqptCh.attributes.virtualMode }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "eqptDimm" in api %}
+<h1>Equipment DIMMs</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Acc</th>
+    <th>Capacity</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>MGF Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Oper State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for dimm in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ dimm.eqptDimm.attributes.id }}</td>
+    <td>{{ dimm.eqptDimm.attributes.acc }}</td>
+    <td>{{ dimm.eqptDimm.attributes.cap }}</td>
+    <td>{{ dimm.eqptDimm.attributes.childAction }}</td>
+    <td>{{ dimm.eqptDimm.attributes.cimcVersion }}</td>
+    <td>{{ dimm.eqptDimm.attributes.descr }}</td>
+    <td>{{ dimm.eqptDimm.attributes.dn }}</td>
+    <td>{{ dimm.eqptDimm.attributes.mfgTm }}</td>
+    <td>{{ dimm.eqptDimm.attributes.modTs }}</td>
+    <td>{{ dimm.eqptDimm.attributes.model }}</td>
+    <td>{{ dimm.eqptDimm.attributes.operSt }}</td>
+    <td>{{ dimm.eqptDimm.attributes.rev }}</td>
+    <td>{{ dimm.eqptDimm.attributes.ser }}</td>
+    <td>{{ dimm.eqptDimm.attributes.status }}</td>
+    <td>{{ dimm.eqptDimm.attributes.type }}</td>
+    <td>{{ dimm.eqptDimm.attributes.vendor }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "eqptExtCh" in api %}
+<h1>Equipment Fabric Extenders</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Control FPort SDP Timeout</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>External Chassis State</th>
+    <th>MAC Address</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Number of MACs</th>
+    <th>Number of Uplink Ports</th>
+    <th>Part Number</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for fabricextender in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ fabricextender.eqptExtCh.attributes.id }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.childAction }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.cimcVersion }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.controlFPortSDPTimeout }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.descr }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.dn }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.extChSt }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.macAddr }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.mfgTm }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.modTs }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.model }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.monPolDn }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.numMacs }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.numUplinkP }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.partNum }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.rev }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.ser }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.status }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.vendor }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- else %}
+{%- if "eqptFabP" in api %}
+<h1>Equipment Fabric Ports</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Flags</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Speed</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for port in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ port.eqptFabP.attributes.id }}</td>
+    <td>{{ port.eqptFabP.attributes.childAction }}</td>
+    <td>{{ port.eqptFabP.attributes.descr }}</td>
+    <td>{{ port.eqptFabP.attributes.dn }}</td>
+    <td>{{ port.eqptFabP.attributes.flags }}</td>
+    <td>{{ port.eqptFabP.attributes.modTs }}</td>
+    <td>{{ port.eqptFabP.attributes.monPolDn }}</td>
+    <td>{{ port.eqptFabP.attributes.speed }}</td>
+    <td>{{ port.eqptFabP.attributes.status }}</td>
+    <td>{{ port.eqptFabP.attributes.type }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

@@ -2229,4 +2229,89 @@
 ### Threads: {{ cpu.eqptCPU.attributes.thrds }}
 ### Vendor: {{ cpu.eqptCPU.attributes.vendor }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptCh" in api %}
+# Equipment Chassis
+{%-     for chassis in data_to_template['imdata'] %}
+## ID: {{ chassis.eqptCh.attributes.id }}
+### Child Action: {{ chassis.eqptCh.attributes.childAction }}
+### CIMC Version: {{ chassis.eqptCh.attributes.cimcVersion }}
+### Configured Role: {{ chassis.eqptCh.attributes.configRole }}
+### Description: {{ chassis.eqptCh.attributes.descr }}
+### DN: {{ chassis.eqptCh.attributes.dn }}
+### Hybrid Mode: {{ chassis.eqptCh.attributes.hybridMode }}
+### MFG Timestamp: {{ chassis.eqptCh.attributes.mfgTm }}
+### Last Modified: {{ chassis.eqptCh.attributes.modTs }}
+### Model: {{ chassis.eqptCh.attributes.model }}
+### Monitoring Policy DN: {{ chassis.eqptCh.attributes.monPolDn }}
+### Oper State: {{ chassis.eqptCh.attributes.operSt }}
+### Oper State Quality: {{ chassis.eqptCh.attributes.operStQual }}
+### Revision: {{ chassis.eqptCh.attributes.rev }}
+### Role: {{ chassis.eqptCh.attributes.role }}
+### Serial Number: {{ chassis.eqptCh.attributes.ser }}
+### Status: {{ chassis.eqptCh.attributes.status }}
+### vID: {{ chassis.eqptCh.attributes.vId }}
+### Vendor: {{ chassis.eqptCh.attributes.vendor }}
+### Virtual Mode: {{ chassis.eqptCh.attributes.virtualMode }}
+{%-     endfor %}
+{%- else %}
+{%- if "eqptDimm" in api %}
+# Equipment DIMMs
+{%-     for dimm in data_to_template['imdata'] %}
+## ID: {{ dimm.eqptDimm.attributes.id }}
+### Acc: {{ dimm.eqptDimm.attributes.acc }}
+### Capacity: {{ dimm.eqptDimm.attributes.cap }}
+### Child Action: {{ dimm.eqptDimm.attributes.childAction }}
+### CIMC Version: {{ dimm.eqptDimm.attributes.cimcVersion }}
+### Description: {{ dimm.eqptDimm.attributes.descr }}
+### DN: {{ dimm.eqptDimm.attributes.dn }}
+### MFG Timestamp: {{ dimm.eqptDimm.attributes.mfgTm }}
+### Last Modified: {{ dimm.eqptDimm.attributes.modTs }}
+### Model: {{ dimm.eqptDimm.attributes.model }}
+### Oper State: {{ dimm.eqptDimm.attributes.operSt }}
+### Revision: {{ dimm.eqptDimm.attributes.rev }}
+### Serial Number: {{ dimm.eqptDimm.attributes.ser }}
+### Status: {{ dimm.eqptDimm.attributes.status }}
+### Type: {{ dimm.eqptDimm.attributes.type }}
+### Vendor: {{ dimm.eqptDimm.attributes.vendor }}
+{%-     endfor %}
+{%- else %}
+{%- if "eqptExtCh" in api %}
+# Equipment Fabric Extenders
+{%-     for fabricextender in data_to_template['imdata'] %}
+## ID: {{ fabricextender.eqptExtCh.attributes.id }}
+### Child Action: {{ fabricextender.eqptExtCh.attributes.childAction }}
+### CIMC Version: {{ fabricextender.eqptExtCh.attributes.cimcVersion }}
+### Control FPort SDP Timeout: {{ fabricextender.eqptExtCh.attributes.controlFPortSDPTimeout }}
+### Description: {{ fabricextender.eqptExtCh.attributes.descr }}
+### DN: {{ fabricextender.eqptExtCh.attributes.dn }}
+### External Chassis State: {{ fabricextender.eqptExtCh.attributes.extChSt }}
+### MAC Address: {{ fabricextender.eqptExtCh.attributes.macAddr }}
+### MFG Timestamp: {{ fabricextender.eqptExtCh.attributes.mfgTm }}
+### Last Modified: {{ fabricextender.eqptExtCh.attributes.modTs }}
+### Model: {{ fabricextender.eqptExtCh.attributes.model }}
+### Monitoring Policy DN: {{ fabricextender.eqptExtCh.attributes.monPolDn }}
+### Number of MACs: {{ fabricextender.eqptExtCh.attributes.numMacs }}
+### Number of Uplink Ports: {{ fabricextender.eqptExtCh.attributes.numUplinkP }}
+### Part Number: {{ fabricextender.eqptExtCh.attributes.partNum }}
+### Revision: {{ fabricextender.eqptExtCh.attributes.rev }}
+### Serial Number: {{ fabricextender.eqptExtCh.attributes.ser }}
+### Status: {{ fabricextender.eqptExtCh.attributes.status }}
+### Vendor: {{ fabricextender.eqptExtCh.attributes.vendor }}
+{%-     endfor %}
+{%- else %}
+{%- if "eqptFabP" in api %}
+# Equipment Fabric Ports
+{%-     for port in data_to_template['imdata'] %}
+## ID: {{ port.eqptFabP.attributes.id }}
+### Child Action: {{ port.eqptFabP.attributes.childAction }}
+### Description: {{ port.eqptFabP.attributes.descr }}
+### DN: {{ port.eqptFabP.attributes.dn }}
+### Flags: {{ port.eqptFabP.attributes.flags }}
+### Last Modified: {{ port.eqptFabP.attributes.modTs }}
+### Monitoring Policy DN: {{ port.eqptFabP.attributes.monPolDn }}
+### Speed: {{ port.eqptFabP.attributes.speed }}
+### Status: {{ port.eqptFabP.attributes.status }}
+### Type: {{ port.eqptFabP.attributes.type }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

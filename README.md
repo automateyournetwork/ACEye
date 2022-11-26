@@ -100,7 +100,15 @@ Equipment Board Slots
 
 Equipment Boards
 
+Equipment Chassis
+
 Equipment CPUs
+
+Equipment DIMMs
+
+Equipment Fabric Extenders
+
+Equipment Fabric Ports
 
 *Events
 
