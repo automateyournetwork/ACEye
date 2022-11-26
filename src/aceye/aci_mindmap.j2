@@ -2314,4 +2314,47 @@
 ### Status: {{ port.eqptFabP.attributes.status }}
 ### Type: {{ port.eqptFabP.attributes.type }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptFan" in api %}
+# Equipment Fans
+{%-     for fan in data_to_template['imdata'] %}
+## ID: {{ fan.eqptFan.attributes.id }}
+### Child Action: {{ fan.eqptFan.attributes.childAction }}
+### CIMC Version: {{ fan.eqptFan.attributes.cimcVersion }}
+### Description: {{ fan.eqptFan.attributes.descr }}
+### Direction: {{ fan.eqptFan.attributes.dir }}
+### DN: {{ fan.eqptFan.attributes.dn }}
+### Max Speed: {{ fan.eqptFan.attributes.maxSpeed }}
+### MFG Timestamp: {{ fan.eqptFan.attributes.mfgTm }}
+### Last Modified: {{ fan.eqptFan.attributes.modTs }}
+### Model: {{ fan.eqptFan.attributes.model }}
+### Monitoring Policy DN: {{ fan.eqptFan.attributes.monPolDn }}
+### Oper State: {{ fan.eqptFan.attributes.operSt }}
+### Revision: {{ fan.eqptFan.attributes.rev }}
+### Serial Number: {{ fan.eqptFan.attributes.ser }}
+### Speed: {{ fan.eqptFan.attributes.speed }}
+### Status: {{ fan.eqptFan.attributes.status }}
+### vID: {{ fan.eqptFan.attributes.vId }}
+### Vendor: {{ fan.eqptFan.attributes.vendor }}
+{%-     endfor %}
+{%- else %}
+{%- if "eqptFpga" in api %}
+# Equipment Field Programmable Gate Arrays
+{%-     for array in data_to_template['imdata'] %}
+## ID: {{ array.eqptFpga.attributes.id }}
+### Child Action: {{ array.eqptFpga.attributes.childAction }}
+### CIMC Version: {{ array.eqptFpga.attributes.cimcVersion }}
+### Description: {{ array.eqptFpga.attributes.descr }}
+### DN: {{ array.eqptFpga.attributes.dn }}
+### MFG Timestamp: {{ array.eqptFpga.attributes.mfgTm }}
+### Last Modified: {{ array.eqptFpga.attributes.modTs }}
+### Model: {{ array.eqptFpga.attributes.model }}
+### Monitoring Policy DN: {{ array.eqptFpga.attributes.monPolDn }}
+### Oper State: {{ array.eqptFpga.attributes.operSt }}
+### Revision: {{ array.eqptFpga.attributes.rev }}
+### Serial Number: {{ array.eqptFpga.attributes.ser }}
+### Status: {{ array.eqptFpga.attributes.status }}
+### Type: {{ array.eqptFpga.attributes.type }}
+### Vendor: {{ array.eqptFpga.attributes.vendor }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

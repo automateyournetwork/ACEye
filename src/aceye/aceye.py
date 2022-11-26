@@ -191,6 +191,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.equipment_fabric_ports(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_fpga(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -245,6 +247,8 @@ class ACEye():
                     'Equipment DIMMs',
                     'Equipment Fabric Extenders',
                     'Equipment Fabric Ports',
+                    'Equipment Fans',
+                    'Equipment Field Programmable Gate Arrays',
                     'Events',
                     'Fabric Membership',
                     'Fabric Nodes',
@@ -939,6 +943,20 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def equipment_fans(self):
+        self.url = f"{ self.aci }/api/node/class/eqptFan.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment Fans code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def equipment_fpga(self):
+        self.url = f"{ self.aci }/api/node/class/eqptFpga.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment Field Programmable Gate Arrays code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1278,6 +1296,14 @@ class ACEye():
 
         if "eqptFabP" in self.url:
             with open('Equipment Fabric Ports/JSON/Equipment Fabric Ports.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "eqptFan" in self.url:
+            with open('Equipment Fans/JSON/Equipment Fans.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "eqptFpga" in self.url:
+            with open('Equipment Field Programmable Gate Arrays/JSON/Equipment Field Programmable Gate Arrays.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -1620,6 +1646,14 @@ class ACEye():
 
         if "eqptFabP" in self.url:
             with open('Equipment Fabric Ports/YAML/Equipment Fabric Ports.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "eqptFan" in self.url:
+            with open('Equipment Fans/YAML/Equipment Fans.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "eqptFpga" in self.url:
+            with open('Equipment Field Programmable Gate Arrays/YAML/Equipment Field Programmable Gate Arrays.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -1966,6 +2000,14 @@ class ACEye():
 
         if "eqptFabP" in self.url:
             with open('Equipment Fabric Ports/CSV/Equipment Fabric Ports.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "eqptFan" in self.url:
+            with open('Equipment Fans/CSV/Equipment Fans.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "eqptFpga" in self.url:
+            with open('Equipment Field Programmable Gate Arrays/CSV/Equipment Field Programmable Gate Arrays.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -2315,6 +2357,14 @@ class ACEye():
             with open('Equipment Fabric Ports/Markdown/Equipment Fabric Ports.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "eqptFan" in self.url:
+            with open('Equipment Fans/Markdown/Equipment Fans.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "eqptFpga" in self.url:
+            with open('Equipment Field Programmable Gate Arrays/Markdown/Equipment Field Programmable Gate Arrays.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2662,6 +2712,14 @@ class ACEye():
             with open('Equipment Fabric Ports/HTML/Equipment Fabric Ports.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "eqptFan" in self.url:
+            with open('Equipment Fans/HTML/Equipment Fans.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "eqptFpga" in self.url:
+            with open('Equipment Field Programmable Gate Arrays/HTML/Equipment Field Programmable Gate Arrays.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3007,6 +3065,14 @@ class ACEye():
 
         if "eqptFabP" in self.url:
             with open('Equipment Fabric Ports/Mindmap/Equipment Fabric Ports.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "eqptFan" in self.url:
+            with open('Equipment Fans/Mindmap/Equipment Fans.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "eqptFpga" in self.url:
+            with open('Equipment Field Programmable Gate Arrays/Mindmap/Equipment Field Programmable Gate Arrays.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
