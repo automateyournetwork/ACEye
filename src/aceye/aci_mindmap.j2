@@ -2275,4 +2275,28 @@
 ### Type: {{ dimm.eqptDimm.attributes.type }}
 ### Vendor: {{ dimm.eqptDimm.attributes.vendor }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptExtCh" in api %}
+# Equipment Fabric Extenders
+{%-     for fabricextender in data_to_template['imdata'] %}
+## ID: {{ fabricextender.eqptExtCh.attributes.id }}
+### Child Action: {{ fabricextender.eqptExtCh.attributes.childAction }}
+### CIMC Version: {{ fabricextender.eqptExtCh.attributes.cimcVersion }}
+### Control FPort SDP Timeout: {{ fabricextender.eqptExtCh.attributes.controlFPortSDPTimeout }}
+### Description: {{ fabricextender.eqptExtCh.attributes.descr }}
+### DN: {{ fabricextender.eqptExtCh.attributes.dn }}
+### External Chassis State: {{ fabricextender.eqptExtCh.attributes.extChSt }}
+### MAC Address: {{ fabricextender.eqptExtCh.attributes.macAddr }}
+### MFG Timestamp: {{ fabricextender.eqptExtCh.attributes.mfgTm }}
+### Last Modified: {{ fabricextender.eqptExtCh.attributes.modTs }}
+### Model: {{ fabricextender.eqptExtCh.attributes.model }}
+### Monitoring Policy DN: {{ fabricextender.eqptExtCh.attributes.monPolDn }}
+### Number of MACs: {{ fabricextender.eqptExtCh.attributes.numMacs }}
+### Number of Uplink Ports: {{ fabricextender.eqptExtCh.attributes.numUplinkP }}
+### Part Number: {{ fabricextender.eqptExtCh.attributes.partNum }}
+### Revision: {{ fabricextender.eqptExtCh.attributes.rev }}
+### Serial Number: {{ fabricextender.eqptExtCh.attributes.ser }}
+### Status: {{ fabricextender.eqptExtCh.attributes.status }}
+### Vendor: {{ fabricextender.eqptExtCh.attributes.vendor }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

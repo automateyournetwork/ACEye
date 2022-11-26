@@ -106,6 +106,8 @@ Equipment CPUs
 
 Equipment DIMMs
 
+Equipment Fabric Extenders
+
 *Events
 
 Fabric Membership

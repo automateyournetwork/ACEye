@@ -4647,5 +4647,58 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptExtCh" in api %}
+<h1>Equipment Fabric Extenders</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Control FPort SDP Timeout</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>External Chassis State</th>
+    <th>MAC Address</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Number of MACs</th>
+    <th>Number of Uplink Ports</th>
+    <th>Part Number</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for fabricextender in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ fabricextender.eqptExtCh.attributes.id }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.childAction }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.cimcVersion }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.controlFPortSDPTimeout }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.descr }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.dn }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.extChSt }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.macAddr }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.mfgTm }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.modTs }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.model }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.monPolDn }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.numMacs }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.numUplinkP }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.partNum }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.rev }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.ser }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.status }}</td>
+    <td>{{ fabricextender.eqptExtCh.attributes.vendor }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
