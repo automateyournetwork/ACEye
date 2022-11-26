@@ -100,6 +100,8 @@ Equipment Board Slots
 
 Equipment Boards
 
+Equipment Chassis
+
 Equipment CPUs
 
 *Events

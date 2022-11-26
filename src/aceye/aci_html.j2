@@ -4444,7 +4444,7 @@
     <th>Local Owner</th>
     <th>MAC B</th>
     <th>MAC L</th>
-    <th>MFG TM</th>
+    <th>MFG Timestamp</th>
     <th>Last Modified</th>
     <th>Model</th>
     <th>Monitoring Policy DN</th>
@@ -4508,7 +4508,7 @@
     <th>Cores Enabled</th>
     <th>Description</th>
     <th>DN</th>
-    <th>MFG TM</th>
+    <th>MFG Timestamp</th>
     <th>Last Modified</th>
     <th>Model</th>
     <th>Revision</th>
@@ -4545,5 +4545,60 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptCh" in api %}
+<h1>Equipment Chassis</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Configured Role</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Hybrid Mode</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Oper State Quality</th>
+    <th>Revision</th>
+    <th>Role</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>vID</th>
+    <th>Vendor</th>
+    <th>Virtual Mode</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for chassis in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ chassis.eqptCh.attributes.id }}</td>
+    <td>{{ chassis.eqptCh.attributes.childAction }}</td>
+    <td>{{ chassis.eqptCh.attributes.cimcVersion }}</td>
+    <td>{{ chassis.eqptCh.attributes.configRole }}</td>
+    <td>{{ chassis.eqptCh.attributes.descr }}</td>
+    <td>{{ chassis.eqptCh.attributes.dn }}</td>
+    <td>{{ chassis.eqptCh.attributes.hybridMode }}</td>
+    <td>{{ chassis.eqptCh.attributes.mfgTm }}</td>
+    <td>{{ chassis.eqptCh.attributes.modTs }}</td>
+    <td>{{ chassis.eqptCh.attributes.model }}</td>
+    <td>{{ chassis.eqptCh.attributes.monPolDn }}</td>
+    <td>{{ chassis.eqptCh.attributes.operSt }}</td>
+    <td>{{ chassis.eqptCh.attributes.operStQual }}</td>
+    <td>{{ chassis.eqptCh.attributes.rev }}</td>
+    <td>{{ chassis.eqptCh.attributes.role }}</td>
+    <td>{{ chassis.eqptCh.attributes.ser }}</td>
+    <td>{{ chassis.eqptCh.attributes.status }}</td>
+    <td>{{ chassis.eqptCh.attributes.vId }}</td>
+    <td>{{ chassis.eqptCh.attributes.vendor }}</td>
+    <td>{{ chassis.eqptCh.attributes.virtualMode }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

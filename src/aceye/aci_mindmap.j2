@@ -2229,4 +2229,29 @@
 ### Threads: {{ cpu.eqptCPU.attributes.thrds }}
 ### Vendor: {{ cpu.eqptCPU.attributes.vendor }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptCh" in api %}
+# Equipment Chassis
+{%-     for chassis in data_to_template['imdata'] %}
+## ID: {{ chassis.eqptCh.attributes.id }}
+### Child Action: {{ chassis.eqptCh.attributes.childAction }}
+### CIMC Version: {{ chassis.eqptCh.attributes.cimcVersion }}
+### Configured Role: {{ chassis.eqptCh.attributes.configRole }}
+### Description: {{ chassis.eqptCh.attributes.descr }}
+### DN: {{ chassis.eqptCh.attributes.dn }}
+### Hybrid Mode: {{ chassis.eqptCh.attributes.hybridMode }}
+### MFG Timestamp: {{ chassis.eqptCh.attributes.mfgTm }}
+### Last Modified: {{ chassis.eqptCh.attributes.modTs }}
+### Model: {{ chassis.eqptCh.attributes.model }}
+### Monitoring Policy DN: {{ chassis.eqptCh.attributes.monPolDn }}
+### Oper State: {{ chassis.eqptCh.attributes.operSt }}
+### Oper State Quality: {{ chassis.eqptCh.attributes.operStQual }}
+### Revision: {{ chassis.eqptCh.attributes.rev }}
+### Role: {{ chassis.eqptCh.attributes.role }}
+### Serial Number: {{ chassis.eqptCh.attributes.ser }}
+### Status: {{ chassis.eqptCh.attributes.status }}
+### vID: {{ chassis.eqptCh.attributes.vId }}
+### Vendor: {{ chassis.eqptCh.attributes.vendor }}
+### Virtual Mode: {{ chassis.eqptCh.attributes.virtualMode }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
