@@ -108,6 +108,8 @@ Equipment DIMMs
 
 Equipment Fabric Extenders
 
+Equipment Fabric Ports
+
 *Events
 
 Fabric Membership
