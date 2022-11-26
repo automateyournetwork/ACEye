@@ -112,6 +112,8 @@ Equipment Fabric Ports
 
 Equipment Fans
 
+Equipment Field Programmable Gate Arrays
+
 *Events
 
 Fabric Membership

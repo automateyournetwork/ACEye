@@ -4786,5 +4786,50 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptFpga" in api %}
+<h1>Equipment Field Programmable Gate Arrays</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for array in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ array.eqptFpga.attributes.id }}</td>
+    <td>{{ array.eqptFpga.attributes.childAction }}</td>
+    <td>{{ array.eqptFpga.attributes.cimcVersion }}</td>
+    <td>{{ array.eqptFpga.attributes.descr }}</td>
+    <td>{{ array.eqptFpga.attributes.dn }}</td>
+    <td>{{ array.eqptFpga.attributes.mfgTm }}</td>
+    <td>{{ array.eqptFpga.attributes.modTs }}</td>
+    <td>{{ array.eqptFpga.attributes.model }}</td>
+    <td>{{ array.eqptFpga.attributes.monPolDn }}</td>
+    <td>{{ array.eqptFpga.attributes.operSt }}</td>
+    <td>{{ array.eqptFpga.attributes.rev }}</td>
+    <td>{{ array.eqptFpga.attributes.ser }}</td>
+    <td>{{ array.eqptFpga.attributes.status }}</td>
+    <td>{{ array.eqptFpga.attributes.type }}</td>
+    <td>{{ array.eqptFpga.attributes.vendor }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
