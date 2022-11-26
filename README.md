@@ -118,6 +118,8 @@ Equipment Fans
 
 Equipment Field Programmable Gate Arrays
 
+Equipment Indicator LEDs
+
 *Events
 
 Fabric Membership
