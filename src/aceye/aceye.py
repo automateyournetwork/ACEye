@@ -980,7 +980,7 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
-    def equipment_fan_indicator_leds(self):
+    def equipment_indicator_leds(self):
         self.url = f"{ self.aci }/api/node/class/eqptIndLed.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Equipment Indicator LEDs code { response.status_code } for { self.url }>")
