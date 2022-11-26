@@ -4831,5 +4831,94 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptFt" in api %}
+{%-     if "Slot" in api %}
+<h1>Equipment Fan Tray Slots</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Card Oper State</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Location</th>
+    <th>Last Modifed</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Physical ID</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for slot in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ slot.eqptFtSlot.attributes.id }}</td>
+    <td>{{ slot.eqptFtSlot.attributes.cardOperSt }}</td>
+    <td>{{ slot.eqptFtSlot.attributes.childAction }}</td>
+    <td>{{ slot.eqptFtSlot.attributes.descr }}</td>
+    <td>{{ slot.eqptFtSlot.attributes.dn }}</td>
+    <td>{{ slot.eqptFtSlot.attributes.loc }}</td>
+    <td>{{ slot.eqptFtSlot.attributes.modTs }}</td>
+    <td>{{ slot.eqptFtSlot.attributes.monPolDn }}</td>
+    <td>{{ slot.eqptFtSlot.attributes.operSt }}</td>
+    <td>{{ slot.eqptFtSlot.attributes.physId }}</td>
+    <td>{{ slot.eqptFtSlot.attributes.status }}</td>
+    <td>{{ slot.eqptFtSlot.attributes.type }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     else %}
+<h1>Equipment Fan Trays</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Fan Name</th>
+    <th>Fanlet Fail String</th>
+    <th>Hardware Version</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for trays in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ trays.eqptFt.attributes.id }}</td>
+    <td>{{ trays.eqptFt.attributes.childAction }}</td>
+    <td>{{ trays.eqptFt.attributes.cimcVersion }}</td>
+    <td>{{ trays.eqptFt.attributes.descr }}</td>
+    <td>{{ trays.eqptFt.attributes.dn }}</td>
+    <td>{{ trays.eqptFt.attributes.fanName }}</td>
+    <td>{{ trays.eqptFt.attributes.fanletFailString }}</td>
+    <td>{{ trays.eqptFt.attributes.hwVer }}</td>
+    <td>{{ trays.eqptFt.attributes.mfgTm }}</td>
+    <td>{{ trays.eqptFt.attributes.modTs }}</td>
+    <td>{{ trays.eqptFt.attributes.model }}</td>
+    <td>{{ trays.eqptFt.attributes.monPolDn }}</td>
+    <td>{{ trays.eqptFt.attributes.operSt }}</td>
+    <td>{{ trays.eqptFt.attributes.rev }}</td>
+    <td>{{ trays.eqptFt.attributes.ser }}</td>
+    <td>{{ trays.eqptFt.attributes.status }}</td>
+    <td>{{ trays.eqptFt.attributes.vendor }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     endif %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

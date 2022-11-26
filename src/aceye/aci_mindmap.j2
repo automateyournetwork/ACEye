@@ -2357,4 +2357,44 @@
 ### Type: {{ array.eqptFpga.attributes.type }}
 ### Vendor: {{ array.eqptFpga.attributes.vendor }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptFt" in api %}
+{%-     if "Slot" in api %}
+# Equipment Fan Tray Slots
+{%-         for slot in data_to_template['imdata'] %}
+## ID: {{ slot.eqptFtSlot.attributes.id }}
+### Card Oper State: {{ slot.eqptFtSlot.attributes.cardOperSt }}
+### Child Action: {{ slot.eqptFtSlot.attributes.childAction }}
+### Description: {{ slot.eqptFtSlot.attributes.descr }}
+### DN: {{ slot.eqptFtSlot.attributes.dn }}
+### Location: {{ slot.eqptFtSlot.attributes.loc }}
+### Last Modified: {{ slot.eqptFtSlot.attributes.modTs }}
+### Monitoring Policy DN: {{ slot.eqptFtSlot.attributes.monPolDn }}
+### Oper State: {{ slot.eqptFtSlot.attributes.operSt }}
+### Physical ID: {{ slot.eqptFtSlot.attributes.physId }}
+### Status: {{ slot.eqptFtSlot.attributes.status }}
+### Type: {{ slot.eqptFtSlot.attributes.type }}
+{%-         endfor %}
+{%-     else %}
+# Equipment Fan Trays
+{%-         for trays in data_to_template['imdata'] %}
+## ID: {{ trays.eqptFt.attributes.id }}
+### Child Action: {{ trays.eqptFt.attributes.childAction }}
+### CIMC Version: {{ trays.eqptFt.attributes.cimcVersion }}
+### Description: {{ trays.eqptFt.attributes.descr }}
+### DN: {{ trays.eqptFt.attributes.dn }}
+### Fan Name: {{ trays.eqptFt.attributes.fanName }}
+### Fanlet Fail String: {{ trays.eqptFt.attributes.fanletFailString }}
+### Hardware Version: {{ trays.eqptFt.attributes.hwVer }}
+### MFG Timestamp: {{ trays.eqptFt.attributes.mfgTm }}
+### Last Modified: {{ trays.eqptFt.attributes.modTs }}
+### Model: {{ trays.eqptFt.attributes.model }}
+### Monitoring Policy DN: {{ trays.eqptFt.attributes.monPolDn }}
+### Oper State: {{ trays.eqptFt.attributes.operSt }}
+### Revision: {{ trays.eqptFt.attributes.rev }}
+### Serial Number: {{ trays.eqptFt.attributes.ser }}
+### Status: {{ trays.eqptFt.attributes.status }}
+### Vendor: {{ trays.eqptFt.attributes.vendor }}
+{%-         endfor %}
+{%-     endif %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
