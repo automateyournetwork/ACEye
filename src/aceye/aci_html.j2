@@ -4920,5 +4920,50 @@
 </tbody>
 </table>
 {%-     endif %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptIndLed" in api %}
+<h1>Equipment Indicator LEDs</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Color</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Oper State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for led in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ led.eqptIndLed.attributes.id }}</td>
+    <td>{{ led.eqptIndLed.attributes.childAction }}</td>
+    <td>{{ led.eqptIndLed.attributes.cimcVersion }}</td>
+    <td>{{ led.eqptIndLed.attributes.color }}</td>
+    <td>{{ led.eqptIndLed.attributes.descr }}</td>
+    <td>{{ led.eqptIndLed.attributes.dn }}</td>
+    <td>{{ led.eqptIndLed.attributes.mfgTm }}</td>
+    <td>{{ led.eqptIndLed.attributes.modTs }}</td>
+    <td>{{ led.eqptIndLed.attributes.model }}</td>
+    <td>{{ led.eqptIndLed.attributes.operSt }}</td>
+    <td>{{ led.eqptIndLed.attributes.rev }}</td>
+    <td>{{ led.eqptIndLed.attributes.ser }}</td>
+    <td>{{ led.eqptIndLed.attributes.status }}</td>
+    <td>{{ led.eqptIndLed.attributes.type }}</td>
+    <td>{{ led.eqptIndLed.attributes.vendor }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
