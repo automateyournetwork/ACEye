@@ -1098,7 +1098,7 @@ class ACEye():
                 f.write(parsed_json)
 
         if "actrlScope" in self.url:
-            with open('Access Control Scope/JSON/Access Control Scope.json', 'w' ) as f:
+            with open('Access Control Scopes/JSON/Access Control Scopes.json', 'w' ) as f:
                 f.write(parsed_json)
 
         if "cnwPhysIf" in self.url:
@@ -1424,7 +1424,7 @@ class ACEye():
                 f.write(clean_yaml)
 
         if "actrlScope" in self.url:
-            with open('Access Control Scope/YAML/Access Control Scope.yaml', 'w' ) as f:
+            with open('Access Control Scopes/YAML/Access Control Scopes.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
         if "cnwPhysIf" in self.url:
@@ -1754,7 +1754,7 @@ class ACEye():
                 f.write(csv_output)
 
         if "actrlScope" in self.url:
-            with open('Access Control Scope/CSV/Access Control Scope.csv', 'w' ) as f:
+            with open('Access Control Scopes/CSV/Access Control Scopes.csv', 'w' ) as f:
                 f.write(csv_output)
 
         if "cnwPhysIf" in self.url:
@@ -2085,7 +2085,7 @@ class ACEye():
                 f.write(markdown_output)
 
         if "actrlScope" in self.url:
-            with open('Access Control Scope/Markdown/Access Control Scope.md', 'w' ) as f:
+            with open('Access Control Scopes/Markdown/Access Control Scopes.md', 'w' ) as f:
                 f.write(markdown_output)
 
         if "cnwPhysIf" in self.url:
@@ -2416,7 +2416,7 @@ class ACEye():
                 f.write(html_output)
 
         if "actrlScope" in self.url:
-            with open('Access Control Scope/HTML/Access Control Scope.html', 'w' ) as f:
+            with open('Access Control Scopes/HTML/Access Control Scopes.html', 'w' ) as f:
                 f.write(html_output)
 
         if "cnwPhysIf" in self.url:
@@ -2747,7 +2747,7 @@ class ACEye():
                 f.write(mindmap_output)
 
         if "actrlScope" in self.url:
-            with open('Access Control Scope/Mindmap/Access Control Scope.md', 'w' ) as f:
+            with open('Access Control Scopes/Mindmap/Access Control Scopes.md', 'w' ) as f:
                 f.write(mindmap_output)
 
         if "cnwPhysIf" in self.url:
