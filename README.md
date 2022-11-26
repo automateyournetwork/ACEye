@@ -110,6 +110,8 @@ Equipment Fabric Extenders
 
 Equipment Fabric Ports
 
+Equipment Fans
+
 *Events
 
 Fabric Membership

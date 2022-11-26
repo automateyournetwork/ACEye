@@ -4735,5 +4735,56 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptFan" in api %}
+<h1>Equipment Fans</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Description</th>
+    <th>Direction</th>
+    <th>DN</th>
+    <th>Max Speed</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Speed</th>
+    <th>Status</th>
+    <th>vID</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for fan in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ fan.eqptFan.attributes.id }}</td>
+    <td>{{ fan.eqptFan.attributes.childAction }}</td>
+    <td>{{ fan.eqptFan.attributes.cimcVersion }}</td>
+    <td>{{ fan.eqptFan.attributes.descr }}</td>
+    <td>{{ fan.eqptFan.attributes.dir }}</td>
+    <td>{{ fan.eqptFan.attributes.dn }}</td>
+    <td>{{ fan.eqptFan.attributes.maxSpeed }}</td>
+    <td>{{ fan.eqptFan.attributes.mfgTm }}</td>
+    <td>{{ fan.eqptFan.attributes.modTs }}</td>
+    <td>{{ fan.eqptFan.attributes.model }}</td>
+    <td>{{ fan.eqptFan.attributes.monPolDn }}</td>
+    <td>{{ fan.eqptFan.attributes.operSt }}</td>
+    <td>{{ fan.eqptFan.attributes.rev }}</td>
+    <td>{{ fan.eqptFan.attributes.ser }}</td>
+    <td>{{ fan.eqptFan.attributes.speed }}</td>
+    <td>{{ fan.eqptFan.attributes.status }}</td>
+    <td>{{ fan.eqptFan.attributes.vId }}</td>
+    <td>{{ fan.eqptFan.attributes.vendor }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
