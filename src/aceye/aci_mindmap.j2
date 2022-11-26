@@ -2357,4 +2357,26 @@
 ### Type: {{ array.eqptFpga.attributes.type }}
 ### Vendor: {{ array.eqptFpga.attributes.vendor }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptFt" in api %}
+# Equipment Fan Trays
+{%-     for trays in data_to_template['imdata'] %}
+## ID: {{ trays.eqptFt.attributes.id }}
+### Child Action: {{ trays.eqptFt.attributes.childAction }}
+### CIMC Version: {{ trays.eqptFt.attributes.cimcVersion }}
+### Description: {{ trays.eqptFt.attributes.descr }}
+### DN: {{ trays.eqptFt.attributes.dn }}
+### Fan Name: {{ trays.eqptFt.attributes.fanName }}
+### Fanlet Fail String: {{ trays.eqptFt.attributes.fanletFailString }}
+### Hardware Version: {{ trays.eqptFt.attributes.hwVer }}
+### MFG Timestamp: {{ trays.eqptFt.attributes.mfgTm }}
+### Last Modified: {{ trays.eqptFt.attributes.modTs }}
+### Model: {{ trays.eqptFt.attributes.model }}
+### Monitoring Policy DN: {{ trays.eqptFt.attributes.monPolDn }}
+### Oper State: {{ trays.eqptFt.attributes.operSt }}
+### Revision: {{ trays.eqptFt.attributes.rev }}
+### Serial Number: {{ trays.eqptFt.attributes.ser }}
+### Status: {{ trays.eqptFt.attributes.status }}
+### Vendor: {{ trays.eqptFt.attributes.vendor }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

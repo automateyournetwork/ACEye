@@ -110,6 +110,8 @@ Equipment Fabric Extenders
 
 Equipment Fabric Ports
 
+Equipment Fan Trays
+
 Equipment Fans
 
 Equipment Field Programmable Gate Arrays
