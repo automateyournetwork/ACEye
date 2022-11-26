@@ -185,6 +185,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.equipment_chassis(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_dimms(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -236,6 +238,7 @@ class ACEye():
                     'Equipment Boards',
                     'Equipment Chassis',
                     'Equipment CPUs',
+                    'Equipment DIMMs',
                     'Events',
                     'Fabric Membership',
                     'Fabric Nodes',
@@ -909,6 +912,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def equipment_dimms(self):
+        self.url = f"{ self.aci }/api/node/class/eqptDimm.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment DIMMs code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1237,7 +1247,11 @@ class ACEye():
         if "eqptCh" in self.url:
             with open('Equipment Chassis/JSON/Equipment Chassis.json', 'w' ) as f:
                 f.write(parsed_json)
-    
+
+        if "eqptDimm" in self.url:
+            with open('Equipment DIMMs/JSON/Equipment DIMMs.json', 'w' ) as f:
+                f.write(parsed_json)
+
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
         if "Tenant" in self.url:
@@ -1566,6 +1580,10 @@ class ACEye():
 
         if "eqptCh" in self.url:
             with open('Equipment Chassis/YAML/Equipment Chassis.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "eqptDimm" in self.url:
+            with open('Equipment DIMMs/YAML/Equipment DIMMs.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -1900,6 +1918,10 @@ class ACEye():
 
         if "eqptCh" in self.url:
             with open('Equipment Chassis/CSV/Equipment Chassis.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "eqptDimm" in self.url:
+            with open('Equipment DIMMs/CSV/Equipment DIMMs.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -2237,6 +2259,10 @@ class ACEye():
             with open('Equipment Chassis/Markdown/Equipment Chassis.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "eqptDimm" in self.url:
+            with open('Equipment DIMMs/Markdown/Equipment DIMMs.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2572,6 +2598,10 @@ class ACEye():
             with open('Equipment Chassis/HTML/Equipment Chassis.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "eqptDimm" in self.url:
+            with open('Equipment DIMMs/HTML/Equipment DIMMs.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2905,6 +2935,10 @@ class ACEye():
 
         if "eqptCh" in self.url:
             with open('Equipment Chassis/Mindmap/Equipment Chassis.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "eqptDimm" in self.url:
+            with open('Equipment DIMMs/Mindmap/Equipment DIMMs.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

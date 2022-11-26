@@ -4600,5 +4600,52 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptDimm" in api %}
+<h1>Equipment DIMMs</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Acc</th>
+    <th>Capacity</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>MGF Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Oper State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for dimm in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ dimm.eqptDimm.attributes.id }}</td>
+    <td>{{ dimm.eqptDimm.attributes.acc }}</td>
+    <td>{{ dimm.eqptDimm.attributes.cap }}</td>
+    <td>{{ dimm.eqptDimm.attributes.childAction }}</td>
+    <td>{{ dimm.eqptDimm.attributes.cimcVersion }}</td>
+    <td>{{ dimm.eqptDimm.attributes.descr }}</td>
+    <td>{{ dimm.eqptDimm.attributes.dn }}</td>
+    <td>{{ dimm.eqptDimm.attributes.mfgTm }}</td>
+    <td>{{ dimm.eqptDimm.attributes.modTs }}</td>
+    <td>{{ dimm.eqptDimm.attributes.model }}</td>
+    <td>{{ dimm.eqptDimm.attributes.operSt }}</td>
+    <td>{{ dimm.eqptDimm.attributes.rev }}</td>
+    <td>{{ dimm.eqptDimm.attributes.ser }}</td>
+    <td>{{ dimm.eqptDimm.attributes.status }}</td>
+    <td>{{ dimm.eqptDimm.attributes.type }}</td>
+    <td>{{ dimm.eqptDimm.attributes.vendor }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

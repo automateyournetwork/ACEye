@@ -104,6 +104,8 @@ Equipment Chassis
 
 Equipment CPUs
 
+Equipment DIMMs
+
 *Events
 
 Fabric Membership

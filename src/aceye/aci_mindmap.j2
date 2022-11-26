@@ -2254,4 +2254,25 @@
 ### Vendor: {{ chassis.eqptCh.attributes.vendor }}
 ### Virtual Mode: {{ chassis.eqptCh.attributes.virtualMode }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptDimm" in api %}
+# Equipment DIMMs
+{%-     for dimm in data_to_template['imdata'] %}
+## ID: {{ dimm.eqptDimm.attributes.id }}
+### Acc: {{ dimm.eqptDimm.attributes.acc }}
+### Capacity: {{ dimm.eqptDimm.attributes.cap }}
+### Child Action: {{ dimm.eqptDimm.attributes.childAction }}
+### CIMC Version: {{ dimm.eqptDimm.attributes.cimcVersion }}
+### Description: {{ dimm.eqptDimm.attributes.descr }}
+### DN: {{ dimm.eqptDimm.attributes.dn }}
+### MFG Timestamp: {{ dimm.eqptDimm.attributes.mfgTm }}
+### Last Modified: {{ dimm.eqptDimm.attributes.modTs }}
+### Model: {{ dimm.eqptDimm.attributes.model }}
+### Oper State: {{ dimm.eqptDimm.attributes.operSt }}
+### Revision: {{ dimm.eqptDimm.attributes.rev }}
+### Serial Number: {{ dimm.eqptDimm.attributes.ser }}
+### Status: {{ dimm.eqptDimm.attributes.status }}
+### Type: {{ dimm.eqptDimm.attributes.type }}
+### Vendor: {{ dimm.eqptDimm.attributes.vendor }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
