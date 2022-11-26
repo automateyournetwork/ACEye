@@ -4965,5 +4965,68 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptLC" in api %}
+<h1>Equipment Line Cards</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Hardware Version</th>
+    <th>MAC B</th>
+    <th>MAC L</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Number Ports</th>
+    <th>Oper State</th>
+    <th>Power State</th>
+    <th>rd State</th>
+    <th>Revision</th>
+    <th>Serial</th>
+    <th>Status</th>
+    <th>Software CID</th>
+    <th>Type</th>
+    <th>Uptime</th>
+    <th>vID</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for card in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ card.eqptLC.attributes.id }}</td>
+    <td>{{ card.eqptLC.attributes.childAction }}</td>
+    <td>{{ card.eqptLC.attributes.cimcVersion }}</td>
+    <td>{{ card.eqptLC.attributes.descr }}</td>
+    <td>{{ card.eqptLC.attributes.dn }}</td>
+    <td>{{ card.eqptLC.attributes.hwVer }}</td>
+    <td>{{ card.eqptLC.attributes.macB }}</td>
+    <td>{{ card.eqptLC.attributes.macL }}</td>
+    <td>{{ card.eqptLC.attributes.mfgTm }}</td>
+    <td>{{ card.eqptLC.attributes.modTs }}</td>
+    <td>{{ card.eqptLC.attributes.model }}</td>
+    <td>{{ card.eqptLC.attributes.monPolDn }}</td>
+    <td>{{ card.eqptLC.attributes.numP }}</td>
+    <td>{{ card.eqptLC.attributes.operSt }}</td>
+    <td>{{ card.eqptLC.attributes.pwrSt }}</td>
+    <td>{{ card.eqptLC.attributes.rdSt }}</td>
+    <td>{{ card.eqptLC.attributes.rev }}</td>
+    <td>{{ card.eqptLC.attributes.ser }}</td>
+    <td>{{ card.eqptLC.attributes.status }}</td>
+    <td>{{ card.eqptLC.attributes.swCId }}</td>
+    <td>{{ card.eqptLC.attributes.type }}</td>
+    <td>{{ card.eqptLC.attributes.upTs }}</td>
+    <td>{{ card.eqptLC.attributes.vId }}</td>
+    <td>{{ card.eqptLC.attributes.vendor }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

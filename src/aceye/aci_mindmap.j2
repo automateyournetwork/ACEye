@@ -2417,4 +2417,35 @@
 ### Type: {{ led.eqptIndLed.attributes.type }}
 ### Vendor: {{ led.eqptIndLed.attributes.vendor }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptLC" in api %}
+# Equipment Line Cards
+{%-     for card in data_to_template['imdata'] %}
+## ID: {{ card.eqptLC.attributes.id }}
+### Child Action: {{ card.eqptLC.attributes.childAction }}
+### CIMC Version: {{ card.eqptLC.attributes.cimcVersion }}
+### Description: {{ card.eqptLC.attributes.descr }}
+### DN: {{ card.eqptLC.attributes.dn }}
+### Hardware Version: {{ card.eqptLC.attributes.hwVer }}
+### MAC
+#### B: {{ card.eqptLC.attributes.macB }}
+#### L: {{ card.eqptLC.attributes.macL }}
+### MFG Timestamp: {{ card.eqptLC.attributes.mfgTm }}
+### Last Modified: {{ card.eqptLC.attributes.modTs }}
+### Model: {{ card.eqptLC.attributes.model }}
+### Monitoring Policy DN: {{ card.eqptLC.attributes.monPolDn }}
+### Number of Ports: {{ card.eqptLC.attributes.numP }}
+### State
+#### Oper: {{ card.eqptLC.attributes.operSt }}
+#### Power: {{ card.eqptLC.attributes.pwrSt }}
+#### rd: {{ card.eqptLC.attributes.rdSt }}
+### Revision: {{ card.eqptLC.attributes.rev }}
+### Serial Number: {{ card.eqptLC.attributes.ser }}
+### Status: {{ card.eqptLC.attributes.status }}
+### Software CID: {{ card.eqptLC.attributes.swCId }}
+### Type: {{ card.eqptLC.attributes.type }}
+### Uptime: {{ card.eqptLC.attributes.upTs }}
+### vID: {{ card.eqptLC.attributes.vId }}
+### Vendor: {{ card.eqptLC.attributes.vendor }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
