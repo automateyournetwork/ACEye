@@ -5625,5 +5625,62 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptStorage" in api %}
+<h1>Equipment Storage</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Available</th>
+    <th>Blocks</th>
+    <th>Capacity Utilized</th>
+    <th>Child Action</th>
+    <th>Device</th>
+    <th>DN</th>
+    <th>Fail Reason</th>
+    <th>File System</th>
+    <th>Firmware Version</th>
+    <th>Local Owner</th>
+    <th>Media Wearout</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Mount</th>
+    <th>Oper State</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Used</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for storage in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ stoage.eqptStorage.attributes.name }}</td>
+    <td>{{ stoage.eqptStorage.attributes.nameAlias }}</td>
+    <td>{{ stoage.eqptStorage.attributes.available }}</td>
+    <td>{{ stoage.eqptStorage.attributes.blocks }}</td>
+    <td>{{ stoage.eqptStorage.attributes.capUtilized }}</td>
+    <td>{{ stoage.eqptStorage.attributes.childAction }}</td>
+    <td>{{ stoage.eqptStorage.attributes.device }}</td>
+    <td>{{ stoage.eqptStorage.attributes.dn }}</td>
+    <td>{{ stoage.eqptStorage.attributes.failReason }}</td>
+    <td>{{ stoage.eqptStorage.attributes.fileSystem }}</td>
+    <td>{{ stoage.eqptStorage.attributes.firmwareVersion }}</td>
+    <td>{{ stoage.eqptStorage.attributes.lcOwn }}</td>
+    <td>{{ stoage.eqptStorage.attributes.mediaWearout }}</td>
+    <td>{{ stoage.eqptStorage.attributes.modTs }}</td>
+    <td>{{ stoage.eqptStorage.attributes.model }}</td>
+    <td>{{ stoage.eqptStorage.attributes.monPolDn }}</td>
+    <td>{{ stoage.eqptStorage.attributes.mount }}</td>
+    <td>{{ stoage.eqptStorage.attributes.operSt }}</td>
+    <td>{{ stoage.eqptStorage.attributes.serial }}</td>
+    <td>{{ stoage.eqptStorage.attributes.status }}</td>
+    <td>{{ stoage.eqptStorage.attributes.used }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

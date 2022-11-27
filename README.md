@@ -146,6 +146,8 @@ Equipment SPROM Power Supply Blocks
 
 Equipment SPROM Supervisors
 
+Equipment Storage
+
 *Events
 
 Fabric Membership

@@ -2725,4 +2725,31 @@
 ### Type: {{ sup.eqptSpromSup.attributes.type }}
 ### Vendor: {{ sup.eqptSpromSup.attributes.vendor }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptStorage" in api %}
+# Equipment Storage
+{%-     for storage in data_to_template['imdata'] %}
+## Name: {{ stoage.eqptStorage.attributes.name }}
+### Name Alias: {{ stoage.eqptStorage.attributes.nameAlias }}
+### Capacity
+#### Available:  {{ stoage.eqptStorage.attributes.available }}
+#### Used: {{ stoage.eqptStorage.attributes.used }}
+#### Utilized: {{ stoage.eqptStorage.attributes.capUtilized }}
+### Blocks: {{ stoage.eqptStorage.attributes.blocks }}
+### Child Action: {{ stoage.eqptStorage.attributes.childAction }}
+### Device: {{ stoage.eqptStorage.attributes.device }}
+### DN: {{ stoage.eqptStorage.attributes.dn }}
+### Fail Reason: {{ stoage.eqptStorage.attributes.failReason }}
+### File System: {{ stoage.eqptStorage.attributes.fileSystem }}
+### Firmware Version: {{ stoage.eqptStorage.attributes.firmwareVersion }}
+### Local Owner: {{ stoage.eqptStorage.attributes.lcOwn }}
+### Media Wearout: {{ stoage.eqptStorage.attributes.mediaWearout }}
+### Last Modified: {{ stoage.eqptStorage.attributes.modTs }}
+### Model: {{ stoage.eqptStorage.attributes.model }}
+### Monitoring Policy DN: {{ stoage.eqptStorage.attributes.monPolDn }}
+### Mount: {{ stoage.eqptStorage.attributes.mount }}
+### Oper State: {{ stoage.eqptStorage.attributes.operSt }}
+### Serial Number: {{ stoage.eqptStorage.attributes.serial }}
+### Status: {{ stoage.eqptStorage.attributes.status }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
