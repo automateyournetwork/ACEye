@@ -2648,4 +2648,28 @@
 ### Type: {{ lc.eqptSpromLc.attributes.type }}
 ### Vendor: {{ lc.eqptSpromLc.attributes.vendor }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptSpromPsu" in api %}
+# Equipment SPROM LCs
+{%-     for psu in data_to_template['imdata'] %}
+## ID: {{ psu.eqptSpromLc.attributes.id }}
+### Access: {{ psu.eqptSpromLc.attributes.acc }}
+### Capacity: {{ psu.eqptSpromLc.attributes.cap }}
+### Child Action: {{ psu.eqptSpromLc.attributes.childAction }}
+### CIMC Version: {{ psu.eqptSpromLc.attributes.cimcVersion }}
+### Description: {{ psu.eqptSpromLc.attributes.descr }}
+### DN: {{ psu.eqptSpromLc.attributes.dn }}
+### Error Reason: {{ psu.eqptSpromLc.attributes.errRsn }}
+### MFG Timestamp: {{ psu.eqptSpromLc.attributes.mfgTm }}
+### Last Modified: {{ psu.eqptSpromLc.attributes.modTs }}
+### Model: {{ psu.eqptSpromLc.attributes.model }}
+### Monitoring Policy DN: {{ psu.eqptSpromLc.attributes.monPolDn }}
+### Number Blocks: {{ psu.eqptSpromLc.attributes.numBlk }}
+### Oper State: {{ psu.eqptSpromLc.attributes.operSt }}
+### Revision: {{ psu.eqptSpromLc.attributes.rev }}
+### Serial Number: {{ psu.eqptSpromLc.attributes.ser }}
+### Status: {{ psu.eqptSpromLc.attributes.status }}
+### Type: {{ psu.eqptSpromLc.attributes.type }}
+### Vendor: {{ psu.eqptSpromLc.attributes.vendor }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

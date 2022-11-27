@@ -219,6 +219,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.equipment_sprom_lc(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_sprom_psu(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -288,6 +290,7 @@ class ACEye():
                     'Equipment Sensors',
                     'Equipment SP Common Blocks',
                     'Equipment SPROM LCs',
+                    'Equipment SPROM Power Supplies',
                     'Events',
                     'Fabric Membership',
                     'Fabric Nodes',
@@ -1087,6 +1090,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def equipment_sprom_psu(self):
+        self.url = f"{ self.aci }/api/node/class/eqptSpromPsu.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment SPROM Power Supplies code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1486,6 +1496,10 @@ class ACEye():
 
         if "eqptSpromLc" in self.url:
             with open('Equipment SPROM LCs/JSON/Equipment SPROM LCs.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "eqptSpromPsu" in self.url:
+            with open('Equipment SPROM Power Supplies/JSON/Equipment SPROM Power Supplies.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -1888,6 +1902,10 @@ class ACEye():
 
         if "eqptSpromLc" in self.url:
             with open('Equipment SPROM LCs/YAML/Equipment SPROM LCs.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "eqptSpromPsu" in self.url:
+            with open('Equipment SPROM Power Supplies/YAML/Equipment SPROM Power Supplies.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -2294,6 +2312,10 @@ class ACEye():
 
         if "eqptSpromLc" in self.url:
             with open('Equipment SPROM LCs/CSV/Equipment SPROM LCs.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "eqptSpromPsu" in self.url:
+            with open('Equipment SPROM Power Supplies/CSV/Equipment SPROM Power Supplies.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -2703,6 +2725,10 @@ class ACEye():
             with open('Equipment SPROM LCs/Markdown/Equipment SPROM LCs.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "eqptSpromPsu" in self.url:
+            with open('Equipment SPROM Power Supplies/Markdown/Equipment SPROM Power Supplies.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3110,6 +3136,10 @@ class ACEye():
             with open('Equipment SPROM LCs/HTML/Equipment SPROM LCs.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "eqptSpromPsu" in self.url:
+            with open('Equipment SPROM Power Supplies/HTML/Equipment SPROM Power Supplies.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3511,6 +3541,10 @@ class ACEye():
 
         if "eqptSpromLc" in self.url:
             with open('Equipment SPROM LCs/Mindmap/Equipment SPROM LCs.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "eqptSpromPsu" in self.url:
+            with open('Equipment SPROM Power Supplies/Mindmap/Equipment SPROM Power Supplies.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

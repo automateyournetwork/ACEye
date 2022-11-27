@@ -140,6 +140,8 @@ Equipment SP Common Blocks
 
 Equipment SPROM LCs
 
+Equipment SPROM Power Supplies
+
 *Events
 
 Fabric Membership
