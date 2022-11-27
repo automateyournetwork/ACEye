@@ -148,6 +148,8 @@ Equipment SPROM Supervisors
 
 Equipment Storage
 
+Equipment Supervisor Slots
+
 Equipment Supervisors
 
 *Events

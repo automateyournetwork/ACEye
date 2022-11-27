@@ -2754,8 +2754,25 @@
 {%-     endfor %}
 {%- else %}
 {%- if "eqptSupC" in api %}
+{%-     if "Slot" in api %}
+# Equipment Supervisor Slots
+{%-         for slot in data_to_template['imdata'] %}
+## ID: {{ slot.eqptSupCSlot.attributes.id }}
+### Card Oper State: {{ slot.eqptSupCSlot.attributes.cardOperSt }}
+### Child Action: {{ slot.eqptSupCSlot.attributes.childAction }}
+### Description: {{ slot.eqptSupCSlot.attributes.descr }}
+### DN: {{ slot.eqptSupCSlot.attributes.dn }}
+### Location: {{ slot.eqptSupCSlot.attributes.loc }}
+### Last Modified: {{ slot.eqptSupCSlot.attributes.modTs }}
+### Monitoring Policy DN: {{ slot.eqptSupCSlot.attributes.monPolDn }}
+### Oper State: {{ slot.eqptSupCSlot.attributes.operSt }}
+### Physical ID: {{ slot.eqptSupCSlot.attributes.physId }}
+### Status: {{ slot.eqptSupCSlot.attributes.status }}
+### Type: {{ slot.eqptSupCSlot.attributes.type }}
+{%-         endfor %}
+{%-     else %}
 # Equipment Supervisors
-{%-     for supervisor in data_to_template['imdata'] %}
+{%-         for supervisor in data_to_template['imdata'] %}
 ## ID: {{ supervisor.eqptSupC.attributes.id }}
 ### Child Action: {{ supervisor.eqptSupC.attributes.childAction }}
 ### CIMC Version: {{ supervisor.eqptSupC.attributes.cimcVersion }}
@@ -2782,5 +2799,6 @@
 ### Uptime: {{ supervisor.eqptSupC.attributes.upTs }}
 ### vID: {{ supervisor.eqptSupC.attributes.vId }}
 ### Vendor: {{ supervisor.eqptSupC.attributes.vendor }}
-{%-     endfor %}
+{%-         endfor %}
+{%-     endif %}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
