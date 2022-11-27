@@ -138,6 +138,8 @@ Equipment Sensors
 
 Equipment SP Common Blocks
 
+Equipment SPROM LCs
+
 *Events
 
 Fabric Membership

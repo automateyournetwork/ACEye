@@ -2624,4 +2624,28 @@
 ### Vendor ID: {{ common_block.eqptSpCmnBlk.attributes.vdrId }}
 ### Version: {{ common_block.eqptSpCmnBlk.attributes.ver }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptSpromLc" in api %}
+# Equipment SPROM LCs
+{%-     for lc in data_to_template['imdata'] %}
+## ID: {{ lc.eqptSpromLc.attributes.id }}
+### Access: {{ lc.eqptSpromLc.attributes.acc }}
+### Capacity: {{ lc.eqptSpromLc.attributes.cap }}
+### Child Action: {{ lc.eqptSpromLc.attributes.childAction }}
+### CIMC Version: {{ lc.eqptSpromLc.attributes.cimcVersion }}
+### Description: {{ lc.eqptSpromLc.attributes.descr }}
+### DN: {{ lc.eqptSpromLc.attributes.dn }}
+### Error Reason: {{ lc.eqptSpromLc.attributes.errRsn }}
+### MFG Timestamp: {{ lc.eqptSpromLc.attributes.mfgTm }}
+### Last Modified: {{ lc.eqptSpromLc.attributes.modTs }}
+### Model: {{ lc.eqptSpromLc.attributes.model }}
+### Monitoring Policy DN: {{ lc.eqptSpromLc.attributes.monPolDn }}
+### Number Blocks: {{ lc.eqptSpromLc.attributes.numBlk }}
+### Oper State: {{ lc.eqptSpromLc.attributes.operSt }}
+### Revision: {{ lc.eqptSpromLc.attributes.rev }}
+### Serial Number: {{ lc.eqptSpromLc.attributes.ser }}
+### Status: {{ lc.eqptSpromLc.attributes.status }}
+### Type: {{ lc.eqptSpromLc.attributes.type }}
+### Vendor: {{ lc.eqptSpromLc.attributes.vendor }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
