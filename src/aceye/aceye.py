@@ -205,6 +205,32 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.equipment_leaf_ports(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_port_locator_leds(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)        
+        parsed_json = json.dumps(self.equipment_power_supplies(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_power_supply_slots(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_rs_io(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_sensors(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_sp_cmn_blk(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_sprom_lc(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_sprom_psu(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_sprom_psu_blocks(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_sprom_supervisors(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_storage(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_supervisors(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_supervisor_slots(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -267,6 +293,19 @@ class ACEye():
                     'Equipment Leaf Ports',
                     'Equipment Line Card Slots',
                     'Equipment Line Cards',
+                    'Equipment Port Locator LEDs',
+                    'Equipment Power Supplies',
+                    'Equipment Power Supply Slots',
+                    'Equipment RS IO Port Physical Configs',
+                    'Equipment Sensors',
+                    'Equipment SP Common Blocks',
+                    'Equipment SPROM LCs',
+                    'Equipment SPROM Power Supplies',
+                    'Equipment SPROM Power Supply Blocks',
+                    'Equipment SPROM Supervisors',
+                    'Equipment Storage',
+                    'Equipment Supervisor Slots',
+                    'Equipment Supervisors',
                     'Events',
                     'Fabric Membership',
                     'Fabric Nodes',
@@ -1017,6 +1056,97 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def equipment_port_locator_leds(self):
+        self.url = f"{ self.aci }/api/node/class/eqptLocLed.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment Port Locator LEDs code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def equipment_power_supplies(self):
+        self.url = f"{ self.aci }/api/node/class/eqptPsu.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment Power Supplies code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def equipment_power_supply_slots(self):
+        self.url = f"{ self.aci }/api/node/class/eqptPsuSlot.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment Power Supply Slots code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def equipment_rs_io(self):
+        self.url = f"{ self.aci }/api/node/class/eqptRsIoPPhysConf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment RS IO Port Physical Configuration code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def equipment_sensors(self):
+        self.url = f"{ self.aci }/api/node/class/eqptSensor.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment Sensors code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def equipment_sp_cmn_blk(self):
+        self.url = f"{ self.aci }/api/node/class/eqptSpCmnBlk.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment SP Common Blocks code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def equipment_sprom_lc(self):
+        self.url = f"{ self.aci }/api/node/class/eqptSpromLc.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment SPROM LC code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def equipment_sprom_psu(self):
+        self.url = f"{ self.aci }/api/node/class/eqptSpromPsu.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment SPROM Power Supplies code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def equipment_sprom_psu_blocks(self):
+        self.url = f"{ self.aci }/api/node/class/eqptSpromPsuBlk.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment SPROM Power Supply Blocks code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def equipment_sprom_supervisors(self):
+        self.url = f"{ self.aci }/api/node/class/eqptSpromSup.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment SPROM Supervisors code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def equipment_storage(self):
+        self.url = f"{ self.aci }/api/node/class/eqptStorage.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment Storage code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def equipment_supervisors(self):
+        self.url = f"{ self.aci }/api/node/class/eqptSupC.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment Supervisors code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def equipment_supervisor_slots(self):
+        self.url = f"{ self.aci }/api/node/class/eqptSupCSlot.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment Supervisor Slots code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1389,6 +1519,58 @@ class ACEye():
         if "eqptLeafP" in self.url:
             with open('Equipment Leaf Ports/JSON/Equipment Leaf Ports.json', 'w' ) as f:
                 f.write(parsed_json)
+
+        if "eqptLocLed" in self.url:
+            with open('Equipment Port Locator LEDs/JSON/Equipment Port Locator LEDs.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "eqptPsu" in self.url:
+            if "Slot" in self.url:
+                with open('Equipment Power Supply Slots/JSON/Equipment Power Supply Slots.json', 'w' ) as f:
+                    f.write(parsed_json)
+            else:
+                with open('Equipment Power Supplies/JSON/Equipment Power Supplies.json', 'w' ) as f:
+                    f.write(parsed_json)
+
+        if "eqptRsIoPPhysConf" in self.url:
+            with open('Equipment RS IO Port Physical Configs/JSON/Equipment RS IO Port Physical Configs.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "eqptSensor" in self.url:
+            with open('Equipment Sensors/JSON/Equipment Sensors.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "eqptSpCmnBlk" in self.url:
+            with open('Equipment SP Common Blocks/JSON/Equipment SP Common Blocks.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "eqptSpromLc" in self.url:
+            with open('Equipment SPROM LCs/JSON/Equipment SPROM LCs.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "eqptSpromPsu" in self.url:
+            if "Blk" in self.url:
+                with open('Equipment SPROM Power Supply Blocks/JSON/Equipment SPROM Power Supply Blocks.json', 'w' ) as f:
+                    f.write(parsed_json)
+            else: 
+                with open('Equipment SPROM Power Supplies/JSON/Equipment SPROM Power Supplies.json', 'w' ) as f:
+                    f.write(parsed_json)
+
+        if "eqptSpromSup" in self.url:
+            with open('Equipment SPROM Supervisors/JSON/Equipment SPROM Supervisors.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "eqptStorage" in self.url:
+            with open('Equipment Storage/JSON/Equipment Storage.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "eqptSupC" in self.url:
+            if "Slot" in self.url:
+                with open('Equipment Supervisor Slots/JSON/Equipment Supervisor Slots.json', 'w' ) as f:
+                    f.write(parsed_json)
+            else:
+                with open('Equipment Supervisors/JSON/Equipment Supervisors.json', 'w' ) as f:
+                    f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
@@ -1763,6 +1945,58 @@ class ACEye():
         if "eqptLeafP" in self.url:
             with open('Equipment Leaf Ports/YAML/Equipment Leaf Ports.yaml', 'w' ) as f:
                 f.write(clean_yaml)
+
+        if "eqptLocLed" in self.url:
+            with open('Equipment Port Locator LEDs/YAML/Equipment Port Locator LEDs.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "eqptPsu" in self.url:
+            if "Slot" in self.url:
+                with open('Equipment Power Supply Slots/YAML/Equipment Power Supply Slots.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
+            else:
+                with open('Equipment Power Supplies/YAML/Equipment Power Supplies.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
+
+        if "eqptRsIoPPhysConf" in self.url:
+            with open('Equipment RS IO Port Physical Configs/YAML/Equipment RS IO Port Physical Configs.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "eqptSensor" in self.url:
+            with open('Equipment Sensors/YAML/Equipment Sensors.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "eqptSpCmnBlk" in self.url:
+            with open('Equipment SP Common Blocks/YAML/Equipment SP Common Blocks.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "eqptSpromLc" in self.url:
+            with open('Equipment SPROM LCs/YAML/Equipment SPROM LCs.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "eqptSpromPsu" in self.url:
+            if "Blk" in self.url:
+                with open('Equipment SPROM Power Supply Blocks/YAML/Equipment SPROM Power Supply Blocks.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
+            else:            
+                with open('Equipment SPROM Power Supplies/YAML/Equipment SPROM Power Supplies.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
+
+        if "eqptSpromSup" in self.url:
+            with open('Equipment SPROM Supervisors/YAML/Equipment SPROM Supervisors.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "eqptStorage" in self.url:
+            with open('Equipment Storage/YAML/Equipment Storage.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "eqptSupC" in self.url:
+            if "Slot" in self.url:
+                with open('Equipment Supervisor Slots/YAML/Equipment Supervisor Slots.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
+            else:
+                with open('Equipment Supervisors/YAML/Equipment Supervisors.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -2141,6 +2375,58 @@ class ACEye():
         if "eqptLeafP" in self.url:
             with open('Equipment Leaf Ports/CSV/Equipment Leaf Ports.csv', 'w' ) as f:
                 f.write(csv_output)
+
+        if "eqptLocLed" in self.url:
+            with open('Equipment Port Locator LEDs/CSV/Equipment Port Locator LEDs.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "eqptPsu" in self.url:
+            if "Slot" in self.url:
+                with open('Equipment Power Supply Slots/CSV/Equipment Power Supply Slots.csv', 'w' ) as f:
+                    f.write(csv_output)
+            else:
+                with open('Equipment Power Supplies/CSV/Equipment Power Supplies.csv', 'w' ) as f:
+                    f.write(csv_output)
+
+        if "eqptRsIoPPhysConf" in self.url:
+            with open('Equipment RS IO Port Physical Configs/CSV/Equipment RS IO Port Physical Configs.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "eqptSensor" in self.url:
+            with open('Equipment Sensors/CSV/Equipment Sensors.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "eqptSpCmnBlk" in self.url:
+            with open('Equipment SP Common Blocks/CSV/Equipment SP Common Blocks.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "eqptSpromLc" in self.url:
+            with open('Equipment SPROM LCs/CSV/Equipment SPROM LCs.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "eqptSpromPsu" in self.url:
+            if "Blk" in self.url:
+                with open('Equipment SPROM Power Supply Blocks/CSV/Equipment SPROM Power Supply Blocks.csv', 'w' ) as f:
+                    f.write(csv_output)
+            else:
+                with open('Equipment SPROM Power Supplies/CSV/Equipment SPROM Power Supplies.csv', 'w' ) as f:
+                    f.write(csv_output)
+
+        if "eqptSpromSup" in self.url:
+            with open('Equipment SPROM Supervisors/CSV/Equipment SPROM Supervisors.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "eqptStorage" in self.url:
+            with open('Equipment Storage/CSV/Equipment Storage.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "eqptSupC" in self.url:
+            if "Slot" in self.url:
+                with open('Equipment Supervisor Slots/CSV/Equipment Supervisor Slots.csv', 'w' ) as f:
+                    f.write(csv_output)
+            else:
+                with open('Equipment Supervisors/CSV/Equipment Supervisors.csv', 'w' ) as f:
+                    f.write(csv_output)
 
     def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -2521,6 +2807,58 @@ class ACEye():
             with open('Equipment Leaf Ports/Markdown/Equipment Leaf Ports.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "eqptLocLed" in self.url:
+            with open('Equipment Port Locator LEDs/Markdown/Equipment Port Locator LEDs.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "eqptPsu" in self.url:
+            if "Slot" in self.url:
+                with open('Equipment Power Supply Slots/Markdown/Equipment Power Supply Slots.md', 'w' ) as f:
+                    f.write(markdown_output)
+            else:
+                with open('Equipment Power Supplies/Markdown/Equipment Power Supplies.md', 'w' ) as f:
+                    f.write(markdown_output)
+
+        if "eqptRsIoPPhysConf" in self.url:
+            with open('Equipment RS IO Port Physical Configs/Markdown/Equipment RS IO Port Physical Configs.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "eqptSensor" in self.url:
+            with open('Equipment Sensors/Markdown/Equipment Sensors.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "eqptSpCmnBlk" in self.url:
+            with open('Equipment SP Common Blocks/Markdown/Equipment SP Common Blocks.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "eqptSpromLc" in self.url:
+            with open('Equipment SPROM LCs/Markdown/Equipment SPROM LCs.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "eqptSpromPsu" in self.url:
+            if "Blk" in self.url:
+                with open('Equipment SPROM Power Supply Blocks/Markdown/Equipment SPROM Power Supply Blocks.md', 'w' ) as f:
+                    f.write(markdown_output)
+            else:
+                with open('Equipment SPROM Power Supplies/Markdown/Equipment SPROM Power Supplies.md', 'w' ) as f:
+                    f.write(markdown_output)
+
+        if "eqptSpromSup" in self.url:
+            with open('Equipment SPROM Supervisors/Markdown/Equipment SPROM Supervisors.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "eqptStorage" in self.url:
+            with open('Equipment Storage/Markdown/Equipment Storage.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "eqptSupC" in self.url:
+            if "Slot" in self.url:
+                with open('Equipment Supervisor Slots/Markdown/Equipment Supervisor Slots.md', 'w' ) as f:
+                    f.write(markdown_output)
+            else:
+                with open('Equipment Supervisors/Markdown/Equipment Supervisors.md', 'w' ) as f:
+                    f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2900,6 +3238,58 @@ class ACEye():
             with open('Equipment Leaf Ports/HTML/Equipment Leaf Ports.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "eqptLocLed" in self.url:
+            with open('Equipment Port Locator LEDs/HTML/Equipment Port Locator LEDs.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "eqptPsu" in self.url:
+            if "Slot" in self.url:
+                with open('Equipment Power Supply Slots/HTML/Equipment Power Supply Slots.html', 'w' ) as f:
+                    f.write(html_output)
+            else:            
+                with open('Equipment Power Supplies/HTML/Equipment Power Supplies.html', 'w' ) as f:
+                    f.write(html_output)
+
+        if "eqptRsIoPPhysConf" in self.url:
+            with open('Equipment RS IO Port Physical Configs/HTML/Equipment RS IO Port Physical Configs.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "eqptSensor" in self.url:
+            with open('Equipment Sensors/HTML/Equipment Sensors.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "eqptSpCmnBlk" in self.url:
+            with open('Equipment SP Common Blocks/HTML/Equipment SP Common Blocks.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "eqptSpromLc" in self.url:
+            with open('Equipment SPROM LCs/HTML/Equipment SPROM LCs.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "eqptSpromPsu" in self.url:
+            if "Blk" in self.url:
+                with open('Equipment SPROM Power Supply Blocks/HTML/Equipment SPROM Power Supply Blocks.html', 'w' ) as f:
+                    f.write(html_output)
+            else:
+                with open('Equipment SPROM Power Supplies/HTML/Equipment SPROM Power Supplies.html', 'w' ) as f:
+                    f.write(html_output)
+
+        if "eqptSpromSup" in self.url:
+            with open('Equipment SPROM Supervisors/HTML/Equipment SPROM Supervisors.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "eqptStorage" in self.url:
+            with open('Equipment Storage/HTML/Equipment Storage.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "eqptSupC" in self.url:
+            if "Slot" in self.url:
+                with open('Equipment Supervisor Slots/HTML/Equipment Supervisor Slots.html', 'w' ) as f:
+                    f.write(html_output)
+            else:
+                with open('Equipment Supervisors/HTML/Equipment Supervisors.html', 'w' ) as f:
+                    f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3274,6 +3664,58 @@ class ACEye():
         if "eqptLeafP" in self.url:
             with open('Equipment Leaf Ports/Mindmap/Equipment Leaf Ports.md', 'w' ) as f:
                 f.write(mindmap_output)
+
+        if "eqptLocLed" in self.url:
+            with open('Equipment Port Locator LEDs/Mindmap/Equipment Port Locator LEDs.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "eqptPsu" in self.url:
+            if "Slot" in self.url:
+                with open('Equipment Power Supply Slots/Mindmap/Equipment Power Supply Slots.md', 'w' ) as f:
+                    f.write(mindmap_output)
+            else:
+                with open('Equipment Power Supplies/Mindmap/Equipment Power Supplies.md', 'w' ) as f:
+                    f.write(mindmap_output)
+
+        if "eqptRsIoPPhysConf" in self.url:
+            with open('Equipment RS IO Port Physical Configs/Mindmap/Equipment RS IO Port Physical Configs.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "eqptSensor" in self.url:
+            with open('Equipment Sensors/Mindmap/Equipment Sensors.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "eqptSpCmnBlk" in self.url:
+            with open('Equipment SP Common Blocks/Mindmap/Equipment SP Common Blocks.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "eqptSpromLc" in self.url:
+            with open('Equipment SPROM LCs/Mindmap/Equipment SPROM LCs.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "eqptSpromPsu" in self.url:
+            if "Blk" in self.url:
+                with open('Equipment SPROM Power Supply Blocks/Mindmap/Equipment SPROM Power Supply Blocks.md', 'w' ) as f:
+                    f.write(mindmap_output)
+            else:
+                with open('Equipment SPROM Power Supplies/Mindmap/Equipment SPROM Power Supplies.md', 'w' ) as f:
+                    f.write(mindmap_output)
+
+        if "eqptSpromSup" in self.url:
+            with open('Equipment SPROM Supervisors/Mindmap/Equipment SPROM Supervisors.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "eqptStorage" in self.url:
+            with open('Equipment Storage/Mindmap/Equipment Storage.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "eqptSupC" in self.url:
+            if "Slot" in self.url:
+                with open('Equipment Supervisor Slots/Mindmap/Equipment Supervisor Slots.md', 'w' ) as f:
+                    f.write(mindmap_output)
+            else:
+                with open('Equipment Supervisors/Mindmap/Equipment Supervisors.md', 'w' ) as f:
+                    f.write(mindmap_output)
 
     def all_files(self, parsed_json):
         self.json_file(parsed_json)

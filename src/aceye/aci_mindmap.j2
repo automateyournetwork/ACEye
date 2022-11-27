@@ -35,8 +35,7 @@
 ### TX ID: {{ epg.fvAEPg.attributes.txId }}
 ### Modified Timestamp: {{ epg.fvAEPg.attributes.modTs }}
 {%-     endfor %}
-{%- else %}
-{%- if "BD" in api %}
+{%- elif "BD" in api %}
 # Bridge Domains
 {%-     for bd in data_to_template['imdata'] %}
 ## {{ bd.fvBD.attributes.name }}
@@ -86,8 +85,7 @@
 ### Virtual MAC: {{ bd.fvBD.attributes.vmac }}
 ### Modified Timestamp: {{ bd.fvBD.attributes.modTs }}
 {%-     endfor %}
-{%- else %}
-{%- if "Ctx" in api %}
+{%- elif "Ctx" in api %}
 # Contexts
 {%-     for context in data_to_template['imdata'] %}
 ## {{ context.fvCtx.attributes.name }}
@@ -121,8 +119,7 @@
 #### Index: {{ context.fvCtx.attributes.vrfIndex }}
 ### Modified Timestamp: {{ context.fvCtx.attributes.modTs }}
 {%-     endfor %}
-{%- else %}
-{%- if "Ap" in api %}
+{%- elif "Ap" in api %}
 # Application Profiles
 {%-     for application_profile in data_to_template['imdata'] %}
 ## {{ application_profile.fvAp.attributes.name }}
@@ -143,8 +140,7 @@
 ### Priority: {{ application_profile.fvAp.attributes.prio }}
 ### Modified Timestamp: {{ application_profile.fvAp.attributes.modTs }}
 {%-     endfor %}
-{%- else %}
-{%- if "l3extOut" in api %}
+{%- elif "l3extOut" in api %}
 # L3Outs
 {%-     for l3out in data_to_template['imdata'] %}
 ## {{ l3out.l3extOut.attributes.name }}
@@ -167,8 +163,7 @@
 ### Target DSCP: {{ l3out.l3extOut.attributes.targetDscp }}
 ### Modified Timestamp: {{ l3out.l3extOut.attributes.modTs }}
 {%-     endfor %}
-{%- else %}
-{%- if "l2extOut" in api %}
+{%- elif "l2extOut" in api %}
 # L2Outs
 {%-     for l2out in data_to_template['imdata'] %}
 ## Name: {{ l2out.l2extOut.attributes.name }}
@@ -189,8 +184,7 @@
 ### UID: {{ l2out.l2extOut.attributes.uid }}
 ### User Domain: {{ l2out.l2extOut.attributes.userdom }}
 {%-     endfor %}
-{%- else %}
-{%- if "Subnet" in api %}
+{%- elif "Subnet" in api %}
 # Subnets
 {%-     for subnet in data_to_template['imdata'] %}
 ## Name: {{ subnet.fvSubnet.attributes.name }}
@@ -215,8 +209,7 @@
 ## Virtual: {{ subnet.fvSubnet.attributes.virtual }}
 ## Last Modified: {{ subnet.fvSubnet.attributes.modTs }}
 {%-     endfor %}
-{%- else %}
-{%- if "CEp" in api %}
+{%- elif "CEp" in api %}
 # Endpoints
 {%-     for endpoint in data_to_template['imdata'] %}
 ## Name: {{ endpoint.fvCEp.attributes.name }}
@@ -246,8 +239,7 @@
 ### VMM Source: {{ endpoint.fvCEp.attributes.vmmSrc }}
 ### VRF DN: {{ endpoint.fvCEp.attributes.vrfDn }}
 {%-     endfor %}
-{%- else %}
-{%- if "fabricNode" in api %}
+{%- elif "fabricNode" in api %}
 # Fabric Nodes
 {%-     for node in data_to_template['imdata'] %}
 ## Name: {{ node.fabricNode.attributes.name }}
@@ -276,8 +268,7 @@
 ### Vendor: {{ node.fabricNode.attributes.vendor }}
 ### Version: {{ node.fabricNode.attributes.version }}
 {%-     endfor %}
-{%- else %}
-{%- if "l1PhysIf" in api %}
+{%- elif "l1PhysIf" in api %}
 # Physical Interfaces
 {%-     for outer_list in data_to_template %}
 {%-         for interface in outer_list %}
@@ -330,8 +321,7 @@
 ### Usage: {{ interface.l1PhysIf.attributes.usage }}
 {%-         endfor %}
 {%-     endfor %}
-{%- else %}
-{%- if "infraAccPortP" in api %}
+{%- elif "infraAccPortP" in api %}
 # Leaf Interface Profiles
 {%-     for profile in data_to_template['imdata'] %}
 ## Name: {{ profile.infraAccPortP.attributes.name }}
@@ -351,8 +341,7 @@
 ### UID: {{ profile.infraAccPortP.attributes.uid }}
 ### User Domain: {{ profile.infraAccPortP.attributes.userdom }}
 {%-     endfor %}
-{%- else %}
-{%- if "infraSpAccPortP" in api %}
+{%- elif "infraSpAccPortP" in api %}
 # Spine Interface Profiles
 {%-     for profile in data_to_template['imdata'] %}
 ## Name: {{ profile.infraSpAccPortP.attributes.name }}
@@ -372,8 +361,7 @@
 ### UID: {{ profile.infraSpAccPortP.attributes.uid }}
 ### User Domain: {{ profile.infraSpAccPortP.attributes.userdom }}
 {%-     endfor %}
-{%- else %}
-{%- if "infraNodeP" in api %}
+{%- elif "infraNodeP" in api %}
 # Leaf Switch Profiles
 {%-     for profile in data_to_template['imdata'] %}
 ## Name: {{ profile.infraNodeP.attributes.name }}
@@ -393,8 +381,7 @@
 ### UID: {{ profile.infraNodeP.attributes.uid }}
 ### User Domain: {{ profile.infraNodeP.attributes.userdom }}
 {%-     endfor %}
-{%- else %}
-{%- if "infraSpineP" in api %}
+{%- elif "infraSpineP" in api %}
 # Spine Switch Profiles
 {%-     for profile in data_to_template['imdata'] %}
 ## Name: {{ profile.infraSpineP.attributes.name }}
@@ -414,8 +401,7 @@
 ### UID: {{ profile.infraSpineP.attributes.uid }}
 ### User Domain: {{ profile.infraSpineP.attributes.userdom }}
 {%-     endfor %}
-{%- else %}
-{%- if "fvnsVlanInstP" in api %}
+{%- elif "fvnsVlanInstP" in api %}
 # VLAN Pools
 {%-     for pool in data_to_template['imdata'] %}
 ## Name: {{ pool.fvnsVlanInstP.attributes.name }}
@@ -437,8 +423,7 @@
 ### UID: {{ pool.fvnsVlanInstP.attributes.uid }}
 ### User Domain: {{ pool.fvnsVlanInstP.attributes.userdom }}
 {%-     endfor %}
-{%- else %}
-{%- if "infraAttEntityP" in api %}
+{%- elif "infraAttEntityP" in api %}
 # Attachable Access Entity Profiles
 {%-     for profile in data_to_template['imdata'] %}
 ## Name: {{ profile.infraAttEntityP.attributes.name }}
@@ -460,8 +445,7 @@
 ### UID: {{ profile.infraAttEntityP.attributes.uid }}
 ### User Domain: {{ profile.infraAttEntityP.attributes.userdom }}
 {%-     endfor %}
-{%- else %}
-{%- if "vzBrCP" in api %}
+{%- elif "vzBrCP" in api %}
 # Contracts
 {%-     for contract in data_to_template['imdata'] %}
 ## Name: {{ contract.vzBrCP.attributes.name }}
@@ -488,8 +472,7 @@
 ### UID: {{ contract.vzBrCP.attributes.uid }}
 ### User Domain: {{ contract.vzBrCP.attributes.userdom }}
 {%-     endfor %}
-{%- else %}
-{%- if "vzEntry" in api %}
+{%- elif "vzEntry" in api %}
 # Filters
 {%-     for entry in data_to_template['imdata'] %}
 ## Name: {{ entry.vzEntry.attributes.name }}
@@ -523,8 +506,7 @@
 ### UID: {{ entry.vzEntry.attributes.uid }}
 ### User Domain: {{ entry.vzEntry.attributes.userdom }}
 {%-     endfor %}
-{%- else %}
-{%- if "physDomP" in api %}
+{%- elif "physDomP" in api %}
 # Physical Domains
 {%-     for domain in data_to_template['imdata'] %}
 ## Name: {{ domain.physDomP.attributes.name }}
@@ -544,8 +526,7 @@
 ### UID: {{ domain.physDomP.attributes.uid }}
 ### User Domain: {{ domain.physDomP.attributes.userdom }}
 {%-     endfor %}
-{%- else %}
-{%- if "l3extDomP" in api %}
+{%- elif "l3extDomP" in api %}
 # L3 Domains
 {%-     for domain in data_to_template['imdata'] %}
 ## Name: {{ domain.l3extDomP.attributes.name }}
@@ -565,8 +546,7 @@
 ### UID: {{ domain.l3extDomP.attributes.uid }}
 ### User Domain: {{ domain.l3extDomP.attributes.userdom }}
 {%-     endfor %}
-{%- else %}
-{%- if "qosClass" in api %}
+{%- elif "qosClass" in api %}
 # QOS Classes
 {%-     for class in data_to_template['imdata'] %}
 ## Name: {{ class.qosClass.attributes.name }}
@@ -588,8 +568,7 @@
 ### UID: {{ class.qosClass.attributes.uid }}
 ### User Domain: {{ class.qosClass.attributes.userdom }}
 {%-     endfor %}
-{%- else %}
-{%- if "faultSummary" in api %}
+{%- elif "faultSummary" in api %}
 # Fault Summary 
 {%-     for fault in data_to_template['imdata'] %}
 ## Cause: {{ fault.faultSummary.attributes.cause }}
@@ -609,8 +588,7 @@
 ### Subject: {{ fault.faultSummary.attributes.subject }}
 ### Type: {{ fault.faultSummary.attributes.type }}
 {%-     endfor %}
-{%- else %}
-{%- if "aaaModLR" in api %}
+{%- elif "aaaModLR" in api %}
 # Audit Log
 {%-     for log in data_to_template['imdata'] %}
 ## ID: {{ log.aaaModLR.attributes.id }}
@@ -632,8 +610,7 @@
 ### TX ID: {{ log.aaaModLR.attributes.txId }}
 ### User: {{ log.aaaModLR.attributes.user }}
 {%-     endfor %}
-{%- else %}
-{%- if "fvIp" in api %}
+{%- elif "fvIp" in api %}
 # IP Addresses
 {%-     for ip in data_to_template['imdata'] %}
 ## {{ ip.fvIp.attributes.addr }}
@@ -656,8 +633,7 @@
 ### User Domain: {{ ip.fvIp.attributes.userdom }}
 ### VRF DN: {{ ip.fvIp.attributes.vrfDn }}
 {%-     endfor %}
-{%- else %}
-{%- if "eventRecord" in api %}
+{%- elif "eventRecord" in api %}
 # Events
 {%-     for event in data_to_template['imdata'] %}
 ## ID: {{ event.eventRecord.attributes.id }}
@@ -677,8 +653,7 @@
 ### TX ID: {{ event.eventRecord.attributes.txId }}
 ### User: {{ event.eventRecord.attributes.user }}
 {%-     endfor %}
-{%- else %}
-{%- if "licenseEntitlement" in api %}
+{%- elif "licenseEntitlement" in api %}
 # License Entitlements
 {%-     for license in data_to_template['imdata'] %}
 ## Name: {{ license.licenseEntitlement.attributes.name }}</th>
@@ -693,8 +668,7 @@
 ### Tag: {{ license.licenseEntitlement.attributes.tag }}
 ### Version: {{ license.licenseEntitlement.attributes.version }}
 {%-     endfor %}
-{%- else %}
-{%- if "bgpRRNodePEp" in api %}
+{%- elif "bgpRRNodePEp" in api %}
 # BGP Route Reflectors
 {%-     for rr in data_to_template['imdata'] %}
 ## Name: {{ rr.bgpRRNodePEp.attributes.name }}
@@ -713,8 +687,7 @@
 ### UID: {{ rr.bgpRRNodePEp.attributes.uid }}
 ### User Domain: {{ rr.bgpRRNodePEp.attributes.userdom }}
 {%-     endfor %}
-{%- else %}
-{%- if "infraPortS" in api %}
+{%- elif "infraPortS" in api %}
 # Interface Policies
 {%-     for policy in data_to_template['imdata'] %}
 {%-         if "infraSHPortS" in policy%}
@@ -753,10 +726,8 @@
 ### UID: {{ policy.infraHPortS.attributes.uid }}
 ### User Domain: {{ policy.infraHPortS.attributes.userdom }}
 {%-         endif %}
-  </tr>
 {%-     endfor %}
-{%- else %}
-{%- if "infraProfile" in api %}
+{%- elif "infraProfile" in api %}
 # Interface Profiles
 {%-     for policy in data_to_template['imdata'] %}
 {%-         if policy.infraAccPortP %}
@@ -912,8 +883,7 @@
 ### User Domain: {{ policy.infraSpineP.attributes.userdom }}
 {%-         endif %}
 {%-     endfor %}
-{%- else %}
-{%- if "fabricPod" in api %}
+{%- elif "fabricPod" in api %}
 # Fabric Pods
 {%-     for pod in data_to_template['imdata'] %}
 ## ID: {{ pod.fabricPod.attributes.id }}
@@ -925,8 +895,7 @@
 ### Pod Type: {{ pod.fabricPod.attributes.podType }}
 ### Status: {{ pod.fabricPod.attributes.status }}
 {%-     endfor %}
-{%- else %}
-{%- if "fabricPath" in api %}
+{%- elif "fabricPath" in api %}
 # Fabric Paths
 {%-     for path in data_to_template['imdata'] %}
 ## DN: {{ path.fabricPath.attributes.dn }}
@@ -939,8 +908,7 @@
 ### Monitoring Policy DN: {{ path.fabricPath.attributes.monPolDn }}
 ### Status: {{ path.fabricPath.attributes.status }}
 {%-     endfor %}
-{%- else %}
-{%- if "rtctrlSubjP" in api %}
+{%- elif "rtctrlSubjP" in api %}
 # Prefix List
 {%-     for outer_list in data_to_template %}
 {%-         for prefix_list in outer_list %}
@@ -958,8 +926,7 @@
 ### User Domain: {{ prefix_list.rtctrlSubjP.attributes.userdom }}
 {%-         endfor %}
 {%-     endfor %}
-{%- else %}
-{%- if "rtctrlMatchRtDest" in api %}
+{%- elif "rtctrlMatchRtDest" in api %}
 # Prefix List Detailed
 {%-     for outer_list in data_to_template %}
 {%-         for prefix_list_detailed in outer_list %}
@@ -982,8 +949,7 @@
 ### User Domain: {{ prefix_list_detailed.rtctrlMatchRtDest.attributes.userdom }}
 {%-         endfor %}
 {%-     endfor %}
-{%- else %}
-{%- if "Tenant" in api %}
+{%- elif "Tenant" in api %}
 # Tenants
 {%-     for tenant in data_to_template['imdata'] %}
 ## {{ tenant.fvTenant.attributes.name }}
@@ -1003,8 +969,7 @@
 ### User Domain: {{ tenant.fvTenant.attributes.userdom }}
 ### Modified Timestamp: {{ tenant.fvTenant.attributes.modTs }}
 {%-     endfor %}
-{%- else %}
-{%- if "aaaUser" in api %}
+{%- elif "aaaUser" in api %}
 # Users
 {%-     for user in data_to_template['imdata'] %}
 ## Name: {{ user.aaaUser.attributes.name }}
@@ -1045,8 +1010,7 @@
 ### UNIX User ID: {{ user.aaaUser.attributes.unixUserId }}
 ### User Domain: {{ user.aaaUser.attributes.userdom }}
 {%-     endfor %}
-{%- else %}
-{%- if "aaaDomain" in api %}
+{%- elif "aaaDomain" in api %}
 # Security Domains
 {%-     for domain in data_to_template['imdata'] %}
 ## Name: {{ domain.aaaDomain.attributes.name }}
@@ -1066,8 +1030,7 @@
 ### UID: {{ domain.aaaDomain.attributes.uid }}
 ### User Domain: {{ domain.aaaDomain.attributes.userdom }}
 {%-     endfor %}
-{%- else %}
-{%- if "vzSubj" in api %}
+{%- elif "vzSubj" in api %}
 # Contract Subjects
 {%-     for subject in data_to_template['imdata'] %}
 ## Name: {{ subject.vzSubj.attributes.name }}
@@ -1092,8 +1055,7 @@
 ### UID: {{ subject.vzSubj.attributes.uid }}
 ### User Domain: {{ subject.vzSubj.attributes.userdom }}
 {%-     endfor %}
-{%- else %}
-{%- if "topology/health" in api %}
+{%- elif "topology/health" in api %}
 # Fabric Total Health
 {%-     for score in data_to_template['imdata'] %}
 ## Score
@@ -1110,8 +1072,7 @@
 ### Last Updated: {{ score.fabricHealthTotal.attributes.updTs }}
 ## Status: {{ score.fabricHealthTotal.attributes.status }}
 {%-     endfor %}
-{%- else %}
-{%- if "pkiFabricNodeSSLCertificate" in api %}
+{%- elif "pkiFabricNodeSSLCertificate" in api %}
 # Fabric Node SSL Certificates
 {%-     for cert in data_to_template['imdata'] %}
 ## Name: {{ cert.pkiFabricNodeSSLCertificate.attributes.name }}
@@ -1151,8 +1112,7 @@
 #### Validity Not Before: {{ cert.pkiFabricNodeSSLCertificate.attributes.validityNotBefore }}
 ### Version: {{ cert.pkiFabricNodeSSLCertificate.attributes.version }}
 {%-     endfor %}
-{%- else %}
-{%- if "tn-" and "health" in api %}
+{%- elif "tn-" and "health" in api %}
 # Tenant Health
 {%-     for outer_list in data_to_template %}
 {%-         for tenant in outer_list %}
@@ -1170,8 +1130,7 @@
 ### Status: {{ tenant.healthInst.attributes.status }}
 {%-         endfor %}
 {%-     endfor %}
-{%- else %}
-{%- if "firmwareCtrlrRunning" in api %}
+{%- elif "firmwareCtrlrRunning" in api %}
 # Fabric Membership
 {%-     for member in data_to_template['imdata'] %}
 ## DN: {{ member.firmwareCtrlrRunning.attributes.dn }}
@@ -1187,8 +1146,7 @@
 ### Type: {{ member.firmwareCtrlrRunning.attributes.type }}
 ### Version: {{ member.firmwareCtrlrRunning.attributes.version }}
 {%-     endfor %}
-{%- else %}
-{%- if "topSystem" in api %}
+{%- elif "topSystem" in api %}
 {%-     if "?" not in api %}
 # topSystem
 {%-         for topSystem in data_to_template['imdata'] %}
@@ -1246,8 +1204,7 @@
 ### Virtual Mode: {{ topSystem.topSystem.attributes.virtualMode }}
 {%-         endfor %}
 {%-     endif %}
-{%- else %}
-{%- if "vnsMDev" in api %}
+{%- elif "vnsMDev" in api %}
 # Device Packages
 {%-     for package in data_to_template['imdata'] %}
 ## Vendor: {{ package.vnsMDev.attributes.vendor }}
@@ -1267,8 +1224,7 @@
 ### User Domain: {{ package.vnsMDev.attributes.userdom }}
 ### Version: {{ package.vnsMDev.attributes.version }}
 {%-     endfor %}
-{%- else %}
-{%- if "cnwAggrIf" in api %}
+{%- elif "cnwAggrIf" in api %}
 # Cluster Aggregate Interfaces
 {%-     for interface in data_to_template['imdata'] %}
 ## {{ interface.cnwAggrIf.attributes.name }}
@@ -1308,8 +1264,7 @@
 ### Trunk Log: {{ interface.cnwAggrIf.attributes.trunkLog }}</td>
 ### Usage: {{ interface.cnwAggrIf.attributes.usage }}</td>
 {%-     endfor %}
-{%- else %}
-{%- if "l3Inst" in api %}
+{%- elif "l3Inst" in api %}
 # Layer3 Interfaces
 {%-     for interface in data_to_template['imdata'] %}
 ## Name: {{ interface.l3Inst.attributes.name }}
@@ -1366,8 +1321,7 @@
 ##### Valid: {{ interface.l3Inst.attributes.v6TibValid }}
 ### VPN ID: {{ interface.l3Inst.attributes.vpnId }}
 {%-     endfor %}
-{%- else %}
-{%- if "actrlEntity" in api %}
+{%- elif "actrlEntity" in api %}
 # Access Control Entities
 {%-     for acl in data_to_template['imdata'] %}
 ## Name: {{ acl.actrlEntity.attributes.name }}
@@ -1382,8 +1336,7 @@
 #### State: {{ acl.actrlEntity.attributes.operSt }}
 ### Status: {{ acl.actrlEntity.attributes.status }}
 {%-     endfor %}
-{%- else %}
-{%- if "actrlInst" in api %}
+{%- elif "actrlInst" in api %}
 # Access Control Instances
 {%-     for acl in data_to_template['imdata'] %}
 ## Name: {{ acl.actrlInst.attributes.name }}
@@ -1399,8 +1352,7 @@
 ### Operational State: {{ acl.actrlInst.attributes.operErr }}
 ### Status: {{ acl.actrlInst.attributes.status }}
 {%-     endfor %}
-{%- else %}
-{%- if "actrlRule" in api %}
+{%- elif "actrlRule" in api %}
 # Access Control Rules
 {%-     for acl in data_to_template['imdata'] %}
 ## Name: {{ acl.actrlRule.attributes.name }}
@@ -1434,8 +1386,7 @@
 ### Status: {{ acl.actrlRule.attributes.status }}
 ### Type: {{ acl.actrlRule.attributes.type }}
 {%-     endfor %}
-{%- else %}
-{%- if "actrlScope" in api %}
+{%- elif "actrlScope" in api %}
 # Access Control Scopes
 {%-     for acl in data_to_template['imdata'] %}
 ## Name: {{ acl.actrlScope.attributes.name }}
@@ -1450,8 +1401,7 @@
 ### Security Label: {{ acl.actrlScope.attributes.secLbl }}
 ### Status: {{ acl.actrlScope.attributes.status }}
 {%-     endfor %}
-{%- else %}
-{%- if "cnwPhysIf" in api %}
+{%- elif "cnwPhysIf" in api %}
 # Cluster Physical Interfaces
 {%-     for interface in data_to_template['imdata'] %}
 ## Name: {{ interface.cnwPhysIf.attributes.name }}
@@ -1498,8 +1448,7 @@
 ### Vendor ID: {{ interface.cnwPhysIf.attributes.vendorId }}
 ### Wiring Issues: {{ interface.cnwPhysIf.attributes.wiringIssues }}
 {%-     endfor %}
-{%- else %}
-{%- if "compCtrlr" in api %}
+{%- elif "compCtrlr" in api %}
 # Compute Controllers
 {%-     for controller in data_to_template['imdata'] %}
 ## Name: {{ controller.compCtrlr.attributes.name }}
@@ -1569,8 +1518,7 @@
 #### Tag: {{ controller.compCtrlr.attributes.vsphereTag }}
 ### VXLAN Deployment Preferred: {{ controller.compCtrlr.attributes.vxlanDeplPref }}
 {%-     endfor %}
-{%- else %}
-{%- if "compDom" in api %}
+{%- elif "compDom" in api %}
 # Compute Domains
 {%-     for domain in data_to_template['imdata'] %}
 ## Name: {{ domain.compDom.attributes.name }}
@@ -1587,8 +1535,7 @@
 ### Monitoring Policy DN: {{ domain.compDom.attributes.monPolDn }}
 ### Status: {{ domain.compDom.attributes.status }}
 {%-     endfor %}
-{%- else %}
-{%- if "compEpPD" in api %}
+{%- elif "compEpPD" in api %}
 # Compute Endpoint Policy Description
 {%-     for policy in data_to_template['imdata'] %}
 ## Name: {{ policy.compEpPD.attributes.name }}
@@ -1662,8 +1609,7 @@
 ### VNET Only: {{ policy.compEpPD.attributes.vnetOnly }}
 ### VXLAN Deployment Preferred: {{ policy.compEpPD.attributes.vxlanDeplPref }}
 {%-     endfor %}
-{%- else %}
-{%- if "compProv" in api %}
+{%- elif "compProv" in api %}
 # Compute Providers
 {%-     for provider in data_to_template['imdata'] %}
 ## Name: {{ provider.compProv.attributes.name }}
@@ -1679,8 +1625,7 @@
 ### Status: {{ provider.compProv.attributes.status }}
 ### Vendor: {{ provider.compProv.attributes.vendor }}
 {%-     endfor %}
-{%- else %}
-{%- if "arpAdjEp" in api %}
+{%- elif "arpAdjEp" in api %}
 # ARP Adjacency Endpoints
 {%-     for endpoint in data_to_template['imdata'] %}
 ## Name: {{ endpoint.arpAdjEp.attributes.name }}
@@ -1697,8 +1642,7 @@
 ### Operational State: {{ endpoint.arpAdjEp.attributes.operSt }}
 ### Status{{ endpoint.arpAdjEp.attributes.status }}
 {%-     endfor %}
-{%- else %}
-{%- if "arpDb" in api %}
+{%- elif "arpDb" in api %}
 # ARP Database
 {%-     for entry in data_to_template['imdata'] %}
 ## Name: {{ entry.arpDb.attributes.name }}
@@ -1708,8 +1652,7 @@
 ### Status: {{ entry.arpDb.attributes.status }}
 ### Type: {{ entry.arpDb.attributes.type }}
 {%-     endfor %}
-{%- else %}
-{%- if "arpDom" in api %}
+{%- elif "arpDom" in api %}
 # ARP Domain
 {%-     for domain in data_to_template['imdata'] %}
 ## Name:  {{ domain.arpDom.attributes.name }}
@@ -1721,8 +1664,7 @@
 ### Monitoring Policy DN: {{ domain.arpDom.attributes.monPolDn }}
 ### Status: {{ domain.arpDom.attributes.status }}
 {%-     endfor %}
-{%- else %}
-{%- if "arpEntity" in api %}
+{%- elif "arpEntity" in api %}
 # ARP Domain
 {%-     for entity in data_to_template['imdata'] %}
 ## Name: {{ entity.arpEntity.attributes.name }}
@@ -1737,8 +1679,7 @@
 #### State: {{ entity.arpEntity.attributes.operSt }}
 ### Status: {{ entity.arpEntity.attributes.status }}
 {%-     endfor %}
-{%- else %}
-{%- if "arpIf" in api %}
+{%- elif "arpIf" in api %}
 # ARP Interfaces
 {%-     for interface in data_to_template['imdata'] %}
 ## Name: {{ interface.arpIf.attributes.name }}
@@ -1753,8 +1694,7 @@
 ### Monitoring Policy DN: {{ interface.arpIf.attributes.monPolDn }}
 ### Status: {{ interface.arpIf.attributes.status }}
 {%-     endfor %}
-{%- else %}
-{%- if "arpInst" in api %}
+{%- elif "arpInst" in api %}
 # ARP Instances
 {%-     for instance in data_to_template['imdata'] %}
 ## Name: {{ instance.arpInst.attributes.name }}
@@ -1768,8 +1708,7 @@
 ### Oper Error: {{ instance.arpInst.attributes.operErr }}
 ### Status: {{ instance.arpInst.attributes.status }}
 {%-     endfor %}
-{%- else %}
-{%- if "bgpDom" in api %}
+{%- elif "bgpDom" in api %}
 {%-     if "Af" in api%}
 # BGP Domain Address Families
 {%-          for family in data_to_template['imdata'] %}
@@ -1793,7 +1732,7 @@
 {%-          endfor %}
 {%-     else %}
 # ARP Instances
-{%-     for domain in data_to_template['imdata'] %}
+{%-         for domain in data_to_template['imdata'] %}
 ## Name: {{ domain.bgpDom.attributes.name }}
 ### BGP Config
 #### Failed Bmp: {{ domain.bgpDom.attributes.bgpCfgFailedBmp }}
@@ -1826,10 +1765,9 @@
 ### Router ID: {{ domain.bgpDom.attributes.rtrId }}
 ### Status: {{ domain.bgpDom.attributes.status }}
 ### Type: {{ domain.bgpDom.attributes.type }}
-{%-     endfor %}
+{%-         endfor %}
 {%-     endif %}
-{%- else %}
-{%- if "bgpEntity" in api %}
+{%- elif "bgpEntity" in api %}
 # BGP Entities
 {%-     for entity in data_to_template['imdata'] %}
 ## Name: {{ entity.bgpEntity.attributes.name }}
@@ -1844,8 +1782,7 @@
 #### State: {{ entity.bgpEntity.attributes.operSt }}
 ### Status: {{ entity.bgpEntity.attributes.status }}
 {%-     endfor %}
-{%- else %}
-{%- if "bgpInst" in api %}
+{%- elif "bgpInst" in api %}
 {%-     if "InstPol" in api %}
 # BGP Instances Policy
 {%-         for policy in data_to_template['imdata'] %}
@@ -1899,8 +1836,7 @@
 ### Wait Done Timestamp: {{ instance.bgpInst.attributes.waitDoneTs }}
 {%-         endfor %}
 {%-     endif %}
-{%- else %}
-{%- if "bgpPeer" in api %}
+{%- elif "bgpPeer" in api %}
 {%-     if "bgpPeerAf" in api %}
 # BGP Peer AF Entries
 {%-         for af in data_to_template['imdata'] %}
@@ -1997,8 +1933,7 @@
 {%-             endfor %}
 {%-         endif %}
 {%-     endif %}
-{%- else %}
-{%- if "bgpRRP" in api %}
+{%- elif "bgpRRP" in api %}
 # BGP Route Reflector Policies
 {%-     for policy in data_to_template['imdata'] %}
 ## Name: {{ policy.bgpRRP.attributes.name }}
@@ -2014,8 +1949,7 @@
 ### Status: {{ policy.bgpRRP.attributes.status }}
 ### UID: {{ policy.bgpRRP.attributes.uid }}
 {%-     endfor %}
-{%- else %}
-{%- if "cdpAdjEp" in api %}
+{%- elif "cdpAdjEp" in api %}
 # CDP Adjacency Endpoints
 {%-     for endpoint in data_to_template['imdata'] %}
 ## Name: {{ endpoint.cdpAdjEp.attributes.name }}
@@ -2042,8 +1976,7 @@
 ##### V: {{ endpoint.cdpAdjEp.attributes.sysObjIdV }}
 ### Version: {{ endpoint.cdpAdjEp.attributes.ver | replace("\n"," ") }}
 {%-     endfor %}
-{%- else %}
-{%- if "cdpEntity" in api %}
+{%- elif "cdpEntity" in api %}
 # CDP Adjacency Endpoints
 {%-     for entity in data_to_template['imdata'] %}
 ## Name: {{ entity.cdpEntity.attributes.name }}
@@ -2057,8 +1990,7 @@
 #### State: {{ entity.cdpEntity.attributes.operSt }}
 ### Status: {{ entity.cdpEntity.attributes.status }}
 {%-     endfor %}
-{%- else %}
-{%- if "cdpIf" in api %}
+{%- elif "cdpIf" in api %}
 # CDP Interfaces
 {%-     for interface in data_to_template['imdata'] %}
 ## Name: {{ interface.cdpIf.attributes.name }}
@@ -2079,8 +2011,7 @@
 ### Port Description: {{ interface.cdpIf.attributes.portDesc }}
 ### Status: {{ interface.cdpIf.attributes.status }}
 {%-     endfor %}
-{%- else %}
-{%- if "cdpInst" in api %}
+{%- elif "cdpInst" in api %}
 # CDP Instances
 {%-     for instance in data_to_template['imdata'] %}
 ## Name: {{ instance.cdpInst.attributes.name }}
@@ -2100,8 +2031,7 @@
 ### TX Frequency: {{ instance.cdpInst.attributes.txFreq }}
 ### Version: {{ instance.cdpInst.attributes.ver }}
 {%-     endfor %}
-{%- else %}
-{%- if "cdpIntfAddr" in api %}
+{%- elif "cdpIntfAddr" in api %}
 # CDP Interface Addresses
 {%-     for address in data_to_template['imdata'] %}
 ## Address: {{ address.cdpIntfAddr.attributes.addr }}
@@ -2110,8 +2040,7 @@
 ### Last Modified: {{ address.cdpIntfAddr.attributes.modTs }}
 ### Status: {{ address.cdpIntfAddr.attributes.status }}
 {%-     endfor %}
-{%- else %}
-{%- if "cdpMgmtAddr" in api %}
+{%- elif "cdpMgmtAddr" in api %}
 # CDP Management Addresses
 {%-     for address in data_to_template['imdata'] %}
 ## Address: {{ address.cdpMgmtAddr.attributes.addr }}
@@ -2120,8 +2049,7 @@
 ### Last Modified: {{ address.cdpMgmtAddr.attributes.modTs }}
 ### Status: {{ address.cdpMgmtAddr.attributes.status }}
 {%-     endfor %}
-{%- else %}
-{%- if "cnwRsMbrIfs" in api %}
+{%- elif "cnwRsMbrIfs" in api %}
 # Node RS Member Interfaces
 {%-     for interface in data_to_template['imdata'] %}
 ## tDN: {{ interface.cnwRsMbrIfs.attributes.tDn }}
@@ -2139,8 +2067,7 @@
 ### tSKey: {{ interface.cnwRsMbrIfs.attributes.tSKey }}
 ### tType: {{ interface.cnwRsMbrIfs.attributes.tType }}
 {%-     endfor %}
-{%- else %}
-{%- if "compRsDomP" in api %}
+{%- elif "compRsDomP" in api %}
 # Compute RS Domain Policies
 {%-     for policy in data_to_template['imdata'] %}
 ## DN: {{ policy.compRsDomP.attributes.dn }}
@@ -2156,8 +2083,7 @@
 ### tDN: {{ policy.compRsDomP.attributes.tDn }}
 ### tType: {{ policy.compRsDomP.attributes.tType }}
 {%-     endfor %}
-{%- else %}
-{%- if "eqptBSlot" in api %}
+{%- elif "eqptBSlot" in api %}
 # Equipment Board Slots
 {%-     for slot in data_to_template['imdata'] %}
 ## ID: {{ slot.eqptBSlot.attributes.id }}
@@ -2174,8 +2100,7 @@
 ### Status: {{ slot.eqptBSlot.attributes.status }}
 ### Type: {{ slot.eqptBSlot.attributes.type }}
 {%-     endfor %}
-{%- else %}
-{%- if "eqptBoard" in api %}
+{%- elif "eqptBoard" in api %}
 # Equipment Boards
 {%-     for board in data_to_template['imdata'] %}
 ## ID: {{ board.eqptBoard.attributes.id }}
@@ -2206,8 +2131,7 @@
 ### vID: {{ board.eqptBoard.attributes.vId }}
 ### Vendor: {{ board.eqptBoard.attributes.vendor }}
 {%-     endfor %}
-{%- else %}
-{%- if "eqptCPU" in api %}
+{%- elif "eqptCPU" in api %}
 # Equipment CPUs
 {%-     for cpu in data_to_template['imdata'] %}
 ## ID: {{ cpu.eqptCPU.attributes.id }}
@@ -2229,8 +2153,7 @@
 ### Threads: {{ cpu.eqptCPU.attributes.thrds }}
 ### Vendor: {{ cpu.eqptCPU.attributes.vendor }}
 {%-     endfor %}
-{%- else %}
-{%- if "eqptCh" in api %}
+{%- elif "eqptCh" in api %}
 # Equipment Chassis
 {%-     for chassis in data_to_template['imdata'] %}
 ## ID: {{ chassis.eqptCh.attributes.id }}
@@ -2254,8 +2177,7 @@
 ### Vendor: {{ chassis.eqptCh.attributes.vendor }}
 ### Virtual Mode: {{ chassis.eqptCh.attributes.virtualMode }}
 {%-     endfor %}
-{%- else %}
-{%- if "eqptDimm" in api %}
+{%- elif "eqptDimm" in api %}
 # Equipment DIMMs
 {%-     for dimm in data_to_template['imdata'] %}
 ## ID: {{ dimm.eqptDimm.attributes.id }}
@@ -2275,8 +2197,7 @@
 ### Type: {{ dimm.eqptDimm.attributes.type }}
 ### Vendor: {{ dimm.eqptDimm.attributes.vendor }}
 {%-     endfor %}
-{%- else %}
-{%- if "eqptExtCh" in api %}
+{%- elif "eqptExtCh" in api %}
 # Equipment Fabric Extenders
 {%-     for fabricextender in data_to_template['imdata'] %}
 ## ID: {{ fabricextender.eqptExtCh.attributes.id }}
@@ -2299,8 +2220,7 @@
 ### Status: {{ fabricextender.eqptExtCh.attributes.status }}
 ### Vendor: {{ fabricextender.eqptExtCh.attributes.vendor }}
 {%-     endfor %}
-{%- else %}
-{%- if "eqptFabP" in api %}
+{%- elif "eqptFabP" in api %}
 # Equipment Fabric Ports
 {%-     for port in data_to_template['imdata'] %}
 ## ID: {{ port.eqptFabP.attributes.id }}
@@ -2314,8 +2234,7 @@
 ### Status: {{ port.eqptFabP.attributes.status }}
 ### Type: {{ port.eqptFabP.attributes.type }}
 {%-     endfor %}
-{%- else %}
-{%- if "eqptFan" in api %}
+{%- elif "eqptFan" in api %}
 # Equipment Fans
 {%-     for fan in data_to_template['imdata'] %}
 ## ID: {{ fan.eqptFan.attributes.id }}
@@ -2337,8 +2256,7 @@
 ### vID: {{ fan.eqptFan.attributes.vId }}
 ### Vendor: {{ fan.eqptFan.attributes.vendor }}
 {%-     endfor %}
-{%- else %}
-{%- if "eqptFpga" in api %}
+{%- elif "eqptFpga" in api %}
 # Equipment Field Programmable Gate Arrays
 {%-     for array in data_to_template['imdata'] %}
 ## ID: {{ array.eqptFpga.attributes.id }}
@@ -2357,8 +2275,7 @@
 ### Type: {{ array.eqptFpga.attributes.type }}
 ### Vendor: {{ array.eqptFpga.attributes.vendor }}
 {%-     endfor %}
-{%- else %}
-{%- if "eqptFt" in api %}
+{%- elif "eqptFt" in api %}
 {%-     if "Slot" in api %}
 # Equipment Fan Tray Slots
 {%-         for slot in data_to_template['imdata'] %}
@@ -2397,8 +2314,7 @@
 ### Vendor: {{ trays.eqptFt.attributes.vendor }}
 {%-         endfor %}
 {%-     endif %}
-{%- else %}
-{%- if "eqptIndLed" in api %}
+{%- elif "eqptIndLed" in api %}
 # Equipment Indicator LEDs
 {%-     for led in data_to_template['imdata'] %}
 ## ID: {{ led.eqptIndLed.attributes.id }}
@@ -2417,8 +2333,7 @@
 ### Type: {{ led.eqptIndLed.attributes.type }}
 ### Vendor: {{ led.eqptIndLed.attributes.vendor }}
 {%-     endfor %}
-{%- else %}
-{%- if "eqptLC" in api %}
+{%- elif "eqptLC" in api %}
 {%-     if "Slot" in api %}
 # Equipment Line Card Slots
 {%-         for slot in data_to_template['imdata'] %}
@@ -2466,8 +2381,7 @@
 ### Vendor: {{ card.eqptLC.attributes.vendor }}
 {%-         endfor %}
 {%-     endif %}
-{%- else %}
-{%- if "eqptLeafP" in api %}
+{%- elif "eqptLeafP" in api %}
 # Equipment Leaf Ports
 {%-     for port in data_to_template['imdata'] %}
 ## ID: {{ port.eqptLeafP.attributes.id }}
@@ -2481,4 +2395,314 @@
 ### Status: {{ port.eqptLeafP.attributes.status }}
 ### Type: {{ port.eqptLeafP.attributes.type }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- elif "eqptLocLed" in api %}
+# Equipment Port Locator LEDs
+{%-     for led in data_to_template['imdata'] %}
+## ID: {{ led.eqptLocLed.attributes.id }}
+### Admin State: {{ led.eqptLocLed.attributes.adminSt }}
+### Child Action: {{ led.eqptLocLed.attributes.childAction }}
+### CIMC Version: {{ led.eqptLocLed.attributes.cimcVersion }}
+### Color: {{ led.eqptLocLed.attributes.color }}
+### Description: {{ led.eqptLocLed.attributes.descr }}
+### DN: {{ led.eqptLocLed.attributes.dn }}
+### MFG Timestamp: {{ led.eqptLocLed.attributes.mfgTm }}
+### Last Modifed: {{ led.eqptLocLed.attributes.modTs }}
+### Model: {{ led.eqptLocLed.attributes.model }}
+### Oper State: {{ led.eqptLocLed.attributes.operSt }}
+### Revision: {{ led.eqptLocLed.attributes.rev }}
+### Serial Number: {{ led.eqptLocLed.attributes.ser }}
+### Status: {{ led.eqptLocLed.attributes.status }}
+### Type: {{ led.eqptLocLed.attributes.type }}
+### Vendor: {{ led.eqptLocLed.attributes.vendor }}
+{%-     endfor %}
+{%- elif "eqptPsu" in api %}
+{%-     if "Slot" in api %}
+# Equipment Power Supply Slots
+{%-         for slot in data_to_template['imdata'] %}
+## ID: {{ slot.eqptPsuSlot.attributes.id }}
+### Card Oper State: {{ slot.eqptPsuSlot.attributes.cardOperSt }}
+### Child Action: {{ slot.eqptPsuSlot.attributes.childAction }}
+### Description: {{ slot.eqptPsuSlot.attributes.descr }}
+### DN: {{ slot.eqptPsuSlot.attributes.dn }}
+### Location: {{ slot.eqptPsuSlot.attributes.loc }}
+### Last Modified: {{ slot.eqptPsuSlot.attributes.modTs }}
+### Monitoring Policy DN: {{ slot.eqptPsuSlot.attributes.monPolDn }}
+### Oper State: {{ slot.eqptPsuSlot.attributes.operSt }}
+### Physical ID: {{ slot.eqptPsuSlot.attributes.physId }}
+### Status: {{ slot.eqptPsuSlot.attributes.status }}
+### Type: {{ slot.eqptPsuSlot.attributes.type }}
+{%-         endfor %}
+{%-     else %}
+# Equipment Power Supplies
+{%-         for psu in data_to_template['imdata'] %}
+## ID: {{ psu.eqptPsu.attributes.id }}
+### Alarm Reg: {{ psu.eqptPsu.attributes.almReg }}
+### Capacity: {{ psu.eqptPsu.attributes.cap }}
+### Child Action: {{ psu.eqptPsu.attributes.childAction }}
+### CIMC Version: {{ psu.eqptPsu.attributes.cimcVersion }}
+### Description: {{ psu.eqptPsu.attributes.descr }}
+### DN: {{ psu.eqptPsu.attributes.dn }}
+### Drawn Current: {{ psu.eqptPsu.attributes.drawnCurr }}
+### Fan Oper State: {{ psu.eqptPsu.attributes.fanOpSt }}
+### Hardware Version: {{ psu.eqptPsu.attributes.hwVer }}
+### MFG Timestamp: {{ psu.eqptPsu.attributes.mfgTm }}
+### Last Modified: {{ psu.eqptPsu.attributes.modTs }}
+### Model: {{ psu.eqptPsu.attributes.model }}
+### Monitoring Policy DN: {{ psu.eqptPsu.attributes.monPolDn }}
+### Oper State: {{ psu.eqptPsu.attributes.operSt }}
+### Revision: {{ psu.eqptPsu.attributes.rev }}
+### Serial Number: {{ psu.eqptPsu.attributes.ser }}
+### Status: {{ psu.eqptPsu.attributes.status }}
+### TC: {{ psu.eqptPsu.attributes.tc }}
+### vID: {{ psu.eqptPsu.attributes.vId }}
+### vSrc: {{ psu.eqptPsu.attributes.vSrc }}
+### Vendor: {{ psu.eqptPsu.attributes.vendor }}
+### Voltage: {{ psu.eqptPsu.attributes.volt }}
+{%-         endfor %}
+{%-     endif %}
+{%- elif "eqptRsIoPPhysConf" in api %}
+# Equipment RS IO Port Physical Configurations
+{%-     for port in data_to_template['imdata'] %}
+## tSKey: {{ port.eqptRsIoPPhysConf.attributes.tSKey }}
+### Child Action: {{ port.eqptRsIoPPhysConf.attributes.childAction }}
+### DN: {{ port.eqptRsIoPPhysConf.attributes.dn }}
+### Force Resolve: {{ port.eqptRsIoPPhysConf.attributes.forceResolve }}
+### Local Owner: {{ port.eqptRsIoPPhysConf.attributes.lcOwn }}
+### Last Modified: {{ port.eqptRsIoPPhysConf.attributes.modTs }}
+### rType: {{ port.eqptRsIoPPhysConf.attributes.rType }}
+### State: {{ port.eqptRsIoPPhysConf.attributes.state }}
+### State Quality: {{ port.eqptRsIoPPhysConf.attributes.stateQual }}
+### Status: {{ port.eqptRsIoPPhysConf.attributes.status }}
+### tCL: {{ port.eqptRsIoPPhysConf.attributes.tCl }}
+### tDN: {{ port.eqptRsIoPPhysConf.attributes.tDn }}
+### tType: {{ port.eqptRsIoPPhysConf.attributes.tType }}
+{%-     endfor %}
+{%- elif "eqptSensor" in api %}
+# Equipment Sensors
+{%-     for sensor in data_to_template['imdata'] %}
+## ID: {{ sensor.eqptSensor.attributes.id }}
+### Child Action: {{ sensor.eqptSensor.attributes.childAction }}
+### CIMC Version: {{ sensor.eqptSensor.attributes.cimcVersion }}
+### Description: {{ sensor.eqptSensor.attributes.descr }}
+### DN: {{ sensor.eqptSensor.attributes.dn }}
+### Thresholds
+#### Major: {{ sensor.eqptSensor.attributes.majorThresh }}
+#### Minor: {{ sensor.eqptSensor.attributes.minorThresh }}
+#### Current: {{ sensor.eqptSensor.attributes.value }}
+### MFG Timestamp: {{ sensor.eqptSensor.attributes.mfgTm }}
+### Last Modified: {{ sensor.eqptSensor.attributes.modTs }}
+### Model: {{ sensor.eqptSensor.attributes.model }}
+### Monitoring Policy DN: {{ sensor.eqptSensor.attributes.monPolDn }}
+### Oper State: {{ sensor.eqptSensor.attributes.operSt }}
+### Revision: {{ sensor.eqptSensor.attributes.rev }}
+### Serial Number: {{ sensor.eqptSensor.attributes.ser }}
+### Status: {{ sensor.eqptSensor.attributes.status }}
+### Type: {{ sensor.eqptSensor.attributes.type }}
+### Vendor: {{ sensor.eqptSensor.attributes.vendor }}
+{%-     endfor %}
+{%- elif "eqptSpCmnBlk" in api %}
+# Equipment SP Common Blocks
+{%-     for common_block in data_to_template['imdata'] %}
+## PD Number: {{ common_block.eqptSpCmnBlk.attributes.pdNum }}
+### Part Number: {{ common_block.eqptSpCmnBlk.attributes.prtNum }}
+### Child Action: {{ common_block.eqptSpCmnBlk.attributes.childAction }}
+### Checksum: {{ common_block.eqptSpCmnBlk.attributes.cksum }}
+### CLEI: {{ common_block.eqptSpCmnBlk.attributes.clei }}
+### Count: {{ common_block.eqptSpCmnBlk.attributes.count }}
+### DN: {{ common_block.eqptSpCmnBlk.attributes.dn }}
+### Eng Bits: {{ common_block.eqptSpCmnBlk.attributes.engBits }}
+### Hardware Revision
+#### Major: {{ common_block.eqptSpCmnBlk.attributes.hwRevMaj }}
+#### Minor: {{ common_block.eqptSpCmnBlk.attributes.hwRevMin }}
+### Length: {{ common_block.eqptSpCmnBlk.attributes.len }}
+### Values
+#### Major: {{ common_block.eqptSpCmnBlk.attributes.major }}
+#### Minor: {{ common_block.eqptSpCmnBlk.attributes.minor }}
+### MFG 
+#### Bits: {{ common_block.eqptSpCmnBlk.attributes.mfgBits }}
+#### Dev: {{ common_block.eqptSpCmnBlk.attributes.mfgDev }}
+### Last Modified: {{ common_block.eqptSpCmnBlk.attributes.modTs }}
+### OEM: {{ common_block.eqptSpCmnBlk.attributes.oem }}
+### pRevision: {{ common_block.eqptSpCmnBlk.attributes.pRev }}
+### Power Consumption: {{ common_block.eqptSpCmnBlk.attributes.pwrCon }}
+### RAM FL: {{ common_block.eqptSpCmnBlk.attributes.ramFl }}
+### Serial Number: {{ common_block.eqptSpCmnBlk.attributes.serNum }}
+### Signature: {{ common_block.eqptSpCmnBlk.attributes.sig }}
+### Size: {{ common_block.eqptSpCmnBlk.attributes.size }}
+### Status: {{ common_block.eqptSpCmnBlk.attributes.status }}
+### Vendor ID: {{ common_block.eqptSpCmnBlk.attributes.vdrId }}
+### Version: {{ common_block.eqptSpCmnBlk.attributes.ver }}
+{%-     endfor %}
+{%- elif "eqptSpromLc" in api %}
+# Equipment SPROM LCs
+{%-     for lc in data_to_template['imdata'] %}
+## ID: {{ lc.eqptSpromLc.attributes.id }}
+### Access: {{ lc.eqptSpromLc.attributes.acc }}
+### Capacity: {{ lc.eqptSpromLc.attributes.cap }}
+### Child Action: {{ lc.eqptSpromLc.attributes.childAction }}
+### CIMC Version: {{ lc.eqptSpromLc.attributes.cimcVersion }}
+### Description: {{ lc.eqptSpromLc.attributes.descr }}
+### DN: {{ lc.eqptSpromLc.attributes.dn }}
+### Error Reason: {{ lc.eqptSpromLc.attributes.errRsn }}
+### MFG Timestamp: {{ lc.eqptSpromLc.attributes.mfgTm }}
+### Last Modified: {{ lc.eqptSpromLc.attributes.modTs }}
+### Model: {{ lc.eqptSpromLc.attributes.model }}
+### Monitoring Policy DN: {{ lc.eqptSpromLc.attributes.monPolDn }}
+### Number Blocks: {{ lc.eqptSpromLc.attributes.numBlk }}
+### Oper State: {{ lc.eqptSpromLc.attributes.operSt }}
+### Revision: {{ lc.eqptSpromLc.attributes.rev }}
+### Serial Number: {{ lc.eqptSpromLc.attributes.ser }}
+### Status: {{ lc.eqptSpromLc.attributes.status }}
+### Type: {{ lc.eqptSpromLc.attributes.type }}
+### Vendor: {{ lc.eqptSpromLc.attributes.vendor }}
+{%-     endfor %}
+{%- elif "eqptSpromPsu" in api %}
+{%-     if "Blk" in api %}
+# Equipment SPROM Power Supply Blocks
+{%-         for psu_block in data_to_template['imdata'] %}
+## DN: {{ psu_block.eqptSpromPsuBlk.attributes.dn }}
+### Voltage:
+#### c110: {{ psu_block.eqptSpromPsuBlk.attributes.c110v }}
+#### c220: {{ psu_block.eqptSpromPsuBlk.attributes.c220v }}
+### Child Action: {{ psu_block.eqptSpromPsuBlk.attributes.childAction }}
+### Checksum: {{ psu_block.eqptSpromPsuBlk.attributes.cksum }}
+### F Bits: {{ psu_block.eqptSpromPsuBlk.attributes.fbits }}
+### Length: {{ psu_block.eqptSpromPsuBlk.attributes.len }}
+### Last Modifed: {{ psu_block.eqptSpromPsuBlk.attributes.modTs }}
+### Power Supply CMd
+#### 1: {{ psu_block.eqptSpromPsuBlk.attributes.psCMd1 }}
+#### 2: {{ psu_block.eqptSpromPsuBlk.attributes.psCMd2 }}
+#### 3: {{ psu_block.eqptSpromPsuBlk.attributes.psCMd3 }}
+#### 4: {{ psu_block.eqptSpromPsuBlk.attributes.psCMd4 }}
+#### Power supply CMxMd
+#### 1: {{ psu_block.eqptSpromPsuBlk.attributes.psCMxMd1 }}
+#### 2: {{ psu_block.eqptSpromPsuBlk.attributes.psCMxMd2 }}
+#### 3: {{ psu_block.eqptSpromPsuBlk.attributes.psCMxMd3 }}
+#### 4: {{ psu_block.eqptSpromPsuBlk.attributes.psCMxMd4 }}
+### Signature: {{ psu_block.eqptSpromPsuBlk.attributes.sig }}
+### smOID: {{ psu_block.eqptSpromPsuBlk.attributes.smOID }}
+### Status: {{ psu_block.eqptSpromPsuBlk.attributes.status }}
+### Version: {{ psu_block.eqptSpromPsuBlk.attributes.ver }}
+{%-         endfor %}
+{%-     else %}
+# Equipment SPROM LCs
+{%-         for psu in data_to_template['imdata'] %}
+## ID: {{ psu.eqptSpromPsu.attributes.id }}
+### Access: {{ psu.eqptSpromPsu.attributes.acc }}
+### Capacity: {{ psu.eqptSpromPsu.attributes.cap }}
+### Child Action: {{ psu.eqptSpromPsu.attributes.childAction }}
+### CIMC Version: {{ psu.eqptSpromPsu.attributes.cimcVersion }}
+### Description: {{ psu.eqptSpromPsu.attributes.descr }}
+### DN: {{ psu.eqptSpromPsu.attributes.dn }}
+### Error Reason: {{ psu.eqptSpromPsu.attributes.errRsn }}
+### MFG Timestamp: {{ psu.eqptSpromPsu.attributes.mfgTm }}
+### Last Modified: {{ psu.eqptSpromPsu.attributes.modTs }}
+### Model: {{ psu.eqptSpromPsu.attributes.model }}
+### Monitoring Policy DN: {{ psu.eqptSpromPsu.attributes.monPolDn }}
+### Number Blocks: {{ psu.eqptSpromPsu.attributes.numBlk }}
+### Oper State: {{ psu.eqptSpromPsu.attributes.operSt }}
+### Revision: {{ psu.eqptSpromPsu.attributes.rev }}
+### Serial Number: {{ psu.eqptSpromPsu.attributes.ser }}
+### Status: {{ psu.eqptSpromPsu.attributes.status }}
+### Type: {{ psu.eqptSpromPsu.attributes.type }}
+### Vendor: {{ psu.eqptSpromPsu.attributes.vendor }}
+{%-         endfor %}
+{%-     endif %}
+{%- elif "eqptSpromSup" in api %}
+# Equipment SPROM Supervisors
+{%-     for sup in data_to_template['imdata'] %}
+## ID: {{ sup.eqptSpromSup.attributes.id }}
+### Access: {{ sup.eqptSpromSup.attributes.acc }}
+### Capacity: {{ sup.eqptSpromSup.attributes.cap }}
+### Child Action: {{ sup.eqptSpromSup.attributes.childAction }}
+### CIMC Version: {{ sup.eqptSpromSup.attributes.cimcVersion }}
+### Description: {{ sup.eqptSpromSup.attributes.descr }}
+### DN: {{ sup.eqptSpromSup.attributes.dn }}
+### Error Reason: {{ sup.eqptSpromSup.attributes.errRsn }}
+### MFG Timestamp: {{ sup.eqptSpromSup.attributes.mfgTm }}
+### Last Modified: {{ sup.eqptSpromSup.attributes.modTs }}
+### Model: {{ sup.eqptSpromSup.attributes.model }}
+### Monitoring Policy DN: {{ sup.eqptSpromSup.attributes.monPolDn }}
+### Number Blocks: {{ sup.eqptSpromSup.attributes.numBlk }}
+### Oper State: {{ sup.eqptSpromSup.attributes.operSt }}
+### Revision: {{ sup.eqptSpromSup.attributes.rev }}
+### Serial Number: {{ sup.eqptSpromSup.attributes.ser }}
+### Status: {{ sup.eqptSpromSup.attributes.status }}
+### Type: {{ sup.eqptSpromSup.attributes.type }}
+### Vendor: {{ sup.eqptSpromSup.attributes.vendor }}
+{%-     endfor %}
+{%- elif "eqptStorage" in api %}
+# Equipment Storage
+{%-     for storage in data_to_template['imdata'] %}
+## Name: {{ storage.eqptStorage.attributes.name }}
+### Name Alias: {{ storage.eqptStorage.attributes.nameAlias }}
+### Capacity
+#### Available:  {{ storage.eqptStorage.attributes.available }}
+#### Used: {{ storage.eqptStorage.attributes.used }}
+#### Utilized: {{ storage.eqptStorage.attributes.capUtilized }}
+### Blocks: {{ storage.eqptStorage.attributes.blocks }}
+### Child Action: {{ storage.eqptStorage.attributes.childAction }}
+### Device: {{ storage.eqptStorage.attributes.device }}
+### DN: {{ storage.eqptStorage.attributes.dn }}
+### Fail Reason: {{ storage.eqptStorage.attributes.failReason }}
+### File System: {{ storage.eqptStorage.attributes.fileSystem }}
+### Firmware Version: {{ storage.eqptStorage.attributes.firmwareVersion }}
+### Local Owner: {{ storage.eqptStorage.attributes.lcOwn }}
+### Media Wearout: {{ storage.eqptStorage.attributes.mediaWearout }}
+### Last Modified: {{ storage.eqptStorage.attributes.modTs }}
+### Model: {{ storage.eqptStorage.attributes.model }}
+### Monitoring Policy DN: {{ storage.eqptStorage.attributes.monPolDn }}
+### Mount: {{ storage.eqptStorage.attributes.mount }}
+### Oper State: {{ storage.eqptStorage.attributes.operSt }}
+### Serial Number: {{ storage.eqptStorage.attributes.serial }}
+### Status: {{ storage.eqptStorage.attributes.status }}
+{%-     endfor %}
+{%- elif "eqptSupC" in api %}
+{%-     if "Slot" in api %}
+# Equipment Supervisor Slots
+{%-         for slot in data_to_template['imdata'] %}
+## ID: {{ slot.eqptSupCSlot.attributes.id }}
+### Card Oper State: {{ slot.eqptSupCSlot.attributes.cardOperSt }}
+### Child Action: {{ slot.eqptSupCSlot.attributes.childAction }}
+### Description: {{ slot.eqptSupCSlot.attributes.descr }}
+### DN: {{ slot.eqptSupCSlot.attributes.dn }}
+### Location: {{ slot.eqptSupCSlot.attributes.loc }}
+### Last Modified: {{ slot.eqptSupCSlot.attributes.modTs }}
+### Monitoring Policy DN: {{ slot.eqptSupCSlot.attributes.monPolDn }}
+### Oper State: {{ slot.eqptSupCSlot.attributes.operSt }}
+### Physical ID: {{ slot.eqptSupCSlot.attributes.physId }}
+### Status: {{ slot.eqptSupCSlot.attributes.status }}
+### Type: {{ slot.eqptSupCSlot.attributes.type }}
+{%-         endfor %}
+{%-     else %}
+# Equipment Supervisors
+{%-         for supervisor in data_to_template['imdata'] %}
+## ID: {{ supervisor.eqptSupC.attributes.id }}
+### Child Action: {{ supervisor.eqptSupC.attributes.childAction }}
+### CIMC Version: {{ supervisor.eqptSupC.attributes.cimcVersion }}
+### Description: {{ supervisor.eqptSupC.attributes.descr }}
+### DN: {{ supervisor.eqptSupC.attributes.dn }}
+### Hardware Version: {{ supervisor.eqptSupC.attributes.hwVer }}
+### MAC
+#### B: {{ supervisor.eqptSupC.attributes.macB }}
+#### L: {{ supervisor.eqptSupC.attributes.macL }}
+### MFG Timestamp: {{ supervisor.eqptSupC.attributes.mfgTm }}
+### Last Modified: {{ supervisor.eqptSupC.attributes.modTs }}
+### Model: {{ supervisor.eqptSupC.attributes.model }}
+### Monitoring Policy DN: {{ supervisor.eqptSupC.attributes.monPolDn }}
+### Number of Ports: {{ supervisor.eqptSupC.attributes.numP }}
+### State
+#### Oper: {{ supervisor.eqptSupC.attributes.operSt }}
+#### Power: {{ supervisor.eqptSupC.attributes.pwrSt }}
+#### rd: {{ supervisor.eqptSupC.attributes.rdSt }}
+### Revision: {{ supervisor.eqptSupC.attributes.rev }}
+### Serial Number: {{ supervisor.eqptSupC.attributes.ser }}
+### Status: {{ supervisor.eqptSupC.attributes.status }}
+### Software CID: {{ supervisor.eqptSupC.attributes.swCId }}
+### Type: {{ supervisor.eqptSupC.attributes.type }}
+### Uptime: {{ supervisor.eqptSupC.attributes.upTs }}
+### vID: {{ supervisor.eqptSupC.attributes.vId }}
+### Vendor: {{ supervisor.eqptSupC.attributes.vendor }}
+{%-         endfor %}
+{%-     endif %}
+{%- endif %}

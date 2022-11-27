@@ -76,8 +76,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "BD" in api %}
+{%- elif "BD" in api %}
 <h1>Bridge Domains</h1>
 <table id = "datatable">
 <thead>
@@ -173,8 +172,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "Ctx" in api %}
+{%- elif "Ctx" in api %}
 <h1>Contexts</h1>
 <table id = "datatable">
 <thead>
@@ -240,8 +238,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "Ap" in api %}
+{%- elif "Ap" in api %}
 <h1>Application Profiles</h1>
 <table id = "datatable">
 <thead>
@@ -287,8 +284,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "l3extOut" in api %}
+{%- elif "l3extOut" in api %}
 <h1>L3Outs</h1>
 <table id = "datatable">
 <thead>
@@ -338,8 +334,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "l2extOut" in api %}
+{%- elif "l2extOut" in api %}
 <h1>L2Outs</h1>
 <table id = "datatable">
 <thead>
@@ -385,8 +380,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "Subnet" in api %}
+{%- elif "Subnet" in api %}
 <h1>Subnets</h1>
 <table id = "datatable">
 <thead>
@@ -442,8 +436,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "CEp" in api %}
+{%- elif "CEp" in api %}
 <h1>Endpoints</h1>
 <table id = "datatable">
 <thead>
@@ -509,8 +502,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "fabricNode" in api %}
+{%- elif "fabricNode" in api %}
 <h1>Fabric Nodes</h1>
 <table id = "datatable">
 <thead>
@@ -574,8 +566,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "l1PhysIf" in api %}
+{%- elif "l1PhysIf" in api %}
 <h1>Physical Interfaces</h1>
 <table id = "datatable">
 <thead>
@@ -679,8 +670,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "infraAccPortP" in api %}
+{%- elif "infraAccPortP" in api %}
 <h1>Leaf Interface Profiles</h1>
 <table id = "datatable">
 <thead>
@@ -724,8 +714,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "infraSpAccPortP" in api %}
+{%- elif "infraSpAccPortP" in api %}
 <h1>Spine Interface Profiles</h1>
 <table id = "datatable">
 <thead>
@@ -769,8 +758,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "infraNodeP" in api %}
+{%- elif "infraNodeP" in api %}
 <h1>Leaf Switch Profiles</h1>
 <table id = "datatable">
 <thead>
@@ -814,8 +802,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "infraSpineP" in api %}
+{%- elif "infraSpineP" in api %}
 <h1>Spine Switch Profiles</h1>
 <table id = "datatable">
 <thead>
@@ -859,8 +846,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "fvnsVlanInstP" in api %}
+{%- elif "fvnsVlanInstP" in api %}
 <h1>VLAN Pools</h1>
 <table id = "datatable">
 <thead>
@@ -908,8 +894,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "infraAttEntityP" in api %}
+{%- elif "infraAttEntityP" in api %}
 <h1>Attachable Access Entity Profiles</h1>
 <table id = "datatable">
 <thead>
@@ -957,8 +942,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "vzBrCP" in api %}
+{%- elif "vzBrCP" in api %}
 <h1>Contracts</h1>
 <table id = "datatable">
 <thead>
@@ -1016,8 +1000,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "vzEntry" in api %}
+{%- elif "vzEntry" in api %}
 <h1>Filters</h1>
 <table id = "datatable">
 <thead>
@@ -1085,8 +1068,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "physDomP" in api %}
+{%- elif "physDomP" in api %}
 <h1>Physical Domains</h1>
 <table id = "datatable">
 <thead>
@@ -1130,8 +1112,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "l3extDomP" in api %}
+{%- elif "l3extDomP" in api %}
 <h1>L3 Domains</h1>
 <table id = "datatable">
 <thead>
@@ -1175,8 +1156,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "qosClass" in api %}
+{%- elif "qosClass" in api %}
 <h1>QOS Classes</h1>
 <table id = "datatable">
 <thead>
@@ -1224,8 +1204,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "faultSummary" in api %}
+{%- elif "faultSummary" in api %}
 <h1>Fault Summary</h1>
 <table id = "datatable">
 <thead>
@@ -1269,8 +1248,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "aaaModLR" in api %}
+{%- elif "aaaModLR" in api %}
 <h1>Audit Log</h1>
 <table id = "datatable">
 <thead>
@@ -1320,8 +1298,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "fvIp" in api %}
+{%- elif "fvIp" in api %}
 <h1>IP Addresses</h1>
 <table id = "datatable">
 <thead>
@@ -1373,8 +1350,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eventRecord" in api %}
+{%- elif "eventRecord" in api %}
 <h1>Events</h1>
 <table id = "datatable">
 <thead>
@@ -1420,8 +1396,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "licenseEntitlement" in api %}
+{%- elif "licenseEntitlement" in api %}
 <h1>License Entitlements</h1>
 <table id = "datatable">
 <thead>
@@ -1457,8 +1432,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "bgpRRNodePEp" in api %}
+{%- elif "bgpRRNodePEp" in api %}
 <h1>BGP Route Reflectors</h1>
 <table id = "datatable">
 <thead>
@@ -1502,8 +1476,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "infraPortS" in api %}
+{%- elif "infraPortS" in api %}
 <h1>Interface Policies</h1>
 <table id = "datatable">
 <thead>
@@ -1568,8 +1541,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "infraProfile" in api %}
+{%- elif "infraProfile" in api %}
 <h1>Interface Profiles</h1>
 <table id = "datatable">
 <thead>
@@ -1757,8 +1729,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "fabricPod" in api %}
+{%- elif "fabricPod" in api %}
 <h1>Fabric Pods</h1>
 <table id = "datatable">
 <thead>
@@ -1788,8 +1759,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "fabricPath" in api %}
+{%- elif "fabricPath" in api %}
 <h1>Fabric Paths</h1>
 <table id = "datatable">
 <thead>
@@ -1819,8 +1789,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "rtctrlSubjP" in api %}
+{%- elif "rtctrlSubjP" in api %}
 <h1>Prefix List</h1>
 <table id = "datatable">
 <thead>
@@ -1860,8 +1829,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "rtctrlMatchRtDest" in api %}
+{%- elif "rtctrlMatchRtDest" in api %}
 <h1>Prefix List Detailed</h1>
 <table id = "datatable">
 <thead>
@@ -1911,8 +1879,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "Tenant" in api %}
+{%- elif "Tenant" in api %}
 <h1>Tenants</h1>
 <table id = "datatable">
 <thead>
@@ -1956,8 +1923,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "aaaUser" in api %}
+{%- elif "aaaUser" in api %}
 <h1>Users</h1>
 <table id = "datatable">
 <thead>
@@ -2035,8 +2001,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "aaaDomain" in api %}
+{%- elif "aaaDomain" in api %}
 <h1>Security Domains</h1>
 <table id = "datatable">
 <thead>
@@ -2080,8 +2045,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "vzSubj" in api %}
+{%- elif "vzSubj" in api %}
 <h1>Contract Subjects</h1>
 <table id = "datatable">
 <thead>
@@ -2135,8 +2099,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "topology/health" in api %}
+{%- elif "topology/health" in api %}
 <h1>Fabric Total Health</h1>
 <table id = "datatable">
 <thead>
@@ -2172,8 +2135,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "pkiFabricNodeSSLCertificate" in api %}
+{%- elif "pkiFabricNodeSSLCertificate" in api %}
 <h1>Fabric Node SSL Certificates</h1>
 <table id = "datatable">
 <thead>
@@ -2249,8 +2211,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "tn-" and "health" in api %}
+{%- elif "tn-" and "health" in api %}
 <h1>Tenant Health</h1>
 <table id = "datatable">
 <thead>
@@ -2286,8 +2247,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "firmwareCtrlrRunning" in api %}
+{%- elif "firmwareCtrlrRunning" in api %}
 <h1>Fabric Membership</h1>
 <table id = "datatable">
 <thead>
@@ -2325,8 +2285,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "topSystem" in api %}
+{%- elif "topSystem" in api %}
 {%-     if "?" not in api %}
 <h1>Top System</h1>
 <table id = "datatable">
@@ -2446,8 +2405,7 @@
 </tbody>
 </table>
 {%-     endif %}
-{%- else %}
-{%- if "infraWiNode" in api %}
+{%- elif "infraWiNode" in api %}
 <h1>Cluster Health</h1>
 <table id = "datatable">
 <thead>
@@ -2515,8 +2473,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "vnsMDev" in api %}
+{%- elif "vnsMDev" in api %}
 <h1>Device Packages</h1>
 <table id = "datatable">
 <thead>
@@ -2562,8 +2519,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cnwAggrIf" in api %}
+{%- elif "cnwAggrIf" in api %}
 <h1>Cluster Aggregate Interfaces</h1>
 <table id = "datatable">
 <thead>
@@ -2649,8 +2605,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "l3Inst" in api %}
+{%- elif "l3Inst" in api %}
 <h1>Layer3 Interfaces </h1>
 <table id = "datatable">
 <thead>
@@ -2752,8 +2707,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "actrlEntity" in api %}
+{%- elif "actrlEntity" in api %}
 <h1>Access Control Entities </h1>
 <table id = "datatable">
 <thead>
@@ -2787,8 +2741,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "actrlInst" in api %}
+{%- elif "actrlInst" in api %}
 <h1>Access Control Instances </h1>
 <table id = "datatable">
 <thead>
@@ -2826,8 +2779,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "actrlRule" in api %}
+{%- elif "actrlRule" in api %}
 <h1>Access Control Rules </h1>
 <table id = "datatable">
 <thead>
@@ -2895,8 +2847,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "actrlScope" in api %}
+{%- elif "actrlScope" in api %}
 <h1>Access Control Scopes </h1>
 <table id = "datatable">
 <thead>
@@ -2932,8 +2883,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cnwPhysIf" in api %}
+{%- elif "cnwPhysIf" in api %}
 <h1>Cluster Physical Interfaces </h1>
 <table id = "datatable">
 <thead>
@@ -3033,8 +2983,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "compCtrlr" in api %}
+{%- elif "compCtrlr" in api %}
 <h1>Compute Controllers</h1>
 <table id = "datatable">
 <thead>
@@ -3158,8 +3107,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "compDom" in api %}
+{%- elif "compDom" in api %}
 <h1>Compute Domains</h1>
 <table id = "datatable">
 <thead>
@@ -3199,8 +3147,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "compEpPD" in api %}
+{%- elif "compEpPD" in api %}
 <h1>Compute Endpoint Policy Description</h1>
 <table id = "datatable">
 <thead>
@@ -3342,8 +3289,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "compProv" in api %}
+{%- elif "compProv" in api %}
 <h1>Compute Providers</h1>
 <table id = "datatable">
 <thead>
@@ -3381,8 +3327,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "arpAdjEp" in api %}
+{%- elif "arpAdjEp" in api %}
 <h1>ARP Adjacency Endpoints</h1>
 <table id = "datatable">
 <thead>
@@ -3418,8 +3363,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "arpDb" in api %}
+{%- elif "arpDb" in api %}
 <h1>ARP Database</h1>
 <table id = "datatable">
 <thead>
@@ -3445,8 +3389,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "arpDom" in api %}
+{%- elif "arpDom" in api %}
 <h1>ARP Domain</h1>
 <table id = "datatable">
 <thead>
@@ -3476,8 +3419,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "arpEntity" in api %}
+{%- elif "arpEntity" in api %}
 <h1>ARP Entity</h1>
 <table id = "datatable">
 <thead>
@@ -3511,13 +3453,12 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "arpIf" in api %}
+{%- elif "arpIf" in api %}
 <h1>ARP Interfaces</h1>
 <table id = "datatable">
 <thead>
   <tr>
-    <thName</th>
+    <th>Name</th>
     <th>Admin State</th>
     <th>Child Action</th>
     <th>Control</th>
@@ -3548,8 +3489,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "arpInst" in api %}
+{%- elif "arpInst" in api %}
 <h1>ARP Instances</h1>
 <table id = "datatable">
 <thead>
@@ -3583,8 +3523,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "bgpDom" in api %}
+{%- elif "bgpDom" in api %}
 {%-     if "Af" in api%}
 <h1>BGP Domain Address Families</h1>
 <table id = "datatable">
@@ -3604,7 +3543,7 @@
     <th>Status</th>
     <th>Table Version</th>
     <th>Type</th>
-  </tr
+  </tr>
 {%-          for family in data_to_template['imdata'] %}
   <tr>
     <td>{{ family.bgpDomAf.attributes.name }}</td>
@@ -3661,7 +3600,7 @@
   </tr>
 </thead>
 <tbody>
-{%-     for domain in data_to_template['imdata'] %}
+{%-         for domain in data_to_template['imdata'] %}
   <tr>
     <td>{{ domain.bgpDom.attributes.name }}</td>
     <td>{{ domain.bgpDom.attributes.bgpCfgFailedBmp }}</td>
@@ -3692,12 +3631,11 @@
     <td>{{ domain.bgpDom.attributes.status }}</td>
     <td>{{ domain.bgpDom.attributes.type }}</td>
   </tr>
-{%-     endfor %}
+{%-         endfor %}
 </tbody>
 </table>
 {%-     endif %}
-{%- else %}
-{%- if "bgpEntity" in api %}
+{%- elif "bgpEntity" in api %}
 <h1>BGP Entities</h1>
 <table id = "datatable">
 <thead>
@@ -3731,8 +3669,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "bgpInst" in api %}
+{%- elif "bgpInst" in api %}
 {%-     if "InstPol" in api %}
 <h1>BGP Instances Policy</h1>
 <table id = "datatable">
@@ -3844,8 +3781,7 @@
 </tbody>
 </table>
 {%-     endif %}
-{%- else %}
-{%- if "bgpPeer" in api %}
+{%- elif "bgpPeer" in api %}
 {%-     if "bgpPeerAf" in api %}
 <h1>BGP Peer AF Entries</h1>
 <table id = "datatable">
@@ -4037,8 +3973,7 @@
 </table>
 {%-         endif %}
 {%-     endif %}
-{%- else %}
-{%- if "bgpRRP" in api %}
+{%- elif "bgpRRP" in api %}
 <h1>BGP Route Reflector Policies</h1>
 <table id = "datatable">
 <thead>
@@ -4076,8 +4011,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cdpAdjEp" in api %}
+{%- elif "cdpAdjEp" in api %}
 <h1>CDP Adjacency Endpoints</h1>
 <table id = "datatable">
 <thead>
@@ -4131,8 +4065,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cdpEntity" in api %}
+{%- elif "cdpEntity" in api %}
 <h1>CDP Adjacency Endpoints</h1>
 <table id = "datatable">
 <thead>
@@ -4164,8 +4097,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cdpIf" in api %}
+{%- elif "cdpIf" in api %}
 <h1>CDP Interfaces</h1>
 <table id = "datatable">
 <thead>
@@ -4209,8 +4141,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cdpInst" in api %}
+{%- elif "cdpInst" in api %}
 <h1>CDP Instances</h1>
 <table id = "datatable">
 <thead>
@@ -4256,8 +4187,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cdpIntfAddr" in api %}
+{%- elif "cdpIntfAddr" in api %}
 <h1>CDP Interface Addresses</h1>
 <table id = "datatable">
 <thead>
@@ -4281,8 +4211,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cdpMgmtAddr" in api %}
+{%- elif "cdpMgmtAddr" in api %}
 <h1>CDP Management Addresses</h1>
 <table id = "datatable">
 <thead>
@@ -4306,8 +4235,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cnwRsMbrIfs" in api %}
+{%- elif "cnwRsMbrIfs" in api %}
 <h1>Node RS Member Interfaces</h1>
 <table id = "datatable">
 <thead>
@@ -4349,8 +4277,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "compRsDomP" in api %}
+{%- elif "compRsDomP" in api %}
 <h1>Compute RS Domain Policies</h1>
 <table id = "datatable">
 <thead>
@@ -4388,8 +4315,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptBSlot" in api %}
+{%- elif "eqptBSlot" in api %}
 <h1>Equipment Board Slots</h1>
 <table id = "datatable">
 <thead>
@@ -4429,8 +4355,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptBoard" in api %}
+{%- elif "eqptBoard" in api %}
 <h1>Equipment Boards</h1>
 <table id = "datatable">
 <thead>
@@ -4494,8 +4419,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptCPU" in api %}
+{%- elif "eqptCPU" in api %}
 <h1>Equipment CPUs</h1>
 <table id = "datatable">
 <thead>
@@ -4545,8 +4469,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptCh" in api %}
+{%- elif "eqptCh" in api %}
 <h1>Equipment Chassis</h1>
 <table id = "datatable">
 <thead>
@@ -4600,8 +4523,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptDimm" in api %}
+{%- elif "eqptDimm" in api %}
 <h1>Equipment DIMMs</h1>
 <table id = "datatable">
 <thead>
@@ -4647,8 +4569,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptExtCh" in api %}
+{%- elif "eqptExtCh" in api %}
 <h1>Equipment Fabric Extenders</h1>
 <table id = "datatable">
 <thead>
@@ -4700,8 +4621,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptFabP" in api %}
+{%- elif "eqptFabP" in api %}
 <h1>Equipment Fabric Ports</h1>
 <table id = "datatable">
 <thead>
@@ -4735,8 +4655,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptFan" in api %}
+{%- elif "eqptFan" in api %}
 <h1>Equipment Fans</h1>
 <table id = "datatable">
 <thead>
@@ -4786,8 +4705,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptFpga" in api %}
+{%- elif "eqptFpga" in api %}
 <h1>Equipment Field Programmable Gate Arrays</h1>
 <table id = "datatable">
 <thead>
@@ -4831,8 +4749,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptFt" in api %}
+{%- elif "eqptFt" in api %}
 {%-     if "Slot" in api %}
 <h1>Equipment Fan Tray Slots</h1>
 <table id = "datatable">
@@ -4920,8 +4837,7 @@
 </tbody>
 </table>
 {%-     endif %}
-{%- else %}
-{%- if "eqptIndLed" in api %}
+{%- elif "eqptIndLed" in api %}
 <h1>Equipment Indicator LEDs</h1>
 <table id = "datatable">
 <thead>
@@ -4965,8 +4881,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptLC" in api %}
+{%- elif "eqptLC" in api %}
 {%-     if "Slot" in api %}
 <h1>Equipment Line Card Slots</h1>
 <table id = "datatable">
@@ -5068,8 +4983,7 @@
 </tbody>
 </table>
 {%-     endif %}
-{%- else %}
-{%- if "eqptLeafP" in api %}
+{%- elif "eqptLeafP" in api %}
 <h1>Equipment Leaf Ports</h1>
 <table id = "datatable">
 <thead>
@@ -5103,5 +5017,677 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- elif "eqptLocLed" in api %}
+<h1>Equipment Port Locator LEDs</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Color</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Oper State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for led in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ led.eqptLocLed.attributes.id }}</td>
+    <td>{{ led.eqptLocLed.attributes.adminSt }}</td>
+    <td>{{ led.eqptLocLed.attributes.childAction }}</td>
+    <td>{{ led.eqptLocLed.attributes.cimcVersion }}</td>
+    <td>{{ led.eqptLocLed.attributes.color }}</td>
+    <td>{{ led.eqptLocLed.attributes.descr }}</td>
+    <td>{{ led.eqptLocLed.attributes.dn }}</td>
+    <td>{{ led.eqptLocLed.attributes.mfgTm }}</td>
+    <td>{{ led.eqptLocLed.attributes.modTs }}</td>
+    <td>{{ led.eqptLocLed.attributes.model }}</td>
+    <td>{{ led.eqptLocLed.attributes.operSt }}</td>
+    <td>{{ led.eqptLocLed.attributes.rev }}</td>
+    <td>{{ led.eqptLocLed.attributes.ser }}</td>
+    <td>{{ led.eqptLocLed.attributes.status }}</td>
+    <td>{{ led.eqptLocLed.attributes.type }}</td>
+    <td>{{ led.eqptLocLed.attributes.vendor }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "eqptPsu" in api %}
+{%-     if "Slot" in api %}
+<h1>Equipment Power Supply Slots</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Card Oper State</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Location</th>
+    <th>Last Modifed</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Physical ID</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for slot in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ slot.eqptPsuSlot.attributes.id }}</td>
+    <td>{{ slot.eqptPsuSlot.attributes.cardOperSt }}</td>
+    <td>{{ slot.eqptPsuSlot.attributes.childAction }}</td>
+    <td>{{ slot.eqptPsuSlot.attributes.descr }}</td>
+    <td>{{ slot.eqptPsuSlot.attributes.dn }}</td>
+    <td>{{ slot.eqptPsuSlot.attributes.loc }}</td>
+    <td>{{ slot.eqptPsuSlot.attributes.modTs }}</td>
+    <td>{{ slot.eqptPsuSlot.attributes.monPolDn }}</td>
+    <td>{{ slot.eqptPsuSlot.attributes.operSt }}</td>
+    <td>{{ slot.eqptPsuSlot.attributes.physId }}</td>
+    <td>{{ slot.eqptPsuSlot.attributes.status }}</td>
+    <td>{{ slot.eqptPsuSlot.attributes.type }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     else %}
+<h1>Equipment Power Supplies</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Alarm Reg</th>
+    <th>Capacity</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Drawn Current</th>
+    <th>Fan Oper State</th>
+    <th>Hardware Version</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>TC</th>
+    <th>vID</th>
+    <th>vSrc</th>
+    <th>Vendor</th>
+    <th>Voltage</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for psu in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ psu.eqptPsu.attributes.id }}</td>
+    <td>{{ psu.eqptPsu.attributes.almReg }}</td>
+    <td>{{ psu.eqptPsu.attributes.cap }}</td>
+    <td>{{ psu.eqptPsu.attributes.childAction }}</td>
+    <td>{{ psu.eqptPsu.attributes.cimcVersion }}</td>
+    <td>{{ psu.eqptPsu.attributes.descr }}</td>
+    <td>{{ psu.eqptPsu.attributes.dn }}</td>
+    <td>{{ psu.eqptPsu.attributes.drawnCurr }}</td>
+    <td>{{ psu.eqptPsu.attributes.fanOpSt }}</td>
+    <td>{{ psu.eqptPsu.attributes.hwVer }}</td>
+    <td>{{ psu.eqptPsu.attributes.mfgTm }}</td>
+    <td>{{ psu.eqptPsu.attributes.modTs }}</td>
+    <td>{{ psu.eqptPsu.attributes.model }}</td>
+    <td>{{ psu.eqptPsu.attributes.monPolDn }}</td>
+    <td>{{ psu.eqptPsu.attributes.operSt }}</td>
+    <td>{{ psu.eqptPsu.attributes.rev }}</td>
+    <td>{{ psu.eqptPsu.attributes.ser }}</td>
+    <td>{{ psu.eqptPsu.attributes.status }}</td>
+    <td>{{ psu.eqptPsu.attributes.tc }}</td>
+    <td>{{ psu.eqptPsu.attributes.vId }}</td>
+    <td>{{ psu.eqptPsu.attributes.vSrc }}</td>
+    <td>{{ psu.eqptPsu.attributes.vendor }}</td>
+    <td>{{ psu.eqptPsu.attributes.volt }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     endif %}
+{%- elif "eqptRsIoPPhysConf" in api %}
+<h1>Equipment RS IO Port Physical Configurations</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>tSKey</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCL</th>
+    <th>tDN</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for port in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.tSKey }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.childAction }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.dn }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.forceResolve }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.lcOwn }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.modTs }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.rType }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.state }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.stateQual }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.status }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.tCl }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.tDn }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.tType }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "eqptSensor" in api %}
+<h1>Equipment Sensors</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Major Threshold</th>
+    <th>MFG Timestamp</th>
+    <th>Minor Threshold</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>Value</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for sensor in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ sensor.eqptSensor.attributes.id }}</td>
+    <td>{{ sensor.eqptSensor.attributes.childAction }}</td>
+    <td>{{ sensor.eqptSensor.attributes.cimcVersion }}</td>
+    <td>{{ sensor.eqptSensor.attributes.descr }}</td>
+    <td>{{ sensor.eqptSensor.attributes.dn }}</td>
+    <td>{{ sensor.eqptSensor.attributes.majorThresh }}</td>
+    <td>{{ sensor.eqptSensor.attributes.mfgTm }}</td>
+    <td>{{ sensor.eqptSensor.attributes.minorThresh }}</td>
+    <td>{{ sensor.eqptSensor.attributes.modTs }}</td>
+    <td>{{ sensor.eqptSensor.attributes.model }}</td>
+    <td>{{ sensor.eqptSensor.attributes.monPolDn }}</td>
+    <td>{{ sensor.eqptSensor.attributes.operSt }}</td>
+    <td>{{ sensor.eqptSensor.attributes.rev }}</td>
+    <td>{{ sensor.eqptSensor.attributes.ser }}</td>
+    <td>{{ sensor.eqptSensor.attributes.status }}</td>
+    <td>{{ sensor.eqptSensor.attributes.type }}</td>
+    <td>{{ sensor.eqptSensor.attributes.value }}</td>
+    <td>{{ sensor.eqptSensor.attributes.vendor }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "eqptSpCmnBlk" in api %}
+<h1>Equipment SP Common Blocks</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>PD Number</th>
+    <th>Port Number</th>
+    <th>Child Action</th>
+    <th>Checksum</th>
+    <th>CLEI</th>
+    <th>Count</th>
+    <th>DN</th>
+    <th>Eng Bits</th>
+    <th>Hardware Revision Major</th>
+    <th>Hardware Revision Minor</th>
+    <th>Length</th>
+    <th>Major</th>
+    <th>MFG Bits</th>
+    <th>MFG Dev</th>
+    <th>Minor</th>
+    <th>Last Modifed</th>
+    <th>OEM</th>
+    <th>pRevision</th>
+    <th>Power Consumption</th>
+    <th>RAM FL</th>
+    <th>Serial Number</th>
+    <th>Signature</th>
+    <th>Size</th>
+    <th>Status</th>
+    <th>Vendor ID</th>
+    <th>Version</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for common_block in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.pdNum }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.prtNum }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.childAction }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.cksum }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.clei }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.count }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.dn }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.engBits }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.hwRevMaj }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.hwRevMin }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.len }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.major }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.mfgBits }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.mfgDev }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.minor }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.modTs }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.oem }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.pRev }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.pwrCon }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.ramFl }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.serNum }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.sig }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.size }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.status }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.vdrId }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.ver }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "eqptSpromLc" in api %}
+<h1>Equipment SPROM LCs</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Access</th>
+    <th>Capacity</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Error Reason</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Number Blocks</th>
+    <th>Oper State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for lc in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ lc.eqptSpromLc.attributes.id }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.acc }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.cap }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.childAction }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.cimcVersion }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.descr }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.dn }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.errRsn }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.mfgTm }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.modTs }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.model }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.monPolDn }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.numBlk }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.operSt }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.rev }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.ser }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.status }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.type }}</td>
+    <td>{{ lc.eqptSpromLc.attributes.vendor }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "eqptSpromPsu" in api %}
+{%-     if "Blk" in api %}
+<h1>Equipment SPROM Power Supply Blocks</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>c110v</th>
+    <th>c220v</th>
+    <th>Child Action</th>
+    <th>Checksum</th>
+    <th>F Bits</th>
+    <th>Length</th>
+    <th>Last Modified</th>
+    <th>Power Supply CMd1</th>
+    <th>Power Supply CMd2</th>
+    <th>Power Supply CMd3</th>
+    <th>Power Supply CMd4</th>
+    <th>Power Supply CMxMd1</th>
+    <th>Power Supply CMxMd2</th>
+    <th>Power Supply CMxMd3</th>
+    <th>Power Supply CMxMd4</th>
+    <th>Signature</th>
+    <th>smOID</th>
+    <th>Status</th>
+    <th>Version</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for psu_block in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.dn }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.c110v }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.c220v }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.childAction }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.cksum }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.fbits }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.len }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.modTs }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.psCMd1 }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.psCMd2 }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.psCMd3 }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.psCMd4 }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.psCMxMd1 }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.psCMxMd2 }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.psCMxMd3 }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.psCMxMd4 }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.sig }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.smOID }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.status }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.ver }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     else %}
+<h1>Equipment SPROM Power Supplies</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Access</th>
+    <th>Capacity</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Error Reason</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Number Blocks</th>
+    <th>Oper State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for psu in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ psu.eqptSpromPsu.attributes.id }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.acc }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.cap }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.childAction }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.cimcVersion }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.descr }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.dn }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.errRsn }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.mfgTm }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.modTs }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.model }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.monPolDn }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.numBlk }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.operSt }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.rev }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.ser }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.status }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.type }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.vendor }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     endif %}
+{%- elif "eqptSpromSup" in api %}
+<h1>Equipment SPROM Supervisors</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Access</th>
+    <th>Capacity</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Error Reason</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Number Blocks</th>
+    <th>Oper State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for sup in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ sup.eqptSpromSup.attributes.id }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.acc }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.cap }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.childAction }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.cimcVersion }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.descr }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.dn }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.errRsn }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.mfgTm }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.modTs }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.model }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.monPolDn }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.numBlk }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.operSt }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.rev }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.ser }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.status }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.type }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.vendor }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "eqptStorage" in api %}
+<h1>Equipment Storage</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Available</th>
+    <th>Blocks</th>
+    <th>Capacity Utilized</th>
+    <th>Child Action</th>
+    <th>Device</th>
+    <th>DN</th>
+    <th>Fail Reason</th>
+    <th>File System</th>
+    <th>Firmware Version</th>
+    <th>Local Owner</th>
+    <th>Media Wearout</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Mount</th>
+    <th>Oper State</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Used</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for storage in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ storage.eqptStorage.attributes.name }}</td>
+    <td>{{ storage.eqptStorage.attributes.nameAlias }}</td>
+    <td>{{ storage.eqptStorage.attributes.available }}</td>
+    <td>{{ storage.eqptStorage.attributes.blocks }}</td>
+    <td>{{ storage.eqptStorage.attributes.capUtilized }}</td>
+    <td>{{ storage.eqptStorage.attributes.childAction }}</td>
+    <td>{{ storage.eqptStorage.attributes.device }}</td>
+    <td>{{ storage.eqptStorage.attributes.dn }}</td>
+    <td>{{ storage.eqptStorage.attributes.failReason }}</td>
+    <td>{{ storage.eqptStorage.attributes.fileSystem }}</td>
+    <td>{{ storage.eqptStorage.attributes.firmwareVersion }}</td>
+    <td>{{ storage.eqptStorage.attributes.lcOwn }}</td>
+    <td>{{ storage.eqptStorage.attributes.mediaWearout }}</td>
+    <td>{{ storage.eqptStorage.attributes.modTs }}</td>
+    <td>{{ storage.eqptStorage.attributes.model }}</td>
+    <td>{{ storage.eqptStorage.attributes.monPolDn }}</td>
+    <td>{{ storage.eqptStorage.attributes.mount }}</td>
+    <td>{{ storage.eqptStorage.attributes.operSt }}</td>
+    <td>{{ storage.eqptStorage.attributes.serial }}</td>
+    <td>{{ storage.eqptStorage.attributes.status }}</td>
+    <td>{{ storage.eqptStorage.attributes.used }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "eqptSupC" in api %}
+{%-     if "Slot" in api %}
+<h1>Equipment Supervisor Slots</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Card Oper State</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Location</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Physical ID</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for slot in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ slot.eqptSupCSlot.attributes.id }}</td>
+    <td>{{ slot.eqptSupCSlot.attributes.cardOperSt }}</td>
+    <td>{{ slot.eqptSupCSlot.attributes.childAction }}</td>
+    <td>{{ slot.eqptSupCSlot.attributes.descr }}</td>
+    <td>{{ slot.eqptSupCSlot.attributes.dn }}</td>
+    <td>{{ slot.eqptSupCSlot.attributes.loc }}</td>
+    <td>{{ slot.eqptSupCSlot.attributes.modTs }}</td>
+    <td>{{ slot.eqptSupCSlot.attributes.monPolDn }}</td>
+    <td>{{ slot.eqptSupCSlot.attributes.operSt }}</td>
+    <td>{{ slot.eqptSupCSlot.attributes.physId }}</td>
+    <td>{{ slot.eqptSupCSlot.attributes.status }}</td>
+    <td>{{ slot.eqptSupCSlot.attributes.type }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     else %}
+<h1>Equipment Supervisors</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Hardware Version</th>
+    <th>MAC B</th>
+    <th>MAC L</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Number of Ports</th>
+    <th>Oper State</th>
+    <th>Power State</th>
+    <th>rd State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Software CID</th>
+    <th>Type</th>
+    <th>Uptime</th>
+    <th>vID</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for supervisor in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ supervisor.eqptSupC.attributes.id }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.childAction }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.cimcVersion }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.descr }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.dn }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.hwVer }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.macB }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.macL }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.mfgTm }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.modTs }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.model }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.monPolDn }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.numP }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.operSt }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.pwrSt }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.rdSt }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.rev }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.ser }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.status }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.swCId }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.type }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.upTs }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.vId }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.vendor }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     endif %}
+{%- endif %}
 {%- include 'datatable_footer.j2' %}

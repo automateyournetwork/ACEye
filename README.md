@@ -126,6 +126,32 @@ Equipment Line Card Slots
 
 Equipment Line Cards
 
+Equipment Port Locator LEDs
+
+Equipment Power Supplies
+
+Equipment Power Supply Slots
+
+Equipment RS IO Port Physical Configs
+
+Equipment Sensors
+
+Equipment SP Common Blocks
+
+Equipment SPROM LCs
+
+Equipment SPROM Power Supplies
+
+Equipment SPROM Power Supply Blocks
+
+Equipment SPROM Supervisors
+
+Equipment Storage
+
+Equipment Supervisor Slots
+
+Equipment Supervisors
+
 *Events
 
 Fabric Membership
