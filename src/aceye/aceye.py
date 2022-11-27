@@ -205,6 +205,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.equipment_leaf_ports(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_port_locator_leds(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)        
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -267,6 +269,7 @@ class ACEye():
                     'Equipment Leaf Ports',
                     'Equipment Line Card Slots',
                     'Equipment Line Cards',
+                    'Equipment Port Locator LEDs',
                     'Events',
                     'Fabric Membership',
                     'Fabric Nodes',
@@ -1017,6 +1020,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def equipment_port_locator_leds(self):
+        self.url = f"{ self.aci }/api/node/class/eqptLocLed.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment Port Locator LEDs code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1388,6 +1398,10 @@ class ACEye():
 
         if "eqptLeafP" in self.url:
             with open('Equipment Leaf Ports/JSON/Equipment Leaf Ports.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "eqptLocLed" in self.url:
+            with open('Equipment Port Locator LEDs/JSON/Equipment Port Locator LEDs.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -1762,6 +1776,10 @@ class ACEye():
 
         if "eqptLeafP" in self.url:
             with open('Equipment Leaf Ports/YAML/Equipment Leaf Ports.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "eqptLocLed" in self.url:
+            with open('Equipment Port Locator LEDs/YAML/Equipment Port Locator LEDs.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -2140,6 +2158,10 @@ class ACEye():
 
         if "eqptLeafP" in self.url:
             with open('Equipment Leaf Ports/CSV/Equipment Leaf Ports.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "eqptLocLed" in self.url:
+            with open('Equipment Port Locator LEDs/CSV/Equipment Port Locator LEDs.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -2521,6 +2543,10 @@ class ACEye():
             with open('Equipment Leaf Ports/Markdown/Equipment Leaf Ports.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "eqptLocLed" in self.url:
+            with open('Equipment Port Locator LEDs/Markdown/Equipment Port Locator LEDs.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2900,6 +2926,10 @@ class ACEye():
             with open('Equipment Leaf Ports/HTML/Equipment Leaf Ports.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "eqptLocLed" in self.url:
+            with open('Equipment Port Locator LEDs/HTML/Equipment Port Locator LEDs.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3273,6 +3303,10 @@ class ACEye():
 
         if "eqptLeafP" in self.url:
             with open('Equipment Leaf Ports/Mindmap/Equipment Leaf Ports.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "eqptLocLed" in self.url:
+            with open('Equipment Port Locator LEDs/Mindmap/Equipment Port Locator LEDs.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

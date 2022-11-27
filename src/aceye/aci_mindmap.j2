@@ -2481,4 +2481,25 @@
 ### Status: {{ port.eqptLeafP.attributes.status }}
 ### Type: {{ port.eqptLeafP.attributes.type }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptLocLed" in api %}
+# Equipment Port Locator LEDs
+{%-     for led in data_to_template['imdata'] %}
+## ID: {{ led.eqptLocLed.attributes.id }}
+### Admin State: {{ led.eqptLocLed.attributes.adminSt }}
+### Child Action: {{ led.eqptLocLed.attributes.childAction }}
+### CIMC Version: {{ led.eqptLocLed.attributes.cimcVersion }}
+### Color: {{ led.eqptLocLed.attributes.color }}
+### Description: {{ led.eqptLocLed.attributes.descr }}
+### DN: {{ led.eqptLocLed.attributes.dn }}
+### MFG Timestamp: {{ led.eqptLocLed.attributes.mfgTm }}
+### Last Modifed: {{ led.eqptLocLed.attributes.modTs }}
+### Model: {{ led.eqptLocLed.attributes.model }}
+### Oper State: {{ led.eqptLocLed.attributes.operSt }}
+### Revision: {{ led.eqptLocLed.attributes.rev }}
+### Serial Number: {{ led.eqptLocLed.attributes.ser }}
+### Status: {{ led.eqptLocLed.attributes.status }}
+### Type: {{ led.eqptLocLed.attributes.type }}
+### Vendor: {{ led.eqptLocLed.attributes.vendor }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

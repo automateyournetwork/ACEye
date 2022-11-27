@@ -126,6 +126,8 @@ Equipment Line Card Slots
 
 Equipment Line Cards
 
+Equipment Port Locator LEDs
+
 *Events
 
 Fabric Membership
