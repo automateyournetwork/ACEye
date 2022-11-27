@@ -211,6 +211,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.equipment_power_supply_slots(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_rs_io(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)        
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -276,6 +278,7 @@ class ACEye():
                     'Equipment Port Locator LEDs',
                     'Equipment Power Supplies',
                     'Equipment Power Supply Slots',
+                    'Equipment RS IO Port Physical Configs',
                     'Events',
                     'Fabric Membership',
                     'Fabric Nodes',
@@ -1047,6 +1050,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def equipment_rs_io(self):
+        self.url = f"{ self.aci }/api/node/class/eqptRsIoPPhysConf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment RS IO Port Physical Configuration code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1431,6 +1441,10 @@ class ACEye():
             else:
                 with open('Equipment Power Supplies/JSON/Equipment Power Supplies.json', 'w' ) as f:
                     f.write(parsed_json)
+
+        if "eqptRsIoPPhysConf" in self.url:
+            with open('Equipment RS IO Port Physical Configs/JSON/Equipment RS IO Port Physical Configs.json', 'w' ) as f:
+                f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
@@ -1818,6 +1832,9 @@ class ACEye():
                 with open('Equipment Power Supplies/YAML/Equipment Power Supplies.yaml', 'w' ) as f:
                     f.write(clean_yaml)
 
+        if "eqptRsIoPPhysConf" in self.url:
+            with open('Equipment RS IO Port Physical Configs/YAML/Equipment RS IO Port Physical Configs.yaml', 'w' ) as f:
+                f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -2208,6 +2225,10 @@ class ACEye():
             else:
                 with open('Equipment Power Supplies/CSV/Equipment Power Supplies.csv', 'w' ) as f:
                     f.write(csv_output)
+
+        if "eqptRsIoPPhysConf" in self.url:
+            with open('Equipment RS IO Port Physical Configs/CSV/Equipment RS IO Port Physical Configs.csv', 'w' ) as f:
+                f.write(csv_output)
 
     def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -2600,6 +2621,10 @@ class ACEye():
                 with open('Equipment Power Supplies/Markdown/Equipment Power Supplies.md', 'w' ) as f:
                     f.write(markdown_output)
 
+        if "eqptRsIoPPhysConf" in self.url:
+            with open('Equipment RS IO Port Physical Configs/Markdown/Equipment RS IO Port Physical Configs.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2991,6 +3016,10 @@ class ACEye():
                 with open('Equipment Power Supplies/HTML/Equipment Power Supplies.html', 'w' ) as f:
                     f.write(html_output)
 
+        if "eqptRsIoPPhysConf" in self.url:
+            with open('Equipment RS IO Port Physical Configs/HTML/Equipment RS IO Port Physical Configs.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3377,6 +3406,10 @@ class ACEye():
             else:
                 with open('Equipment Power Supplies/Mindmap/Equipment Power Supplies.md', 'w' ) as f:
                     f.write(mindmap_output)
+
+        if "eqptRsIoPPhysConf" in self.url:
+            with open('Equipment RS IO Port Physical Configs/Mindmap/Equipment RS IO Port Physical Configs.md', 'w' ) as f:
+                f.write(mindmap_output)
 
     def all_files(self, parsed_json):
         self.json_file(parsed_json)

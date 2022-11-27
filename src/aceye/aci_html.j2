@@ -5251,5 +5251,46 @@
 </tbody>
 </table>
 {%-     endif %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptRsIoPPhysConf" in api %}
+<h1>Equipment RS IO Port Physical Configurations</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>tSKey</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCL</th>
+    <th>tDN</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for port in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.tSKey }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.childAction }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.dn }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.forceResolve }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.lcOwn }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.modTs }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.rType }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.state }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.stateQual }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.status }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.tCl }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.tDn }}</td>
+    <td>{{ port.eqptRsIoPPhysConf.attributes.tType }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

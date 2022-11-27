@@ -2548,4 +2548,22 @@
 ### Voltage: {{ psu.eqptPsu.attributes.volt }}
 {%-         endfor %}
 {%-     endif %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptRsIoPPhysConf" in api %}
+# Equipment RS IO Port Physical Configurations
+{%-     for port in data_to_template['imdata'] %}
+## tSKey: {{ port.eqptRsIoPPhysConf.attributes.tSKey }}
+### Child Action: {{ port.eqptRsIoPPhysConf.attributes.childAction }}
+### DN: {{ port.eqptRsIoPPhysConf.attributes.dn }}
+### Force Resolve: {{ port.eqptRsIoPPhysConf.attributes.forceResolve }}
+### Local Owner: {{ port.eqptRsIoPPhysConf.attributes.lcOwn }}
+### Last Modified: {{ port.eqptRsIoPPhysConf.attributes.modTs }}
+### rType: {{ port.eqptRsIoPPhysConf.attributes.rType }}
+### State: {{ port.eqptRsIoPPhysConf.attributes.state }}
+### State Quality: {{ port.eqptRsIoPPhysConf.attributes.stateQual }}
+### Status: {{ port.eqptRsIoPPhysConf.attributes.status }}
+### tCL: {{ port.eqptRsIoPPhysConf.attributes.tCl }}
+### tDN: {{ port.eqptRsIoPPhysConf.attributes.tDn }}
+### tType: {{ port.eqptRsIoPPhysConf.attributes.tType }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
