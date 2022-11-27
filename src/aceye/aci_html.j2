@@ -76,8 +76,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "BD" in api %}
+{%- elif "BD" in api %}
 <h1>Bridge Domains</h1>
 <table id = "datatable">
 <thead>
@@ -173,8 +172,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "Ctx" in api %}
+{%- elif "Ctx" in api %}
 <h1>Contexts</h1>
 <table id = "datatable">
 <thead>
@@ -240,8 +238,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "Ap" in api %}
+{%- elif "Ap" in api %}
 <h1>Application Profiles</h1>
 <table id = "datatable">
 <thead>
@@ -287,8 +284,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "l3extOut" in api %}
+{%- elif "l3extOut" in api %}
 <h1>L3Outs</h1>
 <table id = "datatable">
 <thead>
@@ -338,8 +334,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "l2extOut" in api %}
+{%- elif "l2extOut" in api %}
 <h1>L2Outs</h1>
 <table id = "datatable">
 <thead>
@@ -385,8 +380,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "Subnet" in api %}
+{%- elif "Subnet" in api %}
 <h1>Subnets</h1>
 <table id = "datatable">
 <thead>
@@ -442,8 +436,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "CEp" in api %}
+{%- elif "CEp" in api %}
 <h1>Endpoints</h1>
 <table id = "datatable">
 <thead>
@@ -509,8 +502,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "fabricNode" in api %}
+{%- elif "fabricNode" in api %}
 <h1>Fabric Nodes</h1>
 <table id = "datatable">
 <thead>
@@ -574,8 +566,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "l1PhysIf" in api %}
+{%- elif "l1PhysIf" in api %}
 <h1>Physical Interfaces</h1>
 <table id = "datatable">
 <thead>
@@ -679,8 +670,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "infraAccPortP" in api %}
+{%- elif "infraAccPortP" in api %}
 <h1>Leaf Interface Profiles</h1>
 <table id = "datatable">
 <thead>
@@ -724,8 +714,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "infraSpAccPortP" in api %}
+{%- elif "infraSpAccPortP" in api %}
 <h1>Spine Interface Profiles</h1>
 <table id = "datatable">
 <thead>
@@ -769,8 +758,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "infraNodeP" in api %}
+{%- elif "infraNodeP" in api %}
 <h1>Leaf Switch Profiles</h1>
 <table id = "datatable">
 <thead>
@@ -814,8 +802,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "infraSpineP" in api %}
+{%- elif "infraSpineP" in api %}
 <h1>Spine Switch Profiles</h1>
 <table id = "datatable">
 <thead>
@@ -859,8 +846,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "fvnsVlanInstP" in api %}
+{%- elif "fvnsVlanInstP" in api %}
 <h1>VLAN Pools</h1>
 <table id = "datatable">
 <thead>
@@ -908,8 +894,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "infraAttEntityP" in api %}
+{%- elif "infraAttEntityP" in api %}
 <h1>Attachable Access Entity Profiles</h1>
 <table id = "datatable">
 <thead>
@@ -957,8 +942,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "vzBrCP" in api %}
+{%- elif "vzBrCP" in api %}
 <h1>Contracts</h1>
 <table id = "datatable">
 <thead>
@@ -1016,8 +1000,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "vzEntry" in api %}
+{%- elif "vzEntry" in api %}
 <h1>Filters</h1>
 <table id = "datatable">
 <thead>
@@ -1085,8 +1068,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "physDomP" in api %}
+{%- elif "physDomP" in api %}
 <h1>Physical Domains</h1>
 <table id = "datatable">
 <thead>
@@ -1130,8 +1112,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "l3extDomP" in api %}
+{%- elif "l3extDomP" in api %}
 <h1>L3 Domains</h1>
 <table id = "datatable">
 <thead>
@@ -1175,8 +1156,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "qosClass" in api %}
+{%- elif "qosClass" in api %}
 <h1>QOS Classes</h1>
 <table id = "datatable">
 <thead>
@@ -1224,8 +1204,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "faultSummary" in api %}
+{%- elif "faultSummary" in api %}
 <h1>Fault Summary</h1>
 <table id = "datatable">
 <thead>
@@ -1269,8 +1248,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "aaaModLR" in api %}
+{%- elif "aaaModLR" in api %}
 <h1>Audit Log</h1>
 <table id = "datatable">
 <thead>
@@ -1320,8 +1298,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "fvIp" in api %}
+{%- elif "fvIp" in api %}
 <h1>IP Addresses</h1>
 <table id = "datatable">
 <thead>
@@ -1373,8 +1350,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eventRecord" in api %}
+{%- elif "eventRecord" in api %}
 <h1>Events</h1>
 <table id = "datatable">
 <thead>
@@ -1420,8 +1396,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "licenseEntitlement" in api %}
+{%- elif "licenseEntitlement" in api %}
 <h1>License Entitlements</h1>
 <table id = "datatable">
 <thead>
@@ -1457,8 +1432,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "bgpRRNodePEp" in api %}
+{%- elif "bgpRRNodePEp" in api %}
 <h1>BGP Route Reflectors</h1>
 <table id = "datatable">
 <thead>
@@ -1502,8 +1476,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "infraPortS" in api %}
+{%- elif "infraPortS" in api %}
 <h1>Interface Policies</h1>
 <table id = "datatable">
 <thead>
@@ -1568,8 +1541,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "infraProfile" in api %}
+{%- elif "infraProfile" in api %}
 <h1>Interface Profiles</h1>
 <table id = "datatable">
 <thead>
@@ -1757,8 +1729,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "fabricPod" in api %}
+{%- elif "fabricPod" in api %}
 <h1>Fabric Pods</h1>
 <table id = "datatable">
 <thead>
@@ -1788,8 +1759,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "fabricPath" in api %}
+{%- elif "fabricPath" in api %}
 <h1>Fabric Paths</h1>
 <table id = "datatable">
 <thead>
@@ -1819,8 +1789,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "rtctrlSubjP" in api %}
+{%- elif "rtctrlSubjP" in api %}
 <h1>Prefix List</h1>
 <table id = "datatable">
 <thead>
@@ -1860,8 +1829,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "rtctrlMatchRtDest" in api %}
+{%- elif "rtctrlMatchRtDest" in api %}
 <h1>Prefix List Detailed</h1>
 <table id = "datatable">
 <thead>
@@ -1911,8 +1879,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "Tenant" in api %}
+{%- elif "Tenant" in api %}
 <h1>Tenants</h1>
 <table id = "datatable">
 <thead>
@@ -1956,8 +1923,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "aaaUser" in api %}
+{%- elif "aaaUser" in api %}
 <h1>Users</h1>
 <table id = "datatable">
 <thead>
@@ -2035,8 +2001,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "aaaDomain" in api %}
+{%- elif "aaaDomain" in api %}
 <h1>Security Domains</h1>
 <table id = "datatable">
 <thead>
@@ -2080,8 +2045,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "vzSubj" in api %}
+{%- elif "vzSubj" in api %}
 <h1>Contract Subjects</h1>
 <table id = "datatable">
 <thead>
@@ -2135,8 +2099,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "topology/health" in api %}
+{%- elif "topology/health" in api %}
 <h1>Fabric Total Health</h1>
 <table id = "datatable">
 <thead>
@@ -2172,8 +2135,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "pkiFabricNodeSSLCertificate" in api %}
+{%- elif "pkiFabricNodeSSLCertificate" in api %}
 <h1>Fabric Node SSL Certificates</h1>
 <table id = "datatable">
 <thead>
@@ -2249,8 +2211,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "tn-" and "health" in api %}
+{%- elif "tn-" and "health" in api %}
 <h1>Tenant Health</h1>
 <table id = "datatable">
 <thead>
@@ -2286,8 +2247,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "firmwareCtrlrRunning" in api %}
+{%- elif "firmwareCtrlrRunning" in api %}
 <h1>Fabric Membership</h1>
 <table id = "datatable">
 <thead>
@@ -2325,8 +2285,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "topSystem" in api %}
+{%- elif "topSystem" in api %}
 {%-     if "?" not in api %}
 <h1>Top System</h1>
 <table id = "datatable">
@@ -2446,8 +2405,7 @@
 </tbody>
 </table>
 {%-     endif %}
-{%- else %}
-{%- if "infraWiNode" in api %}
+{%- elif "infraWiNode" in api %}
 <h1>Cluster Health</h1>
 <table id = "datatable">
 <thead>
@@ -2515,8 +2473,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "vnsMDev" in api %}
+{%- elif "vnsMDev" in api %}
 <h1>Device Packages</h1>
 <table id = "datatable">
 <thead>
@@ -2562,8 +2519,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cnwAggrIf" in api %}
+{%- elif "cnwAggrIf" in api %}
 <h1>Cluster Aggregate Interfaces</h1>
 <table id = "datatable">
 <thead>
@@ -2649,8 +2605,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "l3Inst" in api %}
+{%- elif "l3Inst" in api %}
 <h1>Layer3 Interfaces </h1>
 <table id = "datatable">
 <thead>
@@ -2752,8 +2707,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "actrlEntity" in api %}
+{%- elif "actrlEntity" in api %}
 <h1>Access Control Entities </h1>
 <table id = "datatable">
 <thead>
@@ -2787,8 +2741,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "actrlInst" in api %}
+{%- elif "actrlInst" in api %}
 <h1>Access Control Instances </h1>
 <table id = "datatable">
 <thead>
@@ -2826,8 +2779,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "actrlRule" in api %}
+{%- elif "actrlRule" in api %}
 <h1>Access Control Rules </h1>
 <table id = "datatable">
 <thead>
@@ -2895,8 +2847,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "actrlScope" in api %}
+{%- elif "actrlScope" in api %}
 <h1>Access Control Scopes </h1>
 <table id = "datatable">
 <thead>
@@ -2932,8 +2883,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cnwPhysIf" in api %}
+{%- elif "cnwPhysIf" in api %}
 <h1>Cluster Physical Interfaces </h1>
 <table id = "datatable">
 <thead>
@@ -3033,8 +2983,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "compCtrlr" in api %}
+{%- elif "compCtrlr" in api %}
 <h1>Compute Controllers</h1>
 <table id = "datatable">
 <thead>
@@ -3158,8 +3107,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "compDom" in api %}
+{%- elif "compDom" in api %}
 <h1>Compute Domains</h1>
 <table id = "datatable">
 <thead>
@@ -3199,8 +3147,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "compEpPD" in api %}
+{%- elif "compEpPD" in api %}
 <h1>Compute Endpoint Policy Description</h1>
 <table id = "datatable">
 <thead>
@@ -3342,8 +3289,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "compProv" in api %}
+{%- elif "compProv" in api %}
 <h1>Compute Providers</h1>
 <table id = "datatable">
 <thead>
@@ -3381,8 +3327,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "arpAdjEp" in api %}
+{%- elif "arpAdjEp" in api %}
 <h1>ARP Adjacency Endpoints</h1>
 <table id = "datatable">
 <thead>
@@ -3418,8 +3363,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "arpDb" in api %}
+{%- elif "arpDb" in api %}
 <h1>ARP Database</h1>
 <table id = "datatable">
 <thead>
@@ -3445,8 +3389,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "arpDom" in api %}
+{%- elif "arpDom" in api %}
 <h1>ARP Domain</h1>
 <table id = "datatable">
 <thead>
@@ -3476,8 +3419,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "arpEntity" in api %}
+{%- elif "arpEntity" in api %}
 <h1>ARP Entity</h1>
 <table id = "datatable">
 <thead>
@@ -3511,13 +3453,12 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "arpIf" in api %}
+{%- elif "arpIf" in api %}
 <h1>ARP Interfaces</h1>
 <table id = "datatable">
 <thead>
   <tr>
-    <thName</th>
+    <th>Name</th>
     <th>Admin State</th>
     <th>Child Action</th>
     <th>Control</th>
@@ -3548,8 +3489,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "arpInst" in api %}
+{%- elif "arpInst" in api %}
 <h1>ARP Instances</h1>
 <table id = "datatable">
 <thead>
@@ -3583,8 +3523,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "bgpDom" in api %}
+{%- elif "bgpDom" in api %}
 {%-     if "Af" in api%}
 <h1>BGP Domain Address Families</h1>
 <table id = "datatable">
@@ -3604,7 +3543,7 @@
     <th>Status</th>
     <th>Table Version</th>
     <th>Type</th>
-  </tr
+  </tr>
 {%-          for family in data_to_template['imdata'] %}
   <tr>
     <td>{{ family.bgpDomAf.attributes.name }}</td>
@@ -3661,7 +3600,7 @@
   </tr>
 </thead>
 <tbody>
-{%-     for domain in data_to_template['imdata'] %}
+{%-         for domain in data_to_template['imdata'] %}
   <tr>
     <td>{{ domain.bgpDom.attributes.name }}</td>
     <td>{{ domain.bgpDom.attributes.bgpCfgFailedBmp }}</td>
@@ -3692,12 +3631,11 @@
     <td>{{ domain.bgpDom.attributes.status }}</td>
     <td>{{ domain.bgpDom.attributes.type }}</td>
   </tr>
-{%-     endfor %}
+{%-         endfor %}
 </tbody>
 </table>
 {%-     endif %}
-{%- else %}
-{%- if "bgpEntity" in api %}
+{%- elif "bgpEntity" in api %}
 <h1>BGP Entities</h1>
 <table id = "datatable">
 <thead>
@@ -3731,8 +3669,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "bgpInst" in api %}
+{%- elif "bgpInst" in api %}
 {%-     if "InstPol" in api %}
 <h1>BGP Instances Policy</h1>
 <table id = "datatable">
@@ -3844,8 +3781,7 @@
 </tbody>
 </table>
 {%-     endif %}
-{%- else %}
-{%- if "bgpPeer" in api %}
+{%- elif "bgpPeer" in api %}
 {%-     if "bgpPeerAf" in api %}
 <h1>BGP Peer AF Entries</h1>
 <table id = "datatable">
@@ -4037,8 +3973,7 @@
 </table>
 {%-         endif %}
 {%-     endif %}
-{%- else %}
-{%- if "bgpRRP" in api %}
+{%- elif "bgpRRP" in api %}
 <h1>BGP Route Reflector Policies</h1>
 <table id = "datatable">
 <thead>
@@ -4076,8 +4011,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cdpAdjEp" in api %}
+{%- elif "cdpAdjEp" in api %}
 <h1>CDP Adjacency Endpoints</h1>
 <table id = "datatable">
 <thead>
@@ -4131,8 +4065,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cdpEntity" in api %}
+{%- elif "cdpEntity" in api %}
 <h1>CDP Adjacency Endpoints</h1>
 <table id = "datatable">
 <thead>
@@ -4164,8 +4097,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cdpIf" in api %}
+{%- elif "cdpIf" in api %}
 <h1>CDP Interfaces</h1>
 <table id = "datatable">
 <thead>
@@ -4209,8 +4141,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cdpInst" in api %}
+{%- elif "cdpInst" in api %}
 <h1>CDP Instances</h1>
 <table id = "datatable">
 <thead>
@@ -4256,8 +4187,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cdpIntfAddr" in api %}
+{%- elif "cdpIntfAddr" in api %}
 <h1>CDP Interface Addresses</h1>
 <table id = "datatable">
 <thead>
@@ -4281,8 +4211,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cdpMgmtAddr" in api %}
+{%- elif "cdpMgmtAddr" in api %}
 <h1>CDP Management Addresses</h1>
 <table id = "datatable">
 <thead>
@@ -4306,8 +4235,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "cnwRsMbrIfs" in api %}
+{%- elif "cnwRsMbrIfs" in api %}
 <h1>Node RS Member Interfaces</h1>
 <table id = "datatable">
 <thead>
@@ -4349,8 +4277,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "compRsDomP" in api %}
+{%- elif "compRsDomP" in api %}
 <h1>Compute RS Domain Policies</h1>
 <table id = "datatable">
 <thead>
@@ -4388,8 +4315,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptBSlot" in api %}
+{%- elif "eqptBSlot" in api %}
 <h1>Equipment Board Slots</h1>
 <table id = "datatable">
 <thead>
@@ -4429,8 +4355,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptBoard" in api %}
+{%- elif "eqptBoard" in api %}
 <h1>Equipment Boards</h1>
 <table id = "datatable">
 <thead>
@@ -4494,8 +4419,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptCPU" in api %}
+{%- elif "eqptCPU" in api %}
 <h1>Equipment CPUs</h1>
 <table id = "datatable">
 <thead>
@@ -4545,8 +4469,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptCh" in api %}
+{%- elif "eqptCh" in api %}
 <h1>Equipment Chassis</h1>
 <table id = "datatable">
 <thead>
@@ -4600,8 +4523,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptDimm" in api %}
+{%- elif "eqptDimm" in api %}
 <h1>Equipment DIMMs</h1>
 <table id = "datatable">
 <thead>
@@ -4647,8 +4569,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptExtCh" in api %}
+{%- elif "eqptExtCh" in api %}
 <h1>Equipment Fabric Extenders</h1>
 <table id = "datatable">
 <thead>
@@ -4700,8 +4621,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptFabP" in api %}
+{%- elif "eqptFabP" in api %}
 <h1>Equipment Fabric Ports</h1>
 <table id = "datatable">
 <thead>
@@ -4735,8 +4655,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptFan" in api %}
+{%- elif "eqptFan" in api %}
 <h1>Equipment Fans</h1>
 <table id = "datatable">
 <thead>
@@ -4786,8 +4705,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptFpga" in api %}
+{%- elif "eqptFpga" in api %}
 <h1>Equipment Field Programmable Gate Arrays</h1>
 <table id = "datatable">
 <thead>
@@ -4831,8 +4749,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptFt" in api %}
+{%- elif "eqptFt" in api %}
 {%-     if "Slot" in api %}
 <h1>Equipment Fan Tray Slots</h1>
 <table id = "datatable">
@@ -4920,8 +4837,7 @@
 </tbody>
 </table>
 {%-     endif %}
-{%- else %}
-{%- if "eqptIndLed" in api %}
+{%- elif "eqptIndLed" in api %}
 <h1>Equipment Indicator LEDs</h1>
 <table id = "datatable">
 <thead>
@@ -4965,8 +4881,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptLC" in api %}
+{%- elif "eqptLC" in api %}
 {%-     if "Slot" in api %}
 <h1>Equipment Line Card Slots</h1>
 <table id = "datatable">
@@ -5068,8 +4983,7 @@
 </tbody>
 </table>
 {%-     endif %}
-{%- else %}
-{%- if "eqptLeafP" in api %}
+{%- elif "eqptLeafP" in api %}
 <h1>Equipment Leaf Ports</h1>
 <table id = "datatable">
 <thead>
@@ -5103,8 +5017,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptLocLed" in api %}
+{%- elif "eqptLocLed" in api %}
 <h1>Equipment Port Locator LEDs</h1>
 <table id = "datatable">
 <thead>
@@ -5150,8 +5063,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptPsu" in api %}
+{%- elif "eqptPsu" in api %}
 {%-     if "Slot" in api %}
 <h1>Equipment Power Supply Slots</h1>
 <table id = "datatable">
@@ -5251,8 +5163,7 @@
 </tbody>
 </table>
 {%-     endif %}
-{%- else %}
-{%- if "eqptRsIoPPhysConf" in api %}
+{%- elif "eqptRsIoPPhysConf" in api %}
 <h1>Equipment RS IO Port Physical Configurations</h1>
 <table id = "datatable">
 <thead>
@@ -5292,8 +5203,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptSensor" in api %}
+{%- elif "eqptSensor" in api %}
 <h1>Equipment Sensors</h1>
 <table id = "datatable">
 <thead>
@@ -5343,8 +5253,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptSpCmnBlk" in api %}
+{%- elif "eqptSpCmnBlk" in api %}
 <h1>Equipment SP Common Blocks</h1>
 <table id = "datatable">
 <thead>
@@ -5410,8 +5319,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptSpromLc" in api %}
+{%- elif "eqptSpromLc" in api %}
 <h1>Equipment SPROM LCs</h1>
 <table id = "datatable">
 <thead>
@@ -5463,8 +5371,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptSpromPsu" in api %}
+{%- elif "eqptSpromPsu" in api %}
 {%-     if "Blk" in api %}
 <h1>Equipment SPROM Power Supply Blocks</h1>
 <table id = "datatable">
@@ -5572,8 +5479,7 @@
 </tbody>
 </table>
 {%-     endif %}
-{%- else %}
-{%- if "eqptSpromSup" in api %}
+{%- elif "eqptSpromSup" in api %}
 <h1>Equipment SPROM Supervisors</h1>
 <table id = "datatable">
 <thead>
@@ -5625,8 +5531,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptStorage" in api %}
+{%- elif "eqptStorage" in api %}
 <h1>Equipment Storage</h1>
 <table id = "datatable">
 <thead>
@@ -5682,8 +5587,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- else %}
-{%- if "eqptSupC" in api %}
+{%- elif "eqptSupC" in api %}
 {%-     if "Slot" in api %}
 <h1>Equipment Supervisor Slots</h1>
 <table id = "datatable">
@@ -5785,5 +5689,5 @@
 </tbody>
 </table>
 {%-     endif %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- endif %}
 {%- include 'datatable_footer.j2' %}
