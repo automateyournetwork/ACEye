@@ -130,6 +130,8 @@ Equipment Port Locator LEDs
 
 Equipment Power Supplies
 
+Equipment Power Supply Slots
+
 *Events
 
 Fabric Membership

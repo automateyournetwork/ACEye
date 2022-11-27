@@ -2504,8 +2504,25 @@
 {%-     endfor %}
 {%- else %}
 {%- if "eqptPsu" in api %}
+{%-     if "Slot" in api %}
+# Equipment Power Supply Slots
+{%-         for slot in data_to_template['imdata'] %}
+## ID: {{ slot.eqptPsuSlot.attributes.id }}
+### Card Oper State: {{ slot.eqptPsuSlot.attributes.cardOperSt }}
+### Child Action: {{ slot.eqptPsuSlot.attributes.childAction }}
+### Description: {{ slot.eqptPsuSlot.attributes.descr }}
+### DN: {{ slot.eqptPsuSlot.attributes.dn }}
+### Location: {{ slot.eqptPsuSlot.attributes.loc }}
+### Last Modified: {{ slot.eqptPsuSlot.attributes.modTs }}
+### Monitoring Policy DN: {{ slot.eqptPsuSlot.attributes.monPolDn }}
+### Oper State: {{ slot.eqptPsuSlot.attributes.operSt }}
+### Physical ID: {{ slot.eqptPsuSlot.attributes.physId }}
+### Status: {{ slot.eqptPsuSlot.attributes.status }}
+### Type: {{ slot.eqptPsuSlot.attributes.type }}
+{%-         endfor %}
+{%-     else %}
 # Equipment Power Supplies
-{%-     for psu in data_to_template['imdata'] %}
+{%-         for psu in data_to_template['imdata'] %}
 ## ID: {{ psu.eqptPsu.attributes.id }}
 ### Alarm Reg: {{ psu.eqptPsu.attributes.almReg }}
 ### Capacity: {{ psu.eqptPsu.attributes.cap }}
@@ -2529,5 +2546,6 @@
 ### vSrc: {{ psu.eqptPsu.attributes.vSrc }}
 ### Vendor: {{ psu.eqptPsu.attributes.vendor }}
 ### Voltage: {{ psu.eqptPsu.attributes.volt }}
-{%-     endfor %}
+{%-         endfor %}
+{%-     endif %}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

@@ -209,6 +209,8 @@ class ACEye():
         self.all_files(parsed_json)        
         parsed_json = json.dumps(self.equipment_power_supplies(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_power_supply_slots(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -273,6 +275,7 @@ class ACEye():
                     'Equipment Line Cards',
                     'Equipment Port Locator LEDs',
                     'Equipment Power Supplies',
+                    'Equipment Power Supply Slots',
                     'Events',
                     'Fabric Membership',
                     'Fabric Nodes',
@@ -1037,6 +1040,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def equipment_power_supply_slots(self):
+        self.url = f"{ self.aci }/api/node/class/eqptPsuSlot.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment Power Supply Slots code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1415,8 +1425,12 @@ class ACEye():
                 f.write(parsed_json)
 
         if "eqptPsu" in self.url:
-            with open('Equipment Power Supplies/JSON/Equipment Power Supplies.json', 'w' ) as f:
-                f.write(parsed_json)
+            if "Slot" in self.url:
+                with open('Equipment Power Supply Slots/JSON/Equipment Power Supply Slots.json', 'w' ) as f:
+                    f.write(parsed_json)
+            else:
+                with open('Equipment Power Supplies/JSON/Equipment Power Supplies.json', 'w' ) as f:
+                    f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
@@ -1797,8 +1811,13 @@ class ACEye():
                 f.write(clean_yaml)
 
         if "eqptPsu" in self.url:
-            with open('Equipment Power Supplies/YAML/Equipment Power Supplies.yaml', 'w' ) as f:
-                f.write(clean_yaml)
+            if "Slot" in self.url:
+                with open('Equipment Power Supply Slots/YAML/Equipment Power Supply Slots.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
+            else:
+                with open('Equipment Power Supplies/YAML/Equipment Power Supplies.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
+
 
     def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -2183,8 +2202,12 @@ class ACEye():
                 f.write(csv_output)
 
         if "eqptPsu" in self.url:
-            with open('Equipment Power Supplies/CSV/Equipment Power Supplies.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "Slot" in self.url:
+                with open('Equipment Power Supply Slots/CSV/Equipment Power Supply Slots.csv', 'w' ) as f:
+                    f.write(csv_output)
+            else:
+                with open('Equipment Power Supplies/CSV/Equipment Power Supplies.csv', 'w' ) as f:
+                    f.write(csv_output)
 
     def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -2570,8 +2593,12 @@ class ACEye():
                 f.write(markdown_output)
 
         if "eqptPsu" in self.url:
-            with open('Equipment Power Supplies/Markdown/Equipment Power Supplies.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "Slot" in self.url:
+                with open('Equipment Power Supply Slots/Markdown/Equipment Power Supply Slots.md', 'w' ) as f:
+                    f.write(markdown_output)
+            else:
+                with open('Equipment Power Supplies/Markdown/Equipment Power Supplies.md', 'w' ) as f:
+                    f.write(markdown_output)
 
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -2957,8 +2984,12 @@ class ACEye():
                 f.write(html_output)
 
         if "eqptPsu" in self.url:
-            with open('Equipment Power Supplies/HTML/Equipment Power Supplies.html', 'w' ) as f:
-                f.write(html_output)
+            if "Slot" in self.url:
+                with open('Equipment Power Supply Slots/HTML/Equipment Power Supply Slots.html', 'w' ) as f:
+                    f.write(html_output)
+            else:            
+                with open('Equipment Power Supplies/HTML/Equipment Power Supplies.html', 'w' ) as f:
+                    f.write(html_output)
 
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -3340,8 +3371,12 @@ class ACEye():
                 f.write(mindmap_output)
 
         if "eqptPsu" in self.url:
-            with open('Equipment Power Supplies/Mindmap/Equipment Power Supplies.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "Slot" in self.url:
+                with open('Equipment Power Supply Slots/Mindmap/Equipment Power Supply Slots.md', 'w' ) as f:
+                    f.write(mindmap_output)
+            else:
+                with open('Equipment Power Supplies/Mindmap/Equipment Power Supplies.md', 'w' ) as f:
+                    f.write(mindmap_output)
 
     def all_files(self, parsed_json):
         self.json_file(parsed_json)
