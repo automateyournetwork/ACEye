@@ -5343,5 +5343,72 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptSpCmnBlk" in api %}
+<h1>Equipment SP Common Blocks</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>PD Number</th>
+    <th>Port Number</th>
+    <th>Child Action</th>
+    <th>Checksum</th>
+    <th>CLEI</th>
+    <th>Count</th>
+    <th>DN</th>
+    <th>Eng Bits</th>
+    <th>Hardware Revision Major</th>
+    <th>Hardware Revision Minor</th>
+    <th>Length</th>
+    <th>Major</th>
+    <th>MFG Bits</th>
+    <th>MFG Dev</th>
+    <th>Minor</th>
+    <th>Last Modifed</th>
+    <th>OEM</th>
+    <th>pRevision</th>
+    <th>Power Consumption</th>
+    <th>RAM FL</th>
+    <th>Serial Number</th>
+    <th>Signature</th>
+    <th>Size</th>
+    <th>Status</th>
+    <th>Vendor ID</th>
+    <th>Version</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for common_block in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.pdNum }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.prtNum }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.childAction }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.cksum }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.clei }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.count }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.dn }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.engBits }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.hwRevMaj }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.hwRevMin }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.len }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.major }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.mfgBits }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.mfgDev }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.minor }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.modTs }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.oem }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.pRev }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.pwrCon }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.ramFl }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.serNum }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.sig }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.size }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.status }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.vdrId }}</td>
+    <td>{{ common_block.eqptSpCmnBlk.attributes.ver }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

@@ -136,6 +136,8 @@ Equipment RS IO Port Physical Configs
 
 Equipment Sensors
 
+Equipment SP Common Blocks
+
 *Events
 
 Fabric Membership

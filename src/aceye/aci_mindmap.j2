@@ -2590,4 +2590,38 @@
 ### Type: {{ sensor.eqptSensor.attributes.type }}
 ### Vendor: {{ sensor.eqptSensor.attributes.vendor }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptSpCmnBlk" in api %}
+# Equipment SP Common Blocks
+{%-     for common_block in data_to_template['imdata'] %}
+## PD Number: {{ common_block.eqptSpCmnBlk.attributes.pdNum }}
+### Part Number: {{ common_block.eqptSpCmnBlk.attributes.prtNum }}
+### Child Action: {{ common_block.eqptSpCmnBlk.attributes.childAction }}
+### Checksum: {{ common_block.eqptSpCmnBlk.attributes.cksum }}
+### CLEI: {{ common_block.eqptSpCmnBlk.attributes.clei }}
+### Count: {{ common_block.eqptSpCmnBlk.attributes.count }}
+### DN: {{ common_block.eqptSpCmnBlk.attributes.dn }}
+### Eng Bits: {{ common_block.eqptSpCmnBlk.attributes.engBits }}
+### Hardware Revision
+#### Major: {{ common_block.eqptSpCmnBlk.attributes.hwRevMaj }}
+#### Minor: {{ common_block.eqptSpCmnBlk.attributes.hwRevMin }}
+### Length: {{ common_block.eqptSpCmnBlk.attributes.len }}
+### Values
+#### Major: {{ common_block.eqptSpCmnBlk.attributes.major }}
+#### Minor: {{ common_block.eqptSpCmnBlk.attributes.minor }}
+### MFG 
+#### Bits: {{ common_block.eqptSpCmnBlk.attributes.mfgBits }}
+#### Dev: {{ common_block.eqptSpCmnBlk.attributes.mfgDev }}
+### Last Modified: {{ common_block.eqptSpCmnBlk.attributes.modTs }}
+### OEM: {{ common_block.eqptSpCmnBlk.attributes.oem }}
+### pRevision: {{ common_block.eqptSpCmnBlk.attributes.pRev }}
+### Power Consumption: {{ common_block.eqptSpCmnBlk.attributes.pwrCon }}
+### RAM FL: {{ common_block.eqptSpCmnBlk.attributes.ramFl }}
+### Serial Number: {{ common_block.eqptSpCmnBlk.attributes.serNum }}
+### Signature: {{ common_block.eqptSpCmnBlk.attributes.sig }}
+### Size: {{ common_block.eqptSpCmnBlk.attributes.size }}
+### Status: {{ common_block.eqptSpCmnBlk.attributes.status }}
+### Vendor ID: {{ common_block.eqptSpCmnBlk.attributes.vdrId }}
+### Version: {{ common_block.eqptSpCmnBlk.attributes.ver }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

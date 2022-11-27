@@ -214,7 +214,9 @@ class ACEye():
         parsed_json = json.dumps(self.equipment_rs_io(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.equipment_sensors(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)        
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_sp_cmn_blk(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)    
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -282,6 +284,7 @@ class ACEye():
                     'Equipment Power Supply Slots',
                     'Equipment RS IO Port Physical Configs',
                     'Equipment Sensors',
+                    'Equipment SP Common Blocks',
                     'Events',
                     'Fabric Membership',
                     'Fabric Nodes',
@@ -1067,6 +1070,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def equipment_sp_cmn_blk(self):
+        self.url = f"{ self.aci }/api/node/class/eqptSpCmnBlk.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment SP Common Blocks code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1458,6 +1468,10 @@ class ACEye():
 
         if "eqptSensor" in self.url:
             with open('Equipment Sensors/JSON/Equipment Sensors.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "eqptSpCmnBlk" in self.url:
+            with open('Equipment SP Common Blocks/JSON/Equipment SP Common Blocks.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -1852,6 +1866,10 @@ class ACEye():
 
         if "eqptSensor" in self.url:
             with open('Equipment Sensors/YAML/Equipment Sensors.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "eqptSpCmnBlk" in self.url:
+            with open('Equipment SP Common Blocks/YAML/Equipment SP Common Blocks.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -2250,6 +2268,10 @@ class ACEye():
 
         if "eqptSensor" in self.url:
             with open('Equipment Sensors/CSV/Equipment Sensors.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "eqptSpCmnBlk" in self.url:
+            with open('Equipment SP Common Blocks/CSV/Equipment SP Common Blocks.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -2651,6 +2673,10 @@ class ACEye():
             with open('Equipment Sensors/Markdown/Equipment Sensors.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "eqptSpCmnBlk" in self.url:
+            with open('Equipment SP Common Blocks/Markdown/Equipment SP Common Blocks.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3050,6 +3076,10 @@ class ACEye():
             with open('Equipment Sensors/HTML/Equipment Sensors.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "eqptSpCmnBlk" in self.url:
+            with open('Equipment SP Common Blocks/HTML/Equipment SP Common Blocks.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3443,6 +3473,10 @@ class ACEye():
 
         if "eqptSensor" in self.url:
             with open('Equipment Sensors/Mindmap/Equipment Sensors.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "eqptSpCmnBlk" in self.url:
+            with open('Equipment SP Common Blocks/Mindmap/Equipment SP Common Blocks.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
