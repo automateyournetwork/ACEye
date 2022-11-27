@@ -2650,26 +2650,55 @@
 {%-     endfor %}
 {%- else %}
 {%- if "eqptSpromPsu" in api %}
+{%-     if "Blk" in api %}
+# Equipment SPROM Power Supply Blocks
+{%-         for psu_block in data_to_template['imdata'] %}
+## DN: {{ psu_block.eqptSpromPsuBlk.attributes.dn }}
+### Voltage:
+#### c110: {{ psu_block.eqptSpromPsuBlk.attributes.c110v }}
+#### c220: {{ psu_block.eqptSpromPsuBlk.attributes.c220v }}
+### Child Action: {{ psu_block.eqptSpromPsuBlk.attributes.childAction }}
+### Checksum: {{ psu_block.eqptSpromPsuBlk.attributes.cksum }}
+### F Bits: {{ psu_block.eqptSpromPsuBlk.attributes.fbits }}
+### Length: {{ psu_block.eqptSpromPsuBlk.attributes.len }}
+### Last Modifed: {{ psu_block.eqptSpromPsuBlk.attributes.modTs }}
+### Power Supply CMd
+#### 1: {{ psu_block.eqptSpromPsuBlk.attributes.psCMd1 }}
+#### 2: {{ psu_block.eqptSpromPsuBlk.attributes.psCMd2 }}
+#### 3: {{ psu_block.eqptSpromPsuBlk.attributes.psCMd3 }}
+#### 4: {{ psu_block.eqptSpromPsuBlk.attributes.psCMd4 }}
+#### Power supply CMxMd
+#### 1: {{ psu_block.eqptSpromPsuBlk.attributes.psCMxMd1 }}
+#### 2: {{ psu_block.eqptSpromPsuBlk.attributes.psCMxMd2 }}
+#### 3: {{ psu_block.eqptSpromPsuBlk.attributes.psCMxMd3 }}
+#### 4: {{ psu_block.eqptSpromPsuBlk.attributes.psCMxMd4 }}
+### Signature: {{ psu_block.eqptSpromPsuBlk.attributes.sig }}
+### smOID: {{ psu_block.eqptSpromPsuBlk.attributes.smOID }}
+### Status: {{ psu_block.eqptSpromPsuBlk.attributes.status }}
+### Version: {{ psu_block.eqptSpromPsuBlk.attributes.ver }}
+{%-         endfor %}
+{%-     else %}
 # Equipment SPROM LCs
-{%-     for psu in data_to_template['imdata'] %}
-## ID: {{ psu.eqptSpromLc.attributes.id }}
-### Access: {{ psu.eqptSpromLc.attributes.acc }}
-### Capacity: {{ psu.eqptSpromLc.attributes.cap }}
-### Child Action: {{ psu.eqptSpromLc.attributes.childAction }}
-### CIMC Version: {{ psu.eqptSpromLc.attributes.cimcVersion }}
-### Description: {{ psu.eqptSpromLc.attributes.descr }}
-### DN: {{ psu.eqptSpromLc.attributes.dn }}
-### Error Reason: {{ psu.eqptSpromLc.attributes.errRsn }}
-### MFG Timestamp: {{ psu.eqptSpromLc.attributes.mfgTm }}
-### Last Modified: {{ psu.eqptSpromLc.attributes.modTs }}
-### Model: {{ psu.eqptSpromLc.attributes.model }}
-### Monitoring Policy DN: {{ psu.eqptSpromLc.attributes.monPolDn }}
-### Number Blocks: {{ psu.eqptSpromLc.attributes.numBlk }}
-### Oper State: {{ psu.eqptSpromLc.attributes.operSt }}
-### Revision: {{ psu.eqptSpromLc.attributes.rev }}
-### Serial Number: {{ psu.eqptSpromLc.attributes.ser }}
-### Status: {{ psu.eqptSpromLc.attributes.status }}
-### Type: {{ psu.eqptSpromLc.attributes.type }}
-### Vendor: {{ psu.eqptSpromLc.attributes.vendor }}
-{%-     endfor %}
+{%-         for psu in data_to_template['imdata'] %}
+## ID: {{ psu.eqptSpromPsu.attributes.id }}
+### Access: {{ psu.eqptSpromPsu.attributes.acc }}
+### Capacity: {{ psu.eqptSpromPsu.attributes.cap }}
+### Child Action: {{ psu.eqptSpromPsu.attributes.childAction }}
+### CIMC Version: {{ psu.eqptSpromPsu.attributes.cimcVersion }}
+### Description: {{ psu.eqptSpromPsu.attributes.descr }}
+### DN: {{ psu.eqptSpromPsu.attributes.dn }}
+### Error Reason: {{ psu.eqptSpromPsu.attributes.errRsn }}
+### MFG Timestamp: {{ psu.eqptSpromPsu.attributes.mfgTm }}
+### Last Modified: {{ psu.eqptSpromPsu.attributes.modTs }}
+### Model: {{ psu.eqptSpromPsu.attributes.model }}
+### Monitoring Policy DN: {{ psu.eqptSpromPsu.attributes.monPolDn }}
+### Number Blocks: {{ psu.eqptSpromPsu.attributes.numBlk }}
+### Oper State: {{ psu.eqptSpromPsu.attributes.operSt }}
+### Revision: {{ psu.eqptSpromPsu.attributes.rev }}
+### Serial Number: {{ psu.eqptSpromPsu.attributes.ser }}
+### Status: {{ psu.eqptSpromPsu.attributes.status }}
+### Type: {{ psu.eqptSpromPsu.attributes.type }}
+### Vendor: {{ psu.eqptSpromPsu.attributes.vendor }}
+{%-         endfor %}
+{%-     endif %}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

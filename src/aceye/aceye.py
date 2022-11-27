@@ -221,6 +221,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.equipment_sprom_psu(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.equipment_sprom_psu_blocks(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -291,6 +293,7 @@ class ACEye():
                     'Equipment SP Common Blocks',
                     'Equipment SPROM LCs',
                     'Equipment SPROM Power Supplies',
+                    'Equipment SPROM Power Supply Blocks',
                     'Events',
                     'Fabric Membership',
                     'Fabric Nodes',
@@ -1097,6 +1100,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def equipment_sprom_psu_blocks(self):
+        self.url = f"{ self.aci }/api/node/class/eqptSpromPsuBlk.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Equipment SPROM Power Supply Blocks code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1499,8 +1509,12 @@ class ACEye():
                 f.write(parsed_json)
 
         if "eqptSpromPsu" in self.url:
-            with open('Equipment SPROM Power Supplies/JSON/Equipment SPROM Power Supplies.json', 'w' ) as f:
-                f.write(parsed_json)
+            if "Blk" in self.url:
+                with open('Equipment SPROM Power Supply Blocks/JSON/Equipment SPROM Power Supply Blocks.json', 'w' ) as f:
+                    f.write(parsed_json)
+            else: 
+                with open('Equipment SPROM Power Supplies/JSON/Equipment SPROM Power Supplies.json', 'w' ) as f:
+                    f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
@@ -1905,8 +1919,12 @@ class ACEye():
                 f.write(clean_yaml)
 
         if "eqptSpromPsu" in self.url:
-            with open('Equipment SPROM Power Supplies/YAML/Equipment SPROM Power Supplies.yaml', 'w' ) as f:
-                f.write(clean_yaml)
+            if "Blk" in self.url:
+                with open('Equipment SPROM Power Supply Blocks/YAML/Equipment SPROM Power Supply Blocks.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
+            else:            
+                with open('Equipment SPROM Power Supplies/YAML/Equipment SPROM Power Supplies.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -2315,8 +2333,12 @@ class ACEye():
                 f.write(csv_output)
 
         if "eqptSpromPsu" in self.url:
-            with open('Equipment SPROM Power Supplies/CSV/Equipment SPROM Power Supplies.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "Blk" in self.url:
+                with open('Equipment SPROM Power Supply Blocks/CSV/Equipment SPROM Power Supply Blocks.csv', 'w' ) as f:
+                    f.write(csv_output)
+            else:
+                with open('Equipment SPROM Power Supplies/CSV/Equipment SPROM Power Supplies.csv', 'w' ) as f:
+                    f.write(csv_output)
 
     def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -2726,8 +2748,12 @@ class ACEye():
                 f.write(markdown_output)
 
         if "eqptSpromPsu" in self.url:
-            with open('Equipment SPROM Power Supplies/Markdown/Equipment SPROM Power Supplies.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "Blk" in self.url:
+                with open('Equipment SPROM Power Supply Blocks/Markdown/Equipment SPROM Power Supply Blocks.md', 'w' ) as f:
+                    f.write(markdown_output)
+            else:
+                with open('Equipment SPROM Power Supplies/Markdown/Equipment SPROM Power Supplies.md', 'w' ) as f:
+                    f.write(markdown_output)
 
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -3137,8 +3163,12 @@ class ACEye():
                 f.write(html_output)
 
         if "eqptSpromPsu" in self.url:
-            with open('Equipment SPROM Power Supplies/HTML/Equipment SPROM Power Supplies.html', 'w' ) as f:
-                f.write(html_output)
+            if "Blk" in self.url:
+                with open('Equipment SPROM Power Supply Blocks/HTML/Equipment SPROM Power Supply Blocks.html', 'w' ) as f:
+                    f.write(html_output)
+            else:
+                with open('Equipment SPROM Power Supplies/HTML/Equipment SPROM Power Supplies.html', 'w' ) as f:
+                    f.write(html_output)
 
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -3544,8 +3574,12 @@ class ACEye():
                 f.write(mindmap_output)
 
         if "eqptSpromPsu" in self.url:
-            with open('Equipment SPROM Power Supplies/Mindmap/Equipment SPROM Power Supplies.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "Blk" in self.url:
+                with open('Equipment SPROM Power Supply Blocks/Mindmap/Equipment SPROM Power Supply Blocks.md', 'w' ) as f:
+                    f.write(mindmap_output)
+            else:
+                with open('Equipment SPROM Power Supplies/Mindmap/Equipment SPROM Power Supplies.md', 'w' ) as f:
+                    f.write(mindmap_output)
 
     def all_files(self, parsed_json):
         self.json_file(parsed_json)

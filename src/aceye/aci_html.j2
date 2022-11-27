@@ -5465,6 +5465,61 @@
 </table>
 {%- else %}
 {%- if "eqptSpromPsu" in api %}
+{%-     if "Blk" in api %}
+<h1>Equipment SPROM Power Supply Blocks</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>c110v</th>
+    <th>c220v</th>
+    <th>Child Action</th>
+    <th>Checksum</th>
+    <th>F Bits</th>
+    <th>Length</th>
+    <th>Last Modified</th>
+    <th>Power Supply CMd1</th>
+    <th>Power Supply CMd2</th>
+    <th>Power Supply CMd3</th>
+    <th>Power Supply CMd4</th>
+    <th>Power Supply CMxMd1</th>
+    <th>Power Supply CMxMd2</th>
+    <th>Power Supply CMxMd3</th>
+    <th>Power Supply CMxMd4</th>
+    <th>Signature</th>
+    <th>smOID</th>
+    <th>Status</th>
+    <th>Version</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for psu_block in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.dn }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.c110v }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.c220v }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.childAction }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.cksum }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.fbits }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.len }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.modTs }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.psCMd1 }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.psCMd2 }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.psCMd3 }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.psCMd4 }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.psCMxMd1 }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.psCMxMd2 }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.psCMxMd3 }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.psCMxMd4 }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.sig }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.smOID }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.status }}</td>
+    <td>{{ psu_block.eqptSpromPsuBlk.attributes.ver }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     else %}
 <h1>Equipment SPROM Power Supplies</h1>
 <table id = "datatable">
 <thead>
@@ -5491,30 +5546,31 @@
   </tr>
 </thead>
 <tbody>
-{%-     for psu in data_to_template['imdata'] %}
+{%-         for psu in data_to_template['imdata'] %}
   <tr>
-    <td>{{ psu.eqptSpromLc.attributes.id }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.acc }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.cap }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.childAction }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.cimcVersion }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.descr }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.dn }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.errRsn }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.mfgTm }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.modTs }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.model }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.monPolDn }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.numBlk }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.operSt }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.rev }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.ser }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.status }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.type }}</td>
-    <td>{{ psu.eqptSpromLc.attributes.vendor }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.id }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.acc }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.cap }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.childAction }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.cimcVersion }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.descr }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.dn }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.errRsn }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.mfgTm }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.modTs }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.model }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.monPolDn }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.numBlk }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.operSt }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.rev }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.ser }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.status }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.type }}</td>
+    <td>{{ psu.eqptSpromPsu.attributes.vendor }}</td>
   </tr>
-{%-     endfor %}
+{%-         endfor %}
 </tbody>
 </table>
+{%-     endif %}
 {%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

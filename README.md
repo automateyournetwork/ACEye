@@ -142,6 +142,8 @@ Equipment SPROM LCs
 
 Equipment SPROM Power Supplies
 
+Equipment SPROM Power Supply Blocks
+
 *Events
 
 Fabric Membership
