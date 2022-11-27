@@ -1,4 +1,4 @@
-{%- elif "AEPg" in api %}
+{%- if "AEPg" in api %}
 # Endpoint Groups
 {%-     for epg in data_to_template['imdata'] %}
 ## Name: {{ epg.fvAEPg.attributes.name }}
