@@ -5572,5 +5572,58 @@
 </tbody>
 </table>
 {%-     endif %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptSpromSup" in api %}
+<h1>Equipment SPROM Supervisors</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Access</th>
+    <th>Capacity</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Error Reason</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Number Blocks</th>
+    <th>Oper State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for sup in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ sup.eqptSpromSup.attributes.id }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.acc }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.cap }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.childAction }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.cimcVersion }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.descr }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.dn }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.errRsn }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.mfgTm }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.modTs }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.model }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.monPolDn }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.numBlk }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.operSt }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.rev }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.ser }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.status }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.type }}</td>
+    <td>{{ sup.eqptSpromSup.attributes.vendor }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
