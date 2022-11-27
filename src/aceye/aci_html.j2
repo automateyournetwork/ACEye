@@ -5682,5 +5682,68 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptSupC" in api %}
+<h1>Equipment Supervisors</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Hardware Version</th>
+    <th>MAC B</th>
+    <th>MAC L</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Number of Ports</th>
+    <th>Oper State</th>
+    <th>Power State</th>
+    <th>rd State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Software CID</th>
+    <th>Type</th>
+    <th>Uptime</th>
+    <th>vID</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for supervisor in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ supervisor.eqptSupC.attributes.id }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.childAction }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.cimcVersion }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.descr }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.dn }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.hwVer }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.macB }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.macL }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.mfgTm }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.modTs }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.model }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.monPolDn }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.numP }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.operSt }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.pwrSt }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.rdSt }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.rev }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.ser }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.status }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.swCId }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.type }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.upTs }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.vId }}</td>
+    <td>{{ supervisor.eqptSupC.attributes.vendor }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}

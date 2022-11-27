@@ -2752,4 +2752,35 @@
 ### Serial Number: {{ stoage.eqptStorage.attributes.serial }}
 ### Status: {{ stoage.eqptStorage.attributes.status }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptSupC" in api %}
+# Equipment Supervisors
+{%-     for supervisor in data_to_template['imdata'] %}
+## ID: {{ supervisor.eqptSupC.attributes.id }}
+### Child Action: {{ supervisor.eqptSupC.attributes.childAction }}
+### CIMC Version: {{ supervisor.eqptSupC.attributes.cimcVersion }}
+### Description: {{ supervisor.eqptSupC.attributes.descr }}
+### DN: {{ supervisor.eqptSupC.attributes.dn }}
+### Hardware Version: {{ supervisor.eqptSupC.attributes.hwVer }}
+### MAC
+#### B: {{ supervisor.eqptSupC.attributes.macB }}
+#### L: {{ supervisor.eqptSupC.attributes.macL }}
+### MFG Timestamp: {{ supervisor.eqptSupC.attributes.mfgTm }}
+### Last Modified: {{ supervisor.eqptSupC.attributes.modTs }}
+### Model: {{ supervisor.eqptSupC.attributes.model }}
+### Monitoring Policy DN: {{ supervisor.eqptSupC.attributes.monPolDn }}
+### Number of Ports: {{ supervisor.eqptSupC.attributes.numP }}
+### State
+#### Oper: {{ supervisor.eqptSupC.attributes.operSt }}
+#### Power: {{ supervisor.eqptSupC.attributes.pwrSt }}
+#### rd: {{ supervisor.eqptSupC.attributes.rdSt }}
+### Revision: {{ supervisor.eqptSupC.attributes.rev }}
+### Serial Number: {{ supervisor.eqptSupC.attributes.ser }}
+### Status: {{ supervisor.eqptSupC.attributes.status }}
+### Software CID: {{ supervisor.eqptSupC.attributes.swCId }}
+### Type: {{ supervisor.eqptSupC.attributes.type }}
+### Uptime: {{ supervisor.eqptSupC.attributes.upTs }}
+### vID: {{ supervisor.eqptSupC.attributes.vId }}
+### Vendor: {{ supervisor.eqptSupC.attributes.vendor }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

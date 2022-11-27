@@ -148,6 +148,8 @@ Equipment SPROM Supervisors
 
 Equipment Storage
 
+Equipment Supervisors
+
 *Events
 
 Fabric Membership
