@@ -128,6 +128,8 @@ Equipment Line Cards
 
 Equipment Port Locator LEDs
 
+Equipment Power Supplies
+
 *Events
 
 Fabric Membership

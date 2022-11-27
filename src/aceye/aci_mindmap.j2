@@ -2502,4 +2502,32 @@
 ### Type: {{ led.eqptLocLed.attributes.type }}
 ### Vendor: {{ led.eqptLocLed.attributes.vendor }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptPsu" in api %}
+# Equipment Power Supplies
+{%-     for psu in data_to_template['imdata'] %}
+## ID: {{ psu.eqptPsu.attributes.id }}
+### Alarm Reg: {{ psu.eqptPsu.attributes.almReg }}
+### Capacity: {{ psu.eqptPsu.attributes.cap }}
+### Child Action: {{ psu.eqptPsu.attributes.childAction }}
+### CIMC Version: {{ psu.eqptPsu.attributes.cimcVersion }}
+### Description: {{ psu.eqptPsu.attributes.descr }}
+### DN: {{ psu.eqptPsu.attributes.dn }}
+### Drawn Current: {{ psu.eqptPsu.attributes.drawnCurr }}
+### Fan Oper State: {{ psu.eqptPsu.attributes.fanOpSt }}
+### Hardware Version: {{ psu.eqptPsu.attributes.hwVer }}
+### MFG Timestamp: {{ psu.eqptPsu.attributes.mfgTm }}
+### Last Modified: {{ psu.eqptPsu.attributes.modTs }}
+### Model: {{ psu.eqptPsu.attributes.model }}
+### Monitoring Policy DN: {{ psu.eqptPsu.attributes.monPolDn }}
+### Oper State: {{ psu.eqptPsu.attributes.operSt }}
+### Revision: {{ psu.eqptPsu.attributes.rev }}
+### Serial Number: {{ psu.eqptPsu.attributes.ser }}
+### Status: {{ psu.eqptPsu.attributes.status }}
+### TC: {{ psu.eqptPsu.attributes.tc }}
+### vID: {{ psu.eqptPsu.attributes.vId }}
+### vSrc: {{ psu.eqptPsu.attributes.vSrc }}
+### Vendor: {{ psu.eqptPsu.attributes.vendor }}
+### Voltage: {{ psu.eqptPsu.attributes.volt }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

@@ -5150,5 +5150,66 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptPsu" in api %}
+<h1>Equipment Power Supplies</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Alarm Reg</th>
+    <th>Capacity</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Drawn Current</th>
+    <th>Fan Oper State</th>
+    <th>Hardware Version</th>
+    <th>MFG Timestamp</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>TC</th>
+    <th>vID</th>
+    <th>vSrc</th>
+    <th>Vendor</th>
+    <th>Voltage</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for psu in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ psu.eqptPsu.attributes.id }}</td>
+    <td>{{ psu.eqptPsu.attributes.almReg }}</td>
+    <td>{{ psu.eqptPsu.attributes.cap }}</td>
+    <td>{{ psu.eqptPsu.attributes.childAction }}</td>
+    <td>{{ psu.eqptPsu.attributes.cimcVersion }}</td>
+    <td>{{ psu.eqptPsu.attributes.descr }}</td>
+    <td>{{ psu.eqptPsu.attributes.dn }}</td>
+    <td>{{ psu.eqptPsu.attributes.drawnCurr }}</td>
+    <td>{{ psu.eqptPsu.attributes.fanOpSt }}</td>
+    <td>{{ psu.eqptPsu.attributes.hwVer }}</td>
+    <td>{{ psu.eqptPsu.attributes.mfgTm }}</td>
+    <td>{{ psu.eqptPsu.attributes.modTs }}</td>
+    <td>{{ psu.eqptPsu.attributes.model }}</td>
+    <td>{{ psu.eqptPsu.attributes.monPolDn }}</td>
+    <td>{{ psu.eqptPsu.attributes.operSt }}</td>
+    <td>{{ psu.eqptPsu.attributes.rev }}</td>
+    <td>{{ psu.eqptPsu.attributes.ser }}</td>
+    <td>{{ psu.eqptPsu.attributes.status }}</td>
+    <td>{{ psu.eqptPsu.attributes.tc }}</td>
+    <td>{{ psu.eqptPsu.attributes.vId }}</td>
+    <td>{{ psu.eqptPsu.attributes.vSrc }}</td>
+    <td>{{ psu.eqptPsu.attributes.vendor }}</td>
+    <td>{{ psu.eqptPsu.attributes.volt }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
