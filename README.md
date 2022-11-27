@@ -134,6 +134,8 @@ Equipment Power Supply Slots
 
 Equipment RS IO Port Physical Configs
 
+Equipment Sensors
+
 *Events
 
 Fabric Membership

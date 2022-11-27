@@ -2566,4 +2566,28 @@
 ### tDN: {{ port.eqptRsIoPPhysConf.attributes.tDn }}
 ### tType: {{ port.eqptRsIoPPhysConf.attributes.tType }}
 {%-     endfor %}
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptSensor" in api %}
+# Equipment Sensors
+{%-     for sensor in data_to_template['imdata'] %}
+## ID: {{ sensor.eqptSensor.attributes.id }}
+### Child Action: {{ sensor.eqptSensor.attributes.childAction }}
+### CIMC Version: {{ sensor.eqptSensor.attributes.cimcVersion }}
+### Description: {{ sensor.eqptSensor.attributes.descr }}
+### DN: {{ sensor.eqptSensor.attributes.dn }}
+### Thresholds
+#### Major: {{ sensor.eqptSensor.attributes.majorThresh }}
+#### Minor: {{ sensor.eqptSensor.attributes.minorThresh }}
+#### Current: {{ sensor.eqptSensor.attributes.value }}
+### MFG Timestamp: {{ sensor.eqptSensor.attributes.mfgTm }}
+### Last Modified: {{ sensor.eqptSensor.attributes.modTs }}
+### Model: {{ sensor.eqptSensor.attributes.model }}
+### Monitoring Policy DN: {{ sensor.eqptSensor.attributes.monPolDn }}
+### Oper State: {{ sensor.eqptSensor.attributes.operSt }}
+### Revision: {{ sensor.eqptSensor.attributes.rev }}
+### Serial Number: {{ sensor.eqptSensor.attributes.ser }}
+### Status: {{ sensor.eqptSensor.attributes.status }}
+### Type: {{ sensor.eqptSensor.attributes.type }}
+### Vendor: {{ sensor.eqptSensor.attributes.vendor }}
+{%-     endfor %}
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}

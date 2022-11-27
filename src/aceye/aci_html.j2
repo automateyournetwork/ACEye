@@ -5292,5 +5292,56 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
+{%- else %}
+{%- if "eqptSensor" in api %}
+<h1>Equipment Sensors</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Child Action</th>
+    <th>CIMC Version</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Major Threshold</th>
+    <th>MFG Timestamp</th>
+    <th>Minor Threshold</th>
+    <th>Last Modified</th>
+    <th>Model</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Revision</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>Value</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for sensor in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ sensor.eqptSensor.attributes.id }}</td>
+    <td>{{ sensor.eqptSensor.attributes.childAction }}</td>
+    <td>{{ sensor.eqptSensor.attributes.cimcVersion }}</td>
+    <td>{{ sensor.eqptSensor.attributes.descr }}</td>
+    <td>{{ sensor.eqptSensor.attributes.dn }}</td>
+    <td>{{ sensor.eqptSensor.attributes.majorThresh }}</td>
+    <td>{{ sensor.eqptSensor.attributes.mfgTm }}</td>
+    <td>{{ sensor.eqptSensor.attributes.minorThresh }}</td>
+    <td>{{ sensor.eqptSensor.attributes.modTs }}</td>
+    <td>{{ sensor.eqptSensor.attributes.model }}</td>
+    <td>{{ sensor.eqptSensor.attributes.monPolDn }}</td>
+    <td>{{ sensor.eqptSensor.attributes.operSt }}</td>
+    <td>{{ sensor.eqptSensor.attributes.rev }}</td>
+    <td>{{ sensor.eqptSensor.attributes.ser }}</td>
+    <td>{{ sensor.eqptSensor.attributes.status }}</td>
+    <td>{{ sensor.eqptSensor.attributes.type }}</td>
+    <td>{{ sensor.eqptSensor.attributes.value }}</td>
+    <td>{{ sensor.eqptSensor.attributes.vendor }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}{%- endif %}
 {%- include 'datatable_footer.j2' %}
