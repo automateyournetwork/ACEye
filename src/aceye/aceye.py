@@ -247,6 +247,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.fabric_path_endpoints(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.fabric_path_endpoint_containers(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -333,6 +335,7 @@ class ACEye():
                     'Fabric Membership',
                     'Fabric Nodes',
                     'Fabric Node SSL Certificates',
+                    'Fabric Path Endpoint Containers',
                     'Fabric Path Endpoints',
                     'Fabric Paths',
                     'Fabric Pods',
@@ -1227,6 +1230,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def fabric_path_endpoint_containers(self):
+        self.url = f"{ self.aci }/api/node/class/fabricPathEpCont.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Fabric Path Endpoint Containers code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1358,8 +1368,16 @@ class ACEye():
                 f.write(parsed_json)
 
         if "fabricPath" in self.url:
-            with open('Fabric Paths/JSON/Fabric Paths.json', 'w' ) as f:
-                f.write(parsed_json)
+            if "fabricPathEp" in self.url:
+                if "Cont" in self.url:
+                    with open('Fabric Path Endpoint Containers/JSON/Fabric Path Endpoint Containers.json', 'w' ) as f:
+                        f.write(parsed_json)
+                else:
+                    with open('Fabric Path Endpoints/JSON/Fabric Path Endpoints.json', 'w' ) as f:
+                        f.write(parsed_json)
+            else:
+                with open('Fabric Paths/JSON/Fabric Paths.json', 'w' ) as f:
+                    f.write(parsed_json)
 
         if "rtctrlSubjP" in self.url:
             with open('Prefix List/JSON/Prefix List.json', 'w' ) as f:
@@ -1680,10 +1698,6 @@ class ACEye():
             with open('Fabric Loose Nodes/JSON/Fabric Loose Nodes.json', 'w' ) as f:
                 f.write(parsed_json)
 
-        if "fabricPathEp" in self.url:
-            with open('Fabric Path Endpoints/JSON/Fabric Path Endpoints.json', 'w' ) as f:
-                f.write(parsed_json)
-
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
         if "Tenant" in self.url:
@@ -1816,8 +1830,16 @@ class ACEye():
                 f.write(clean_yaml)
 
         if "fabricPath" in self.url:
-            with open('Fabric Paths/YAML/Fabric Paths.yaml', 'w' ) as f:
-                f.write(clean_yaml)
+            if "fabricPathEp" in self.url:
+                if "Cont" in self.url:
+                    with open('Fabric Path Endpoint Containers/YAML/Fabric Path Endpoint Containers.yaml', 'w' ) as f:
+                        f.write(clean_yaml)
+                else:
+                    with open('Fabric Path Endpoints/YAML/Fabric Path Endpoints.yaml', 'w' ) as f:
+                        f.write(clean_yaml)
+            else:
+                with open('Fabric Paths/YAML/Fabric Paths.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
 
         if "rtctrlSubjP" in self.url:
             with open('Prefix List/YAML/Prefix List.yaml', 'w' ) as f:
@@ -2138,10 +2160,6 @@ class ACEye():
             with open('Fabric Loose Nodes/YAML/Fabric Loose Nodes.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
-        if "fabricPathEp" in self.url:
-            with open('Fabric Path Endpoints/YAML/Fabric Path Endpoints.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
     def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2278,8 +2296,16 @@ class ACEye():
                 f.write(csv_output)
 
         if "fabricPath" in self.url:
-            with open('Fabric Paths/CSV/Fabric Paths.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "fabricPathEp" in self.url:
+                if "Cont" in self.url:
+                    with open('Fabric Path Endpoint Containers/CSV/Fabric Path Endpoint Containers.csv', 'w' ) as f:
+                        f.write(csv_output)
+                else:
+                    with open('Fabric Path Endpoints/CSV/Fabric Path Endpoints.csv', 'w' ) as f:
+                        f.write(csv_output)
+            else:
+                with open('Fabric Paths/CSV/Fabric Paths.csv', 'w' ) as f:
+                    f.write(csv_output)
 
         if "rtctrlSubjP" in self.url:
             with open('Prefix List/CSV/Prefix List.csv', 'w' ) as f:
@@ -2600,10 +2626,6 @@ class ACEye():
             with open('Fabric Loose Nodes/CSV/Fabric Loose Nodes.csv', 'w' ) as f:
                 f.write(csv_output)
 
-        if "fabricPathEp" in self.url:
-            with open('Fabric Path Endpoints/CSV/Fabric Path Endpoints.csv', 'w' ) as f:
-                f.write(csv_output)
-
     def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2741,8 +2763,16 @@ class ACEye():
                 f.write(markdown_output)
 
         if "fabricPath" in self.url:
-            with open('Fabric Paths/Markdown/Fabric Paths.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "fabricPathEp" in self.url:
+                if "Cont" in self.url:
+                    with open('Fabric Path Endpoint Containers/Markdown/Fabric Path Endpoint Containers.md', 'w' ) as f:
+                        f.write(markdown_output)
+                else:
+                    with open('Fabric Path Endpoints/Markdown/Fabric Path Endpoints.md', 'w' ) as f:
+                        f.write(markdown_output)
+            else:
+                with open('Fabric Paths/Markdown/Fabric Paths.md', 'w' ) as f:
+                    f.write(markdown_output)
 
         if "rtctrlSubjP" in self.url:
             with open('Prefix List/Markdown/Prefix List.md', 'w' ) as f:
@@ -3063,10 +3093,6 @@ class ACEye():
             with open('Fabric Loose Nodes/Markdown/Fabric Loose Nodes.md', 'w' ) as f:
                 f.write(markdown_output)
 
-        if "fabricPathEp" in self.url:
-            with open('Fabric Path Endpoints/Markdown/Fabric Path Endpoints.md', 'w' ) as f:
-                f.write(markdown_output)
-
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3204,8 +3230,16 @@ class ACEye():
                 f.write(html_output)
 
         if "fabricPath" in self.url:
-            with open('Fabric Paths/HTML/Fabric Paths.html', 'w' ) as f:
-                f.write(html_output)
+            if "fabricPathEp" in self.url:
+                if "Cont" in self.url:
+                    with open('Fabric Path Endpoint Containers/HTML/Fabric Path Endpoint Containers.html', 'w' ) as f:
+                        f.write(html_output)
+                else:
+                    with open('Fabric Path Endpoints/HTML/Fabric Path Endpoints.html', 'w' ) as f:
+                        f.write(html_output)
+            else:
+                with open('Fabric Paths/HTML/Fabric Paths.html', 'w' ) as f:
+                    f.write(html_output)
 
         if "rtctrlSubjP" in self.url:
             with open('Prefix List/HTML/Prefix List.html', 'w' ) as f:
@@ -3526,10 +3560,6 @@ class ACEye():
             with open('Fabric Loose Nodes/HTML/Fabric Loose Nodes.html', 'w' ) as f:
                 f.write(html_output)
 
-        if "fabricPathEp" in self.url:
-            with open('Fabric Path Endpoints/HTML/Fabric Path Endpoints.html', 'w' ) as f:
-                f.write(html_output)
-
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3667,8 +3697,16 @@ class ACEye():
                 f.write(mindmap_output)
 
         if "fabricPath" in self.url:
-            with open('Fabric Paths/Mindmap/Fabric Paths.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "fabricPathEp" in self.url:
+                if "Cont" in self.url:
+                    with open('Fabric Path Endpoint Containers/Mindmap/Fabric Path Endpoint Containers.md', 'w' ) as f:
+                        f.write(mindmap_output)
+                else:
+                    with open('Fabric Path Endpoints/Mindmap/Fabric Path Endpoints.md', 'w' ) as f:
+                        f.write(mindmap_output)
+            else:
+                with open('Fabric Paths/Mindmap/Fabric Paths.md', 'w' ) as f:
+                    f.write(mindmap_output)
 
         if "rtctrlSubjP" in self.url:
             with open('Prefix List/Mindmap/Prefix List.md', 'w' ) as f:
@@ -3983,10 +4021,6 @@ class ACEye():
 
         if "fabricLooseNode" in self.url:
             with open('Fabric Loose Nodes/Mindmap/Fabric Loose Nodes.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fabricPathEp" in self.url:
-            with open('Fabric Path Endpoints/Mindmap/Fabric Path Endpoints.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

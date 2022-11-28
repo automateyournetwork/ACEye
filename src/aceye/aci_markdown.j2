@@ -207,12 +207,28 @@
 {%-     for pod in data_to_template['imdata'] %}
 | {{ pod.fabricPod.attributes.id }} | {{ pod.fabricPod.attributes.childAction }} | {{ pod.fabricPod.attributes.dn }} | {{ pod.fabricPod.attributes.lcOwn }} | {{ pod.fabricPod.attributes.modTs }} | {{ pod.fabricPod.attributes.monPolDn }} | {{ pod.fabricPod.attributes.podType }} | {{ pod.fabricPod.attributes.status }} |
 {%-     endfor %}
-{%- elif "fabricPath" in api %}# Fabric Paths
+{%- elif "fabricPath" in api %}
+{%-     if "Ep" in api %}
+{%-         if "Cont" in api %}# Fabric Path Endpoint Containers
+| Node ID | DN | Child Action | Local Owner | Last Modified | Monitoring Policy DN | Status |
+| ------- | -- | ------------ | ----------- | ------------- | -------------------- | ------ |
+{%-             for container in data_to_template['imdata'] %}
+| {{ container.fabricPathEpCont.attributes.nodeId }} | {{ container.fabricPathEpCont.attributes.dn }} | {{ container.fabricPathEpCont.attributes.childAction }} | {{ container.fabricPathEpCont.attributes.lcOwn }} | {{ container.fabricPathEpCont.attributes.modTs }} | {{ container.fabricPathEpCont.attributes.monPolDn }} | {{ container.fabricPathEpCont.attributes.status }} |
+{%-             endfor %}
+{%-         else %}# Fabric Path Endpoints
+| Name | Child Action | Description | DN | Lag Type | Local Owner | Last Modified | Monitoring Policy DN | Path Type | Status |
+| ---- | ------------ | ----------- | -- | -------- | ----------- | ------------- | -------------------- | --------- | ------ |
+{%-             for endpoint in data_to_template['imdata'] %}
+| {{ endpoint.fabricPathEp.attributes.name }} | {{ endpoint.fabricPathEp.attributes.childAction }} | {{ endpoint.fabricPathEp.attributes.descr }} | {{ endpoint.fabricPathEp.attributes.dn }} | {{ endpoint.fabricPathEp.attributes.lagT }} | {{ endpoint.fabricPathEp.attributes.lcOwn }} | {{ endpoint.fabricPathEp.attributes.modTs }} | {{ endpoint.fabricPathEp.attributes.monPolDn }} | {{ endpoint.fabricPathEp.attributes.pathT }} | {{ endpoint.fabricPathEp.attributes.status }} |
+{%-             endfor %}
+{%-         endif %}
+{%-     else %}# Fabric Paths
 | Node 1 | Node 2 | Child Action | DN | Local Owner | Last Updated | Monitoring Policy DN | Status |
 | ------ | ------ | ------------ | -- | ----------- | ------------ | -------------------- | ------ |
-{%-     for path in data_to_template['imdata'] %}
+{%-         for path in data_to_template['imdata'] %}
 | {{ path.fabricPath.attributes.n1 }} | {{ path.fabricPath.attributes.n2 }} | {{ path.fabricPath.attributes.childAction }} | {{ path.fabricPath.attributes.dn }} | {{ path.fabricPath.attributes.lcOwn }} | {{ path.fabricPath.attributes.modTs }} | {{ path.fabricPath.attributes.monPolDn }} | {{ path.fabricPath.attributes.status }} |
-{%-     endfor %}
+{%-         endfor %}
+{%-     endif %}
 {%- elif "rtctrlSubjP" in api %}# Fabric Nodes
 | Annotation | Child Action | Description | DN | Externally Managed By | Local Owner | Last Modified | Name | Name Alias | Status | UID | User Domain |
 | ---------- | ------------ | ----------- | -- | --------------------- | ----------- | ------------- | ---- | ---------- | ------ | --- | ----------- |
@@ -732,11 +748,5 @@
 | ---- | ---------- | ------------ | -- | -- | ---------- | ----------- | ----------- | ------------- | -------------------- | ----------- | ------ | ------ | ------------------ | ----------- |
 {%-     for node in data_to_template['imdata'] %}
 | {{ node.fabricLooseNode.attributes.name }} | {{ node.fabricLooseNode.attributes.nameAlias }} | {{ node.fabricLooseNode.attributes.childAction }} | {{ node.fabricLooseNode.attributes.dn }} | {{ node.fabricLooseNode.attributes.id }} | {{ node.fabricLooseNode.attributes.isManaged }} | {{ node.fabricLooseNode.attributes.lcOwn }} | {{ node.fabricLooseNode.attributes.mgrKey }} | {{ node.fabricLooseNode.attributes.modTs }} | {{ node.fabricLooseNode.attributes.monPolDn }} | {{ node.fabricLooseNode.attributes.operIssues }} | {{ node.fabricLooseNode.attributes.podId }} | {{ node.fabricLooseNode.attributes.status }} | {{ node.fabricLooseNode.attributes.sysDesc | replace("\n"," ") }} | {{ node.fabricLooseNode.attributes.sysName }} |
-{%-     endfor %}
-{%- elif "fabricPathEp" in api %}# Fabric Path Endpoints
-| Name | Child Action | Description | DN | Lag Type | Local Owner | Last Modified | Monitoring Policy DN | Path Type | Status |
-| ---- | ------------ | ----------- | -- | -------- | ----------- | ------------- | -------------------- | --------- | ------ |
-{%-     for endpoint in data_to_template['imdata'] %}
-| {{ endpoint.fabricPathEp.attributes.name }} | {{ endpoint.fabricPathEp.attributes.childAction }} | {{ endpoint.fabricPathEp.attributes.descr }} | {{ endpoint.fabricPathEp.attributes.dn }} | {{ endpoint.fabricPathEp.attributes.lagT }} | {{ endpoint.fabricPathEp.attributes.lcOwn }} | {{ endpoint.fabricPathEp.attributes.modTs }} | {{ endpoint.fabricPathEp.attributes.monPolDn }} | {{ endpoint.fabricPathEp.attributes.pathT }} | {{ endpoint.fabricPathEp.attributes.status }} |
 {%-     endfor %}
 {%- endif %}

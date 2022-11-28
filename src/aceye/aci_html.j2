@@ -1760,6 +1760,71 @@
 </tbody>
 </table>
 {%- elif "fabricPath" in api %}
+{%-     if "Ep" in api %}
+{%-         if "Cont" in api %}
+<h1>Fabric Path Endpoint Containers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Node ID</th>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody> 
+{%-             for container in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ container.fabricPathEpCont.attributes.nodeId }}</td>
+    <td>{{ container.fabricPathEpCont.attributes.dn }}</td>
+    <td>{{ container.fabricPathEpCont.attributes.childAction }}</td>
+    <td>{{ container.fabricPathEpCont.attributes.lcOwn }}</td>
+    <td>{{ container.fabricPathEpCont.attributes.modTs }}</td>
+    <td>{{ container.fabricPathEpCont.attributes.monPolDn }}</td>
+    <td>{{ container.fabricPathEpCont.attributes.status }}</td>
+  </tr>
+{%-             endfor %}
+</tbody>
+</table>
+{%-         else %}
+<h1>Fabric Path Endpoints</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Lag Type</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Path Type</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody> 
+{%-             for endpoint in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ endpoint.fabricPathEp.attributes.name }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.childAction }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.descr }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.dn }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.lagT }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.lcOwn }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.modTs }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.monPolDn }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.pathT }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.status }}</td>
+  </tr>
+{%-             endfor %}
+</tbody>
+</table>
+{%-         endif %}
+{%-     else %}
 <h1>Fabric Paths</h1>
 <table id = "datatable">
 <thead>
@@ -1775,7 +1840,7 @@
   </tr>
 </thead>
 <tbody> 
-{%-     for path in data_to_template['imdata'] %}
+{%-         for path in data_to_template['imdata'] %}
   <tr>
     <td>{{ path.fabricPath.attributes.n1 }}</td>
     <td>{{ path.fabricPath.attributes.n2 }}</td>
@@ -1786,9 +1851,10 @@
     <td>{{ path.fabricPath.attributes.monPolDn }}</td>
     <td>{{ path.fabricPath.attributes.status }}</td>
   </tr>
-{%-     endfor %}
+{%-         endfor %}
 </tbody>
 </table>
+{%-     endif %}
 {%- elif "rtctrlSubjP" in api %}
 <h1>Prefix List</h1>
 <table id = "datatable">
@@ -6032,40 +6098,6 @@
     <th>{{ node.fabricLooseNode.attributes.status }}</th>
     <th>{{ node.fabricLooseNode.attributes.sysDesc | replace("\n"," ") }}</th>
     <th>{{ node.fabricLooseNode.attributes.sysName }}</td>
-  </tr>
-{%-     endfor %}
-</tbody>
-</table>
-{%- elif "fabricPathEp" in api %}
-<h1>Fabric Path Endpoints</h1>
-<table id = "datatable">
-<thead>
-  <tr>
-    <th>Name</th>
-    <th>Child Action</th>
-    <th>Description</th>
-    <th>DN</th>
-    <th>Lag Type</th>
-    <th>Local Owner</th>
-    <th>Last Modified</th>
-    <th>Monitoring Policy DN</th>
-    <th>Path Type</th>
-    <th>Status</th>
-  </tr>
-</thead>
-<tbody>
-{%-     for endpoint in data_to_template['imdata'] %}
-  <tr>
-    <td>{{ endpoint.fabricPathEp.attributes.name }}</td>
-    <td>{{ endpoint.fabricPathEp.attributes.childAction }}</td>
-    <td>{{ endpoint.fabricPathEp.attributes.descr }}</td>
-    <td>{{ endpoint.fabricPathEp.attributes.dn }}</td>
-    <td>{{ endpoint.fabricPathEp.attributes.lagT }}</td>
-    <td>{{ endpoint.fabricPathEp.attributes.lcOwn }}</td>
-    <td>{{ endpoint.fabricPathEp.attributes.modTs }}</td>
-    <td>{{ endpoint.fabricPathEp.attributes.monPolDn }}</td>
-    <td>{{ endpoint.fabricPathEp.attributes.pathT }}</td>
-    <td>{{ endpoint.fabricPathEp.attributes.status }}</td>
   </tr>
 {%-     endfor %}
 </tbody>
