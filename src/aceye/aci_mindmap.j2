@@ -2705,4 +2705,71 @@
 ### Vendor: {{ supervisor.eqptSupC.attributes.vendor }}
 {%-         endfor %}
 {%-     endif %}
+{%- elif "ethpmPhysIf" in api %}
+# Ethernet Port Manager Physical Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## DN: {{ interface.ethpmPhysIf.attributes.dn }}
+### VLAN
+#### Access: {{ interface.ethpmPhysIf.attributes.accessVlan }}
+#### Allowed: {{ interface.ethpmPhysIf.attributes.allowedVlans }}
+#### Primary VLAN: {{ interface.ethpmPhysIf.attributes.primaryVlan }}
+#### Native VLAN: {{ interface.ethpmPhysIf.attributes.nativeVlan }}
+### Backplane MAC: {{ interface.ethpmPhysIf.attributes.backplaneMac }}
+### Bundle
+#### Bup ID: {{ interface.ethpmPhysIf.attributes.bundleBupId }}
+#### Index: {{ interface.ethpmPhysIf.attributes.bundleIndex }}
+### Configured VLAN
+#### Access: {{ interface.ethpmPhysIf.attributes.cfgAccessVlan }}
+#### Native: {{ interface.ethpmPhysIf.attributes.cfgNativeVlan }}
+### Child Action: {{ interface.ethpmPhysIf.attributes.childAction }}
+### Current Error Index: {{ interface.ethpmPhysIf.attributes.currErrIndex }}
+### Diagnostics: {{ interface.ethpmPhysIf.attributes.diags }}
+### Encapsulation: {{ interface.ethpmPhysIf.attributes.encap }}
+### Error
+#### Display Timer Running: {{ interface.ethpmPhysIf.attributes.errDisTimerRunning }}
+#### VLAN Status HT: {{ interface.ethpmPhysIf.attributes.errVlanStatusHt }}
+#### VLANs: {{ interface.ethpmPhysIf.attributes.errVlans }}
+### Hardware
+#### BD ID: {{ interface.ethpmPhysIf.attributes.hwBdId }}
+#### Resource ID: {{ interface.ethpmPhysIf.attributes.hwResourceId }}
+### Interface Type: {{ interface.ethpmPhysIf.attributes.intfT }}
+### IOD: {{ interface.ethpmPhysIf.attributes.iod }}
+### Last
+#### Errors: {{ interface.ethpmPhysIf.attributes.lastErrors }}
+#### Link State Change: {{ interface.ethpmPhysIf.attributes.lastLinkStChg }}
+### Media: {{ interface.ethpmPhysIf.attributes.media }}
+### Last Modified: {{ interface.ethpmPhysIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.ethpmPhysIf.attributes.monPolDn }}
+### Number of SI: {{ interface.ethpmPhysIf.attributes.numOfSI }}
+### Oper
+#### Bitset: {{ interface.ethpmPhysIf.attributes.operBitset }}
+#### DCE Mode: {{ interface.ethpmPhysIf.attributes.operDceMode }}
+#### Duplex: {{ interface.ethpmPhysIf.attributes.operDuplex }}
+#### EEER
+##### RX Wk Time: {{ interface.ethpmPhysIf.attributes.operEEERxWkTime }}
+##### TX Wk Time: {{ interface.ethpmPhysIf.attributes.operEEETxWkTime }}
+##### State: {{ interface.ethpmPhysIf.attributes.operEEEState }}
+#### Error Display Quality: {{ interface.ethpmPhysIf.attributes.operErrDisQual }}
+#### FEC Mode: {{ interface.ethpmPhysIf.attributes.operFecMode }}
+#### Flow Control: {{ interface.ethpmPhysIf.attributes.operFlowCtrl }}
+#### MDIX: {{ interface.ethpmPhysIf.attributes.operMdix }}
+#### Mode: {{ interface.ethpmPhysIf.attributes.operMode }}
+#### Mode Detail: {{ interface.ethpmPhysIf.attributes.operModeDetail }}
+#### Physical Enable State: {{ interface.ethpmPhysIf.attributes.operPhyEnSt }}
+#### Router MAC: {{ interface.ethpmPhysIf.attributes.operRouterMac }}
+#### Speed: {{ interface.ethpmPhysIf.attributes.operSpeed }}
+#### State: {{ interface.ethpmPhysIf.attributes.operSt }}
+#### State Quality: {{ interface.ethpmPhysIf.attributes.operStQual }}
+#### State Quality Code: {{ interface.ethpmPhysIf.attributes.operStQualCode }}
+#### VLANs: {{ interface.ethpmPhysIf.attributes.operVlans }}
+### OS Sum: {{ interface.ethpmPhysIf.attributes.osSum }}
+### Port Config Wait Flags: {{ interface.ethpmPhysIf.attributes.portCfgWaitFlags }}
+### Reset Counter: {{ interface.ethpmPhysIf.attributes.resetCtr }}
+### SI List: {{ interface.ethpmPhysIf.attributes.siList }}
+### Status: {{ interface.ethpmPhysIf.attributes.status }}
+### TX Type: {{ interface.ethpmPhysIf.attributes.txT }}
+### Usage: {{ interface.ethpmPhysIf.attributes.usage }}
+### User Configured Flags: {{ interface.ethpmPhysIf.attributes.userCfgdFlags }}
+### VDC ID: {{ interface.ethpmPhysIf.attributes.vdcId }}
+{%-     endfor %}
 {%- endif %}
