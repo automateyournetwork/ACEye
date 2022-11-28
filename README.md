@@ -156,6 +156,8 @@ Ethernet Port Manager Physical Interfaces
 
 *Events
 
+Fabric Extended Path Endpoint Containers
+
 Fabric Membership
 
 Fabric Node SSL Certifcates

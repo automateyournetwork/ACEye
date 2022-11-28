@@ -5814,5 +5814,33 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "fabricExtPathEpCont" in api %}
+<h1>Fabric Extended Path Endpoint Containers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Extended Ch ID</th>
+    <th>Local Owner</th>
+    <th>Last Modifed</th>
+    <th>Monitoring Policy DN</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for container in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ container.fabricExtPathEpCont.attributes.dn }}</td>
+    <td>{{ container.fabricExtPathEpCont.attributes.childAction }}</td>
+    <td>{{ container.fabricExtPathEpCont.attributes.extChId }}</td>
+    <td>{{ container.fabricExtPathEpCont.attributes.lcOwn }}</td>
+    <td>{{ container.fabricExtPathEpCont.attributes.modTs }}</td>
+    <td>{{ container.fabricExtPathEpCont.attributes.monPolDn }}</td>
+    <td>{{ container.fabricExtPathEpCont.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

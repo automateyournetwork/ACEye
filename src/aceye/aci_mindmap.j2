@@ -2772,4 +2772,15 @@
 ### User Configured Flags: {{ interface.ethpmPhysIf.attributes.userCfgdFlags }}
 ### VDC ID: {{ interface.ethpmPhysIf.attributes.vdcId }}
 {%-     endfor %}
+{%- elif "fabricExtPathEpCont" in api %}
+# Fabric Extended Path Endpoint Containers
+{%-     for container in data_to_template['imdata'] %}
+## DN: {{ container.fabricExtPathEpCont.attributes.dn }}
+### Child Action: {{ container.fabricExtPathEpCont.attributes.childAction }}
+### Extended Ch ID: {{ container.fabricExtPathEpCont.attributes.extChId }}
+### Local Owner: {{ container.fabricExtPathEpCont.attributes.lcOwn }}
+### Last Modified: {{ container.fabricExtPathEpCont.attributes.modTs }}
+### Monitoring Policy DN: {{ container.fabricExtPathEpCont.attributes.monPolDn }}
+### Status: {{ container.fabricExtPathEpCont.attributes.status }}
+{%-     endfor %}
 {%- endif %}
