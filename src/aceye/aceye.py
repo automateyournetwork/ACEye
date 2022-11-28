@@ -245,6 +245,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.fabric_loose_nodes(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.fabric_path_endpoints(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -331,6 +333,7 @@ class ACEye():
                     'Fabric Membership',
                     'Fabric Nodes',
                     'Fabric Node SSL Certificates',
+                    'Fabric Path Endpoints',
                     'Fabric Paths',
                     'Fabric Pods',
                     'Fault Summary',
@@ -1217,6 +1220,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def fabric_path_endpoints(self):
+        self.url = f"{ self.aci }/api/node/class/fabricPathEp.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Fabric Path Endpoints code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1668,6 +1678,10 @@ class ACEye():
 
         if "fabricLooseNode" in self.url:
             with open('Fabric Loose Nodes/JSON/Fabric Loose Nodes.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "fabricPathEp" in self.url:
+            with open('Fabric Path Endpoints/JSON/Fabric Path Endpoints.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -2122,6 +2136,10 @@ class ACEye():
 
         if "fabricLooseNode" in self.url:
             with open('Fabric Loose Nodes/YAML/Fabric Loose Nodes.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "fabricPathEp" in self.url:
+            with open('Fabric Path Endpoints/YAML/Fabric Path Endpoints.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -2580,6 +2598,10 @@ class ACEye():
 
         if "fabricLooseNode" in self.url:
             with open('Fabric Loose Nodes/CSV/Fabric Loose Nodes.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "fabricPathEp" in self.url:
+            with open('Fabric Path Endpoints/CSV/Fabric Path Endpoints.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -3041,6 +3063,10 @@ class ACEye():
             with open('Fabric Loose Nodes/Markdown/Fabric Loose Nodes.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "fabricPathEp" in self.url:
+            with open('Fabric Path Endpoints/Markdown/Fabric Path Endpoints.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3500,6 +3526,10 @@ class ACEye():
             with open('Fabric Loose Nodes/HTML/Fabric Loose Nodes.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "fabricPathEp" in self.url:
+            with open('Fabric Path Endpoints/HTML/Fabric Path Endpoints.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3953,6 +3983,10 @@ class ACEye():
 
         if "fabricLooseNode" in self.url:
             with open('Fabric Loose Nodes/Mindmap/Fabric Loose Nodes.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "fabricPathEp" in self.url:
+            with open('Fabric Path Endpoints/Mindmap/Fabric Path Endpoints.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

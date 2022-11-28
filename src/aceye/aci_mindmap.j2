@@ -2873,4 +2873,19 @@
 #### Name: {{ node.fabricLooseNode.attributes.sysName }}
 #### Description: {{ node.fabricLooseNode.attributes.sysDesc | replace("\n"," ") }}
 {%-     endfor %}
+{%- elif "fabricPathEp" in api %}
+# Fabric Path Endpoints
+{%-     for endpoint in data_to_template['imdata'] %}
+## Name: {{ endpoint.fabricPathEp.attributes.name }}
+### Child Action: {{ endpoint.fabricPathEp.attributes.childAction }}
+### Description: {{ endpoint.fabricPathEp.attributes.descr }}
+### DN: {{ endpoint.fabricPathEp.attributes.dn }}
+### Type
+#### Lag: {{ endpoint.fabricPathEp.attributes.lagT }}
+#### Path: {{ endpoint.fabricPathEp.attributes.pathT }}
+### Local Owner: {{ endpoint.fabricPathEp.attributes.lcOwn }}
+### Last Modified: {{ endpoint.fabricPathEp.attributes.modTs }}
+### Monitoring Policy DN: {{ endpoint.fabricPathEp.attributes.monPolDn }}
+### Status: {{ endpoint.fabricPathEp.attributes.status }}
+{%-     endfor %}
 {%- endif %}

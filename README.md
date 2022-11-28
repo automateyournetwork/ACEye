@@ -174,6 +174,8 @@ Fabric Node SSL Certifcates
 
 Fabric Nodes
 
+Fabric Path Endpoints
+
 Fabric Paths
 
 Fabric Pods

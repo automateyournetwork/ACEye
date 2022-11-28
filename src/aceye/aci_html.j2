@@ -6036,5 +6036,39 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "fabricPathEp" in api %}
+<h1>Fabric Path Endpoints</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Lag Type</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Path Type</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for endpoint in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ endpoint.fabricPathEp.attributes.name }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.childAction }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.descr }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.dn }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.lagT }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.lcOwn }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.modTs }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.monPolDn }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.pathT }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
