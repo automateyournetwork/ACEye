@@ -152,6 +152,8 @@ Equipment Supervisor Slots
 
 Equipment Supervisors
 
+Ethernet Port Manager Physical Interfaces
+
 *Events
 
 Fabric Membership

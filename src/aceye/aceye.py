@@ -231,6 +231,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.equipment_supervisor_slots(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.ethernet_port_manager_physical_interfaces(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -306,6 +308,7 @@ class ACEye():
                     'Equipment Storage',
                     'Equipment Supervisor Slots',
                     'Equipment Supervisors',
+                    'Ethernet Port Manager Physical Interfaces',
                     'Events',
                     'Fabric Membership',
                     'Fabric Nodes',
@@ -1147,6 +1150,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def ethernet_port_manager_physical_interfaces(self):
+        self.url = f"{ self.aci }/api/node/class/ethpmPhysIf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Ethernet Port Manager Physical Interfaces code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1571,6 +1581,10 @@ class ACEye():
             else:
                 with open('Equipment Supervisors/JSON/Equipment Supervisors.json', 'w' ) as f:
                     f.write(parsed_json)
+
+        if "ethpmPhysIf" in self.url:
+            with open('Ethernet Port Manager Physical Interfaces/JSON/Ethernet Port Manager Physical Interfaces.json', 'w' ) as f:
+                f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
@@ -1997,6 +2011,10 @@ class ACEye():
             else:
                 with open('Equipment Supervisors/YAML/Equipment Supervisors.yaml', 'w' ) as f:
                     f.write(clean_yaml)
+
+        if "ethpmPhysIf" in self.url:
+            with open('Ethernet Port Manager Physical Interfaces/YAML/Ethernet Port Manager Physical Interfaces.yaml', 'w' ) as f:
+                f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -2427,6 +2445,10 @@ class ACEye():
             else:
                 with open('Equipment Supervisors/CSV/Equipment Supervisors.csv', 'w' ) as f:
                     f.write(csv_output)
+
+        if "ethpmPhysIf" in self.url:
+            with open('Ethernet Port Manager Physical Interfaces/CSV/Ethernet Port Manager Physical Interfaces.csv', 'w' ) as f:
+                f.write(csv_output)
 
     def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -2859,6 +2881,10 @@ class ACEye():
                 with open('Equipment Supervisors/Markdown/Equipment Supervisors.md', 'w' ) as f:
                     f.write(markdown_output)
 
+        if "ethpmPhysIf" in self.url:
+            with open('Ethernet Port Manager Physical Interfaces/Markdown/Ethernet Port Manager Physical Interfaces.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3290,6 +3316,10 @@ class ACEye():
                 with open('Equipment Supervisors/HTML/Equipment Supervisors.html', 'w' ) as f:
                     f.write(html_output)
 
+        if "ethpmPhysIf" in self.url:
+            with open('Ethernet Port Manager Physical Interfaces/HTML/Ethernet Port Manager Physical Interfaces.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3716,6 +3746,10 @@ class ACEye():
             else:
                 with open('Equipment Supervisors/Mindmap/Equipment Supervisors.md', 'w' ) as f:
                     f.write(mindmap_output)
+
+        if "ethpmPhysIf" in self.url:
+            with open('Ethernet Port Manager Physical Interfaces/Mindmap/Ethernet Port Manager Physical Interfaces.md', 'w' ) as f:
+                f.write(mindmap_output)
 
     def all_files(self, parsed_json):
         self.json_file(parsed_json)
