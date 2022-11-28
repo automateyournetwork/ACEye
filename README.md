@@ -152,7 +152,15 @@ Equipment Supervisor Slots
 
 Equipment Supervisors
 
+Ethernet Port Manager Physical Interfaces
+
 *Events
+
+Fabric Extended Path Endpoint Containers
+
+Fabric Instances
+
+Fabric Links
 
 Fabric Membership
 
