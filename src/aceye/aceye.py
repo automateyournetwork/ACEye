@@ -2765,10 +2765,10 @@ class ACEye():
         if "fabricPath" in self.url:
             if "fabricPathEp" in self.url:
                 if "Cont" in self.url:
-                    with open('Fabric Path Endpoint Containers/CSV/Fabric Path Endpoint Containers.csv', 'w' ) as f:
+                    with open('Fabric Path Endpoint Containers/Markdown/Fabric Path Endpoint Containers.md', 'w' ) as f:
                         f.write(markdown_output)
                 else:
-                    with open('Fabric Path Endpoints/CSV/Fabric Path Endpoints.csv', 'w' ) as f:
+                    with open('Fabric Path Endpoints/Markdown/Fabric Path Endpoints.md', 'w' ) as f:
                         f.write(markdown_output)
             else:
                 with open('Fabric Paths/Markdown/Fabric Paths.md', 'w' ) as f:
