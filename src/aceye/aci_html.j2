@@ -5958,5 +5958,117 @@
 </tbody>
 </table>
 {%-     endif %}
+{%- elif "fabricLooseLink" in api %}
+<h1>Fabric Loose Links</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>is Edm Managed</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Node DN</th>
+    <th>Port DN</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for link in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ link.fabricLooseLink.attributes.name }}</td>
+    <td>{{ link.fabricLooseLink.attributes.nameAlias }}</td>
+    <td>{{ link.fabricLooseLink.attributes.childAction }}</td>
+    <td>{{ link.fabricLooseLink.attributes.dn }}</td>
+    <td>{{ link.fabricLooseLink.attributes.isEdmManaged }}</td>
+    <td>{{ link.fabricLooseLink.attributes.lcOwn }}</td>
+    <td>{{ link.fabricLooseLink.attributes.modTs }}</td>
+    <td>{{ link.fabricLooseLink.attributes.nodeDn }}</td>
+    <td>{{ link.fabricLooseLink.attributes.portDn }}</td>
+    <td>{{ link.fabricLooseLink.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "fabricLooseNode" in api %}
+<h1>Fabric Loose Nodes</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>ID</th>
+    <th>Is Managed</th>
+    <th>Local Owner</th>
+    <th>Manager Key</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Issues</th>
+    <th>Pod ID</th>
+    <th>Status</th>
+    <th>System Description</th>
+    <th>System Name</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for node in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ node.fabricLooseNode.attributes.name }}</th>
+    <th>{{ node.fabricLooseNode.attributes.nameAlias }}</th>
+    <th>{{ node.fabricLooseNode.attributes.childAction }}</th>
+    <th>{{ node.fabricLooseNode.attributes.dn }}</th>
+    <th>{{ node.fabricLooseNode.attributes.id }}</th>
+    <th>{{ node.fabricLooseNode.attributes.isManaged }}</th>
+    <th>{{ node.fabricLooseNode.attributes.lcOwn }}</th>
+    <th>{{ node.fabricLooseNode.attributes.mgrKey }}</th>
+    <th>{{ node.fabricLooseNode.attributes.modTs }}</th>
+    <th>{{ node.fabricLooseNode.attributes.monPolDn }}</th>
+    <th>{{ node.fabricLooseNode.attributes.operIssues }}</th>
+    <th>{{ node.fabricLooseNode.attributes.podId }}</th>
+    <th>{{ node.fabricLooseNode.attributes.status }}</th>
+    <th>{{ node.fabricLooseNode.attributes.sysDesc | replace("\n"," ") }}</th>
+    <th>{{ node.fabricLooseNode.attributes.sysName }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "fabricPathEp" in api %}
+<h1>Fabric Path Endpoints</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Lag Type</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Path Type</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for endpoint in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ endpoint.fabricPathEp.attributes.name }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.childAction }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.descr }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.dn }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.lagT }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.lcOwn }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.modTs }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.monPolDn }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.pathT }}</td>
+    <td>{{ endpoint.fabricPathEp.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

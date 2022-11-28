@@ -2838,4 +2838,54 @@
 ### Wiring Issues: {{ link.fabricLink.attributes.wiringIssues }}
 {%-         endfor %}
 {%-     endif %}
+{%- elif "fabricLooseLink" in api %}
+# Fabric Loose Links
+{%-     for link in data_to_template['imdata'] %}
+## Name: {{ link.fabricLooseLink.attributes.name }}
+### Name Alias: {{ link.fabricLooseLink.attributes.nameAlias }}
+### Child Action: {{ link.fabricLooseLink.attributes.childAction }}
+### Is Edm Managed: {{ link.fabricLooseLink.attributes.isEdmManaged }}
+### Local Owner: {{ link.fabricLooseLink.attributes.lcOwn }}
+### Last Modified: {{ link.fabricLooseLink.attributes.modTs }}
+### DNs
+#### DN: {{ link.fabricLooseLink.attributes.dn }}
+#### Node: {{ link.fabricLooseLink.attributes.nodeDn }}
+#### Port: {{ link.fabricLooseLink.attributes.portDn }}
+### Status: {{ link.fabricLooseLink.attributes.status }}
+{%-     endfor %}
+{%- elif "fabricLooseNode" in api %}
+# Fabric Loose Nodes
+{%-     for node in data_to_template['imdata'] %}
+## Name: {{ node.fabricLooseNode.attributes.name }}
+### Name Alias: {{ node.fabricLooseNode.attributes.nameAlias }}
+### Child Action: {{ node.fabricLooseNode.attributes.childAction }}
+### DN: {{ node.fabricLooseNode.attributes.dn }}
+### ID: {{ node.fabricLooseNode.attributes.id }}
+### Is Managed: {{ node.fabricLooseNode.attributes.isManaged }}
+### Local Owner: {{ node.fabricLooseNode.attributes.lcOwn }}
+### Manager Key: {{ node.fabricLooseNode.attributes.mgrKey }}
+### Last Modified: {{ node.fabricLooseNode.attributes.modTs }}
+### Monitoring Policy DN: {{ node.fabricLooseNode.attributes.monPolDn }}
+### Oper Issues: {{ node.fabricLooseNode.attributes.operIssues }}
+### Pod ID: {{ node.fabricLooseNode.attributes.podId }}
+### Status: {{ node.fabricLooseNode.attributes.status }}
+### System
+#### Name: {{ node.fabricLooseNode.attributes.sysName }}
+#### Description: {{ node.fabricLooseNode.attributes.sysDesc | replace("\n"," ") }}
+{%-     endfor %}
+{%- elif "fabricPathEp" in api %}
+# Fabric Path Endpoints
+{%-     for endpoint in data_to_template['imdata'] %}
+## Name: {{ endpoint.fabricPathEp.attributes.name }}
+### Child Action: {{ endpoint.fabricPathEp.attributes.childAction }}
+### Description: {{ endpoint.fabricPathEp.attributes.descr }}
+### DN: {{ endpoint.fabricPathEp.attributes.dn }}
+### Type
+#### Lag: {{ endpoint.fabricPathEp.attributes.lagT }}
+#### Path: {{ endpoint.fabricPathEp.attributes.pathT }}
+### Local Owner: {{ endpoint.fabricPathEp.attributes.lcOwn }}
+### Last Modified: {{ endpoint.fabricPathEp.attributes.modTs }}
+### Monitoring Policy DN: {{ endpoint.fabricPathEp.attributes.monPolDn }}
+### Status: {{ endpoint.fabricPathEp.attributes.status }}
+{%-     endfor %}
 {%- endif %}
