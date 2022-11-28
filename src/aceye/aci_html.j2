@@ -5883,6 +5883,35 @@
 </tbody>
 </table>
 {%- elif "fabricLink" in api %}
+{%-     if "Cont" in api %}
+<h1>Fabric Link Containers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Node</th>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for container in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ container.fabricLinkCont.attributes.n }}</td>
+    <td>{{ container.fabricLinkCont.attributes.dn }}</td>
+    <td>{{ container.fabricLinkCont.attributes.childAction }}</td>
+    <td>{{ container.fabricLinkCont.attributes.lcOwn }}</td>
+    <td>{{ container.fabricLinkCont.attributes.modTs }}</td>
+    <td>{{ container.fabricLinkCont.attributes.monPolDn }}</td>
+    <td>{{ container.fabricLinkCont.attributes.status }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     else %}
 <h1>Fabric Links</h1>
 <table id = "datatable">
 <thead>
@@ -5906,7 +5935,7 @@
   </tr>
 </thead>
 <tbody>
-{%-     for link in data_to_template['imdata'] %}
+{%-         for link in data_to_template['imdata'] %}
   <tr>
     <td>{{ link.fabricLink.attributes.dn }}</td>
     <td>{{ link.fabricLink.attributes.childAction }}</td>
@@ -5925,8 +5954,9 @@
     <td>{{ link.fabricLink.attributes.status }}</td>
     <td>{{ link.fabricLink.attributes.wiringIssues }}</td>
   </tr>
-{%-     endfor %}
+{%-         endfor %}
 </tbody>
 </table>
+{%-     endif %}
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
