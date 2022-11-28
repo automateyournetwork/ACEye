@@ -166,6 +166,8 @@ Fabric Links
 
 Fabric Loose Links
 
+Fabric Loose Nodes
+
 Fabric Membership
 
 Fabric Node SSL Certifcates

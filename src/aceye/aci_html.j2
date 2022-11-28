@@ -5992,5 +5992,49 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "fabricLooseNode" in api %}
+<h1>Fabric Loose Nodes</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>ID</th>
+    <th>Is Managed</th>
+    <th>Local Owner</th>
+    <th>Manager Key</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Issues</th>
+    <th>Pod ID</th>
+    <th>Status</th>
+    <th>System Description</th>
+    <th>System Name</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for node in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ node.fabricLooseNode.attributes.name }}</th>
+    <th>{{ node.fabricLooseNode.attributes.nameAlias }}</th>
+    <th>{{ node.fabricLooseNode.attributes.childAction }}</th>
+    <th>{{ node.fabricLooseNode.attributes.dn }}</th>
+    <th>{{ node.fabricLooseNode.attributes.id }}</th>
+    <th>{{ node.fabricLooseNode.attributes.isManaged }}</th>
+    <th>{{ node.fabricLooseNode.attributes.lcOwn }}</th>
+    <th>{{ node.fabricLooseNode.attributes.mgrKey }}</th>
+    <th>{{ node.fabricLooseNode.attributes.modTs }}</th>
+    <th>{{ node.fabricLooseNode.attributes.monPolDn }}</th>
+    <th>{{ node.fabricLooseNode.attributes.operIssues }}</th>
+    <th>{{ node.fabricLooseNode.attributes.podId }}</th>
+    <th>{{ node.fabricLooseNode.attributes.status }}</th>
+    <th>{{ node.fabricLooseNode.attributes.sysDesc | replace("\n"," ") }}</th>
+    <th>{{ node.fabricLooseNode.attributes.sysName }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

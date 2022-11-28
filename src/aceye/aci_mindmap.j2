@@ -2853,4 +2853,24 @@
 #### Port: {{ link.fabricLooseLink.attributes.portDn }}
 ### Status: {{ link.fabricLooseLink.attributes.status }}
 {%-     endfor %}
+{%- elif "fabricLooseNode" in api %}
+# Fabric Loose Nodes
+{%-     for node in data_to_template['imdata'] %}
+## Name: {{ node.fabricLooseNode.attributes.name }}
+### Name Alias: {{ node.fabricLooseNode.attributes.nameAlias }}
+### Child Action: {{ node.fabricLooseNode.attributes.childAction }}
+### DN: {{ node.fabricLooseNode.attributes.dn }}
+### ID: {{ node.fabricLooseNode.attributes.id }}
+### Is Managed: {{ node.fabricLooseNode.attributes.isManaged }}
+### Local Owner: {{ node.fabricLooseNode.attributes.lcOwn }}
+### Manager Key: {{ node.fabricLooseNode.attributes.mgrKey }}
+### Last Modified: {{ node.fabricLooseNode.attributes.modTs }}
+### Monitoring Policy DN: {{ node.fabricLooseNode.attributes.monPolDn }}
+### Oper Issues: {{ node.fabricLooseNode.attributes.operIssues }}
+### Pod ID: {{ node.fabricLooseNode.attributes.podId }}
+### Status: {{ node.fabricLooseNode.attributes.status }}
+### System
+#### Name: {{ node.fabricLooseNode.attributes.sysName }}
+#### Description: {{ node.fabricLooseNode.attributes.sysDesc | replace("\n"," ") }}
+{%-     endfor %}
 {%- endif %}

@@ -727,4 +727,10 @@
 {%-     for link in data_to_template['imdata'] %}
 | {{ link.fabricLooseLink.attributes.name }} | {{ link.fabricLooseLink.attributes.nameAlias }} | {{ link.fabricLooseLink.attributes.childAction }} | {{ link.fabricLooseLink.attributes.dn }} | {{ link.fabricLooseLink.attributes.isEdmManaged }} | {{ link.fabricLooseLink.attributes.lcOwn }} | {{ link.fabricLooseLink.attributes.modTs }} | {{ link.fabricLooseLink.attributes.nodeDn }} | {{ link.fabricLooseLink.attributes.portDn }} | {{ link.fabricLooseLink.attributes.status }} |
 {%-     endfor %}
+{%- elif "fabricLooseNode" in api %}# Fabric Loose Nodes
+| Name | Name Alias | Child Action | DN | ID | Is Managed | Local Owner | Manager Key | Last Modified | Monitoring Policy DN | Oper Issues | Pod ID | Status | System Description | System Name |
+| ---- | ---------- | ------------ | -- | -- | ---------- | ----------- | ----------- | ------------- | -------------------- | ----------- | ------ | ------ | ------------------ | ----------- |
+{%-     for node in data_to_template['imdata'] %}
+| {{ node.fabricLooseNode.attributes.name }} | {{ node.fabricLooseNode.attributes.nameAlias }} | {{ node.fabricLooseNode.attributes.childAction }} | {{ node.fabricLooseNode.attributes.dn }} | {{ node.fabricLooseNode.attributes.id }} | {{ node.fabricLooseNode.attributes.isManaged }} | {{ node.fabricLooseNode.attributes.lcOwn }} | {{ node.fabricLooseNode.attributes.mgrKey }} | {{ node.fabricLooseNode.attributes.modTs }} | {{ node.fabricLooseNode.attributes.monPolDn }} | {{ node.fabricLooseNode.attributes.operIssues }} | {{ node.fabricLooseNode.attributes.podId }} | {{ node.fabricLooseNode.attributes.status }} | {{ node.fabricLooseNode.attributes.sysDesc | replace("\n"," ") }} | {{ node.fabricLooseNode.attributes.sysName }} |
+{%-     endfor %}
 {%- endif %}
