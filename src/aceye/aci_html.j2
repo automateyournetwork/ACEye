@@ -6037,6 +6037,35 @@
 </tbody>
 </table>
 {%- elif "fabricPathEp" in api %}
+{%-     if "Cont" in api %}
+<h1>Fabric Path Endpoint Containers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Node ID</th>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for container in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ container.fabricPathEpCont.attributes.nodeId }}</td>
+    <td>{{ container.fabricPathEpCont.attributes.dn }}</td>
+    <td>{{ container.fabricPathEpCont.attributes.childAction }}</td>
+    <td>{{ container.fabricPathEpCont.attributes.lcOwn }}</td>
+    <td>{{ container.fabricPathEpCont.attributes.modTs }}</td>
+    <td>{{ container.fabricPathEpCont.attributes.monPolDn }}</td>
+    <td>{{ container.fabricPathEpCont.attributes.status }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     else %}
 <h1>Fabric Path Endpoints</h1>
 <table id = "datatable">
 <thead>
@@ -6054,7 +6083,7 @@
   </tr>
 </thead>
 <tbody>
-{%-     for endpoint in data_to_template['imdata'] %}
+{%-         for endpoint in data_to_template['imdata'] %}
   <tr>
     <td>{{ endpoint.fabricPathEp.attributes.name }}</td>
     <td>{{ endpoint.fabricPathEp.attributes.childAction }}</td>
@@ -6067,8 +6096,9 @@
     <td>{{ endpoint.fabricPathEp.attributes.pathT }}</td>
     <td>{{ endpoint.fabricPathEp.attributes.status }}</td>
   </tr>
-{%-     endfor %}
+{%-         endfor %}
 </tbody>
 </table>
+{%-     endif %}
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

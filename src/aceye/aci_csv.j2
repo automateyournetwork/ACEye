@@ -507,8 +507,14 @@
 {%-     for node in data_to_template['imdata'] %}
 {{ node.fabricLooseNode.attributes.name }},{{ node.fabricLooseNode.attributes.nameAlias }},{{ node.fabricLooseNode.attributes.childAction }},{{ node.fabricLooseNode.attributes.dn }},{{ node.fabricLooseNode.attributes.id }},{{ node.fabricLooseNode.attributes.isManaged }},{{ node.fabricLooseNode.attributes.lcOwn }},{{ node.fabricLooseNode.attributes.mgrKey }},{{ node.fabricLooseNode.attributes.modTs }},{{ node.fabricLooseNode.attributes.monPolDn }},{{ node.fabricLooseNode.attributes.operIssues }},{{ node.fabricLooseNode.attributes.podId }},{{ node.fabricLooseNode.attributes.status }},{{ node.fabricLooseNode.attributes.sysDesc | replace("\n"," ") | replace(","," ")}},{{ node.fabricLooseNode.attributes.sysName }}
 {%-     endfor %}
-{%- elif "fabricPathEp" in api %}Name,Child Action,Description,DN,Lag Type,Local Owner,Last Modified,Monitoring Policy DN,Path Type,Status
-{%-     for endpoint in data_to_template['imdata'] %}
+{%- elif "fabricPathEp" in api %}
+{%-     if "Cont" in api %}Node ID,DN,Child Action,Local Owner,Last Modified,Monitoring Policy DN,Status
+{%-         for container in data_to_template['imdata'] %}
+{{ container.fabricPathEpCont.attributes.nodeId }},{{ container.fabricPathEpCont.attributes.dn }},{{ container.fabricPathEpCont.attributes.childAction }},{{ container.fabricPathEpCont.attributes.lcOwn }},{{ container.fabricPathEpCont.attributes.modTs }},{{ container.fabricPathEpCont.attributes.monPolDn }},{{ container.fabricPathEpCont.attributes.status }}
+{%-         endfor %}
+{%-     else %}Name,Child Action,Description,DN,Lag Type,Local Owner,Last Modified,Monitoring Policy DN,Path Type,Status
+{%-         for endpoint in data_to_template['imdata'] %}
 {{ endpoint.fabricPathEp.attributes.name }},{{ endpoint.fabricPathEp.attributes.childAction }},{{ endpoint.fabricPathEp.attributes.descr }},{{ endpoint.fabricPathEp.attributes.dn }},{{ endpoint.fabricPathEp.attributes.lagT }},{{ endpoint.fabricPathEp.attributes.lcOwn }},{{ endpoint.fabricPathEp.attributes.modTs }},{{ endpoint.fabricPathEp.attributes.monPolDn }},{{ endpoint.fabricPathEp.attributes.pathT }},{{ endpoint.fabricPathEp.attributes.status }}
-{%-     endfor %}
+{%-         endfor %}
+{%-     endif %}
 {%- endif %}
