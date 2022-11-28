@@ -160,6 +160,8 @@ Fabric Extended Path Endpoint Containers
 
 Fabric Instances
 
+Fabric Links
+
 Fabric Membership
 
 Fabric Node SSL Certifcates

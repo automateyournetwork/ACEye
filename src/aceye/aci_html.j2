@@ -5882,5 +5882,51 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "fabricLink" in api %}
+<h1>Fabric Links</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Local Owner</th>
+    <th>Link State</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Node 1</th>
+    <th>Node 2</th>
+    <th>Port 1</th>
+    <th>Port 2</th>
+    <th>Router 1</th>
+    <th>Router 2</th>
+    <th>Switch 1</th>
+    <th>Switch 2</th>
+    <th>Status</th>
+    <th>Wiring Issues</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for link in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ link.fabricLink.attributes.dn }}</td>
+    <td>{{ link.fabricLink.attributes.childAction }}</td>
+    <td>{{ link.fabricLink.attributes.lcOwn }}</td>
+    <td>{{ link.fabricLink.attributes.linkState }}</td>
+    <td>{{ link.fabricLink.attributes.modTs }}</td>
+    <td>{{ link.fabricLink.attributes.monPolDn }}</td>
+    <td>{{ link.fabricLink.attributes.n1 }}</td>
+    <td>{{ link.fabricLink.attributes.n2 }}</td>
+    <td>{{ link.fabricLink.attributes.p1 }}</td>
+    <td>{{ link.fabricLink.attributes.p2 }}</td>
+    <td>{{ link.fabricLink.attributes.r1 }}</td>
+    <td>{{ link.fabricLink.attributes.r2 }}</td>
+    <td>{{ link.fabricLink.attributes.s1 }}</td>
+    <td>{{ link.fabricLink.attributes.s2 }}</td>
+    <td>{{ link.fabricLink.attributes.status }}</td>
+    <td>{{ link.fabricLink.attributes.wiringIssues }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

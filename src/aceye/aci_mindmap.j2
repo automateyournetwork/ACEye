@@ -2801,4 +2801,28 @@
 ### Status: {{ instance.fabricInst.attributes.status }}
 ### UID: {{ instance.fabricInst.attributes.uid }}
 {%-     endfor %}
+{%- elif "fabricLink" in api %}
+# Fabric Links
+{%-     for link in data_to_template['imdata'] %}
+## DN: {{ link.fabricLink.attributes.dn }}
+### Child Action: {{ link.fabricLink.attributes.childAction }}
+### Local Owner: {{ link.fabricLink.attributes.lcOwn }}
+### Link State: {{ link.fabricLink.attributes.linkState }}
+### Last Modified: {{ link.fabricLink.attributes.modTs }}
+### Monitoring Policy DN: {{ link.fabricLink.attributes.monPolDn }}
+### Node
+#### 1: {{ link.fabricLink.attributes.n1 }}
+#### 2: {{ link.fabricLink.attributes.n2 }}
+### Port
+#### 1: {{ link.fabricLink.attributes.p1 }}
+#### 2: {{ link.fabricLink.attributes.p2 }}
+### Router
+#### 1: {{ link.fabricLink.attributes.r1 }}
+#### 2: {{ link.fabricLink.attributes.r2 }}
+### Switch
+#### 1: {{ link.fabricLink.attributes.s1 }}
+#### 2: {{ link.fabricLink.attributes.s2 }}
+### Status: {{ link.fabricLink.attributes.status }}
+### Wiring Issues: {{ link.fabricLink.attributes.wiringIssues }}
+{%-     endfor %}
 {%- endif %}
