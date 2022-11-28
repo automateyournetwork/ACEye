@@ -2838,4 +2838,19 @@
 ### Wiring Issues: {{ link.fabricLink.attributes.wiringIssues }}
 {%-         endfor %}
 {%-     endif %}
+{%- elif "fabricLooseLink" in api %}
+# Fabric Loose Links
+{%-     for link in data_to_template['imdata'] %}
+## Name: {{ link.fabricLooseLink.attributes.name }}
+### Name Alias: {{ link.fabricLooseLink.attributes.nameAlias }}
+### Child Action: {{ link.fabricLooseLink.attributes.childAction }}
+### Is Edm Managed: {{ link.fabricLooseLink.attributes.isEdmManaged }}
+### Local Owner: {{ link.fabricLooseLink.attributes.lcOwn }}
+### Last Modified: {{ link.fabricLooseLink.attributes.modTs }}
+### DNs
+#### DN: {{ link.fabricLooseLink.attributes.dn }}
+#### Node: {{ link.fabricLooseLink.attributes.nodeDn }}
+#### Port: {{ link.fabricLooseLink.attributes.portDn }}
+### Status: {{ link.fabricLooseLink.attributes.status }}
+{%-     endfor %}
 {%- endif %}

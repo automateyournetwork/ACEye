@@ -721,4 +721,10 @@
 | {{ link.fabricLink.attributes.dn }} | {{ link.fabricLink.attributes.childAction }} | {{ link.fabricLink.attributes.lcOwn }} | {{ link.fabricLink.attributes.linkState }} | {{ link.fabricLink.attributes.modTs }} | {{ link.fabricLink.attributes.monPolDn }} | {{ link.fabricLink.attributes.n1 }} | {{ link.fabricLink.attributes.n2 }} | {{ link.fabricLink.attributes.p1 }} | {{ link.fabricLink.attributes.p2 }} | {{ link.fabricLink.attributes.r1 }} | {{ link.fabricLink.attributes.r2 }} | {{ link.fabricLink.attributes.s1 }} | {{ link.fabricLink.attributes.s2 }} | {{ link.fabricLink.attributes.status }} | {{ link.fabricLink.attributes.wiringIssues }} |
 {%-         endfor %}
 {%-     endif %}
+{%- elif "fabricLooseLink" in api %}# Fabric Loose Links
+| Name | Name Alias | Child Action | DN | is Edm Managed | Local Owner | Last Modified | Node DN | Port DN | Status |
+| ---- | ---------- | ------------ | -- | -------------- | ----------- | ------------- | ------- | ------- | ------ |
+{%-     for link in data_to_template['imdata'] %}
+| {{ link.fabricLooseLink.attributes.name }} | {{ link.fabricLooseLink.attributes.nameAlias }} | {{ link.fabricLooseLink.attributes.childAction }} | {{ link.fabricLooseLink.attributes.dn }} | {{ link.fabricLooseLink.attributes.isEdmManaged }} | {{ link.fabricLooseLink.attributes.lcOwn }} | {{ link.fabricLooseLink.attributes.modTs }} | {{ link.fabricLooseLink.attributes.nodeDn }} | {{ link.fabricLooseLink.attributes.portDn }} | {{ link.fabricLooseLink.attributes.status }} |
+{%-     endfor %}
 {%- endif %}

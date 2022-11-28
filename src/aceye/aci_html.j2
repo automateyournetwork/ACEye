@@ -5958,5 +5958,39 @@
 </tbody>
 </table>
 {%-     endif %}
+{%- elif "fabricLooseLink" in api %}
+<h1>Fabric Loose Links</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>is Edm Managed</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Node DN</th>
+    <th>Port DN</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for link in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ link.fabricLooseLink.attributes.name }}</td>
+    <td>{{ link.fabricLooseLink.attributes.nameAlias }}</td>
+    <td>{{ link.fabricLooseLink.attributes.childAction }}</td>
+    <td>{{ link.fabricLooseLink.attributes.dn }}</td>
+    <td>{{ link.fabricLooseLink.attributes.isEdmManaged }}</td>
+    <td>{{ link.fabricLooseLink.attributes.lcOwn }}</td>
+    <td>{{ link.fabricLooseLink.attributes.modTs }}</td>
+    <td>{{ link.fabricLooseLink.attributes.nodeDn }}</td>
+    <td>{{ link.fabricLooseLink.attributes.portDn }}</td>
+    <td>{{ link.fabricLooseLink.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
