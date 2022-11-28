@@ -5843,4 +5843,44 @@
 </tbody>
 </table>
 {%- endif %}
+{%- elif "fabricInst" in api %}
+<h1>Fabric Instances</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for instance in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ instance.fabricInst.attributes.name }}</td>
+    <td>{{ instance.fabricInst.attributes.nameAlias }}</td>
+    <td>{{ instance.fabricInst.attributes.annotation }}</td>
+    <td>{{ instance.fabricInst.attributes.childAction }}</td>
+    <td>{{ instance.fabricInst.attributes.dn }}</td>
+    <td>{{ instance.fabricInst.attributes.extMngdBy }}</td>
+    <td>{{ instance.fabricInst.attributes.lcOwn }}</td>
+    <td>{{ instance.fabricInst.attributes.modTs }}</td>
+    <td>{{ instance.fabricInst.attributes.monPolDn }}</td>
+    <td>{{ instance.fabricInst.attributes.ownerKey }}</td>
+    <td>{{ instance.fabricInst.attributes.ownerTag }}</td>
+    <td>{{ instance.fabricInst.attributes.status }}</td>
+    <td>{{ instance.fabricInst.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- include 'datatable_footer.j2' %}

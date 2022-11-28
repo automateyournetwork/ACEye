@@ -158,6 +158,8 @@ Ethernet Port Manager Physical Interfaces
 
 Fabric Extended Path Endpoint Containers
 
+Fabric Instances
+
 Fabric Membership
 
 Fabric Node SSL Certifcates

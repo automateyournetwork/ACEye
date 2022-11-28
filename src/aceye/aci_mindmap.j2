@@ -2783,4 +2783,22 @@
 ### Monitoring Policy DN: {{ container.fabricExtPathEpCont.attributes.monPolDn }}
 ### Status: {{ container.fabricExtPathEpCont.attributes.status }}
 {%-     endfor %}
+{%- elif "fabricInst" in api %}
+# Fabric Instances
+{%-     for instance in data_to_template['imdata'] %}
+## Name: {{ instance.fabricInst.attributes.name }}
+### Name Alias: {{ instance.fabricInst.attributes.nameAlias }}
+### Annotation: {{ instance.fabricInst.attributes.annotation }}
+### Child Action: {{ instance.fabricInst.attributes.childAction }}
+### DN: {{ instance.fabricInst.attributes.dn }}
+### Externally Managed By: {{ instance.fabricInst.attributes.extMngdBy }}
+### Local Owner: {{ instance.fabricInst.attributes.lcOwn }}
+### Last Modified: {{ instance.fabricInst.attributes.modTs }}
+### Monitoring Policy DN: {{ instance.fabricInst.attributes.monPolDn }}
+### Owner
+#### Key: {{ instance.fabricInst.attributes.ownerKey }}
+#### Tag: {{ instance.fabricInst.attributes.ownerTag }}
+### Status: {{ instance.fabricInst.attributes.status }}
+### UID: {{ instance.fabricInst.attributes.uid }}
+{%-     endfor %}
 {%- endif %}
