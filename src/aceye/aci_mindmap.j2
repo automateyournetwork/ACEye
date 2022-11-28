@@ -2802,8 +2802,20 @@
 ### UID: {{ instance.fabricInst.attributes.uid }}
 {%-     endfor %}
 {%- elif "fabricLink" in api %}
+{%-     if "Cont" in api %}
+# Fabric Link Containers
+{%-         for container in data_to_template['imdata'] %}
+## Node: {{ container.fabricLinkCont.attributes.n }}
+### DN: {{ container.fabricLinkCont.attributes.dn }}
+### Child Action: {{ container.fabricLinkCont.attributes.childAction }}
+### Local Owner: {{ container.fabricLinkCont.attributes.lcOwn }}
+### Last Modified: {{ container.fabricLinkCont.attributes.modTs }}
+### Monitoring Policy DN: {{ container.fabricLinkCont.attributes.monPolDn }}
+### Status: {{ container.fabricLinkCont.attributes.status }}
+{%-         endfor %}
+{%-     else %}
 # Fabric Links
-{%-     for link in data_to_template['imdata'] %}
+{%-         for link in data_to_template['imdata'] %}
 ## DN: {{ link.fabricLink.attributes.dn }}
 ### Child Action: {{ link.fabricLink.attributes.childAction }}
 ### Local Owner: {{ link.fabricLink.attributes.lcOwn }}
@@ -2824,5 +2836,6 @@
 #### 2: {{ link.fabricLink.attributes.s2 }}
 ### Status: {{ link.fabricLink.attributes.status }}
 ### Wiring Issues: {{ link.fabricLink.attributes.wiringIssues }}
-{%-     endfor %}
+{%-         endfor %}
+{%-     endif %}
 {%- endif %}

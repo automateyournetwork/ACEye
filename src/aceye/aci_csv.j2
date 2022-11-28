@@ -489,8 +489,14 @@
 {%-     for instance in data_to_template['imdata'] %}
 {{ instance.fabricInst.attributes.name }},{{ instance.fabricInst.attributes.nameAlias }},{{ instance.fabricInst.attributes.annotation }},{{ instance.fabricInst.attributes.childAction }},{{ instance.fabricInst.attributes.dn }},{{ instance.fabricInst.attributes.extMngdBy }},{{ instance.fabricInst.attributes.lcOwn }},{{ instance.fabricInst.attributes.modTs }},{{ instance.fabricInst.attributes.monPolDn }},{{ instance.fabricInst.attributes.ownerKey }},{{ instance.fabricInst.attributes.ownerTag }},{{ instance.fabricInst.attributes.status }},{{ instance.fabricInst.attributes.uid }}
 {%-     endfor %}
-{%- elif "fabricLink" in api %}DN,Child Action,Local Owner,Link State,Last Modified,Monitoring Policy DN,Node 1,Node 2,Port 1,Port 2,Router 1,Router 2,Switch 1,Switch 2,Status,Wiring Issues
-{%-     for link in data_to_template['imdata'] %}
+{%- elif "fabricLink" in api %}
+{%-     if "Cont" in api %}Node,DN,Child Action,Local Owner,Last Modified,Monitoring Policy DN,Status
+{%-         for container in data_to_template['imdata'] %}
+{{ container.fabricLinkCont.attributes.n }},{{ container.fabricLinkCont.attributes.dn }},{{ container.fabricLinkCont.attributes.childAction }},{{ container.fabricLinkCont.attributes.lcOwn }},{{ container.fabricLinkCont.attributes.modTs }},{{ container.fabricLinkCont.attributes.monPolDn }},{{ container.fabricLinkCont.attributes.status }}
+{%-         endfor %}
+{%-     else %}DN,Child Action,Local Owner,Link State,Last Modified,Monitoring Policy DN,Node 1,Node 2,Port 1,Port 2,Router 1,Router 2,Switch 1,Switch 2,Status,Wiring Issues
+{%-         for link in data_to_template['imdata'] %}
 {{ link.fabricLink.attributes.dn }},{{ link.fabricLink.attributes.childAction }},{{ link.fabricLink.attributes.lcOwn }},{{ link.fabricLink.attributes.linkState }},{{ link.fabricLink.attributes.modTs }},{{ link.fabricLink.attributes.monPolDn }},{{ link.fabricLink.attributes.n1 }},{{ link.fabricLink.attributes.n2 }},{{ link.fabricLink.attributes.p1 }},{{ link.fabricLink.attributes.p2 }},{{ link.fabricLink.attributes.r1 }},{{ link.fabricLink.attributes.r2 }},{{ link.fabricLink.attributes.s1 }},{{ link.fabricLink.attributes.s2 }},{{ link.fabricLink.attributes.status }},{{ link.fabricLink.attributes.wiringIssues }}
-{%-     endfor %}
+{%-         endfor %}
+{%-     endif %}
 {%- endif %}
