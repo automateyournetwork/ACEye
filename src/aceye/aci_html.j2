@@ -6259,5 +6259,65 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "firmwareRunning" in api %}
+<h1>Firmware Running</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>BIOS Timestamp</th>
+    <th>BIOS Version</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>Internal Label</th>
+    <th>Kickstart File</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>PE Version</th>
+    <th>sr Firmware Flash Rec Timestamp</th>
+    <th>sr Firmware Flash Rec Version</th>
+    <th>sr Firmware Flash Timestamp</th>
+    <th>sr Firmware Flash Version</th>
+    <th>sr Firmware Image Timestamp</th>
+    <th>sr Firmware Image Version</th>
+    <th>sr Firmware Running Source</th>
+    <th>sr Firmware Running Version</th>
+    <th>Status</th>
+    <th>System File</th>
+    <th>Timestamp</th>
+    <th>Type</th>
+    <th>Version</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for firmware in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ firmware.firmwareRunning.attributes.dn }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.biosTs }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.biosVer }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.childAction }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.descr }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.internalLabel }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.ksFile }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.modTs }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.mode }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.peVer }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.srFwFlashRecTs }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.srFwFlashRecVer }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.srFwFlashTs }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.srFwFlashVer }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.srFwImageTs }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.srFwImageVer }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.srFwRunningSrc }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.srFwRunningVer }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.status }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.sysFile }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.ts }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.type }}</td>
+    <td>{{ firmware.firmwareRunning.attributes.version }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

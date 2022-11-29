@@ -2978,4 +2978,38 @@
 ### Status: {{ compute.firmwareCompRunning.attributes.status }}
 ### Type: {{ compute.firmwareCompRunning.attributes.type }}
 {%-     endfor %}
+{%- elif "firmwareRunning" in api %}
+# Firmware Running
+{%-     for firmware in data_to_template['imdata'] %}
+## DN: {{ firmware.firmwareRunning.attributes.dn }}
+### BIOS
+#### Timestamp: {{ firmware.firmwareRunning.attributes.biosTs }}
+#### BIOS Version: {{ firmware.firmwareRunning.attributes.biosVer }}
+#### PE Version: {{ firmware.firmwareRunning.attributes.peVer }}
+#### Version: {{ firmware.firmwareRunning.attributes.version }}
+### Child Action: {{ firmware.firmwareRunning.attributes.childAction }}
+### Description: {{ firmware.firmwareRunning.attributes.descr }}
+### Internal Label: {{ firmware.firmwareRunning.attributes.internalLabel }}
+### File
+#### Kickstart: {{ firmware.firmwareRunning.attributes.ksFile }}
+#### System: {{ firmware.firmwareRunning.attributes.sysFile }}
+### Timestamp
+#### Last Modified: {{ firmware.firmwareRunning.attributes.modTs }}
+#### Timestamp: {{ firmware.firmwareRunning.attributes.ts }}
+### Mode: {{ firmware.firmwareRunning.attributes.mode }}
+### sr Firmware
+#### Flash
+##### Rec Timestamp: {{ firmware.firmwareRunning.attributes.srFwFlashRecTs }}
+##### Rec Version: {{ firmware.firmwareRunning.attributes.srFwFlashRecVer }}
+##### Timestamp: {{ firmware.firmwareRunning.attributes.srFwFlashTs }}
+##### Version: {{ firmware.firmwareRunning.attributes.srFwFlashVer }}
+#### Image
+##### Timestamp: {{ firmware.firmwareRunning.attributes.srFwImageTs }}
+##### Version: {{ firmware.firmwareRunning.attributes.srFwImageVer }}
+#### Running
+##### Source: {{ firmware.firmwareRunning.attributes.srFwRunningSrc }}
+##### Version: {{ firmware.firmwareRunning.attributes.srFwRunningVer }}
+### Status: {{ firmware.firmwareRunning.attributes.status }}
+### Type: {{ firmware.firmwareRunning.attributes.type }}
+{%-     endfor %}
 {%- endif %}

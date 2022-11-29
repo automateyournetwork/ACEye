@@ -256,7 +256,9 @@ class ACEye():
         parsed_json = json.dumps(self.firmware_card_running(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.firmware_compute_running(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)        
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.firmware_running(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -353,6 +355,7 @@ class ACEye():
                     'Filters',
                     'Firmware Card Running',
                     'Firmware Compute Running',
+                    'Firmware Running',
                     'Health',
                     'Interface Policies',
                     'Interface Profiles',
@@ -1277,6 +1280,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def firmware_running(self):
+        self.url = f"{ self.aci }/api/node/class/firmwareRunning.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Firmware Running code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1752,6 +1762,10 @@ class ACEye():
 
         if "firmwareCompRunning" in self.url:
             with open('Firmware Compute Running/JSON/Firmware Compute Running.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "firmwareRunning" in self.url:
+            with open('Firmware Running/JSON/Firmware Running.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -2230,6 +2244,10 @@ class ACEye():
 
         if "firmwareCompRunning" in self.url:
             with open('Firmware Compute Running/YAML/Firmware Compute Running.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "firmwareRunning" in self.url:
+            with open('Firmware Running/YAML/Firmware Running.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -2712,6 +2730,10 @@ class ACEye():
 
         if "firmwareCompRunning" in self.url:
             with open('Firmware Compute Running/CSV/Firmware Compute Running.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "firmwareRunning" in self.url:
+            with open('Firmware Running/CSV/Firmware Running.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -3197,6 +3219,10 @@ class ACEye():
             with open('Firmware Compute Running/Markdown/Firmware Compute Running.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "firmwareRunning" in self.url:
+            with open('Firmware Running/Markdown/Firmware Running.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3680,6 +3706,10 @@ class ACEye():
             with open('Firmware Compute Running/HTML/Firmware Compute Running.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "firmwareRunning" in self.url:
+            with open('Firmware Running/HTML/Firmware Running.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -4157,6 +4187,10 @@ class ACEye():
 
         if "firmwareCompRunning" in self.url:
             with open('Firmware Compute Running/Mindmap/Firmware Compute Running.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "firmwareRunning" in self.url:
+            with open('Firmware Running/Mindmap/Firmware Running.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

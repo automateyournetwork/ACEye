@@ -194,6 +194,8 @@ Firmware Card Running
 
 Firmware Compute Running
 
+Firmware Running
+
 Health
 
 Interface Policies
