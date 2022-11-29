@@ -6102,5 +6102,68 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "fabricProtPathEpCont" in api %}
+<h1>Fabric Protected Path Endpoint Containers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Node AId</th>
+    <th>Node BId</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for container in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ container.fabricProtPathEpCont.attributes.dn }}</td>
+    <td>{{ container.fabricProtPathEpCont.attributes.childAction }}</td>
+    <td>{{ container.fabricProtPathEpCont.attributes.lcOwn }}</td>
+    <td>{{ container.fabricProtPathEpCont.attributes.modTs }}</td>
+    <td>{{ container.fabricProtPathEpCont.attributes.monPolDn }}</td>
+    <td>{{ container.fabricProtPathEpCont.attributes.nodeAId }}</td>
+    <td>{{ container.fabricProtPathEpCont.attributes.nodeBId }}</td>
+    <td>{{ container.fabricProtPathEpCont.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "fcEntity" in api %}
+<h1>Fibre Channel Entities</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Oper State</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for entity in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ entity.fcEntity.attributes.name }}</td>
+    <td>{{ entity.fcEntity.attributes.adminSt }}</td>
+    <td>{{ entity.fcEntity.attributes.childAction }}</td>
+    <td>{{ entity.fcEntity.attributes.dn }}</td>
+    <td>{{ entity.fcEntity.attributes.modTs }}</td>
+    <td>{{ entity.fcEntity.attributes.monPolDn }}</td>
+    <td>{{ entity.fcEntity.attributes.operErr }}</td>
+    <td>{{ entity.fcEntity.attributes.operSt }}</td>
+    <td>{{ entity.fcEntity.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

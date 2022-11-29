@@ -749,4 +749,16 @@
 {%-     for node in data_to_template['imdata'] %}
 | {{ node.fabricLooseNode.attributes.name }} | {{ node.fabricLooseNode.attributes.nameAlias }} | {{ node.fabricLooseNode.attributes.childAction }} | {{ node.fabricLooseNode.attributes.dn }} | {{ node.fabricLooseNode.attributes.id }} | {{ node.fabricLooseNode.attributes.isManaged }} | {{ node.fabricLooseNode.attributes.lcOwn }} | {{ node.fabricLooseNode.attributes.mgrKey }} | {{ node.fabricLooseNode.attributes.modTs }} | {{ node.fabricLooseNode.attributes.monPolDn }} | {{ node.fabricLooseNode.attributes.operIssues }} | {{ node.fabricLooseNode.attributes.podId }} | {{ node.fabricLooseNode.attributes.status }} | {{ node.fabricLooseNode.attributes.sysDesc | replace("\n"," ") }} | {{ node.fabricLooseNode.attributes.sysName }} |
 {%-     endfor %}
+{%- elif "fabricProtPathEpCont" in api %}# Fabric Protected Path Endpoint Containers
+| DN | Child Action | Local Owner | Last Modified | Monitoring Policy DN | Node AId | Node BId | Status |
+| -- | ------------ | ----------- | ------------- | -------------------- | -------- | -------- | ------ |
+{%-     for container in data_to_template['imdata'] %}
+| {{ container.fabricProtPathEpCont.attributes.dn }} | {{ container.fabricProtPathEpCont.attributes.childAction }} | {{ container.fabricProtPathEpCont.attributes.lcOwn }} | {{ container.fabricProtPathEpCont.attributes.modTs }} | {{ container.fabricProtPathEpCont.attributes.monPolDn }} | {{ container.fabricProtPathEpCont.attributes.nodeAId }} | {{ container.fabricProtPathEpCont.attributes.nodeBId }} | {{ container.fabricProtPathEpCont.attributes.status }} |
+{%-     endfor %}
+{%- elif "fcEntity" in api %}# Fibre Channel Entities
+| Name | Admin State | Child Action | DN | Local Owner | Last Modified | Monitoring Policy DN | Oper Error | Oper State | Status |
+| ---- | ----------- | ------------ | -- | ----------- | ------------- | -------------------- | ---------- | ---------- | ------ |
+{%-     for entity in data_to_template['imdata'] %}
+| {{ entity.fcEntity.attributes.name }} | {{ entity.fcEntity.attributes.adminSt }} | {{ entity.fcEntity.attributes.childAction }} | {{ entity.fcEntity.attributes.dn }} | {{ entity.fcEntity.attributes.modTs }} | {{ entity.fcEntity.attributes.monPolDn }} | {{ entity.fcEntity.attributes.operErr }} | {{ entity.fcEntity.attributes.operSt }} | {{ entity.fcEntity.attributes.status }} |
+{%-     endfor %}
 {%- endif %}
