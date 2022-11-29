@@ -190,6 +190,8 @@ Fibre Channel Entity
 
 Filters
 
+Firmware Card Running
+
 Health
 
 Interface Policies

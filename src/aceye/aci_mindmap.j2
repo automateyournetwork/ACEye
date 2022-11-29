@@ -2930,4 +2930,33 @@
 #### State: {{ entity.fcEntity.attributes.operSt }}
 ### Status: {{ entity.fcEntity.attributes.status }}
 {%-     endfor %}
+{%- elif "firmwareCardRunning" in api %}
+# Firmware Card Running<
+{%-     for card in data_to_template['imdata'] %}
+## DN: {{ card.firmwareCardRunning.attributes.dn }}
+### Version
+#### BIOS: {{ card.firmwareCardRunning.attributes.biosVer }}
+#### Expected: {{ card.firmwareCardRunning.attributes.expectedVer }}
+#### Interim: {{ card.firmwareCardRunning.attributes.interimVer }}
+#### Version: {{ card.firmwareCardRunning.attributes.version }}
+### Child Action: {{ card.firmwareCardRunning.attributes.childAction }}
+### Description: {{ card.firmwareCardRunning.attributes.descr }}
+### Internal Label: {{ card.firmwareCardRunning.attributes.internalLabel }}
+### Timestamp
+#### Last Modifed: {{ card.firmwareCardRunning.attributes.modTs }}
+#### Timestamp: {{ card.firmwareCardRunning.attributes.ts }}
+### Mode: {{ card.firmwareCardRunning.attributes.mode }}
+### Monitoring Policy DN: {{ card.firmwareCardRunning.attributes.monPolDn }}
+### Oper State: {{ card.firmwareCardRunning.attributes.operSt }}
+### sr Firmware 
+#### Flash
+##### Rec Version: {{ card.firmwareCardRunning.attributes.srFwFlashRecVer }}
+##### Version: {{ card.firmwareCardRunning.attributes.srFwFlashVer }}
+#### Image Version: {{ card.firmwareCardRunning.attributes.srFwImageVer }}
+#### Running
+##### Source: {{ card.firmwareCardRunning.attributes.srFwRunningSrc }}
+##### Version: {{ card.firmwareCardRunning.attributes.srFwRunningVer }}
+### Status: {{ card.firmwareCardRunning.attributes.status }}
+### Type: {{ card.firmwareCardRunning.attributes.type }}
+{%-     endfor %}
 {%- endif %}

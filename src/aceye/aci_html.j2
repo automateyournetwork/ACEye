@@ -6165,5 +6165,59 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "firmwareCardRunning" in api %}
+<h1>Firmware Card Running</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>BIOS Version</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>Expected Version</th>
+    <th>Interim Version</th>
+    <th>Internal Label</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>sr Firmware Flash Rec Version</th>
+    <th>sr Firmware Flash Version</th>
+    <th>sr Firmware Image Version</th>
+    <th>sr Firmware Running Source</th>
+    <th>sr Firmware Running Version</th>
+    <th>Status</th>
+    <th>Timestamp</th>
+    <th>Type</th>
+    <th>Version</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for card in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ card.firmwareCardRunning.attributes.dn }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.biosVer }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.childAction }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.descr }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.expectedVer }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.interimVer }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.internalLabel }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.modTs }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.mode }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.monPolDn }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.operSt }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.srFwFlashRecVer }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.srFwFlashVer }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.srFwImageVer }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.srFwRunningSrc }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.srFwRunningVer }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.status }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.ts }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.type }}</td>
+    <td>{{ card.firmwareCardRunning.attributes.version }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
