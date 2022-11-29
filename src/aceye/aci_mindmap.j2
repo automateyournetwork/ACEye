@@ -3028,4 +3028,32 @@
 #### Tag: {{ container.fvEpPCont.attributes.ownerTag }}
 ### Status: {{ container.fvEpPCont.attributes.status }}
 {%-     endfor %}
+{%- elif "fvLocale" in api %}
+# Locales
+{%-     for locale in data_to_template['imdata'] %}
+## ID: {{ locale.fvLocale.attributes.id }}
+### Bootstrap Triggered: {{ locale.fvLocale.attributes.boostrapTriggered }}
+### Child Action: {{ locale.fvLocale.attributes.childAction }}
+### Deploy All Ports: {{ locale.fvLocale.attributes.deployAllPorts }}
+### DN: {{ locale.fvLocale.attributes.dn }}
+### Fabric Ext
+#### Control Peering: {{ locale.fvLocale.attributes.fabricExtCtrlPeering }}
+#### Intersite Control Peering: {{ locale.fvLocale.attributes.fabricExtIntersiteCtrlPeering }}
+#### Intersite Peering: {{ locale.fvLocale.attributes.fabricExtIntersitePeering }}
+### First Update Deployed: {{ locale.fvLocale.attributes.firstUpdateDeployed }}
+### Instruction Immediacy: {{ locale.fvLocale.attributes.instrImedcy }}
+### IP Load Balancer Address
+#### v4: {{ locale.fvLocale.attributes.ipv4LbAddr }}
+#### v6: {{ locale.fvLocale.attributes.ipv6LbAddr }}
+### Local Owner: {{ locale.fvLocale.attributes.lcOwn }}
+### Last Modified: {{ locale.fvLocale.attributes.modTs }}
+### Mode Misconfiguration: {{ locale.fvLocale.attributes.modeMisconfiguration }}
+### Monitoring Policy DN: {{ locale.fvLocale.attributes.monPolDn }}
+### Oper State: {{ locale.fvLocale.attributes.operSt }}
+### Router
+#### ID: {{ locale.fvLocale.attributes.rtrId }}
+#### ID Loopback: {{ locale.fvLocale.attributes.rtrIdLoopBack }}
+### Status: {{ locale.fvLocale.attributes.status }}
+### Summary Needed: {{ locale.fvLocale.attributes.summaryNeeded }}
+{%-     endfor %}
 {%- endif %}
