@@ -182,6 +182,8 @@ Fabric Paths
 
 Fabric Pods
 
+Fabric Protected Path Endpoint Containers
+
 Fault Summary
 
 Filters

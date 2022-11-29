@@ -2903,4 +2903,17 @@
 #### Name: {{ node.fabricLooseNode.attributes.sysName }}
 #### Description: {{ node.fabricLooseNode.attributes.sysDesc | replace("\n"," ") }}
 {%-     endfor %}
+{%- elif "fabricProtPathEpCont" in api %}
+# Fabric Protected Path Endpoint Containers
+{%-     for container in data_to_template['imdata'] %}
+## DN: {{ container.fabricProtPathEpCont.attributes.dn }}
+### Child Action: {{ container.fabricProtPathEpCont.attributes.childAction }}
+### Local Owner: {{ container.fabricProtPathEpCont.attributes.lcOwn }}
+### Last Modified: {{ container.fabricProtPathEpCont.attributes.modTs }}
+### Monitoring Policy DN: {{ container.fabricProtPathEpCont.attributes.monPolDn }}
+### Node
+#### Ald: {{ container.fabricProtPathEpCont.attributes.nodeAld }}
+#### Bld: {{ container.fabricProtPathEpCont.attributes.nodeBld }}
+### Status: {{ container.fabricProtPathEpCont.attributes.status }}
+{%-     endfor %}
 {%- endif %}
