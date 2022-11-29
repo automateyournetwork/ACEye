@@ -6319,5 +6319,41 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "fvEpPCont" in api %}
+<h1>Endpoint Profile Containers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Aggregation Enabled</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for container in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ container.fvEpPCont.attributes.name }}</td>
+    <td>{{ container.fvEpPCont.attributes.nameAlias }}</td>
+    <td>{{ container.fvEpPCont.attributes.aggrEnabled }}</td>
+    <td>{{ container.fvEpPCont.attributes.childAction }}</td>
+    <td>{{ container.fvEpPCont.attributes.dn }}</td>
+    <td>{{ container.fvEpPCont.attributes.lcOwn }}</td>
+    <td>{{ container.fvEpPCont.attributes.modTs }}</td>
+    <td>{{ container.fvEpPCont.attributes.monPolDn }}</td>
+    <td>{{ container.fvEpPCont.attributes.ownerKey }}</td>
+    <td>{{ container.fvEpPCont.attributes.ownerTag }}</td>
+    <td>{{ container.fvEpPCont.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

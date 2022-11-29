@@ -92,6 +92,8 @@ Contract Subjects
 
 Device Packages
 
+Endpoint Profile Containers
+
 Endpoints (All Connected Fabric Endpoints)
 
 EPG (Endpoint Groups)
