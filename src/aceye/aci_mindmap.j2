@@ -2959,4 +2959,23 @@
 ### Status: {{ card.firmwareCardRunning.attributes.status }}
 ### Type: {{ card.firmwareCardRunning.attributes.type }}
 {%-     endfor %}
+{%- elif "firmwareCompRunning" in api %}
+# Firmware Compute Running
+{%-     for compute in data_to_template['imdata'] %}
+## DN: {{ compute.firmwareCompRunning.attributes.dn }}
+### Child Action: {{ compute.firmwareCompRunning.attributes.childAction }}
+### Description: {{ compute.firmwareCompRunning.attributes.descr }}
+### Version
+#### Expected: {{ compute.firmwareCompRunning.attributes.expectedVer }}
+#### Actual: {{ compute.firmwareCompRunning.attributes.version }}
+### Internal Label: {{ compute.firmwareCompRunning.attributes.internalLabel }}
+### Timestamp
+#### Last Modifed: {{ compute.firmwareCompRunning.attributes.modTs }}
+#### Timestamp: {{ compute.firmwareCompRunning.attributes.ts }}
+### Mode: {{ compute.firmwareCompRunning.attributes.mode }}
+### Monitoring Policy DN: {{ compute.firmwareCompRunning.attributes.monPolDn }}
+### Oper State: {{ compute.firmwareCompRunning.attributes.operSt }}
+### Status: {{ compute.firmwareCompRunning.attributes.status }}
+### Type: {{ compute.firmwareCompRunning.attributes.type }}
+{%-     endfor %}
 {%- endif %}

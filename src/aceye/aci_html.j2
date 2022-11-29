@@ -6219,5 +6219,45 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "firmwareCompRunning" in api %}
+<h1>Firmware Compute Running</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>Expected Version</th>
+    <th>Internal Label</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Status</th>
+    <th>Timestamp</th>
+    <th>Type</th>
+    <th>Version</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for compute in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ compute.firmwareCompRunning.attributes.dn }}</td>
+    <td>{{ compute.firmwareCompRunning.attributes.childAction }}</td>
+    <td>{{ compute.firmwareCompRunning.attributes.descr }}</td>
+    <td>{{ compute.firmwareCompRunning.attributes.expectedVer }}</td>
+    <td>{{ compute.firmwareCompRunning.attributes.internalLabel }}</td>
+    <td>{{ compute.firmwareCompRunning.attributes.modTs }}</td>
+    <td>{{ compute.firmwareCompRunning.attributes.mode }}</td>
+    <td>{{ compute.firmwareCompRunning.attributes.monPolDn }}</td>
+    <td>{{ compute.firmwareCompRunning.attributes.operSt }}</td>
+    <td>{{ compute.firmwareCompRunning.attributes.status }}</td>
+    <td>{{ compute.firmwareCompRunning.attributes.ts }}</td>
+    <td>{{ compute.firmwareCompRunning.attributes.type }}</td>
+    <td>{{ compute.firmwareCompRunning.attributes.version }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
