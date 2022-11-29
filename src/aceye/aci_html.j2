@@ -6355,5 +6355,61 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "fvLocale" in api %}
+<h1>Locales</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Boostrap Triggered</th>
+    <th>Child Action</th>
+    <th>Deploy All Ports</th>
+    <th>DN</th>
+    <th>Fabric Ext Control Peering</th>
+    <th>Fabric Ext Intersite Control Peering</th>
+    <th>Fabric Ext Intersite Peering</th>
+    <th>First Update Deployed</th>
+    <th>Instruction Immediacy</th>
+    <th>IPv4 Load Balancer Address</th>
+    <th>IPv6 Load Balancer Address</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Mode Misconfiguration</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Router ID</th>
+    <th>Router ID Loopback</th>
+    <th>Status</th>
+    <th>Summary Needed</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for locale in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ locale.fvLocale.attributes.id }}</td>
+    <td>{{ locale.fvLocale.attributes.boostrapTriggered }}</td>
+    <td>{{ locale.fvLocale.attributes.childAction }}</td>
+    <td>{{ locale.fvLocale.attributes.deployAllPorts }}</td>
+    <td>{{ locale.fvLocale.attributes.dn }}</td>
+    <td>{{ locale.fvLocale.attributes.fabricExtCtrlPeering }}</td>
+    <td>{{ locale.fvLocale.attributes.fabricExtIntersiteCtrlPeering }}</td>
+    <td>{{ locale.fvLocale.attributes.fabricExtIntersitePeering }}</td>
+    <td>{{ locale.fvLocale.attributes.firstUpdateDeployed }}</td>
+    <td>{{ locale.fvLocale.attributes.instrImedcy }}</td>
+    <td>{{ locale.fvLocale.attributes.ipv4LbAddr }}</td>
+    <td>{{ locale.fvLocale.attributes.ipv6LbAddr }}</td>
+    <td>{{ locale.fvLocale.attributes.lcOwn }}</td>
+    <td>{{ locale.fvLocale.attributes.modTs }}</td>
+    <td>{{ locale.fvLocale.attributes.modeMisconfiguration }}</td>
+    <td>{{ locale.fvLocale.attributes.monPolDn }}</td>
+    <td>{{ locale.fvLocale.attributes.operSt }}</td>
+    <td>{{ locale.fvLocale.attributes.rtrId }}</td>
+    <td>{{ locale.fvLocale.attributes.rtrIdLoopBack }}</td>
+    <td>{{ locale.fvLocale.attributes.status }}</td>
+    <td>{{ locale.fvLocale.attributes.summaryNeeded }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
