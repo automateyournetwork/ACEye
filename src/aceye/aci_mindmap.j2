@@ -3012,4 +3012,20 @@
 ### Status: {{ firmware.firmwareRunning.attributes.status }}
 ### Type: {{ firmware.firmwareRunning.attributes.type }}
 {%-     endfor %}
+{%- elif "fvEpPCont" in api %}
+# Endpoint Profile Containers
+{%-     for container in data_to_template['imdata'] %}
+## Name: {{ container.fvEpPCont.attributes.name }}
+### Name Alias: {{ container.fvEpPCont.attributes.nameAlias }}
+### Aggregation Enabled: {{ container.fvEpPCont.attributes.aggrEnabled }}
+### Child Action: {{ container.fvEpPCont.attributes.childAction }}
+### DN: {{ container.fvEpPCont.attributes.dn }}
+### Local Owner: {{ container.fvEpPCont.attributes.lcOwn }}
+### Last Modified: {{ container.fvEpPCont.attributes.modTs }}
+### Monitoring Policy DN: {{ container.fvEpPCont.attributes.monPolDn }}
+### Owner
+#### Key: {{ container.fvEpPCont.attributes.ownerKey }}
+#### Tag: {{ container.fvEpPCont.attributes.ownerTag }}
+### Status: {{ container.fvEpPCont.attributes.status }}
+{%-     endfor %}
 {%- endif %}
