@@ -2912,8 +2912,22 @@
 ### Last Modified: {{ container.fabricProtPathEpCont.attributes.modTs }}
 ### Monitoring Policy DN: {{ container.fabricProtPathEpCont.attributes.monPolDn }}
 ### Node
-#### Ald: {{ container.fabricProtPathEpCont.attributes.nodeAld }}
-#### Bld: {{ container.fabricProtPathEpCont.attributes.nodeBld }}
+#### AId: {{ container.fabricProtPathEpCont.attributes.nodeAId }}
+#### BId: {{ container.fabricProtPathEpCont.attributes.nodeBId }}
 ### Status: {{ container.fabricProtPathEpCont.attributes.status }}
+{%-     endfor %}
+{%- elif "fcEntity" in api %}
+# Fibre Channel Entities
+{%-     for entity in data_to_template['imdata'] %}
+## Name: {{ entity.fcEntity.attributes.name }}
+### Admin State: {{ entity.fcEntity.attributes.adminSt }}
+### Child Action: {{ entity.fcEntity.attributes.childAction }}
+### DN: {{ entity.fcEntity.attributes.dn }}
+### Last Modified: {{ entity.fcEntity.attributes.modTs }}
+### Monitoring Policy DN: {{ entity.fcEntity.attributes.monPolDn }}
+### Oper
+#### Error: {{ entity.fcEntity.attributes.operErr }}
+#### State: {{ entity.fcEntity.attributes.operSt }}
+### Status: {{ entity.fcEntity.attributes.status }}
 {%-     endfor %}
 {%- endif %}

@@ -186,6 +186,8 @@ Fabric Protected Path Endpoint Containers
 
 Fault Summary
 
+Fibre Channel Entity
+
 Filters
 
 Health
