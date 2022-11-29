@@ -220,6 +220,8 @@ Leaf Interface Profiles
 
 Leaf Switch Profiles
 
+Locales
+
 Physical Domains
 
 Physical Interfaces
