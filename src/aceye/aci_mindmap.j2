@@ -35,7 +35,7 @@
 ### TX ID: {{ epg.fvAEPg.attributes.txId }}
 ### Modified Timestamp: {{ epg.fvAEPg.attributes.modTs }}
 {%-     endfor %}
-{%- elif "BD" in api %}
+{%- elif "fvBD" in api %}
 # Bridge Domains
 {%-     for bd in data_to_template['imdata'] %}
 ## {{ bd.fvBD.attributes.name }}
@@ -1824,7 +1824,7 @@
 ### DN: {{ policy.bgpInstPol.attributes.dn }}
 ### Externally Managed By: {{ policy.bgpInstPol.attributes.extMngdBy }}
 ### Local Owner: {{ policy.bgpInstPol.attributes.lcOwn }}
-### Last Modifed: {{ policy.bgpInstPol.attributes.modTs }}
+### Last Modified: {{ policy.bgpInstPol.attributes.modTs }}
 ### Monitoring Policy DN: {{ policy.bgpInstPol.attributes.monPolDn }}
 ### Owner
 #### Key: {{ policy.bgpInstPol.attributes.ownerKey }}
@@ -1993,7 +1993,7 @@
 ### DN: {{ endpoint.cdpAdjEp.attributes.dn }}
 ### Duplex: {{ endpoint.cdpAdjEp.attributes.duplex }}
 ### Index: {{ endpoint.cdpAdjEp.attributes.index }}
-### Last Modifed: {{ endpoint.cdpAdjEp.attributes.modTs }}
+### Last Modified: {{ endpoint.cdpAdjEp.attributes.modTs }}
 ### Monitoring Policy DN: {{ endpoint.cdpAdjEp.attributes.monPolDn }}
 ### MTU: {{ endpoint.cdpAdjEp.attributes.mtu }}
 ### State Quality: {{ endpoint.cdpAdjEp.attributes.stQual }}
@@ -2419,7 +2419,7 @@
 ### Description: {{ port.eqptLeafP.attributes.descr }}
 ### DN: {{ port.eqptLeafP.attributes.dn }}
 ### Flags: {{ port.eqptLeafP.attributes.flags }}
-### Last Modifed: {{ port.eqptLeafP.attributes.modTs }}
+### Last Modified: {{ port.eqptLeafP.attributes.modTs }}
 ### Monitoring Policy DN: {{ port.eqptLeafP.attributes.monPolDn }}
 ### Speed: {{ port.eqptLeafP.attributes.speed }}
 ### Status: {{ port.eqptLeafP.attributes.status }}
@@ -2436,7 +2436,7 @@
 ### Description: {{ led.eqptLocLed.attributes.descr }}
 ### DN: {{ led.eqptLocLed.attributes.dn }}
 ### MFG Timestamp: {{ led.eqptLocLed.attributes.mfgTm }}
-### Last Modifed: {{ led.eqptLocLed.attributes.modTs }}
+### Last Modified: {{ led.eqptLocLed.attributes.modTs }}
 ### Model: {{ led.eqptLocLed.attributes.model }}
 ### Oper State: {{ led.eqptLocLed.attributes.operSt }}
 ### Revision: {{ led.eqptLocLed.attributes.rev }}
@@ -2598,7 +2598,7 @@
 ### Checksum: {{ psu_block.eqptSpromPsuBlk.attributes.cksum }}
 ### F Bits: {{ psu_block.eqptSpromPsuBlk.attributes.fbits }}
 ### Length: {{ psu_block.eqptSpromPsuBlk.attributes.len }}
-### Last Modifed: {{ psu_block.eqptSpromPsuBlk.attributes.modTs }}
+### Last Modified: {{ psu_block.eqptSpromPsuBlk.attributes.modTs }}
 ### Power Supply CMd
 #### 1: {{ psu_block.eqptSpromPsuBlk.attributes.psCMd1 }}
 #### 2: {{ psu_block.eqptSpromPsuBlk.attributes.psCMd2 }}
@@ -2943,7 +2943,7 @@
 ### Description: {{ card.firmwareCardRunning.attributes.descr }}
 ### Internal Label: {{ card.firmwareCardRunning.attributes.internalLabel }}
 ### Timestamp
-#### Last Modifed: {{ card.firmwareCardRunning.attributes.modTs }}
+#### Last Modified: {{ card.firmwareCardRunning.attributes.modTs }}
 #### Timestamp: {{ card.firmwareCardRunning.attributes.ts }}
 ### Mode: {{ card.firmwareCardRunning.attributes.mode }}
 ### Monitoring Policy DN: {{ card.firmwareCardRunning.attributes.monPolDn }}
@@ -2970,7 +2970,7 @@
 #### Actual: {{ compute.firmwareCompRunning.attributes.version }}
 ### Internal Label: {{ compute.firmwareCompRunning.attributes.internalLabel }}
 ### Timestamp
-#### Last Modifed: {{ compute.firmwareCompRunning.attributes.modTs }}
+#### Last Modified: {{ compute.firmwareCompRunning.attributes.modTs }}
 #### Timestamp: {{ compute.firmwareCompRunning.attributes.ts }}
 ### Mode: {{ compute.firmwareCompRunning.attributes.mode }}
 ### Monitoring Policy DN: {{ compute.firmwareCompRunning.attributes.monPolDn }}
@@ -3055,5 +3055,101 @@
 #### ID Loopback: {{ locale.fvLocale.attributes.rtrIdLoopBack }}
 ### Status: {{ locale.fvLocale.attributes.status }}
 ### Summary Needed: {{ locale.fvLocale.attributes.summaryNeeded }}
+{%-     endfor %}
+{%- elif "fvRsBDToOut" in api %}
+# Bridge Domains To Outside
+{%-     for bd in data_to_template['imdata'] %}
+## UID: {{ bd.fvRsBDToOut.attributes.uid }}
+### Annotation: {{ bd.fvRsBDToOut.attributes.annotation }}
+### Child Action: {{ bd.fvRsBDToOut.attributes.childAction }}
+### DN: {{ bd.fvRsBDToOut.attributes.dn }}
+### Externally Managed By: {{ bd.fvRsBDToOut.attributes.extMngdBy }}
+### Force Resolve: {{ bd.fvRsBDToOut.attributes.forceResolve }}
+### Local Owner: {{ bd.fvRsBDToOut.attributes.lcOwn }}
+### Last Modified: {{ bd.fvRsBDToOut.attributes.modTs }}
+### Monitoring Policy DN: {{ bd.fvRsBDToOut.attributes.monPolDn }}
+### rType: {{ bd.fvRsBDToOut.attributes.rType }}
+### State: {{ bd.fvRsBDToOut.attributes.state }}
+### State Quality: {{ bd.fvRsBDToOut.attributes.stateQual }}
+### Status: {{ bd.fvRsBDToOut.attributes.status }}
+### t
+#### Cl: {{ bd.fvRsBDToOut.attributes.tCl }}
+#### Context DN: {{ bd.fvRsBDToOut.attributes.tContextDn }}
+#### DN: {{ bd.fvRsBDToOut.attributes.tDn }}
+#### RN: {{ bd.fvRsBDToOut.attributes.tRn }}
+#### Type: {{ bd.fvRsBDToOut.attributes.tType }}
+### tn L3 Ext Out Name: {{ bd.fvRsBDToOut.attributes.tnL3extOutName }}
+{%-     endfor %}
+{%- elif "fvRsBd" in api %}
+# EPG Bridge Domain Links
+{%-     for bd in data_to_template['imdata'] %}
+## UID: {{ bd.fvRsBd.attributes.uid }}
+### Annotation: {{ bd.fvRsBd.attributes.annotation }}
+### Child Action: {{ bd.fvRsBd.attributes.childAction }}
+### DN: {{ bd.fvRsBd.attributes.dn }}
+### Externally Managed By: {{ bd.fvRsBd.attributes.extMngdBy }}
+### Force Resolve: {{ bd.fvRsBd.attributes.forceResolve }}
+### Local Owner: {{ bd.fvRsBd.attributes.lcOwn }}
+### Last Modified: {{ bd.fvRsBd.attributes.modTs }}
+### Monitoring Policy DN: {{ bd.fvRsBd.attributes.monPolDn }}
+### rType: {{ bd.fvRsBd.attributes.rType }}
+### State: {{ bd.fvRsBd.attributes.state }}
+### State Quality: {{ bd.fvRsBd.attributes.stateQual }}
+### Status: {{ bd.fvRsBd.attributes.status }}
+### t
+#### Cl: {{ bd.fvRsBd.attributes.tCl }}
+#### Context DN: {{ bd.fvRsBd.attributes.tContextDn }}
+#### DN: {{ bd.fvRsBd.attributes.tDn }}
+#### RN: {{ bd.fvRsBd.attributes.tRn }}
+#### Type: {{ bd.fvRsBd.attributes.tType }}
+### Fv BD Name: {{ bd.fvRsBd.attributes.tnFvBDName }}
+{%-     endfor %}
+{%- elif "fvRsCEpToPathEp" in api %}
+# Endpoints To Paths
+{%-     for endpoint in data_to_template['imdata'] %}
+## DN: {{ endpoint.fvRsCEPToPathEp.attributes.dn }}
+### Child Action: {{ endpoint.fvRsCEPToPathEp.attributes.childAction }}
+### Force Resolve: {{ endpoint.fvRsCEPToPathEp.attributes.forceResolve }}
+### lcC: {{ endpoint.fvRsCEPToPathEp.attributes.lcC }}
+### Local Owner: {{ endpoint.fvRsCEPToPathEp.attributes.lcOwn }}
+### Last Modified: {{ endpoint.fvRsCEPToPathEp.attributes.modTs }}
+### rType: {{ endpoint.fvRsCEPToPathEp.attributes.rType }}
+### State: {{ endpoint.fvRsCEPToPathEp.attributes.state }}
+### State Quality: {{ endpoint.fvRsCEPToPathEp.attributes.stateQual }}
+### Status: {{ endpoint.fvRsCEPToPathEp.attributes.status }}
+### t
+#### Cl: {{ endpoint.fvRsCEPToPathEp.attributes.tCl }}
+#### DN: {{ endpoint.fvRsCEPToPathEp.attributes.tDn }}
+#### Type: {{ endpoint.fvRsCEPToPathEp.attributes.tType }}
+{%-     endfor %}
+{%- elif "fvRsCons" in api %}
+# Contract Consumers
+{%-     for consumer in data_to_template['imdata'] %}
+## UID: {{ consumer.fvRsCons.attributes.uid }}
+### Annotation: {{ consumer.fvRsCons.attributes.annotation }}
+### Child Action: {{ consumer.fvRsCons.attributes.childAction }}
+### Contract Update: {{ consumer.fvRsCons.attributes.ctrctUpd }}
+### Deployment Info: {{ consumer.fvRsCons.attributes.deplInfo }}
+### DN: {{ consumer.fvRsCons.attributes.dn }}
+### Externally Managed By: {{ consumer.fvRsCons.attributes.extMngdBy }}
+### Force Resolve: {{ consumer.fvRsCons.attributes.forceResolve }}
+### Intent: {{ consumer.fvRsCons.attributes.intent }}
+### Local Owner: {{ consumer.fvRsCons.attributes.lcOwn }}
+### Last Modified: {{ consumer.fvRsCons.attributes.modTs }}
+### Monitoring Policy DN: {{ consumer.fvRsCons.attributes.monPolDn }}
+### Priority: {{ consumer.fvRsCons.attributes.prio }}
+### rType: {{ consumer.fvRsCons.attributes.rType }}
+### State: {{ consumer.fvRsCons.attributes.state }}
+### State Quality: {{ consumer.fvRsCons.attributes.stateQual }}
+### Status: {{ consumer.fvRsCons.attributes.status }}
+### t
+#### Cl: {{ consumer.fvRsCons.attributes.tCl }}
+#### Context DN: {{ consumer.fvRsCons.attributes.tContextDn }}
+#### DN: {{ consumer.fvRsCons.attributes.tDn }}
+#### RN: {{ consumer.fvRsCons.attributes.tRn }}
+#### Type: {{ consumer.fvRsCons.attributes.tType }}
+### tnVz Br CP Name: {{ consumer.fvRsCons.attributes.tnVzBrCPName }}
+### Trigger State: {{ consumer.fvRsCons.attributes.triggerSt }}
+### Update Collection: {{ consumer.fvRsCons.attributes.updateCollection }}
 {%-     endfor %}
 {%- endif %}

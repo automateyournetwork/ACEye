@@ -54,6 +54,8 @@ BGP Route Reflectors
 
 Bridge Domains
 
+Bridge Domains To Outside
+
 CDP Adjacency Endpoints
 
 CDP Entities
@@ -88,6 +90,8 @@ Contexts (VRFs)
 
 Contracts
 
+Contract Consumers
+
 Contract Subjects
 
 Device Packages
@@ -96,7 +100,11 @@ Endpoint Profile Containers
 
 Endpoints (All Connected Fabric Endpoints)
 
-EPG (Endpoint Groups)
+Endpoints To Paths
+
+EPG to Bridge Domain Links
+
+EPGs (Endpoint Groups)
 
 Equipment Board Slots
 

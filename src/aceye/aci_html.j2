@@ -76,7 +76,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- elif "BD" in api %}
+{%- elif "fvBD" in api %}
 <h1>Bridge Domains</h1>
 <table id = "datatable">
 <thead>
@@ -3861,7 +3861,7 @@
     <th>Flags</th>
     <th>Last Eor Received Timestamp</th>
     <th>Memory Acc Paths</th>
-    <th>Last Modifed</th>
+    <th>Last Modified</th>
     <th>Monitoring Policy DN</th>
     <th>Peer Table Version</th>
     <th>Prefix Flushed</th>
@@ -4827,7 +4827,7 @@
     <th>Description</th>
     <th>DN</th>
     <th>Location</th>
-    <th>Last Modifed</th>
+    <th>Last Modified</th>
     <th>Monitoring Policy DN</th>
     <th>Oper State</th>
     <th>Physical ID</th>
@@ -5141,7 +5141,7 @@
     <th>Description</th>
     <th>DN</th>
     <th>Location</th>
-    <th>Last Modifed</th>
+    <th>Last Modified</th>
     <th>Monitoring Policy DN</th>
     <th>Oper State</th>
     <th>Physical ID</th>
@@ -5339,7 +5339,7 @@
     <th>MFG Bits</th>
     <th>MFG Dev</th>
     <th>Minor</th>
-    <th>Last Modifed</th>
+    <th>Last Modified</th>
     <th>OEM</th>
     <th>pRevision</th>
     <th>Power Consumption</th>
@@ -5889,7 +5889,7 @@
     <th>Child Action</th>
     <th>Extended Ch ID</th>
     <th>Local Owner</th>
-    <th>Last Modifed</th>
+    <th>Last Modified</th>
     <th>Monitoring Policy DN</th>
     <th>Status</th>
   </tr>
@@ -6407,6 +6407,214 @@
     <td>{{ locale.fvLocale.attributes.rtrIdLoopBack }}</td>
     <td>{{ locale.fvLocale.attributes.status }}</td>
     <td>{{ locale.fvLocale.attributes.summaryNeeded }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "fvRsBDToOut" in api %}
+<h1>Bridge Domains To Outside</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>tn L3 Ext Out Name</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for bd in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ bd.fvRsBDToOut.attributes.uid }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.annotation }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.childAction }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.dn }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.extMngdBy }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.forceResolve }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.lcOwn }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.modTs }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.monPolDn }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.rType }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.state }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.stateQual }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.status }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.tCl }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.tContextDn }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.tDn }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.tRn }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.tType }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.tnL3extOutName }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "fvRsBd" in api %}
+<h1>EPG Bridge Domain Links</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>tnFvBDName</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for bd in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ bd.fvRsBd.attributes.uid }}</td>
+    <td>{{ bd.fvRsBd.attributes.annotation }}</td>
+    <td>{{ bd.fvRsBd.attributes.childAction }}</td>
+    <td>{{ bd.fvRsBd.attributes.dn }}</td>
+    <td>{{ bd.fvRsBd.attributes.extMngdBy }}</td>
+    <td>{{ bd.fvRsBd.attributes.forceResolve }}</td>
+    <td>{{ bd.fvRsBd.attributes.lcOwn }}</td>
+    <td>{{ bd.fvRsBd.attributes.modTs }}</td>
+    <td>{{ bd.fvRsBd.attributes.monPolDn }}</td>
+    <td>{{ bd.fvRsBd.attributes.rType }}</td>
+    <td>{{ bd.fvRsBd.attributes.state }}</td>
+    <td>{{ bd.fvRsBd.attributes.stateQual }}</td>
+    <td>{{ bd.fvRsBd.attributes.status }}</td>
+    <td>{{ bd.fvRsBd.attributes.tCl }}</td>
+    <td>{{ bd.fvRsBd.attributes.tContextDn }}</td>
+    <td>{{ bd.fvRsBd.attributes.tDn }}</td>
+    <td>{{ bd.fvRsBd.attributes.tRn }}</td>
+    <td>{{ bd.fvRsBd.attributes.tType }}</td>
+    <td>{{ bd.fvRsBd.attributes.tnFvBDName }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "fvRsCEpToPathEp" in api %}
+<h1>Endpoints To Paths</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Force Resolve</th>
+    <th>lcC</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for endpoint in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.dn }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.childAction }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.forceResolve }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.lcC }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.lcOwn }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.modTs }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.rType }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.state }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.stateQual }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.status }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.tCl }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.tDn }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.tType }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "fvRsCons" in api %}
+<h1>Contract Consumers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Contract Update</th>
+    <th>Deployment Info</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Intent</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Priority</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>tnVz Br CP Name</th>
+    <th>Trigger State</th>
+    <th>Update Collection</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for consumer in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ consumer.fvRsCons.attributes.uid }}</td>
+    <td>{{ consumer.fvRsCons.attributes.annotation }}</td>
+    <td>{{ consumer.fvRsCons.attributes.childAction }}</td>
+    <td>{{ consumer.fvRsCons.attributes.ctrctUpd }}</td>
+    <td>{{ consumer.fvRsCons.attributes.deplInfo }}</td>
+    <td>{{ consumer.fvRsCons.attributes.dn }}</td>
+    <td>{{ consumer.fvRsCons.attributes.extMngdBy }}</td>
+    <td>{{ consumer.fvRsCons.attributes.forceResolve }}</td>
+    <td>{{ consumer.fvRsCons.attributes.intent }}</td>
+    <td>{{ consumer.fvRsCons.attributes.lcOwn }}</td>
+    <td>{{ consumer.fvRsCons.attributes.modTs }}</td>
+    <td>{{ consumer.fvRsCons.attributes.monPolDn }}</td>
+    <td>{{ consumer.fvRsCons.attributes.prio }}</td>
+    <td>{{ consumer.fvRsCons.attributes.rType }}</td>
+    <td>{{ consumer.fvRsCons.attributes.state }}</td>
+    <td>{{ consumer.fvRsCons.attributes.stateQual }}</td>
+    <td>{{ consumer.fvRsCons.attributes.status }}</td>
+    <td>{{ consumer.fvRsCons.attributes.tCl }}</td>
+    <td>{{ consumer.fvRsCons.attributes.tContextDn }}</td>
+    <td>{{ consumer.fvRsCons.attributes.tDn }}</td>
+    <td>{{ consumer.fvRsCons.attributes.tRn }}</td>
+    <td>{{ consumer.fvRsCons.attributes.tType }}</td>
+    <td>{{ consumer.fvRsCons.attributes.tnVzBrCPName }}</td>
+    <td>{{ consumer.fvRsCons.attributes.triggerSt }}</td>
+    <td>{{ consumer.fvRsCons.attributes.updateCollection }}</td>
   </tr>
 {%-     endfor %}
 </tbody>
