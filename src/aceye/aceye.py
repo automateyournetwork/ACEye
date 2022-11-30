@@ -273,7 +273,7 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.contract_consumer_interfaces(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
-        parsed_json = json.dumps(self.contex_source_relationships(), indent=4, sort_keys=True)
+        parsed_json = json.dumps(self.context_source_relationships(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
 
     def make_directories(self):
