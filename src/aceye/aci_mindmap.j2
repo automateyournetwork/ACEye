@@ -85,7 +85,7 @@
 ### Virtual MAC: {{ bd.fvBD.attributes.vmac }}
 ### Modified Timestamp: {{ bd.fvBD.attributes.modTs }}
 {%-     endfor %}
-{%- elif "Ctx" in api %}
+{%- elif "fvCtx" in api %}
 # Contexts
 {%-     for context in data_to_template['imdata'] %}
 ## {{ context.fvCtx.attributes.name }}
@@ -3181,4 +3181,28 @@
 ### Update Collection: {{ consumer.fvRsCons.attributes.updateCollection }}
 {%-         endfor %}
 {%-     endif %}
+{%- elif "fvRsCtx" in api %}
+# Context Source Relationships
+{%-     for context in data_to_template['imdata'] %}
+## UID: {{ context.fvRsCtx.attributes.uid }}
+### Annotation: {{ context.fvRsCtx.attributes.annotation }}
+### Child Action: {{ context.fvRsCtx.attributes.childAction }}
+### DN: {{ context.fvRsCtx.attributes.dn }}
+### Externally Managed By: {{ context.fvRsCtx.attributes.extMngdBy }}
+### Force Resolve: {{ context.fvRsCtx.attributes.forceResolve }}
+### Local Owner: {{ context.fvRsCtx.attributes.lcOwn }}
+### Last Modified: {{ context.fvRsCtx.attributes.modTs }}
+### Monitoring Policy DN: {{ context.fvRsCtx.attributes.monPolDn }}
+### rType: {{ context.fvRsCtx.attributes.rType }}
+### State: {{ context.fvRsCtx.attributes.state }}
+### State Quality: {{ context.fvRsCtx.attributes.stateQual }}
+### Status: {{ context.fvRsCtx.attributes.status }}
+### t
+#### Cl: {{ context.fvRsCtx.attributes.tCl }}
+#### Context DN: {{ context.fvRsCtx.attributes.tContextDn }}
+#### DN: {{ context.fvRsCtx.attributes.tDn }}
+#### RN: {{ context.fvRsCtx.attributes.tRn }}
+#### Type: {{ context.fvRsCtx.attributes.tType }}
+### tnFv Context Name: {{ context.fvRsCtx.attributes.tnFvCtxName }}
+{%-     endfor %}
 {%- endif %}

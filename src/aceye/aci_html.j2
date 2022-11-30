@@ -172,7 +172,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- elif "Ctx" in api %}
+{%- elif "fvCtx" in api %}
 <h1>Contexts</h1>
 <table id = "datatable">
 <thead>
@@ -6679,5 +6679,57 @@
 </tbody>
 </table>
 {%-     endif %}
+{%- elif "fvRsCtx" in api %}
+<h1>Context Source Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>tnFv Context Name</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for context in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ context.fvRsCtx.attributes.uid }}</td>
+    <td>{{ context.fvRsCtx.attributes.annotation }}</td>
+    <td>{{ context.fvRsCtx.attributes.childAction }}</td>
+    <td>{{ context.fvRsCtx.attributes.dn }}</td>
+    <td>{{ context.fvRsCtx.attributes.extMngdBy }}</td>
+    <td>{{ context.fvRsCtx.attributes.forceResolve }}</td>
+    <td>{{ context.fvRsCtx.attributes.lcOwn }}</td>
+    <td>{{ context.fvRsCtx.attributes.modTs }}</td>
+    <td>{{ context.fvRsCtx.attributes.monPolDn }}</td>
+    <td>{{ context.fvRsCtx.attributes.rType }}</td>
+    <td>{{ context.fvRsCtx.attributes.state }}</td>
+    <td>{{ context.fvRsCtx.attributes.stateQual }}</td>
+    <td>{{ context.fvRsCtx.attributes.status }}</td>
+    <td>{{ context.fvRsCtx.attributes.tCl }}</td>
+    <td>{{ context.fvRsCtx.attributes.tContextDn }}</td>
+    <td>{{ context.fvRsCtx.attributes.tDn }}</td>
+    <td>{{ context.fvRsCtx.attributes.tRn }}</td>
+    <td>{{ context.fvRsCtx.attributes.tType }}</td>
+    <td>{{ context.fvRsCtx.attributes.tnFvCtxName }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
