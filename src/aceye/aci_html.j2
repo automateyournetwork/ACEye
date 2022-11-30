@@ -6827,5 +6827,63 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "fvRsPathAtt" in api %}
+<h1>Path Attachments</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Instruction Immediacy</th>
+    <th>lcC</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>Primary Encapsulation</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for attachment in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ attachment.fvRsPathAtt.attributes.uid }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.annotation }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.childAction }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.descr }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.dn }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.encap }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.extMngdBy }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.forceResolve }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.instrImedcy }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.lcC }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.lcOwn }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.modTs }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.mode }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.monPolDn }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.primaryEncap }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.rType }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.state }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.stateQual }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.status }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.tCl }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.tDn }}</td>
+    <td>{{ attachment.fvRsPathAtt.attributes.tType }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

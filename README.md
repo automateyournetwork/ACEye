@@ -236,6 +236,8 @@ Leaf Switch Profiles
 
 Locales
 
+Path Attachments
+
 Physical Domains
 
 Physical Interfaces
