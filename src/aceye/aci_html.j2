@@ -6731,5 +6731,101 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "fvRsDomAtt" in api %}
+<h1>Domain Attachments</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Binding Type</th>
+    <th>Child Action</th>
+    <th>Class Preference</th>
+    <th>Config Issues</th>
+    <th>Custom EPG Name</th>
+    <th>Delimiter</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>Encapsulation Mode</th>
+    <th>EPG COS</th>
+    <th>EPG COS Preference</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Instruction Immediacy</th>
+    <th>LAG Policy Name</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>Netflow Direction</th>
+    <th>Netflow Preference</th>
+    <th>Number of Ports</th>
+    <th>Port Allocation</th>
+    <th>Primary Encapsulation</th>
+    <th>Primary Encapsulation Inner</th>
+    <th>rType</th>
+    <th>Res Immediacy</th>
+    <th>Secondary Encapsulation Inner</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>Switching Mode</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tType</th>
+    <th>Trigger State</th>
+    <th>TX ID</th>
+    <th>Untagged</th>
+    <th>VNET Only</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for attachment in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ attachment.fvRsDomAtt.attributes.uid }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.annotation }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.bindingType }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.childAction }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.classPref }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.configIssues }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.customEpgName }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.delimiter }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.dn }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.encap }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.encapMode }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.epgCos }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.epgCosPref }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.extMngdBy }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.forceResolve }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.instrImedcy }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.lagPolicyName }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.lcOwn }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.modTs }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.mode }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.monPolDn }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.netflowDir }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.netflowPref }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.numPorts }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.portAllocation }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.primaryEncap }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.primaryEncapInner }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.rType }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.resImedcy }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.secondaryEncapInner }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.state }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.stateQual }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.status }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.switchingMode }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.tCl }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.tDn }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.tType }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.triggerSt }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.txId }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.untagged }}</td>
+    <td>{{ attachment.fvRsDomAtt.attributes.vnetOnly }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

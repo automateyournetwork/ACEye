@@ -275,6 +275,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.context_source_relationships(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.domain_attachments(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -324,6 +326,7 @@ class ACEye():
                     'Contract Subjects',
                     'Contracts',
                     'Device Packages',
+                    'Domain Attachments',
                     'Endpoint Profile Containers',
                     'Endpoints',
                     'Endpoints To Paths',
@@ -1367,6 +1370,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def domain_attachments(self):
+        self.url = f"{ self.aci }/api/node/class/fvRsDomAtt.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Domain Attachments code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1874,6 +1884,10 @@ class ACEye():
 
         if "fvRsCtx" in self.url:
             with open('Context Source Relationships/JSON/Context Source Relationships.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "fvRsDomAtt" in self.url:
+            with open('Domain Attachments/JSON/Domain Attachments.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -2388,6 +2402,10 @@ class ACEye():
 
         if "fvRsCtx" in self.url:
             with open('Context Source Relationships/YAML/Context Source Relationships.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "fvRsDomAtt" in self.url:
+            with open('Domain Attachments/YAML/Domain Attachments.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -2906,6 +2924,10 @@ class ACEye():
 
         if "fvRsCtx" in self.url:
             with open('Context Source Relationships/CSV/Context Source Relationships.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "fvRsDomAtt" in self.url:
+            with open('Domain Attachments/CSV/Domain Attachments.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -3427,6 +3449,10 @@ class ACEye():
             with open('Context Source Relationships/Markdown/Context Source Relationships.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "fvRsDomAtt" in self.url:
+            with open('Domain Attachments/Markdown/Domain Attachments.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3946,6 +3972,10 @@ class ACEye():
             with open('Context Source Relationships/HTML/Context Source Relationships.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "fvRsDomAtt" in self.url:
+            with open('Domain Attachments/HTML/Domain Attachments.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -4459,6 +4489,10 @@ class ACEye():
 
         if "fvRsCtx" in self.url:
             with open('Context Source Relationships/Mindmap/Context Source Relationships.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "fvRsDomAtt" in self.url:
+            with open('Domain Attachments/Mindmap/Domain Attachments.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

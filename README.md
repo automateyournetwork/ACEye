@@ -100,6 +100,8 @@ Contract Subjects
 
 Device Packages
 
+Domain Attachments
+
 Endpoint Profile Containers
 
 Endpoints (All Connected Fabric Endpoints)
