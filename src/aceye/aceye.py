@@ -1385,7 +1385,7 @@ class ACEye():
             with open('Subnets/JSON/Subnets.json', 'w' ) as f:
                 f.write(parsed_json)
 
-        if "CEp" in self.url:
+        if "fvCEp" in self.url:
             with open('Endpoints/JSON/Endpoints.json', 'w' ) as f:
                 f.write(parsed_json)
 
@@ -1844,10 +1844,6 @@ class ACEye():
             with open('EPG Bridge Domain Links/JSON/EPG Bridge Domain Links.json', 'w' ) as f:
                 f.write(parsed_json)
 
-        if "fvRsCEpToPathEp" in self.url:
-            with open('Endpoints To Paths/JSON/Endpoints To Paths.json', 'w' ) as f:
-                f.write(parsed_json)
-
         if "fvRsCons" in self.url:
             with open('Contract Consumers/JSON/Contract Consumers.json', 'w' ) as f:
                 f.write(parsed_json)
@@ -1891,7 +1887,7 @@ class ACEye():
             with open('Subnets/YAML/Subnets.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
-        if "CEp" in self.url:
+        if "fvCEp" in self.url:
             with open('Endpoints/YAML/Endpoints.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
@@ -2401,7 +2397,7 @@ class ACEye():
             with open('Subnets/CSV/Subnets.csv', 'w' ) as f:
                 f.write(csv_output)
 
-        if "CEp" in self.url:
+        if "fvCEp" in self.url:
             with open('Endpoints/CSV/Endpoints.csv', 'w' ) as f:
                 f.write(csv_output)
 
@@ -2912,7 +2908,7 @@ class ACEye():
             with open('Subnets/Markdown/Subnets.md', 'w' ) as f:
                 f.write(markdown_output)
 
-        if "CEp" in self.url:
+        if "fvCEp" in self.url:
             with open('Endpoints/Markdown/Endpoints.md', 'w' ) as f:
                 f.write(markdown_output)
 
@@ -3423,7 +3419,7 @@ class ACEye():
             with open('Subnets/HTML/Subnets.html', 'w' ) as f:
                 f.write(html_output)
 
-        if "CEp" in self.url:
+        if "fvCEp" in self.url:
             with open('Endpoints/HTML/Endpoints.html', 'w' ) as f:
                 f.write(html_output)
 
@@ -3934,7 +3930,7 @@ class ACEye():
             with open('Subnets/Mindmap/Subnets.md', 'w' ) as f:
                 f.write(mindmap_output)
 
-        if "CEp" in self.url:
+        if "fvCEp" in self.url:
             with open('Endpoints/Mindmap/Endpoints.md', 'w' ) as f:
                 f.write(mindmap_output)
 
