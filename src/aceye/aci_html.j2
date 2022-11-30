@@ -3861,7 +3861,7 @@
     <th>Flags</th>
     <th>Last Eor Received Timestamp</th>
     <th>Memory Acc Paths</th>
-    <th>Last Modifed</th>
+    <th>Last Modified</th>
     <th>Monitoring Policy DN</th>
     <th>Peer Table Version</th>
     <th>Prefix Flushed</th>
@@ -4827,7 +4827,7 @@
     <th>Description</th>
     <th>DN</th>
     <th>Location</th>
-    <th>Last Modifed</th>
+    <th>Last Modified</th>
     <th>Monitoring Policy DN</th>
     <th>Oper State</th>
     <th>Physical ID</th>
@@ -5141,7 +5141,7 @@
     <th>Description</th>
     <th>DN</th>
     <th>Location</th>
-    <th>Last Modifed</th>
+    <th>Last Modified</th>
     <th>Monitoring Policy DN</th>
     <th>Oper State</th>
     <th>Physical ID</th>
@@ -5339,7 +5339,7 @@
     <th>MFG Bits</th>
     <th>MFG Dev</th>
     <th>Minor</th>
-    <th>Last Modifed</th>
+    <th>Last Modified</th>
     <th>OEM</th>
     <th>pRevision</th>
     <th>Power Consumption</th>
@@ -5889,7 +5889,7 @@
     <th>Child Action</th>
     <th>Extended Ch ID</th>
     <th>Local Owner</th>
-    <th>Last Modifed</th>
+    <th>Last Modified</th>
     <th>Monitoring Policy DN</th>
     <th>Status</th>
   </tr>
@@ -6511,6 +6511,46 @@
     <td>{{ bd.fvRsBd.attributes.tRn }}</td>
     <td>{{ bd.fvRsBd.attributes.tType }}</td>
     <td>{{ bd.fvRsBd.attributes.tnFvBDName }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "fvRsCEpToPathEp" in api %}
+<h1>Endpoints To Paths</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Force Resolve</th>
+    <th>lcC</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for endpoint in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.dn }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.childAction }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.forceResolve }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.lcC }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.lcOwn }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.modTs }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.rType }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.state }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.stateQual }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.status }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.tCl }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.tDn }}</td>
+    <td>{{ endpoint.fvRsCEPToPathEp.attributes.tType }}</td>
   </tr>
 {%-     endfor %}
 </tbody>

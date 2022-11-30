@@ -98,6 +98,8 @@ Endpoint Profile Containers
 
 Endpoints (All Connected Fabric Endpoints)
 
+Endpoints To Paths
+
 EPG to Bridge Domain Links
 
 EPGs (Endpoint Groups)

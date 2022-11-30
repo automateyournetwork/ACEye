@@ -1824,7 +1824,7 @@
 ### DN: {{ policy.bgpInstPol.attributes.dn }}
 ### Externally Managed By: {{ policy.bgpInstPol.attributes.extMngdBy }}
 ### Local Owner: {{ policy.bgpInstPol.attributes.lcOwn }}
-### Last Modifed: {{ policy.bgpInstPol.attributes.modTs }}
+### Last Modified: {{ policy.bgpInstPol.attributes.modTs }}
 ### Monitoring Policy DN: {{ policy.bgpInstPol.attributes.monPolDn }}
 ### Owner
 #### Key: {{ policy.bgpInstPol.attributes.ownerKey }}
@@ -1993,7 +1993,7 @@
 ### DN: {{ endpoint.cdpAdjEp.attributes.dn }}
 ### Duplex: {{ endpoint.cdpAdjEp.attributes.duplex }}
 ### Index: {{ endpoint.cdpAdjEp.attributes.index }}
-### Last Modifed: {{ endpoint.cdpAdjEp.attributes.modTs }}
+### Last Modified: {{ endpoint.cdpAdjEp.attributes.modTs }}
 ### Monitoring Policy DN: {{ endpoint.cdpAdjEp.attributes.monPolDn }}
 ### MTU: {{ endpoint.cdpAdjEp.attributes.mtu }}
 ### State Quality: {{ endpoint.cdpAdjEp.attributes.stQual }}
@@ -2419,7 +2419,7 @@
 ### Description: {{ port.eqptLeafP.attributes.descr }}
 ### DN: {{ port.eqptLeafP.attributes.dn }}
 ### Flags: {{ port.eqptLeafP.attributes.flags }}
-### Last Modifed: {{ port.eqptLeafP.attributes.modTs }}
+### Last Modified: {{ port.eqptLeafP.attributes.modTs }}
 ### Monitoring Policy DN: {{ port.eqptLeafP.attributes.monPolDn }}
 ### Speed: {{ port.eqptLeafP.attributes.speed }}
 ### Status: {{ port.eqptLeafP.attributes.status }}
@@ -2436,7 +2436,7 @@
 ### Description: {{ led.eqptLocLed.attributes.descr }}
 ### DN: {{ led.eqptLocLed.attributes.dn }}
 ### MFG Timestamp: {{ led.eqptLocLed.attributes.mfgTm }}
-### Last Modifed: {{ led.eqptLocLed.attributes.modTs }}
+### Last Modified: {{ led.eqptLocLed.attributes.modTs }}
 ### Model: {{ led.eqptLocLed.attributes.model }}
 ### Oper State: {{ led.eqptLocLed.attributes.operSt }}
 ### Revision: {{ led.eqptLocLed.attributes.rev }}
@@ -2598,7 +2598,7 @@
 ### Checksum: {{ psu_block.eqptSpromPsuBlk.attributes.cksum }}
 ### F Bits: {{ psu_block.eqptSpromPsuBlk.attributes.fbits }}
 ### Length: {{ psu_block.eqptSpromPsuBlk.attributes.len }}
-### Last Modifed: {{ psu_block.eqptSpromPsuBlk.attributes.modTs }}
+### Last Modified: {{ psu_block.eqptSpromPsuBlk.attributes.modTs }}
 ### Power Supply CMd
 #### 1: {{ psu_block.eqptSpromPsuBlk.attributes.psCMd1 }}
 #### 2: {{ psu_block.eqptSpromPsuBlk.attributes.psCMd2 }}
@@ -2943,7 +2943,7 @@
 ### Description: {{ card.firmwareCardRunning.attributes.descr }}
 ### Internal Label: {{ card.firmwareCardRunning.attributes.internalLabel }}
 ### Timestamp
-#### Last Modifed: {{ card.firmwareCardRunning.attributes.modTs }}
+#### Last Modified: {{ card.firmwareCardRunning.attributes.modTs }}
 #### Timestamp: {{ card.firmwareCardRunning.attributes.ts }}
 ### Mode: {{ card.firmwareCardRunning.attributes.mode }}
 ### Monitoring Policy DN: {{ card.firmwareCardRunning.attributes.monPolDn }}
@@ -2970,7 +2970,7 @@
 #### Actual: {{ compute.firmwareCompRunning.attributes.version }}
 ### Internal Label: {{ compute.firmwareCompRunning.attributes.internalLabel }}
 ### Timestamp
-#### Last Modifed: {{ compute.firmwareCompRunning.attributes.modTs }}
+#### Last Modified: {{ compute.firmwareCompRunning.attributes.modTs }}
 #### Timestamp: {{ compute.firmwareCompRunning.attributes.ts }}
 ### Mode: {{ compute.firmwareCompRunning.attributes.mode }}
 ### Monitoring Policy DN: {{ compute.firmwareCompRunning.attributes.monPolDn }}
@@ -3090,7 +3090,7 @@
 ### Externally Managed By: {{ bd.fvRsBd.attributes.extMngdBy }}
 ### Force Resolve: {{ bd.fvRsBd.attributes.forceResolve }}
 ### Local Owner: {{ bd.fvRsBd.attributes.lcOwn }}
-### Last Modifed: {{ bd.fvRsBd.attributes.modTs }}
+### Last Modified: {{ bd.fvRsBd.attributes.modTs }}
 ### Monitoring Policy DN: {{ bd.fvRsBd.attributes.monPolDn }}
 ### rType: {{ bd.fvRsBd.attributes.rType }}
 ### State: {{ bd.fvRsBd.attributes.state }}
@@ -3103,5 +3103,23 @@
 #### RN: {{ bd.fvRsBd.attributes.tRn }}
 #### Type: {{ bd.fvRsBd.attributes.tType }}
 ### Fv BD Name: {{ bd.fvRsBd.attributes.tnFvBDName }}
+{%-     endfor %}
+{%- elif "fvRsCEpToPathEp" in api %}
+# Endpoints To Paths
+{%-     for endpoint in data_to_template['imdata'] %}
+## DN: {{ endpoint.fvRsCEPToPathEp.attributes.dn }}
+### Child Action: {{ endpoint.fvRsCEPToPathEp.attributes.childAction }}
+### Force Resolve: {{ endpoint.fvRsCEPToPathEp.attributes.forceResolve }}
+### lcC: {{ endpoint.fvRsCEPToPathEp.attributes.lcC }}
+### Local Owner: {{ endpoint.fvRsCEPToPathEp.attributes.lcOwn }}
+### Last Modified: {{ endpoint.fvRsCEPToPathEp.attributes.modTs }}
+### rType: {{ endpoint.fvRsCEPToPathEp.attributes.rType }}
+### State: {{ endpoint.fvRsCEPToPathEp.attributes.state }}
+### State Quality: {{ endpoint.fvRsCEPToPathEp.attributes.stateQual }}
+### Status: {{ endpoint.fvRsCEPToPathEp.attributes.status }}
+### t
+#### Cl: {{ endpoint.fvRsCEPToPathEp.attributes.tCl }}
+#### DN: {{ endpoint.fvRsCEPToPathEp.attributes.tDn }}
+#### Type: {{ endpoint.fvRsCEPToPathEp.attributes.tType }}
 {%-     endfor %}
 {%- endif %}
