@@ -35,7 +35,7 @@
 ### TX ID: {{ epg.fvAEPg.attributes.txId }}
 ### Modified Timestamp: {{ epg.fvAEPg.attributes.modTs }}
 {%-     endfor %}
-{%- elif "BD" in api %}
+{%- elif "fvBD" in api %}
 # Bridge Domains
 {%-     for bd in data_to_template['imdata'] %}
 ## {{ bd.fvBD.attributes.name }}
