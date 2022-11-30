@@ -291,7 +291,7 @@ class ACEye():
                     'BGP Route Reflector Policies',
                     'BGP Route Reflectors',
                     'Bridge Domains',
-                    'Bridge Domains to Outside',                    
+                    'Bridge Domains To Outside',                    
                     'CDP Adjacency Endpoints',
                     'CDP Entities',
                     'CDP Instances',
