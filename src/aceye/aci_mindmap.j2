@@ -3122,4 +3122,34 @@
 #### DN: {{ endpoint.fvRsCEPToPathEp.attributes.tDn }}
 #### Type: {{ endpoint.fvRsCEPToPathEp.attributes.tType }}
 {%-     endfor %}
+{%- elif "fvRsCons" in api %}
+# Contract Consumers
+{%-     for consumer in data_to_template['imdata'] %}
+## UID: {{ consumer.fvRsCons.attributes.uid }}
+### Annotation: {{ consumer.fvRsCons.attributes.annotation }}
+### Child Action: {{ consumer.fvRsCons.attributes.childAction }}
+### Contract Update: {{ consumer.fvRsCons.attributes.ctrctUpd }}
+### Deployment Info: {{ consumer.fvRsCons.attributes.deplInfo }}
+### DN: {{ consumer.fvRsCons.attributes.dn }}
+### Externally Managed By: {{ consumer.fvRsCons.attributes.extMngdBy }}
+### Force Resolve: {{ consumer.fvRsCons.attributes.forceResolve }}
+### Intent: {{ consumer.fvRsCons.attributes.intent }}
+### Local Owner: {{ consumer.fvRsCons.attributes.lcOwn }}
+### Last Modified: {{ consumer.fvRsCons.attributes.modTs }}
+### Monitoring Policy DN: {{ consumer.fvRsCons.attributes.monPolDn }}
+### Priority: {{ consumer.fvRsCons.attributes.prio }}
+### rType: {{ consumer.fvRsCons.attributes.rType }}
+### State: {{ consumer.fvRsCons.attributes.state }}
+### State Quality: {{ consumer.fvRsCons.attributes.stateQual }}
+### Status: {{ consumer.fvRsCons.attributes.status }}
+### t
+#### Cl: {{ consumer.fvRsCons.attributes.tCl }}
+#### Context DN: {{ consumer.fvRsCons.attributes.tContextDn }}
+#### DN: {{ consumer.fvRsCons.attributes.tDn }}
+#### RN: {{ consumer.fvRsCons.attributes.tRn }}
+#### Type: {{ consumer.fvRsCons.attributes.tType }}
+### tnVz Br CP Name: {{ consumer.fvRsCons.attributes.tnVzBrCPName }}
+### Trigger State: {{ consumer.fvRsCons.attributes.triggerSt }}
+### Update Collection: {{ consumer.fvRsCons.attributes.updateCollection }}
+{%-     endfor %}
 {%- endif %}

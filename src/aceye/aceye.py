@@ -269,6 +269,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.endpoints_to_paths(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.contract_consumers(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -312,8 +314,9 @@ class ACEye():
                     'Compute Providers',
                     'Compute RS Domain Policies',
                     'Contexts',
-                    'Contracts',
+                    'Contract Consumers',
                     'Contract Subjects',
+                    'Contracts',
                     'Device Packages',
                     'Endpoint Profile Containers',
                     'Endpoints',
@@ -1337,6 +1340,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def contract_consumers(self):
+        self.url = f"{ self.aci }/api/node/class/fvRsCons.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Endpoints To Paths code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1836,6 +1846,10 @@ class ACEye():
 
         if "fvRsCEpToPathEp" in self.url:
             with open('Endpoints To Paths/JSON/Endpoints To Paths.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "fvRsCons" in self.url:
+            with open('Contract Consumers/JSON/Contract Consumers.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -2338,6 +2352,10 @@ class ACEye():
 
         if "fvRsCEpToPathEp" in self.url:
             with open('Endpoints To Paths/YAML/Endpoints To Paths.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "fvRsCons" in self.url:
+            with open('Contract Consumers/YAML/Contract Consumers.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -2844,6 +2862,10 @@ class ACEye():
 
         if "fvRsCEpToPathEp" in self.url:
             with open('Endpoints To Paths/CSV/Endpoints To Paths.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "fvRsCons" in self.url:
+            with open('Contract Consumers/CSV/Contract Consumers.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -3353,6 +3375,10 @@ class ACEye():
             with open('Endpoints To Paths/Markdown/Endpoints To Paths.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "fvRsCons" in self.url:
+            with open('Contract Consumers/Markdown/Contract Consumers.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3860,6 +3886,10 @@ class ACEye():
             with open('Endpoints To Paths/HTML/Endpoints To Paths.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "fvRsCons" in self.url:
+            with open('Contract Consumers/HTML/Contract Consumers.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -4361,6 +4391,10 @@ class ACEye():
 
         if "fvRsCEpToPathEp" in self.url:
             with open('Endpoints To Paths/Mindmap/Endpoints To Paths.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "fvRsCons" in self.url:
+            with open('Contract Consumers/Mindmap/Contract Consumers.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

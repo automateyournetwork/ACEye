@@ -90,6 +90,8 @@ Contexts (VRFs)
 
 Contracts
 
+Contract Consumers
+
 Contract Subjects
 
 Device Packages

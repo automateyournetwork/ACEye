@@ -6555,5 +6555,69 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "fvRsCons" in api %}
+<h1>Contract Consumers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Contract Update</th>
+    <th>Deployment Info</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Intent</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Priority</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>tnVz Br CP Name</th>
+    <th>Trigger State</th>
+    <th>Update Collection</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for consumer in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ consumer.fvRsCons.attributes.uid }}</td>
+    <td>{{ consumer.fvRsCons.attributes.annotation }}</td>
+    <td>{{ consumer.fvRsCons.attributes.childAction }}</td>
+    <td>{{ consumer.fvRsCons.attributes.ctrctUpd }}</td>
+    <td>{{ consumer.fvRsCons.attributes.deplInfo }}</td>
+    <td>{{ consumer.fvRsCons.attributes.dn }}</td>
+    <td>{{ consumer.fvRsCons.attributes.extMngdBy }}</td>
+    <td>{{ consumer.fvRsCons.attributes.forceResolve }}</td>
+    <td>{{ consumer.fvRsCons.attributes.intent }}</td>
+    <td>{{ consumer.fvRsCons.attributes.lcOwn }}</td>
+    <td>{{ consumer.fvRsCons.attributes.modTs }}</td>
+    <td>{{ consumer.fvRsCons.attributes.monPolDn }}</td>
+    <td>{{ consumer.fvRsCons.attributes.prio }}</td>
+    <td>{{ consumer.fvRsCons.attributes.rType }}</td>
+    <td>{{ consumer.fvRsCons.attributes.state }}</td>
+    <td>{{ consumer.fvRsCons.attributes.stateQual }}</td>
+    <td>{{ consumer.fvRsCons.attributes.status }}</td>
+    <td>{{ consumer.fvRsCons.attributes.tCl }}</td>
+    <td>{{ consumer.fvRsCons.attributes.tContextDn }}</td>
+    <td>{{ consumer.fvRsCons.attributes.tDn }}</td>
+    <td>{{ consumer.fvRsCons.attributes.tRn }}</td>
+    <td>{{ consumer.fvRsCons.attributes.tType }}</td>
+    <td>{{ consumer.fvRsCons.attributes.tnVzBrCPName }}</td>
+    <td>{{ consumer.fvRsCons.attributes.triggerSt }}</td>
+    <td>{{ consumer.fvRsCons.attributes.updateCollection }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
