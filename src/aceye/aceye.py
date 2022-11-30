@@ -1320,7 +1320,7 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
-    def epg_bridge_domain_link(self):
+    def epg_bridge_domain_links(self):
         self.url = f"{ self.aci }/api/node/class/fvRsBd.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<EPG Bridge Domain Links code { response.status_code } for { self.url }>")
