@@ -3107,24 +3107,52 @@
 {%- elif "fvRsCEpToPathEp" in api %}
 # Endpoints To Paths
 {%-     for endpoint in data_to_template['imdata'] %}
-## DN: {{ endpoint.fvRsCEPToPathEp.attributes.dn }}
-### Child Action: {{ endpoint.fvRsCEPToPathEp.attributes.childAction }}
-### Force Resolve: {{ endpoint.fvRsCEPToPathEp.attributes.forceResolve }}
-### lcC: {{ endpoint.fvRsCEPToPathEp.attributes.lcC }}
-### Local Owner: {{ endpoint.fvRsCEPToPathEp.attributes.lcOwn }}
-### Last Modified: {{ endpoint.fvRsCEPToPathEp.attributes.modTs }}
-### rType: {{ endpoint.fvRsCEPToPathEp.attributes.rType }}
-### State: {{ endpoint.fvRsCEPToPathEp.attributes.state }}
-### State Quality: {{ endpoint.fvRsCEPToPathEp.attributes.stateQual }}
-### Status: {{ endpoint.fvRsCEPToPathEp.attributes.status }}
+## DN: {{ endpoint.fvRsCEpToPathEp.attributes.dn }}
+### Child Action: {{ endpoint.fvRsCEpToPathEp.attributes.childAction }}
+### Force Resolve: {{ endpoint.fvRsCEpToPathEp.attributes.forceResolve }}
+### lcC: {{ endpoint.fvRsCEpToPathEp.attributes.lcC }}
+### Local Owner: {{ endpoint.fvRsCEpToPathEp.attributes.lcOwn }}
+### Last Modified: {{ endpoint.fvRsCEpToPathEp.attributes.modTs }}
+### rType: {{ endpoint.fvRsCEpToPathEp.attributes.rType }}
+### State: {{ endpoint.fvRsCEpToPathEp.attributes.state }}
+### State Quality: {{ endpoint.fvRsCEpToPathEp.attributes.stateQual }}
+### Status: {{ endpoint.fvRsCEpToPathEp.attributes.status }}
 ### t
-#### Cl: {{ endpoint.fvRsCEPToPathEp.attributes.tCl }}
-#### DN: {{ endpoint.fvRsCEPToPathEp.attributes.tDn }}
-#### Type: {{ endpoint.fvRsCEPToPathEp.attributes.tType }}
+#### Cl: {{ endpoint.fvRsCEpToPathEp.attributes.tCl }}
+#### DN: {{ endpoint.fvRsCEpToPathEp.attributes.tDn }}
+#### Type: {{ endpoint.fvRsCEpToPathEp.attributes.tType }}
 {%-     endfor %}
 {%- elif "fvRsCons" in api %}
+{%-     if "If" in api %}
+# Contract Consumer Interfaces
+{%-         for interface in data_to_template['imdata'] %}
+## UID: {{ interface.fvRsConsIf.attributes.uid }}
+### Annotation: {{ interface.fvRsConsIf.attributes.annotation }}
+### Child Action: {{ interface.fvRsConsIf.attributes.childAction }}
+### Deployment Info: {{ interface.fvRsConsIf.attributes.deplInfo }}
+### DN: {{ interface.fvRsConsIf.attributes.dn }}
+### Externally Managed By: {{ interface.fvRsConsIf.attributes.extMngdBy }}
+### Force Resolve: {{ interface.fvRsConsIf.attributes.forceResolve }}
+### Local Owner: {{ interface.fvRsConsIf.attributes.lcOwn }}
+### Last Modified: {{ interface.fvRsConsIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.fvRsConsIf.attributes.monPolDn }}
+### Priority: {{ interface.fvRsConsIf.attributes.prio }}
+### rType: {{ interface.fvRsConsIf.attributes.rType }}
+### State: {{ interface.fvRsConsIf.attributes.state }}
+### State Quality: {{ interface.fvRsConsIf.attributes.stateQual }}
+### Status: {{ interface.fvRsConsIf.attributes.status }}
+### t
+#### Cl: {{ interface.fvRsConsIf.attributes.tCl }}
+#### Context DN: {{ interface.fvRsConsIf.attributes.tContextDn }}
+#### DN: {{ interface.fvRsConsIf.attributes.tDn }}
+#### RN: {{ interface.fvRsConsIf.attributes.tRn }}
+#### Type: {{ interface.fvRsConsIf.attributes.tType }}
+### tnVz CP Interface Name: {{ interface.fvRsConsIf.attributes.tnVzCPIfName }}
+### Update Collection: {{ interface.fvRsConsIf.attributes.updateCollection }}
+{%-         endfor %}
+{%-     else %}
 # Contract Consumers
-{%-     for consumer in data_to_template['imdata'] %}
+{%-         for consumer in data_to_template['imdata'] %}
 ## UID: {{ consumer.fvRsCons.attributes.uid }}
 ### Annotation: {{ consumer.fvRsCons.attributes.annotation }}
 ### Child Action: {{ consumer.fvRsCons.attributes.childAction }}
@@ -3151,5 +3179,6 @@
 ### tnVz Br CP Name: {{ consumer.fvRsCons.attributes.tnVzBrCPName }}
 ### Trigger State: {{ consumer.fvRsCons.attributes.triggerSt }}
 ### Update Collection: {{ consumer.fvRsCons.attributes.updateCollection }}
-{%-     endfor %}
+{%-         endfor %}
+{%-     endif %}
 {%- endif %}
