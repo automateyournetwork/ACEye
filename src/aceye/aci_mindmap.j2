@@ -209,7 +209,7 @@
 ## Virtual: {{ subnet.fvSubnet.attributes.virtual }}
 ## Last Modified: {{ subnet.fvSubnet.attributes.modTs }}
 {%-     endfor %}
-{%- elif "CEp" in api %}
+{%- elif "fvCEp" in api %}
 # Endpoints
 {%-     for endpoint in data_to_template['imdata'] %}
 ## Name: {{ endpoint.fvCEp.attributes.name }}
