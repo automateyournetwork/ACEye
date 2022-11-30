@@ -86,6 +86,8 @@ Compute Providers
 
 Compute RS Domain Policies
 
+Context Source Relationships
+
 Contexts (VRFs)
 
 Contracts
@@ -97,6 +99,8 @@ Contract Consumers
 Contract Subjects
 
 Device Packages
+
+Domain Attachments
 
 Endpoint Profile Containers
 

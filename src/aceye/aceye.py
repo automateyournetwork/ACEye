@@ -273,6 +273,10 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.contract_consumer_interfaces(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.context_source_relationships(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.domain_attachments(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Control Entities',
@@ -315,12 +319,14 @@ class ACEye():
                     'Compute Endpoint Policy Descriptions',
                     'Compute Providers',
                     'Compute RS Domain Policies',
+                    'Context Source Relationships',
                     'Contexts',
                     'Contract Consumer Interfaces',
                     'Contract Consumers',
                     'Contract Subjects',
                     'Contracts',
                     'Device Packages',
+                    'Domain Attachments',
                     'Endpoint Profile Containers',
                     'Endpoints',
                     'Endpoints To Paths',
@@ -1357,6 +1363,20 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def context_source_relationships(self):
+        self.url = f"{ self.aci }/api/node/class/fvRsCtx.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Context Source Relationships code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def domain_attachments(self):
+        self.url = f"{ self.aci }/api/node/class/fvRsDomAtt.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Domain Attachments code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1370,7 +1390,7 @@ class ACEye():
             with open('Bridge Domains/JSON/Bridge Domains.json', 'w' ) as f:
                 f.write(parsed_json)
 
-        if "Ctx" in self.url:
+        if "fvCtx" in self.url:
             with open('Contexts/JSON/Contexts.json', 'w' ) as f:
                 f.write(parsed_json)
 
@@ -1862,6 +1882,14 @@ class ACEye():
                 with open('Contract Consumers/JSON/Contract Consumers.json', 'w' ) as f:
                     f.write(parsed_json)
 
+        if "fvRsCtx" in self.url:
+            with open('Context Source Relationships/JSON/Context Source Relationships.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "fvRsDomAtt" in self.url:
+            with open('Domain Attachments/JSON/Domain Attachments.json', 'w' ) as f:
+                f.write(parsed_json)
+
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
         if "Tenant" in self.url:
@@ -1876,7 +1904,7 @@ class ACEye():
             with open('Bridge Domains/YAML/Bridge Domains.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
-        if "Ctx" in self.url:
+        if "fvCtx" in self.url:
             with open('Contexts/YAML/Contexts.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
@@ -2372,6 +2400,14 @@ class ACEye():
                 with open('Contract Consumers/YAML/Contract Consumers.yaml', 'w' ) as f:
                     f.write(clean_yaml)
 
+        if "fvRsCtx" in self.url:
+            with open('Context Source Relationships/YAML/Context Source Relationships.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "fvRsDomAtt" in self.url:
+            with open('Domain Attachments/YAML/Domain Attachments.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
     def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2390,7 +2426,7 @@ class ACEye():
             with open('Bridge Domains/CSV/Bridge Domains.csv', 'w' ) as f:
                 f.write(csv_output)
 
-        if "Ctx" in self.url:
+        if "fvCtx" in self.url:
             with open('Contexts/CSV/Contexts.csv', 'w' ) as f:
                 f.write(csv_output)
 
@@ -2886,6 +2922,14 @@ class ACEye():
                 with open('Contract Consumers/CSV/Contract Consumers.csv', 'w' ) as f:
                     f.write(csv_output)
 
+        if "fvRsCtx" in self.url:
+            with open('Context Source Relationships/CSV/Context Source Relationships.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "fvRsDomAtt" in self.url:
+            with open('Domain Attachments/CSV/Domain Attachments.csv', 'w' ) as f:
+                f.write(csv_output)
+
     def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2905,7 +2949,7 @@ class ACEye():
             with open('Bridge Domains/Markdown/Bridge Domains.md', 'w' ) as f:
                 f.write(markdown_output)
 
-        if "Ctx" in self.url:
+        if "fvCtx" in self.url:
             with open('Contexts/Markdown/Contexts.md', 'w' ) as f:
                 f.write(markdown_output)
 
@@ -3401,6 +3445,14 @@ class ACEye():
                 with open('Contract Consumers/Markdown/Contract Consumers.md', 'w' ) as f:
                     f.write(markdown_output)
 
+        if "fvRsCtx" in self.url:
+            with open('Context Source Relationships/Markdown/Context Source Relationships.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "fvRsDomAtt" in self.url:
+            with open('Domain Attachments/Markdown/Domain Attachments.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3420,7 +3472,7 @@ class ACEye():
             with open('Bridge Domains/HTML/Bridge Domains.html', 'w' ) as f:
                 f.write(html_output)
 
-        if "Ctx" in self.url:
+        if "fvCtx" in self.url:
             with open('Contexts/HTML/Contexts.html', 'w' ) as f:
                 f.write(html_output)
 
@@ -3916,6 +3968,14 @@ class ACEye():
                 with open('Contract Consumers/HTML/Contract Consumers.html', 'w' ) as f:
                     f.write(html_output)
 
+        if "fvRsCtx" in self.url:
+            with open('Context Source Relationships/HTML/Context Source Relationships.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "fvRsDomAtt" in self.url:
+            with open('Domain Attachments/HTML/Domain Attachments.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3935,7 +3995,7 @@ class ACEye():
             with open('Bridge Domains/Mindmap/Bridge Domains.md', 'w' ) as f:
                 f.write(mindmap_output)
 
-        if "Ctx" in self.url:
+        if "fvCtx" in self.url:
             with open('Contexts/Mindmap/Contexts.md', 'w' ) as f:
                 f.write(mindmap_output)
 
@@ -4426,6 +4486,14 @@ class ACEye():
             else:
                 with open('Contract Consumers/Mindmap/Contract Consumers.md', 'w' ) as f:
                     f.write(mindmap_output)
+
+        if "fvRsCtx" in self.url:
+            with open('Context Source Relationships/Mindmap/Context Source Relationships.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "fvRsDomAtt" in self.url:
+            with open('Domain Attachments/Mindmap/Domain Attachments.md', 'w' ) as f:
+                f.write(mindmap_output)
 
     def all_files(self, parsed_json):
         self.json_file(parsed_json)

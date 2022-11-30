@@ -85,7 +85,7 @@
 ### Virtual MAC: {{ bd.fvBD.attributes.vmac }}
 ### Modified Timestamp: {{ bd.fvBD.attributes.modTs }}
 {%-     endfor %}
-{%- elif "Ctx" in api %}
+{%- elif "fvCtx" in api %}
 # Contexts
 {%-     for context in data_to_template['imdata'] %}
 ## {{ context.fvCtx.attributes.name }}
@@ -3181,4 +3181,77 @@
 ### Update Collection: {{ consumer.fvRsCons.attributes.updateCollection }}
 {%-         endfor %}
 {%-     endif %}
+{%- elif "fvRsCtx" in api %}
+# Context Source Relationships
+{%-     for context in data_to_template['imdata'] %}
+## UID: {{ context.fvRsCtx.attributes.uid }}
+### Annotation: {{ context.fvRsCtx.attributes.annotation }}
+### Child Action: {{ context.fvRsCtx.attributes.childAction }}
+### DN: {{ context.fvRsCtx.attributes.dn }}
+### Externally Managed By: {{ context.fvRsCtx.attributes.extMngdBy }}
+### Force Resolve: {{ context.fvRsCtx.attributes.forceResolve }}
+### Local Owner: {{ context.fvRsCtx.attributes.lcOwn }}
+### Last Modified: {{ context.fvRsCtx.attributes.modTs }}
+### Monitoring Policy DN: {{ context.fvRsCtx.attributes.monPolDn }}
+### rType: {{ context.fvRsCtx.attributes.rType }}
+### State: {{ context.fvRsCtx.attributes.state }}
+### State Quality: {{ context.fvRsCtx.attributes.stateQual }}
+### Status: {{ context.fvRsCtx.attributes.status }}
+### t
+#### Cl: {{ context.fvRsCtx.attributes.tCl }}
+#### Context DN: {{ context.fvRsCtx.attributes.tContextDn }}
+#### DN: {{ context.fvRsCtx.attributes.tDn }}
+#### RN: {{ context.fvRsCtx.attributes.tRn }}
+#### Type: {{ context.fvRsCtx.attributes.tType }}
+### tnFv Context Name: {{ context.fvRsCtx.attributes.tnFvCtxName }}
+{%-     endfor %}
+{%- elif "fvRsDomAtt" in api %}
+# Domain Attachments
+{%-     for attachment in data_to_template['imdata'] %}
+## UID: {{ attachment.fvRsDomAtt.attributes.uid }}
+### Annotation: {{ attachment.fvRsDomAtt.attributes.annotation }}
+### Binding Type: {{ attachment.fvRsDomAtt.attributes.bindingType }}
+### Child Action: {{ attachment.fvRsDomAtt.attributes.childAction }}
+### Class Preference: {{ attachment.fvRsDomAtt.attributes.classPref }}
+### Config Issues: {{ attachment.fvRsDomAtt.attributes.configIssues }}
+### Delimeter: {{ attachment.fvRsDomAtt.attributes.delimiter }}
+### DN: {{ attachment.fvRsDomAtt.attributes.dn }}
+### Encapsulation
+#### Encapsulation: {{ attachment.fvRsDomAtt.attributes.encap }}
+#### Mode: {{ attachment.fvRsDomAtt.attributes.encapMode }}
+#### Primary: {{ attachment.fvRsDomAtt.attributes.primaryEncap }}
+#### Primary Inner: {{ attachment.fvRsDomAtt.attributes.primaryEncapInner }}
+#### Secondary Inner: {{ attachment.fvRsDomAtt.attributes.secondaryEncapInner }}
+### EPG
+#### Custom EPG Name: {{ attachment.fvRsDomAtt.attributes.customEpgName }}
+#### COS: {{ attachment.fvRsDomAtt.attributes.epgCos }}
+#### COS Preferred: {{ attachment.fvRsDomAtt.attributes.epgCosPref }}
+### Externally Managed By: {{ attachment.fvRsDomAtt.attributes.extMngdBy }}
+### Force Resolve: {{ attachment.fvRsDomAtt.attributes.forceResolve }}
+### Instruction Immediacy: {{ attachment.fvRsDomAtt.attributes.instrImedcy }}
+### LAG Policy Name: {{ attachment.fvRsDomAtt.attributes.lagPolicyName }}
+### Local Owner: {{ attachment.fvRsDomAtt.attributes.lcOwn }}
+### Last Modified: {{ attachment.fvRsDomAtt.attributes.modTs }}
+### Mode: {{ attachment.fvRsDomAtt.attributes.mode }}
+### Monitoring Policy DN: {{ attachment.fvRsDomAtt.attributes.monPolDn }}
+### Netflow
+#### Direction: {{ attachment.fvRsDomAtt.attributes.netflowDir }}
+#### Preferred: {{ attachment.fvRsDomAtt.attributes.netflowPref }}
+### Number of Ports: {{ attachment.fvRsDomAtt.attributes.numPorts }}
+### Port Allocation: {{ attachment.fvRsDomAtt.attributes.portAllocation }}
+### rType: {{ attachment.fvRsDomAtt.attributes.rType }}
+### Res Immediacy: {{ attachment.fvRsDomAtt.attributes.resImedcy }}
+### State: {{ attachment.fvRsDomAtt.attributes.state }}
+### State Quality: {{ attachment.fvRsDomAtt.attributes.stateQual }}
+### Status: {{ attachment.fvRsDomAtt.attributes.status }}
+### Switching Mode: {{ attachment.fvRsDomAtt.attributes.switchingMode }}
+### t
+#### Cl: {{ attachment.fvRsDomAtt.attributes.tCl }}
+#### DN: {{ attachment.fvRsDomAtt.attributes.tDn }}
+#### Type: {{ attachment.fvRsDomAtt.attributes.tType }}
+### Trigger State: {{ attachment.fvRsDomAtt.attributes.triggerSt }}
+### TX ID: {{ attachment.fvRsDomAtt.attributes.txId }}
+### Untagged: {{ attachment.fvRsDomAtt.attributes.untagged }}
+### VNET Only: {{ attachment.fvRsDomAtt.attributes.vnetOnly }}
+{%-     endfor %}
 {%- endif %}
