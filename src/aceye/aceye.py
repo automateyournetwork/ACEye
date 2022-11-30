@@ -263,7 +263,9 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.locales(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
-        parsed_json = json.dumps(self.bride_domain_to_outside(), indent=4, sort_keys=True)
+        parsed_json = json.dumps(self.bridge_domain_to_outside(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.epg_bridge_domain_links(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
 
     def make_directories(self):
@@ -313,7 +315,8 @@ class ACEye():
                     'Device Packages',
                     'Endpoint Profile Containers',
                     'Endpoints',
-                    'EPG',
+                    'EPG Bridge Domain Links',
+                    'EPGs',
                     'Equipment Board Slots',
                     'Equipment Boards',
                     'Equipment Chassis',
@@ -1317,13 +1320,20 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def epg_bridge_domain_link(self):
+        self.url = f"{ self.aci }/api/node/class/fvRsBd.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<EPG Bridge Domain Links code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
                 f.write(parsed_json)
 
         if "AEPg" in self.url:
-            with open('EPG/JSON/EPGs.json', 'w' ) as f:
+            with open('EPGs/JSON/EPGs.json', 'w' ) as f:
                 f.write(parsed_json)
 
         if "BD" in self.url:
@@ -1810,6 +1820,10 @@ class ACEye():
             with open('Bridge Domains To Outside/JSON/Bridge Domains To Outside.json', 'w' ) as f:
                 f.write(parsed_json)
 
+        if "fvRsBd" in self.url:
+            with open('EPG Bridge Domain Links/JSON/EPG Bridge Domain Links.json', 'w' ) as f:
+                f.write(parsed_json)
+
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
         if "Tenant" in self.url:
@@ -1817,7 +1831,7 @@ class ACEye():
                 f.write(clean_yaml)
 
         if "AEPg" in self.url:
-            with open('EPG/YAML/EPGs.yaml', 'w' ) as f:
+            with open('EPGs/YAML/EPGs.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
         if "BD" in self.url:
@@ -2304,6 +2318,10 @@ class ACEye():
             with open('Bridge Domains To Outside/YAML/Bridge Domains To Outside.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
+        if "fvRsBd" in self.url:
+            with open('EPG Bridge Domain Links/YAML/EPG Bridge Domain Links.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
     def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2315,7 +2333,7 @@ class ACEye():
                 f.write(csv_output)
 
         if "AEPg" in self.url:
-            with open('EPG/CSV/EPGs.csv', 'w' ) as f:
+            with open('EPGs/CSV/EPGs.csv', 'w' ) as f:
                 f.write(csv_output)
 
         if "BD" in self.url:
@@ -2802,6 +2820,10 @@ class ACEye():
             with open('Bridge Domains To Outside/CSV/Bridge Domains To Outside.csv', 'w' ) as f:
                 f.write(csv_output)
 
+        if "fvRsBd" in self.url:
+            with open('EPG Bridge Domain Links/CSV/EPG Bridge Domain Links.csv', 'w' ) as f:
+                f.write(csv_output)
+
     def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -2814,7 +2836,7 @@ class ACEye():
                 f.write(markdown_output)
 
         if "AEPg" in self.url:
-            with open('EPG/Markdown/EPGs.md', 'w' ) as f:
+            with open('EPGs/Markdown/EPGs.md', 'w' ) as f:
                 f.write(markdown_output)
 
         if "BD" in self.url:
@@ -3301,6 +3323,10 @@ class ACEye():
             with open('Bridge Domains To Outside/Markdown/Bridge Domains To Outside.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "fvRsBd" in self.url:
+            with open('EPG Bridge Domain Links/Markdown/EPG Bridge Domain Links.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3313,7 +3339,7 @@ class ACEye():
                 f.write(html_output)
 
         if "AEPg" in self.url:
-            with open('EPG/HTML/EPGs.html', 'w' ) as f:
+            with open('EPGs/HTML/EPGs.html', 'w' ) as f:
                 f.write(html_output)
 
         if "BD" in self.url:
@@ -3800,6 +3826,10 @@ class ACEye():
             with open('Bridge Domains To Outside/HTML/Bridge Domains To Outside.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "fvRsBd" in self.url:
+            with open('EPG Bridge Domain Links/HTML/EPG Bridge Domain Links.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -3812,7 +3842,7 @@ class ACEye():
                 f.write(mindmap_output)
 
         if "AEPg" in self.url:
-            with open('EPG/Mindmap/EPGs.md', 'w' ) as f:
+            with open('EPGs/Mindmap/EPGs.md', 'w' ) as f:
                 f.write(mindmap_output)
 
         if "BD" in self.url:
@@ -4293,6 +4323,10 @@ class ACEye():
 
         if "fvRsBDToOut" in self.url:
             with open('Bridge Domains To Outside/Mindmap/Bridge Domains To Outside.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "fvRsBd" in self.url:
+            with open('EPG Bridge Domain Links/Mindmap/EPG Bridge Domain Links.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

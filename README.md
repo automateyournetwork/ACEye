@@ -98,7 +98,9 @@ Endpoint Profile Containers
 
 Endpoints (All Connected Fabric Endpoints)
 
-EPG (Endpoint Groups)
+EPG to Bridge Domain Links
+
+EPGs (Endpoint Groups)
 
 Equipment Board Slots
 

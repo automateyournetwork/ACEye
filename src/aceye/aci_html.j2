@@ -6463,5 +6463,57 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "fvRsBd" in api %}
+<h1>EPG Bridge Domain Links</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>tnFvBDName</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for bd in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ bd.fvRsBd.attributes.uid }}</td>
+    <td>{{ bd.fvRsBd.attributes.annotation }}</td>
+    <td>{{ bd.fvRsBd.attributes.childAction }}</td>
+    <td>{{ bd.fvRsBd.attributes.dn }}</td>
+    <td>{{ bd.fvRsBd.attributes.extMngdBy }}</td>
+    <td>{{ bd.fvRsBd.attributes.forceResolve }}</td>
+    <td>{{ bd.fvRsBd.attributes.lcOwn }}</td>
+    <td>{{ bd.fvRsBd.attributes.modTs }}</td>
+    <td>{{ bd.fvRsBd.attributes.monPolDn }}</td>
+    <td>{{ bd.fvRsBd.attributes.rType }}</td>
+    <td>{{ bd.fvRsBd.attributes.state }}</td>
+    <td>{{ bd.fvRsBd.attributes.stateQual }}</td>
+    <td>{{ bd.fvRsBd.attributes.status }}</td>
+    <td>{{ bd.fvRsBd.attributes.tCl }}</td>
+    <td>{{ bd.fvRsBd.attributes.tContextDn }}</td>
+    <td>{{ bd.fvRsBd.attributes.tDn }}</td>
+    <td>{{ bd.fvRsBd.attributes.tRn }}</td>
+    <td>{{ bd.fvRsBd.attributes.tType }}</td>
+    <td>{{ bd.fvRsBd.attributes.tnFvBDName }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

@@ -3080,4 +3080,28 @@
 #### Type: {{ bd.fvRsBDToOut.attributes.tType }}
 ### tn L3 Ext Out Name: {{ bd.fvRsBDToOut.attributes.tnL3extOutName }}
 {%-     endfor %}
+{%- elif "fvRsBd" in api %}
+# EPG Bridge Domain Links
+{%-     for bd in data_to_template['imdata'] %}
+## UID: {{ bd.fvRsBd.attributes.uid }}
+### Annotation: {{ bd.fvRsBd.attributes.annotation }}
+### Child Action: {{ bd.fvRsBd.attributes.childAction }}
+### DN: {{ bd.fvRsBd.attributes.dn }}
+### Externally Managed By: {{ bd.fvRsBd.attributes.extMngdBy }}
+### Force Resolve: {{ bd.fvRsBd.attributes.forceResolve }}
+### Local Owner: {{ bd.fvRsBd.attributes.lcOwn }}
+### Last Modifed: {{ bd.fvRsBd.attributes.modTs }}
+### Monitoring Policy DN: {{ bd.fvRsBd.attributes.monPolDn }}
+### rType: {{ bd.fvRsBd.attributes.rType }}
+### State: {{ bd.fvRsBd.attributes.state }}
+### State Quality: {{ bd.fvRsBd.attributes.stateQual }}
+### Status: {{ bd.fvRsBd.attributes.status }}
+### t
+#### Cl: {{ bd.fvRsBd.attributes.tCl }}
+#### Context DN: {{ bd.fvRsBd.attributes.tContextDn }}
+#### DN: {{ bd.fvRsBd.attributes.tDn }}
+#### RN: {{ bd.fvRsBd.attributes.tRn }}
+#### Type: {{ bd.fvRsBd.attributes.tType }}
+### Fv BD Name: {{ bd.fvRsBd.attributes.tnFvBDName }}
+{%-     endfor %}
 {%- endif %}

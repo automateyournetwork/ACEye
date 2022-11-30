@@ -797,4 +797,10 @@
 {%-     for bd in data_to_template['imdata'] %}
 | {{ bd.fvRsBDToOut.attributes.uid }} | {{ bd.fvRsBDToOut.attributes.annotation }} | {{ bd.fvRsBDToOut.attributes.childAction }} | {{ bd.fvRsBDToOut.attributes.dn }} | {{ bd.fvRsBDToOut.attributes.extMngdBy }} | {{ bd.fvRsBDToOut.attributes.forceResolve }} | {{ bd.fvRsBDToOut.attributes.lcOwn }} | {{ bd.fvRsBDToOut.attributes.modTs }} | {{ bd.fvRsBDToOut.attributes.monPolDn }} | {{ bd.fvRsBDToOut.attributes.rType }} | {{ bd.fvRsBDToOut.attributes.state }} | {{ bd.fvRsBDToOut.attributes.stateQual }} | {{ bd.fvRsBDToOut.attributes.status }} | {{ bd.fvRsBDToOut.attributes.tCl }} | {{ bd.fvRsBDToOut.attributes.tContextDn }} | {{ bd.fvRsBDToOut.attributes.tDn }} | {{ bd.fvRsBDToOut.attributes.tRn }} | {{ bd.fvRsBDToOut.attributes.tType }} | {{ bd.fvRsBDToOut.attributes.tnL3extOutName }} |
 {%-     endfor %}
+{%- elif "fvRsBd" in api %}# EPG Bridge Domain Links
+| UID | Annotation | Child Action | DN | Externally Managed By | Force Resolve | Local Owner | Last Modified | Monitoring Policy DN | rType | State | State Quality | Status | tCl | tContext DN | tDN | tRN | tType | tnFvBDName |
+| --- | ---------- | ------------ | -- | --------------------- | ------------- | ----------- | ------------- | -------------------- | ----- | ----- | ------------- | ------ | --- | ----------- | --- | --- | ----- | ---------- |
+{%-     for bd in data_to_template['imdata'] %}
+| {{ bd.fvRsBd.attributes.uid }} | {{ bd.fvRsBd.attributes.annotation }} | {{ bd.fvRsBd.attributes.childAction }} | {{ bd.fvRsBd.attributes.dn }} | {{ bd.fvRsBd.attributes.extMngdBy }} | {{ bd.fvRsBd.attributes.forceResolve }} | {{ bd.fvRsBd.attributes.lcOwn }} | {{ bd.fvRsBd.attributes.modTs }} | {{ bd.fvRsBd.attributes.monPolDn }} | {{ bd.fvRsBd.attributes.rType }} | {{ bd.fvRsBd.attributes.state }} | {{ bd.fvRsBd.attributes.stateQual }} | {{ bd.fvRsBd.attributes.status }} | {{ bd.fvRsBd.attributes.tCl }} | {{ bd.fvRsBd.attributes.tContextDn }} | {{ bd.fvRsBd.attributes.tDn }} | {{ bd.fvRsBd.attributes.tRn }} | {{ bd.fvRsBd.attributes.tType }} | {{ bd.fvRsBd.attributes.tnFvBDName }} |
+{%-     endfor %}
 {%- endif %}
