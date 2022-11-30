@@ -54,6 +54,8 @@ BGP Route Reflectors
 
 Bridge Domains
 
+Bridge Domains To Outside
+
 CDP Adjacency Endpoints
 
 CDP Entities

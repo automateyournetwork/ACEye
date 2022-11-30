@@ -3056,4 +3056,28 @@
 ### Status: {{ locale.fvLocale.attributes.status }}
 ### Summary Needed: {{ locale.fvLocale.attributes.summaryNeeded }}
 {%-     endfor %}
+{%- elif "fvRsBDToOut" in api %}
+# Bridge Domains To Outside
+{%-     for bd in data_to_template['imdata'] %}
+## UID: {{ bd.fvRsBDToOut.attributes.uid }}
+### Annotation: {{ bd.fvRsBDToOut.attributes.annotation }}
+### Child Action: {{ bd.fvRsBDToOut.attributes.childAction }}
+### DN: {{ bd.fvRsBDToOut.attributes.dn }}
+### Externally Managed By: {{ bd.fvRsBDToOut.attributes.extMngdBy }}
+### Force Resolve: {{ bd.fvRsBDToOut.attributes.forceResolve }}
+### Local Owner: {{ bd.fvRsBDToOut.attributes.lcOwn }}
+### Last Modified: {{ bd.fvRsBDToOut.attributes.modTs }}
+### Monitoring Policy DN: {{ bd.fvRsBDToOut.attributes.monPolDn }}
+### rType: {{ bd.fvRsBDToOut.attributes.rType }}
+### State: {{ bd.fvRsBDToOut.attributes.state }}
+### State Quality: {{ bd.fvRsBDToOut.attributes.stateQual }}
+### Status: {{ bd.fvRsBDToOut.attributes.status }}
+### t
+#### Cl: {{ bd.fvRsBDToOut.attributes.tCl }}
+#### Context DN: {{ bd.fvRsBDToOut.attributes.tContextDn }}
+#### DN: {{ bd.fvRsBDToOut.attributes.tDn }}
+#### RN: {{ bd.fvRsBDToOut.attributes.tRn }}
+#### Type: {{ bd.fvRsBDToOut.attributes.tType }}
+### tn L3 Ext Out Name: {{ bd.fvRsBDToOut.attributes.tnL3extOutName }}
+{%-     endfor %}
 {%- endif %}

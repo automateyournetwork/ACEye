@@ -6411,5 +6411,57 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "fvRsBDToOut" in api %}
+<h1>Bridge Domains To Outside</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>tn L3 Ext Out Name</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for bd in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ bd.fvRsBDToOut.attributes.uid }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.annotation }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.childAction }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.dn }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.extMngdBy }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.forceResolve }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.lcOwn }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.modTs }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.monPolDn }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.rType }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.state }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.stateQual }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.status }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.tCl }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.tContextDn }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.tDn }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.tRn }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.tType }}</td>
+    <td>{{ bd.fvRsBDToOut.attributes.tnL3extOutName }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
