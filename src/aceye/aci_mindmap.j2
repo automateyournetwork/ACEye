@@ -3281,4 +3281,34 @@
 #### DN: {{ attachment.fvRsPathAtt.attributes.tDn }}
 #### Type: {{ attachment.fvRsPathAtt.attributes.tType }}
 {%-     endfor %}
+{%- elif "fvRsProv" in api %}
+# Contract Providers
+{%-     for provider in data_to_template['imdata'] %}
+## UID: {{ provider.fvRsProv.attributes.uid }}
+### Annotation: {{ provider.fvRsProv.attributes.annotation }}
+### Child Action: {{ provider.fvRsProv.attributes.childAction }}
+### Contract Update: {{ provider.fvRsProv.attributes.ctrctUpd }}
+### DN: {{ provider.fvRsProv.attributes.dn }}
+### Externally Managed By: {{ provider.fvRsProv.attributes.extMngdBy }}
+### Force Resolve: {{ provider.fvRsProv.attributes.forceResolve }}
+### Intent: {{ provider.fvRsProv.attributes.intent }}
+### Local Owner: {{ provider.fvRsProv.attributes.lcOwn }}
+### Match Type: {{ provider.fvRsProv.attributes.matchT }}
+### Last Modified: {{ provider.fvRsProv.attributes.modTs }}
+### Monitoring Policy DN: {{ provider.fvRsProv.attributes.monPolDn }}
+### Priority: {{ provider.fvRsProv.attributes.prio }}
+### rType: {{ provider.fvRsProv.attributes.rType }}
+### State: {{ provider.fvRsProv.attributes.state }}
+### State Quality: {{ provider.fvRsProv.attributes.stateQual }}
+### Status: {{ provider.fvRsProv.attributes.status }}
+### t
+#### Cl: {{ provider.fvRsProv.attributes.tCl }}
+#### Context DN: {{ provider.fvRsProv.attributes.tContextDn }}
+#### DN: {{ provider.fvRsProv.attributes.tDn }}
+#### RN: {{ provider.fvRsProv.attributes.tRn }}
+#### Type: {{ provider.fvRsProv.attributes.tType }}
+### tnVz Br CP Name: {{ provider.fvRsProv.attributes.tnVzBrCPName }}
+### Trigger State: {{ provider.fvRsProv.attributes.triggerSt }}
+### Update Collection: {{ provider.fvRsProv.attributes.updateCollection }}
+{%-     endfor %}
 {%- endif %}
