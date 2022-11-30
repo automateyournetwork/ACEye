@@ -6538,24 +6538,83 @@
 <tbody>
 {%-     for endpoint in data_to_template['imdata'] %}
   <tr>
-    <td>{{ endpoint.fvRsCEPToPathEp.attributes.dn }}</td>
-    <td>{{ endpoint.fvRsCEPToPathEp.attributes.childAction }}</td>
-    <td>{{ endpoint.fvRsCEPToPathEp.attributes.forceResolve }}</td>
-    <td>{{ endpoint.fvRsCEPToPathEp.attributes.lcC }}</td>
-    <td>{{ endpoint.fvRsCEPToPathEp.attributes.lcOwn }}</td>
-    <td>{{ endpoint.fvRsCEPToPathEp.attributes.modTs }}</td>
-    <td>{{ endpoint.fvRsCEPToPathEp.attributes.rType }}</td>
-    <td>{{ endpoint.fvRsCEPToPathEp.attributes.state }}</td>
-    <td>{{ endpoint.fvRsCEPToPathEp.attributes.stateQual }}</td>
-    <td>{{ endpoint.fvRsCEPToPathEp.attributes.status }}</td>
-    <td>{{ endpoint.fvRsCEPToPathEp.attributes.tCl }}</td>
-    <td>{{ endpoint.fvRsCEPToPathEp.attributes.tDn }}</td>
-    <td>{{ endpoint.fvRsCEPToPathEp.attributes.tType }}</td>
+    <td>{{ endpoint.fvRsCEpToPathEp.attributes.dn }}</td>
+    <td>{{ endpoint.fvRsCEpToPathEp.attributes.childAction }}</td>
+    <td>{{ endpoint.fvRsCEpToPathEp.attributes.forceResolve }}</td>
+    <td>{{ endpoint.fvRsCEpToPathEp.attributes.lcC }}</td>
+    <td>{{ endpoint.fvRsCEpToPathEp.attributes.lcOwn }}</td>
+    <td>{{ endpoint.fvRsCEpToPathEp.attributes.modTs }}</td>
+    <td>{{ endpoint.fvRsCEpToPathEp.attributes.rType }}</td>
+    <td>{{ endpoint.fvRsCEpToPathEp.attributes.state }}</td>
+    <td>{{ endpoint.fvRsCEpToPathEp.attributes.stateQual }}</td>
+    <td>{{ endpoint.fvRsCEpToPathEp.attributes.status }}</td>
+    <td>{{ endpoint.fvRsCEpToPathEp.attributes.tCl }}</td>
+    <td>{{ endpoint.fvRsCEpToPathEp.attributes.tDn }}</td>
+    <td>{{ endpoint.fvRsCEpToPathEp.attributes.tType }}</td>
   </tr>
 {%-     endfor %}
 </tbody>
 </table>
 {%- elif "fvRsCons" in api %}
+{%-     if "If" in api %}
+<h1>Contract Consumer Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Deployment Info</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Priority</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>tnVz CP Interface Name</th>
+    <th>Update Collection</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.fvRsConsIf.attributes.uid }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.annotation }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.childAction }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.deplInfo }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.dn }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.extMngdBy }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.forceResolve }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.lcOwn }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.modTs }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.monPolDn }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.prio }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.rType }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.state }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.stateQual }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.status }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.tCl }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.tContextDn }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.tDn }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.tRn }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.tType }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.tnVzCPIfName }}</td>
+    <td>{{ interface.fvRsConsIf.attributes.updateCollection }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     else %}
 <h1>Contract Consumers</h1>
 <table id = "datatable">
 <thead>
@@ -6588,7 +6647,7 @@
   </tr>
 </thead>
 <tbody>
-{%-     for consumer in data_to_template['imdata'] %}
+{%-         for consumer in data_to_template['imdata'] %}
   <tr>
     <td>{{ consumer.fvRsCons.attributes.uid }}</td>
     <td>{{ consumer.fvRsCons.attributes.annotation }}</td>
@@ -6616,8 +6675,9 @@
     <td>{{ consumer.fvRsCons.attributes.triggerSt }}</td>
     <td>{{ consumer.fvRsCons.attributes.updateCollection }}</td>
   </tr>
-{%-     endfor %}
+{%-         endfor %}
 </tbody>
 </table>
+{%-     endif %}
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
