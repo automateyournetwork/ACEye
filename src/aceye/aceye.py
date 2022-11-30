@@ -1336,7 +1336,7 @@ class ACEye():
             with open('EPGs/JSON/EPGs.json', 'w' ) as f:
                 f.write(parsed_json)
 
-        if "BD" in self.url:
+        if "fvBD" in self.url:
             with open('Bridge Domains/JSON/Bridge Domains.json', 'w' ) as f:
                 f.write(parsed_json)
 
@@ -1834,7 +1834,7 @@ class ACEye():
             with open('EPGs/YAML/EPGs.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
-        if "BD" in self.url:
+        if "fvBD" in self.url:
             with open('Bridge Domains/YAML/Bridge Domains.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
@@ -2336,7 +2336,7 @@ class ACEye():
             with open('EPGs/CSV/EPGs.csv', 'w' ) as f:
                 f.write(csv_output)
 
-        if "BD" in self.url:
+        if "fvBD" in self.url:
             with open('Bridge Domains/CSV/Bridge Domains.csv', 'w' ) as f:
                 f.write(csv_output)
 
@@ -2839,7 +2839,7 @@ class ACEye():
             with open('EPGs/Markdown/EPGs.md', 'w' ) as f:
                 f.write(markdown_output)
 
-        if "BD" in self.url:
+        if "fvBD" in self.url:
             with open('Bridge Domains/Markdown/Bridge Domains.md', 'w' ) as f:
                 f.write(markdown_output)
 
@@ -3342,7 +3342,7 @@ class ACEye():
             with open('EPGs/HTML/EPGs.html', 'w' ) as f:
                 f.write(html_output)
 
-        if "BD" in self.url:
+        if "fvBD" in self.url:
             with open('Bridge Domains/HTML/Bridge Domains.html', 'w' ) as f:
                 f.write(html_output)
 
@@ -3845,7 +3845,7 @@ class ACEye():
             with open('EPGs/Mindmap/EPGs.md', 'w' ) as f:
                 f.write(mindmap_output)
 
-        if "BD" in self.url:
+        if "fvBD" in self.url:
             with open('Bridge Domains/Mindmap/Bridge Domains.md', 'w' ) as f:
                 f.write(mindmap_output)
 
