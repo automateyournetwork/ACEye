@@ -3254,4 +3254,31 @@
 ### Untagged: {{ attachment.fvRsDomAtt.attributes.untagged }}
 ### VNET Only: {{ attachment.fvRsDomAtt.attributes.vnetOnly }}
 {%-     endfor %}
+{%- elif "fvRsPathAtt" in api %}
+# Path Attachments
+{%-     for attachment in data_to_template['imdata'] %}
+## UID: {{ attachment.fvRsPathAtt.attributes.uid }}
+### Annotation: {{ attachment.fvRsPathAtt.attributes.annotation }}
+### Child Action: {{ attachment.fvRsPathAtt.attributes.childAction }}
+### Description: {{ attachment.fvRsPathAtt.attributes.descr }}
+### DN: {{ attachment.fvRsPathAtt.attributes.dn }}
+### Encapsulation: {{ attachment.fvRsPathAtt.attributes.encap }}
+### Externally Managed By: {{ attachment.fvRsPathAtt.attributes.extMngdBy }}
+### Force Resolve: {{ attachment.fvRsPathAtt.attributes.forceResolve }}
+### Instruction Immediacy: {{ attachment.fvRsPathAtt.attributes.instrImedcy }}
+### lcC: {{ attachment.fvRsPathAtt.attributes.lcC }}
+### Local Owner: {{ attachment.fvRsPathAtt.attributes.lcOwn }}
+### Last Modified: {{ attachment.fvRsPathAtt.attributes.modTs }}
+### Mode: {{ attachment.fvRsPathAtt.attributes.mode }}
+### Monitoring Policy DN: {{ attachment.fvRsPathAtt.attributes.monPolDn }}
+### Primary Encapsulation: {{ attachment.fvRsPathAtt.attributes.primaryEncap }}
+### rType: {{ attachment.fvRsPathAtt.attributes.rType }}
+### State: {{ attachment.fvRsPathAtt.attributes.state }}
+### State Quality: {{ attachment.fvRsPathAtt.attributes.stateQual }}
+### Status: {{ attachment.fvRsPathAtt.attributes.status }}
+### t
+#### Cl: {{ attachment.fvRsPathAtt.attributes.tCl }}
+#### DN: {{ attachment.fvRsPathAtt.attributes.tDn }}
+#### Type: {{ attachment.fvRsPathAtt.attributes.tType }}
+{%-     endfor %}
 {%- endif %}
