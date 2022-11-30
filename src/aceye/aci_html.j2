@@ -6885,5 +6885,69 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "fvRsProv" in api %}
+<h1>Contract Providers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Contract Update</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Intent</th>
+    <th>Local Owner</th>
+    <th>Match Type</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Priority</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>tnVz Br CP Name</th>
+    <th>Trigger State</th>
+    <th>Update Collection</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for provider in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ provider.fvRsProv.attributes.uid }}</td>
+    <td>{{ provider.fvRsProv.attributes.annotation }}</td>
+    <td>{{ provider.fvRsProv.attributes.childAction }}</td>
+    <td>{{ provider.fvRsProv.attributes.ctrctUpd }}</td>
+    <td>{{ provider.fvRsProv.attributes.dn }}</td>
+    <td>{{ provider.fvRsProv.attributes.extMngdBy }}</td>
+    <td>{{ provider.fvRsProv.attributes.forceResolve }}</td>
+    <td>{{ provider.fvRsProv.attributes.intent }}</td>
+    <td>{{ provider.fvRsProv.attributes.lcOwn }}</td>
+    <td>{{ provider.fvRsProv.attributes.matchT }}</td>
+    <td>{{ provider.fvRsProv.attributes.modTs }}</td>
+    <td>{{ provider.fvRsProv.attributes.monPolDn }}</td>
+    <td>{{ provider.fvRsProv.attributes.prio }}</td>
+    <td>{{ provider.fvRsProv.attributes.rType }}</td>
+    <td>{{ provider.fvRsProv.attributes.state }}</td>
+    <td>{{ provider.fvRsProv.attributes.stateQual }}</td>
+    <td>{{ provider.fvRsProv.attributes.status }}</td>
+    <td>{{ provider.fvRsProv.attributes.tCl }}</td>
+    <td>{{ provider.fvRsProv.attributes.tContextDn }}</td>
+    <td>{{ provider.fvRsProv.attributes.tDn }}</td>
+    <td>{{ provider.fvRsProv.attributes.tRn }}</td>
+    <td>{{ provider.fvRsProv.attributes.tType }}</td>
+    <td>{{ provider.fvRsProv.attributes.tnVzBrCPName }}</td>
+    <td>{{ provider.fvRsProv.attributes.triggerSt }}</td>
+    <td>{{ provider.fvRsProv.attributes.updateCollection }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

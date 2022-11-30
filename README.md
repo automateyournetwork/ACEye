@@ -96,6 +96,8 @@ Contract Consumer Interfaces
 
 Contract Consumers
 
+Contract Providers
+
 Contract Subjects
 
 Device Packages
