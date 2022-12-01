@@ -6949,5 +6949,33 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "fvRtBd" in api %}
+<h1>Bridge Domain Target Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for bd in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ bd.fvRtBd.attributes.dn }}</td>
+    <td>{{ bd.fvRtBd.attributes.childAction }}</td>
+    <td>{{ bd.fvRtBd.attributes.lcOwn }}</td>
+    <td>{{ bd.fvRtBd.attributes.modTs }}</td>
+    <td>{{ bd.fvRtBd.attributes.status }}</td>
+    <td>{{ bd.fvRtBd.attributes.tCl }}</td>
+    <td>{{ bd.fvRtBd.attributes.tDn }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

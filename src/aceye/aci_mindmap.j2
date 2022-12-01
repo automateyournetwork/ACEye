@@ -3311,4 +3311,15 @@
 ### Trigger State: {{ provider.fvRsProv.attributes.triggerSt }}
 ### Update Collection: {{ provider.fvRsProv.attributes.updateCollection }}
 {%-     endfor %}
+{%- elif "fvRtBd" in api %}
+# Bridge Domain Target Relationships
+{%-     for bd in data_to_template['imdata'] %}
+## DN: {{ bd.fvRtBd.attributes.dn }}
+### Child Action: {{ bd.fvRtBd.attributes.childAction }}
+### Local Owner: {{ bd.fvRtBd.attributes.lcOwn }}
+### Last Modified: {{ bd.fvRtBd.attributes.modTs }}
+### Status: {{ bd.fvRtBd.attributes.status }}
+### tCl: {{ bd.fvRtBd.attributes.tCl }}
+### tDN: {{ bd.fvRtBd.attributes.tDn }}
+{%-     endfor %}
 {%- endif %}
