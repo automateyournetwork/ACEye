@@ -1403,7 +1403,7 @@ class ACEye():
     def bridge_domain_target_relationships(self):
         self.url = f"{ self.aci }/api/node/class/fvRtBd.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Bridge Domain Target Relationships code { response.status_code } for { self.url }>")
+        print(f"<Bridge Domains Target Relationships code { response.status_code } for { self.url }>")
         response_dict  = response.json()
         return response_dict
 
@@ -1929,7 +1929,7 @@ class ACEye():
                 f.write(parsed_json)
 
         if "fvRtBd" in self.url:
-            with open('Bridge Domain Target Relationships/JSON/Bridge Domain Target Relationships.json', 'w' ) as f:
+            with open('Bridge Domains Target Relationships/JSON/Bridge Domains Target Relationships.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -2459,7 +2459,7 @@ class ACEye():
                 f.write(clean_yaml)
 
         if "fvRtBd" in self.url:
-            with open('Bridge Domain Target Relationships/YAML/Bridge Domain Target Relationships.yaml', 'w' ) as f:
+            with open('Bridge Domains Target Relationships/YAML/Bridge Domains Target Relationships.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -2993,7 +2993,7 @@ class ACEye():
                 f.write(csv_output)
 
         if "fvRtBd" in self.url:
-            with open('Bridge Domain Target Relationships/CSV/Bridge Domain Target Relationships.csv', 'w' ) as f:
+            with open('Bridge Domains Target Relationships/CSV/Bridge Domains Target Relationships.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -3528,7 +3528,7 @@ class ACEye():
                 f.write(markdown_output)
 
         if "fvRtBd" in self.url:
-            with open('Bridge Domain Target Relationships/Markdown/Bridge Domain Target Relationships.md', 'w' ) as f:
+            with open('Bridge Domains Target Relationships/Markdown/Bridge Domains Target Relationships.md', 'w' ) as f:
                 f.write(markdown_output)
 
     def html_file(self, parsed_json):
@@ -4063,7 +4063,7 @@ class ACEye():
                 f.write(html_output)
 
         if "fvRtBd" in self.url:
-            with open('Bridge Domain Target Relationships/HTML/Bridge Domain Target Relationships.html', 'w' ) as f:
+            with open('Bridge Domains Target Relationships/HTML/Bridge Domains Target Relationships.html', 'w' ) as f:
                 f.write(html_output)
 
     def mindmap_file(self, parsed_json):
@@ -4594,7 +4594,7 @@ class ACEye():
                 f.write(mindmap_output)
 
         if "fvRtBd" in self.url:
-            with open('Bridge Domain Target Relationships/Mindmap/Bridge Domain Target Relationships.md', 'w' ) as f:
+            with open('Bridge Domains Target Relationships/Mindmap/Bridge Domains Target Relationships.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
