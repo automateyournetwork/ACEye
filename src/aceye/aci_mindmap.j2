@@ -3378,21 +3378,40 @@
 {%- elif "infraAccBndlGrp" in api %}
 # Access Bundle Groups
 {%-     for group in data_to_template['imdata'] %}
-## Name: {{ group.infraAccBndlGrp.attribtues.name }}
-### Name Alias: {{ group.infraAccBndlGrp.attribtues.nameAlias }}
-### Annotation: {{ group.infraAccBndlGrp.attribtues.annotation }}
-### Child Action: {{ group.infraAccBndlGrp.attribtues.childAction }}
-### Description: {{ group.infraAccBndlGrp.attribtues.descr }}
-### DN: {{ group.infraAccBndlGrp.attribtues.dn }}
-### Externally Managed By: {{ group.infraAccBndlGrp.attribtues.extMngdBy }}
-### LAG Type: {{ group.infraAccBndlGrp.attribtues.lagT }}
-### Local Owner: {{ group.infraAccBndlGrp.attribtues.lcOwn }}
-### Last Modified: {{ group.infraAccBndlGrp.attribtues.modTs }}
-### Monitoring Policy DN: {{ group.infraAccBndlGrp.attribtues.monPolDn }}
+## Name: {{ group.infraAccBndlGrp.attributes.name }}
+### Name Alias: {{ group.infraAccBndlGrp.attributes.nameAlias }}
+### Annotation: {{ group.infraAccBndlGrp.attributes.annotation }}
+### Child Action: {{ group.infraAccBndlGrp.attributes.childAction }}
+### Description: {{ group.infraAccBndlGrp.attributes.descr }}
+### DN: {{ group.infraAccBndlGrp.attributes.dn }}
+### Externally Managed By: {{ group.infraAccBndlGrp.attributes.extMngdBy }}
+### LAG Type: {{ group.infraAccBndlGrp.attributes.lagT }}
+### Local Owner: {{ group.infraAccBndlGrp.attributes.lcOwn }}
+### Last Modified: {{ group.infraAccBndlGrp.attributes.modTs }}
+### Monitoring Policy DN: {{ group.infraAccBndlGrp.attributes.monPolDn }}
 ### Owner
-#### Key: {{ group.infraAccBndlGrp.attribtues.ownerKey }}
-#### Tag: {{ group.infraAccBndlGrp.attribtues.ownerTag }}
-### Status: {{ group.infraAccBndlGrp.attribtues.status }}
-### UID: {{ group.infraAccBndlGrp.attribtues.uid }}
+#### Key: {{ group.infraAccBndlGrp.attributes.ownerKey }}
+#### Tag: {{ group.infraAccBndlGrp.attributes.ownerTag }}
+### Status: {{ group.infraAccBndlGrp.attributes.status }}
+### UID: {{ group.infraAccBndlGrp.attributes.uid }}
+{%-     endfor %}
+{%- elif "infraAccPortGrp" in api %}
+# Access Port Groups
+{%-     for group in data_to_template['imdata'] %}
+## Name: {{ group.infraAccPortGrp.attributes.name }}
+### Name Alias: {{ group.infraAccPortGrp.attributes.nameAlias }}
+### Annotation: {{ group.infraAccPortGrp.attributes.annotation }}
+### Child Action: {{ group.infraAccPortGrp.attributes.childAction }}
+### Description: {{ group.infraAccPortGrp.attributes.descr }}
+### DN: {{ group.infraAccPortGrp.attributes.dn }}
+### Externally Managed By: {{ group.infraAccPortGrp.attributes.extMngdBy }}
+### Local Owner: {{ group.infraAccPortGrp.attributes.lcOwn }}
+### Last Modified: {{ group.infraAccPortGrp.attributes.modTs }}
+### Monitoring Policy DN: {{ group.infraAccPortGrp.attributes.monPolDn }}
+### Owner
+#### Key: {{ group.infraAccPortGrp.attributes.ownerKey }}
+#### Tag: {{ group.infraAccPortGrp.attributes.ownerTag }}
+### Status: {{ group.infraAccPortGrp.attributes.status }}
+### UID: {{ group.infraAccPortGrp.attributes.uid }}
 {%-     endfor %}
 {%- endif %}
