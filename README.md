@@ -32,7 +32,7 @@ Attachable Access Entity Profiles
 
 *Audit Log
 
-Bridge Domains Address Families
+BGP Address Families
 
 BGP Domains
 
@@ -53,6 +53,8 @@ BGP Route Reflector Policy
 BGP Route Reflectors
 
 Bridge Domains
+
+Bridge Domains Target Relationships
 
 Bridge Domains To Outside
 

@@ -585,4 +585,8 @@
 {%-     for provider in data_to_template['imdata'] %}
 {{ provider.fvRsProv.attributes.uid }},{{ provider.fvRsProv.attributes.annotation }},{{ provider.fvRsProv.attributes.childAction }},{{ provider.fvRsProv.attributes.ctrctUpd }},{{ provider.fvRsProv.attributes.dn }},{{ provider.fvRsProv.attributes.extMngdBy }},{{ provider.fvRsProv.attributes.forceResolve }},{{ provider.fvRsProv.attributes.intent }},{{ provider.fvRsProv.attributes.lcOwn }},{{ provider.fvRsProv.attributes.matchT }},{{ provider.fvRsProv.attributes.modTs }},{{ provider.fvRsProv.attributes.monPolDn }},{{ provider.fvRsProv.attributes.prio }},{{ provider.fvRsProv.attributes.rType }},{{ provider.fvRsProv.attributes.state }},{{ provider.fvRsProv.attributes.stateQual }},{{ provider.fvRsProv.attributes.status }},{{ provider.fvRsProv.attributes.tCl }},{{ provider.fvRsProv.attributes.tContextDn }},{{ provider.fvRsProv.attributes.tDn }},{{ provider.fvRsProv.attributes.tRn }},{{ provider.fvRsProv.attributes.tType }},{{ provider.fvRsProv.attributes.tnVzBrCPName }},{{ provider.fvRsProv.attributes.triggerSt }},{{ provider.fvRsProv.attributes.updateCollection }}
 {%-     endfor %}
+{%- elif "fvRtBd" in api %}DN,Child Action,Local Owner,Last Modified,Status,tCl,tDN
+{%-     for bd in data_to_template['imdata'] %}
+{{ bd.fvRtBd.attributes.dn }},{{ bd.fvRtBd.attributes.childAction }},{{ bd.fvRtBd.attributes.lcOwn }},{{ bd.fvRtBd.attributes.modTs }},{{ bd.fvRtBd.attributes.status }},{{ bd.fvRtBd.attributes.tCl }},{{ bd.fvRtBd.attributes.tDn }}
+{%-     endfor %}
 {%- endif %}
