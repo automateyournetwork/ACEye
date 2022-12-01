@@ -3322,4 +3322,57 @@
 ### tCl: {{ bd.fvRtBd.attributes.tCl }}
 ### tDN: {{ bd.fvRtBd.attributes.tDn }}
 {%-     endfor %}
+{%- elif "fvRtCtx" in api %}
+# Contexts Target Relationships
+{%-     for context in data_to_template['imdata'] %}
+## DN: {{ context.fvRtCtx.attributes.dn }}
+### Child Action: {{ context.fvRtCtx.attributes.childAction }}
+### Local Owner: {{ context.fvRtCtx.attributes.lcOwn }}
+### Last Modified: {{ context.fvRtCtx.attributes.modTs }}
+### Status: {{ context.fvRtCtx.attributes.status }}
+### tCl: {{ context.fvRtCtx.attributes.tCl }}
+### tDN: {{ context.fvRtCtx.attributes.tDn }}
+{%-     endfor %}
+{%- elif "fvnsEncapBlk" in api %}
+# VLAN Encapsulation Blocks
+{%-     for vlan in data_to_template['imdata'] %}
+## Name: {{ vlan.fvnsEncapBlk.attributes.name }}
+### Name Alias: {{ vlan.fvnsEncapBlk.attributes.nameAlias }}
+### Allocation Mode: {{ vlan.fvnsEncapBlk.attributes.allocMode }}
+### Annotation: {{ vlan.fvnsEncapBlk.attributes.annotation }}
+### Child Action: {{ vlan.fvnsEncapBlk.attributes.childAction }}
+### Description: {{ vlan.fvnsEncapBlk.attributes.descr }}
+### DN: {{ vlan.fvnsEncapBlk.attributes.dn }}
+### Externally Managed By: {{ vlan.fvnsEncapBlk.attributes.extMngdBy }}
+### Scope
+#### From: {{ vlan.fvnsEncapBlk.attributes.from }}
+#### To: {{ vlan.fvnsEncapBlk.attributes.to }}
+### Local Owner: {{ vlan.fvnsEncapBlk.attributes.lcOwn }}
+### Last Modified: {{ vlan.fvnsEncapBlk.attributes.modTs }}
+### Monitoring Policy DN: {{ vlan.fvnsEncapBlk.attributes.monPolDn }}
+### Role: {{ vlan.fvnsEncapBlk.attributes.role }}
+### Status: {{ vlan.fvnsEncapBlk.attributes.status }}
+### UID: {{ vlan.fvnsEncapBlk.attributes.uid }}
+{%-     endfor %}
+{%- elif "fvnsVlanInstP" in api %}
+# VLAN Namespace Policies
+{%-     for policy in data_to_template['imdata'] %}
+## Name: {{ policy.fvnsVlanInstP.attributes.name }}
+### Name Alias: {{ policy.fvnsVlanInstP.attributes.nameAlias }}
+### Allocation Mode: {{ policy.fvnsVlanInstP.attributes.allocMode }}
+### Annotation: {{ policy.fvnsVlanInstP.attributes.annotation }}
+### Child Action: {{ policy.fvnsVlanInstP.attributes.childAction }}
+### Config Issues: {{ policy.fvnsVlanInstP.attributes.configIssues }}
+### Description: {{ policy.fvnsVlanInstP.attributes.descr }}
+### DN: {{ policy.fvnsVlanInstP.attributes.dn }}
+### Externally Managed By: {{ policy.fvnsVlanInstP.attributes.extMngdBy }}
+### Local Owner: {{ policy.fvnsVlanInstP.attributes.lcOwn }}
+### Last Modified: {{ policy.fvnsVlanInstP.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.fvnsVlanInstP.attributes.monPolDn }}
+### Owner
+#### Key: {{ policy.fvnsVlanInstP.attributes.ownerKey }}
+#### Tag: {{ policy.fvnsVlanInstP.attributes.ownerTag }}
+### Status: {{ policy.fvnsVlanInstP.attributes.status }}
+### UID: {{ policy.fvnsVlanInstP.attributes.uid }}
+{%-     endfor %}
 {%- endif %}

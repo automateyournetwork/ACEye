@@ -6977,5 +6977,125 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "fvRtCtx" in api %}
+<h1>Contexts Target Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for context in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ context.fvRtCtx.attributes.dn }}</td>
+    <td>{{ context.fvRtCtx.attributes.childAction }}</td>
+    <td>{{ context.fvRtCtx.attributes.lcOwn }}</td>
+    <td>{{ context.fvRtCtx.attributes.modTs }}</td>
+    <td>{{ context.fvRtCtx.attributes.status }}</td>
+    <td>{{ context.fvRtCtx.attributes.tCl }}</td>
+    <td>{{ context.fvRtCtx.attributes.tDn }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "fvnsEncapBlk" in api %}
+<h1>VLAN Encapsulation Blocks</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Allocation Mode</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitroing Policy DN</th>
+    <th>Role</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for vlan in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ vlan.fvnsEncapBlk.attributes.name }}</td>
+    <td>{{ vlan.fvnsEncapBlk.attributes.nameAlias }}</td>
+    <td>{{ vlan.fvnsEncapBlk.attributes.allocMode }}</td>
+    <td>{{ vlan.fvnsEncapBlk.attributes.annotation }}</td>
+    <td>{{ vlan.fvnsEncapBlk.attributes.childAction }}</td>
+    <td>{{ vlan.fvnsEncapBlk.attributes.descr }}</td>
+    <td>{{ vlan.fvnsEncapBlk.attributes.dn }}</td>
+    <td>{{ vlan.fvnsEncapBlk.attributes.extMngdBy }}</td>
+    <td>{{ vlan.fvnsEncapBlk.attributes.from }}</td>
+    <td>{{ vlan.fvnsEncapBlk.attributes.to }}</td>
+    <td>{{ vlan.fvnsEncapBlk.attributes.lcOwn }}</td>
+    <td>{{ vlan.fvnsEncapBlk.attributes.modTs }}</td>
+    <td>{{ vlan.fvnsEncapBlk.attributes.monPolDn }}</td>
+    <td>{{ vlan.fvnsEncapBlk.attributes.role }}</td>
+    <td>{{ vlan.fvnsEncapBlk.attributes.status }}</td>
+    <td>{{ vlan.fvnsEncapBlk.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "fvnsVlanInstP" in api %}
+<h1>VLAN Namespace Policies</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Allocation Mode</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Config Issues</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for policy in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ policy.fvnsVlanInstP.attributes.name }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.nameAlias }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.allocMode }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.annotation }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.childAction }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.configIssues }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.descr }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.dn }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.extMngdBy }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.lcOwn }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.modTs }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.monPolDn }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.ownerKey }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.ownerTag }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.status }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
