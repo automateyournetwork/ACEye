@@ -272,6 +272,8 @@ Users
 
 VLAN Encapsulation Blocks
 
+VLAN Namespace Policies
+
 VLAN Pools
 
 * Both Audit Log and Events are commented out of the base package due to the potentially huge number of records; should you want the Audit Log / Events please uncomment out lines 72-73 (Audit Log) and 76-77 (Events)

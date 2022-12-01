@@ -865,4 +865,10 @@
 {%-     for vlan in data_to_template['imdata'] %}
 | {{ vlan.fvnsEncapBlk.attributes.name }} | {{ vlan.fvnsEncapBlk.attributes.nameAlias }} | {{ vlan.fvnsEncapBlk.attributes.allocMode }} | {{ vlan.fvnsEncapBlk.attributes.annotation }} | {{ vlan.fvnsEncapBlk.attributes.childAction }} | {{ vlan.fvnsEncapBlk.attributes.descr }} | {{ vlan.fvnsEncapBlk.attributes.dn }} | {{ vlan.fvnsEncapBlk.attributes.extMngdBy }} | {{ vlan.fvnsEncapBlk.attributes.from }} | {{ vlan.fvnsEncapBlk.attributes.to }} | {{ vlan.fvnsEncapBlk.attributes.lcOwn }} | {{ vlan.fvnsEncapBlk.attributes.modTs }} | {{ vlan.fvnsEncapBlk.attributes.monPolDn }} | {{ vlan.fvnsEncapBlk.attributes.role }} | {{ vlan.fvnsEncapBlk.attributes.status }} | {{ vlan.fvnsEncapBlk.attributes.uid }} |
 {%-     endfor %}
+{%- elif "fvnsVlanInstP" in api %}# VLAN Namespace Policies
+| Name | Name Alias | Allocation Mode | Annotation | Child Action | Config Issues | Description | DN | Externally Managed By | Local Owner | Last Modified | Monitoring Policy DN | Owner Key | Owner Tag | Status | UID |
+| ---- | ---------- | --------------- | ---------- | ------------ | ------------- | ----------- | -- | --------------------- | ----------- | ------------- | -------------------- | --------- | --------- | ------ | --- |
+{%-     for policy in data_to_template['imdata'] %}
+| {{ policy.fvnsVlanInstP.attributes.name }} | {{ policy.fvnsVlanInstP.attributes.nameAlias }} | {{ policy.fvnsVlanInstP.attributes.allocMode }} | {{ policy.fvnsVlanInstP.attributes.annotation }} | {{ policy.fvnsVlanInstP.attributes.childAction }} | {{ policy.fvnsVlanInstP.attributes.configIssues }} | {{ policy.fvnsVlanInstP.attributes.descr }} | {{ policy.fvnsVlanInstP.attributes.dn }} | {{ policy.fvnsVlanInstP.attributes.extMngdBy }} | {{ policy.fvnsVlanInstP.attributes.lcOwn }} | {{ policy.fvnsVlanInstP.attributes.modTs }} | {{ policy.fvnsVlanInstP.attributes.monPolDn }} | {{ policy.fvnsVlanInstP.attributes.ownerKey }} | {{ policy.fvnsVlanInstP.attributes.ownerTag }} | {{ policy.fvnsVlanInstP.attributes.status }} | {{ policy.fvnsVlanInstP.attributes.uid }} |
+{%-     endfor %}
 {%- endif %}

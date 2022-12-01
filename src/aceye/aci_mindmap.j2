@@ -3354,4 +3354,25 @@
 ### Status: {{ vlan.fvnsEncapBlk.attributes.status }}
 ### UID: {{ vlan.fvnsEncapBlk.attributes.uid }}
 {%-     endfor %}
+{%- elif "fvnsVlanInstP" in api %}
+# VLAN Namespace Policies
+{%-     for policy in data_to_template['imdata'] %}
+## Name: {{ policy.fvnsVlanInstP.attributes.name }}
+### Name Alias: {{ policy.fvnsVlanInstP.attributes.nameAlias }}
+### Allocation Mode: {{ policy.fvnsVlanInstP.attributes.allocMode }}
+### Annotation: {{ policy.fvnsVlanInstP.attributes.annotation }}
+### Child Action: {{ policy.fvnsVlanInstP.attributes.childAction }}
+### Config Issues: {{ policy.fvnsVlanInstP.attributes.configIssues }}
+### Description: {{ policy.fvnsVlanInstP.attributes.descr }}
+### DN: {{ policy.fvnsVlanInstP.attributes.dn }}
+### Externally Managed By: {{ policy.fvnsVlanInstP.attributes.extMngdBy }}
+### Local Owner: {{ policy.fvnsVlanInstP.attributes.lcOwn }}
+### Last Modified: {{ policy.fvnsVlanInstP.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.fvnsVlanInstP.attributes.monPolDn }}
+### Owner
+#### Key: {{ policy.fvnsVlanInstP.attributes.ownerKey }}
+#### Tag: {{ policy.fvnsVlanInstP.attributes.ownerTag }}
+### Status: {{ policy.fvnsVlanInstP.attributes.status }}
+### UID: {{ policy.fvnsVlanInstP.attributes.uid }}
+{%-     endfor %}
 {%- endif %}

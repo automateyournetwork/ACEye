@@ -7051,5 +7051,51 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "fvnsVlanInstP" in api %}
+<h1>VLAN Namespace Policies</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Allocation Mode</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Config Issues</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for policy in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ policy.fvnsVlanInstP.attributes.name }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.nameAlias }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.allocMode }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.annotation }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.childAction }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.configIssues }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.descr }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.dn }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.extMngdBy }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.lcOwn }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.modTs }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.monPolDn }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.ownerKey }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.ownerTag }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.status }}</td>
+    <td>{{ policy.fvnsVlanInstP.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
