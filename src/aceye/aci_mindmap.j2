@@ -3375,4 +3375,24 @@
 ### Status: {{ policy.fvnsVlanInstP.attributes.status }}
 ### UID: {{ policy.fvnsVlanInstP.attributes.uid }}
 {%-     endfor %}
+{%- elif "infraAccBndlGrp" in api %}
+# Access Bundle Groups
+{%-     for group in data_to_template['imdata'] %}
+## Name: {{ group.infraAccBndlGrp.attribtues.name }}
+### Name Alias: {{ group.infraAccBndlGrp.attribtues.nameAlias }}
+### Annotation: {{ group.infraAccBndlGrp.attribtues.annotation }}
+### Child Action: {{ group.infraAccBndlGrp.attribtues.childAction }}
+### Description: {{ group.infraAccBndlGrp.attribtues.descr }}
+### DN: {{ group.infraAccBndlGrp.attribtues.dn }}
+### Externally Managed By: {{ group.infraAccBndlGrp.attribtues.extMngdBy }}
+### LAG Type: {{ group.infraAccBndlGrp.attribtues.lagT }}
+### Local Owner: {{ group.infraAccBndlGrp.attribtues.lcOwn }}
+### Last Modified: {{ group.infraAccBndlGrp.attribtues.modTs }}
+### Monitoring Policy DN: {{ group.infraAccBndlGrp.attribtues.monPolDn }}
+### Owner
+#### Key: {{ group.infraAccBndlGrp.attribtues.ownerKey }}
+#### Tag: {{ group.infraAccBndlGrp.attribtues.ownerTag }}
+### Status: {{ group.infraAccBndlGrp.attribtues.status }}
+### UID: {{ group.infraAccBndlGrp.attribtues.uid }}
+{%-     endfor %}
 {%- endif %}

@@ -7097,5 +7097,49 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "infraAccBndlGrp" in api %}
+<h1>Access Bundle Groups</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>LAG Type</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for group in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ group.infraAccBndlGrp.attribtues.name }}</td>
+    <td>{{ group.infraAccBndlGrp.attribtues.nameAlias }}</td>
+    <td>{{ group.infraAccBndlGrp.attribtues.annotation }}</td>
+    <td>{{ group.infraAccBndlGrp.attribtues.childAction }}</td>
+    <td>{{ group.infraAccBndlGrp.attribtues.descr }}</td>
+    <td>{{ group.infraAccBndlGrp.attribtues.dn }}</td>
+    <td>{{ group.infraAccBndlGrp.attribtues.extMngdBy }}</td>
+    <td>{{ group.infraAccBndlGrp.attribtues.lagT }}</td>
+    <td>{{ group.infraAccBndlGrp.attribtues.lcOwn }}</td>
+    <td>{{ group.infraAccBndlGrp.attribtues.modTs }}</td>
+    <td>{{ group.infraAccBndlGrp.attribtues.monPolDn }}</td>
+    <td>{{ group.infraAccBndlGrp.attribtues.ownerKey }}</td>
+    <td>{{ group.infraAccBndlGrp.attribtues.ownerTag }}</td>
+    <td>{{ group.infraAccBndlGrp.attribtues.status }}</td>
+    <td>{{ group.infraAccBndlGrp.attribtues.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
