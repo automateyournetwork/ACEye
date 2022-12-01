@@ -859,4 +859,10 @@
 {%-     for context in data_to_template['imdata'] %}
 | {{ context.fvRtCtx.attributes.dn }} | {{ context.fvRtCtx.attributes.childAction }} | {{ context.fvRtCtx.attributes.lcOwn }} | {{ context.fvRtCtx.attributes.modTs }} | {{ context.fvRtCtx.attributes.status }} | {{ context.fvRtCtx.attributes.tCl }} | {{ context.fvRtCtx.attributes.tDn }} |
 {%-     endfor %}
+{%- elif "fvnsEncapBlk" in api %}# VLAN Encapsulation Blocks
+| Name | Name Alias | Allocation Mode | Annotation | Child Action | Description | DN | Externally Managed By | From | To | Local Owner | Last Modified | Monitroing Policy DN | Role | Status | UID |
+| ---- | ---------- | --------------- | ---------- | ------------ | ----------- | -- | --------------------- | ---- | -- | ----------- | ------------- | -------------------- | ---- | ------ | --- |
+{%-     for vlan in data_to_template['imdata'] %}
+| {{ vlan.fvnsEncapBlk.attributes.name }} | {{ vlan.fvnsEncapBlk.attributes.nameAlias }} | {{ vlan.fvnsEncapBlk.attributes.allocMode }} | {{ vlan.fvnsEncapBlk.attributes.annotation }} | {{ vlan.fvnsEncapBlk.attributes.childAction }} | {{ vlan.fvnsEncapBlk.attributes.descr }} | {{ vlan.fvnsEncapBlk.attributes.dn }} | {{ vlan.fvnsEncapBlk.attributes.extMngdBy }} | {{ vlan.fvnsEncapBlk.attributes.from }} | {{ vlan.fvnsEncapBlk.attributes.to }} | {{ vlan.fvnsEncapBlk.attributes.lcOwn }} | {{ vlan.fvnsEncapBlk.attributes.modTs }} | {{ vlan.fvnsEncapBlk.attributes.monPolDn }} | {{ vlan.fvnsEncapBlk.attributes.role }} | {{ vlan.fvnsEncapBlk.attributes.status }} | {{ vlan.fvnsEncapBlk.attributes.uid }} |
+{%-     endfor %}
 {%- endif %}

@@ -3333,4 +3333,25 @@
 ### tCl: {{ context.fvRtCtx.attributes.tCl }}
 ### tDN: {{ context.fvRtCtx.attributes.tDn }}
 {%-     endfor %}
+{%- elif "fvnsEncapBlk" in api %}
+# VLAN Encapsulation Blocks
+{%-     for vlan in data_to_template['imdata'] %}
+## Name: {{ vlan.fvnsEncapBlk.attributes.name }}
+### Name Alias: {{ vlan.fvnsEncapBlk.attributes.nameAlias }}
+### Allocation Mode: {{ vlan.fvnsEncapBlk.attributes.allocMode }}
+### Annotation: {{ vlan.fvnsEncapBlk.attributes.annotation }}
+### Child Action: {{ vlan.fvnsEncapBlk.attributes.childAction }}
+### Description: {{ vlan.fvnsEncapBlk.attributes.descr }}
+### DN: {{ vlan.fvnsEncapBlk.attributes.dn }}
+### Externally Managed By: {{ vlan.fvnsEncapBlk.attributes.extMngdBy }}
+### Scope
+#### From: {{ vlan.fvnsEncapBlk.attributes.from }}
+#### To: {{ vlan.fvnsEncapBlk.attributes.to }}
+### Local Owner: {{ vlan.fvnsEncapBlk.attributes.lcOwn }}
+### Last Modified: {{ vlan.fvnsEncapBlk.attributes.modTs }}
+### Monitoring Policy DN: {{ vlan.fvnsEncapBlk.attributes.monPolDn }}
+### Role: {{ vlan.fvnsEncapBlk.attributes.role }}
+### Status: {{ vlan.fvnsEncapBlk.attributes.status }}
+### UID: {{ vlan.fvnsEncapBlk.attributes.uid }}
+{%-     endfor %}
 {%- endif %}
