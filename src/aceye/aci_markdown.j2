@@ -853,4 +853,10 @@
 {%-     for bd in data_to_template['imdata'] %}
 | {{ bd.fvRtBd.attributes.dn }} | {{ bd.fvRtBd.attributes.childAction }} | {{ bd.fvRtBd.attributes.lcOwn }} | {{ bd.fvRtBd.attributes.modTs }} | {{ bd.fvRtBd.attributes.status }} | {{ bd.fvRtBd.attributes.tCl }} | {{ bd.fvRtBd.attributes.tDn }} |
 {%-     endfor %}
+{%- elif "fvRtCtx" in api %}# Bridge Domain Target Relationships
+| DN | Child Action | Local Owner | Last Modified | Status | tCl | tDN |
+| -- | ------------ | ----------- | ------------- | ------ | --- | --- |
+{%-     for context in data_to_template['imdata'] %}
+| {{ context.fvRtCtx.attributes.dn }} | {{ context.fvRtCtx.attributes.childAction }} | {{ context.fvRtCtx.attributes.lcOwn }} | {{ context.fvRtCtx.attributes.modTs }} | {{ context.fvRtCtx.attributes.status }} | {{ context.fvRtCtx.attributes.tCl }} | {{ context.fvRtCtx.attributes.tDn }} |
+{%-     endfor %}
 {%- endif %}

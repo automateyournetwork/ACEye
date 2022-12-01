@@ -3322,4 +3322,15 @@
 ### tCl: {{ bd.fvRtBd.attributes.tCl }}
 ### tDN: {{ bd.fvRtBd.attributes.tDn }}
 {%-     endfor %}
+{%- elif "fvRtCtx" in api %}
+# Contexts Target Relationships
+{%-     for context in data_to_template['imdata'] %}
+## DN: {{ context.fvRtCtx.attributes.dn }}
+### Child Action: {{ context.fvRtCtx.attributes.childAction }}
+### Local Owner: {{ context.fvRtCtx.attributes.lcOwn }}
+### Last Modified: {{ context.fvRtCtx.attributes.modTs }}
+### Status: {{ context.fvRtCtx.attributes.status }}
+### tCl: {{ context.fvRtCtx.attributes.tCl }}
+### tDN: {{ context.fvRtCtx.attributes.tDn }}
+{%-     endfor %}
 {%- endif %}

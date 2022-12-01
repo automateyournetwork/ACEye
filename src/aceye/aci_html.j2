@@ -6977,5 +6977,33 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "fvRtCtx" in api %}
+<h1>Contexts Target Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for context in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ context.fvRtCtx.attributes.dn }}</td>
+    <td>{{ context.fvRtCtx.attributes.childAction }}</td>
+    <td>{{ context.fvRtCtx.attributes.lcOwn }}</td>
+    <td>{{ context.fvRtCtx.attributes.modTs }}</td>
+    <td>{{ context.fvRtCtx.attributes.status }}</td>
+    <td>{{ context.fvRtCtx.attributes.tCl }}</td>
+    <td>{{ context.fvRtCtx.attributes.tDn }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
