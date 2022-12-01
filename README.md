@@ -110,6 +110,8 @@ Contract Providers
 
 Contract Subjects
 
+Controllers
+
 Device Packages
 
 Domain Attachments

@@ -889,4 +889,10 @@
 {%-     for profile in data_to_template['imdata'] %}
 | {{ profile.infraAccPortP.attributes.name }} | {{ profile.infraAccPortP.attributes.nameAlias }} | {{ profile.infraAccPortP.attributes.annotation }} | {{ profile.infraAccPortP.attributes.childAction }} | {{ profile.infraAccPortP.attributes.descr }} | {{ profile.infraAccPortP.attributes.dn }} | {{ profile.infraAccPortP.attributes.extMngdBy }} | {{ profile.infraAccPortP.attributes.lcOwn }} | {{ profile.infraAccPortP.attributes.modTs }} | {{ profile.infraAccPortP.attributes.monPolDn }} | {{ profile.infraAccPortP.attributes.ownerKey }} | {{ profile.infraAccPortP.attributes.ownerTag }} | {{ profile.infraAccPortP.attributes.status }} | {{ profile.infraAccPortP.attributes.uid }} |
 {%-     endfor %}
+{%- elif "infraCont" in api %}# Controllers
+| Name | Name Alias | Child Action | DN | DRR Mode | DSCV Mode | Fabric Domain Name | Local Owner | Last Modified | Monitoring Policy DN | Size | Status | Start Timestamp | UCT Difference |
+| ---- | ---------- | ------------ | -- | -------- | --------- | ------------------ | ----------- | ------------- | -------------------- | ---- | ------ | --------------- | -------------- |
+{%-     for controller in data_to_template['imdata'] %}
+| {{ controller.infraCont.attributes.name }} | {{ controller.infraCont.attributes.nameAlias }} | {{ controller.infraCont.attributes.childAction }} | {{ controller.infraCont.attributes.dn }} | {{ controller.infraCont.attributes.drrMd }} | {{ controller.infraCont.attributes.dscvMd }} | {{ controller.infraCont.attributes.fbDmNm }} | {{ controller.infraCont.attributes.lcOwn }} | {{ controller.infraCont.attributes.modTs }} | {{ controller.infraCont.attributes.monPolDn }} | {{ controller.infraCont.attributes.size }} | {{ controller.infraCont.attributes.status }} | {{ controller.infraCont.attributes.strtTs }} | {{ controller.infraCont.attributes.uctDiff }} |
+{%-     endfor %}
 {%- endif %}

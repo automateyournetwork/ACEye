@@ -7225,5 +7225,47 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "infraCont" in api %}
+<h1>Controllers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>DRR Mode</th>
+    <th>DSCV Mode</th>
+    <th>Fabric Domain Name</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Size</th>
+    <th>Status</th>
+    <th>Start Timestamp</th>
+    <th>UCT Difference</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for controller in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ controller.infraCont.attributes.name }}</td>
+    <td>{{ controller.infraCont.attributes.nameAlias }}</td>
+    <td>{{ controller.infraCont.attributes.childAction }}</td>
+    <td>{{ controller.infraCont.attributes.dn }}</td>
+    <td>{{ controller.infraCont.attributes.drrMd }}</td>
+    <td>{{ controller.infraCont.attributes.dscvMd }}</td>
+    <td>{{ controller.infraCont.attributes.fbDmNm }}</td>
+    <td>{{ controller.infraCont.attributes.lcOwn }}</td>
+    <td>{{ controller.infraCont.attributes.modTs }}</td>
+    <td>{{ controller.infraCont.attributes.monPolDn }}</td>
+    <td>{{ controller.infraCont.attributes.size }}</td>
+    <td>{{ controller.infraCont.attributes.status }}</td>
+    <td>{{ controller.infraCont.attributes.strtTs }}</td>
+    <td>{{ controller.infraCont.attributes.uctDiff }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

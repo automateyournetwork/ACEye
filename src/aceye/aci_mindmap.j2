@@ -3433,4 +3433,64 @@
 ### Status: {{ profile.infraAccPortP.attributes.status }}
 ### UID: {{ profile.infraAccPortP.attributes.uid }}
 {%-     endfor %}
+{%- elif "infraCont" in api %}
+<h1>Controllers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>DRR Mode</th>
+    <th>DSCV Mode</th>
+    <th>Fabric Domain Name</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Size</th>
+    <th>Status</th>
+    <th>Start Timestamp</th>
+    <th>UCT Difference</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for controller in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ controller.infraCont.attributes.name }}</td>
+    <td>{{ controller.infraCont.attributes.nameAlias }}</td>
+    <td>{{ controller.infraCont.attributes.childAction }}</td>
+    <td>{{ controller.infraCont.attributes.dn }}</td>
+    <td>{{ controller.infraCont.attributes.drrMd }}</td>
+    <td>{{ controller.infraCont.attributes.dscvMd }}</td>
+    <td>{{ controller.infraCont.attributes.fbDmNm }}</td>
+    <td>{{ controller.infraCont.attributes.lcOwn }}</td>
+    <td>{{ controller.infraCont.attributes.modTs }}</td>
+    <td>{{ controller.infraCont.attributes.monPolDn }}</td>
+    <td>{{ controller.infraCont.attributes.size }}</td>
+    <td>{{ controller.infraCont.attributes.status }}</td>
+    <td>{{ controller.infraCont.attributes.strtTs }}</td>
+    <td>{{ controller.infraCont.attributes.uctDiff }}</td>
+  </tr>
+{%-     endfor %}
+{%- elif "infraCont" in api %}
+# Controllers
+{%-     for controller in data_to_template['imdata'] %}
+## Name: {{ controller.infraCont.attributes.name }}
+### Name Alias: {{ controller.infraCont.attributes.nameAlias }}
+### Child Action: {{ controller.infraCont.attributes.childAction }}
+### DN: {{ controller.infraCont.attributes.dn }}
+### Mode
+#### DRR: {{ controller.infraCont.attributes.drrMd }}
+#### DSCV: {{ controller.infraCont.attributes.dscvMd }}
+### Fabric Name: {{ controller.infraCont.attributes.fbDmNm }}
+### Local Owner: {{ controller.infraCont.attributes.lcOwn }}
+### Timestamp
+#### Last Modified: {{ controller.infraCont.attributes.modTs }}
+#### Start: {{ controller.infraCont.attributes.strtTs }}
+### Monitoring Policy DN: {{ controller.infraCont.attributes.monPolDn }}
+### Size: {{ controller.infraCont.attributes.size }}
+### Status: {{ controller.infraCont.attributes.status }}
+### UCT Difference: {{ controller.infraCont.attributes.uctDiff }}
+{%-     endfor %}
 {%- endif %}
