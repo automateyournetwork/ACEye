@@ -3414,4 +3414,23 @@
 ### Status: {{ group.infraAccPortGrp.attributes.status }}
 ### UID: {{ group.infraAccPortGrp.attributes.uid }}
 {%-     endfor %}
+{%- elif "infraAccPortP" in api %}
+# Access Port Groups
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.infraAccPortP.attributes.name }}
+### Name Alias: {{ profile.infraAccPortP.attributes.nameAlias }}
+### Annotation: {{ profile.infraAccPortP.attributes.annotation }}
+### Child Action: {{ profile.infraAccPortP.attributes.childAction }}
+### Description: {{ profile.infraAccPortP.attributes.descr }}
+### DN: {{ profile.infraAccPortP.attributes.dn }}
+### Externally Managed By: {{ profile.infraAccPortP.attributes.extMngdBy }}
+### Local Owner: {{ profile.infraAccPortP.attributes.lcOwn }}
+### Last Modified: {{ profile.infraAccPortP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.infraAccPortP.attributes.monPolDn }}
+### Owner
+#### Key: {{ profile.infraAccPortP.attributes.ownerKey }}
+#### Tag: {{ profile.infraAccPortP.attributes.ownerTag }}
+### Status: {{ profile.infraAccPortP.attributes.status }}
+### UID: {{ profile.infraAccPortP.attributes.uid }}
+{%-     endfor %}
 {%- endif %}

@@ -18,6 +18,8 @@ Access Control Scope
 
 Access Port Groups
 
+Access Port Profiles
+
 Application Profiles
 
 ARP Adjacency Endpoints

@@ -7183,5 +7183,47 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "infraAccPortP" in api %}
+<h1>Access Port Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.infraAccPortP.attributes.name }}</td>
+    <td>{{ profile.infraAccPortP.attributes.nameAlias }}</td>
+    <td>{{ profile.infraAccPortP.attributes.annotation }}</td>
+    <td>{{ profile.infraAccPortP.attributes.childAction }}</td>
+    <td>{{ profile.infraAccPortP.attributes.descr }}</td>
+    <td>{{ profile.infraAccPortP.attributes.dn }}</td>
+    <td>{{ profile.infraAccPortP.attributes.extMngdBy }}</td>
+    <td>{{ profile.infraAccPortP.attributes.lcOwn }}</td>
+    <td>{{ profile.infraAccPortP.attributes.modTs }}</td>
+    <td>{{ profile.infraAccPortP.attributes.monPolDn }}</td>
+    <td>{{ profile.infraAccPortP.attributes.ownerKey }}</td>
+    <td>{{ profile.infraAccPortP.attributes.ownerTag }}</td>
+    <td>{{ profile.infraAccPortP.attributes.status }}</td>
+    <td>{{ profile.infraAccPortP.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
