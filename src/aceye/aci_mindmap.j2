@@ -3683,4 +3683,26 @@
 #### DN: {{ namespace.infraRsVlanNs.attributes.tDn }}
 #### Type: {{ namespace.infraRsVlanNs.attributes.tType }}
 {%-     endfor %}
+{%- elif "infraRsSHPortS" in api %}
+# VLAN Namespace Source Relationships
+{%-     for selector in data_to_template['imdata'] %}
+## UID: {{ selector.infraRsSHPortS.attributes.uid }}
+### Annotation: {{ selector.infraRsSHPortS.attributes.annotation }}
+### Child Action: {{ selector.infraRsSHPortS.attributes.childAction }}
+### DN: {{ selector.infraRsSHPortS.attributes.dn }}
+### Externally Managed By: {{ selector.infraRsSHPortS.attributes.extMngdBy }}
+### FEX ID: {{ selector.infraRsSHPortS.attributes.fexId }}
+### Force Resolve: {{ selector.infraRsSHPortS.attributes.forceResolve }}
+### Local Owner: {{ selector.infraRsSHPortS.attributes.lcOwn }}
+### Last Modifed: {{ selector.infraRsSHPortS.attributes.modTs }}
+### Monitoring Policy DN: {{ selector.infraRsSHPortS.attributes.monPolDn }}
+### rType: {{ selector.infraRsSHPortS.attributes.rType }}
+### State: {{ selector.infraRsSHPortS.attributes.state }}
+### State Quality: {{ selector.infraRsSHPortS.attributes.stateQual }}
+### Status: {{ selector.infraRsSHPortS.attributes.status }}
+### t
+#### Cl: {{ selector.infraRsSHPortS.attributes.tCl }}
+#### DN: {{ selector.infraRsSHPortS.attributes.tDn }}
+#### Type: {{ selector.infraRsSHPortS.attributes.tType }}
+{%-     endfor %}
 {%- endif %}

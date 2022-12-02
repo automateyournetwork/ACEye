@@ -7681,5 +7681,53 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "infraRsSHPortS" in api %}
+<h1>Spine Host Port Selector</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>FEX ID</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for selector in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ selector.infraRsSHPortS.attributes.uid }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.annotation }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.childAction }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.dn }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.extMngdBy }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.fexId }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.forceResolve }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.lcOwn }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.modTs }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.monPolDn }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.rType }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.state }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.stateQual }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.status }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.tCl }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.tDn }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.tType }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
