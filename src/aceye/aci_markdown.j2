@@ -904,7 +904,7 @@
 {%- elif "infraFuncP" in api %}# Function Policies
 | Name | Name Alias | Annotation | Child Action | Description | DN | Externally Managed By | Local Owner | Last Modified | Monitoring Policy DN | Owner Key | Owner Tag | Status | UID |
 | ---- | ---------- | ---------- | ------------ | ----------- | -- | --------------------- | ----------- | ------------- | -------------------- | --------- | --------- | ------ | --- |
-{%-     for policy in data_to_template['imdata'] %}
+{%-     for function in data_to_template['imdata'] %}
 | {{ function.infraFuncP.attributes.name }} | {{ function.infraFuncP.attributes.nameAlias }} | {{ function.infraFuncP.attributes.annotation }} | {{ function.infraFuncP.attributes.childAction }} | {{ function.infraFuncP.attributes.descr }} | {{ function.infraFuncP.attributes.dn }} | {{ function.infraFuncP.attributes.extMngdBy }} | {{ function.infraFuncP.attributes.lcOwn }} | {{ function.infraFuncP.attributes.modTs }} | {{ function.infraFuncP.attributes.monPolDn }} | {{ function.infraFuncP.attributes.ownerKey }} | {{ function.infraFuncP.attributes.ownerTag }} | {{ function.infraFuncP.attributes.status }} | {{ function.infraFuncP.attributes.uid }} |
 {%-     endfor %}
 {%- elif "infraHPortS" in api %}# Host Port Selectors
