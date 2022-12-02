@@ -3617,4 +3617,70 @@
 #### DN: {{ profile.infraRsAttEntP.attributes.tDn }}
 #### Type: {{ profile.infraRsAttEntP.attributes.tType }}
 {%-     endfor %}
+{%- elif "infraRsDomP" in api %}
+# Domain Profiles Source Relationships
+{%-     for profile in data_to_template['imdata'] %}
+## UID: {{ profile.infraRsDomP.attributes.uid }}
+### Annotation: {{ profile.infraRsDomP.attributes.annotation }}
+### Child Action: {{ profile.infraRsDomP.attributes.childAction }}
+### DN: {{ profile.infraRsDomP.attributes.dn }}
+### Externally Managed By: {{ profile.infraRsDomP.attributes.extMngdBy }}
+### FEX ID: {{ profile.infraRsDomP.attributes.fexId }}
+### Force Resolve: {{ profile.infraRsDomP.attributes.forceResolve }}
+### Local Owner: {{ profile.infraRsDomP.attributes.lcOwn }}
+### Last Modifed: {{ profile.infraRsDomP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.infraRsDomP.attributes.monPolDn }}
+### rType: {{ profile.infraRsDomP.attributes.rType }}
+### State: {{ profile.infraRsDomP.attributes.state }}
+### State Quality: {{ profile.infraRsDomP.attributes.stateQual }}
+### Status: {{ profile.infraRsDomP.attributes.status }}
+### t
+#### Cl: {{ profile.infraRsDomP.attributes.tCl }}
+#### DN: {{ profile.infraRsDomP.attributes.tDn }}
+#### Type: {{ profile.infraRsDomP.attributes.tType }}
+{%-     endfor %}
+{%- elif "infraRsSpAccGrp" in api %}
+# Spine Access Policy Groups
+{%-     for group in data_to_template['imdata'] %}
+## UID: {{ group.infraRsSpAccGrp.attributes.uid }}
+### Annotation: {{ group.infraRsSpAccGrp.attributes.annotation }}
+### Child Action: {{ group.infraRsSpAccGrp.attributes.childAction }}
+### DN: {{ group.infraRsSpAccGrp.attributes.dn }}
+### Externally Managed By: {{ group.infraRsSpAccGrp.attributes.extMngdBy }}
+### FEX ID: {{ group.infraRsSpAccGrp.attributes.fexId }}
+### Force Resolve: {{ group.infraRsSpAccGrp.attributes.forceResolve }}
+### Local Owner: {{ group.infraRsSpAccGrp.attributes.lcOwn }}
+### Last Modifed: {{ group.infraRsSpAccGrp.attributes.modTs }}
+### Monitoring Policy DN: {{ group.infraRsSpAccGrp.attributes.monPolDn }}
+### rType: {{ group.infraRsSpAccGrp.attributes.rType }}
+### State: {{ group.infraRsSpAccGrp.attributes.state }}
+### State Quality: {{ group.infraRsSpAccGrp.attributes.stateQual }}
+### Status: {{ group.infraRsSpAccGrp.attributes.status }}
+### t
+#### Cl: {{ group.infraRsSpAccGrp.attributes.tCl }}
+#### DN: {{ group.infraRsSpAccGrp.attributes.tDn }}
+#### Type: {{ group.infraRsSpAccGrp.attributes.tType }}
+{%-     endfor %}
+{%- elif "infraRsSpAccGrp" in api %}
+# VLAN Namespace Source Relationships
+{%-     for namespace in data_to_template['imdata'] %}
+## UID: {{ namespace.infraRsVlanNs.attributes.uid }}
+### Annotation: {{ namespace.infraRsVlanNs.attributes.annotation }}
+### Child Action: {{ namespace.infraRsVlanNs.attributes.childAction }}
+### DN: {{ namespace.infraRsVlanNs.attributes.dn }}
+### Externally Managed By: {{ namespace.infraRsVlanNs.attributes.extMngdBy }}
+### FEX ID: {{ namespace.infraRsVlanNs.attributes.fexId }}
+### Force Resolve: {{ namespace.infraRsVlanNs.attributes.forceResolve }}
+### Local Owner: {{ namespace.infraRsVlanNs.attributes.lcOwn }}
+### Last Modifed: {{ namespace.infraRsVlanNs.attributes.modTs }}
+### Monitoring Policy DN: {{ namespace.infraRsVlanNs.attributes.monPolDn }}
+### rType: {{ namespace.infraRsVlanNs.attributes.rType }}
+### State: {{ namespace.infraRsVlanNs.attributes.state }}
+### State Quality: {{ namespace.infraRsVlanNs.attributes.stateQual }}
+### Status: {{ namespace.infraRsVlanNs.attributes.status }}
+### t
+#### Cl: {{ namespace.infraRsVlanNs.attributes.tCl }}
+#### DN: {{ namespace.infraRsVlanNs.attributes.tDn }}
+#### Type: {{ namespace.infraRsVlanNs.attributes.tType }}
+{%-     endfor %}
 {%- endif %}

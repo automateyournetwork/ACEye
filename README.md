@@ -120,6 +120,8 @@ Device Packages
 
 Domain Attachments
 
+Domain Profile Source Relationships
+
 Endpoint Profile Containers
 
 Endpoints (All Connected Fabric Endpoints)
@@ -276,6 +278,8 @@ QOS Classes
 
 Security Domains
 
+Spine Access Policy Groups
+
 Spine Interface Profiles
 
 Spine Switch Profiles
@@ -293,6 +297,8 @@ Users
 VLAN Encapsulation Blocks
 
 VLAN Namespace Policies
+
+VLAN Namespace Source Relationships
 
 VLAN Pools
 
