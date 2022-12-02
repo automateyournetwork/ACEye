@@ -3551,4 +3551,26 @@
 ### Type: {{ port.infraHPortS.attributes.type }}
 ### UID: {{ port.infraHPortS.attributes.uid }}
 {%-     endfor %}
+{%- elif "infraPortBlk" in api %}
+# Port Blocks
+{%-     for port_block in data_to_template['imdata'] %}
+## Name: {{ port_block.infraPortBlk.attributes.name }}
+### Name Alias: {{ port_block.infraPortBlk.attributes.nameAlias }}
+### Annotation: {{ port_block.infraPortBlk.attributes.annotation }}
+### Child Action: {{ port_block.infraPortBlk.attributes.childAction }}
+### Description: {{ port_block.infraPortBlk.attributes.descr }}
+### DN: {{ port_block.infraPortBlk.attributes.dn }}
+### Externally Managed By: {{ port_block.infraPortBlk.attributes.extMngdBy }}
+### Card Range
+#### From: {{ port_block.infraPortBlk.attributes.fromCard }}
+#### To: {{ port_block.infraPortBlk.attributes.toCard }}
+### Port Range
+#### From: {{ port_block.infraPortBlk.attributes.fromPort }}
+#### To: {{ port_block.infraPortBlk.attributes.toPort }}
+### Local Owner: {{ port_block.infraPortBlk.attributes.lcOwn }}
+### Last Modifed: {{ port_block.infraPortBlk.attributes.modTs }}
+### Monitoring Policy DN: {{ port_block.infraPortBlk.attributes.monPolDn }}
+### Status: {{ port_block.infraPortBlk.attributes.status }}
+### UID: {{ port_block.infraPortBlk.attributes.uid }}
+{%-     endfor %}
 {%- endif %}

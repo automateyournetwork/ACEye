@@ -7395,5 +7395,51 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "infraPortBlk" in api %}
+<h1>Port Blocks</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>From Card</th>
+    <th>To Card</th>
+    <th>From Port</th>
+    <th>To Port</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for port_block in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ port_block.infraPortBlk.attributes.name }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.nameAlias }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.annotation }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.childAction }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.descr }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.dn }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.extMngdBy }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.fromCard }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.toCard }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.fromPort }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.toPort }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.lcOwn }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.modTs }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.monPolDn }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.status }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
