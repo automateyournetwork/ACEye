@@ -3493,4 +3493,23 @@
 ### Status: {{ controller.infraCont.attributes.status }}
 ### UCT Difference: {{ controller.infraCont.attributes.uctDiff }}
 {%-     endfor %}
+{%- elif "infraFexP" in api %}
+# FEX Policies
+{%-     for policy in data_to_template['imdata'] %}
+## Name: {{ policy.infraFexP.attributes.name }}
+### Name Alias: {{ policy.infraFexP.attributes.nameAlias }}
+### Annotation: {{ policy.infraFexP.attributes.annotation }}
+### Child Action: {{ policy.infraFexP.attributes.childAction }}
+### Description: {{ policy.infraFexP.attributes.descr }}
+### DN: {{ policy.infraFexP.attributes.dn }}
+### Externally Managed By: {{ policy.infraFexP.attributes.extMngdBy }}
+### Local Owner: {{ policy.infraFexP.attributes.lcOwn }}
+### Last Modified: {{ policy.infraFexP.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.infraFexP.attributes.monPolDn }}
+### Owner
+#### Key: {{ policy.infraFexP.attributes.ownerKey }}
+#### Tag: {{ policy.infraFexP.attributes.ownerTag }}
+### Status: {{ policy.infraFexP.attributes.status }}
+### UID: {{ policy.infraFexP.attributes.uid }}
+{%-     endfor %}
 {%- endif %}

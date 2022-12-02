@@ -895,4 +895,10 @@
 {%-     for controller in data_to_template['imdata'] %}
 | {{ controller.infraCont.attributes.name }} | {{ controller.infraCont.attributes.nameAlias }} | {{ controller.infraCont.attributes.childAction }} | {{ controller.infraCont.attributes.dn }} | {{ controller.infraCont.attributes.drrMd }} | {{ controller.infraCont.attributes.dscvMd }} | {{ controller.infraCont.attributes.fbDmNm }} | {{ controller.infraCont.attributes.lcOwn }} | {{ controller.infraCont.attributes.modTs }} | {{ controller.infraCont.attributes.monPolDn }} | {{ controller.infraCont.attributes.size }} | {{ controller.infraCont.attributes.status }} | {{ controller.infraCont.attributes.strtTs }} | {{ controller.infraCont.attributes.uctDiff }} |
 {%-     endfor %}
+{%- elif "infraFexP" in api %}# FEX Policies
+| Name | Name Alias | Annotation | Child Action | Description | DN | Externally Managed By | Local Owner | Last Modified | Monitoring Policy DN | Owner Key | Owner Tag | Status | UID |
+| ---- | ---------- | ---------- | ------------ | ----------- | -- | --------------------- | ----------- | ------------- | -------------------- | --------- | --------- | ------ | --- |
+{%-     for policy in data_to_template['imdata'] %}
+| {{ policy.infraFexP.attributes.name }} | {{ policy.infraFexP.attributes.nameAlias }} | {{ policy.infraFexP.attributes.annotation }} | {{ policy.infraFexP.attributes.childAction }} | {{ policy.infraFexP.attributes.descr }} | {{ policy.infraFexP.attributes.dn }} | {{ policy.infraFexP.attributes.extMngdBy }} | {{ policy.infraFexP.attributes.lcOwn }} | {{ policy.infraFexP.attributes.modTs }} | {{ policy.infraFexP.attributes.monPolDn }} | {{ policy.infraFexP.attributes.ownerKey }} | {{ policy.infraFexP.attributes.ownerTag }} | {{ policy.infraFexP.attributes.status }} | {{ policy.infraFexP.attributes.uid }} |
+{%-     endfor %}
 {%- endif %}

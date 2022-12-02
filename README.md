@@ -216,6 +216,8 @@ Fabric Protected Path Endpoint Containers
 
 Fault Summary
 
+FEX Policies
+
 Fibre Channel Entity
 
 Filters
