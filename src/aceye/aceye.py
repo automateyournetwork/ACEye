@@ -1574,14 +1574,14 @@ class ACEye():
         return response_dict
 
     def spine_host_port_selectors(self):
-        self.url = f"{ self.aci }/api/node/class/infraRsSHPortS.json"
+        self.url = f"{ self.aci }/api/node/class/infraSHPortS.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Spine Host Port Selectors code { response.status_code } for { self.url }>")
         response_dict  = response.json()
         return response_dict
 
     def spine_access_port_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/infraRsSpAccPortP.json"
+        self.url = f"{ self.aci }/api/node/class/infraSpAccPortP.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<Spine Access Port Profiles code { response.status_code } for { self.url }>")
         response_dict  = response.json()
