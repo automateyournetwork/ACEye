@@ -6,6 +6,8 @@ Business Ready Documents for Cisco ACI
 
 ## Current API Coverage
 
+Access Bundle Groups
+
 Access Control Entities
 
 Access Control Instances
@@ -13,6 +15,12 @@ Access Control Instances
 Access Control Rules
 
 Access Control Scope
+
+Access Policy Group Source Relationships
+
+Access Port Groups
+
+Access Port Profiles
 
 Application Profiles
 
@@ -29,6 +37,8 @@ ARP Instances
 ARP Interfaces
 
 Attachable Access Entity Profiles
+
+Attachable Access Entity Profiles Source Relationships
 
 *Audit Log
 
@@ -103,6 +113,8 @@ Contract Consumers
 Contract Providers
 
 Contract Subjects
+
+Controllers
 
 Device Packages
 
@@ -208,6 +220,8 @@ Fabric Protected Path Endpoint Containers
 
 Fault Summary
 
+FEX Policies
+
 Fibre Channel Entity
 
 Filters
@@ -218,7 +232,11 @@ Firmware Compute Running
 
 Firmware Running
 
+Function Policies
+
 Health
+
+Host Port Selectors
 
 Interface Policies
 
@@ -247,6 +265,8 @@ Path Attachments
 Physical Domains
 
 Physical Interfaces
+
+Port Blocks
 
 Prefix List
 

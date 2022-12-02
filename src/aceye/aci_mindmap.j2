@@ -3375,4 +3375,246 @@
 ### Status: {{ policy.fvnsVlanInstP.attributes.status }}
 ### UID: {{ policy.fvnsVlanInstP.attributes.uid }}
 {%-     endfor %}
+{%- elif "infraAccBndlGrp" in api %}
+# Access Bundle Groups
+{%-     for group in data_to_template['imdata'] %}
+## Name: {{ group.infraAccBndlGrp.attributes.name }}
+### Name Alias: {{ group.infraAccBndlGrp.attributes.nameAlias }}
+### Annotation: {{ group.infraAccBndlGrp.attributes.annotation }}
+### Child Action: {{ group.infraAccBndlGrp.attributes.childAction }}
+### Description: {{ group.infraAccBndlGrp.attributes.descr }}
+### DN: {{ group.infraAccBndlGrp.attributes.dn }}
+### Externally Managed By: {{ group.infraAccBndlGrp.attributes.extMngdBy }}
+### LAG Type: {{ group.infraAccBndlGrp.attributes.lagT }}
+### Local Owner: {{ group.infraAccBndlGrp.attributes.lcOwn }}
+### Last Modified: {{ group.infraAccBndlGrp.attributes.modTs }}
+### Monitoring Policy DN: {{ group.infraAccBndlGrp.attributes.monPolDn }}
+### Owner
+#### Key: {{ group.infraAccBndlGrp.attributes.ownerKey }}
+#### Tag: {{ group.infraAccBndlGrp.attributes.ownerTag }}
+### Status: {{ group.infraAccBndlGrp.attributes.status }}
+### UID: {{ group.infraAccBndlGrp.attributes.uid }}
+{%-     endfor %}
+{%- elif "infraAccPortGrp" in api %}
+# Access Port Groups
+{%-     for group in data_to_template['imdata'] %}
+## Name: {{ group.infraAccPortGrp.attributes.name }}
+### Name Alias: {{ group.infraAccPortGrp.attributes.nameAlias }}
+### Annotation: {{ group.infraAccPortGrp.attributes.annotation }}
+### Child Action: {{ group.infraAccPortGrp.attributes.childAction }}
+### Description: {{ group.infraAccPortGrp.attributes.descr }}
+### DN: {{ group.infraAccPortGrp.attributes.dn }}
+### Externally Managed By: {{ group.infraAccPortGrp.attributes.extMngdBy }}
+### Local Owner: {{ group.infraAccPortGrp.attributes.lcOwn }}
+### Last Modified: {{ group.infraAccPortGrp.attributes.modTs }}
+### Monitoring Policy DN: {{ group.infraAccPortGrp.attributes.monPolDn }}
+### Owner
+#### Key: {{ group.infraAccPortGrp.attributes.ownerKey }}
+#### Tag: {{ group.infraAccPortGrp.attributes.ownerTag }}
+### Status: {{ group.infraAccPortGrp.attributes.status }}
+### UID: {{ group.infraAccPortGrp.attributes.uid }}
+{%-     endfor %}
+{%- elif "infraAccPortP" in api %}
+# Access Port Groups
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.infraAccPortP.attributes.name }}
+### Name Alias: {{ profile.infraAccPortP.attributes.nameAlias }}
+### Annotation: {{ profile.infraAccPortP.attributes.annotation }}
+### Child Action: {{ profile.infraAccPortP.attributes.childAction }}
+### Description: {{ profile.infraAccPortP.attributes.descr }}
+### DN: {{ profile.infraAccPortP.attributes.dn }}
+### Externally Managed By: {{ profile.infraAccPortP.attributes.extMngdBy }}
+### Local Owner: {{ profile.infraAccPortP.attributes.lcOwn }}
+### Last Modified: {{ profile.infraAccPortP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.infraAccPortP.attributes.monPolDn }}
+### Owner
+#### Key: {{ profile.infraAccPortP.attributes.ownerKey }}
+#### Tag: {{ profile.infraAccPortP.attributes.ownerTag }}
+### Status: {{ profile.infraAccPortP.attributes.status }}
+### UID: {{ profile.infraAccPortP.attributes.uid }}
+{%-     endfor %}
+{%- elif "infraCont" in api %}
+<h1>Controllers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>DRR Mode</th>
+    <th>DSCV Mode</th>
+    <th>Fabric Domain Name</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Size</th>
+    <th>Status</th>
+    <th>Start Timestamp</th>
+    <th>UCT Difference</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for controller in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ controller.infraCont.attributes.name }}</td>
+    <td>{{ controller.infraCont.attributes.nameAlias }}</td>
+    <td>{{ controller.infraCont.attributes.childAction }}</td>
+    <td>{{ controller.infraCont.attributes.dn }}</td>
+    <td>{{ controller.infraCont.attributes.drrMd }}</td>
+    <td>{{ controller.infraCont.attributes.dscvMd }}</td>
+    <td>{{ controller.infraCont.attributes.fbDmNm }}</td>
+    <td>{{ controller.infraCont.attributes.lcOwn }}</td>
+    <td>{{ controller.infraCont.attributes.modTs }}</td>
+    <td>{{ controller.infraCont.attributes.monPolDn }}</td>
+    <td>{{ controller.infraCont.attributes.size }}</td>
+    <td>{{ controller.infraCont.attributes.status }}</td>
+    <td>{{ controller.infraCont.attributes.strtTs }}</td>
+    <td>{{ controller.infraCont.attributes.uctDiff }}</td>
+  </tr>
+{%-     endfor %}
+{%- elif "infraCont" in api %}
+# Controllers
+{%-     for controller in data_to_template['imdata'] %}
+## Name: {{ controller.infraCont.attributes.name }}
+### Name Alias: {{ controller.infraCont.attributes.nameAlias }}
+### Child Action: {{ controller.infraCont.attributes.childAction }}
+### DN: {{ controller.infraCont.attributes.dn }}
+### Mode
+#### DRR: {{ controller.infraCont.attributes.drrMd }}
+#### DSCV: {{ controller.infraCont.attributes.dscvMd }}
+### Fabric Name: {{ controller.infraCont.attributes.fbDmNm }}
+### Local Owner: {{ controller.infraCont.attributes.lcOwn }}
+### Timestamp
+#### Last Modified: {{ controller.infraCont.attributes.modTs }}
+#### Start: {{ controller.infraCont.attributes.strtTs }}
+### Monitoring Policy DN: {{ controller.infraCont.attributes.monPolDn }}
+### Size: {{ controller.infraCont.attributes.size }}
+### Status: {{ controller.infraCont.attributes.status }}
+### UCT Difference: {{ controller.infraCont.attributes.uctDiff }}
+{%-     endfor %}
+{%- elif "infraFexP" in api %}
+# FEX Policies
+{%-     for policy in data_to_template['imdata'] %}
+## Name: {{ policy.infraFexP.attributes.name }}
+### Name Alias: {{ policy.infraFexP.attributes.nameAlias }}
+### Annotation: {{ policy.infraFexP.attributes.annotation }}
+### Child Action: {{ policy.infraFexP.attributes.childAction }}
+### Description: {{ policy.infraFexP.attributes.descr }}
+### DN: {{ policy.infraFexP.attributes.dn }}
+### Externally Managed By: {{ policy.infraFexP.attributes.extMngdBy }}
+### Local Owner: {{ policy.infraFexP.attributes.lcOwn }}
+### Last Modified: {{ policy.infraFexP.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.infraFexP.attributes.monPolDn }}
+### Owner
+#### Key: {{ policy.infraFexP.attributes.ownerKey }}
+#### Tag: {{ policy.infraFexP.attributes.ownerTag }}
+### Status: {{ policy.infraFexP.attributes.status }}
+### UID: {{ policy.infraFexP.attributes.uid }}
+{%-     endfor %}
+{%- elif "infraFuncP" in api %}
+# Function Policies
+{%-     for function in data_to_template['imdata'] %}
+## Name: {{ function.infraFuncP.attributes.name }}
+### Name Alias: {{ function.infraFuncP.attributes.nameAlias }}
+### Annotation: {{ function.infraFuncP.attributes.annotation }}
+### Child Action: {{ function.infraFuncP.attributes.childAction }}
+### Description: {{ function.infraFuncP.attributes.descr }}
+### DN: {{ function.infraFuncP.attributes.dn }}
+### Externally Managed By: {{ function.infraFuncP.attributes.extMngdBy }}
+### Local Owner: {{ function.infraFuncP.attributes.lcOwn }}
+### Last Modified: {{ function.infraFuncP.attributes.modTs }}
+### Monitoring Policy DN: {{ function.infraFuncP.attributes.monPolDn }}
+### Owner
+#### Key: {{ function.infraFuncP.attributes.ownerKey }}
+#### Tag: {{ function.infraFuncP.attributes.ownerTag }}
+### Status: {{ function.infraFuncP.attributes.status }}
+### UID: {{ function.infraFuncP.attributes.uid }}
+{%-     endfor %}
+{%- elif "infraFuncP" in api %}
+# Host Port Selectors
+{%-     for port in data_to_template['imdata'] %}
+## Name: {{ port.infraHPortS.attributes.name }}
+### Name Alias: {{ port.infraHPortS.attributes.nameAlias }}
+### Annotation: {{ port.infraHPortS.attributes.annotation }}
+### Child Action: {{ port.infraHPortS.attributes.childAction }}
+### Description: {{ port.infraHPortS.attributes.descr }}
+### DN: {{ port.infraHPortS.attributes.dn }}
+### Externally Managed By: {{ port.infraHPortS.attributes.extMngdBy }}
+### Local Owner: {{ port.infraHPortS.attributes.lcOwn }}
+### Last Modified: {{ port.infraHPortS.attributes.modTs }}
+### Monitoring Policy DN: {{ port.infraHPortS.attributes.monPolDn }}
+### Owner
+#### Key: {{ port.infraHPortS.attributes.ownerKey }}
+#### Tag: {{ port.infraHPortS.attributes.ownerTag }}
+### Status: {{ port.infraHPortS.attributes.status }}
+### Type: {{ port.infraHPortS.attributes.type }}
+### UID: {{ port.infraHPortS.attributes.uid }}
+{%-     endfor %}
+{%- elif "infraPortBlk" in api %}
+# Port Blocks
+{%-     for port_block in data_to_template['imdata'] %}
+## Name: {{ port_block.infraPortBlk.attributes.name }}
+### Name Alias: {{ port_block.infraPortBlk.attributes.nameAlias }}
+### Annotation: {{ port_block.infraPortBlk.attributes.annotation }}
+### Child Action: {{ port_block.infraPortBlk.attributes.childAction }}
+### Description: {{ port_block.infraPortBlk.attributes.descr }}
+### DN: {{ port_block.infraPortBlk.attributes.dn }}
+### Externally Managed By: {{ port_block.infraPortBlk.attributes.extMngdBy }}
+### Card Range
+#### From: {{ port_block.infraPortBlk.attributes.fromCard }}
+#### To: {{ port_block.infraPortBlk.attributes.toCard }}
+### Port Range
+#### From: {{ port_block.infraPortBlk.attributes.fromPort }}
+#### To: {{ port_block.infraPortBlk.attributes.toPort }}
+### Local Owner: {{ port_block.infraPortBlk.attributes.lcOwn }}
+### Last Modifed: {{ port_block.infraPortBlk.attributes.modTs }}
+### Monitoring Policy DN: {{ port_block.infraPortBlk.attributes.monPolDn }}
+### Status: {{ port_block.infraPortBlk.attributes.status }}
+### UID: {{ port_block.infraPortBlk.attributes.uid }}
+{%-     endfor %}
+{%- elif "infraRsAccBaseGrp" in api %}
+# Access Policy Group Source Relationships
+{%-     for policy in data_to_template['imdata'] %}
+## UID: {{ policy.infraRsAccBaseGrp.attributes.uid }}
+### Annotation: {{ policy.infraRsAccBaseGrp.attributes.annotation }}
+### Child Action: {{ policy.infraRsAccBaseGrp.attributes.childAction }}
+### DN: {{ policy.infraRsAccBaseGrp.attributes.dn }}
+### Externally Managed By: {{ policy.infraRsAccBaseGrp.attributes.extMngdBy }}
+### FEX ID: {{ policy.infraRsAccBaseGrp.attributes.fexId }}
+### Force Resolve: {{ policy.infraRsAccBaseGrp.attributes.forceResolve }}
+### Local Owner: {{ policy.infraRsAccBaseGrp.attributes.lcOwn }}
+### Last Modifed: {{ policy.infraRsAccBaseGrp.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.infraRsAccBaseGrp.attributes.monPolDn }}
+### rType: {{ policy.infraRsAccBaseGrp.attributes.rType }}
+### State: {{ policy.infraRsAccBaseGrp.attributes.state }}
+### State Quality: {{ policy.infraRsAccBaseGrp.attributes.stateQual }}
+### Status: {{ policy.infraRsAccBaseGrp.attributes.status }}
+### t
+#### Cl: {{ policy.infraRsAccBaseGrp.attributes.tCl }}
+#### DN: {{ policy.infraRsAccBaseGrp.attributes.tDn }}
+#### Type: {{ policy.infraRsAccBaseGrp.attributes.tType }}
+{%-     endfor %}
+{%- elif "infraRsAttEntP" in api %}
+# Attachable Entity Profiles Source Relationships
+{%-     for profile in data_to_template['imdata'] %}
+## UID: {{ profile.infraRsAttEntP.attributes.uid }}
+### Annotation: {{ profile.infraRsAttEntP.attributes.annotation }}
+### Child Action: {{ profile.infraRsAttEntP.attributes.childAction }}
+### DN: {{ profile.infraRsAttEntP.attributes.dn }}
+### Externally Managed By: {{ profile.infraRsAttEntP.attributes.extMngdBy }}
+### FEX ID: {{ profile.infraRsAttEntP.attributes.fexId }}
+### Force Resolve: {{ profile.infraRsAttEntP.attributes.forceResolve }}
+### Local Owner: {{ profile.infraRsAttEntP.attributes.lcOwn }}
+### Last Modifed: {{ profile.infraRsAttEntP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.infraRsAttEntP.attributes.monPolDn }}
+### rType: {{ profile.infraRsAttEntP.attributes.rType }}
+### State: {{ profile.infraRsAttEntP.attributes.state }}
+### State Quality: {{ profile.infraRsAttEntP.attributes.stateQual }}
+### Status: {{ profile.infraRsAttEntP.attributes.status }}
+### t
+#### Cl: {{ profile.infraRsAttEntP.attributes.tCl }}
+#### DN: {{ profile.infraRsAttEntP.attributes.tDn }}
+#### Type: {{ profile.infraRsAttEntP.attributes.tType }}
+{%-     endfor %}
 {%- endif %}

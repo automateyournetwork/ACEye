@@ -7097,5 +7097,445 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "infraAccBndlGrp" in api %}
+<h1>Access Bundle Groups</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>LAG Type</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for group in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ group.infraAccBndlGrp.attributes.name }}</td>
+    <td>{{ group.infraAccBndlGrp.attributes.nameAlias }}</td>
+    <td>{{ group.infraAccBndlGrp.attributes.annotation }}</td>
+    <td>{{ group.infraAccBndlGrp.attributes.childAction }}</td>
+    <td>{{ group.infraAccBndlGrp.attributes.descr }}</td>
+    <td>{{ group.infraAccBndlGrp.attributes.dn }}</td>
+    <td>{{ group.infraAccBndlGrp.attributes.extMngdBy }}</td>
+    <td>{{ group.infraAccBndlGrp.attributes.lagT }}</td>
+    <td>{{ group.infraAccBndlGrp.attributes.lcOwn }}</td>
+    <td>{{ group.infraAccBndlGrp.attributes.modTs }}</td>
+    <td>{{ group.infraAccBndlGrp.attributes.monPolDn }}</td>
+    <td>{{ group.infraAccBndlGrp.attributes.ownerKey }}</td>
+    <td>{{ group.infraAccBndlGrp.attributes.ownerTag }}</td>
+    <td>{{ group.infraAccBndlGrp.attributes.status }}</td>
+    <td>{{ group.infraAccBndlGrp.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "infraAccPortGrp" in api %}
+<h1>Access Port Groups</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for group in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ group.infraAccPortGrp.attributes.name }}</td>
+    <td>{{ group.infraAccPortGrp.attributes.nameAlias }}</td>
+    <td>{{ group.infraAccPortGrp.attributes.annotation }}</td>
+    <td>{{ group.infraAccPortGrp.attributes.childAction }}</td>
+    <td>{{ group.infraAccPortGrp.attributes.descr }}</td>
+    <td>{{ group.infraAccPortGrp.attributes.dn }}</td>
+    <td>{{ group.infraAccPortGrp.attributes.extMngdBy }}</td>
+    <td>{{ group.infraAccPortGrp.attributes.lcOwn }}</td>
+    <td>{{ group.infraAccPortGrp.attributes.modTs }}</td>
+    <td>{{ group.infraAccPortGrp.attributes.monPolDn }}</td>
+    <td>{{ group.infraAccPortGrp.attributes.ownerKey }}</td>
+    <td>{{ group.infraAccPortGrp.attributes.ownerTag }}</td>
+    <td>{{ group.infraAccPortGrp.attributes.status }}</td>
+    <td>{{ group.infraAccPortGrp.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "infraAccPortP" in api %}
+<h1>Access Port Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.infraAccPortP.attributes.name }}</td>
+    <td>{{ profile.infraAccPortP.attributes.nameAlias }}</td>
+    <td>{{ profile.infraAccPortP.attributes.annotation }}</td>
+    <td>{{ profile.infraAccPortP.attributes.childAction }}</td>
+    <td>{{ profile.infraAccPortP.attributes.descr }}</td>
+    <td>{{ profile.infraAccPortP.attributes.dn }}</td>
+    <td>{{ profile.infraAccPortP.attributes.extMngdBy }}</td>
+    <td>{{ profile.infraAccPortP.attributes.lcOwn }}</td>
+    <td>{{ profile.infraAccPortP.attributes.modTs }}</td>
+    <td>{{ profile.infraAccPortP.attributes.monPolDn }}</td>
+    <td>{{ profile.infraAccPortP.attributes.ownerKey }}</td>
+    <td>{{ profile.infraAccPortP.attributes.ownerTag }}</td>
+    <td>{{ profile.infraAccPortP.attributes.status }}</td>
+    <td>{{ profile.infraAccPortP.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "infraCont" in api %}
+<h1>Controllers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>DRR Mode</th>
+    <th>DSCV Mode</th>
+    <th>Fabric Domain Name</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Size</th>
+    <th>Status</th>
+    <th>Start Timestamp</th>
+    <th>UCT Difference</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for controller in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ controller.infraCont.attributes.name }}</td>
+    <td>{{ controller.infraCont.attributes.nameAlias }}</td>
+    <td>{{ controller.infraCont.attributes.childAction }}</td>
+    <td>{{ controller.infraCont.attributes.dn }}</td>
+    <td>{{ controller.infraCont.attributes.drrMd }}</td>
+    <td>{{ controller.infraCont.attributes.dscvMd }}</td>
+    <td>{{ controller.infraCont.attributes.fbDmNm }}</td>
+    <td>{{ controller.infraCont.attributes.lcOwn }}</td>
+    <td>{{ controller.infraCont.attributes.modTs }}</td>
+    <td>{{ controller.infraCont.attributes.monPolDn }}</td>
+    <td>{{ controller.infraCont.attributes.size }}</td>
+    <td>{{ controller.infraCont.attributes.status }}</td>
+    <td>{{ controller.infraCont.attributes.strtTs }}</td>
+    <td>{{ controller.infraCont.attributes.uctDiff }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "infraFexP" in api %}
+<h1>FEX Policies</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for policy in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ policy.infraFexP.attributes.name }}</td>
+    <td>{{ policy.infraFexP.attributes.nameAlias }}</td>
+    <td>{{ policy.infraFexP.attributes.annotation }}</td>
+    <td>{{ policy.infraFexP.attributes.childAction }}</td>
+    <td>{{ policy.infraFexP.attributes.descr }}</td>
+    <td>{{ policy.infraFexP.attributes.dn }}</td>
+    <td>{{ policy.infraFexP.attributes.extMngdBy }}</td>
+    <td>{{ policy.infraFexP.attributes.lcOwn }}</td>
+    <td>{{ policy.infraFexP.attributes.modTs }}</td>
+    <td>{{ policy.infraFexP.attributes.monPolDn }}</td>
+    <td>{{ policy.infraFexP.attributes.ownerKey }}</td>
+    <td>{{ policy.infraFexP.attributes.ownerTag }}</td>
+    <td>{{ policy.infraFexP.attributes.status }}</td>
+    <td>{{ policy.infraFexP.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "infraFuncP" in api %}
+<h1>Function Policies</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for function in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ function.infraFuncP.attributes.name }}</td>
+    <td>{{ function.infraFuncP.attributes.nameAlias }}</td>
+    <td>{{ function.infraFuncP.attributes.annotation }}</td>
+    <td>{{ function.infraFuncP.attributes.childAction }}</td>
+    <td>{{ function.infraFuncP.attributes.descr }}</td>
+    <td>{{ function.infraFuncP.attributes.dn }}</td>
+    <td>{{ function.infraFuncP.attributes.extMngdBy }}</td>
+    <td>{{ function.infraFuncP.attributes.lcOwn }}</td>
+    <td>{{ function.infraFuncP.attributes.modTs }}</td>
+    <td>{{ function.infraFuncP.attributes.monPolDn }}</td>
+    <td>{{ function.infraFuncP.attributes.ownerKey }}</td>
+    <td>{{ function.infraFuncP.attributes.ownerTag }}</td>
+    <td>{{ function.infraFuncP.attributes.status }}</td>
+    <td>{{ function.infraFuncP.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "infraHPortS" in api %}
+<h1>Host Port Selectors</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>Type</th>    
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for port in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ port.infraHPortS.attributes.name }}</td>
+    <td>{{ port.infraHPortS.attributes.nameAlias }}</td>
+    <td>{{ port.infraHPortS.attributes.annotation }}</td>
+    <td>{{ port.infraHPortS.attributes.childAction }}</td>
+    <td>{{ port.infraHPortS.attributes.descr }}</td>
+    <td>{{ port.infraHPortS.attributes.dn }}</td>
+    <td>{{ port.infraHPortS.attributes.extMngdBy }}</td>
+    <td>{{ port.infraHPortS.attributes.lcOwn }}</td>
+    <td>{{ port.infraHPortS.attributes.modTs }}</td>
+    <td>{{ port.infraHPortS.attributes.monPolDn }}</td>
+    <td>{{ port.infraHPortS.attributes.ownerKey }}</td>
+    <td>{{ port.infraHPortS.attributes.ownerTag }}</td>
+    <td>{{ port.infraHPortS.attributes.status }}</td>
+    <td>{{ port.infraHPortS.attributes.type }}</td>    
+    <td>{{ port.infraHPortS.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "infraPortBlk" in api %}
+<h1>Port Blocks</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>From Card</th>
+    <th>To Card</th>
+    <th>From Port</th>
+    <th>To Port</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for port_block in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ port_block.infraPortBlk.attributes.name }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.nameAlias }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.annotation }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.childAction }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.descr }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.dn }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.extMngdBy }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.fromCard }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.toCard }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.fromPort }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.toPort }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.lcOwn }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.modTs }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.monPolDn }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.status }}</td>
+    <td>{{ port_block.infraPortBlk.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "infraRsAccBaseGrp" in api %}
+<h1>Access Policy Group Source Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>FEX ID</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for policy in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.uid }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.annotation }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.childAction }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.dn }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.extMngdBy }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.fexId }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.forceResolve }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.lcOwn }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.modTs }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.monPolDn }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.rType }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.state }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.stateQual }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.status }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.tCl }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.tDn }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.tType }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "infraRsAttEntP" in api %}
+<h1>Attachable Entity Profiles Source Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>FEX ID</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.infraRsAttEntP.attributes.uid }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.annotation }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.childAction }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.dn }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.extMngdBy }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.fexId }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.forceResolve }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.lcOwn }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.modTs }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.monPolDn }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.rType }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.state }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.stateQual }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.status }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.tCl }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.tDn }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.tType }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

@@ -289,12 +289,36 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.vlan_namespace_policies(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.access_bundle_groups(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.access_port_groups(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.access_port_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.controllers(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.fex_policies(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.function_policies(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.host_port_selectors(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.port_blocks(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.access_policy_group_source_relationships(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.attachable_entity_profile_source_relationships(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)        
 
     def make_directories(self):
-        api_list = ['Access Control Entities',
+        api_list = ['Access Bundle Groups',
+                    'Access Control Entities',
                     'Access Control Instances',
                     'Access Control Rules',
                     'Access Control Scopes',
+                    'Access Policy Group Source Relationships',
+                    'Access Port Groups',
+                    'Access Port Profiles',
                     'Application Profiles',
                     'ARP Adjacency Endpoints',
                     'ARP Database',
@@ -303,6 +327,7 @@ class ACEye():
                     'ARP Instances',
                     'ARP Interfaces',
                     'Attachable Access Entity Profiles',
+                    'Attachable Access Entity Profiles Source Relationships',
                     'Audit Log',
                     'BGP Domain Address Families',
                     'BGP Domains',
@@ -340,6 +365,7 @@ class ACEye():
                     'Contract Providers',
                     'Contract Subjects',
                     'Contracts',
+                    'Controllers',
                     'Device Packages',
                     'Domain Attachments',
                     'Endpoint Profile Containers',
@@ -392,12 +418,15 @@ class ACEye():
                     'Fabric Pods',
                     'Fabric Protected Path Endpoint Containers',
                     'Fault Summary',
+                    'FEX Policies',
                     'Fibre Channel Entities',
                     'Filters',
                     'Firmware Card Running',
                     'Firmware Compute Running',
                     'Firmware Running',
+                    'Function Policies',
                     'Health',
+                    'Host Port Selectors',
                     'Interface Policies',
                     'Interface Profiles',
                     'IP Addresses',
@@ -412,6 +441,7 @@ class ACEye():
                     'Path Attachments',
                     'Physical Domains',
                     'Physical Interfaces',
+                    'Port Blocks',
                     'Prefix List',
                     'Prefix List Detailed',
                     'QOS Classes',
@@ -1437,6 +1467,76 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def access_bundle_groups(self):
+        self.url = f"{ self.aci }/api/node/class/infraAccBndlGrp.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Access Bundle Groups code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def access_port_groups(self):
+        self.url = f"{ self.aci }/api/node/class/infraAccPortGrp.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Access Port Groups code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def access_port_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/infraAccPortP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Access Port Profiles code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def controllers(self):
+        self.url = f"{ self.aci }/api/node/class/infraCont.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Controllers code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def fex_policies(self):
+        self.url = f"{ self.aci }/api/node/class/infraFexP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<FEX Policies code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def function_policies(self):
+        self.url = f"{ self.aci }/api/node/class/infraFuncP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Function Policies code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def host_port_selectors(self):
+        self.url = f"{ self.aci }/api/node/class/infraHPortS.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Host Port Selectors code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def port_blocks(self):
+        self.url = f"{ self.aci }/api/node/class/infraPortBlk.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Port Blocks code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def access_policy_group_source_relationships(self):
+        self.url = f"{ self.aci }/api/node/class/infraRsAccBaseGrp.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Access Policy Group Source Relationships code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def attachable_entity_profile_source_relationships(self):
+        self.url = f"{ self.aci }/api/node/class/infraRsAttEntP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Attachable Entity Profile Source Relationships code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -1972,6 +2072,46 @@ class ACEye():
 
         if "fvnsVlanInstP" in self.url:
             with open('VLAN Namespace Policies/JSON/VLAN Namespace Policies.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "infraAccBndlGrp" in self.url:
+            with open('Access Bundle Groups/JSON/Access Bundle Groups.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "infraAccPortGrp" in self.url:
+            with open('Access Port Groups/JSON/Access Port Groups.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "infraAccPortP" in self.url:
+            with open('Access Port Profiles/JSON/Access Port Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "infraContr" in self.url:
+            with open('Controllers/JSON/Controllers.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "infraFexP" in self.url:
+            with open('FEX Policies/JSON/FEX Policies.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "infraFuncP" in self.url:
+            with open('Function Policies/JSON/Function Policies.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "infraHPortS" in self.url:
+            with open('Host Port Selectors/JSON/Host Port Selectors.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "infraPortBlk" in self.url:
+            with open('Port Blocks/JSON/Port Blocks.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "infraRsAccBaseGrp" in self.url:
+            with open('Access Policy Group Source Relationships/JSON/Access Policy Group Source Relationships.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "infraRsAttEntP" in self.url:
+            with open('Attachable Access Entity Profiles Source Relationships/JSON/Attachable Access Entity Profiles Source Relationships.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -2514,6 +2654,46 @@ class ACEye():
 
         if "fvnsVlanInstP" in self.url:
             with open('VLAN Namespace Policies/YAML/VLAN Namespace Policies.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "infraAccBndlGrp" in self.url:
+            with open('Access Bundle Groups/YAML/Access Bundle Groups.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "infraAccPortGrp" in self.url:
+            with open('Access Port Groups/YAML/Access Port Groups.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "infraAccPortP" in self.url:
+            with open('Access Port Profiles/YAML/Access Port Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "infraContr" in self.url:
+            with open('Controllers/YAML/Controllers.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "infraFexP" in self.url:
+            with open('FEX Policies/YAML/FEX Policies.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "infraFuncP" in self.url:
+            with open('Function Policies/YAML/Function Policies.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "infraHPortS" in self.url:
+            with open('Host Port Selectors/YAML/Host Port Selectors.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "infraPortBlk" in self.url:
+            with open('Port Blocks/YAML/Port Blocks.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "infraRsAccBaseGrp" in self.url:
+            with open('Access Policy Group Source Relationships/YAML/Access Policy Group Source Relationships.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "infraRsAttEntP" in self.url:
+            with open('Attachable Access Entity Profiles Source Relationships/YAML/Attachable Access Entity Profiles Source Relationships.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -3060,6 +3240,46 @@ class ACEye():
 
         if "fvnsVlanInstP" in self.url:
             with open('VLAN Namespace Policies/CSV/VLAN Namespace Policies.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "infraAccBndlGrp" in self.url:
+            with open('Access Bundle Groups/CSV/Access Bundle Groups.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "infraAccPortGrp" in self.url:
+            with open('Access Port Groups/CSV/Access Port Groups.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "infraAccPortP" in self.url:
+            with open('Access Port Profiles/CSV/Access Port Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "infraContr" in self.url:
+            with open('Controllers/CSV/Controllers.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "infraFexP" in self.url:
+            with open('FEX Policies/CSV/FEX Policies.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "infraFuncP" in self.url:
+            with open('Function Policies/CSV/Function Policies.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "infraHPortS" in self.url:
+            with open('Host Port Selectors/CSV/Host Port Selectors.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "infraPortBlk" in self.url:
+            with open('Port Blocks/CSV/Port Blocks.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "infraRsAccBaseGrp" in self.url:
+            with open('Access Policy Group Source Relationships/CSV/Access Policy Group Source Relationships.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "infraRsAttEntP" in self.url:
+            with open('Attachable Access Entity Profiles Source Relationships/CSV/Attachable Access Entity Profiles Source Relationships.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -3609,6 +3829,46 @@ class ACEye():
             with open('VLAN Namespace Policies/Markdown/VLAN Namespace Policies.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "infraAccBndlGrp" in self.url:
+            with open('Access Bundle Groups/Markdown/Access Bundle Groups.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "infraAccPortGrp" in self.url:
+            with open('Access Port Groups/Markdown/Access Port Groups.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "infraAccPortP" in self.url:
+            with open('Access Port Profiles/Markdown/Access Port Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "infraContr" in self.url:
+            with open('Controllers/Markdown/Controllers.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "infraFexP" in self.url:
+            with open('FEX Policies/Markdown/FEX Policies.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "infraFuncP" in self.url:
+            with open('Function Policies/Markdown/Function Policies.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "infraHPortS" in self.url:
+            with open('Host Port Selectors/Markdown/Host Port Selectors.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "infraPortBlk" in self.url:
+            with open('Port Blocks/Markdown/Port Blocks.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "infraRsAccBaseGrp" in self.url:
+            with open('Access Policy Group Source Relationships/Markdown/Access Policy Group Source Relationships.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "infraRsAttEntP" in self.url:
+            with open('Attachable Access Entity Profiles Source Relationships/Markdown/Attachable Access Entity Profiles Source Relationships.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -4156,6 +4416,46 @@ class ACEye():
             with open('VLAN Namespace Policies/HTML/VLAN Namespace Policies.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "infraAccBndlGrp" in self.url:
+            with open('Access Bundle Groups/HTML/Access Bundle Groups.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "infraAccPortGrp" in self.url:
+            with open('Access Port Groups/HTML/Access Port Groups.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "infraAccPortP" in self.url:
+            with open('Access Port Profiles/HTML/Access Port Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "infraContr" in self.url:
+            with open('Controllers/HTML/Controllers.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "infraFexP" in self.url:
+            with open('FEX Policies/HTML/FEX Policies.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "infraFuncP" in self.url:
+            with open('Function Policies/HTML/Function Policies.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "infraHPortS" in self.url:
+            with open('Host Port Selectors/HTML/Host Port Selectors.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "infraPortBlk" in self.url:
+            with open('Port Blocks/HTML/Port Blocks.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "infraRsAccBaseGrp" in self.url:
+            with open('Access Policy Group Source Relationships/HTML/Access Policy Group Source Relationships.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "infraRsAttEntP" in self.url:
+            with open('Attachable Access Entity Profiles Source Relationships/HTML/Attachable Access Entity Profiles Source Relationships.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -4697,6 +4997,46 @@ class ACEye():
 
         if "fvnsVlanInstP" in self.url:
             with open('VLAN Namespace Policies/Mindmap/VLAN Namespace Policies.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "infraAccBndlGrp" in self.url:
+            with open('Access Bundle Groups/Mindmap/Access Bundle Groups.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "infraAccPortGrp" in self.url:
+            with open('Access Port Groups/Mindmap/Access Port Groups.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "infraAccPortP" in self.url:
+            with open('Access Port Profiles/Mindmap/Access Port Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "infraContr" in self.url:
+            with open('Controllers/Mindmap/Controllers.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "infraFexP" in self.url:
+            with open('FEX Policies/Mindmap/FEX Policies.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "infraFuncP" in self.url:
+            with open('Function Policies/Mindmap/Function Policies.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "infraHPortS" in self.url:
+            with open('Host Port Selectors/Mindmap/Host Port Selectors.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "infraPortBlk" in self.url:
+            with open('Port Blocks/Mindmap/Port Blocks.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "infraRsAccBaseGrp" in self.url:
+            with open('Access Policy Group Source Relationships/Mindmap/Access Policy Group Source Relationships.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "infraRsAttEntP" in self.url:
+            with open('Attachable Access Entity Profiles Source Relationships/Mindmap/Attachable Access Entity Profiles Source Relationships.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
