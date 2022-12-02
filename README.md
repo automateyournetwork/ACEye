@@ -278,6 +278,8 @@ QOS Classes
 
 Security Domains
 
+Spine Access Policy Groups
+
 Spine Interface Profiles
 
 Spine Switch Profiles

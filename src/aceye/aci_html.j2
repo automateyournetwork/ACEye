@@ -7585,5 +7585,53 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "infraRsSpAccGrp" in api %}
+<h1>Spine Access Policy Groups</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>FEX ID</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for group in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ group.infraRsSpAccGrp.attributes.uid }}</td>
+    <td>{{ group.infraRsSpAccGrp.attributes.annotation }}</td>
+    <td>{{ group.infraRsSpAccGrp.attributes.childAction }}</td>
+    <td>{{ group.infraRsSpAccGrp.attributes.dn }}</td>
+    <td>{{ group.infraRsSpAccGrp.attributes.extMngdBy }}</td>
+    <td>{{ group.infraRsSpAccGrp.attributes.fexId }}</td>
+    <td>{{ group.infraRsSpAccGrp.attributes.forceResolve }}</td>
+    <td>{{ group.infraRsSpAccGrp.attributes.lcOwn }}</td>
+    <td>{{ group.infraRsSpAccGrp.attributes.modTs }}</td>
+    <td>{{ group.infraRsSpAccGrp.attributes.monPolDn }}</td>
+    <td>{{ group.infraRsSpAccGrp.attributes.rType }}</td>
+    <td>{{ group.infraRsSpAccGrp.attributes.state }}</td>
+    <td>{{ group.infraRsSpAccGrp.attributes.stateQual }}</td>
+    <td>{{ group.infraRsSpAccGrp.attributes.status }}</td>
+    <td>{{ group.infraRsSpAccGrp.attributes.tCl }}</td>
+    <td>{{ group.infraRsSpAccGrp.attributes.tDn }}</td>
+    <td>{{ group.infraRsSpAccGrp.attributes.tType }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

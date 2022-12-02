@@ -3639,4 +3639,26 @@
 #### DN: {{ profile.infraRsDomP.attributes.tDn }}
 #### Type: {{ profile.infraRsDomP.attributes.tType }}
 {%-     endfor %}
+{%- elif "infraRsSpAccGrp" in api %}
+# Spine Access Policy Groups
+{%-     for group in data_to_template['imdata'] %}
+## UID: {{ group.infraRsSpAccGrp.attributes.uid }}
+### Annotation: {{ group.infraRsSpAccGrp.attributes.annotation }}
+### Child Action: {{ group.infraRsSpAccGrp.attributes.childAction }}
+### DN: {{ group.infraRsSpAccGrp.attributes.dn }}
+### Externally Managed By: {{ group.infraRsSpAccGrp.attributes.extMngdBy }}
+### FEX ID: {{ group.infraRsSpAccGrp.attributes.fexId }}
+### Force Resolve: {{ group.infraRsSpAccGrp.attributes.forceResolve }}
+### Local Owner: {{ group.infraRsSpAccGrp.attributes.lcOwn }}
+### Last Modifed: {{ group.infraRsSpAccGrp.attributes.modTs }}
+### Monitoring Policy DN: {{ group.infraRsSpAccGrp.attributes.monPolDn }}
+### rType: {{ group.infraRsSpAccGrp.attributes.rType }}
+### State: {{ group.infraRsSpAccGrp.attributes.state }}
+### State Quality: {{ group.infraRsSpAccGrp.attributes.stateQual }}
+### Status: {{ group.infraRsSpAccGrp.attributes.status }}
+### t
+#### Cl: {{ group.infraRsSpAccGrp.attributes.tCl }}
+#### DN: {{ group.infraRsSpAccGrp.attributes.tDn }}
+#### Type: {{ group.infraRsSpAccGrp.attributes.tType }}
+{%-     endfor %}
 {%- endif %}
