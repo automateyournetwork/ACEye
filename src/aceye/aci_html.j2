@@ -7351,5 +7351,49 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "infraHPortS" in api %}
+<h1>Host Port Selectors</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>Type</th>    
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for port in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ port.infraHPortS.attributes.name }}</td>
+    <td>{{ port.infraHPortS.attributes.nameAlias }}</td>
+    <td>{{ port.infraHPortS.attributes.annotation }}</td>
+    <td>{{ port.infraHPortS.attributes.childAction }}</td>
+    <td>{{ port.infraHPortS.attributes.descr }}</td>
+    <td>{{ port.infraHPortS.attributes.dn }}</td>
+    <td>{{ port.infraHPortS.attributes.extMngdBy }}</td>
+    <td>{{ port.infraHPortS.attributes.lcOwn }}</td>
+    <td>{{ port.infraHPortS.attributes.modTs }}</td>
+    <td>{{ port.infraHPortS.attributes.monPolDn }}</td>
+    <td>{{ port.infraHPortS.attributes.ownerKey }}</td>
+    <td>{{ port.infraHPortS.attributes.ownerTag }}</td>
+    <td>{{ port.infraHPortS.attributes.status }}</td>
+    <td>{{ port.infraHPortS.attributes.type }}</td>    
+    <td>{{ port.infraHPortS.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

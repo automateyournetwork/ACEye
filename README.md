@@ -232,6 +232,8 @@ Function Policies
 
 Health
 
+Host Port Selectors
+
 Interface Policies
 
 Interface Profiles

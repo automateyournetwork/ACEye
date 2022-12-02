@@ -3531,4 +3531,24 @@
 ### Status: {{ function.infraFuncP.attributes.status }}
 ### UID: {{ function.infraFuncP.attributes.uid }}
 {%-     endfor %}
+{%- elif "infraFuncP" in api %}
+# Host Port Selectors
+{%-     for port in data_to_template['imdata'] %}
+## Name: {{ port.infraHPortS.attributes.name }}
+### Name Alias: {{ port.infraHPortS.attributes.nameAlias }}
+### Annotation: {{ port.infraHPortS.attributes.annotation }}
+### Child Action: {{ port.infraHPortS.attributes.childAction }}
+### Description: {{ port.infraHPortS.attributes.descr }}
+### DN: {{ port.infraHPortS.attributes.dn }}
+### Externally Managed By: {{ port.infraHPortS.attributes.extMngdBy }}
+### Local Owner: {{ port.infraHPortS.attributes.lcOwn }}
+### Last Modified: {{ port.infraHPortS.attributes.modTs }}
+### Monitoring Policy DN: {{ port.infraHPortS.attributes.monPolDn }}
+### Owner
+#### Key: {{ port.infraHPortS.attributes.ownerKey }}
+#### Tag: {{ port.infraHPortS.attributes.ownerTag }}
+### Status: {{ port.infraHPortS.attributes.status }}
+### Type: {{ port.infraHPortS.attributes.type }}
+### UID: {{ port.infraHPortS.attributes.uid }}
+{%-     endfor %}
 {%- endif %}

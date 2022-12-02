@@ -907,4 +907,10 @@
 {%-     for policy in data_to_template['imdata'] %}
 | {{ function.infraFuncP.attributes.name }} | {{ function.infraFuncP.attributes.nameAlias }} | {{ function.infraFuncP.attributes.annotation }} | {{ function.infraFuncP.attributes.childAction }} | {{ function.infraFuncP.attributes.descr }} | {{ function.infraFuncP.attributes.dn }} | {{ function.infraFuncP.attributes.extMngdBy }} | {{ function.infraFuncP.attributes.lcOwn }} | {{ function.infraFuncP.attributes.modTs }} | {{ function.infraFuncP.attributes.monPolDn }} | {{ function.infraFuncP.attributes.ownerKey }} | {{ function.infraFuncP.attributes.ownerTag }} | {{ function.infraFuncP.attributes.status }} | {{ function.infraFuncP.attributes.uid }} |
 {%-     endfor %}
+{%- elif "infraHPortS" in api %}# Host Port Selectors
+| Name | Name Alias | Annotation | Child Action | Description | DN | Externally Managed By | Local Owner | Last Modified | Monitoring Policy DN | Owner Key | Owner Tag | Status | Type | UID |
+| ---- | ---------- | ---------- | ------------ | ----------- | -- | --------------------- | ----------- | ------------- | -------------------- | --------- | --------- | ------ | ---- | --- |
+{%-     for port in data_to_template['imdata'] %}
+| {{ port.infraHPortS.attributes.name }} | {{ port.infraHPortS.attributes.nameAlias }} | {{ port.infraHPortS.attributes.annotation }} | {{ port.infraHPortS.attributes.childAction }} | {{ port.infraHPortS.attributes.descr }} | {{ port.infraHPortS.attributes.dn }} | {{ port.infraHPortS.attributes.extMngdBy }} | {{ port.infraHPortS.attributes.lcOwn }} | {{ port.infraHPortS.attributes.modTs }} | {{ port.infraHPortS.attributes.monPolDn }} | {{ port.infraHPortS.attributes.ownerKey }} | {{ port.infraHPortS.attributes.ownerTag }} | {{ port.infraHPortS.attributes.status }} | {{ port.infraHPortS.attributes.type }} | {{ port.infraHPortS.attributes.uid }} |
+{%-     endfor %}
 {%- endif %}
