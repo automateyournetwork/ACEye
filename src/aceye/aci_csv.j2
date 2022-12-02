@@ -621,4 +621,8 @@
 {%-     for policy in data_to_template['imdata'] %}
 {{ policy.infraFexP.attributes.name }},{{ policy.infraFexP.attributes.nameAlias }},{{ policy.infraFexP.attributes.annotation }},{{ policy.infraFexP.attributes.childAction }},{{ policy.infraFexP.attributes.descr }},{{ policy.infraFexP.attributes.dn }},{{ policy.infraFexP.attributes.extMngdBy }},{{ policy.infraFexP.attributes.lcOwn }},{{ policy.infraFexP.attributes.modTs }},{{ policy.infraFexP.attributes.monPolDn }},{{ policy.infraFexP.attributes.ownerKey }},{{ policy.infraFexP.attributes.ownerTag }},{{ policy.infraFexP.attributes.status }},{{ policy.infraFexP.attributes.uid }}
 {%-     endfor %}
+{%- elif "infraFuncP" in api %}Name,Name Alias,Annotation,Child Action,Description,DN,Externally Managed By,Local Owner,Last Modified,Monitoring Policy DN,Owner Key,Owner Tag,Status,UID
+{%-     for function in data_to_template['imdata'] %}
+{{ function.infraFuncP.attributes.name }},{{ function.infraFuncP.attributes.nameAlias }},{{ function.infraFuncP.attributes.annotation }},{{ function.infraFuncP.attributes.childAction }},{{ function.infraFuncP.attributes.descr }},{{ function.infraFuncP.attributes.dn }},{{ function.infraFuncP.attributes.extMngdBy }},{{ function.infraFuncP.attributes.lcOwn }},{{ function.infraFuncP.attributes.modTs }},{{ function.infraFuncP.attributes.monPolDn }},{{ function.infraFuncP.attributes.ownerKey }},{{ function.infraFuncP.attributes.ownerTag }},{{ function.infraFuncP.attributes.status }},{{ function.infraFuncP.attributes.uid }}
+{%-     endfor %}
 {%- endif %}

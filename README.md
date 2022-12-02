@@ -228,6 +228,8 @@ Firmware Compute Running
 
 Firmware Running
 
+Function Policies
+
 Health
 
 Interface Policies

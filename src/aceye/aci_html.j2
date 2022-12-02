@@ -7309,5 +7309,47 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "infraFuncP" in api %}
+<h1>Function Policies</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for function in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ function.infraFuncP.attributes.name }}</td>
+    <td>{{ function.infraFuncP.attributes.nameAlias }}</td>
+    <td>{{ function.infraFuncP.attributes.annotation }}</td>
+    <td>{{ function.infraFuncP.attributes.childAction }}</td>
+    <td>{{ function.infraFuncP.attributes.descr }}</td>
+    <td>{{ function.infraFuncP.attributes.dn }}</td>
+    <td>{{ function.infraFuncP.attributes.extMngdBy }}</td>
+    <td>{{ function.infraFuncP.attributes.lcOwn }}</td>
+    <td>{{ function.infraFuncP.attributes.modTs }}</td>
+    <td>{{ function.infraFuncP.attributes.monPolDn }}</td>
+    <td>{{ function.infraFuncP.attributes.ownerKey }}</td>
+    <td>{{ function.infraFuncP.attributes.ownerTag }}</td>
+    <td>{{ function.infraFuncP.attributes.status }}</td>
+    <td>{{ function.infraFuncP.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

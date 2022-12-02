@@ -3512,4 +3512,23 @@
 ### Status: {{ policy.infraFexP.attributes.status }}
 ### UID: {{ policy.infraFexP.attributes.uid }}
 {%-     endfor %}
+{%- elif "infraFuncP" in api %}
+# Function Policies
+{%-     for function in data_to_template['imdata'] %}
+## Name: {{ function.infraFuncP.attributes.name }}
+### Name Alias: {{ function.infraFuncP.attributes.nameAlias }}
+### Annotation: {{ function.infraFuncP.attributes.annotation }}
+### Child Action: {{ function.infraFuncP.attributes.childAction }}
+### Description: {{ function.infraFuncP.attributes.descr }}
+### DN: {{ function.infraFuncP.attributes.dn }}
+### Externally Managed By: {{ function.infraFuncP.attributes.extMngdBy }}
+### Local Owner: {{ function.infraFuncP.attributes.lcOwn }}
+### Last Modified: {{ function.infraFuncP.attributes.modTs }}
+### Monitoring Policy DN: {{ function.infraFuncP.attributes.monPolDn }}
+### Owner
+#### Key: {{ function.infraFuncP.attributes.ownerKey }}
+#### Tag: {{ function.infraFuncP.attributes.ownerTag }}
+### Status: {{ function.infraFuncP.attributes.status }}
+### UID: {{ function.infraFuncP.attributes.uid }}
+{%-     endfor %}
 {%- endif %}
