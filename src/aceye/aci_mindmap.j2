@@ -3573,4 +3573,26 @@
 ### Status: {{ port_block.infraPortBlk.attributes.status }}
 ### UID: {{ port_block.infraPortBlk.attributes.uid }}
 {%-     endfor %}
+{%- elif "infraRsAccBaseGrp" in api %}
+# Access Policy Group Source Relationships
+{%-     for policy in data_to_template['imdata'] %}
+## UID: {{ policy.infraRsAccBaseGrp.attributes.uid }}
+### Annotation: {{ policy.infraRsAccBaseGrp.attributes.annotation }}
+### Child Action: {{ policy.infraRsAccBaseGrp.attributes.childAction }}
+### DN: {{ policy.infraRsAccBaseGrp.attributes.dn }}
+### Externally Managed By: {{ policy.infraRsAccBaseGrp.attributes.extMngdBy }}
+### FEX ID: {{ policy.infraRsAccBaseGrp.attributes.fexId }}
+### Force Resolve: {{ policy.infraRsAccBaseGrp.attributes.forceResolve }}
+### Local Owner: {{ policy.infraRsAccBaseGrp.attributes.lcOwn }}
+### Last Modifed: {{ policy.infraRsAccBaseGrp.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.infraRsAccBaseGrp.attributes.monPolDn }}
+### rType: {{ policy.infraRsAccBaseGrp.attributes.rType }}
+### State: {{ policy.infraRsAccBaseGrp.attributes.state }}
+### State Quality: {{ policy.infraRsAccBaseGrp.attributes.stateQual }}
+### Status: {{ policy.infraRsAccBaseGrp.attributes.status }}
+### t
+#### Cl: {{ policy.infraRsAccBaseGrp.attributes.tCl }}
+#### DN: {{ policy.infraRsAccBaseGrp.attributes.tDn }}
+#### Type: {{ policy.infraRsAccBaseGrp.attributes.tType }}
+{%-     endfor %}
 {%- endif %}

@@ -7441,5 +7441,53 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "infraRsAccBaseGrp" in api %}
+<h1>Access Policy Group Source Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>FEX ID</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for policy in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.uid }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.annotation }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.childAction }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.dn }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.extMngdBy }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.fexId }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.forceResolve }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.lcOwn }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.modTs }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.monPolDn }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.rType }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.state }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.stateQual }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.status }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.tCl }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.tDn }}</td>
+    <td>{{ policy.infraRsAccBaseGrp.attributes.tType }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
