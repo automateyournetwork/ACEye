@@ -7675,7 +7675,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- elif "infraRsSHPortS" in api %}
+{%- elif "infraSHPortS" in api %}
 <h1>Spine Host Port Selector</h1>
 <table id = "datatable">
 <thead>
@@ -7699,26 +7699,26 @@
 <tbody>
 {%-     for selector in data_to_template['imdata'] %}
   <tr>
-    <td>{{ selector.infraRsSHPortS.attributes.name }}</td>
-    <td>{{ selector.infraRsSHPortS.attributes.nameAlias }}</td>
-    <td>{{ selector.infraRsSHPortS.attributes.annotation }}</td>
-    <td>{{ selector.infraRsSHPortS.attributes.childAction }}</td>
-    <td>{{ selector.infraRsSHPortS.attributes.descr }}</td>
-    <td>{{ selector.infraRsSHPortS.attributes.dn }}</td>
-    <td>{{ selector.infraRsSHPortS.attributes.extMngdBy }}</td>
-    <td>{{ selector.infraRsSHPortS.attributes.lcOwn }}</td>
-    <td>{{ selector.infraRsSHPortS.attributes.modTs }}</td>
-    <td>{{ selector.infraRsSHPortS.attributes.monPolDn }}</td>
-    <td>{{ selector.infraRsSHPortS.attributes.ownerKey }}</td>
-    <td>{{ selector.infraRsSHPortS.attributes.ownerTag }}</td>
-    <td>{{ selector.infraRsSHPortS.attributes.status }}</td>
-    <td>{{ selector.infraRsSHPortS.attributes.type }}</td>
-    <td>{{ selector.infraRsSHPortS.attributes.uid }}</td>
+    <td>{{ selector.infraSHPortS.attributes.name }}</td>
+    <td>{{ selector.infraSHPortS.attributes.nameAlias }}</td>
+    <td>{{ selector.infraSHPortS.attributes.annotation }}</td>
+    <td>{{ selector.infraSHPortS.attributes.childAction }}</td>
+    <td>{{ selector.infraSHPortS.attributes.descr }}</td>
+    <td>{{ selector.infraSHPortS.attributes.dn }}</td>
+    <td>{{ selector.infraSHPortS.attributes.extMngdBy }}</td>
+    <td>{{ selector.infraSHPortS.attributes.lcOwn }}</td>
+    <td>{{ selector.infraSHPortS.attributes.modTs }}</td>
+    <td>{{ selector.infraSHPortS.attributes.monPolDn }}</td>
+    <td>{{ selector.infraSHPortS.attributes.ownerKey }}</td>
+    <td>{{ selector.infraSHPortS.attributes.ownerTag }}</td>
+    <td>{{ selector.infraSHPortS.attributes.status }}</td>
+    <td>{{ selector.infraSHPortS.attributes.type }}</td>
+    <td>{{ selector.infraSHPortS.attributes.uid }}</td>
   </tr>
 {%-     endfor %}
 </tbody>
 </table>
-{%- elif "infraRsSpAccPortP" in api %}
+{%- elif "infraSpAccPortP" in api %}
 <h1>Spine Access Port Profiles</h1>
 <table id = "datatable">
 <thead>
@@ -7742,20 +7742,20 @@
 <tbody>
 {%-     for profile in data_to_template['imdata'] %}
   <tr>
-    <td>{{ profile.infraRsSpAccPortP.attributes.name }}</td>
-    <td>{{ profile.infraRsSpAccPortP.attributes.nameAlias }}</td>
-    <td>{{ profile.infraRsSpAccPortP.attributes.annotation }}</td>
-    <td>{{ profile.infraRsSpAccPortP.attributes.childAction }}</td>
-    <td>{{ profile.infraRsSpAccPortP.attributes.descr }}</td>
-    <td>{{ profile.infraRsSpAccPortP.attributes.dn }}</td>
-    <td>{{ profile.infraRsSpAccPortP.attributes.extMngdBy }}</td>
-    <td>{{ profile.infraRsSpAccPortP.attributes.lcOwn }}</td>
-    <td>{{ profile.infraRsSpAccPortP.attributes.modTs }}</td>
-    <td>{{ profile.infraRsSpAccPortP.attributes.monPolDn }}</td>
-    <td>{{ profile.infraRsSpAccPortP.attributes.ownerKey }}</td>
-    <td>{{ profile.infraRsSpAccPortP.attributes.ownerTag }}</td>
-    <td>{{ profile.infraRsSpAccPortP.attributes.status }}</td>
-    <td>{{ profile.infraRsSpAccPortP.attributes.uid }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.name }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.nameAlias }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.annotation }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.childAction }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.descr }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.dn }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.extMngdBy }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.lcOwn }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.modTs }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.monPolDn }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.ownerKey }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.ownerTag }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.status }}</td>
+    <td>{{ profile.infraSpAccPortP.attributes.uid }}</td>
   </tr>
 {%-     endfor %}
 </tbody>
