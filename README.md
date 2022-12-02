@@ -120,6 +120,8 @@ Device Packages
 
 Domain Attachments
 
+Domain Profile Source Relationships
+
 Endpoint Profile Containers
 
 Endpoints (All Connected Fabric Endpoints)

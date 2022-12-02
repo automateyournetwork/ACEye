@@ -7537,5 +7537,53 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "infraRsDomP" in api %}
+<h1>Domain Profiles Source Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>FEX ID</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.infraRsDomP.attributes.uid }}</td>
+    <td>{{ profile.infraRsDomP.attributes.annotation }}</td>
+    <td>{{ profile.infraRsDomP.attributes.childAction }}</td>
+    <td>{{ profile.infraRsDomP.attributes.dn }}</td>
+    <td>{{ profile.infraRsDomP.attributes.extMngdBy }}</td>
+    <td>{{ profile.infraRsDomP.attributes.fexId }}</td>
+    <td>{{ profile.infraRsDomP.attributes.forceResolve }}</td>
+    <td>{{ profile.infraRsDomP.attributes.lcOwn }}</td>
+    <td>{{ profile.infraRsDomP.attributes.modTs }}</td>
+    <td>{{ profile.infraRsDomP.attributes.monPolDn }}</td>
+    <td>{{ profile.infraRsDomP.attributes.rType }}</td>
+    <td>{{ profile.infraRsDomP.attributes.state }}</td>
+    <td>{{ profile.infraRsDomP.attributes.stateQual }}</td>
+    <td>{{ profile.infraRsDomP.attributes.status }}</td>
+    <td>{{ profile.infraRsDomP.attributes.tCl }}</td>
+    <td>{{ profile.infraRsDomP.attributes.tDn }}</td>
+    <td>{{ profile.infraRsDomP.attributes.tType }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

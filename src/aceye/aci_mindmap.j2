@@ -3617,4 +3617,26 @@
 #### DN: {{ profile.infraRsAttEntP.attributes.tDn }}
 #### Type: {{ profile.infraRsAttEntP.attributes.tType }}
 {%-     endfor %}
+{%- elif "infraRsDomP" in api %}
+# Domain Profiles Source Relationships
+{%-     for profile in data_to_template['imdata'] %}
+## UID: {{ profile.infraRsDomP.attributes.uid }}
+### Annotation: {{ profile.infraRsDomP.attributes.annotation }}
+### Child Action: {{ profile.infraRsDomP.attributes.childAction }}
+### DN: {{ profile.infraRsDomP.attributes.dn }}
+### Externally Managed By: {{ profile.infraRsDomP.attributes.extMngdBy }}
+### FEX ID: {{ profile.infraRsDomP.attributes.fexId }}
+### Force Resolve: {{ profile.infraRsDomP.attributes.forceResolve }}
+### Local Owner: {{ profile.infraRsDomP.attributes.lcOwn }}
+### Last Modifed: {{ profile.infraRsDomP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.infraRsDomP.attributes.monPolDn }}
+### rType: {{ profile.infraRsDomP.attributes.rType }}
+### State: {{ profile.infraRsDomP.attributes.state }}
+### State Quality: {{ profile.infraRsDomP.attributes.stateQual }}
+### Status: {{ profile.infraRsDomP.attributes.status }}
+### t
+#### Cl: {{ profile.infraRsDomP.attributes.tCl }}
+#### DN: {{ profile.infraRsDomP.attributes.tDn }}
+#### Type: {{ profile.infraRsDomP.attributes.tType }}
+{%-     endfor %}
 {%- endif %}
