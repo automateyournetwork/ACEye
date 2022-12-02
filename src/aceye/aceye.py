@@ -2176,11 +2176,11 @@ class ACEye():
             with open('VLAN Namespace Source Relationships/JSON/VLAN Namespace Source Relationships.json', 'w' ) as f:
                 f.write(parsed_json)
 
-        if "infraRsSHPortS" in self.url:
+        if "infraSHPortS" in self.url:
             with open('Spine Host Port Selectors/JSON/Spine Host Port Selectors.json', 'w' ) as f:
                 f.write(parsed_json)
 
-        if "infraRsSpAccPortP" in self.url:
+        if "infraSpAccPortP" in self.url:
             with open('Spine Access Port Profiles/JSON/Spine Access Port Profiles.json', 'w' ) as f:
                 f.write(parsed_json)
 
@@ -2778,11 +2778,11 @@ class ACEye():
             with open('VLAN Namespace Source Relationships/YAML/VLAN Namespace Source Relationships.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
-        if "infraRsSHPortS" in self.url:
+        if "infraSHPortS" in self.url:
             with open('Spine Host Port Selectors/YAML/Spine Host Port Selectors.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
-        if "infraRsSpAccPortP" in self.url:
+        if "infraSpAccPortP" in self.url:
             with open('Spine Access Port Profiles/YAML/Spine Access Port Profiles.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
@@ -3384,11 +3384,11 @@ class ACEye():
             with open('VLAN Namespace Source Relationships/CSV/VLAN Namespace Source Relationships.csv', 'w' ) as f:
                 f.write(csv_output)
 
-        if "infraRsSHPortS" in self.url:
+        if "infraSHPortS" in self.url:
             with open('Spine Host Port Selectors/CSV/Spine Host Port Selectors.csv', 'w' ) as f:
                 f.write(csv_output)
 
-        if "infraRsSpAccPortP" in self.url:
+        if "infraSpAccPortP" in self.url:
             with open('Spine Access Port Profiles/CSV/Spine Access Port Profiles.csv', 'w' ) as f:
                 f.write(csv_output)
 
@@ -3991,11 +3991,11 @@ class ACEye():
             with open('VLAN Namespace Source Relationships/Markdown/VLAN Namespace Source Relationships.md', 'w' ) as f:
                 f.write(markdown_output)
 
-        if "infraRsSHPortS" in self.url:
+        if "infraSHPortS" in self.url:
             with open('Spine Host Port Selectors/Markdown/Spine Host Port Selectors.md', 'w' ) as f:
                 f.write(markdown_output)
 
-        if "infraRsSpAccPortP" in self.url:
+        if "infraSpAccPortP" in self.url:
             with open('Spine Access Port Profiles/Markdown/Spine Access Port Profiles.md', 'w' ) as f:
                 f.write(markdown_output)
 
@@ -4598,11 +4598,11 @@ class ACEye():
             with open('VLAN Namespace Source Relationships/HTML/VLAN Namespace Source Relationships.html', 'w' ) as f:
                 f.write(html_output)
 
-        if "infraRsSHPortS" in self.url:
+        if "infraSHPortS" in self.url:
             with open('Spine Host Port Selectors/HTML/Spine Host Port Selectors.html', 'w' ) as f:
                 f.write(html_output)
 
-        if "infraRsSpAccPortP" in self.url:
+        if "infraSpAccPortP" in self.url:
             with open('Spine Access Port Profiles/HTML/Spine Access Port Profiles.html', 'w' ) as f:
                 f.write(html_output)
 
@@ -5201,11 +5201,11 @@ class ACEye():
             with open('VLAN Namespace Source Relationships/Mindmap/VLAN Namespace Source Relationships.md', 'w' ) as f:
                 f.write(mindmap_output)
 
-        if "infraRsSHPortS" in self.url:
+        if "infraSHPortS" in self.url:
             with open('Spine Host Port Selectors/Mindmap/Spine Host Port Selectors.md', 'w' ) as f:
                 f.write(mindmap_output)
 
-        if "infraRsSpAccPortP" in self.url:
+        if "infraSpAccPortP" in self.url:
             with open('Spine Access Port Profiles/Mindmap/Spine Access Port Profiles.md', 'w' ) as f:
                 f.write(mindmap_output)
 
