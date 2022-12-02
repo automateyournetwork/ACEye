@@ -3680,43 +3680,43 @@
 #### DN: {{ namespace.infraRsVlanNs.attributes.tDn }}
 #### Type: {{ namespace.infraRsVlanNs.attributes.tType }}
 {%-     endfor %}
-{%- elif "infraRsSHPortS" in api %}
+{%- elif "infraSHPortS" in api %}
 # Spine Host Port Selector
 {%-     for selector in data_to_template['imdata'] %}
-## Name: {{ selector.infraRsSHPortS.attributes.name }}
-### Name Alias: {{ selector.infraRsSHPortS.attributes.nameAlias }}
-### Annotation: {{ selector.infraRsSHPortS.attributes.annotation }}
-### Child Action: {{ selector.infraRsSHPortS.attributes.childAction }}
-### Description: {{ selector.infraRsSHPortS.attributes.descr }}
-### DN: {{ selector.infraRsSHPortS.attributes.dn }}
-### Externally Managed By: {{ selector.infraRsSHPortS.attributes.extMngdBy }}
-### Local Owner: {{ selector.infraRsSHPortS.attributes.lcOwn }}
-### Last Modified: {{ selector.infraRsSHPortS.attributes.modTs }}
-### Monitoring Policy DN: {{ selector.infraRsSHPortS.attributes.monPolDn }}
+## Name: {{ selector.infraSHPortS.attributes.name }}
+### Name Alias: {{ selector.infraSHPortS.attributes.nameAlias }}
+### Annotation: {{ selector.infraSHPortS.attributes.annotation }}
+### Child Action: {{ selector.infraSHPortS.attributes.childAction }}
+### Description: {{ selector.infraSHPortS.attributes.descr }}
+### DN: {{ selector.infraSHPortS.attributes.dn }}
+### Externally Managed By: {{ selector.infraSHPortS.attributes.extMngdBy }}
+### Local Owner: {{ selector.infraSHPortS.attributes.lcOwn }}
+### Last Modified: {{ selector.infraSHPortS.attributes.modTs }}
+### Monitoring Policy DN: {{ selector.infraSHPortS.attributes.monPolDn }}
 ### Owner
-#### Key: {{ selector.infraRsSHPortS.attributes.ownerKey }}
-#### Tag: {{ selector.infraRsSHPortS.attributes.ownerTag }}
-### Status: {{ selector.infraRsSHPortS.attributes.status }}
-### Type: {{ selector.infraRsSHPortS.attributes.type }}
-### UID: {{ selector.infraRsSHPortS.attributes.uid }}
+#### Key: {{ selector.infraSHPortS.attributes.ownerKey }}
+#### Tag: {{ selector.infraSHPortS.attributes.ownerTag }}
+### Status: {{ selector.infraSHPortS.attributes.status }}
+### Type: {{ selector.infraSHPortS.attributes.type }}
+### UID: {{ selector.infraSHPortS.attributes.uid }}
 {%-     endfor %}
-{%- elif "infraRsSpAccPortP" in api %}
+{%- elif "infraSpAccPortP" in api %}
 # Spine Access Port Profiles
 {%-     for profile in data_to_template['imdata'] %}
-## Name: {{ profile.infraRsSpAccPortP.attributes.name }}
-### Name Alias: {{ profile.infraRsSpAccPortP.attributes.nameAlias }}
-### Annotation: {{ profile.infraRsSpAccPortP.attributes.annotation }}
-### Child Action: {{ profile.infraRsSpAccPortP.attributes.childAction }}
-### Description: {{ profile.infraRsSpAccPortP.attributes.descr }}
-### DN: {{ profile.infraRsSpAccPortP.attributes.dn }}
-### Externally Managed By: {{ profile.infraRsSpAccPortP.attributes.extMngdBy }}
-### Local Owner: {{ profile.infraRsSpAccPortP.attributes.lcOwn }}
-### Last Modified: {{ profile.infraRsSpAccPortP.attributes.modTs }}
-### Monitoring Policy DN: {{ profile.infraRsSpAccPortP.attributes.monPolDn }}
+## Name: {{ profile.infraSpAccPortP.attributes.name }}
+### Name Alias: {{ profile.infraSpAccPortP.attributes.nameAlias }}
+### Annotation: {{ profile.infraSpAccPortP.attributes.annotation }}
+### Child Action: {{ profile.infraSpAccPortP.attributes.childAction }}
+### Description: {{ profile.infraSpAccPortP.attributes.descr }}
+### DN: {{ profile.infraSpAccPortP.attributes.dn }}
+### Externally Managed By: {{ profile.infraSpAccPortP.attributes.extMngdBy }}
+### Local Owner: {{ profile.infraSpAccPortP.attributes.lcOwn }}
+### Last Modified: {{ profile.infraSpAccPortP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.infraSpAccPortP.attributes.monPolDn }}
 ### Owner
-#### Key: {{ profile.infraRsSpAccPortP.attributes.ownerKey }}
-#### Tag: {{ profile.infraRsSpAccPortP.attributes.ownerTag }}
-### Status: {{ profile.infraRsSpAccPortP.attributes.status }}
-### UID: {{ profile.infraRsSpAccPortP.attributes.uid }}
+#### Key: {{ profile.infraSpAccPortP.attributes.ownerKey }}
+#### Tag: {{ profile.infraSpAccPortP.attributes.ownerTag }}
+### Status: {{ profile.infraSpAccPortP.attributes.status }}
+### UID: {{ profile.infraSpAccPortP.attributes.uid }}
 {%-     endfor %}
 {%- endif %}
