@@ -280,6 +280,10 @@ Security Domains
 
 Spine Access Policy Groups
 
+Spine Access Port Profiles
+
+Spine Host Port Selectors
+
 Spine Interface Profiles
 
 Spine Switch Profiles

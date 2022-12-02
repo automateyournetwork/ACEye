@@ -3603,8 +3603,8 @@
 ### Child Action: {{ profile.infraRsAttEntP.attributes.childAction }}
 ### DN: {{ profile.infraRsAttEntP.attributes.dn }}
 ### Externally Managed By: {{ profile.infraRsAttEntP.attributes.extMngdBy }}
-### FEX ID: {{ profile.infraRsAttEntP.attributes.fexId }}
 ### Force Resolve: {{ profile.infraRsAttEntP.attributes.forceResolve }}
+### Is Using Connection Selector: {{ profile.infraRsAttEntP.attributes.isUsingConnSel }}
 ### Local Owner: {{ profile.infraRsAttEntP.attributes.lcOwn }}
 ### Last Modifed: {{ profile.infraRsAttEntP.attributes.modTs }}
 ### Monitoring Policy DN: {{ profile.infraRsAttEntP.attributes.monPolDn }}
@@ -3625,7 +3625,6 @@
 ### Child Action: {{ profile.infraRsDomP.attributes.childAction }}
 ### DN: {{ profile.infraRsDomP.attributes.dn }}
 ### Externally Managed By: {{ profile.infraRsDomP.attributes.extMngdBy }}
-### FEX ID: {{ profile.infraRsDomP.attributes.fexId }}
 ### Force Resolve: {{ profile.infraRsDomP.attributes.forceResolve }}
 ### Local Owner: {{ profile.infraRsDomP.attributes.lcOwn }}
 ### Last Modifed: {{ profile.infraRsDomP.attributes.modTs }}
@@ -3647,7 +3646,6 @@
 ### Child Action: {{ group.infraRsSpAccGrp.attributes.childAction }}
 ### DN: {{ group.infraRsSpAccGrp.attributes.dn }}
 ### Externally Managed By: {{ group.infraRsSpAccGrp.attributes.extMngdBy }}
-### FEX ID: {{ group.infraRsSpAccGrp.attributes.fexId }}
 ### Force Resolve: {{ group.infraRsSpAccGrp.attributes.forceResolve }}
 ### Local Owner: {{ group.infraRsSpAccGrp.attributes.lcOwn }}
 ### Last Modifed: {{ group.infraRsSpAccGrp.attributes.modTs }}
@@ -3661,7 +3659,7 @@
 #### DN: {{ group.infraRsSpAccGrp.attributes.tDn }}
 #### Type: {{ group.infraRsSpAccGrp.attributes.tType }}
 {%-     endfor %}
-{%- elif "infraRsSpAccGrp" in api %}
+{%- elif "infraRsVlanNs" in api %}
 # VLAN Namespace Source Relationships
 {%-     for namespace in data_to_template['imdata'] %}
 ## UID: {{ namespace.infraRsVlanNs.attributes.uid }}
@@ -3669,7 +3667,6 @@
 ### Child Action: {{ namespace.infraRsVlanNs.attributes.childAction }}
 ### DN: {{ namespace.infraRsVlanNs.attributes.dn }}
 ### Externally Managed By: {{ namespace.infraRsVlanNs.attributes.extMngdBy }}
-### FEX ID: {{ namespace.infraRsVlanNs.attributes.fexId }}
 ### Force Resolve: {{ namespace.infraRsVlanNs.attributes.forceResolve }}
 ### Local Owner: {{ namespace.infraRsVlanNs.attributes.lcOwn }}
 ### Last Modifed: {{ namespace.infraRsVlanNs.attributes.modTs }}
@@ -3682,5 +3679,44 @@
 #### Cl: {{ namespace.infraRsVlanNs.attributes.tCl }}
 #### DN: {{ namespace.infraRsVlanNs.attributes.tDn }}
 #### Type: {{ namespace.infraRsVlanNs.attributes.tType }}
+{%-     endfor %}
+{%- elif "infraRsSHPortS" in api %}
+# Spine Host Port Selector
+{%-     for selector in data_to_template['imdata'] %}
+## Name: {{ selector.infraRsSHPortS.attributes.name }}
+### Name Alias: {{ selector.infraRsSHPortS.attributes.nameAlias }}
+### Annotation: {{ selector.infraRsSHPortS.attributes.annotation }}
+### Child Action: {{ selector.infraRsSHPortS.attributes.childAction }}
+### Description: {{ selector.infraRsSHPortS.attributes.descr }}
+### DN: {{ selector.infraRsSHPortS.attributes.dn }}
+### Externally Managed By: {{ selector.infraRsSHPortS.attributes.extMngdBy }}
+### Local Owner: {{ selector.infraRsSHPortS.attributes.lcOwn }}
+### Last Modified: {{ selector.infraRsSHPortS.attributes.modTs }}
+### Monitoring Policy DN: {{ selector.infraRsSHPortS.attributes.monPolDn }}
+### Owner
+#### Key: {{ selector.infraRsSHPortS.attributes.ownerKey }}
+#### Tag: {{ selector.infraRsSHPortS.attributes.ownerTag }}
+### Status: {{ selector.infraRsSHPortS.attributes.status }}
+### Type: {{ selector.infraRsSHPortS.attributes.type }}
+### UID: {{ selector.infraRsSHPortS.attributes.uid }}
+{%-     endfor %}
+{%- elif "infraRsSpAccPortP" in api %}
+# Spine Access Port Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.infraRsSpAccPortP.attributes.name }}
+### Name Alias: {{ profile.infraRsSpAccPortP.attributes.nameAlias }}
+### Annotation: {{ profile.infraRsSpAccPortP.attributes.annotation }}
+### Child Action: {{ profile.infraRsSpAccPortP.attributes.childAction }}
+### Description: {{ profile.infraRsSpAccPortP.attributes.descr }}
+### DN: {{ profile.infraRsSpAccPortP.attributes.dn }}
+### Externally Managed By: {{ profile.infraRsSpAccPortP.attributes.extMngdBy }}
+### Local Owner: {{ profile.infraRsSpAccPortP.attributes.lcOwn }}
+### Last Modified: {{ profile.infraRsSpAccPortP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.infraRsSpAccPortP.attributes.monPolDn }}
+### Owner
+#### Key: {{ profile.infraRsSpAccPortP.attributes.ownerKey }}
+#### Tag: {{ profile.infraRsSpAccPortP.attributes.ownerTag }}
+### Status: {{ profile.infraRsSpAccPortP.attributes.status }}
+### UID: {{ profile.infraRsSpAccPortP.attributes.uid }}
 {%-     endfor %}
 {%- endif %}

@@ -7499,8 +7499,8 @@
     <th>Child Action</th>
     <th>DN</th>
     <th>Externally Managed By</th>
-    <th>FEX ID</th>
     <th>Force Resolve</th>
+    <th>Is Using Connection Selector</th>
     <th>Local Owner</th>
     <th>Last Modified</th>
     <th>Monitoring Policy DN</th>
@@ -7521,8 +7521,8 @@
     <td>{{ profile.infraRsAttEntP.attributes.childAction }}</td>
     <td>{{ profile.infraRsAttEntP.attributes.dn }}</td>
     <td>{{ profile.infraRsAttEntP.attributes.extMngdBy }}</td>
-    <td>{{ profile.infraRsAttEntP.attributes.fexId }}</td>
     <td>{{ profile.infraRsAttEntP.attributes.forceResolve }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.isUsingConnSel }}</td>
     <td>{{ profile.infraRsAttEntP.attributes.lcOwn }}</td>
     <td>{{ profile.infraRsAttEntP.attributes.modTs }}</td>
     <td>{{ profile.infraRsAttEntP.attributes.monPolDn }}</td>
@@ -7547,7 +7547,6 @@
     <th>Child Action</th>
     <th>DN</th>
     <th>Externally Managed By</th>
-    <th>FEX ID</th>
     <th>Force Resolve</th>
     <th>Local Owner</th>
     <th>Last Modified</th>
@@ -7569,7 +7568,6 @@
     <td>{{ profile.infraRsDomP.attributes.childAction }}</td>
     <td>{{ profile.infraRsDomP.attributes.dn }}</td>
     <td>{{ profile.infraRsDomP.attributes.extMngdBy }}</td>
-    <td>{{ profile.infraRsDomP.attributes.fexId }}</td>
     <td>{{ profile.infraRsDomP.attributes.forceResolve }}</td>
     <td>{{ profile.infraRsDomP.attributes.lcOwn }}</td>
     <td>{{ profile.infraRsDomP.attributes.modTs }}</td>
@@ -7595,7 +7593,6 @@
     <th>Child Action</th>
     <th>DN</th>
     <th>Externally Managed By</th>
-    <th>FEX ID</th>
     <th>Force Resolve</th>
     <th>Local Owner</th>
     <th>Last Modified</th>
@@ -7617,7 +7614,6 @@
     <td>{{ group.infraRsSpAccGrp.attributes.childAction }}</td>
     <td>{{ group.infraRsSpAccGrp.attributes.dn }}</td>
     <td>{{ group.infraRsSpAccGrp.attributes.extMngdBy }}</td>
-    <td>{{ group.infraRsSpAccGrp.attributes.fexId }}</td>
     <td>{{ group.infraRsSpAccGrp.attributes.forceResolve }}</td>
     <td>{{ group.infraRsSpAccGrp.attributes.lcOwn }}</td>
     <td>{{ group.infraRsSpAccGrp.attributes.modTs }}</td>
@@ -7633,7 +7629,7 @@
 {%-     endfor %}
 </tbody>
 </table>
-{%- elif "infraRsSpAccGrp" in api %}
+{%- elif "infraRsVlanNs" in api %}
 <h1>VLAN Namespace Source Relationships</h1>
 <table id = "datatable">
 <thead>
@@ -7643,7 +7639,6 @@
     <th>Child Action</th>
     <th>DN</th>
     <th>Externally Managed By</th>
-    <th>FEX ID</th>
     <th>Force Resolve</th>
     <th>Local Owner</th>
     <th>Last Modified</th>
@@ -7665,7 +7660,6 @@
     <td>{{ namespace.infraRsVlanNs.attributes.childAction }}</td>
     <td>{{ namespace.infraRsVlanNs.attributes.dn }}</td>
     <td>{{ namespace.infraRsVlanNs.attributes.extMngdBy }}</td>
-    <td>{{ namespace.infraRsVlanNs.attributes.fexId }}</td>
     <td>{{ namespace.infraRsVlanNs.attributes.forceResolve }}</td>
     <td>{{ namespace.infraRsVlanNs.attributes.lcOwn }}</td>
     <td>{{ namespace.infraRsVlanNs.attributes.modTs }}</td>
@@ -7677,6 +7671,91 @@
     <td>{{ namespace.infraRsVlanNs.attributes.tCl }}</td>
     <td>{{ namespace.infraRsVlanNs.attributes.tDn }}</td>
     <td>{{ namespace.infraRsVlanNs.attributes.tType }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "infraRsSHPortS" in api %}
+<h1>Spine Host Port Selector</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for selector in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ selector.infraRsSHPortS.attributes.name }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.nameAlias }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.annotation }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.childAction }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.descr }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.dn }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.extMngdBy }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.lcOwn }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.modTs }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.monPolDn }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.ownerKey }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.ownerTag }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.status }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.type }}</td>
+    <td>{{ selector.infraRsSHPortS.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "infraRsSpAccPortP" in api %}
+<h1>Spine Access Port Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.infraRsSpAccPortP.attributes.name }}</td>
+    <td>{{ profile.infraRsSpAccPortP.attributes.nameAlias }}</td>
+    <td>{{ profile.infraRsSpAccPortP.attributes.annotation }}</td>
+    <td>{{ profile.infraRsSpAccPortP.attributes.childAction }}</td>
+    <td>{{ profile.infraRsSpAccPortP.attributes.descr }}</td>
+    <td>{{ profile.infraRsSpAccPortP.attributes.dn }}</td>
+    <td>{{ profile.infraRsSpAccPortP.attributes.extMngdBy }}</td>
+    <td>{{ profile.infraRsSpAccPortP.attributes.lcOwn }}</td>
+    <td>{{ profile.infraRsSpAccPortP.attributes.modTs }}</td>
+    <td>{{ profile.infraRsSpAccPortP.attributes.monPolDn }}</td>
+    <td>{{ profile.infraRsSpAccPortP.attributes.ownerKey }}</td>
+    <td>{{ profile.infraRsSpAccPortP.attributes.ownerTag }}</td>
+    <td>{{ profile.infraRsSpAccPortP.attributes.status }}</td>
+    <td>{{ profile.infraRsSpAccPortP.attributes.uid }}</td>
   </tr>
 {%-     endfor %}
 </tbody>
