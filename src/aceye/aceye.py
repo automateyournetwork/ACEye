@@ -2111,7 +2111,7 @@ class ACEye():
                 f.write(parsed_json)
 
         if "infraRsAttEntP" in self.url:
-            with open('Attachable Entity Profiles Source Relationships/JSON/Attachable Entity Profiles Source Relationships.json', 'w' ) as f:
+            with open('Attachable Access Entity Profiles Source Relationships/JSON/Attachable Access Entity Profiles Source Relationships.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -2693,7 +2693,7 @@ class ACEye():
                 f.write(clean_yaml)
 
         if "infraRsAttEntP" in self.url:
-            with open('Attachable Entity Profiles Source Relationships/YAML/Attachable Entity Profiles Source Relationships.yaml', 'w' ) as f:
+            with open('Attachable Access Entity Profiles Source Relationships/YAML/Attachable Access Entity Profiles Source Relationships.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -3279,7 +3279,7 @@ class ACEye():
                 f.write(csv_output)
 
         if "infraRsAttEntP" in self.url:
-            with open('Attachable Entity Profiles Source Relationships/CSV/Attachable Entity Profiles Source Relationships.csv', 'w' ) as f:
+            with open('Attachable Access Entity Profiles Source Relationships/CSV/Attachable Access Entity Profiles Source Relationships.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -3866,7 +3866,7 @@ class ACEye():
                 f.write(markdown_output)
 
         if "infraRsAttEntP" in self.url:
-            with open('Attachable Entity Profiles Source Relationships/Markdown/Attachable Entity Profiles Source Relationships.md', 'w' ) as f:
+            with open('Attachable Access Entity Profiles Source Relationships/Markdown/Attachable Access Entity Profiles Source Relationships.md', 'w' ) as f:
                 f.write(markdown_output)
 
     def html_file(self, parsed_json):
@@ -4453,7 +4453,7 @@ class ACEye():
                 f.write(html_output)
 
         if "infraRsAttEntP" in self.url:
-            with open('Attachable Entity Profiles Source Relationships/HTML/Attachable Entity Profiles Source Relationships.html', 'w' ) as f:
+            with open('Attachable Access Entity Profiles Source Relationships/HTML/Attachable Access Entity Profiles Source Relationships.html', 'w' ) as f:
                 f.write(html_output)
 
     def mindmap_file(self, parsed_json):
@@ -5036,7 +5036,7 @@ class ACEye():
                 f.write(mindmap_output)
 
         if "infraRsAttEntP" in self.url:
-            with open('Attachable Entity Profiles Source Relationships/Mindmap/Attachable Entity Profiles Source Relationships.md', 'w' ) as f:
+            with open('Attachable Access Entity Profiles Source Relationships/Mindmap/Attachable Access Entity Profiles Source Relationships.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
