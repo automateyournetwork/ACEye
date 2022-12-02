@@ -2135,7 +2135,7 @@ class ACEye():
                 f.write(parsed_json)
 
         if "infraRsDomP" in self.url:
-            with open('Domain Profiles Source Relationships/JSON/Domain Profiles Source Relationships.json', 'w' ) as f:
+            with open('Domain Profile Source Relationships/JSON/Domain Profile Source Relationships.json', 'w' ) as f:
                 f.write(parsed_json)
 
         if "infraRsSpAccGrp" in self.url:
@@ -2725,7 +2725,7 @@ class ACEye():
                 f.write(clean_yaml)
 
         if "infraRsDomP" in self.url:
-            with open('Domain Profiles Source Relationships/YAML/Domain Profiles Source Relationships.yaml', 'w' ) as f:
+            with open('Domain Profile Source Relationships/YAML/Domain Profile Source Relationships.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
         if "infraRsSpAccGrp" in self.url:
@@ -3319,7 +3319,7 @@ class ACEye():
                 f.write(csv_output)
 
         if "infraRsDomP" in self.url:
-            with open('Domain Profiles Source Relationships/CSV/Domain Profiles Source Relationships.csv', 'w' ) as f:
+            with open('Domain Profile Source Relationships/CSV/Domain Profile Source Relationships.csv', 'w' ) as f:
                 f.write(csv_output)
 
         if "infraRsSpAccGrp" in self.url:
@@ -3914,7 +3914,7 @@ class ACEye():
                 f.write(markdown_output)
 
         if "infraRsDomP" in self.url:
-            with open('Domain Profiles Source Relationships/Markdown/Domain Profiles Source Relationships.md', 'w' ) as f:
+            with open('Domain Profile Source Relationships/Markdown/Domain Profile Source Relationships.md', 'w' ) as f:
                 f.write(markdown_output)
 
         if "infraRsSpAccGrp" in self.url:
@@ -4509,7 +4509,7 @@ class ACEye():
                 f.write(html_output)
 
         if "infraRsDomP" in self.url:
-            with open('Domain Profiles Source Relationships/HTML/Domain Profiles Source Relationships.html', 'w' ) as f:
+            with open('Domain Profile Source Relationships/HTML/Domain Profile Source Relationships.html', 'w' ) as f:
                 f.write(html_output)
 
         if "infraRsSpAccGrp" in self.url:
@@ -5100,7 +5100,7 @@ class ACEye():
                 f.write(mindmap_output)
 
         if "infraRsDomP" in self.url:
-            with open('Domain Profiles Source Relationships/Mindmap/Domain Profiles Source Relationships.md', 'w' ) as f:
+            with open('Domain Profile Source Relationships/Mindmap/Domain Profile Source Relationships.md', 'w' ) as f:
                 f.write(mindmap_output)
 
         if "infraRsSpAccGrp" in self.url:
