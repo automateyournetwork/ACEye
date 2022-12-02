@@ -3661,4 +3661,26 @@
 #### DN: {{ group.infraRsSpAccGrp.attributes.tDn }}
 #### Type: {{ group.infraRsSpAccGrp.attributes.tType }}
 {%-     endfor %}
+{%- elif "infraRsSpAccGrp" in api %}
+# VLAN Namespace Source Relationships
+{%-     for namespace in data_to_template['imdata'] %}
+## UID: {{ namespace.infraRsVlanNs.attributes.uid }}
+### Annotation: {{ namespace.infraRsVlanNs.attributes.annotation }}
+### Child Action: {{ namespace.infraRsVlanNs.attributes.childAction }}
+### DN: {{ namespace.infraRsVlanNs.attributes.dn }}
+### Externally Managed By: {{ namespace.infraRsVlanNs.attributes.extMngdBy }}
+### FEX ID: {{ namespace.infraRsVlanNs.attributes.fexId }}
+### Force Resolve: {{ namespace.infraRsVlanNs.attributes.forceResolve }}
+### Local Owner: {{ namespace.infraRsVlanNs.attributes.lcOwn }}
+### Last Modifed: {{ namespace.infraRsVlanNs.attributes.modTs }}
+### Monitoring Policy DN: {{ namespace.infraRsVlanNs.attributes.monPolDn }}
+### rType: {{ namespace.infraRsVlanNs.attributes.rType }}
+### State: {{ namespace.infraRsVlanNs.attributes.state }}
+### State Quality: {{ namespace.infraRsVlanNs.attributes.stateQual }}
+### Status: {{ namespace.infraRsVlanNs.attributes.status }}
+### t
+#### Cl: {{ namespace.infraRsVlanNs.attributes.tCl }}
+#### DN: {{ namespace.infraRsVlanNs.attributes.tDn }}
+#### Type: {{ namespace.infraRsVlanNs.attributes.tType }}
+{%-     endfor %}
 {%- endif %}

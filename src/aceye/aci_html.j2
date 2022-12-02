@@ -7633,5 +7633,53 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "infraRsSpAccGrp" in api %}
+<h1>VLAN Namespace Source Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>FEX ID</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for namespace in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ namespace.infraRsVlanNs.attributes.uid }}</td>
+    <td>{{ namespace.infraRsVlanNs.attributes.annotation }}</td>
+    <td>{{ namespace.infraRsVlanNs.attributes.childAction }}</td>
+    <td>{{ namespace.infraRsVlanNs.attributes.dn }}</td>
+    <td>{{ namespace.infraRsVlanNs.attributes.extMngdBy }}</td>
+    <td>{{ namespace.infraRsVlanNs.attributes.fexId }}</td>
+    <td>{{ namespace.infraRsVlanNs.attributes.forceResolve }}</td>
+    <td>{{ namespace.infraRsVlanNs.attributes.lcOwn }}</td>
+    <td>{{ namespace.infraRsVlanNs.attributes.modTs }}</td>
+    <td>{{ namespace.infraRsVlanNs.attributes.monPolDn }}</td>
+    <td>{{ namespace.infraRsVlanNs.attributes.rType }}</td>
+    <td>{{ namespace.infraRsVlanNs.attributes.state }}</td>
+    <td>{{ namespace.infraRsVlanNs.attributes.stateQual }}</td>
+    <td>{{ namespace.infraRsVlanNs.attributes.status }}</td>
+    <td>{{ namespace.infraRsVlanNs.attributes.tCl }}</td>
+    <td>{{ namespace.infraRsVlanNs.attributes.tDn }}</td>
+    <td>{{ namespace.infraRsVlanNs.attributes.tType }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
