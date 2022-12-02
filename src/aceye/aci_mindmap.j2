@@ -3595,4 +3595,26 @@
 #### DN: {{ policy.infraRsAccBaseGrp.attributes.tDn }}
 #### Type: {{ policy.infraRsAccBaseGrp.attributes.tType }}
 {%-     endfor %}
+{%- elif "infraRsAttEntP" in api %}
+# Attachable Entity Profiles Source Relationships
+{%-     for profile in data_to_template['imdata'] %}
+## UID: {{ profile.infraRsAttEntP.attributes.uid }}
+### Annotation: {{ profile.infraRsAttEntP.attributes.annotation }}
+### Child Action: {{ profile.infraRsAttEntP.attributes.childAction }}
+### DN: {{ profile.infraRsAttEntP.attributes.dn }}
+### Externally Managed By: {{ profile.infraRsAttEntP.attributes.extMngdBy }}
+### FEX ID: {{ profile.infraRsAttEntP.attributes.fexId }}
+### Force Resolve: {{ profile.infraRsAttEntP.attributes.forceResolve }}
+### Local Owner: {{ profile.infraRsAttEntP.attributes.lcOwn }}
+### Last Modifed: {{ profile.infraRsAttEntP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.infraRsAttEntP.attributes.monPolDn }}
+### rType: {{ profile.infraRsAttEntP.attributes.rType }}
+### State: {{ profile.infraRsAttEntP.attributes.state }}
+### State Quality: {{ profile.infraRsAttEntP.attributes.stateQual }}
+### Status: {{ profile.infraRsAttEntP.attributes.status }}
+### t
+#### Cl: {{ profile.infraRsAttEntP.attributes.tCl }}
+#### DN: {{ profile.infraRsAttEntP.attributes.tDn }}
+#### Type: {{ profile.infraRsAttEntP.attributes.tType }}
+{%-     endfor %}
 {%- endif %}

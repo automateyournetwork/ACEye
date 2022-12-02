@@ -307,6 +307,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.access_policy_group_source_relationships(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.attachable_entity_profile_source_relationships(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)        
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -325,6 +327,7 @@ class ACEye():
                     'ARP Instances',
                     'ARP Interfaces',
                     'Attachable Access Entity Profiles',
+                    'Attachable Access Entity Profiles Source Relationships',
                     'Audit Log',
                     'BGP Domain Address Families',
                     'BGP Domains',
@@ -1527,6 +1530,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def attachable_entity_profile_source_relationships(self):
+        self.url = f"{ self.aci }/api/node/class/infraRsAttEntP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Attachable Entity Profile Source Relationships code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2098,6 +2108,10 @@ class ACEye():
 
         if "infraRsAccBaseGrp" in self.url:
             with open('Access Policy Group Source Relationships/JSON/Access Policy Group Source Relationships.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "infraRsAttEntP" in self.url:
+            with open('Attachable Entity Profiles Source Relationships/JSON/Attachable Entity Profiles Source Relationships.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -2676,6 +2690,10 @@ class ACEye():
 
         if "infraRsAccBaseGrp" in self.url:
             with open('Access Policy Group Source Relationships/YAML/Access Policy Group Source Relationships.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "infraRsAttEntP" in self.url:
+            with open('Attachable Entity Profiles Source Relationships/YAML/Attachable Entity Profiles Source Relationships.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -3258,6 +3276,10 @@ class ACEye():
 
         if "infraRsAccBaseGrp" in self.url:
             with open('Access Policy Group Source Relationships/CSV/Access Policy Group Source Relationships.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "infraRsAttEntP" in self.url:
+            with open('Attachable Entity Profiles Source Relationships/CSV/Attachable Entity Profiles Source Relationships.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -3843,6 +3865,10 @@ class ACEye():
             with open('Access Policy Group Source Relationships/Markdown/Access Policy Group Source Relationships.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "infraRsAttEntP" in self.url:
+            with open('Attachable Entity Profiles Source Relationships/Markdown/Attachable Entity Profiles Source Relationships.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -4426,6 +4452,10 @@ class ACEye():
             with open('Access Policy Group Source Relationships/HTML/Access Policy Group Source Relationships.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "infraRsAttEntP" in self.url:
+            with open('Attachable Entity Profiles Source Relationships/HTML/Attachable Entity Profiles Source Relationships.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5003,6 +5033,10 @@ class ACEye():
 
         if "infraRsAccBaseGrp" in self.url:
             with open('Access Policy Group Source Relationships/Mindmap/Access Policy Group Source Relationships.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "infraRsAttEntP" in self.url:
+            with open('Attachable Entity Profiles Source Relationships/Mindmap/Attachable Entity Profiles Source Relationships.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

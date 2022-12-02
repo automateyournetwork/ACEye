@@ -7489,5 +7489,53 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "infraRsAttEntP" in api %}
+<h1>Attachable Entity Profiles Source Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>FEX ID</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.infraRsAttEntP.attributes.uid }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.annotation }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.childAction }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.dn }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.extMngdBy }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.fexId }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.forceResolve }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.lcOwn }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.modTs }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.monPolDn }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.rType }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.state }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.stateQual }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.status }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.tCl }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.tDn }}</td>
+    <td>{{ profile.infraRsAttEntP.attributes.tType }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
