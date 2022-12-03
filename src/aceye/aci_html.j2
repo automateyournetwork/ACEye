@@ -8001,5 +8001,39 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "ipv4Entity" in api %}
+<h1>IPv4 Entities</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Oper State</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for entity in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ entity.ipv4Entity.attributes.name }}</td>
+    <td>{{ entity.ipv4Entity.attributes.adminSt }}</td>
+    <td>{{ entity.ipv4Entity.attributes.childAction }}</td>
+    <td>{{ entity.ipv4Entity.attributes.dn }}</td>
+    <td>{{ entity.ipv4Entity.attributes.lcOwn }}</td>
+    <td>{{ entity.ipv4Entity.attributes.modTs }}</td>
+    <td>{{ entity.ipv4Entity.attributes.monPolDn }}</td>
+    <td>{{ entity.ipv4Entity.attributes.operErr }}</td>
+    <td>{{ entity.ipv4Entity.attributes.operSt }}</td>
+    <td>{{ entity.ipv4Entity.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

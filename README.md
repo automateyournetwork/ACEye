@@ -250,6 +250,8 @@ IPv4 Addresses
 
 IPv4 Domains
 
+IPv4 Entities
+
 License Entitlements
 
 L2Outs

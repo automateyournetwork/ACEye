@@ -3829,4 +3829,19 @@
 ### Router ID: {{ domain.ipv4Dom.attributes.rtrId }}
 ### Status: {{ domain.ipv4Dom.attributes.status }}
 {%-     endfor %}
+{%- elif "ipv4Entity" in api %}
+# IPv4 Entities
+{%-     for entity in data_to_template['imdata'] %}
+## Name: {{ entity.ipv4Entity.attributes.name }}
+### Admin State: {{ entity.ipv4Entity.attributes.adminSt }}
+### Child Action: {{ entity.ipv4Entity.attributes.childAction }}
+### DN: {{ entity.ipv4Entity.attributes.dn }}
+### Local Owner: {{ entity.ipv4Entity.attributes.lcOwn }}
+### Last Modified: {{ entity.ipv4Entity.attributes.modTs }}
+### Monitoring Policy DN: {{ entity.ipv4Entity.attributes.monPolDn }}
+### Oper
+#### Error: {{ entity.ipv4Entity.attributes.operErr }}
+#### State: {{ entity.ipv4Entity.attributes.operSt }}
+### Status: {{ entity.ipv4Entity.attributes.status }}
+{%-     endfor %}
 {%- endif %}
