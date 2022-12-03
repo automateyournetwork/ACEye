@@ -3719,4 +3719,129 @@
 ### Status: {{ profile.infraSpAccPortP.attributes.status }}
 ### UID: {{ profile.infraSpAccPortP.attributes.uid }}
 {%-     endfor %}
+{%- elif "infraWiNode" in api %}
+# Wired Nodes
+{%-     for node in data_to_template['imdata'] %}
+## Name: {{ node.infraWiNode.attributes.name }}
+### Name Alias: {{ node.infraWiNode.attributes.nameAlias }}
+### Address: {{ node.infraWiNode.attributes.addr }}
+### Admin State: {{ node.infraWiNode.attributes.adminSt }}
+### Annotation: {{ node.infraWiNode.attributes.annotation }}
+### APIC Mode: {{ node.infraWiNode.attributes.apicMode }}
+### Chassis: {{ node.infraWiNode.attributes.chassis }}
+### Child Action: {{ node.infraWiNode.attributes.childAction }}
+### Controller Sbst State: {{ node.infraWiNode.attributes.cntrlSbstState }}
+### DN: {{ node.infraWiNode.attributes.dn }}
+### Externally Managed By: {{ node.infraWiNode.attributes.extMngdBy }}
+### Failover Status: {{ node.infraWiNode.attributes.failoverStatus }}
+### Health: {{ node.infraWiNode.attributes.health }}
+### ID: {{ node.infraWiNode.attributes.id }}
+### Local Owner: {{ node.infraWiNode.attributes.lcOwn }}
+### Motherboard Serial Number: {{ node.infraWiNode.attributes.mbSn }}
+### Last Modified: {{ node.infraWiNode.attributes.modTs }}
+### Monitoring Policy DN: {{ node.infraWiNode.attributes.monPolDn }}
+### Mutn Timestamp: {{ node.infraWiNode.attributes.mutnTs }}
+### Node Name: {{ node.infraWiNode.attributes.nodeName }}
+### Oper State: {{ node.infraWiNode.attributes.operSt }}
+### Pod ID: {{ node.infraWiNode.attributes.podId }}
+### Routable IP Address: {{ node.infraWiNode.attributes.routableIpAddr }}
+### Status: {{ node.infraWiNode.attributes.status }}
+### Target Motherboard Serial Number: {{ node.infraWiNode.attributes.targetMbSn }}
+### UID: {{ node.infraWiNode.attributes.uid }}
+{%-     endfor %}
+{%- elif "ipNexthopP" in api %}
+# Static Route Next Hop Policies
+{%-     for policy in data_to_template['imdata'] %}
+## Name: {{ policy.ipNexthopP.attributes.name }}
+### Name Alias: {{ policy.ipNexthopP.attributes.nameAlias }}
+### Annotation: {{ policy.ipNexthopP.attributes.annotation }}
+### Child Action: {{ policy.ipNexthopP.attributes.childAction }}
+### Description: {{ policy.ipNexthopP.attributes.descr }}
+### DN: {{ policy.ipNexthopP.attributes.dn }}
+### Externally Managed By: {{ policy.ipNexthopP.attributes.extMngdBy }}
+### Local Owner: {{ policy.ipNexthopP.attributes.lcOwn }}
+### Last Modified: {{ policy.ipNexthopP.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.ipNexthopP.attributes.monPolDn }}
+### Next Hop Address: {{ policy.ipNexthopP.attributes.nhAddr }}
+### Prefix: {{ policy.ipNexthopP.attributes.pref }}
+### Status: {{ policy.ipNexthopP.attributes.status }}
+### Type: {{ policy.ipNexthopP.attributes.type }}
+### UID: {{ policy.ipNexthopP.attributes.uid }}
+{%-     endfor %}
+{%- elif "ipRouteP" in api %}
+# Route Policies
+{%-     for policy in data_to_template['imdata'] %}
+## Name: {{ policy.ipRouteP.attributes.name }}
+### Name Alias: {{ policy.ipRouteP.attributes.nameAlias }}
+### Aggregate: {{ policy.ipRouteP.attributes.aggregate }}
+### Annotation: {{ policy.ipRouteP.attributes.annotation }}
+### Child Action: {{ policy.ipRouteP.attributes.childAction }}
+### Description: {{ policy.ipRouteP.attributes.descr }}
+### DN: {{ policy.ipRouteP.attributes.dn }}
+### Externally Managed By: {{ policy.ipRouteP.attributes.extMngdBy }}
+### Prefix Length Range
+#### From: {{ policy.ipRouteP.attributes.fromPfxLen }}
+#### To: {{ policy.ipRouteP.attributes.toPfxLen }}
+### IP: {{ policy.ipRouteP.attributes.ip }}
+### Local Owner: {{ policy.ipRouteP.attributes.lcOwn }}
+### Last Modified: {{ policy.ipRouteP.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.ipRouteP.attributes.monPolDn }}
+### Prefix: {{ policy.ipRouteP.attributes.pref }}
+### Route Control: {{ policy.ipRouteP.attributes.rtCtrl }}
+### Status: {{ policy.ipRouteP.attributes.status }}
+### Type: {{ policy.ipRouteP.attributes.type }}
+### UID: {{ policy.ipRouteP.attributes.uid }}
+{%-     endfor %}
+{%- elif "ipv4Addr" in api %}
+# IPv4 Addresses
+{%-     for address in data_to_template['imdata'] %}
+## Address: {{ address.ipv4Addr.attributes.addr }}
+### Child Action: {{ address.ipv4Addr.attributes.childAction }}
+### Control: {{ address.ipv4Addr.attributes.ctrl }}
+### DN: {{ address.ipv4Addr.attributes.dn }}
+### IPv4 Config
+#### Failed
+##### Bmp: {{ address.ipv4Addr.attributes.ipv4CfgFailedBmp }}
+##### Timestamp: {{ address.ipv4Addr.attributes.ipv4CfgFailedTs }}
+#### State: {{ address.ipv4Addr.attributes.ipv4CfgState }}
+### Local Owner: {{ address.ipv4Addr.attributes.lcOwn }}
+### Last Modified: {{ address.ipv4Addr.attributes.modTs }}
+### Monitoring Policy DN: {{ address.ipv4Addr.attributes.monPolDn }}
+### Oper
+#### State: {{ address.ipv4Addr.attributes.operSt }}
+#### State Quality: {{ address.ipv4Addr.attributes.operStQual }}
+### Prefix: {{ address.ipv4Addr.attributes.pref }}
+### Status: {{ address.ipv4Addr.attributes.status }}
+### Tag: {{ address.ipv4Addr.attributes.tag }}
+### Type: {{ address.ipv4Addr.attributes.type }}
+### vPC Peer: {{ address.ipv4Addr.attributes.vpcPeer }}
+{%-     endfor %}
+{%- elif "ipv4Dom" in api %}
+# IPv4 Domains
+{%-     for domain in data_to_template['imdata'] %}
+## Name: {{ domain.ipv4Dom.attributes.name }}
+### Child Action: {{ domain.ipv4Dom.attributes.childAction }}
+### DN: {{ domain.ipv4Dom.attributes.dn }}
+### Encapsulation: {{ domain.ipv4Dom.attributes.encap }}
+### Local Owner: {{ domain.ipv4Dom.attributes.lcOwn }}
+### Last Modified: {{ domain.ipv4Dom.attributes.modTs }}
+### Monitoring Policy DN: {{ domain.ipv4Dom.attributes.monPolDn }}
+### Router ID: {{ domain.ipv4Dom.attributes.rtrId }}
+### Status: {{ domain.ipv4Dom.attributes.status }}
+{%-     endfor %}
+{%- elif "ipv4Entity" in api %}
+# IPv4 Entities
+{%-     for entity in data_to_template['imdata'] %}
+## Name: {{ entity.ipv4Entity.attributes.name }}
+### Admin State: {{ entity.ipv4Entity.attributes.adminSt }}
+### Child Action: {{ entity.ipv4Entity.attributes.childAction }}
+### DN: {{ entity.ipv4Entity.attributes.dn }}
+### Local Owner: {{ entity.ipv4Entity.attributes.lcOwn }}
+### Last Modified: {{ entity.ipv4Entity.attributes.modTs }}
+### Monitoring Policy DN: {{ entity.ipv4Entity.attributes.monPolDn }}
+### Oper
+#### Error: {{ entity.ipv4Entity.attributes.operErr }}
+#### State: {{ entity.ipv4Entity.attributes.operSt }}
+### Status: {{ entity.ipv4Entity.attributes.status }}
+{%-     endfor %}
 {%- endif %}

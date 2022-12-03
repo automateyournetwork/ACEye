@@ -319,6 +319,18 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.spine_access_port_profiles(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.wired_nodes(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.static_route_next_hop_policies(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.route_policies(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.ipv4_addresses(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.ipv4_domains(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.ipv4_entities(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -441,6 +453,9 @@ class ACEye():
                     'Interface Policies',
                     'Interface Profiles',
                     'IP Addresses',
+                    'IPv4 Addresses',
+                    'IPv4 Domains',
+                    'IPv4 Entities',
                     'License Entitlements',
                     'L2Outs',
                     'L3 Domains',
@@ -456,12 +471,14 @@ class ACEye():
                     'Prefix List',
                     'Prefix List Detailed',
                     'QOS Classes',
+                    'Route Policies',
                     'Security Domains',
                     'Spine Access Policy Groups',
                     'Spine Access Port Profiles',
                     'Spine Host Port Selectors',
                     'Spine Interface Profiles',
                     'Spine Switch Profiles',
+                    'Static Route Next Hop Policies',
                     'Subnets',
                     'Tenant',
                     'Tenant Health',
@@ -470,7 +487,8 @@ class ACEye():
                     'VLAN Encapsulation Blocks',
                     'VLAN Namespace Policies',
                     'VLAN Namespace Source Relationships',
-                    'VLAN Pools']
+                    'VLAN Pools',
+                    'Wired Nodes']
         current_directory = os.getcwd()
         for api in api_list:
             final_directory = os.path.join(current_directory, rf'{ api }/JSON')
@@ -1587,6 +1605,48 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def wired_nodes(self):
+        self.url = f"{ self.aci }/api/node/class/infraWiNode.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Wired Nodes code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def static_route_next_hop_policies(self):
+        self.url = f"{ self.aci }/api/node/class/ipNexthopP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Static Route Next Hop Policies code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def route_policies(self):
+        self.url = f"{ self.aci }/api/node/class/ipRouteP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Route Policies code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def ipv4_addresses(self):
+        self.url = f"{ self.aci }/api/node/class/ipv4Addr.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<IPv4 Addresses code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def ipv4_domains(self):
+        self.url = f"{ self.aci }/api/node/class/ipv4Dom.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<IPv4 Domains code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def ipv4_entities(self):
+        self.url = f"{ self.aci }/api/node/class/ipv4Entity.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<IPv4 Entities code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2182,6 +2242,30 @@ class ACEye():
 
         if "infraSpAccPortP" in self.url:
             with open('Spine Access Port Profiles/JSON/Spine Access Port Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "infraWiNode" in self.url:
+            with open('Wired Nodes/JSON/Wired Nodes.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "ipNexthopP" in self.url:
+            with open('Static Route Next Hop Policies/JSON/Static Route Next Hop Policies.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "ipRouteP" in self.url:
+            with open('Route Policies/JSON/Route Policies.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "ipv4Addr" in self.url:
+            with open('IPv4 Addresses/JSON/IPv4 Addresses.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "ipv4Dom" in self.url:
+            with open('IPv4 Domains/JSON/IPv4 Domains.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "ipv4Entity" in self.url:
+            with open('IPv4 Entities/JSON/IPv4 Entities.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -2784,6 +2868,30 @@ class ACEye():
 
         if "infraSpAccPortP" in self.url:
             with open('Spine Access Port Profiles/YAML/Spine Access Port Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "infraWiNode" in self.url:
+            with open('Wired Nodes/YAML/Wired Nodes.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "ipNexthopP" in self.url:
+            with open('Static Route Next Hop Policies/YAML/Static Route Next Hop Policies.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "ipRouteP" in self.url:
+            with open('Route Policies/YAML/Route Policies.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "ipv4Addr" in self.url:
+            with open('IPv4 Addresses/YAML/IPv4 Addresses.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "ipv4Dom" in self.url:
+            with open('IPv4 Domains/YAML/IPv4 Domains.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "ipv4Entity" in self.url:
+            with open('IPv4 Entities/YAML/IPv4 Entities.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -3390,6 +3498,30 @@ class ACEye():
 
         if "infraSpAccPortP" in self.url:
             with open('Spine Access Port Profiles/CSV/Spine Access Port Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "infraWiNode" in self.url:
+            with open('Wired Nodes/CSV/Wired Nodes.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "ipNexthopP" in self.url:
+            with open('Static Route Next Hop Policies/CSV/Static Route Next Hop Policies.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "ipRouteP" in self.url:
+            with open('Route Policies/CSV/Route Policies.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "ipv4Addr" in self.url:
+            with open('IPv4 Addresses/CSV/IPv4 Addresses.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "ipv4Dom" in self.url:
+            with open('IPv4 Domains/CSV/IPv4 Domains.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "ipv4Entity" in self.url:
+            with open('IPv4 Entities/CSV/IPv4 Entities.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -3999,6 +4131,30 @@ class ACEye():
             with open('Spine Access Port Profiles/Markdown/Spine Access Port Profiles.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "infraWiNode" in self.url:
+            with open('Wired Nodes/Markdown/Wired Nodes.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "ipNexthopP" in self.url:
+            with open('Static Route Next Hop Policies/Markdown/Static Route Next Hop Policies.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "ipRouteP" in self.url:
+            with open('Route Policies/Markdown/Route Policies.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "ipv4Addr" in self.url:
+            with open('IPv4 Addresses/Markdown/IPv4 Addresses.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "ipv4Dom" in self.url:
+            with open('IPv4 Domains/Markdown/IPv4 Domains.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "ipv4Entity" in self.url:
+            with open('IPv4 Entities/Markdown/IPv4 Entities.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -4606,6 +4762,30 @@ class ACEye():
             with open('Spine Access Port Profiles/HTML/Spine Access Port Profiles.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "infraWiNode" in self.url:
+            with open('Wired Nodes/HTML/Wired Nodes.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "ipNexthopP" in self.url:
+            with open('Static Route Next Hop Policies/HTML/Static Route Next Hop Policies.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "ipRouteP" in self.url:
+            with open('Route Policies/HTML/Route Policies.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "ipv4Addr" in self.url:
+            with open('IPv4 Addresses/HTML/IPv4 Addresses.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "ipv4Dom" in self.url:
+            with open('IPv4 Domains/HTML/IPv4 Domains.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "ipv4Entity" in self.url:
+            with open('IPv4 Entities/HTML/IPv4 Entities.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5207,6 +5387,30 @@ class ACEye():
 
         if "infraSpAccPortP" in self.url:
             with open('Spine Access Port Profiles/Mindmap/Spine Access Port Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "infraWiNode" in self.url:
+            with open('Wired Nodes/Mindmap/Wired Nodes.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "ipNexthopP" in self.url:
+            with open('Static Route Next Hop Policies/Mindmap/Static Route Next Hop Policies.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "ipRouteP" in self.url:
+            with open('Route Policies/Mindmap/Route Policies.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "ipv4Addr" in self.url:
+            with open('IPv4 Addresses/Mindmap/IPv4 Addresses.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "ipv4Dom" in self.url:
+            with open('IPv4 Domains/Mindmap/IPv4 Domains.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "ipv4Entity" in self.url:
+            with open('IPv4 Entities/Mindmap/IPv4 Entities.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

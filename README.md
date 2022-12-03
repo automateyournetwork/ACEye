@@ -246,6 +246,12 @@ Interface Profiles
 
 IP Addresses
 
+IPv4 Addresses
+
+IPv4 Domains
+
+IPv4 Entities
+
 License Entitlements
 
 L2Outs
@@ -276,6 +282,8 @@ Prefix List Detailed
 
 QOS Classes
 
+Route Policies
+
 Security Domains
 
 Spine Access Policy Groups
@@ -287,6 +295,8 @@ Spine Host Port Selectors
 Spine Interface Profiles
 
 Spine Switch Profiles
+
+Static Route Next Hop Policies
 
 Subnets
 
@@ -305,6 +315,8 @@ VLAN Namespace Policies
 VLAN Namespace Source Relationships
 
 VLAN Pools
+
+Wired Nodes
 
 * Both Audit Log and Events are commented out of the base package due to the potentially huge number of records; should you want the Audit Log / Events please uncomment out lines 72-73 (Audit Log) and 76-77 (Events)
 

@@ -1,4 +1,3 @@
-
 {%- include 'datatable_header.j2' %}
 {%- if "AEPg" in api %}
 <h1>Endpoint Groups</h1>
@@ -7756,6 +7755,282 @@
     <td>{{ profile.infraSpAccPortP.attributes.ownerTag }}</td>
     <td>{{ profile.infraSpAccPortP.attributes.status }}</td>
     <td>{{ profile.infraSpAccPortP.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "infraWiNode" in api %}
+<h1>Wired Nodes</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Address</th>
+    <th>Admin State</th>
+    <th>Annotation</th>
+    <th>APIC Mode</th>
+    <th>Chassis</th>
+    <th>Child Action</th>
+    <th>Controller Sbst State</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Failover Status</th>
+    <th>Health</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Motherboard Serial Number</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Mutn Timestamp</th>
+    <th>Node Name</th>
+    <th>Oper State</th>
+    <th>Pod ID</th>
+    <th>Routable IP Address</th>
+    <th>Status</th>
+    <th>Target Motherboard Serial Number</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for node in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ node.infraWiNode.attributes.name }}</td>
+    <td>{{ node.infraWiNode.attributes.nameAlias }}</td>
+    <td>{{ node.infraWiNode.attributes.addr }}</td>
+    <td>{{ node.infraWiNode.attributes.adminSt }}</td>
+    <td>{{ node.infraWiNode.attributes.annotation }}</td>
+    <td>{{ node.infraWiNode.attributes.apicMode }}</td>
+    <td>{{ node.infraWiNode.attributes.chassis }}</td>
+    <td>{{ node.infraWiNode.attributes.childAction }}</td>
+    <td>{{ node.infraWiNode.attributes.cntrlSbstState }}</td>
+    <td>{{ node.infraWiNode.attributes.dn }}</td>
+    <td>{{ node.infraWiNode.attributes.extMngdBy }}</td>
+    <td>{{ node.infraWiNode.attributes.failoverStatus }}</td>
+    <td>{{ node.infraWiNode.attributes.health }}</td>
+    <td>{{ node.infraWiNode.attributes.id }}</td>
+    <td>{{ node.infraWiNode.attributes.lcOwn }}</td>
+    <td>{{ node.infraWiNode.attributes.mbSn }}</td>
+    <td>{{ node.infraWiNode.attributes.modTs }}</td>
+    <td>{{ node.infraWiNode.attributes.monPolDn }}</td>
+    <td>{{ node.infraWiNode.attributes.mutnTs }}</td>
+    <td>{{ node.infraWiNode.attributes.nodeName }}</td>
+    <td>{{ node.infraWiNode.attributes.operSt }}</td>
+    <td>{{ node.infraWiNode.attributes.podId }}</td>
+    <td>{{ node.infraWiNode.attributes.routableIpAddr }}</td>
+    <td>{{ node.infraWiNode.attributes.status }}</td>
+    <td>{{ node.infraWiNode.attributes.targetMbSn }}</td>
+    <td>{{ node.infraWiNode.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "ipNexthopP" in api %}
+<h1>Static Route Next Hop Policies</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Next Hop Address</th>
+    <th>Prefix</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for policy in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ policy.ipNexthopP.attributes.name }}</td>
+    <td>{{ policy.ipNexthopP.attributes.nameAlias }}</td>
+    <td>{{ policy.ipNexthopP.attributes.annotation }}</td>
+    <td>{{ policy.ipNexthopP.attributes.childAction }}</td>
+    <td>{{ policy.ipNexthopP.attributes.descr }}</td>
+    <td>{{ policy.ipNexthopP.attributes.dn }}</td>
+    <td>{{ policy.ipNexthopP.attributes.extMngdBy }}</td>
+    <td>{{ policy.ipNexthopP.attributes.lcOwn }}</td>
+    <td>{{ policy.ipNexthopP.attributes.modTs }}</td>
+    <td>{{ policy.ipNexthopP.attributes.monPolDn }}</td>
+    <td>{{ policy.ipNexthopP.attributes.nhAddr }}</td>
+    <td>{{ policy.ipNexthopP.attributes.pref }}</td>
+    <td>{{ policy.ipNexthopP.attributes.status }}</td>
+    <td>{{ policy.ipNexthopP.attributes.type }}</td>
+    <td>{{ policy.ipNexthopP.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "ipRouteP" in api %}
+<h1>Route Policies</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Aggregate</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>From Prefix Length</th>
+    <th>To Prefix Length</th>
+    <th>IP</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Prefix</th>
+    <th>Route Control</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for policy in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ policy.ipRouteP.attributes.name }}</td>
+    <td>{{ policy.ipRouteP.attributes.nameAlias }}</td>
+    <td>{{ policy.ipRouteP.attributes.aggregate }}</td>
+    <td>{{ policy.ipRouteP.attributes.annotation }}</td>
+    <td>{{ policy.ipRouteP.attributes.childAction }}</td>
+    <td>{{ policy.ipRouteP.attributes.descr }}</td>
+    <td>{{ policy.ipRouteP.attributes.dn }}</td>
+    <td>{{ policy.ipRouteP.attributes.extMngdBy }}</td>
+    <td>{{ policy.ipRouteP.attributes.fromPfxLen }}</td>
+    <td>{{ policy.ipRouteP.attributes.toPfxLen }}</td>
+    <td>{{ policy.ipRouteP.attributes.ip }}</td>
+    <td>{{ policy.ipRouteP.attributes.lcOwn }}</td>
+    <td>{{ policy.ipRouteP.attributes.modTs }}</td>
+    <td>{{ policy.ipRouteP.attributes.monPolDn }}</td>
+    <td>{{ policy.ipRouteP.attributes.pref }}</td>
+    <td>{{ policy.ipRouteP.attributes.rtCtrl }}</td>
+    <td>{{ policy.ipRouteP.attributes.status }}</td>
+    <td>{{ policy.ipRouteP.attributes.type }}</td>
+    <td>{{ policy.ipRouteP.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "ipv4Addr" in api %}
+<h1>IPv4 Addresses</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Address</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>IPv4 Config Failed Bmp</th>
+    <th>IPv4 Config Failed Timestamp</th>
+    <th>IPv4 Config State</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Oper State Quality</th>
+    <th>Prefix</th>
+    <th>Status</th>
+    <th>Tag</th>
+    <th>Type</th>
+    <th>vPC Peer</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for address in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ address.ipv4Addr.attributes.addr }}</td>
+    <td>{{ address.ipv4Addr.attributes.childAction }}</td>
+    <td>{{ address.ipv4Addr.attributes.ctrl }}</td>
+    <td>{{ address.ipv4Addr.attributes.dn }}</td>
+    <td>{{ address.ipv4Addr.attributes.ipv4CfgFailedBmp }}</td>
+    <td>{{ address.ipv4Addr.attributes.ipv4CfgFailedTs }}</td>
+    <td>{{ address.ipv4Addr.attributes.ipv4CfgState }}</td>
+    <td>{{ address.ipv4Addr.attributes.lcOwn }}</td>
+    <td>{{ address.ipv4Addr.attributes.modTs }}</td>
+    <td>{{ address.ipv4Addr.attributes.monPolDn }}</td>
+    <td>{{ address.ipv4Addr.attributes.operSt }}</td>
+    <td>{{ address.ipv4Addr.attributes.operStQual }}</td>
+    <td>{{ address.ipv4Addr.attributes.pref }}</td>
+    <td>{{ address.ipv4Addr.attributes.status }}</td>
+    <td>{{ address.ipv4Addr.attributes.tag }}</td>
+    <td>{{ address.ipv4Addr.attributes.type }}</td>
+    <td>{{ address.ipv4Addr.attributes.vpcPeer }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "ipv4Dom" in api %}
+<h1>IPv4 Domains</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Router ID</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for domain in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ domain.ipv4Dom.attributes.name }}</td>
+    <td>{{ domain.ipv4Dom.attributes.childAction }}</td>
+    <td>{{ domain.ipv4Dom.attributes.dn }}</td>
+    <td>{{ domain.ipv4Dom.attributes.encap }}</td>
+    <td>{{ domain.ipv4Dom.attributes.lcOwn }}</td>
+    <td>{{ domain.ipv4Dom.attributes.modTs }}</td>
+    <td>{{ domain.ipv4Dom.attributes.monPolDn }}</td>
+    <td>{{ domain.ipv4Dom.attributes.rtrId }}</td>
+    <td>{{ domain.ipv4Dom.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "ipv4Entity" in api %}
+<h1>IPv4 Entities</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Oper State</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for entity in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ entity.ipv4Entity.attributes.name }}</td>
+    <td>{{ entity.ipv4Entity.attributes.adminSt }}</td>
+    <td>{{ entity.ipv4Entity.attributes.childAction }}</td>
+    <td>{{ entity.ipv4Entity.attributes.dn }}</td>
+    <td>{{ entity.ipv4Entity.attributes.lcOwn }}</td>
+    <td>{{ entity.ipv4Entity.attributes.modTs }}</td>
+    <td>{{ entity.ipv4Entity.attributes.monPolDn }}</td>
+    <td>{{ entity.ipv4Entity.attributes.operErr }}</td>
+    <td>{{ entity.ipv4Entity.attributes.operSt }}</td>
+    <td>{{ entity.ipv4Entity.attributes.status }}</td>
   </tr>
 {%-     endfor %}
 </tbody>
