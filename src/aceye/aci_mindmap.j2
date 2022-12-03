@@ -3862,4 +3862,18 @@
 ### Monitoring Policy DN: {{ interface.ipv4If.attributes.monPolDn }}
 ### Status: {{ interface.ipv4If.attributes.status }}
 {%-     endfor %}
+{%- elif "ipv4Inst" in api %}
+# IPv4 Instances
+{%-     for instance in data_to_template['imdata'] %}
+## Name: {{ instance.ipv4Inst.attributes.name }}
+### Admin State: {{ instance.ipv4Inst.attributes.adminSt }}
+### Child Action: {{ instance.ipv4Inst.attributes.childAction }}
+### Control: {{ instance.ipv4Inst.attributes.ctrl }}
+### DN: {{ instance.ipv4Inst.attributes.dn }}
+### Local Owner: {{ instance.ipv4Inst.attributes.lcOwn }}
+### Last Modified: {{ instance.ipv4Inst.attributes.modTs }}
+### Monitoring Policy DN: {{ instance.ipv4Inst.attributes.monPolDn }}
+### Oper Error: {{ instance.ipv4Inst.attributes.operErr }}
+### Status: {{ instance.ipv4Inst.attributes.status }}
+{%-     endfor %}
 {%- endif %}

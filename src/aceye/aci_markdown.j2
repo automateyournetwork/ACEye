@@ -1003,4 +1003,10 @@
 {%-     for interface in data_to_template['imdata'] %}
 | {{ interface.ipv4If.attributes.name }} | {{ interface.ipv4If.attributes.adminSt }} | {{ interface.ipv4If.attributes.childAction }} | {{ interface.ipv4If.attributes.ctrl }} | {{ interface.ipv4If.attributes.descr }} | {{ interface.ipv4If.attributes.dn }} | {{ interface.ipv4If.attributes.donorIf }} | {{ interface.ipv4If.attributes.id }} | {{ interface.ipv4If.attributes.lcOwn }} | {{ interface.ipv4If.attributes.modTs }} | {{ interface.ipv4If.attributes.mode }} | {{ interface.ipv4If.attributes.modeExtn }} | {{ interface.ipv4If.attributes.monPolDn }} | {{ interface.ipv4If.attributes.status }} |
 {%-     endfor %}
+{%- elif "ipv4Inst" in api %}# IPv4 Instances
+| Name | Admin State | Child Action | Control | DN | Local Owner | Last Modified | Monitoring Policy DN | Oper Error | Status |
+| ---- | ----------- | ------------ | ------- | -- | ----------- | ------------- | -------------------- | ---------- | ------ |
+{%-     for instance in data_to_template['imdata'] %}
+| {{ instance.ipv4Inst.attributes.name }} | {{ instance.ipv4Inst.attributes.adminSt }} | {{ instance.ipv4Inst.attributes.childAction }} | {{ instance.ipv4Inst.attributes.ctrl }} | {{ instance.ipv4Inst.attributes.dn }} | {{ instance.ipv4Inst.attributes.lcOwn }} | {{ instance.ipv4Inst.attributes.modTs }} | {{ instance.ipv4Inst.attributes.monPolDn }} | {{ instance.ipv4Inst.attributes.operErr }} | {{ instance.ipv4Inst.attributes.status }} |
+{%-     endfor %}
 {%- endif %}
