@@ -3719,4 +3719,34 @@
 ### Status: {{ profile.infraSpAccPortP.attributes.status }}
 ### UID: {{ profile.infraSpAccPortP.attributes.uid }}
 {%-     endfor %}
+{%- elif "infraWiNode" in api %}
+# Wired Nodes
+{%-     for node in data_to_template['imdata'] %}
+## Name: {{ node.infraWiNode.attributes.name }}
+### Name Alias: {{ node.infraWiNode.attributes.nameAlias }}
+### Address: {{ node.infraWiNode.attributes.addr }}
+### Admin State: {{ node.infraWiNode.attributes.adminSt }}
+### Annotation: {{ node.infraWiNode.attributes.annotation }}
+### APIC Mode: {{ node.infraWiNode.attributes.apicMode }}
+### Chassis: {{ node.infraWiNode.attributes.chassis }}
+### Child Action: {{ node.infraWiNode.attributes.childAction }}
+### Controller Sbst State: {{ node.infraWiNode.attributes.cntrlSbstState }}
+### DN: {{ node.infraWiNode.attributes.dn }}
+### Externally Managed By: {{ node.infraWiNode.attributes.extMngdBy }}
+### Failover Status: {{ node.infraWiNode.attributes.failoverStatus }}
+### Health: {{ node.infraWiNode.attributes.health }}
+### ID: {{ node.infraWiNode.attributes.id }}
+### Local Owner: {{ node.infraWiNode.attributes.lcOwn }}
+### Motherboard Serial Number: {{ node.infraWiNode.attributes.mbSn }}
+### Last Modified: {{ node.infraWiNode.attributes.modTs }}
+### Monitoring Policy DN: {{ node.infraWiNode.attributes.monPolDn }}
+### Mutn Timestamp: {{ node.infraWiNode.attributes.mutnTs }}
+### Node Name: {{ node.infraWiNode.attributes.nodeName }}
+### Oper State: {{ node.infraWiNode.attributes.operSt }}
+### Pod ID: {{ node.infraWiNode.attributes.podId }}
+### Routable IP Address: {{ node.infraWiNode.attributes.routableIpAddr }}
+### Status: {{ node.infraWiNode.attributes.status }}
+### Target Motherboard Serial Number: {{ node.infraWiNode.attributes.targetMbSn }}
+### UID: {{ node.infraWiNode.attributes.uid }}
+{%-     endfor %}
 {%- endif %}
