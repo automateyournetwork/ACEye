@@ -707,6 +707,6 @@
 {%-     endfor %}
 {%- elif "isisDTEp" in api %}Name,Child Action,DN,Encapsulation Type,ID,Last Modified,Role,Status,Type
 {%-     for endpoint in data_to_template['imdata'] %}
-{{ endpoint.isisDTEp.attributes.name }},{{ endpoint.isisDTEp.attributes.childAction }},{{ endpoint.isisDTEp.attributes.dn }},{{ endpoint.isisDTEp.attributes.encapt }},{{ endpoint.isisDTEp.attributes.id }},{{ endpoint.isisDTEp.attributes.modTs }},{{ endpoint.isisDTEp.attributes.role }},{{ endpoint.isisDTEp.attributes.status }},{{ endpoint.isisDTEp.attributes.type }}
+{{ endpoint.isisDTEp.attributes.name }},{{ endpoint.isisDTEp.attributes.childAction }},{{ endpoint.isisDTEp.attributes.dn }},{{ endpoint.isisDTEp.attributes.encapt }},{{ endpoint.isisDTEp.attributes.id }},{{ endpoint.isisDTEp.attributes.modTs }},{{ endpoint.isisDTEp.attributes.role }},{{ endpoint.isisDTEp.attributes.status }},{{ endpoint.isisDTEp.attributes.type | replace(","," ") }}
 {%-     endfor %}
 {%- endif %}
