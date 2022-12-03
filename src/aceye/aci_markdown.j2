@@ -985,4 +985,10 @@
 {%-     for address in data_to_template['imdata'] %}
 | {{ address.ipv4Addr.attributes.addr }} | {{ address.ipv4Addr.attributes.childAction }} | {{ address.ipv4Addr.attributes.ctrl }} | {{ address.ipv4Addr.attributes.dn }} | {{ address.ipv4Addr.attributes.ipv4CfgFailedBmp }} | {{ address.ipv4Addr.attributes.ipv4CfgFailedTs }} | {{ address.ipv4Addr.attributes.ipv4CfgState }} | {{ address.ipv4Addr.attributes.lcOwn }} | {{ address.ipv4Addr.attributes.modTs }} | {{ address.ipv4Addr.attributes.monPolDn }} | {{ address.ipv4Addr.attributes.operSt }} | {{ address.ipv4Addr.attributes.operStQual }} | {{ address.ipv4Addr.attributes.pref }} | {{ address.ipv4Addr.attributes.status }} | {{ address.ipv4Addr.attributes.tag }} | {{ address.ipv4Addr.attributes.type }} | {{ address.ipv4Addr.attributes.vpcPeer }} |
 {%-     endfor %}
+{%- elif "ipv4Dom" in api %}# IPv4 Domains
+| Name | Child Action | DN | Encapsulation | Local Owner | Last Modified | Monitoring Policy DN | Router ID | Status |
+| ---- | ------------ | -- | ------------- | ----------- | ------------- | -------------------- | --------- | ------ |
+{%-     for domain in data_to_template['imdata'] %}
+| {{ domain.ipv4Dom.attributes.name }} | {{ domain.ipv4Dom.attributes.childAction }} | {{ domain.ipv4Dom.attributes.dn }} | {{ domain.ipv4Dom.attributes.encap }} | {{ domain.ipv4Dom.attributes.lcOwn }} | {{ domain.ipv4Dom.attributes.modTs }} | {{ domain.ipv4Dom.attributes.monPolDn }} | {{ domain.ipv4Dom.attributes.rtrId }} | {{ domain.ipv4Dom.attributes.status }} |
+{%-     endfor %}
 {%- endif %}

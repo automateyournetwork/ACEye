@@ -246,6 +246,10 @@ Interface Profiles
 
 IP Addresses
 
+IPv4 Addresses
+
+IPv4 Domains
+
 License Entitlements
 
 L2Outs

@@ -3816,4 +3816,17 @@
 ### Type: {{ address.ipv4Addr.attributes.type }}
 ### vPC Peer: {{ address.ipv4Addr.attributes.vpcPeer }}
 {%-     endfor %}
+{%- elif "ipv4Dom" in api %}
+# IPv4 Domains
+{%-     for domain in data_to_template['imdata'] %}
+## Name: {{ domain.ipv4Dom.attributes.name }}
+### Child Action: {{ domain.ipv4Dom.attributes.childAction }}
+### DN: {{ domain.ipv4Dom.attributes.dn }}
+### Encapsulation: {{ domain.ipv4Dom.attributes.encap }}
+### Local Owner: {{ domain.ipv4Dom.attributes.lcOwn }}
+### Last Modified: {{ domain.ipv4Dom.attributes.modTs }}
+### Monitoring Policy DN: {{ domain.ipv4Dom.attributes.monPolDn }}
+### Router ID: {{ domain.ipv4Dom.attributes.rtrId }}
+### Status: {{ domain.ipv4Dom.attributes.status }}
+{%-     endfor %}
 {%- endif %}

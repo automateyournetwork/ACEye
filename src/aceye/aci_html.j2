@@ -7969,5 +7969,37 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "ipv4Dom" in api %}
+<h1>IPv4 Domains</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Router ID</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for domain in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ domain.ipv4Dom.attributes.name }}</td>
+    <td>{{ domain.ipv4Dom.attributes.childAction }}</td>
+    <td>{{ domain.ipv4Dom.attributes.dn }}</td>
+    <td>{{ domain.ipv4Dom.attributes.encap }}</td>
+    <td>{{ domain.ipv4Dom.attributes.lcOwn }}</td>
+    <td>{{ domain.ipv4Dom.attributes.modTs }}</td>
+    <td>{{ domain.ipv4Dom.attributes.monPolDn }}</td>
+    <td>{{ domain.ipv4Dom.attributes.rtrId }}</td>
+    <td>{{ domain.ipv4Dom.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
