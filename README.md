@@ -256,6 +256,8 @@ IPv4 Instances
 
 IPv4 Interfaces
 
+IPv4 Next Hop
+
 License Entitlements
 
 L2Outs

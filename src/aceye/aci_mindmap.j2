@@ -3876,4 +3876,35 @@
 ### Oper Error: {{ instance.ipv4Inst.attributes.operErr }}
 ### Status: {{ instance.ipv4Inst.attributes.status }}
 {%-     endfor %}
+{%- elif "ipv4Nexthop" in api %}
+# IPv4 Next Hop
+{%-     for nexthop in data_to_template['imdata'] %}
+## Name: {{ nexthop.ipv4Nexthop.attributes.name }}
+### Name Alias: {{ nexthop.ipv4Nexthop.attributes.nameAlias }}
+### Logical DN: {{ nexthop.ipv4Nexthop.attributes.LogicalDn }}
+### Cached Route Control: {{ nexthop.ipv4Nexthop.attributes.cachedRtCtrl }}
+### Child Action: {{ nexthop.ipv4Nexthop.attributes.childAction }}
+### Context ID: {{ nexthop.ipv4Nexthop.attributes.contextId }}
+### Control: {{ nexthop.ipv4Nexthop.attributes.ctrl }}
+### Description: {{ nexthop.ipv4Nexthop.attributes.descr }}
+### DN: {{ nexthop.ipv4Nexthop.attributes.dn }}
+### Flags: {{ nexthop.ipv4Nexthop.attributes.flags }}
+### IPv4 Config
+#### Failed Bmp: {{ nexthop.ipv4Nexthop.attributes.ipv4CfgFailedBmp }}
+#### Failed Timestamp: {{ nexthop.ipv4Nexthop.attributes.ipv4CfgFailedTs }}
+#### State: {{ nexthop.ipv4Nexthop.attributes.ipv4CfgState }}
+### Local Owner: {{ nexthop.ipv4Nexthop.attributes.lcOwn }}
+### Last Modified: {{ nexthop.ipv4Nexthop.attributes.modTs }}
+### Monitoring Policy DN: {{ nexthop.ipv4Nexthop.attributes.monPolDn }}
+### Next Hop
+#### Address: {{ nexthop.ipv4Nexthop.attributes.nhAddr }}
+#### Interface: {{ nexthop.ipv4Nexthop.attributes.nhIf }}
+#### VRF: {{ nexthop.ipv4Nexthop.attributes.nhVrf }}
+### Oper State: {{ nexthop.ipv4Nexthop.attributes.operSt }}
+### Oper State Quality: {{ nexthop.ipv4Nexthop.attributes.operStQual }}
+### Prefix: {{ nexthop.ipv4Nexthop.attributes.pref }}
+### RW Encapsulation: {{ nexthop.ipv4Nexthop.attributes.rwEncap }}
+### Status: {{ nexthop.ipv4Nexthop.attributes.status }}
+### Track ID: {{ nexthop.ipv4Nexthop.attributes.trackId }}
+{%-     endfor %}
 {%- endif %}
