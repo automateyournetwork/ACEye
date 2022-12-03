@@ -252,6 +252,18 @@ IPv4 Domains
 
 IPv4 Entities
 
+IPv4 Instances
+
+IPv4 Interfaces
+
+IPv4 Next Hop
+
+IPv4 Routes
+
+ISIS Adjacency Endpoints
+
+ISIS Discovered Tunnel Endpoints
+
 License Entitlements
 
 L2Outs

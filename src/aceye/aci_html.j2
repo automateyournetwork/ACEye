@@ -8035,5 +8035,275 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "ipv4If" in api %}
+<h1>IPv4 Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Donor Interface</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Mode External</th>
+    <th>Monitoring Policy DN</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.ipv4If.attributes.name }}</td>
+    <td>{{ interface.ipv4If.attributes.adminSt }}</td>
+    <td>{{ interface.ipv4If.attributes.childAction }}</td>
+    <td>{{ interface.ipv4If.attributes.ctrl }}</td>
+    <td>{{ interface.ipv4If.attributes.descr }}</td>
+    <td>{{ interface.ipv4If.attributes.dn }}</td>
+    <td>{{ interface.ipv4If.attributes.donorIf }}</td>
+    <td>{{ interface.ipv4If.attributes.id }}</td>
+    <td>{{ interface.ipv4If.attributes.lcOwn }}</td>
+    <td>{{ interface.ipv4If.attributes.modTs }}</td>
+    <td>{{ interface.ipv4If.attributes.mode }}</td>
+    <td>{{ interface.ipv4If.attributes.modeExtn }}</td>
+    <td>{{ interface.ipv4If.attributes.monPolDn }}</td>
+    <td>{{ interface.ipv4If.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "ipv4Inst" in api %}
+<h1>IPv4 Instances</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for instance in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ instance.ipv4Inst.attributes.name }}</td>
+    <td>{{ instance.ipv4Inst.attributes.adminSt }}</td>
+    <td>{{ instance.ipv4Inst.attributes.childAction }}</td>
+    <td>{{ instance.ipv4Inst.attributes.ctrl }}</td>
+    <td>{{ instance.ipv4Inst.attributes.dn }}</td>
+    <td>{{ instance.ipv4Inst.attributes.lcOwn }}</td>
+    <td>{{ instance.ipv4Inst.attributes.modTs }}</td>
+    <td>{{ instance.ipv4Inst.attributes.monPolDn }}</td>
+    <td>{{ instance.ipv4Inst.attributes.operErr }}</td>
+    <td>{{ instance.ipv4Inst.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "ipv4Nexthop" in api %}
+<h1>IPv4 Next Hop</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Logical DN</th>
+    <th>Cached Route Control</th>
+    <th>Child Action</th>
+    <th>Context ID</th>
+    <th>Control</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Flags</th>
+    <th>IPv4 Config Failed Bmp</th>
+    <th>IPv4 Config Failed Timestamps</th>
+    <th>IPv4 Config State</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Next Hop Address</th>
+    <th>Next Hop Interface</th>
+    <th>Next Hop VRF</th>
+    <th>Oper State</th>
+    <th>Oper State Quality</th>
+    <th>Prefix</th>
+    <th>RW Encapsulation</th>
+    <th>Status</th>
+    <th>Track ID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for nexthop in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ nexthop.ipv4Nexthop.attributes.name }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.nameAlias }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.LogicalDn }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.cachedRtCtrl }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.childAction }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.contextId }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.ctrl }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.descr }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.dn }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.flags }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.ipv4CfgFailedBmp }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.ipv4CfgFailedTs }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.ipv4CfgState }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.lcOwn }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.modTs }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.monPolDn }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.nhAddr }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.nhIf }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.nhVrf }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.operSt }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.operStQual }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.pref }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.rwEncap }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.status }}</td>
+    <td>{{ nexthop.ipv4Nexthop.attributes.trackId }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "ipv4Route" in api %}
+<h1>IPv4 Routes</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Flush Count</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>PC Tag</th>
+    <th>Preference</th>
+    <th>Prefix</th>
+    <th>Shared Cons Count</th>
+    <th>Status</th>
+    <th>Tag</th>
+    <th>Track ID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for route in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ route.ipv4Route.attributes.name }}</td>
+    <td>{{ route.ipv4Route.attributes.nameAlias }}</td>
+    <td>{{ route.ipv4Route.attributes.childAction }}</td>
+    <td>{{ route.ipv4Route.attributes.ctrl }}</td>
+    <td>{{ route.ipv4Route.attributes.descr }}</td>
+    <td>{{ route.ipv4Route.attributes.dn }}</td>
+    <td>{{ route.ipv4Route.attributes.flushCount }}</td>
+    <td>{{ route.ipv4Route.attributes.lcOwn }}</td>
+    <td>{{ route.ipv4Route.attributes.modTs }}</td>
+    <td>{{ route.ipv4Route.attributes.monPolDn }}</td>
+    <td>{{ route.ipv4Route.attributes.pcTag }}</td>
+    <td>{{ route.ipv4Route.attributes.pref }}</td>
+    <td>{{ route.ipv4Route.attributes.prefix }}</td>
+    <td>{{ route.ipv4Route.attributes.sharedConsCount }}</td>
+    <td>{{ route.ipv4Route.attributes.status }}</td>
+    <td>{{ route.ipv4Route.attributes.tag }}</td>
+    <td>{{ route.ipv4Route.attributes.trackId }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "isisAdjEp" in api %}
+<h1>ISIS Adjacency Endpoints</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>BFD Oper State</th>
+    <th>Child Action</th>
+    <th>Ckt Type</th>
+    <th>DN</th>
+    <th>Hold Expired Timestamp</th>
+    <th>LAN ID</th>
+    <th>Last Trans</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Number Adjacency Transactions</th>
+    <th>Oper State</th>
+    <th>Peer Ckt ID</th>
+    <th>Peer Ckt Priority</th>
+    <th>Peer Gr Flags</th>
+    <th>Status</th>
+    <th>Sys ID</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for endpoint in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ endpoint.isisAdjEp.attributes.name }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.bfdOperSt }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.childAction }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.cktType }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.dn }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.holdExpTs }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.lanId }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.lastTrans }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.modTs }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.monPolDn }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.numAdjTrans }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.operSt }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.peerCktId }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.peerCktPrio }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.peerGrFlags }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.status }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.sysId }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.type }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "isisDTEp" in api %}
+<h1>ISIS Discovered Tunnel Endpoints</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Encapsulation Type</th>
+    <th>ID</th>
+    <th>Last Modified</th>
+    <th>Role</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for endpoint in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ endpoint.isisDTEp.attributes.name }}</td>
+    <td>{{ endpoint.isisDTEp.attributes.childAction }}</td>
+    <td>{{ endpoint.isisDTEp.attributes.dn }}</td>
+    <td>{{ endpoint.isisDTEp.attributes.encapt }}</td>
+    <td>{{ endpoint.isisDTEp.attributes.id }}</td>
+    <td>{{ endpoint.isisDTEp.attributes.modTs }}</td>
+    <td>{{ endpoint.isisDTEp.attributes.role }}</td>
+    <td>{{ endpoint.isisDTEp.attributes.status }}</td>
+    <td>{{ endpoint.isisDTEp.attributes.type }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

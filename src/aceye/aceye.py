@@ -331,6 +331,18 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.ipv4_entities(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.ipv4_interfaces(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.ipv4_instances(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.ipv4_next_hop(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.ipv4_routes(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.isis_adjacency_endpoints(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.isis_discovered_tunnel_endpoints(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -456,6 +468,12 @@ class ACEye():
                     'IPv4 Addresses',
                     'IPv4 Domains',
                     'IPv4 Entities',
+                    'IPv4 Instances',
+                    'IPv4 Interfaces',
+                    'IPv4 Next Hop',
+                    'IPv4 Routes',
+                    'ISIS Adjacency Endpoints',
+                    'ISIS Discovered Tunnel Endpoints',
                     'License Entitlements',
                     'L2Outs',
                     'L3 Domains',
@@ -1647,6 +1665,48 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def ipv4_interfaces(self):
+        self.url = f"{ self.aci }/api/node/class/ipv4If.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<IPv4 Interfaces code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def ipv4_instances(self):
+        self.url = f"{ self.aci }/api/node/class/ipv4Inst.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<IPv4 Instances code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def ipv4_next_hop(self):
+        self.url = f"{ self.aci }/api/node/class/ipv4Nexthop.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<IPv4 Next Hop code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def ipv4_routes(self):
+        self.url = f"{ self.aci }/api/node/class/ipv4Route.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<IPv4 Routes code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def isis_adjacency_endpoints(self):
+        self.url = f"{ self.aci }/api/node/class/isisAdjEp.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<ISIS Adjacency Endpoints code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def isis_discovered_tunnel_endpoints(self):
+        self.url = f"{ self.aci }/api/node/class/isisDTEp.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<ISIS Discovered Tunnel Endpoints code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2266,6 +2326,30 @@ class ACEye():
 
         if "ipv4Entity" in self.url:
             with open('IPv4 Entities/JSON/IPv4 Entities.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "ipv4If" in self.url:
+            with open('IPv4 Interfaces/JSON/IPv4 Interfaces.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "ipv4Inst" in self.url:
+            with open('IPv4 Instances/JSON/IPv4 Instances.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "ipv4Nexthop" in self.url:
+            with open('IPv4 Next Hop/JSON/IPv4 Next Hop.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "ipv4Route" in self.url:
+            with open('IPv4 Routes/JSON/IPv4 Routes.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "isisAdjEp" in self.url:
+            with open('ISIS Adjacency Endpoints/JSON/ISIS Adjacency Endpoints.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "isisDTEp" in self.url:
+            with open('ISIS Discovered Tunnel Endpoints/JSON/ISIS Discovered Tunnel Endpoints.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -2892,6 +2976,30 @@ class ACEye():
 
         if "ipv4Entity" in self.url:
             with open('IPv4 Entities/YAML/IPv4 Entities.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "ipv4If" in self.url:
+            with open('IPv4 Interfaces/YAML/IPv4 Interfaces.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "ipv4Inst" in self.url:
+            with open('IPv4 Instances/YAML/IPv4 Instances.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "ipv4Nexthop" in self.url:
+            with open('IPv4 Next Hop/YAML/IPv4 Next Hop.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "ipv4Route" in self.url:
+            with open('IPv4 Routes/YAML/IPv4 Routes.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "isisAdjEp" in self.url:
+            with open('ISIS Adjacency Endpoints/YAML/ISIS Adjacency Endpoints.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "isisDTEp" in self.url:
+            with open('ISIS Discovered Tunnel Endpoints/YAML/ISIS Discovered Tunnel Endpoints.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -3522,6 +3630,30 @@ class ACEye():
 
         if "ipv4Entity" in self.url:
             with open('IPv4 Entities/CSV/IPv4 Entities.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "ipv4If" in self.url:
+            with open('IPv4 Interfaces/CSV/IPv4 Interfaces.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "ipv4Inst" in self.url:
+            with open('IPv4 Instances/CSV/IPv4 Instances.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "ipv4Nexthop" in self.url:
+            with open('IPv4 Next Hop/CSV/IPv4 Next Hop.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "ipv4Route" in self.url:
+            with open('IPv4 Routes/CSV/IPv4 Routes.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "isisAdjEp" in self.url:
+            with open('ISIS Adjacency Endpoints/CSV/ISIS Adjacency Endpoints.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "isisDTEp" in self.url:
+            with open('ISIS Discovered Tunnel Endpoints/CSV/ISIS Discovered Tunnel Endpoints.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -4155,6 +4287,30 @@ class ACEye():
             with open('IPv4 Entities/Markdown/IPv4 Entities.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "ipv4If" in self.url:
+            with open('IPv4 Interfaces/Markdown/IPv4 Interfaces.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "ipv4Inst" in self.url:
+            with open('IPv4 Instances/Markdown/IPv4 Instances.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "ipv4Nexthop" in self.url:
+            with open('IPv4 Next Hop/Markdown/IPv4 Next Hop.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "ipv4Route" in self.url:
+            with open('IPv4 Routes/Markdown/IPv4 Routes.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "isisAdjEp" in self.url:
+            with open('ISIS Adjacency Endpoints/Markdown/ISIS Adjacency Endpoints.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "isisDTEp" in self.url:
+            with open('ISIS Discovered Tunnel Endpoints/Markdown/ISIS Discovered Tunnel Endpoints.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -4786,6 +4942,30 @@ class ACEye():
             with open('IPv4 Entities/HTML/IPv4 Entities.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "ipv4If" in self.url:
+            with open('IPv4 Interfaces/HTML/IPv4 Interfaces.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "ipv4Inst" in self.url:
+            with open('IPv4 Instances/HTML/IPv4 Instances.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "ipv4Nexthop" in self.url:
+            with open('IPv4 Next Hop/HTML/IPv4 Next Hop.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "ipv4Route" in self.url:
+            with open('IPv4 Routes/HTML/IPv4 Routes.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "isisAdjEp" in self.url:
+            with open('ISIS Adjacency Endpoints/HTML/ISIS Adjacency Endpoints.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "isisDTEp" in self.url:
+            with open('ISIS Discovered Tunnel Endpoints/HTML/ISIS Discovered Tunnel Endpoints.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5411,6 +5591,30 @@ class ACEye():
 
         if "ipv4Entity" in self.url:
             with open('IPv4 Entities/Mindmap/IPv4 Entities.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "ipv4If" in self.url:
+            with open('IPv4 Interfaces/Mindmap/IPv4 Interfaces.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "ipv4Inst" in self.url:
+            with open('IPv4 Instances/Mindmap/IPv4 Instances.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "ipv4Nexthop" in self.url:
+            with open('IPv4 Next Hop/Mindmap/IPv4 Next Hop.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "ipv4Route" in self.url:
+            with open('IPv4 Routes/Mindmap/IPv4 Routes.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "isisAdjEp" in self.url:
+            with open('ISIS Adjacency Endpoints/Mindmap/ISIS Adjacency Endpoints.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "isisDTEp" in self.url:
+            with open('ISIS Discovered Tunnel Endpoints/Mindmap/ISIS Discovered Tunnel Endpoints.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

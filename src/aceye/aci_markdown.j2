@@ -997,4 +997,40 @@
 {%-     for entity in data_to_template['imdata'] %}
 | {{ entity.ipv4Entity.attributes.name }} | {{ entity.ipv4Entity.attributes.adminSt }} | {{ entity.ipv4Entity.attributes.childAction }} | {{ entity.ipv4Entity.attributes.dn }} | {{ entity.ipv4Entity.attributes.lcOwn }} | {{ entity.ipv4Entity.attributes.modTs }} | {{ entity.ipv4Entity.attributes.monPolDn }} | {{ entity.ipv4Entity.attributes.operErr }} | {{ entity.ipv4Entity.attributes.operSt }} | {{ entity.ipv4Entity.attributes.status }} |
 {%-     endfor %}
+{%- elif "ipv4If" in api %}# IPv4 Interfaces
+| Name | Admin State | Child Action | Control | Description | DN | Donor Interface | ID | Local Owner | Last Modified | Mode | Mode External | Monitoring Policy DN | Status |
+| ---- | ----------- | ------------ | ------- | ----------- | -- | --------------- | -- | ----------- | ------------- | ---- | ------------- | -------------------- | ------ |
+{%-     for interface in data_to_template['imdata'] %}
+| {{ interface.ipv4If.attributes.name }} | {{ interface.ipv4If.attributes.adminSt }} | {{ interface.ipv4If.attributes.childAction }} | {{ interface.ipv4If.attributes.ctrl }} | {{ interface.ipv4If.attributes.descr }} | {{ interface.ipv4If.attributes.dn }} | {{ interface.ipv4If.attributes.donorIf }} | {{ interface.ipv4If.attributes.id }} | {{ interface.ipv4If.attributes.lcOwn }} | {{ interface.ipv4If.attributes.modTs }} | {{ interface.ipv4If.attributes.mode }} | {{ interface.ipv4If.attributes.modeExtn }} | {{ interface.ipv4If.attributes.monPolDn }} | {{ interface.ipv4If.attributes.status }} |
+{%-     endfor %}
+{%- elif "ipv4Inst" in api %}# IPv4 Instances
+| Name | Admin State | Child Action | Control | DN | Local Owner | Last Modified | Monitoring Policy DN | Oper Error | Status |
+| ---- | ----------- | ------------ | ------- | -- | ----------- | ------------- | -------------------- | ---------- | ------ |
+{%-     for instance in data_to_template['imdata'] %}
+| {{ instance.ipv4Inst.attributes.name }} | {{ instance.ipv4Inst.attributes.adminSt }} | {{ instance.ipv4Inst.attributes.childAction }} | {{ instance.ipv4Inst.attributes.ctrl }} | {{ instance.ipv4Inst.attributes.dn }} | {{ instance.ipv4Inst.attributes.lcOwn }} | {{ instance.ipv4Inst.attributes.modTs }} | {{ instance.ipv4Inst.attributes.monPolDn }} | {{ instance.ipv4Inst.attributes.operErr }} | {{ instance.ipv4Inst.attributes.status }} |
+{%-     endfor %}
+{%- elif "ipv4Nexthop" in api %}# IPv4 Next Hop
+| Name | Name Alias | Logical DN | Cached Route Control | Child Action | Context ID | Control | Description | DN | Flags | IPv4 Config Failed Bmp | IPv4 Config Failed Timestamps | IPv4 Config State | Local Owner | Last Modified | Monitoring Policy DN | Next Hop Address | Next Hop Interface | Next Hop VRF | Oper State | Oper State Quality | Prefix | RW Encapsulation | Status | Track ID |
+| ---- | ---------- | ---------- | -------------------- | ------------ | ---------- | ------- | ----------- | -- | ----- | ---------------------- | ----------------------------- | ----------------- | ----------- | ------------- | -------------------- | ---------------- | ------------------ | ------------ | ---------- | ------------------ | ------ | ---------------- | ------ | -------- |
+{%-     for nexthop in data_to_template['imdata'] %}
+| {{ nexthop.ipv4Nexthop.attributes.name }} | {{ nexthop.ipv4Nexthop.attributes.nameAlias }} | {{ nexthop.ipv4Nexthop.attributes.LogicalDn }} | {{ nexthop.ipv4Nexthop.attributes.cachedRtCtrl }} | {{ nexthop.ipv4Nexthop.attributes.childAction }} | {{ nexthop.ipv4Nexthop.attributes.contextId }} | {{ nexthop.ipv4Nexthop.attributes.ctrl }} | {{ nexthop.ipv4Nexthop.attributes.descr }} | {{ nexthop.ipv4Nexthop.attributes.dn }} | {{ nexthop.ipv4Nexthop.attributes.flags }} | {{ nexthop.ipv4Nexthop.attributes.ipv4CfgFailedBmp }} | {{ nexthop.ipv4Nexthop.attributes.ipv4CfgFailedTs }} | {{ nexthop.ipv4Nexthop.attributes.ipv4CfgState }} | {{ nexthop.ipv4Nexthop.attributes.lcOwn }} | {{ nexthop.ipv4Nexthop.attributes.modTs }} | {{ nexthop.ipv4Nexthop.attributes.monPolDn }} | {{ nexthop.ipv4Nexthop.attributes.nhAddr }} | {{ nexthop.ipv4Nexthop.attributes.nhIf }} | {{ nexthop.ipv4Nexthop.attributes.nhVrf }} | {{ nexthop.ipv4Nexthop.attributes.operSt }} | {{ nexthop.ipv4Nexthop.attributes.operStQual }} | {{ nexthop.ipv4Nexthop.attributes.pref }} | {{ nexthop.ipv4Nexthop.attributes.rwEncap }} | {{ nexthop.ipv4Nexthop.attributes.status }} | {{ nexthop.ipv4Nexthop.attributes.trackId }} |
+{%-     endfor %}
+{%- elif "ipv4Route" in api %}# IPv4 Routes
+| Name | Name Alias | Child Action | Control | Description | DN | Flush Count | Local Owner | Last Modified | Monitoring Policy DN | PC Tag | Preference | Prefix | Shared Cons Count | Status | Tag | Track ID |
+| ---- | ---------- | ------------ | ------- | ----------- | -- | ----------- | ----------- | ------------- | -------------------- | ------ | ---------- | ------ | ----------------- | ------ | --- | -------- |
+{%-     for route in data_to_template['imdata'] %}
+| {{ route.ipv4Route.attributes.name }} | {{ route.ipv4Route.attributes.nameAlias }} | {{ route.ipv4Route.attributes.childAction }} | {{ route.ipv4Route.attributes.ctrl }} | {{ route.ipv4Route.attributes.descr }} | {{ route.ipv4Route.attributes.dn }} | {{ route.ipv4Route.attributes.flushCount }} | {{ route.ipv4Route.attributes.lcOwn }} | {{ route.ipv4Route.attributes.modTs }} | {{ route.ipv4Route.attributes.monPolDn }} | {{ route.ipv4Route.attributes.pcTag }} | {{ route.ipv4Route.attributes.pref }} | {{ route.ipv4Route.attributes.prefix }} | {{ route.ipv4Route.attributes.sharedConsCount }} | {{ route.ipv4Route.attributes.status }} | {{ route.ipv4Route.attributes.tag }} | {{ route.ipv4Route.attributes.trackId }} |
+{%-     endfor %}
+{%- elif "isisAdjEp" in api %}# ISIS Adjacency Endpoints
+| Name | BFD Oper State | Child Action | Ckt Type | DN | Hold Expired Timestamp | LAN ID | Last Trans | Last Modified | Monitoring Policy DN | Number Adjacency Transactions | Oper State | Peer Ckt ID | Peer Ckt Priority | Peer Gr Flags | Status | Sys ID | Type |
+| ---- | -------------- | ------------ | -------- | -- | ---------------------- | ------ | ---------- | ------------- | -------------------- | ----------------------------- | ---------- | ----------- | ----------------- | ------------- | ------ | ------ | ---- |
+{%-     for endpoint in data_to_template['imdata'] %}
+| {{ endpoint.isisAdjEp.attributes.name }} | {{ endpoint.isisAdjEp.attributes.bfdOperSt }} | {{ endpoint.isisAdjEp.attributes.childAction }} | {{ endpoint.isisAdjEp.attributes.cktType }} | {{ endpoint.isisAdjEp.attributes.dn }} | {{ endpoint.isisAdjEp.attributes.holdExpTs }} | {{ endpoint.isisAdjEp.attributes.lanId }} | {{ endpoint.isisAdjEp.attributes.lastTrans }} | {{ endpoint.isisAdjEp.attributes.modTs }} | {{ endpoint.isisAdjEp.attributes.monPolDn }} | {{ endpoint.isisAdjEp.attributes.numAdjTrans }} | {{ endpoint.isisAdjEp.attributes.operSt }} | {{ endpoint.isisAdjEp.attributes.peerCktId }} | {{ endpoint.isisAdjEp.attributes.peerCktPrio }} | {{ endpoint.isisAdjEp.attributes.peerGrFlags }} | {{ endpoint.isisAdjEp.attributes.status }} | {{ endpoint.isisAdjEp.attributes.sysId }} | {{ endpoint.isisAdjEp.attributes.type }} |
+{%-     endfor %}
+{%- elif "isisDTEp" in api %}# ISIS Discovered Tunnel Endpoints
+| Name | Child Action | DN | Encapsulation Type | ID | Last Modified | Role | Status | Type |
+| ---- | ------------ | -- | ------------------ | -- | ------------- | ---- | ------ | ---- |
+{%-     for endpoint in data_to_template['imdata'] %}
+| {{ endpoint.isisDTEp.attributes.name }} | {{ endpoint.isisDTEp.attributes.childAction }} | {{ endpoint.isisDTEp.attributes.dn }} | {{ endpoint.isisDTEp.attributes.encapt }} | {{ endpoint.isisDTEp.attributes.id }} | {{ endpoint.isisDTEp.attributes.modTs }} | {{ endpoint.isisDTEp.attributes.role }} | {{ endpoint.isisDTEp.attributes.status }} | {{ endpoint.isisDTEp.attributes.type }} |
+{%-     endfor %}
 {%- endif %}
