@@ -262,6 +262,8 @@ IPv4 Routes
 
 ISIS Adjacency Endpoints
 
+ISIS Discovered Tunnel Endpoints
+
 License Entitlements
 
 L2Outs

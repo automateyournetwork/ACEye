@@ -1027,4 +1027,10 @@
 {%-     for endpoint in data_to_template['imdata'] %}
 | {{ endpoint.isisAdjEp.attributes.name }} | {{ endpoint.isisAdjEp.attributes.bfdOperSt }} | {{ endpoint.isisAdjEp.attributes.childAction }} | {{ endpoint.isisAdjEp.attributes.cktType }} | {{ endpoint.isisAdjEp.attributes.dn }} | {{ endpoint.isisAdjEp.attributes.holdExpTs }} | {{ endpoint.isisAdjEp.attributes.lanId }} | {{ endpoint.isisAdjEp.attributes.lastTrans }} | {{ endpoint.isisAdjEp.attributes.modTs }} | {{ endpoint.isisAdjEp.attributes.monPolDn }} | {{ endpoint.isisAdjEp.attributes.numAdjTrans }} | {{ endpoint.isisAdjEp.attributes.operSt }} | {{ endpoint.isisAdjEp.attributes.peerCktId }} | {{ endpoint.isisAdjEp.attributes.peerCktPrio }} | {{ endpoint.isisAdjEp.attributes.peerGrFlags }} | {{ endpoint.isisAdjEp.attributes.status }} | {{ endpoint.isisAdjEp.attributes.sysId }} | {{ endpoint.isisAdjEp.attributes.type }} |
 {%-     endfor %}
+{%- elif "isisDTEp" in api %}# ISIS Discovered Tunnel Endpoints
+| Name | Child Action | DN | Encapsulation Type | ID | Last Modified | Role | Status | Type |
+| ---- | ------------ | -- | ------------------ | -- | ------------- | ---- | ------ | ---- |
+{%-     for endpoint in data_to_template['imdata'] %}
+| {{ endpoint.isisDTEp.attributes.name }} | {{ endpoint.isisDTEp.attributes.childAction }} | {{ endpoint.isisDTEp.attributes.dn }} | {{ endpoint.isisDTEp.attributes.encapt }} | {{ endpoint.isisDTEp.attributes.id }} | {{ endpoint.isisDTEp.attributes.modTs }} | {{ endpoint.isisDTEp.attributes.role }} | {{ endpoint.isisDTEp.attributes.status }} | {{ endpoint.isisDTEp.attributes.type }} |
+{%-     endfor %}
 {%- endif %}

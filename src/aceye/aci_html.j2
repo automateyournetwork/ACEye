@@ -8273,5 +8273,37 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "isisDTEp" in api %}
+<h1>ISIS Discovered Tunnel Endpoints</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Encapsulation Type</th>
+    <th>ID</th>
+    <th>Last Modified</th>
+    <th>Role</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for endpoint in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ endpoint.isisDTEp.attributes.name }}</td>
+    <td>{{ endpoint.isisDTEp.attributes.childAction }}</td>
+    <td>{{ endpoint.isisDTEp.attributes.dn }}</td>
+    <td>{{ endpoint.isisDTEp.attributes.encapt }}</td>
+    <td>{{ endpoint.isisDTEp.attributes.id }}</td>
+    <td>{{ endpoint.isisDTEp.attributes.modTs }}</td>
+    <td>{{ endpoint.isisDTEp.attributes.role }}</td>
+    <td>{{ endpoint.isisDTEp.attributes.status }}</td>
+    <td>{{ endpoint.isisDTEp.attributes.type }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

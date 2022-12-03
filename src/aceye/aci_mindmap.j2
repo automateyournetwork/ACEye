@@ -3951,4 +3951,17 @@
 ### System ID: {{ endpoint.isisAdjEp.attributes.sysId }}
 ### Type: {{ endpoint.isisAdjEp.attributes.type }}
 {%-     endfor %}
+{%- elif "isisDTEp" in api %}
+# ISIS Discovered Tunnel Endpoints
+{%-     for endpoint in data_to_template['imdata'] %}
+## Name: {{ endpoint.isisDTEp.attributes.name }}
+### Child Action: {{ endpoint.isisDTEp.attributes.childAction }}
+### DN: {{ endpoint.isisDTEp.attributes.dn }}
+### Encapsulation Type: {{ endpoint.isisDTEp.attributes.encapt }}
+### ID: {{ endpoint.isisDTEp.attributes.id }}
+### Last Modified: {{ endpoint.isisDTEp.attributes.modTs }}
+### Role: {{ endpoint.isisDTEp.attributes.role }}
+### Status: {{ endpoint.isisDTEp.attributes.status }}
+### Type: {{ endpoint.isisDTEp.attributes.type }}
+{%-     endfor %}
 {%- endif %}
