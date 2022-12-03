@@ -325,6 +325,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.route_policies(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.ipv4_addresses(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -447,6 +449,7 @@ class ACEye():
                     'Interface Policies',
                     'Interface Profiles',
                     'IP Addresses',
+                    'IPv4 Addresses',
                     'License Entitlements',
                     'L2Outs',
                     'L3 Domains',
@@ -1617,6 +1620,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def ipv4_addresses(self):
+        self.url = f"{ self.aci }/api/node/class/ipv4Addr.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<IPv4 Addresses code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2224,6 +2234,10 @@ class ACEye():
 
         if "ipRouteP" in self.url:
             with open('Route Policies/JSON/Route Policies.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "ipv4Addr" in self.url:
+            with open('IPv4 Addresses/JSON/IPv4 Addresses.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -2838,6 +2852,10 @@ class ACEye():
 
         if "ipRouteP" in self.url:
             with open('Route Policies/YAML/Route Policies.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "ipv4Addr" in self.url:
+            with open('IPv4 Addresses/YAML/IPv4 Addresses.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -3456,6 +3474,10 @@ class ACEye():
 
         if "ipRouteP" in self.url:
             with open('Route Policies/CSV/Route Policies.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "ipv4Addr" in self.url:
+            with open('IPv4 Addresses/CSV/IPv4 Addresses.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -4077,6 +4099,10 @@ class ACEye():
             with open('Route Policies/Markdown/Route Policies.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "ipv4Addr" in self.url:
+            with open('IPv4 Addresses/Markdown/IPv4 Addresses.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -4696,6 +4722,10 @@ class ACEye():
             with open('Route Policies/HTML/Route Policies.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "ipv4Addr" in self.url:
+            with open('IPv4 Addresses/HTML/IPv4 Addresses.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5309,6 +5339,10 @@ class ACEye():
 
         if "ipRouteP" in self.url:
             with open('Route Policies/Mindmap/Route Policies.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "ipv4Addr" in self.url:
+            with open('IPv4 Addresses/Mindmap/IPv4 Addresses.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

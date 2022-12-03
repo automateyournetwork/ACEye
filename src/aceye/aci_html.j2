@@ -7921,5 +7921,53 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "ipv4Addr" in api %}
+<h1>IPv4 Addresses</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Address</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>IPv4 Config Failed Bmp</th>
+    <th>IPv4 Config Failed Timestamp</th>
+    <th>IPv4 Config State</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Oper State Quality</th>
+    <th>Prefix</th>
+    <th>Status</th>
+    <th>Tag</th>
+    <th>Type</th>
+    <th>vPC Peer</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for address in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ address.ipv4Addr.attributes.addr }}</td>
+    <td>{{ address.ipv4Addr.attributes.childAction }}</td>
+    <td>{{ address.ipv4Addr.attributes.ctrl }}</td>
+    <td>{{ address.ipv4Addr.attributes.dn }}</td>
+    <td>{{ address.ipv4Addr.attributes.ipv4CfgFailedBmp }}</td>
+    <td>{{ address.ipv4Addr.attributes.ipv4CfgFailedTs }}</td>
+    <td>{{ address.ipv4Addr.attributes.ipv4CfgState }}</td>
+    <td>{{ address.ipv4Addr.attributes.lcOwn }}</td>
+    <td>{{ address.ipv4Addr.attributes.modTs }}</td>
+    <td>{{ address.ipv4Addr.attributes.monPolDn }}</td>
+    <td>{{ address.ipv4Addr.attributes.operSt }}</td>
+    <td>{{ address.ipv4Addr.attributes.operStQual }}</td>
+    <td>{{ address.ipv4Addr.attributes.pref }}</td>
+    <td>{{ address.ipv4Addr.attributes.status }}</td>
+    <td>{{ address.ipv4Addr.attributes.tag }}</td>
+    <td>{{ address.ipv4Addr.attributes.type }}</td>
+    <td>{{ address.ipv4Addr.attributes.vpcPeer }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

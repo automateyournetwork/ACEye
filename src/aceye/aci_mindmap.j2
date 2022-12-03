@@ -3792,4 +3792,28 @@
 ### Type: {{ policy.ipRouteP.attributes.type }}
 ### UID: {{ policy.ipRouteP.attributes.uid }}
 {%-     endfor %}
+{%- elif "ipv4Addr" in api %}
+# IPv4 Addresses
+{%-     for address in data_to_template['imdata'] %}
+## Address: {{ address.ipv4Addr.attributes.addr }}
+### Child Action: {{ address.ipv4Addr.attributes.childAction }}
+### Control: {{ address.ipv4Addr.attributes.ctrl }}
+### DN: {{ address.ipv4Addr.attributes.dn }}
+### IPv4 Config
+#### Failed
+##### Bmp: {{ address.ipv4Addr.attributes.ipv4CfgFailedBmp }}
+##### Timestamp: {{ address.ipv4Addr.attributes.ipv4CfgFailedTs }}
+#### State: {{ address.ipv4Addr.attributes.ipv4CfgState }}
+### Local Owner: {{ address.ipv4Addr.attributes.lcOwn }}
+### Last Modified: {{ address.ipv4Addr.attributes.modTs }}
+### Monitoring Policy DN: {{ address.ipv4Addr.attributes.monPolDn }}
+### Oper
+#### State: {{ address.ipv4Addr.attributes.operSt }}
+#### State Quality: {{ address.ipv4Addr.attributes.operStQual }}
+### Prefix: {{ address.ipv4Addr.attributes.pref }}
+### Status: {{ address.ipv4Addr.attributes.status }}
+### Tag: {{ address.ipv4Addr.attributes.tag }}
+### Type: {{ address.ipv4Addr.attributes.type }}
+### vPC Peer: {{ address.ipv4Addr.attributes.vpcPeer }}
+{%-     endfor %}
 {%- endif %}
