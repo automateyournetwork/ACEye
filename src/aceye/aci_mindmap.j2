@@ -3749,4 +3749,23 @@
 ### Target Motherboard Serial Number: {{ node.infraWiNode.attributes.targetMbSn }}
 ### UID: {{ node.infraWiNode.attributes.uid }}
 {%-     endfor %}
+{%- elif "ipNexthopP" in api %}
+# Static Route Next Hop Policies
+{%-     for policy in data_to_template['imdata'] %}
+## Name: {{ policy.ipNexthopP.attributes.name }}
+### Name Alias: {{ policy.ipNexthopP.attributes.nameAlias }}
+### Annotation: {{ policy.ipNexthopP.attributes.annotation }}
+### Child Action: {{ policy.ipNexthopP.attributes.childAction }}
+### Description: {{ policy.ipNexthopP.attributes.descr }}
+### DN: {{ policy.ipNexthopP.attributes.dn }}
+### Externally Managed By: {{ policy.ipNexthopP.attributes.extMngdBy }}
+### Local Owner: {{ policy.ipNexthopP.attributes.lcOwn }}
+### Last Modified: {{ policy.ipNexthopP.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.ipNexthopP.attributes.monPolDn }}
+### Next Hop Address: {{ policy.ipNexthopP.attributes.nhAddr }}
+### Prefix: {{ policy.ipNexthopP.attributes.pref }}
+### Status: {{ policy.ipNexthopP.attributes.status }}
+### Type: {{ policy.ipNexthopP.attributes.type }}
+### UID: {{ policy.ipNexthopP.attributes.uid }}
+{%-     endfor %}
 {%- endif %}

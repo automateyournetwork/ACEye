@@ -288,6 +288,8 @@ Spine Interface Profiles
 
 Spine Switch Profiles
 
+Static Route Next Hop Policies
+
 Subnets
 
 Tenant

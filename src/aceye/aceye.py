@@ -320,7 +320,9 @@ class ACEye():
         parsed_json = json.dumps(self.spine_access_port_profiles(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.wired_nodes(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)        
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.static_route_next_hop_policies(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -464,6 +466,7 @@ class ACEye():
                     'Spine Host Port Selectors',
                     'Spine Interface Profiles',
                     'Spine Switch Profiles',
+                    'Static Route Next Hop Policies',
                     'Subnets',
                     'Tenant',
                     'Tenant Health',
@@ -1597,6 +1600,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def static_route_next_hop_policies(self):
+        self.url = f"{ self.aci }/api/node/class/ipNexthopP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Static Route Next Hop Policies code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2196,6 +2206,10 @@ class ACEye():
 
         if "infraWiNode" in self.url:
             with open('Wired Nodes/JSON/Wired Nodes.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "ipNexthopP" in self.url:
+            with open('Static Route Next Hop Policies/JSON/Static Route Next Hop Policies.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -2802,6 +2816,10 @@ class ACEye():
 
         if "infraWiNode" in self.url:
             with open('Wired Nodes/YAML/Wired Nodes.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "ipNexthopP" in self.url:
+            with open('Static Route Next Hop Policies/YAML/Static Route Next Hop Policies.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -3412,6 +3430,10 @@ class ACEye():
 
         if "infraWiNode" in self.url:
             with open('Wired Nodes/CSV/Wired Nodes.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "ipNexthopP" in self.url:
+            with open('Static Route Next Hop Policies/CSV/Static Route Next Hop Policies.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -4025,6 +4047,10 @@ class ACEye():
             with open('Wired Nodes/Markdown/Wired Nodes.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "ipNexthopP" in self.url:
+            with open('Static Route Next Hop Policies/Markdown/Static Route Next Hop Policies.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -4636,6 +4662,10 @@ class ACEye():
             with open('Wired Nodes/HTML/Wired Nodes.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "ipNexthopP" in self.url:
+            with open('Static Route Next Hop Policies/HTML/Static Route Next Hop Policies.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5241,6 +5271,10 @@ class ACEye():
 
         if "infraWiNode" in self.url:
             with open('Wired Nodes/Mindmap/Wired Nodes.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "ipNexthopP" in self.url:
+            with open('Static Route Next Hop Policies/Mindmap/Static Route Next Hop Policies.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
