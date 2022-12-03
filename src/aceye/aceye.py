@@ -323,6 +323,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.static_route_next_hop_policies(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.route_policies(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -460,6 +462,7 @@ class ACEye():
                     'Prefix List',
                     'Prefix List Detailed',
                     'QOS Classes',
+                    'Route Policies',
                     'Security Domains',
                     'Spine Access Policy Groups',
                     'Spine Access Port Profiles',
@@ -1607,6 +1610,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def route_policies(self):
+        self.url = f"{ self.aci }/api/node/class/ipRouteP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Route Policies code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2210,6 +2220,10 @@ class ACEye():
 
         if "ipNexthopP" in self.url:
             with open('Static Route Next Hop Policies/JSON/Static Route Next Hop Policies.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "ipRouteP" in self.url:
+            with open('Route Policies/JSON/Route Policies.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -2820,6 +2834,10 @@ class ACEye():
 
         if "ipNexthopP" in self.url:
             with open('Static Route Next Hop Policies/YAML/Static Route Next Hop Policies.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "ipRouteP" in self.url:
+            with open('Route Policies/YAML/Route Policies.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -3434,6 +3452,10 @@ class ACEye():
 
         if "ipNexthopP" in self.url:
             with open('Static Route Next Hop Policies/CSV/Static Route Next Hop Policies.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "ipRouteP" in self.url:
+            with open('Route Policies/CSV/Route Policies.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -4051,6 +4073,10 @@ class ACEye():
             with open('Static Route Next Hop Policies/Markdown/Static Route Next Hop Policies.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "ipRouteP" in self.url:
+            with open('Route Policies/Markdown/Route Policies.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -4666,6 +4692,10 @@ class ACEye():
             with open('Static Route Next Hop Policies/HTML/Static Route Next Hop Policies.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "ipRouteP" in self.url:
+            with open('Route Policies/HTML/Route Policies.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5275,6 +5305,10 @@ class ACEye():
 
         if "ipNexthopP" in self.url:
             with open('Static Route Next Hop Policies/Mindmap/Static Route Next Hop Policies.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "ipRouteP" in self.url:
+            with open('Route Policies/Mindmap/Route Policies.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

@@ -3768,4 +3768,28 @@
 ### Type: {{ policy.ipNexthopP.attributes.type }}
 ### UID: {{ policy.ipNexthopP.attributes.uid }}
 {%-     endfor %}
+{%- elif "ipRouteP" in api %}
+# Route Policies
+{%-     for policy in data_to_template['imdata'] %}
+## Name: {{ policy.ipRouteP.attributes.name }}
+### Name Alias: {{ policy.ipRouteP.attributes.nameAlias }}
+### Aggregate: {{ policy.ipRouteP.attributes.aggregate }}
+### Annotation: {{ policy.ipRouteP.attributes.annotation }}
+### Child Action: {{ policy.ipRouteP.attributes.childAction }}
+### Description: {{ policy.ipRouteP.attributes.descr }}
+### DN: {{ policy.ipRouteP.attributes.dn }}
+### Externally Managed By: {{ policy.ipRouteP.attributes.extMngdBy }}
+### Prefix Length Range
+#### From: {{ policy.ipRouteP.attributes.fromPfxLen }}
+#### To: {{ policy.ipRouteP.attributes.toPfxLen }}
+### IP: {{ policy.ipRouteP.attributes.ip }}
+### Local Owner: {{ policy.ipRouteP.attributes.lcOwn }}
+### Last Modified: {{ policy.ipRouteP.attributes.modTs }}
+### Monitoring Policy DN: {{ policy.ipRouteP.attributes.monPolDn }}
+### Prefix: {{ policy.ipRouteP.attributes.pref }}
+### Route Control: {{ policy.ipRouteP.attributes.rtCtrl }}
+### Status: {{ policy.ipRouteP.attributes.status }}
+### Type: {{ policy.ipRouteP.attributes.type }}
+### UID: {{ policy.ipRouteP.attributes.uid }}
+{%-     endfor %}
 {%- endif %}

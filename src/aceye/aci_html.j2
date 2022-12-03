@@ -7869,5 +7869,57 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "ipRouteP" in api %}
+<h1>Route Policies</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Aggregate</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>From Prefix Length</th>
+    <th>To Prefix Length</th>
+    <th>IP</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Prefix</th>
+    <th>Route Control</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for policy in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ policy.ipRouteP.attributes.name }}</td>
+    <td>{{ policy.ipRouteP.attributes.nameAlias }}</td>
+    <td>{{ policy.ipRouteP.attributes.aggregate }}</td>
+    <td>{{ policy.ipRouteP.attributes.annotation }}</td>
+    <td>{{ policy.ipRouteP.attributes.childAction }}</td>
+    <td>{{ policy.ipRouteP.attributes.descr }}</td>
+    <td>{{ policy.ipRouteP.attributes.dn }}</td>
+    <td>{{ policy.ipRouteP.attributes.extMngdBy }}</td>
+    <td>{{ policy.ipRouteP.attributes.fromPfxLen }}</td>
+    <td>{{ policy.ipRouteP.attributes.toPfxLen }}</td>
+    <td>{{ policy.ipRouteP.attributes.ip }}</td>
+    <td>{{ policy.ipRouteP.attributes.lcOwn }}</td>
+    <td>{{ policy.ipRouteP.attributes.modTs }}</td>
+    <td>{{ policy.ipRouteP.attributes.monPolDn }}</td>
+    <td>{{ policy.ipRouteP.attributes.pref }}</td>
+    <td>{{ policy.ipRouteP.attributes.rtCtrl }}</td>
+    <td>{{ policy.ipRouteP.attributes.status }}</td>
+    <td>{{ policy.ipRouteP.attributes.type }}</td>
+    <td>{{ policy.ipRouteP.attributes.uid }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
