@@ -8223,5 +8223,55 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "isisAdjEp" in api %}
+<h1>ISIS Adjacency Endpoints</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>BFD Oper State</th>
+    <th>Child Action</th>
+    <th>Ckt Type</th>
+    <th>DN</th>
+    <th>Hold Expired Timestamp</th>
+    <th>LAN ID</th>
+    <th>Last Trans</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Number Adjacency Transactions</th>
+    <th>Oper State</th>
+    <th>Peer Ckt ID</th>
+    <th>Peer Ckt Priority</th>
+    <th>Peer Gr Flags</th>
+    <th>Status</th>
+    <th>Sys ID</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for endpoint in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ endpoint.isisAdjEp.attributes.name }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.bfdOperSt }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.childAction }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.cktType }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.dn }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.holdExpTs }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.lanId }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.lastTrans }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.modTs }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.monPolDn }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.numAdjTrans }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.operSt }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.peerCktId }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.peerCktPrio }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.peerGrFlags }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.status }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.sysId }}</td>
+    <td>{{ endpoint.isisAdjEp.attributes.type }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

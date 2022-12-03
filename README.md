@@ -260,6 +260,8 @@ IPv4 Next Hop
 
 IPv4 Routes
 
+ISIS Adjacency Endpoints
+
 License Entitlements
 
 L2Outs

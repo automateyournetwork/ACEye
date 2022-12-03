@@ -3928,4 +3928,27 @@
 ### Tag: {{ route.ipv4Route.attributes.tag }}
 ### Track ID: {{ route.ipv4Route.attributes.trackId }}
 {%-     endfor %}
+{%- elif "isisAdjEp" in api %}
+# ISIS Adjacency Endpoints
+{%-     for endpoint in data_to_template['imdata'] %}
+## Name: {{ endpoint.isisAdjEp.attributes.name }}
+### BFD Oper State: {{ endpoint.isisAdjEp.attributes.bfdOperSt }}
+### Child Action: {{ endpoint.isisAdjEp.attributes.childAction }}
+### Ckt Type: {{ endpoint.isisAdjEp.attributes.cktType }}
+### DN: {{ endpoint.isisAdjEp.attributes.dn }}
+### Hold Expired Timestamp: {{ endpoint.isisAdjEp.attributes.holdExpTs }}
+### LAN ID: {{ endpoint.isisAdjEp.attributes.lanId }}
+### Last Transaction: {{ endpoint.isisAdjEp.attributes.lastTrans }}
+### Last Modified: {{ endpoint.isisAdjEp.attributes.modTs }}
+### Monitoring Policy DN: {{ endpoint.isisAdjEp.attributes.monPolDn }}
+### Nuymber of Adjacency Transactions: {{ endpoint.isisAdjEp.attributes.numAdjTrans }}
+### Oper State: {{ endpoint.isisAdjEp.attributes.operSt }}
+### Peer
+#### Chk ID: {{ endpoint.isisAdjEp.attributes.peerCktId }}
+#### Chk Priority: {{ endpoint.isisAdjEp.attributes.peerCktPrio }}
+#### Gr Flags: {{ endpoint.isisAdjEp.attributes.peerGrFlags }}
+### Status: {{ endpoint.isisAdjEp.attributes.status }}
+### System ID: {{ endpoint.isisAdjEp.attributes.sysId }}
+### Type: {{ endpoint.isisAdjEp.attributes.type }}
+{%-     endfor %}
 {%- endif %}
