@@ -331,6 +331,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.ipv4_entities(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.ipv4_interfaces(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -456,6 +458,7 @@ class ACEye():
                     'IPv4 Addresses',
                     'IPv4 Domains',
                     'IPv4 Entities',
+                    'IPv4 Interfaces',
                     'License Entitlements',
                     'L2Outs',
                     'L3 Domains',
@@ -1647,6 +1650,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def ipv4_interfaces(self):
+        self.url = f"{ self.aci }/api/node/class/ipv4If.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<IPv4 Interfaces code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2266,6 +2276,10 @@ class ACEye():
 
         if "ipv4Entity" in self.url:
             with open('IPv4 Entities/JSON/IPv4 Entities.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "ipv4If" in self.url:
+            with open('IPv4 Interfaces/JSON/IPv4 Interfaces.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -2892,6 +2906,10 @@ class ACEye():
 
         if "ipv4Entity" in self.url:
             with open('IPv4 Entities/YAML/IPv4 Entities.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "ipv4If" in self.url:
+            with open('IPv4 Interfaces/YAML/IPv4 Interfaces.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -3522,6 +3540,10 @@ class ACEye():
 
         if "ipv4Entity" in self.url:
             with open('IPv4 Entities/CSV/IPv4 Entities.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "ipv4If" in self.url:
+            with open('IPv4 Interfaces/CSV/IPv4 Interfaces.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -4155,6 +4177,10 @@ class ACEye():
             with open('IPv4 Entities/Markdown/IPv4 Entities.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "ipv4If" in self.url:
+            with open('IPv4 Interfaces/Markdown/IPv4 Interfaces.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -4786,6 +4812,10 @@ class ACEye():
             with open('IPv4 Entities/HTML/IPv4 Entities.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "ipv4If" in self.url:
+            with open('IPv4 Interfaces/HTML/IPv4 Interfaces.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5411,6 +5441,10 @@ class ACEye():
 
         if "ipv4Entity" in self.url:
             with open('IPv4 Entities/Mindmap/IPv4 Entities.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "ipv4If" in self.url:
+            with open('IPv4 Interfaces/Mindmap/IPv4 Interfaces.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

@@ -3844,4 +3844,22 @@
 #### State: {{ entity.ipv4Entity.attributes.operSt }}
 ### Status: {{ entity.ipv4Entity.attributes.status }}
 {%-     endfor %}
+{%- elif "ipv4If" in api %}
+# IPv4 Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.ipv4If.attributes.name }}
+### Admin State: {{ interface.ipv4If.attributes.adminSt }}
+### Child Action: {{ interface.ipv4If.attributes.childAction }}
+### Control: {{ interface.ipv4If.attributes.ctrl }}
+### Description: {{ interface.ipv4If.attributes.descr }}
+### DN: {{ interface.ipv4If.attributes.dn }}
+### Donor Interface: {{ interface.ipv4If.attributes.donorIf }}
+### ID: {{ interface.ipv4If.attributes.id }}
+### Local Owner: {{ interface.ipv4If.attributes.lcOwn }}
+### Last Modified: {{ interface.ipv4If.attributes.modTs }}
+### Mode: {{ interface.ipv4If.attributes.mode }}
+### Mode External: {{ interface.ipv4If.attributes.modeExtn }}
+### Monitoring Policy DN: {{ interface.ipv4If.attributes.monPolDn }}
+### Status: {{ interface.ipv4If.attributes.status }}
+{%-     endfor %}
 {%- endif %}

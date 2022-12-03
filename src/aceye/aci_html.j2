@@ -8035,5 +8035,47 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "ipv4If" in api %}
+<h1>IPv4 Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Donor Interface</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Mode External</th>
+    <th>Monitoring Policy DN</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.ipv4If.attributes.name }}</td>
+    <td>{{ interface.ipv4If.attributes.adminSt }}</td>
+    <td>{{ interface.ipv4If.attributes.childAction }}</td>
+    <td>{{ interface.ipv4If.attributes.ctrl }}</td>
+    <td>{{ interface.ipv4If.attributes.descr }}</td>
+    <td>{{ interface.ipv4If.attributes.dn }}</td>
+    <td>{{ interface.ipv4If.attributes.donorIf }}</td>
+    <td>{{ interface.ipv4If.attributes.id }}</td>
+    <td>{{ interface.ipv4If.attributes.lcOwn }}</td>
+    <td>{{ interface.ipv4If.attributes.modTs }}</td>
+    <td>{{ interface.ipv4If.attributes.mode }}</td>
+    <td>{{ interface.ipv4If.attributes.modeExtn }}</td>
+    <td>{{ interface.ipv4If.attributes.monPolDn }}</td>
+    <td>{{ interface.ipv4If.attributes.status }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

@@ -252,6 +252,8 @@ IPv4 Domains
 
 IPv4 Entities
 
+IPv4 Interfaces
+
 License Entitlements
 
 L2Outs
