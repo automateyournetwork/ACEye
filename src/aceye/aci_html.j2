@@ -8175,5 +8175,53 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "ipv4Route" in api %}
+<h1>IPv4 Routes</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Flush Count</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>PC Tag</th>
+    <th>Preference</th>
+    <th>Prefix</th>
+    <th>Shared Cons Count</th>
+    <th>Status</th>
+    <th>Tag</th>
+    <th>Track ID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for route in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ route.ipv4Route.attributes.name }}</td>
+    <td>{{ route.ipv4Route.attributes.nameAlias }}</td>
+    <td>{{ route.ipv4Route.attributes.childAction }}</td>
+    <td>{{ route.ipv4Route.attributes.ctrl }}</td>
+    <td>{{ route.ipv4Route.attributes.descr }}</td>
+    <td>{{ route.ipv4Route.attributes.dn }}</td>
+    <td>{{ route.ipv4Route.attributes.flushCount }}</td>
+    <td>{{ route.ipv4Route.attributes.lcOwn }}</td>
+    <td>{{ route.ipv4Route.attributes.modTs }}</td>
+    <td>{{ route.ipv4Route.attributes.monPolDn }}</td>
+    <td>{{ route.ipv4Route.attributes.pcTag }}</td>
+    <td>{{ route.ipv4Route.attributes.pref }}</td>
+    <td>{{ route.ipv4Route.attributes.prefix }}</td>
+    <td>{{ route.ipv4Route.attributes.sharedConsCount }}</td>
+    <td>{{ route.ipv4Route.attributes.status }}</td>
+    <td>{{ route.ipv4Route.attributes.tag }}</td>
+    <td>{{ route.ipv4Route.attributes.trackId }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

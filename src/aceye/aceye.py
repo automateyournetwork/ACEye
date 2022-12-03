@@ -337,6 +337,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.ipv4_next_hop(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.ipv4_routes(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -465,6 +467,7 @@ class ACEye():
                     'IPv4 Instances',
                     'IPv4 Interfaces',
                     'IPv4 Next Hop',
+                    'IPv4 Routes',
                     'License Entitlements',
                     'L2Outs',
                     'L3 Domains',
@@ -1677,6 +1680,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def ipv4_routes(self):
+        self.url = f"{ self.aci }/api/node/class/ipv4Route.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<IPv4 Routes code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2308,6 +2318,10 @@ class ACEye():
 
         if "ipv4Nexthop" in self.url:
             with open('IPv4 Next Hop/JSON/IPv4 Next Hop.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "ipv4Route" in self.url:
+            with open('IPv4 Routes/JSON/IPv4 Routes.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -2946,6 +2960,10 @@ class ACEye():
 
         if "ipv4Nexthop" in self.url:
             with open('IPv4 Next Hop/YAML/IPv4 Next Hop.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "ipv4Route" in self.url:
+            with open('IPv4 Routes/YAML/IPv4 Routes.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -3588,6 +3606,10 @@ class ACEye():
 
         if "ipv4Nexthop" in self.url:
             with open('IPv4 Next Hop/CSV/IPv4 Next Hop.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "ipv4Route" in self.url:
+            with open('IPv4 Routes/CSV/IPv4 Routes.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -4233,6 +4255,10 @@ class ACEye():
             with open('IPv4 Next Hop/Markdown/IPv4 Next Hop.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "ipv4Route" in self.url:
+            with open('IPv4 Routes/Markdown/IPv4 Routes.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -4876,6 +4902,10 @@ class ACEye():
             with open('IPv4 Next Hop/HTML/IPv4 Next Hop.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "ipv4Route" in self.url:
+            with open('IPv4 Routes/HTML/IPv4 Routes.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5513,6 +5543,10 @@ class ACEye():
 
         if "ipv4Nexthop" in self.url:
             with open('IPv4 Next Hop/Mindmap/IPv4 Next Hop.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "ipv4Route" in self.url:
+            with open('IPv4 Routes/Mindmap/IPv4 Routes.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

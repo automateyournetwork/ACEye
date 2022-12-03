@@ -3907,4 +3907,25 @@
 ### Status: {{ nexthop.ipv4Nexthop.attributes.status }}
 ### Track ID: {{ nexthop.ipv4Nexthop.attributes.trackId }}
 {%-     endfor %}
+{%- elif "ipv4Route" in api %}
+# IPv4 Routes
+{%-     for route in data_to_template['imdata'] %}
+## Name: {{ route.ipv4Route.attributes.name }}
+### Name Alias: {{ route.ipv4Route.attributes.nameAlias }}
+### Child Action: {{ route.ipv4Route.attributes.childAction }}
+### Control: {{ route.ipv4Route.attributes.ctrl }}
+### Description: {{ route.ipv4Route.attributes.descr }}
+### DN: {{ route.ipv4Route.attributes.dn }}
+### Flush Count: {{ route.ipv4Route.attributes.flushCount }}
+### Local Owner: {{ route.ipv4Route.attributes.lcOwn }}
+### Last Modified: {{ route.ipv4Route.attributes.modTs }}
+### Monitoring Policy DN: {{ route.ipv4Route.attributes.monPolDn }}
+### PC Tag: {{ route.ipv4Route.attributes.pcTag }}
+### Preference: {{ route.ipv4Route.attributes.pref }}
+### Prefix: {{ route.ipv4Route.attributes.prefix }}
+### Shared Cons Count: {{ route.ipv4Route.attributes.sharedConsCount }}
+### Status: {{ route.ipv4Route.attributes.status }}
+### Tag: {{ route.ipv4Route.attributes.tag }}
+### Track ID: {{ route.ipv4Route.attributes.trackId }}
+{%-     endfor %}
 {%- endif %}

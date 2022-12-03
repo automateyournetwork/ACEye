@@ -258,6 +258,8 @@ IPv4 Interfaces
 
 IPv4 Next Hop
 
+IPv4 Routes
+
 License Entitlements
 
 L2Outs
