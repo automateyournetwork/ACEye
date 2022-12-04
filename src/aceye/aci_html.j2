@@ -8305,5 +8305,127 @@
 {%-     endfor %}
 </tbody>
 </table>
+{%- elif "isisDom" in api %}
+{%-     if "Lvl" in api %}
+<h1>ISIS Domain Levels</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>Distance</th>
+    <th>DN</th>
+    <th>Fast Csnp</th>
+    <th>Fast LISP</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Number Routes Summarized</th>
+    <th>SPF Resynced</th>
+    <th>SPF Scheduled</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for level in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ level.isisDom.attributes.name }}</td>
+    <td>{{ level.isisDom.attributes.childAction }}</td>
+    <td>{{ level.isisDom.attributes.ctrl }}</td>
+    <td>{{ level.isisDom.attributes.dist }}</td>
+    <td>{{ level.isisDom.attributes.dn }}</td>
+    <td>{{ level.isisDom.attributes.fastCsnp }}</td>
+    <td>{{ level.isisDom.attributes.fastLsp }}</td>
+    <td>{{ level.isisDom.attributes.lcOwn }}</td>
+    <td>{{ level.isisDom.attributes.modTs }}</td>
+    <td>{{ level.isisDom.attributes.monPolDn }}</td>
+    <td>{{ level.isisDom.attributes.numRtSummarized }}</td>
+    <td>{{ level.isisDom.attributes.spfResynced }}</td>
+    <td>{{ level.isisDom.attributes.spfScheduled }}</td>
+    <td>{{ level.isisDom.attributes.status }}</td>
+    <td>{{ level.isisDom.attributes.type }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     else %}
+<h1>ISIS Domains</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Aggregation Fabric Adjacency Oper State</th>
+    <th>Area ID</th>
+    <th>Bandwidth Reference</th>
+    <th>Child Action</th>
+    <th>Context ID</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>Fast Csnps</th>
+    <th>Fast Lsps</th>
+    <th>Local Owner</th>
+    <th>LISP Purged</th>
+    <th>LISP Refreshed</th>
+    <th>LISP Sourced</th>
+    <th>Max ECMP</th>
+    <th>Metric Style</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>MTS Error</th>
+    <th>MTU</th>
+    <th>nSel</th>
+    <th>Oper State</th>
+    <th>Redistribution Metric</th>
+    <th>Sequence Wrap Error</th>
+    <th>SPF Calculated</th>
+    <th>Status</th>
+    <th>System ID</th>
+    <th>System GIPO</th>
+    <th>System GIPO Oper State</th>
+    <th>Urib Error</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for domain in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ domain.isisDom.attributes.name }}</td>
+    <td>{{ domain.isisDom.attributes.aggFabAdjOperSt }}</td>
+    <td>{{ domain.isisDom.attributes.areaId }}</td>
+    <td>{{ domain.isisDom.attributes.bwRef }}</td>
+    <td>{{ domain.isisDom.attributes.childAction }}</td>
+    <td>{{ domain.isisDom.attributes.contextId }}</td>
+    <td>{{ domain.isisDom.attributes.ctrl }}</td>
+    <td>{{ domain.isisDom.attributes.dn }}</td>
+    <td>{{ domain.isisDom.attributes.fastCsnps }}</td>
+    <td>{{ domain.isisDom.attributes.fastLsps }}</td>
+    <td>{{ domain.isisDom.attributes.lcOwn }}</td>
+    <td>{{ domain.isisDom.attributes.lspPurged }}</td>
+    <td>{{ domain.isisDom.attributes.lspRefreshed }}</td>
+    <td>{{ domain.isisDom.attributes.lspSourced }}</td>
+    <td>{{ domain.isisDom.attributes.maxEcmp }}</td>
+    <td>{{ domain.isisDom.attributes.metricStyle }}</td>
+    <td>{{ domain.isisDom.attributes.modTs }}</td>
+    <td>{{ domain.isisDom.attributes.mode }}</td>
+    <td>{{ domain.isisDom.attributes.monPolDn }}</td>
+    <td>{{ domain.isisDom.attributes.mtsError }}</td>
+    <td>{{ domain.isisDom.attributes.mtu }}</td>
+    <td>{{ domain.isisDom.attributes.nSel }}</td>
+    <td>{{ domain.isisDom.attributes.operSt }}</td>
+    <td>{{ domain.isisDom.attributes.redistribMetric }}</td>
+    <td>{{ domain.isisDom.attributes.seqWrapError }}</td>
+    <td>{{ domain.isisDom.attributes.spfCalculated }}</td>
+    <td>{{ domain.isisDom.attributes.status }}</td>
+    <td>{{ domain.isisDom.attributes.sysId }}</td>
+    <td>{{ domain.isisDom.attributes.systemGipo }}</td>
+    <td>{{ domain.isisDom.attributes.systemGipoOperSt }}</td>
+    <td>{{ domain.isisDom.attributes.uribError }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     endif %}
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

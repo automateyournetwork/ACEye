@@ -343,6 +343,10 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.isis_discovered_tunnel_endpoints(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.isis_domains(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.isis_domains_level(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -474,6 +478,8 @@ class ACEye():
                     'IPv4 Routes',
                     'ISIS Adjacency Endpoints',
                     'ISIS Discovered Tunnel Endpoints',
+                    'ISIS Domains',
+                    'ISIS Domains Level',
                     'License Entitlements',
                     'L2Outs',
                     'L3 Domains',
@@ -1707,6 +1713,20 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def isis_domains(self):
+        self.url = f"{ self.aci }/api/node/class/isisDom.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<ISIS Domains code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def isis_domains_level(self):
+        self.url = f"{ self.aci }/api/node/class/isisDomLvl.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<ISIS Domains Level code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2351,6 +2371,14 @@ class ACEye():
         if "isisDTEp" in self.url:
             with open('ISIS Discovered Tunnel Endpoints/JSON/ISIS Discovered Tunnel Endpoints.json', 'w' ) as f:
                 f.write(parsed_json)
+
+        if "isisDom" in self.url:
+            if "Lvl" in self.url:
+                with open('ISIS Domains Level/JSON/ISIS Domains Level.json', 'w' ) as f:
+                    f.write(parsed_json)
+            else:
+                with open('ISIS Domains/JSON/ISIS Domains.json', 'w' ) as f:
+                    f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
@@ -3001,6 +3029,14 @@ class ACEye():
         if "isisDTEp" in self.url:
             with open('ISIS Discovered Tunnel Endpoints/YAML/ISIS Discovered Tunnel Endpoints.yaml', 'w' ) as f:
                 f.write(clean_yaml)
+
+        if "isisDom" in self.url:
+            if "Lvl" in self.url:
+                with open('ISIS Domains Level/YAML/ISIS Domains Level.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
+            else:
+                with open('ISIS Domains/YAML/ISIS Domains.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -3655,6 +3691,14 @@ class ACEye():
         if "isisDTEp" in self.url:
             with open('ISIS Discovered Tunnel Endpoints/CSV/ISIS Discovered Tunnel Endpoints.csv', 'w' ) as f:
                 f.write(csv_output)
+
+        if "isisDom" in self.url:
+            if "Lvl" in self.url:
+                with open('ISIS Domains Level/CSV/ISIS Domains Level.csv', 'w' ) as f:
+                    f.write(csv_output)
+            else:
+                with open('ISIS Domains/CSV/ISIS Domains.csv', 'w' ) as f:
+                    f.write(csv_output)
 
     def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
@@ -4311,6 +4355,14 @@ class ACEye():
             with open('ISIS Discovered Tunnel Endpoints/Markdown/ISIS Discovered Tunnel Endpoints.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "isisDom" in self.url:
+            if "Lvl" in self.url:
+                with open('ISIS Domains Level/Markdown/ISIS Domains Level.md', 'w' ) as f:
+                    f.write(markdown_output)
+            else:
+                with open('ISIS Domains/Markdown/ISIS Domains.md', 'w' ) as f:
+                    f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -4966,6 +5018,14 @@ class ACEye():
             with open('ISIS Discovered Tunnel Endpoints/HTML/ISIS Discovered Tunnel Endpoints.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "isisDom" in self.url:
+            if "Lvl" in self.url:
+                with open('ISIS Domains Level/HTML/ISIS Domains Level.html', 'w' ) as f:
+                    f.write(html_output)
+            else:
+                with open('ISIS Domains/HTML/ISIS Domains.html', 'w' ) as f:
+                    f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5616,6 +5676,14 @@ class ACEye():
         if "isisDTEp" in self.url:
             with open('ISIS Discovered Tunnel Endpoints/Mindmap/ISIS Discovered Tunnel Endpoints.md', 'w' ) as f:
                 f.write(mindmap_output)
+
+        if "isisDom" in self.url:
+            if "Lvl" in self.url:
+                with open('ISIS Domains Level/Mindmap/ISIS Domains Level.md', 'w' ) as f:
+                    f.write(mindmap_output)
+            else:
+                with open('ISIS Domains/Mindmap/ISIS Domains.md', 'w' ) as f:
+                    f.write(mindmap_output)
 
     def all_files(self, parsed_json):
         self.json_file(parsed_json)

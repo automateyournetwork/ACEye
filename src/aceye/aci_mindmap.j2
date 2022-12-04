@@ -3964,4 +3964,65 @@
 ### Status: {{ endpoint.isisDTEp.attributes.status }}
 ### Type: {{ endpoint.isisDTEp.attributes.type }}
 {%-     endfor %}
+{%- elif "isisDom" in api %}
+{%-     if "Lvl" in api %}
+# ISIS Domain Levels
+{%-         for level in data_to_template['imdata'] %}
+## Name: {{ level.isisDom.attributes.name }}
+### Child Action: {{ level.isisDom.attributes.childAction }}
+### Control: {{ level.isisDom.attributes.ctrl }}
+### Distance: {{ level.isisDom.attributes.dist }}
+### DN: {{ level.isisDom.attributes.dn }}
+### Fast
+#### Cnsp: {{ level.isisDom.attributes.fastCsnp }}
+#### LISP: {{ level.isisDom.attributes.fastLsp }}
+### Local Owner: {{ level.isisDom.attributes.lcOwn }}
+### Last Modified: {{ level.isisDom.attributes.modTs }}
+### Monitoring Policy DN: {{ level.isisDom.attributes.monPolDn }}
+### Number of Routes Summarized: {{ level.isisDom.attributes.numRtSummarized }}
+### SPF
+#### Resynced: {{ level.isisDom.attributes.spfResynced }}
+#### Scheduled: {{ level.isisDom.attributes.spfScheduled }}
+### Status: {{ level.isisDom.attributes.status }}
+### Type: {{ level.isisDom.attributes.type }}
+{%-         endfor %}
+{%-     else %}
+# ISIS Domains
+{%-         for domain in data_to_template['imdata'] %}
+## Name: {{ domain.isisDom.attributes.name }}
+### Aggregate Fabric Adjacency Oper State: {{ domain.isisDom.attributes.aggFabAdjOperSt }}
+### Area ID: {{ domain.isisDom.attributes.areaId }}
+### Bandwidth Reference: {{ domain.isisDom.attributes.bwRef }}
+### Child Action: {{ domain.isisDom.attributes.childAction }}
+### Context ID: {{ domain.isisDom.attributes.contextId }}
+### Control: {{ domain.isisDom.attributes.ctrl }}
+### DN: {{ domain.isisDom.attributes.dn }}
+### Fast
+### Csnps: {{ domain.isisDom.attributes.fastCsnps }}
+### Lsps: {{ domain.isisDom.attributes.fastLsps }}
+### Local Owner: {{ domain.isisDom.attributes.lcOwn }}
+### LISP
+#### Purged: {{ domain.isisDom.attributes.lspPurged }}
+#### Refreshed: {{ domain.isisDom.attributes.lspRefreshed }}
+#### Sourced: {{ domain.isisDom.attributes.lspSourced }}
+### MAX ECMP: {{ domain.isisDom.attributes.maxEcmp }}
+### Metric Style: {{ domain.isisDom.attributes.metricStyle }}
+### Last Modified: {{ domain.isisDom.attributes.modTs }}
+### Mode: {{ domain.isisDom.attributes.mode }}
+### Monitoring Policy DN: {{ domain.isisDom.attributes.monPolDn }}
+### MTS Error: {{ domain.isisDom.attributes.mtsError }}
+### MTU: {{ domain.isisDom.attributes.mtu }}
+### nSel: {{ domain.isisDom.attributes.nSel }}
+### Oper State: {{ domain.isisDom.attributes.operSt }}
+### Redistribution Metric: {{ domain.isisDom.attributes.redistribMetric }}
+### Sequence Wrap Error: {{ domain.isisDom.attributes.seqWrapError }}
+### SPF Calculated: {{ domain.isisDom.attributes.spfCalculated }}
+### Status: {{ domain.isisDom.attributes.status }}
+### System
+#### ID: {{ domain.isisDom.attributes.sysId }}
+#### GIPO {{ domain.isisDom.attributes.systemGipo }}
+#### GIPO Oper State: {{ domain.isisDom.attributes.systemGipoOperSt }}
+### Urib Error: {{ domain.isisDom.attributes.uribError }}
+{%-         endfor %}
+{%-     endif %}
 {%- endif %}
