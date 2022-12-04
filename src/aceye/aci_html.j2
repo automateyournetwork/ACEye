@@ -8427,5 +8427,39 @@
 </tbody>
 </table>
 {%-     endif %}
+{%- elif "isisEntity" in api %}
+<h1>ISIS Entities</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Oper State</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for entity in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ entity.isisEntity.attributes.name }}</td>
+    <td>{{ entity.isisEntity.attributes.adminSt }}</td>
+    <td>{{ entity.isisEntity.attributes.childAction }}</td>
+    <td>{{ entity.isisEntity.attributes.dn }}</td>
+    <td>{{ entity.isisEntity.attributes.lcOwn }}</td>
+    <td>{{ entity.isisEntity.attributes.modTs }}</td>
+    <td>{{ entity.isisEntity.attributes.monPolDn }}</td>
+    <td>{{ entity.isisEntity.attributes.operErr }}</td>
+    <td>{{ entity.isisEntity.attributes.operSt }}</td>
+    <td>{{ entity.isisEntity.attributes.status }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

@@ -4025,4 +4025,19 @@
 ### Urib Error: {{ domain.isisDom.attributes.uribError }}
 {%-         endfor %}
 {%-     endif %}
+{%- elif "isisEntity" in api %}
+# ISIS Entities
+{%-     for entity in data_to_template['imdata'] %}
+## Name: {{ entity.isisEntity.attributes.name }}
+### Admin State: {{ entity.isisEntity.attributes.adminSt }}
+### Child Action: {{ entity.isisEntity.attributes.childAction }}
+### DN: {{ entity.isisEntity.attributes.dn }}
+### Local Owner: {{ entity.isisEntity.attributes.lcOwn }}
+### Last Modified: {{ entity.isisEntity.attributes.modTs }}
+### Monitoring Policy DN: {{ entity.isisEntity.attributes.monPolDn }}
+### Oper
+#### Error: {{ entity.isisEntity.attributes.operErr }}
+#### State: {{ entity.isisEntity.attributes.operSt }}
+### Status: {{ entity.isisEntity.attributes.status }}
+{%-         endfor %}
 {%- endif %}
