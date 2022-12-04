@@ -3989,40 +3989,40 @@
 {%-     else %}
 # ISIS Domains
 {%-         for domain in data_to_template['imdata'] %}
-## Name: {{ domain.isisDom.attributes.name }}
-### Aggregate Fabric Adjacency Oper State: {{ domain.isisDom.attributes.aggFabAdjOperSt }}
-### Area ID: {{ domain.isisDom.attributes.areaId }}
-### Bandwidth Reference: {{ domain.isisDom.attributes.bwRef }}
-### Child Action: {{ domain.isisDom.attributes.childAction }}
-### Context ID: {{ domain.isisDom.attributes.contextId }}
-### Control: {{ domain.isisDom.attributes.ctrl }}
-### DN: {{ domain.isisDom.attributes.dn }}
+## Name: {{ domain.isisDomLvl.attributes.name }}
+### Aggregate Fabric Adjacency Oper State: {{ domain.isisDomLvl.attributes.aggFabAdjOperSt }}
+### Area ID: {{ domain.isisDomLvl.attributes.areaId }}
+### Bandwidth Reference: {{ domain.isisDomLvl.attributes.bwRef }}
+### Child Action: {{ domain.isisDomLvl.attributes.childAction }}
+### Context ID: {{ domain.isisDomLvl.attributes.contextId }}
+### Control: {{ domain.isisDomLvl.attributes.ctrl }}
+### DN: {{ domain.isisDomLvl.attributes.dn }}
 ### Fast
-### Csnps: {{ domain.isisDom.attributes.fastCsnps }}
-### Lsps: {{ domain.isisDom.attributes.fastLsps }}
-### Local Owner: {{ domain.isisDom.attributes.lcOwn }}
+### Csnps: {{ domain.isisDomLvl.attributes.fastCsnps }}
+### Lsps: {{ domain.isisDomLvl.attributes.fastLsps }}
+### Local Owner: {{ domain.isisDomLvl.attributes.lcOwn }}
 ### LISP
-#### Purged: {{ domain.isisDom.attributes.lspPurged }}
-#### Refreshed: {{ domain.isisDom.attributes.lspRefreshed }}
-#### Sourced: {{ domain.isisDom.attributes.lspSourced }}
-### MAX ECMP: {{ domain.isisDom.attributes.maxEcmp }}
-### Metric Style: {{ domain.isisDom.attributes.metricStyle }}
-### Last Modified: {{ domain.isisDom.attributes.modTs }}
-### Mode: {{ domain.isisDom.attributes.mode }}
-### Monitoring Policy DN: {{ domain.isisDom.attributes.monPolDn }}
-### MTS Error: {{ domain.isisDom.attributes.mtsError }}
-### MTU: {{ domain.isisDom.attributes.mtu }}
-### nSel: {{ domain.isisDom.attributes.nSel }}
-### Oper State: {{ domain.isisDom.attributes.operSt }}
-### Redistribution Metric: {{ domain.isisDom.attributes.redistribMetric }}
-### Sequence Wrap Error: {{ domain.isisDom.attributes.seqWrapError }}
-### SPF Calculated: {{ domain.isisDom.attributes.spfCalculated }}
-### Status: {{ domain.isisDom.attributes.status }}
+#### Purged: {{ domain.isisDomLvl.attributes.lspPurged }}
+#### Refreshed: {{ domain.isisDomLvl.attributes.lspRefreshed }}
+#### Sourced: {{ domain.isisDomLvl.attributes.lspSourced }}
+### MAX ECMP: {{ domain.isisDomLvl.attributes.maxEcmp }}
+### Metric Style: {{ domain.isisDomLvl.attributes.metricStyle }}
+### Last Modified: {{ domain.isisDomLvl.attributes.modTs }}
+### Mode: {{ domain.isisDomLvl.attributes.mode }}
+### Monitoring Policy DN: {{ domain.isisDomLvl.attributes.monPolDn }}
+### MTS Error: {{ domain.isisDomLvl.attributes.mtsError }}
+### MTU: {{ domain.isisDomLvl.attributes.mtu }}
+### nSel: {{ domain.isisDomLvl.attributes.nSel }}
+### Oper State: {{ domain.isisDomLvl.attributes.operSt }}
+### Redistribution Metric: {{ domain.isisDomLvl.attributes.redistribMetric }}
+### Sequence Wrap Error: {{ domain.isisDomLvl.attributes.seqWrapError }}
+### SPF Calculated: {{ domain.isisDomLvl.attributes.spfCalculated }}
+### Status: {{ domain.isisDomLvl.attributes.status }}
 ### System
-#### ID: {{ domain.isisDom.attributes.sysId }}
-#### GIPO {{ domain.isisDom.attributes.systemGipo }}
-#### GIPO Oper State: {{ domain.isisDom.attributes.systemGipoOperSt }}
-### Urib Error: {{ domain.isisDom.attributes.uribError }}
+#### ID: {{ domain.isisDomLvl.attributes.sysId }}
+#### GIPO {{ domain.isisDomLvl.attributes.systemGipo }}
+#### GIPO Oper State: {{ domain.isisDomLvl.attributes.systemGipoOperSt }}
+### Urib Error: {{ domain.isisDomLvl.attributes.uribError }}
 {%-         endfor %}
 {%-     endif %}
 {%- endif %}
