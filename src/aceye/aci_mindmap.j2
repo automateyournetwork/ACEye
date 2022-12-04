@@ -3965,8 +3965,30 @@
 ### Type: {{ endpoint.isisDTEp.attributes.type }}
 {%-     endfor %}
 {%- elif "isisDom" in api %}
+{%-     if "Lvl" in api %}
+# ISIS Domain Levels
+{%-         for level in data_to_template['imdata'] %}
+## Name: {{ level.isisDom.attributes.name }}
+### Child Action: {{ level.isisDom.attributes.childAction }}
+### Control: {{ level.isisDom.attributes.ctrl }}
+### Distance: {{ level.isisDom.attributes.dist }}
+### DN: {{ level.isisDom.attributes.dn }}
+### Fast
+#### Cnsp: {{ level.isisDom.attributes.fastCsnp }}
+#### LISP: {{ level.isisDom.attributes.fastLsp }}
+### Local Owner: {{ level.isisDom.attributes.lcOwn }}
+### Last Modified: {{ level.isisDom.attributes.modTs }}
+### Monitoring Policy DN: {{ level.isisDom.attributes.monPolDn }}
+### Number of Routes Summarized: {{ level.isisDom.attributes.numRtSummarized }}
+### SPF
+#### Resynced: {{ level.isisDom.attributes.spfResynced }}
+#### Scheduled: {{ level.isisDom.attributes.spfScheduled }}
+### Status: {{ level.isisDom.attributes.status }}
+### Type: {{ level.isisDom.attributes.type }}
+{%-         endfor %}
+{%-     else %}
 # ISIS Domains
-{%-     for domain in data_to_template['imdata'] %}
+{%-         for domain in data_to_template['imdata'] %}
 ## Name: {{ domain.isisDom.attributes.name }}
 ### Aggregate Fabric Adjacency Oper State: {{ domain.isisDom.attributes.aggFabAdjOperSt }}
 ### Area ID: {{ domain.isisDom.attributes.areaId }}
@@ -4001,5 +4023,6 @@
 #### GIPO {{ domain.isisDom.attributes.systemGipo }}
 #### GIPO Oper State: {{ domain.isisDom.attributes.systemGipoOperSt }}
 ### Urib Error: {{ domain.isisDom.attributes.uribError }}
-{%-     endfor %}
+{%-         endfor %}
+{%-     endif %}
 {%- endif %}

@@ -264,6 +264,10 @@ ISIS Adjacency Endpoints
 
 ISIS Discovered Tunnel Endpoints
 
+ISIS Domains
+
+ISIS Domains Level
+
 License Entitlements
 
 L2Outs
