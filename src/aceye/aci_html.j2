@@ -8331,21 +8331,21 @@
 <tbody>
 {%-         for level in data_to_template['imdata'] %}
   <tr>
-    <td>{{ level.isisDom.attributes.name }}</td>
-    <td>{{ level.isisDom.attributes.childAction }}</td>
-    <td>{{ level.isisDom.attributes.ctrl }}</td>
-    <td>{{ level.isisDom.attributes.dist }}</td>
-    <td>{{ level.isisDom.attributes.dn }}</td>
-    <td>{{ level.isisDom.attributes.fastCsnp }}</td>
-    <td>{{ level.isisDom.attributes.fastLsp }}</td>
-    <td>{{ level.isisDom.attributes.lcOwn }}</td>
-    <td>{{ level.isisDom.attributes.modTs }}</td>
-    <td>{{ level.isisDom.attributes.monPolDn }}</td>
-    <td>{{ level.isisDom.attributes.numRtSummarized }}</td>
-    <td>{{ level.isisDom.attributes.spfResynced }}</td>
-    <td>{{ level.isisDom.attributes.spfScheduled }}</td>
-    <td>{{ level.isisDom.attributes.status }}</td>
-    <td>{{ level.isisDom.attributes.type }}</td>
+    <td>{{ level.isisDomLvl.attributes.name }}</td>
+    <td>{{ level.isisDomLvl.attributes.childAction }}</td>
+    <td>{{ level.isisDomLvl.attributes.ctrl }}</td>
+    <td>{{ level.isisDomLvl.attributes.dist }}</td>
+    <td>{{ level.isisDomLvl.attributes.dn }}</td>
+    <td>{{ level.isisDomLvl.attributes.fastCsnp }}</td>
+    <td>{{ level.isisDomLvl.attributes.fastLsp }}</td>
+    <td>{{ level.isisDomLvl.attributes.lcOwn }}</td>
+    <td>{{ level.isisDomLvl.attributes.modTs }}</td>
+    <td>{{ level.isisDomLvl.attributes.monPolDn }}</td>
+    <td>{{ level.isisDomLvl.attributes.numRtSummarized }}</td>
+    <td>{{ level.isisDomLvl.attributes.spfResynced }}</td>
+    <td>{{ level.isisDomLvl.attributes.spfScheduled }}</td>
+    <td>{{ level.isisDomLvl.attributes.status }}</td>
+    <td>{{ level.isisDomLvl.attributes.type }}</td>
   </tr>
 {%-         endfor %}
 </tbody>
@@ -8391,37 +8391,37 @@
 <tbody>
 {%-         for domain in data_to_template['imdata'] %}
   <tr>
-    <td>{{ domain.isisDomLvl.attributes.name }}</td>
-    <td>{{ domain.isisDomLvl.attributes.aggFabAdjOperSt }}</td>
-    <td>{{ domain.isisDomLvl.attributes.areaId }}</td>
-    <td>{{ domain.isisDomLvl.attributes.bwRef }}</td>
-    <td>{{ domain.isisDomLvl.attributes.childAction }}</td>
-    <td>{{ domain.isisDomLvl.attributes.contextId }}</td>
-    <td>{{ domain.isisDomLvl.attributes.ctrl }}</td>
-    <td>{{ domain.isisDomLvl.attributes.dn }}</td>
-    <td>{{ domain.isisDomLvl.attributes.fastCsnps }}</td>
-    <td>{{ domain.isisDomLvl.attributes.fastLsps }}</td>
-    <td>{{ domain.isisDomLvl.attributes.lcOwn }}</td>
-    <td>{{ domain.isisDomLvl.attributes.lspPurged }}</td>
-    <td>{{ domain.isisDomLvl.attributes.lspRefreshed }}</td>
-    <td>{{ domain.isisDomLvl.attributes.lspSourced }}</td>
-    <td>{{ domain.isisDomLvl.attributes.maxEcmp }}</td>
-    <td>{{ domain.isisDomLvl.attributes.metricStyle }}</td>
-    <td>{{ domain.isisDomLvl.attributes.modTs }}</td>
-    <td>{{ domain.isisDomLvl.attributes.mode }}</td>
-    <td>{{ domain.isisDomLvl.attributes.monPolDn }}</td>
-    <td>{{ domain.isisDomLvl.attributes.mtsError }}</td>
-    <td>{{ domain.isisDomLvl.attributes.mtu }}</td>
-    <td>{{ domain.isisDomLvl.attributes.nSel }}</td>
-    <td>{{ domain.isisDomLvl.attributes.operSt }}</td>
-    <td>{{ domain.isisDomLvl.attributes.redistribMetric }}</td>
-    <td>{{ domain.isisDomLvl.attributes.seqWrapError }}</td>
-    <td>{{ domain.isisDomLvl.attributes.spfCalculated }}</td>
-    <td>{{ domain.isisDomLvl.attributes.status }}</td>
-    <td>{{ domain.isisDomLvl.attributes.sysId }}</td>
-    <td>{{ domain.isisDomLvl.attributes.systemGipo }}</td>
-    <td>{{ domain.isisDomLvl.attributes.systemGipoOperSt }}</td>
-    <td>{{ domain.isisDomLvl.attributes.uribError }}</td>
+    <td>{{ domain.isisDom.attributes.name }}</td>
+    <td>{{ domain.isisDom.attributes.aggFabAdjOperSt }}</td>
+    <td>{{ domain.isisDom.attributes.areaId }}</td>
+    <td>{{ domain.isisDom.attributes.bwRef }}</td>
+    <td>{{ domain.isisDom.attributes.childAction }}</td>
+    <td>{{ domain.isisDom.attributes.contextId }}</td>
+    <td>{{ domain.isisDom.attributes.ctrl }}</td>
+    <td>{{ domain.isisDom.attributes.dn }}</td>
+    <td>{{ domain.isisDom.attributes.fastCsnps }}</td>
+    <td>{{ domain.isisDom.attributes.fastLsps }}</td>
+    <td>{{ domain.isisDom.attributes.lcOwn }}</td>
+    <td>{{ domain.isisDom.attributes.lspPurged }}</td>
+    <td>{{ domain.isisDom.attributes.lspRefreshed }}</td>
+    <td>{{ domain.isisDom.attributes.lspSourced }}</td>
+    <td>{{ domain.isisDom.attributes.maxEcmp }}</td>
+    <td>{{ domain.isisDom.attributes.metricStyle }}</td>
+    <td>{{ domain.isisDom.attributes.modTs }}</td>
+    <td>{{ domain.isisDom.attributes.mode }}</td>
+    <td>{{ domain.isisDom.attributes.monPolDn }}</td>
+    <td>{{ domain.isisDom.attributes.mtsError }}</td>
+    <td>{{ domain.isisDom.attributes.mtu }}</td>
+    <td>{{ domain.isisDom.attributes.nSel }}</td>
+    <td>{{ domain.isisDom.attributes.operSt }}</td>
+    <td>{{ domain.isisDom.attributes.redistribMetric }}</td>
+    <td>{{ domain.isisDom.attributes.seqWrapError }}</td>
+    <td>{{ domain.isisDom.attributes.spfCalculated }}</td>
+    <td>{{ domain.isisDom.attributes.status }}</td>
+    <td>{{ domain.isisDom.attributes.sysId }}</td>
+    <td>{{ domain.isisDom.attributes.systemGipo }}</td>
+    <td>{{ domain.isisDom.attributes.systemGipoOperSt }}</td>
+    <td>{{ domain.isisDom.attributes.uribError }}</td>
   </tr>
 {%-         endfor %}
 </tbody>
