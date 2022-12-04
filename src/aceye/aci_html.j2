@@ -8461,5 +8461,63 @@
 {%-         endfor %}
 </tbody>
 </table>
+{%- elif "isisIf" in api %}
+<h1>ISIS Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Ckt Type</th>
+    <th>Control</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Extended Local Ckt ID</th>
+    <th>ID</th>
+    <th>IIB Index</th>
+    <th>IIB State</th>
+    <th>IIB Up Control</th>
+    <th>Init Error</th>
+    <th>Local Owner</th>
+    <th>Local Ckt ID</th>
+    <th>LISP Refresh Interval</th>
+    <th>Metric</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Next IIH Timestamp</th>
+    <th>P2P Ckt ID</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.isisIf.attributes.name }}</td>
+    <td>{{ interface.isisIf.attributes.adminSt }}</td>
+    <td>{{ interface.isisIf.attributes.childAction }}</td>
+    <td>{{ interface.isisIf.attributes.cktT }}</td>
+    <td>{{ interface.isisIf.attributes.ctrl }}</td>
+    <td>{{ interface.isisIf.attributes.descr }}</td>
+    <td>{{ interface.isisIf.attributes.dn }}</td>
+    <td>{{ interface.isisIf.attributes.extdLocalCktId }}</td>
+    <td>{{ interface.isisIf.attributes.id }}</td>
+    <td>{{ interface.isisIf.attributes.iibIdx }}</td>
+    <td>{{ interface.isisIf.attributes.iibState }}</td>
+    <td>{{ interface.isisIf.attributes.iibUpCtrl }}</td>
+    <td>{{ interface.isisIf.attributes.initError }}</td>
+    <td>{{ interface.isisIf.attributes.lcOwn }}</td>
+    <td>{{ interface.isisIf.attributes.localCktId }}</td>
+    <td>{{ interface.isisIf.attributes.lspRefreshIntvl }}</td>
+    <td>{{ interface.isisIf.attributes.metric }}</td>
+    <td>{{ interface.isisIf.attributes.modTs }}</td>
+    <td>{{ interface.isisIf.attributes.monPolDn }}</td>
+    <td>{{ interface.isisIf.attributes.nextIIHTs }}</td>
+    <td>{{ interface.isisIf.attributes.p2pCktId }}</td>
+    <td>{{ interface.isisIf.attributes.status }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

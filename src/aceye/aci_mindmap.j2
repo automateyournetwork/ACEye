@@ -4040,4 +4040,33 @@
 #### State: {{ entity.isisEntity.attributes.operSt }}
 ### Status: {{ entity.isisEntity.attributes.status }}
 {%-         endfor %}
+{%- elif "isisIf" in api %}
+# ISIS Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.isisIf.attributes.name }}
+### Admin State: {{ interface.isisIf.attributes.adminSt }}
+### Child Action: {{ interface.isisIf.attributes.childAction }}
+### Chk
+#### Type: {{ interface.isisIf.attributes.cktT }}
+#### ID
+##### Local: {{ interface.isisIf.attributes.localCktId }}
+##### Extended Local: {{ interface.isisIf.attributes.extdLocalCktId }}
+##### P2P: {{ interface.isisIf.attributes.p2pCktId }}
+### Control: {{ interface.isisIf.attributes.ctrl }}
+### Description: {{ interface.isisIf.attributes.descr }}
+### DN: {{ interface.isisIf.attributes.dn }}
+### ID: {{ interface.isisIf.attributes.id }}
+### IIB
+#### Index: {{ interface.isisIf.attributes.iibIdx }}
+#### State: {{ interface.isisIf.attributes.iibState }}
+#### Up Control: {{ interface.isisIf.attributes.iibUpCtrl }}
+### Init Error: {{ interface.isisIf.attributes.initError }}
+### Local Owner: {{ interface.isisIf.attributes.lcOwn }}
+### LISP Refresh Interval: {{ interface.isisIf.attributes.lspRefreshIntvl }}
+### Metric: {{ interface.isisIf.attributes.metric }}
+### Last Modified: {{ interface.isisIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.isisIf.attributes.monPolDn }}
+### Next IIH Timestamp: {{ interface.isisIf.attributes.nextIIHTs }}
+### Status: {{ interface.isisIf.attributes.status }}
+{%-         endfor %}
 {%- endif %}
