@@ -268,6 +268,8 @@ ISIS Domains
 
 ISIS Domains Level
 
+ISIS Entities
+
 License Entitlements
 
 L2Outs
