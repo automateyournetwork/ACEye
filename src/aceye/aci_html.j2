@@ -8677,5 +8677,103 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l2BD" in api %}
+<h1>L2 Bridge Domains</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Access Encapsulation</th>
+    <th>Address</th>
+    <th>Admin State</th>
+    <th>BD Def DN</th>
+    <th>Bridge Mode</th>
+    <th>Child Action</th>
+    <th>Created</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>Endpoing Move Detect Mode</th>
+    <th>Endpoint Oper State</th>
+    <th>Endpoint Oper State Quality</th>
+    <th>Endpoint Up Sequence Number</th>
+    <th>Fabric Encapsulation</th>
+    <th>Forward Control</th>
+    <th>Forward Mode</th>
+    <th>Hardware ID</th>
+    <th>Hardware Resource ID</th>
+    <th>Hardware Shadow ID</th>
+    <th>ID</th>
+    <th>IPv6 Multicast Allow</th>
+    <th>Local Owner</th>
+    <th>Multicast Allow</th>
+    <th>Multicast Oper State</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>Multi Destination Packet Action</th>
+    <th>Oper State</th>
+    <th>PC Tag</th>
+    <th>Q in Q L2 Protocol Tunnel Mask</th>
+    <th>QOS Priority</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>Unknown MAC Unicast Action</th>
+    <th>Unknown Multicast Action</th>
+    <th>v6 Unknown Multicast Action</th>
+    <th>VLAN Manager Config Failed Bmp</th>
+    <th>VLAN Manager Config Failed Timestamp</th>
+    <th>VLAN Manager Config State</th>
+    <th>VLAN Manager Custom Fault Bmp</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for bd in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ bd.l2BD.attributes.name }}</td>
+    <td>{{ bd.l2BD.attributes.accEncap }}</td>
+    <td>{{ bd.l2BD.attributes.addr }}</td>
+    <td>{{ bd.l2BD.attributes.adminSt }}</td>
+    <td>{{ bd.l2BD.attributes.bdDefDn }}</td>
+    <td>{{ bd.l2BD.attributes.bridgeMode }}</td>
+    <td>{{ bd.l2BD.attributes.childAction }}</td>
+    <td>{{ bd.l2BD.attributes.createTs }}</td>
+    <td>{{ bd.l2BD.attributes.ctrl }}</td>
+    <td>{{ bd.l2BD.attributes.dn }}</td>
+    <td>{{ bd.l2BD.attributes.epMoveDetectMode }}</td>
+    <td>{{ bd.l2BD.attributes.epOperSt }}</td>
+    <td>{{ bd.l2BD.attributes.epOperStQual }}</td>
+    <td>{{ bd.l2BD.attributes.epUpSeqNum }}</td>
+    <td>{{ bd.l2BD.attributes.fabEncap }}</td>
+    <td>{{ bd.l2BD.attributes.fwdCtrl }}</td>
+    <td>{{ bd.l2BD.attributes.fwdMode }}</td>
+    <td>{{ bd.l2BD.attributes.hwId }}</td>
+    <td>{{ bd.l2BD.attributes.hwResourceId }}</td>
+    <td>{{ bd.l2BD.attributes.hwShadowId }}</td>
+    <td>{{ bd.l2BD.attributes.id }}</td>
+    <td>{{ bd.l2BD.attributes.ipv6McastAllow }}</td>
+    <td>{{ bd.l2BD.attributes.lcOwn }}</td>
+    <td>{{ bd.l2BD.attributes.mcastAllow }}</td>
+    <td>{{ bd.l2BD.attributes.mcastOperSt }}</td>
+    <td>{{ bd.l2BD.attributes.modTs }}</td>
+    <td>{{ bd.l2BD.attributes.mode }}</td>
+    <td>{{ bd.l2BD.attributes.monPolDn }}</td>
+    <td>{{ bd.l2BD.attributes.multiDstPktAct }}</td>
+    <td>{{ bd.l2BD.attributes.operSt }}</td>
+    <td>{{ bd.l2BD.attributes.pcTag }}</td>
+    <td>{{ bd.l2BD.attributes.qiqL2ProtTunMask }}</td>
+    <td>{{ bd.l2BD.attributes.qosPrio }}</td>
+    <td>{{ bd.l2BD.attributes.status }}</td>
+    <td>{{ bd.l2BD.attributes.type }}</td>
+    <td>{{ bd.l2BD.attributes.unkMacUcastAct }}</td>
+    <td>{{ bd.l2BD.attributes.unkMcastAct }}</td>
+    <td>{{ bd.l2BD.attributes.v6unkMcastAct }}</td>
+    <td>{{ bd.l2BD.attributes.vlanmgrCfgFailedBmp }}</td>
+    <td>{{ bd.l2BD.attributes.vlanmgrCfgFailedTs }}</td>
+    <td>{{ bd.l2BD.attributes.vlanmgrCfgState }}</td>
+    <td>{{ bd.l2BD.attributes.vlanmgrCustFaultBmp }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

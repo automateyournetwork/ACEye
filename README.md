@@ -282,6 +282,8 @@ ISIS Routes
 
 License Entitlements
 
+L2 Bridge Domains
+
 L2Outs
 
 L3 Domains

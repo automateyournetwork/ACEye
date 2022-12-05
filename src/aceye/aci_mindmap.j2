@@ -4142,4 +4142,57 @@
 ### Preference: {{ route.isisRoute.attributes.pref }}
 ### Status: {{ route.isisRoute.attributes.status }}
 {%-          endfor %}
+{%- elif "l2BD" in api %}
+# L2 Bridge Domains
+{%-     for bd in data_to_template['imdata'] %}
+## Name: {{ bd.l2BD.attributes.name }}
+### Access Encapsulation: {{ bd.l2BD.attributes.accEncap }}
+### Address: {{ bd.l2BD.attributes.addr }}
+### Admin State: {{ bd.l2BD.attributes.adminSt }}
+### Bridge Domain Def DN: {{ bd.l2BD.attributes.bdDefDn }}
+### Bridge Mode: {{ bd.l2BD.attributes.bridgeMode }}
+### Child Action: {{ bd.l2BD.attributes.childAction }}
+### Created: {{ bd.l2BD.attributes.createTs }}
+### Control: {{ bd.l2BD.attributes.ctrl }}
+### DN: {{ bd.l2BD.attributes.dn }}
+### Endpoint
+#### Move Detect Mode: {{ bd.l2BD.attributes.epMoveDetectMode }}
+#### Oper State: {{ bd.l2BD.attributes.epOperSt }}
+#### Oper State Quality: {{ bd.l2BD.attributes.epOperStQual }}
+#### Up Sequence Number: {{ bd.l2BD.attributes.epUpSeqNum }}
+### Fabric Encapsulation: {{ bd.l2BD.attributes.fabEncap }}
+### Forward
+#### Control: {{ bd.l2BD.attributes.fwdCtrl }}
+#### Mode: {{ bd.l2BD.attributes.fwdMode }}
+### Hardware
+#### ID: {{ bd.l2BD.attributes.hwId }}
+#### Resource ID: {{ bd.l2BD.attributes.hwResourceId }}
+#### Shadow ID: {{ bd.l2BD.attributes.hwShadowId }}
+### ID: {{ bd.l2BD.attributes.id }}
+### Local Owner: {{ bd.l2BD.attributes.lcOwn }}
+### Multicast
+#### Allow: {{ bd.l2BD.attributes.mcastAllow }}
+#### Oper State: {{ bd.l2BD.attributes.mcastOperSt }}
+#### IPv6 Allow: {{ bd.l2BD.attributes.ipv6McastAllow }}
+### Last Modified: {{ bd.l2BD.attributes.modTs }}
+### Mode: {{ bd.l2BD.attributes.mode }}
+### Monitoring Policy DN: {{ bd.l2BD.attributes.monPolDn }}
+### Multi Destination Packet Action: {{ bd.l2BD.attributes.multiDstPktAct }}
+### Oper State: {{ bd.l2BD.attributes.operSt }}
+### PC Tag: {{ bd.l2BD.attributes.pcTag }}
+### Q in Q L2 Protocol Tunnel Mask: {{ bd.l2BD.attributes.qiqL2ProtTunMask }}
+### QOS Priority: {{ bd.l2BD.attributes.qosPrio }}
+### Status: {{ bd.l2BD.attributes.status }}
+### Type: {{ bd.l2BD.attributes.type }}
+### Unknown Action
+#### MAC Unicast: {{ bd.l2BD.attributes.unkMacUcastAct }}
+#### Multicast: {{ bd.l2BD.attributes.unkMcastAct }}
+#### IPv6 Multicast: {{ bd.l2BD.attributes.v6unkMcastAct }}
+### VLAN Manager
+#### Config
+##### Failed Bmp: {{ bd.l2BD.attributes.vlanmgrCfgFailedBmp }}
+##### Failed Timestamp: {{ bd.l2BD.attributes.vlanmgrCfgFailedTs }}
+##### State: {{ bd.l2BD.attributes.vlanmgrCfgState }}
+#### Custom Fault Bmp: {{ bd.l2BD.attributes.vlanmgrCustFaultBmp }}
+{%-          endfor %}
 {%- endif %}
