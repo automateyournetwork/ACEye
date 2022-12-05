@@ -8615,5 +8615,35 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "isisNexthop" in api %}
+<h1>ISIS Next Hop</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Interface</th>
+    <th>Last Modified</th>
+    <th>Next Hop Interface</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for nexthop in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ nexthop.isisNexthop.attributes.name }}</td>
+    <td>{{ nexthop.isisNexthop.attributes.address }}</td>
+    <td>{{ nexthop.isisNexthop.attributes.childAction }}</td>
+    <td>{{ nexthop.isisNexthop.attributes.dn }}</td>
+    <td>{{ nexthop.isisNexthop.attributes.if }}</td>
+    <td>{{ nexthop.isisNexthop.attributes.modTs }}</td>
+    <td>{{ nexthop.isisNexthop.attributes.nhif }}</td>
+    <td>{{ nexthop.isisNexthop.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

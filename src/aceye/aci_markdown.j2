@@ -1073,4 +1073,11 @@
 {%-     for instance in data_to_template['imdata'] %}
 | {{ instance.isisInst.attributes.name }} | {{ instance.isisInst.attributes.adminSt }} | {{ instance.isisInst.attributes.childAction }} | {{ instance.isisInst.attributes.ctrl }} | {{ instance.isisInst.attributes.dn }} | {{ instance.isisInst.attributes.dupSysIdErr }} | {{ instance.isisInst.attributes.lcOwn }} | {{ instance.isisInst.attributes.memAlert }} | {{ instance.isisInst.attributes.modTs }} | {{ instance.isisInst.attributes.monPolDn }} | {{ instance.isisInst.attributes.mtsErr }} | {{ instance.isisInst.attributes.operErr }} | {{ instance.isisInst.attributes.operSt }} | {{ instance.isisInst.attributes.processQueue }} | {{ instance.isisInst.attributes.processSap }} | {{ instance.isisInst.attributes.processTag }} | {{ instance.isisInst.attributes.protoErr }} | {{ instance.isisInst.attributes.pssErr }} | {{ instance.isisInst.attributes.status }} |
 {%-     endfor %}
+{%- elif "isisNexthop" in api %}# ISIS Next Hop
+| Name | Address | Child Action | DN | Interface | Last Modified | Next Hop Interface | Status |
+| ---- | ------- | ------------ | -- | --------- | ------------- | ------------------ | ------ |
+{%-     for nexthop in data_to_template['imdata'] %}
+| {{ nexthop.isisNexthop.attributes.name }} | {{ nexthop.isisNexthop.attributes.address }} | {{ nexthop.isisNexthop.attributes.childAction }} | {{ nexthop.isisNexthop.attributes.dn }} | {{ nexthop.isisNexthop.attributes.if }} | {{ nexthop.isisNexthop.attributes.modTs }} | {{ nexthop.isisNexthop.attributes.nhif }} | {{ nexthop.isisNexthop.attributes.status }} |
+{%-     endfor %}
+
 {%- endif %}

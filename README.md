@@ -276,6 +276,8 @@ ISIS Interfaces
 
 ISIS Interfaces Level
 
+ISIS Next Hop
+
 License Entitlements
 
 L2Outs
