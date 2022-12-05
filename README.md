@@ -284,6 +284,8 @@ License Entitlements
 
 L2 Bridge Domains
 
+L2 External Interfaces
+
 L2Outs
 
 L3 Domains

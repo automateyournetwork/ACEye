@@ -8775,5 +8775,45 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l2ExtIf" in api %}
+<h1>L2 External Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>External Chassis ID</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>SAT Manager Config Failed Bmp</th>
+    <th>SAT Manager Config Failed Timestamp</th>
+    <th>SAT Manager Config State</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.l2ExtIf.attributes.name }}</td>
+    <td>{{ interface.l2ExtIf.attributes.childAction }}</td>
+    <td>{{ interface.l2ExtIf.attributes.descr }}</td>
+    <td>{{ interface.l2ExtIf.attributes.dn }}</td>
+    <td>{{ interface.l2ExtIf.attributes.extChasId }}</td>
+    <td>{{ interface.l2ExtIf.attributes.id }}</td>
+    <td>{{ interface.l2ExtIf.attributes.lcOwn }}</td>
+    <td>{{ interface.l2ExtIf.attributes.modTs }}</td>
+    <td>{{ interface.l2ExtIf.attributes.monPolDn }}</td>
+    <td>{{ interface.l2ExtIf.attributes.satmgrCfgFailedBmp }}</td>
+    <td>{{ interface.l2ExtIf.attributes.satmgrCfgFailedTs }}</td>
+    <td>{{ interface.l2ExtIf.attributes.satmgrCfgState }}</td>
+    <td>{{ interface.l2ExtIf.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

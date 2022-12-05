@@ -4195,4 +4195,22 @@
 ##### State: {{ bd.l2BD.attributes.vlanmgrCfgState }}
 #### Custom Fault Bmp: {{ bd.l2BD.attributes.vlanmgrCustFaultBmp }}
 {%-          endfor %}
+{%- elif "l2ExtIf" in api %}
+# L2 External Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.l2ExtIf.attributes.name }}
+### Child Action: {{ interface.l2ExtIf.attributes.childAction }}
+### Description: {{ interface.l2ExtIf.attributes.descr }}
+### DN: {{ interface.l2ExtIf.attributes.dn }}
+### External Chassis ID: {{ interface.l2ExtIf.attributes.extChasId }}
+### ID: {{ interface.l2ExtIf.attributes.id }}
+### Local Owner: {{ interface.l2ExtIf.attributes.lcOwn }}
+### Last Modified: {{ interface.l2ExtIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.l2ExtIf.attributes.monPolDn }}
+### SAT Manager Config
+#### Failed Bmp: {{ interface.l2ExtIf.attributes.satmgrCfgFailedBmp }}
+#### Failed Timestamp: {{ interface.l2ExtIf.attributes.satmgrCfgFailedTs }}
+#### State: {{ interface.l2ExtIf.attributes.satmgrCfgState }}
+### Status: {{ interface.l2ExtIf.attributes.status }}
+{%-          endfor %}
 {%- endif %}

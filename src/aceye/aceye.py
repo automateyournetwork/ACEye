@@ -361,6 +361,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.l2_bd(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l2_external_interfaces(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -502,6 +504,7 @@ class ACEye():
                     'ISIS Routes',
                     'License Entitlements',
                     'L2 Bridge Domains',
+                    'L2 External Interfaces',
                     'L2Outs',
                     'L3 Domains',
                     'L3 Interfaces',
@@ -1797,6 +1800,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def l2_external_interfaces(self):
+        self.url = f"{ self.aci }/api/node/class/l2ExtIf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L2 External Interfaces code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2476,6 +2486,10 @@ class ACEye():
 
         if "l2BD" in self.url:
             with open('L2 Bridge Domains/JSON/L2 Bridge Domains.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l2ExtIf" in self.url:
+            with open('L2 External Interfaces/JSON/L2 External Interfaces.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -3162,6 +3176,10 @@ class ACEye():
 
         if "l2BD" in self.url:
             with open('L2 Bridge Domains/YAML/L2 Bridge Domains.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l2ExtIf" in self.url:
+            with open('L2 External Interfaces/YAML/L2 External Interfaces.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -3852,6 +3870,10 @@ class ACEye():
 
         if "l2BD" in self.url:
             with open('L2 Bridge Domains/CSV/L2 Bridge Domains.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l2ExtIf" in self.url:
+            with open('L2 External Interfaces/CSV/L2 External Interfaces.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -4545,6 +4567,10 @@ class ACEye():
             with open('L2 Bridge Domains/Markdown/L2 Bridge Domains.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "l2ExtIf" in self.url:
+            with open('L2 External Interfaces/Markdown/L2 External Interfaces.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5236,6 +5262,10 @@ class ACEye():
             with open('L2 Bridge Domains/HTML/L2 Bridge Domains.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "l2ExtIf" in self.url:
+            with open('L2 External Interfaces/HTML/L2 External Interfaces.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5921,6 +5951,10 @@ class ACEye():
 
         if "l2BD" in self.url:
             with open('L2 Bridge Domains/Mindmap/L2 Bridge Domains.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l2ExtIf" in self.url:
+            with open('L2 External Interfaces/Mindmap/L2 External Interfaces.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
