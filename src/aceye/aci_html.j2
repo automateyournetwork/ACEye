@@ -8462,6 +8462,49 @@
 </tbody>
 </table>
 {%- elif "isisIf" in api %}
+{%-     if "Lvl" in api %}
+<h1>ISIS Interfaces Level</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>Csnp Interval</th>
+    <th>DN</th>
+    <th>Hello Interval</th>
+    <th>Hello Mult</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Next Csnp Timestamp</th>
+    <th>Priority</th>
+    <th>Protocol Error</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for level in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ level.isisIfLvl.attributes.name }}</td>
+    <td>{{ level.isisIfLvl.attributes.childAction }}</td>
+    <td>{{ level.isisIfLvl.attributes.csnpIntvl }}</td>
+    <td>{{ level.isisIfLvl.attributes.dn }}</td>
+    <td>{{ level.isisIfLvl.attributes.helloIntvl }}</td>
+    <td>{{ level.isisIfLvl.attributes.helloMult }}</td>
+    <td>{{ level.isisIfLvl.attributes.lcOwn }}</td>
+    <td>{{ level.isisIfLvl.attributes.modTs }}</td>
+    <td>{{ level.isisIfLvl.attributes.monPolDn }}</td>
+    <td>{{ level.isisIfLvl.attributes.nextCsnpTs }}</td>
+    <td>{{ level.isisIfLvl.attributes.priority }}</td>
+    <td>{{ level.isisIfLvl.attributes.protoError }}</td>
+    <td>{{ level.isisIfLvl.attributes.status }}</td>
+    <td>{{ level.isisIfLvl.attributes.type }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     else %}
 <h1>ISIS Interfaces</h1>
 <table id = "datatable">
 <thead>
@@ -8491,7 +8534,7 @@
   </tr>
 </thead>
 <tbody>
-{%-     for interface in data_to_template['imdata'] %}
+{%-         for interface in data_to_template['imdata'] %}
   <tr>
     <td>{{ interface.isisIf.attributes.name }}</td>
     <td>{{ interface.isisIf.attributes.adminSt }}</td>
@@ -8516,8 +8559,9 @@
     <td>{{ interface.isisIf.attributes.p2pCktId }}</td>
     <td>{{ interface.isisIf.attributes.status }}</td>
   </tr>
-{%-         endfor %}
+{%-          endfor %}
 </tbody>
 </table>
+{%-      endif %}
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

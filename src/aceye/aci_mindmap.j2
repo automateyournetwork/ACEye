@@ -4041,8 +4041,29 @@
 ### Status: {{ entity.isisEntity.attributes.status }}
 {%-         endfor %}
 {%- elif "isisIf" in api %}
+{%-     if "Lvl" in api %}
+# ISIS Interfaces Level
+{%-         for level in data_to_template['imdata'] %}
+## Name: {{ level.isisIfLvl.attributes.name }}
+### Child Action: {{ level.isisIfLvl.attributes.childAction }}
+### Csnp
+#### Interval: {{ level.isisIfLvl.attributes.csnpIntvl }}
+#### Next Timestamp: {{ level.isisIfLvl.attributes.nextCsnpTs }}
+### DN: {{ level.isisIfLvl.attributes.dn }}
+### Hello
+#### Interval: {{ level.isisIfLvl.attributes.helloIntvl }}
+#### Mult: {{ level.isisIfLvl.attributes.helloMult }}
+### Local Owner: {{ level.isisIfLvl.attributes.lcOwn }}
+### Last Modified: {{ level.isisIfLvl.attributes.modTs }}
+### Monitoring Policy DN: {{ level.isisIfLvl.attributes.monPolDn }}
+### Priority: {{ level.isisIfLvl.attributes.priority }}
+### Protocol Error: {{ level.isisIfLvl.attributes.protoError }}
+### Status: {{ level.isisIfLvl.attributes.status }}
+### Type: {{ level.isisIfLvl.attributes.type }}
+{%-         endfor %}
+{%-     else %}
 # ISIS Interfaces
-{%-     for interface in data_to_template['imdata'] %}
+{%-         for interface in data_to_template['imdata'] %}
 ## Name: {{ interface.isisIf.attributes.name }}
 ### Admin State: {{ interface.isisIf.attributes.adminSt }}
 ### Child Action: {{ interface.isisIf.attributes.childAction }}
@@ -4069,4 +4090,5 @@
 ### Next IIH Timestamp: {{ interface.isisIf.attributes.nextIIHTs }}
 ### Status: {{ interface.isisIf.attributes.status }}
 {%-         endfor %}
+{%-     endif %}
 {%- endif %}

@@ -272,6 +272,8 @@ ISIS Entities
 
 ISIS Interfaces
 
+ISIS Interfaces Level
+
 License Entitlements
 
 L2Outs
