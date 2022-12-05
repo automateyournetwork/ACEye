@@ -739,6 +739,6 @@
 {%-     endfor %}
 {%- elif "isisNexthop" in api %}Name,Address,Child Action,DN,Interface,Last Modified,Next Hop Interface,Status
 {%-     for nexthop in data_to_template['imdata'] %}
-{{ nexthop.isisNexthop.attributes.name }},{{ nexthop.isisNexthop.attributes.address }},{{ nexthop.isisNexthop.attributes.childAction }},{{ nexthop.isisNexthop.attributes.dn }},{{ nexthop.isisNexthop.attributes.if }},{{ nexthop.isisNexthop.attributes.modTs }},{{ nexthop.isisNexthop.attributes.nhif }},{{ nexthop.isisNexthop.attributes.status }}
+{{ nexthop.isisNexthop.attributes.name }},{{ nexthop.isisNexthop.attributes.address }},{{ nexthop.isisNexthop.attributes.childAction }},{{ nexthop.isisNexthop.attributes.dn }},{{ nexthop.isisNexthop.attributes.if }},{{ nexthop.isisNexthop.attributes.modTs }},{{ nexthop.isisNexthop.attributes.nhIf }},{{ nexthop.isisNexthop.attributes.status }}
 {%-     endfor %}
 {%- endif %}
