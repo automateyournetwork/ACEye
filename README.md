@@ -288,6 +288,8 @@ L2 External Instance Profiles
 
 L2 External Interfaces
 
+L2 External Logical Interface Profiles
+
 L2 Interface Source Relationships
 
 L2Outs

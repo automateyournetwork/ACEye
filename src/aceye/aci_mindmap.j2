@@ -4264,4 +4264,24 @@
 ### TX ID: {{ profile.l2extInstP.attributes.txId }}
 ### UID: {{ profile.l2extInstP.attributes.uid }}
 {%-          endfor %}
+{%- elif "l2extLIfP" in api %}
+# L2 External Logical Interface Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.l2extLIfP.attributes.name }}
+### Name Alias: {{ profile.l2extLIfP.attributes.nameAlias }}
+### Annotation: {{ profile.l2extLIfP.attributes.annotation }}
+### Child Action: {{ profile.l2extLIfP.attributes.childAction }}
+### Description: {{ profile.l2extLIfP.attributes.descr }}
+### DN: {{ profile.l2extLIfP.attributes.dn }}
+### Externally Managed By: {{ profile.l2extLIfP.attributes.extMngdBy }}
+### Local Owner: {{ profile.l2extLIfP.attributes.lcOwn }}
+### Last Modified: {{ profile.l2extLIfP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.l2extLIfP.attributes.monPolDn }}
+### Owner
+#### Key: {{ profile.l2extLIfP.attributes.ownerKey }}
+#### Tag: {{ profile.l2extLIfP.attributes.ownerTag }}
+### Status: {{ profile.l2extLIfP.attributes.status }}
+### Tag: {{ profile.l2extLIfP.attributes.tag }}
+### UID: {{ profile.l2extLIfP.attributes.uid }}
+{%-          endfor %}
 {%- endif %}
