@@ -741,4 +741,8 @@
 {%-     for nexthop in data_to_template['imdata'] %}
 {{ nexthop.isisNexthop.attributes.name }},{{ nexthop.isisNexthop.attributes.addr }},{{ nexthop.isisNexthop.attributes.childAction }},{{ nexthop.isisNexthop.attributes.dn }},{{ nexthop.isisNexthop.attributes.if }},{{ nexthop.isisNexthop.attributes.modTs }},{{ nexthop.isisNexthop.attributes.nhIf }},{{ nexthop.isisNexthop.attributes.status }}
 {%-     endfor %}
+{%- elif "isisRoute" in api %}Name,Child Action,DN,Metric,Last Modified,Monitoring Policy DN,Prefix,Preference,Status
+{%-     for route in data_to_template['imdata'] %}
+{{ route.isisRoute.attributes.name }},{{ route.isisRoute.attributes.childAction }},{{ route.isisRoute.attributes.dn }},{{ route.isisRoute.attributes.metric }},{{ route.isisRoute.attributes.modTs }},{{ route.isisRoute.attributes.monPolDn }},{{ route.isisRoute.attributes.pfx }},{{ route.isisRoute.attributes.pref }},{{ route.isisRoute.attributes.status }}
+{%-     endfor %}
 {%- endif %}

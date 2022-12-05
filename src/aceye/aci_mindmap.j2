@@ -4129,4 +4129,17 @@
 ### Next Hop Interface: {{ nexthop.isisNexthop.attributes.nhIf }}
 ### Status: {{ nexthop.isisNexthop.attributes.status }}
 {%-          endfor %}
+{%- elif "isisRoute" in api %}
+# ISIS Routes
+{%-     for route in data_to_template['imdata'] %}
+## Name: {{ route.isisRoute.attributes.name }}
+### Child Action: {{ route.isisRoute.attributes.childAction }}
+### DN: {{ route.isisRoute.attributes.dn }}
+### Metric: {{ route.isisRoute.attributes.metric }}
+### Last Modified: {{ route.isisRoute.attributes.modTs }}
+### Monitoring Policy DN: {{ route.isisRoute.attributes.monPolDn }}
+### Prefix: {{ route.isisRoute.attributes.pfx }}
+### Preference: {{ route.isisRoute.attributes.pref }}
+### Status: {{ route.isisRoute.attributes.status }}
+{%-          endfor %}
 {%- endif %}

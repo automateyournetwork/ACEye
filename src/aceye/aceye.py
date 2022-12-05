@@ -357,6 +357,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.isis_nexthop(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.isis_routes(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -495,6 +497,7 @@ class ACEye():
                     'ISIS Interfaces',
                     'ISIS Interfaces Level',
                     'ISIS Next Hop',
+                    'ISIS Routes',
                     'License Entitlements',
                     'L2Outs',
                     'L3 Domains',
@@ -1777,6 +1780,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def isis_routes(self):
+        self.url = f"{ self.aci }/api/node/class/isisRoute.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<ISIS Routes code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2448,6 +2458,10 @@ class ACEye():
 
         if "isisNexthop" in self.url:
             with open('ISIS Next Hop/JSON/ISIS Next Hop.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "isisRoute" in self.url:
+            with open('ISIS Routes/JSON/ISIS Routes.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -3126,6 +3140,10 @@ class ACEye():
 
         if "isisNexthop" in self.url:
             with open('ISIS Next Hop/YAML/ISIS Next Hop.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "isisRoute" in self.url:
+            with open('ISIS Routes/YAML/ISIS Routes.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -3808,6 +3826,10 @@ class ACEye():
 
         if "isisNexthop" in self.url:
             with open('ISIS Next Hop/CSV/ISIS Next Hop.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "isisRoute" in self.url:
+            with open('ISIS Routes/CSV/ISIS Routes.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -4493,6 +4515,10 @@ class ACEye():
             with open('ISIS Next Hop/Markdown/ISIS Next Hop.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "isisRoute" in self.url:
+            with open('ISIS Routes/Markdown/ISIS Routes.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5176,6 +5202,10 @@ class ACEye():
             with open('ISIS Next Hop/HTML/ISIS Next Hop.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "isisRoute" in self.url:
+            with open('ISIS Routes/HTML/ISIS Routes.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5853,6 +5883,10 @@ class ACEye():
 
         if "isisNexthop" in self.url:
             with open('ISIS Next Hop/Mindmap/ISIS Next Hop.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "isisRoute" in self.url:
+            with open('ISIS Routes/Mindmap/ISIS Routes.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

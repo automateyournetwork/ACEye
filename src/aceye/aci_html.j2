@@ -8645,5 +8645,37 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "isisRoute" in api %}
+<h1>ISIS Routes</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Metric</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Prefix</th>
+    <th>Preference</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for route in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ route.isisRoute.attributes.name }}</td>
+    <td>{{ route.isisRoute.attributes.childAction }}</td>
+    <td>{{ route.isisRoute.attributes.dn }}</td>
+    <td>{{ route.isisRoute.attributes.metric }}</td>
+    <td>{{ route.isisRoute.attributes.modTs }}</td>
+    <td>{{ route.isisRoute.attributes.monPolDn }}</td>
+    <td>{{ route.isisRoute.attributes.pfx }}</td>
+    <td>{{ route.isisRoute.attributes.pref }}</td>
+    <td>{{ route.isisRoute.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
