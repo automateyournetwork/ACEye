@@ -1097,4 +1097,10 @@
 {%-     for interface in data_to_template['imdata'] %}
 | {{ interface.l2ExtIf.attributes.name }} | {{ interface.l2ExtIf.attributes.childAction }} | {{ interface.l2ExtIf.attributes.descr }} | {{ interface.l2ExtIf.attributes.dn }} | {{ interface.l2ExtIf.attributes.extChasId }} | {{ interface.l2ExtIf.attributes.id }} | {{ interface.l2ExtIf.attributes.lcOwn }} | {{ interface.l2ExtIf.attributes.modTs }} | {{ interface.l2ExtIf.attributes.monPolDn }} | {{ interface.l2ExtIf.attributes.satmgrCfgFailedBmp }} | {{ interface.l2ExtIf.attributes.satmgrCfgFailedTs }} | {{ interface.l2ExtIf.attributes.satmgrCfgState }} | {{ interface.l2ExtIf.attributes.status }} |
 {%-     endfor %}
+{%- elif "l2RsEthIf" in api %}# L2 Interface Source Relationships
+| DN | Child Action | Force Resolve | Local Owner | Last Modified | Parent Source Key | rType | State | State Quality | Status | tCl | tDN | tSKey | tType |
+| -- | ------------ | ------------- | ----------- | ------------- | ----------------- | ----- | ----- | ------------- | ------ | --- | --- | ----- | ----- |
+{%-     for interface in data_to_template['imdata'] %}
+| {{ interface.l2RsEthIf.attributes.dn }} | {{ interface.l2RsEthIf.attributes.childAction }} | {{ interface.l2RsEthIf.attributes.forceResolve }} | {{ interface.l2RsEthIf.attributes.lcOwn }} | {{ interface.l2RsEthIf.attributes.modTs }} | {{ interface.l2RsEthIf.attributes.parentSKey }} | {{ interface.l2RsEthIf.attributes.rType }} | {{ interface.l2RsEthIf.attributes.state }} | {{ interface.l2RsEthIf.attributes.stateQual }} | {{ interface.l2RsEthIf.attributes.status }} | {{ interface.l2RsEthIf.attributes.tCl }} | {{ interface.l2RsEthIf.attributes.tDn }} | {{ interface.l2RsEthIf.attributes.tSKey }} | {{ interface.l2RsEthIf.attributes.tType }} |
+{%-     endfor %}
 {%- endif %}

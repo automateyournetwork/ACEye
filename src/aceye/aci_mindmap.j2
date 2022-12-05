@@ -4213,4 +4213,23 @@
 #### State: {{ interface.l2ExtIf.attributes.satmgrCfgState }}
 ### Status: {{ interface.l2ExtIf.attributes.status }}
 {%-          endfor %}
+{%- elif "l2RsEthIf" in api %}
+# L2 Interface Source Relationships
+{%-     for interface in data_to_template['imdata'] %}
+## DN: {{ interface.l2RsEthIf.attributes.dn }}
+### Child Action: {{ interface.l2RsEthIf.attributes.childAction }}
+### Force Resolve: {{ interface.l2RsEthIf.attributes.forceResolve }}
+### Local Owner: {{ interface.l2RsEthIf.attributes.lcOwn }}
+### Last Modified: {{ interface.l2RsEthIf.attributes.modTs }}
+### Parent Source Key: {{ interface.l2RsEthIf.attributes.parentSKey }}
+### rType: {{ interface.l2RsEthIf.attributes.rType }}
+### State: {{ interface.l2RsEthIf.attributes.state }}
+### State Quality: {{ interface.l2RsEthIf.attributes.stateQual }}
+### Status: {{ interface.l2RsEthIf.attributes.status }}
+### t
+#### Cl: {{ interface.l2RsEthIf.attributes.tCl }}
+#### DN: {{ interface.l2RsEthIf.attributes.tDn }}
+#### Source Key: {{ interface.l2RsEthIf.attributes.tSKey }}
+#### Type: {{ interface.l2RsEthIf.attributes.tType }}
+{%-          endfor %}
 {%- endif %}
