@@ -270,6 +270,8 @@ ISIS Domains Level
 
 ISIS Entities
 
+ISIS Instances
+
 ISIS Interfaces
 
 ISIS Interfaces Level

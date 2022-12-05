@@ -4091,4 +4091,30 @@
 ### Status: {{ interface.isisIf.attributes.status }}
 {%-         endfor %}
 {%-     endif %}
+{%- elif "isisInst" in api %}
+# ISIS Instances
+{%-     for instance in data_to_template['imdata'] %}
+## Name: {{ instance.isisInst.attributes.name }}
+### Admin State: {{ instance.isisInst.attributes.adminSt }}
+### Child Action: {{ instance.isisInst.attributes.childAction }}
+### Control: {{ instance.isisInst.attributes.ctrl }}
+### DN: {{ instance.isisInst.attributes.dn }}
+### Local Owner: {{ instance.isisInst.attributes.lcOwn }}
+### Memory Alert: {{ instance.isisInst.attributes.memAlert }}
+### Last Modified: {{ instance.isisInst.attributes.modTs }}
+### Monitoring Policy DN: {{ instance.isisInst.attributes.monPolDn }}
+### Errors
+#### Duplicate System ID: {{ instance.isisInst.attributes.dupSysIdErr }}
+#### MTS: {{ instance.isisInst.attributes.mtsErr }}
+#### Protocol: {{ instance.isisInst.attributes.protoErr }}
+#### PSS: {{ instance.isisInst.attributes.pssErr }}
+### Oper
+#### Error: {{ instance.isisInst.attributes.operErr }}
+#### State: {{ instance.isisInst.attributes.operSt }}
+### Process
+#### Queue: {{ instance.isisInst.attributes.processQueue }}
+#### Sap: {{ instance.isisInst.attributes.processSap }}
+#### Tag: {{ instance.isisInst.attributes.processTag }}
+### Status: {{ instance.isisInst.attributes.status }}
+{%-          endfor %}
 {%- endif %}
