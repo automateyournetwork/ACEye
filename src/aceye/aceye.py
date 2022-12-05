@@ -365,6 +365,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.l2_interface_source_relationships(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l2_external_instance_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -506,6 +508,7 @@ class ACEye():
                     'ISIS Routes',
                     'License Entitlements',
                     'L2 Bridge Domains',
+                    'L2 External Instance Profiles',
                     'L2 External Interfaces',
                     'L2 Interface Source Relationships'
                     'L2Outs',
@@ -1817,6 +1820,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def l2_external_instance_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/l2extInstP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L2 External Instance Profiles code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2504,6 +2514,10 @@ class ACEye():
 
         if "l2RsEthIf" in self.url:
             with open('L2 Interface Source Relationships/JSON/L2 Interface Source Relationships.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l2extInstP" in self.url:
+            with open('L2 External Instance Profiles/JSON/L2 External Instance Profiles.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -3198,6 +3212,10 @@ class ACEye():
 
         if "l2RsEthIf" in self.url:
             with open('L2 Interface Source Relationships/YAML/L2 Interface Source Relationships.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l2extInstP" in self.url:
+            with open('L2 External Instance Profiles/YAML/L2 External Instance Profiles.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -3896,6 +3914,10 @@ class ACEye():
 
         if "l2RsEthIf" in self.url:
             with open('L2 Interface Source Relationships/CSV/L2 Interface Source Relationships.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l2extInstP" in self.url:
+            with open('L2 External Instance Profiles/CSV/L2 External Instance Profiles.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -4597,6 +4619,10 @@ class ACEye():
             with open('L2 Interface Source Relationships/Markdown/L2 Interface Source Relationships.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "l2extInstP" in self.url:
+            with open('L2 External Instance Profiles/Markdown/L2 External Instance Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5296,6 +5322,10 @@ class ACEye():
             with open('L2 Interface Source Relationships/HTML/L2 Interface Source Relationships.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "l2extInstP" in self.url:
+            with open('L2 External Instance Profiles/HTML/L2 External Instance Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5989,6 +6019,10 @@ class ACEye():
 
         if "l2RsEthIf" in self.url:
             with open('L2 Interface Source Relationships/Mindmap/L2 Interface Source Relationships.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l2extInstP" in self.url:
+            with open('L2 External Instance Profiles/Mindmap/L2 External Instance Profiles.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

@@ -4232,4 +4232,36 @@
 #### Source Key: {{ interface.l2RsEthIf.attributes.tSKey }}
 #### Type: {{ interface.l2RsEthIf.attributes.tType }}
 {%-          endfor %}
+{%- elif "l2extInstP" in api %}
+# L2 External Instance Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.l2extInstP.attributes.name }}
+### Name Alias: {{ profile.l2extInstP.attributes.nameAlias }}
+### Annotation: {{ profile.l2extInstP.attributes.annotation }}
+### Child Action: {{ profile.l2extInstP.attributes.childAction }}
+### Config
+#### Issues: {{ profile.l2extInstP.attributes.configIssues }}
+#### State: {{ profile.l2extInstP.attributes.configSt }}
+### Description: {{ profile.l2extInstP.attributes.descr }}
+### DN: {{ profile.l2extInstP.attributes.dn }}
+### Exception Tag: {{ profile.l2extInstP.attributes.exceptionTag }}
+### Externally Managed By: {{ profile.l2extInstP.attributes.extMngdBy }}
+### Flood On Encapsulation: {{ profile.l2extInstP.attributes.floodOnEncap }}
+### Is Shared Service Multisite EPG: {{ profile.l2extInstP.attributes.isSharedSrvMsiteEPg }}
+### Local Owner: {{ profile.l2extInstP.attributes.lcOwn }}
+### Match Type: {{ profile.l2extInstP.attributes.matchT }}
+### Last Modified: {{ profile.l2extInstP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.l2extInstP.attributes.monPolDn }}
+### PC
+#### Enforced Preference: {{ profile.l2extInstP.attributes.pcEnfPref }}
+#### Tag: {{ profile.l2extInstP.attributes.pcTag }}
+### Preferred Group Member: {{ profile.l2extInstP.attributes.prefGrMemb }}
+### Priority: {{ profile.l2extInstP.attributes.prio }}
+### Scope: {{ profile.l2extInstP.attributes.scope }}
+### Status: {{ profile.l2extInstP.attributes.status }}
+### Target DSCP: {{ profile.l2extInstP.attributes.targetDscp }}
+### Trigger State: {{ profile.l2extInstP.attributes.triggerSt }}
+### TX ID: {{ profile.l2extInstP.attributes.txId }}
+### UID: {{ profile.l2extInstP.attributes.uid }}
+{%-          endfor %}
 {%- endif %}
