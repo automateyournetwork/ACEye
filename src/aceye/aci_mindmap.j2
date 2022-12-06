@@ -4351,4 +4351,65 @@
 #### Type: {{ path.l2extRsPathL2OutAtt.attributes.tType }}
 ### Target DSCP: {{ path.l2extRsPathL2OutAtt.attributes.targetDscp }}
 {%-          endfor %}
+{%- elif "l3Ctx" in api %}
+# L3 Contexts
+{%-     for context in data_to_template['imdata'] %}
+## Name: {{ context.l3Ctx.attributes.name }}
+### Admin State: {{ context.l3Ctx.attributes.adminState }}
+### Bridge Domain Enforced Enable: {{ context.l3Ctx.attributes.bdEnforcedEnable }}
+### BGP
+#### RD: {{ context.l3Ctx.attributes.bgpRd }}
+#### RD Display: {{ context.l3Ctx.attributes.bgpRdDisp }}
+### Child Action: {{ context.l3Ctx.attributes.childAction }}
+### Created: {{ context.l3Ctx.attributes.createTs }}
+### Context P Key: {{ context.l3Ctx.attributes.ctxPKey }}
+### DN: {{ context.l3Ctx.attributes.dn }}
+### Encapsulation: {{ context.l3Ctx.attributes.encap }}
+### GSDB Context: {{ context.l3Ctx.attributes.gsdbCtx }}
+### Hardware Resource ID: {{ context.l3Ctx.attributes.hwResourceId }}
+### ID: {{ context.l3Ctx.attributes.id }}
+### IP Learning Disabled: {{ context.l3Ctx.attributes.ipLearnDisable }}
+### L3 VM Config
+#### Failed Bmp: {{ context.l3Ctx.attributes.l3vmCfgFailedBmp }}
+#### Failed Timestamp: {{ context.l3Ctx.attributes.l3vmCfgFailedTs }}
+#### State: {{ context.l3Ctx.attributes.l3vmCfgState }}
+### Last Changed: {{ context.l3Ctx.attributes.lastChgdTs }}
+### Local Owner: {{ context.l3Ctx.attributes.lcOwn }}
+### Management PC Tag: {{ context.l3Ctx.attributes.mgmtPcTag }}
+### Last Modified: {{ context.l3Ctx.attributes.modTs }}
+### Monitoring Policy DN: {{ context.l3Ctx.attributes.monPolDn }}
+### NG AVS: {{ context.l3Ctx.attributes.ngAvs }}
+### Oper State
+#### Old Quality: {{ context.l3Ctx.attributes.oldOperStQual }}
+#### Quality: {{ context.l3Ctx.attributes.operStQual }}
+#### State: {{ context.l3Ctx.attributes.operState }}
+### OUI: {{ context.l3Ctx.attributes.oui }}
+### PC Enforced
+#### Direction: {{ context.l3Ctx.attributes.pcEnfDir }}
+#### Preference: {{ context.l3Ctx.attributes.pcEnfPref }}
+### PC Tag: {{ context.l3Ctx.attributes.pcTag }}
+### Pending: {{ context.l3Ctx.attributes.pending }}
+### Port Control Bmp: {{ context.l3Ctx.attributes.prtclBmp }}
+### Resource ID: {{ context.l3Ctx.attributes.resourceId }}
+### Scope: {{ context.l3Ctx.attributes.scope }}
+### Status: {{ context.l3Ctx.attributes.status }}
+### Type: {{ context.l3Ctx.attributes.type }}
+### IPv4 TIB
+#### ID: {{ context.l3Ctx.attributes.v4TibId }}
+#### Name: {{ context.l3Ctx.attributes.v4TibName }}
+#### Old Oper State Quality: {{ context.l3Ctx.attributes.v4TibOldOperStQual }}
+#### Oper State Quality: {{ context.l3Ctx.attributes.v4TibOperStQual }}
+#### Oper State: {{ context.l3Ctx.attributes.v4TibOperState }}
+#### Pending: {{ context.l3Ctx.attributes.v4TibPending }}
+#### Valid: {{ context.l3Ctx.attributes.v4TibValid }}
+### IPv6 TIB
+#### ID: {{ context.l3Ctx.attributes.v6TibId }}
+#### Name: {{ context.l3Ctx.attributes.v6TibName }}
+#### Old Oper State Quality: {{ context.l3Ctx.attributes.v6TibOldOperStQual }}
+#### Oper State Quality: {{ context.l3Ctx.attributes.v6TibOperStQual }}
+#### Oper State: {{ context.l3Ctx.attributes.v6TibOperState }}
+#### Pending: {{ context.l3Ctx.attributes.v6TibPending }}
+#### Valid: {{ context.l3Ctx.attributes.v6TibValid }}
+### VPN ID: {{ context.l3Ctx.attributes.vpnId }}
+{%-          endfor %}
 {%- endif %}

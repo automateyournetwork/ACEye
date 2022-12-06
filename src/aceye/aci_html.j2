@@ -9113,5 +9113,121 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l3Ctx" in api %}
+<h1>L3 Contexts</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Bridge Domain Enforced Enable</th>
+    <th>BGP RD</th>
+    <th>BGP RD Display</th>
+    <th>Child Action</th>
+    <th>Created</th>
+    <th>Context P Key</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>GSDB Context</th>
+    <th>Hardware Resource ID</th>
+    <th>ID</th>
+    <th>IP Learning Disable</th>
+    <th>L3 VM Config Failed Bmp</th>
+    <th>L3 VM Config Failed Timestamp</th>
+    <th>L3 VM Config State</th>
+    <th>Last Changed Timestamp</th>
+    <th>Local Owner</th>
+    <th>Management PC Tag</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>NG AVS</th>
+    <th>Old Oper State Quality</th>
+    <th>Oper State Quality</th>
+    <th>Oper State</th>
+    <th>OUI</th>
+    <th>PC Enforced Direction</th>
+    <th>PC Enforced Preference</th>
+    <th>PC Tag</th>
+    <th>Pending</th>
+    <th>Port CL Bmp</th>
+    <th>Resource ID</th>
+    <th>Scope</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>v4 TIB ID</th>
+    <th>v4 TIB Name</th>
+    <th>v4 TIB Old Oper State Quality</th>
+    <th>v4 TIB Oper State Quality</th>
+    <th>v4 TIB Oper State</th>
+    <th>v4 TIB Pending</th>
+    <th>v4 TIB Valid</th>
+    <th>v6 TIB ID</th>
+    <th>v6 TIB Name</th>
+    <th>v6 TIB Old Oper State Quality</th>
+    <th>v6 TIB Oper State Quality</th>
+    <th>v6 TIB Oper State</th>
+    <th>v6 TIB Pending</th>
+    <th>v6 TIB Valid</th>
+    <th>VPN ID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for context in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ context.l3Ctx.attributes.name }}</td>
+    <td>{{ context.l3Ctx.attributes.adminState }}</td>
+    <td>{{ context.l3Ctx.attributes.bdEnforcedEnable }}</td>
+    <td>{{ context.l3Ctx.attributes.bgpRd }}</td>
+    <td>{{ context.l3Ctx.attributes.bgpRdDisp }}</td>
+    <td>{{ context.l3Ctx.attributes.childAction }}</td>
+    <td>{{ context.l3Ctx.attributes.createTs }}</td>
+    <td>{{ context.l3Ctx.attributes.ctxPKey }}</td>
+    <td>{{ context.l3Ctx.attributes.dn }}</td>
+    <td>{{ context.l3Ctx.attributes.encap }}</td>
+    <td>{{ context.l3Ctx.attributes.gsdbCtx }}</td>
+    <td>{{ context.l3Ctx.attributes.hwResourceId }}</td>
+    <td>{{ context.l3Ctx.attributes.id }}</td>
+    <td>{{ context.l3Ctx.attributes.ipLearnDisable }}</td>
+    <td>{{ context.l3Ctx.attributes.l3vmCfgFailedBmp }}</td>
+    <td>{{ context.l3Ctx.attributes.l3vmCfgFailedTs }}</td>
+    <td>{{ context.l3Ctx.attributes.l3vmCfgState }}</td>
+    <td>{{ context.l3Ctx.attributes.lastChgdTs }}</td>
+    <td>{{ context.l3Ctx.attributes.lcOwn }}</td>
+    <td>{{ context.l3Ctx.attributes.mgmtPcTag }}</td>
+    <td>{{ context.l3Ctx.attributes.modTs }}</td>
+    <td>{{ context.l3Ctx.attributes.monPolDn }}</td>
+    <td>{{ context.l3Ctx.attributes.ngAvs }}</td>
+    <td>{{ context.l3Ctx.attributes.oldOperStQual }}</td>
+    <td>{{ context.l3Ctx.attributes.operStQual }}</td>
+    <td>{{ context.l3Ctx.attributes.operState }}</td>
+    <td>{{ context.l3Ctx.attributes.oui }}</td>
+    <td>{{ context.l3Ctx.attributes.pcEnfDir }}</td>
+    <td>{{ context.l3Ctx.attributes.pcEnfPref }}</td>
+    <td>{{ context.l3Ctx.attributes.pcTag }}</td>
+    <td>{{ context.l3Ctx.attributes.pending }}</td>
+    <td>{{ context.l3Ctx.attributes.prtclBmp }}</td>
+    <td>{{ context.l3Ctx.attributes.resourceId }}</td>
+    <td>{{ context.l3Ctx.attributes.scope }}</td>
+    <td>{{ context.l3Ctx.attributes.status }}</td>
+    <td>{{ context.l3Ctx.attributes.type }}</td>
+    <td>{{ context.l3Ctx.attributes.v4TibId }}</td>
+    <td>{{ context.l3Ctx.attributes.v4TibName }}</td>
+    <td>{{ context.l3Ctx.attributes.v4TibOldOperStQual }}</td>
+    <td>{{ context.l3Ctx.attributes.v4TibOperStQual }}</td>
+    <td>{{ context.l3Ctx.attributes.v4TibOperState }}</td>
+    <td>{{ context.l3Ctx.attributes.v4TibPending }}</td>
+    <td>{{ context.l3Ctx.attributes.v4TibValid }}</td>
+    <td>{{ context.l3Ctx.attributes.v6TibId }}</td>
+    <td>{{ context.l3Ctx.attributes.v6TibName }}</td>
+    <td>{{ context.l3Ctx.attributes.v6TibOldOperStQual }}</td>
+    <td>{{ context.l3Ctx.attributes.v6TibOperStQual }}</td>
+    <td>{{ context.l3Ctx.attributes.v6TibOperState }}</td>
+    <td>{{ context.l3Ctx.attributes.v6TibPending }}</td>
+    <td>{{ context.l3Ctx.attributes.v6TibValid }}</td>
+    <td>{{ context.l3Ctx.attributes.vpnId }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
