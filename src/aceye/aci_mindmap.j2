@@ -4041,8 +4041,29 @@
 ### Status: {{ entity.isisEntity.attributes.status }}
 {%-         endfor %}
 {%- elif "isisIf" in api %}
+{%-     if "Lvl" in api %}
+# ISIS Interfaces Level
+{%-         for level in data_to_template['imdata'] %}
+## Name: {{ level.isisIfLvl.attributes.name }}
+### Child Action: {{ level.isisIfLvl.attributes.childAction }}
+### Csnp
+#### Interval: {{ level.isisIfLvl.attributes.csnpIntvl }}
+#### Next Timestamp: {{ level.isisIfLvl.attributes.nextCsnpTs }}
+### DN: {{ level.isisIfLvl.attributes.dn }}
+### Hello
+#### Interval: {{ level.isisIfLvl.attributes.helloIntvl }}
+#### Mult: {{ level.isisIfLvl.attributes.helloMult }}
+### Local Owner: {{ level.isisIfLvl.attributes.lcOwn }}
+### Last Modified: {{ level.isisIfLvl.attributes.modTs }}
+### Monitoring Policy DN: {{ level.isisIfLvl.attributes.monPolDn }}
+### Priority: {{ level.isisIfLvl.attributes.priority }}
+### Protocol Error: {{ level.isisIfLvl.attributes.protoError }}
+### Status: {{ level.isisIfLvl.attributes.status }}
+### Type: {{ level.isisIfLvl.attributes.type }}
+{%-         endfor %}
+{%-     else %}
 # ISIS Interfaces
-{%-     for interface in data_to_template['imdata'] %}
+{%-         for interface in data_to_template['imdata'] %}
 ## Name: {{ interface.isisIf.attributes.name }}
 ### Admin State: {{ interface.isisIf.attributes.adminSt }}
 ### Child Action: {{ interface.isisIf.attributes.childAction }}
@@ -4069,4 +4090,355 @@
 ### Next IIH Timestamp: {{ interface.isisIf.attributes.nextIIHTs }}
 ### Status: {{ interface.isisIf.attributes.status }}
 {%-         endfor %}
+{%-     endif %}
+{%- elif "isisInst" in api %}
+# ISIS Instances
+{%-     for instance in data_to_template['imdata'] %}
+## Name: {{ instance.isisInst.attributes.name }}
+### Admin State: {{ instance.isisInst.attributes.adminSt }}
+### Child Action: {{ instance.isisInst.attributes.childAction }}
+### Control: {{ instance.isisInst.attributes.ctrl }}
+### DN: {{ instance.isisInst.attributes.dn }}
+### Local Owner: {{ instance.isisInst.attributes.lcOwn }}
+### Memory Alert: {{ instance.isisInst.attributes.memAlert }}
+### Last Modified: {{ instance.isisInst.attributes.modTs }}
+### Monitoring Policy DN: {{ instance.isisInst.attributes.monPolDn }}
+### Errors
+#### Duplicate System ID: {{ instance.isisInst.attributes.dupSysIdErr }}
+#### MTS: {{ instance.isisInst.attributes.mtsErr }}
+#### Protocol: {{ instance.isisInst.attributes.protoErr }}
+#### PSS: {{ instance.isisInst.attributes.pssErr }}
+### Oper
+#### Error: {{ instance.isisInst.attributes.operErr }}
+#### State: {{ instance.isisInst.attributes.operSt }}
+### Process
+#### Queue: {{ instance.isisInst.attributes.processQueue }}
+#### Sap: {{ instance.isisInst.attributes.processSap }}
+#### Tag: {{ instance.isisInst.attributes.processTag }}
+### Status: {{ instance.isisInst.attributes.status }}
+{%-          endfor %}
+{%- elif "isisNexthop" in api %}
+# ISIS Next Hop
+{%-     for nexthop in data_to_template['imdata'] %}
+## Name: {{ nexthop.isisNexthop.attributes.name }}
+### Address: {{ nexthop.isisNexthop.attributes.addr }}
+### Child Action: {{ nexthop.isisNexthop.attributes.childAction }}
+### DN: {{ nexthop.isisNexthop.attributes.dn }}
+### Interface: {{ nexthop.isisNexthop.attributes.if }}
+### Last Modified: {{ nexthop.isisNexthop.attributes.modTs }}
+### Next Hop Interface: {{ nexthop.isisNexthop.attributes.nhIf }}
+### Status: {{ nexthop.isisNexthop.attributes.status }}
+{%-          endfor %}
+{%- elif "isisRoute" in api %}
+# ISIS Routes
+{%-     for route in data_to_template['imdata'] %}
+## Name: {{ route.isisRoute.attributes.name }}
+### Child Action: {{ route.isisRoute.attributes.childAction }}
+### DN: {{ route.isisRoute.attributes.dn }}
+### Metric: {{ route.isisRoute.attributes.metric }}
+### Last Modified: {{ route.isisRoute.attributes.modTs }}
+### Monitoring Policy DN: {{ route.isisRoute.attributes.monPolDn }}
+### Prefix: {{ route.isisRoute.attributes.pfx }}
+### Preference: {{ route.isisRoute.attributes.pref }}
+### Status: {{ route.isisRoute.attributes.status }}
+{%-          endfor %}
+{%- elif "l2BD" in api %}
+# L2 Bridge Domains
+{%-     for bd in data_to_template['imdata'] %}
+## Name: {{ bd.l2BD.attributes.name }}
+### Access Encapsulation: {{ bd.l2BD.attributes.accEncap }}
+### Address: {{ bd.l2BD.attributes.addr }}
+### Admin State: {{ bd.l2BD.attributes.adminSt }}
+### Bridge Domain Def DN: {{ bd.l2BD.attributes.bdDefDn }}
+### Bridge Mode: {{ bd.l2BD.attributes.bridgeMode }}
+### Child Action: {{ bd.l2BD.attributes.childAction }}
+### Created: {{ bd.l2BD.attributes.createTs }}
+### Control: {{ bd.l2BD.attributes.ctrl }}
+### DN: {{ bd.l2BD.attributes.dn }}
+### Endpoint
+#### Move Detect Mode: {{ bd.l2BD.attributes.epMoveDetectMode }}
+#### Oper State: {{ bd.l2BD.attributes.epOperSt }}
+#### Oper State Quality: {{ bd.l2BD.attributes.epOperStQual }}
+#### Up Sequence Number: {{ bd.l2BD.attributes.epUpSeqNum }}
+### Fabric Encapsulation: {{ bd.l2BD.attributes.fabEncap }}
+### Forward
+#### Control: {{ bd.l2BD.attributes.fwdCtrl }}
+#### Mode: {{ bd.l2BD.attributes.fwdMode }}
+### Hardware
+#### ID: {{ bd.l2BD.attributes.hwId }}
+#### Resource ID: {{ bd.l2BD.attributes.hwResourceId }}
+#### Shadow ID: {{ bd.l2BD.attributes.hwShadowId }}
+### ID: {{ bd.l2BD.attributes.id }}
+### Local Owner: {{ bd.l2BD.attributes.lcOwn }}
+### Multicast
+#### Allow: {{ bd.l2BD.attributes.mcastAllow }}
+#### Oper State: {{ bd.l2BD.attributes.mcastOperSt }}
+#### IPv6 Allow: {{ bd.l2BD.attributes.ipv6McastAllow }}
+### Last Modified: {{ bd.l2BD.attributes.modTs }}
+### Mode: {{ bd.l2BD.attributes.mode }}
+### Monitoring Policy DN: {{ bd.l2BD.attributes.monPolDn }}
+### Multi Destination Packet Action: {{ bd.l2BD.attributes.multiDstPktAct }}
+### Oper State: {{ bd.l2BD.attributes.operSt }}
+### PC Tag: {{ bd.l2BD.attributes.pcTag }}
+### Q in Q L2 Protocol Tunnel Mask: {{ bd.l2BD.attributes.qiqL2ProtTunMask }}
+### QOS Priority: {{ bd.l2BD.attributes.qosPrio }}
+### Status: {{ bd.l2BD.attributes.status }}
+### Type: {{ bd.l2BD.attributes.type }}
+### Unknown Action
+#### MAC Unicast: {{ bd.l2BD.attributes.unkMacUcastAct }}
+#### Multicast: {{ bd.l2BD.attributes.unkMcastAct }}
+#### IPv6 Multicast: {{ bd.l2BD.attributes.v6unkMcastAct }}
+### VLAN Manager
+#### Config
+##### Failed Bmp: {{ bd.l2BD.attributes.vlanmgrCfgFailedBmp }}
+##### Failed Timestamp: {{ bd.l2BD.attributes.vlanmgrCfgFailedTs }}
+##### State: {{ bd.l2BD.attributes.vlanmgrCfgState }}
+#### Custom Fault Bmp: {{ bd.l2BD.attributes.vlanmgrCustFaultBmp }}
+{%-          endfor %}
+{%- elif "l2ExtIf" in api %}
+# L2 External Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.l2ExtIf.attributes.name }}
+### Child Action: {{ interface.l2ExtIf.attributes.childAction }}
+### Description: {{ interface.l2ExtIf.attributes.descr }}
+### DN: {{ interface.l2ExtIf.attributes.dn }}
+### External Chassis ID: {{ interface.l2ExtIf.attributes.extChasId }}
+### ID: {{ interface.l2ExtIf.attributes.id }}
+### Local Owner: {{ interface.l2ExtIf.attributes.lcOwn }}
+### Last Modified: {{ interface.l2ExtIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.l2ExtIf.attributes.monPolDn }}
+### SAT Manager Config
+#### Failed Bmp: {{ interface.l2ExtIf.attributes.satmgrCfgFailedBmp }}
+#### Failed Timestamp: {{ interface.l2ExtIf.attributes.satmgrCfgFailedTs }}
+#### State: {{ interface.l2ExtIf.attributes.satmgrCfgState }}
+### Status: {{ interface.l2ExtIf.attributes.status }}
+{%-          endfor %}
+{%- elif "l2RsEthIf" in api %}
+# L2 Interface Source Relationships
+{%-     for interface in data_to_template['imdata'] %}
+## DN: {{ interface.l2RsEthIf.attributes.dn }}
+### Child Action: {{ interface.l2RsEthIf.attributes.childAction }}
+### Force Resolve: {{ interface.l2RsEthIf.attributes.forceResolve }}
+### Local Owner: {{ interface.l2RsEthIf.attributes.lcOwn }}
+### Last Modified: {{ interface.l2RsEthIf.attributes.modTs }}
+### Parent Source Key: {{ interface.l2RsEthIf.attributes.parentSKey }}
+### rType: {{ interface.l2RsEthIf.attributes.rType }}
+### State: {{ interface.l2RsEthIf.attributes.state }}
+### State Quality: {{ interface.l2RsEthIf.attributes.stateQual }}
+### Status: {{ interface.l2RsEthIf.attributes.status }}
+### t
+#### Cl: {{ interface.l2RsEthIf.attributes.tCl }}
+#### DN: {{ interface.l2RsEthIf.attributes.tDn }}
+#### Source Key: {{ interface.l2RsEthIf.attributes.tSKey }}
+#### Type: {{ interface.l2RsEthIf.attributes.tType }}
+{%-          endfor %}
+{%- elif "l2extInstP" in api %}
+# L2 External Instance Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.l2extInstP.attributes.name }}
+### Name Alias: {{ profile.l2extInstP.attributes.nameAlias }}
+### Annotation: {{ profile.l2extInstP.attributes.annotation }}
+### Child Action: {{ profile.l2extInstP.attributes.childAction }}
+### Config
+#### Issues: {{ profile.l2extInstP.attributes.configIssues }}
+#### State: {{ profile.l2extInstP.attributes.configSt }}
+### Description: {{ profile.l2extInstP.attributes.descr }}
+### DN: {{ profile.l2extInstP.attributes.dn }}
+### Exception Tag: {{ profile.l2extInstP.attributes.exceptionTag }}
+### Externally Managed By: {{ profile.l2extInstP.attributes.extMngdBy }}
+### Flood On Encapsulation: {{ profile.l2extInstP.attributes.floodOnEncap }}
+### Is Shared Service Multisite EPG: {{ profile.l2extInstP.attributes.isSharedSrvMsiteEPg }}
+### Local Owner: {{ profile.l2extInstP.attributes.lcOwn }}
+### Match Type: {{ profile.l2extInstP.attributes.matchT }}
+### Last Modified: {{ profile.l2extInstP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.l2extInstP.attributes.monPolDn }}
+### PC
+#### Enforced Preference: {{ profile.l2extInstP.attributes.pcEnfPref }}
+#### Tag: {{ profile.l2extInstP.attributes.pcTag }}
+### Preferred Group Member: {{ profile.l2extInstP.attributes.prefGrMemb }}
+### Priority: {{ profile.l2extInstP.attributes.prio }}
+### Scope: {{ profile.l2extInstP.attributes.scope }}
+### Status: {{ profile.l2extInstP.attributes.status }}
+### Target DSCP: {{ profile.l2extInstP.attributes.targetDscp }}
+### Trigger State: {{ profile.l2extInstP.attributes.triggerSt }}
+### TX ID: {{ profile.l2extInstP.attributes.txId }}
+### UID: {{ profile.l2extInstP.attributes.uid }}
+{%-          endfor %}
+{%- elif "l2extLIfP" in api %}
+# L2 External Logical Interface Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.l2extLIfP.attributes.name }}
+### Name Alias: {{ profile.l2extLIfP.attributes.nameAlias }}
+### Annotation: {{ profile.l2extLIfP.attributes.annotation }}
+### Child Action: {{ profile.l2extLIfP.attributes.childAction }}
+### Description: {{ profile.l2extLIfP.attributes.descr }}
+### DN: {{ profile.l2extLIfP.attributes.dn }}
+### Externally Managed By: {{ profile.l2extLIfP.attributes.extMngdBy }}
+### Local Owner: {{ profile.l2extLIfP.attributes.lcOwn }}
+### Last Modified: {{ profile.l2extLIfP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.l2extLIfP.attributes.monPolDn }}
+### Owner
+#### Key: {{ profile.l2extLIfP.attributes.ownerKey }}
+#### Tag: {{ profile.l2extLIfP.attributes.ownerTag }}
+### Status: {{ profile.l2extLIfP.attributes.status }}
+### Tag: {{ profile.l2extLIfP.attributes.tag }}
+### UID: {{ profile.l2extLIfP.attributes.uid }}
+{%-          endfor %}
+{%- elif "l2extLNodeP" in api %}
+# L2 External Logical Interface Profiles
+{%-     for node in data_to_template['imdata'] %}
+## Name: {{ node.l2extLNodeP.attributes.name }}
+### Name Alias: {{ node.l2extLNodeP.attributes.nameAlias }}
+### Annotation: {{ node.l2extLNodeP.attributes.annotation }}
+### Child Action: {{ node.l2extLNodeP.attributes.childAction }}
+### Description: {{ node.l2extLNodeP.attributes.descr }}
+### DN: {{ node.l2extLNodeP.attributes.dn }}
+### Externally Managed By: {{ node.l2extLNodeP.attributes.extMngdBy }}
+### Local Owner: {{ node.l2extLNodeP.attributes.lcOwn }}
+### Last Modified: {{ node.l2extLNodeP.attributes.modTs }}
+### Monitoring Policy DN: {{ node.l2extLNodeP.attributes.monPolDn }}
+### Owner
+#### Key: {{ node.l2extLNodeP.attributes.ownerKey }}
+#### Tag: {{ node.l2extLNodeP.attributes.ownerTag }}
+### Status: {{ node.l2extLNodeP.attributes.status }}
+### Tag: {{ node.l2extLNodeP.attributes.tag }}
+### UID: {{ node.l2extLNodeP.attributes.uid }}
+{%-          endfor %}
+{%- elif "l2extRsEBd" in api %}
+# L2 EPG Bridge Domain Source Relationships
+{%-     for epg in data_to_template['imdata'] %}
+## UID: {{ epg.l2extRsEBd.attributes.uid }}
+### Annotation: {{ epg.l2extRsEBd.attributes.annotation }}
+### Child Action: {{ epg.l2extRsEBd.attributes.childAction }}
+### DN: {{ epg.l2extRsEBd.attributes.dn }}
+### Encapsulation: {{ epg.l2extRsEBd.attributes.encap }}
+### Externally Managed By: {{ epg.l2extRsEBd.attributes.extMngdBy }}
+### Force Resolve: {{ epg.l2extRsEBd.attributes.forceResolve }}
+### Local Owner: {{ epg.l2extRsEBd.attributes.lcOwn }}
+### Last Modified: {{ epg.l2extRsEBd.attributes.modTs }}
+### Monitoring Policy DN: {{ epg.l2extRsEBd.attributes.monPolDn }}
+### rType: {{ epg.l2extRsEBd.attributes.rType }}
+### State: {{ epg.l2extRsEBd.attributes.state }}
+### State Quality: {{ epg.l2extRsEBd.attributes.stateQual }}
+### Status: {{ epg.l2extRsEBd.attributes.status }}
+### t
+#### Cl: {{ epg.l2extRsEBd.attributes.tCl }}
+#### Context DN: {{ epg.l2extRsEBd.attributes.tContextDn }}
+#### DN: {{ epg.l2extRsEBd.attributes.tDn }}
+#### RN: {{ epg.l2extRsEBd.attributes.tRn }}
+#### Type: {{ epg.l2extRsEBd.attributes.tType }}
+### tn Fv Bridge Domain Name: {{ epg.l2extRsEBd.attributes.tnFvBDName }}
+{%-          endfor %}
+{%- elif "l2extRsPathL2OutAtt" in api %}
+# L2Out Paths
+{%-     for path in data_to_template['imdata'] %}
+## UID: {{ path.l2extRsPathL2OutAtt.attributes.uid }}
+### Annotation: {{ path.l2extRsPathL2OutAtt.attributes.annotation }}
+### Child Action: {{ path.l2extRsPathL2OutAtt.attributes.childAction }}
+### Description: {{ path.l2extRsPathL2OutAtt.attributes.descr }}
+### DN: {{ path.l2extRsPathL2OutAtt.attributes.dn }}
+### Externally Managed By: {{ path.l2extRsPathL2OutAtt.attributes.extMngdBy }}
+### Force Resolve: {{ path.l2extRsPathL2OutAtt.attributes.forceResolve }}
+### Local Owner: {{ path.l2extRsPathL2OutAtt.attributes.lcOwn }}
+### Last Modified: {{ path.l2extRsPathL2OutAtt.attributes.modTs }}
+### rType: {{ path.l2extRsPathL2OutAtt.attributes.rType }}
+### State: {{ path.l2extRsPathL2OutAtt.attributes.state }}
+### State Quality: {{ path.l2extRsPathL2OutAtt.attributes.stateQual }}
+### Status: {{ path.l2extRsPathL2OutAtt.attributes.status }}
+### t
+#### Cl: {{ path.l2extRsPathL2OutAtt.attributes.tCl }}
+#### DN: {{ path.l2extRsPathL2OutAtt.attributes.tDn }}
+#### Type: {{ path.l2extRsPathL2OutAtt.attributes.tType }}
+### Target DSCP: {{ path.l2extRsPathL2OutAtt.attributes.targetDscp }}
+{%-          endfor %}
+{%- elif "l3Ctx" in api %}
+# L3 Contexts
+{%-     for context in data_to_template['imdata'] %}
+## Name: {{ context.l3Ctx.attributes.name }}
+### Admin State: {{ context.l3Ctx.attributes.adminState }}
+### Bridge Domain Enforced Enable: {{ context.l3Ctx.attributes.bdEnforcedEnable }}
+### BGP
+#### RD: {{ context.l3Ctx.attributes.bgpRd }}
+#### RD Display: {{ context.l3Ctx.attributes.bgpRdDisp }}
+### Child Action: {{ context.l3Ctx.attributes.childAction }}
+### Created: {{ context.l3Ctx.attributes.createTs }}
+### Context P Key: {{ context.l3Ctx.attributes.ctxPKey }}
+### DN: {{ context.l3Ctx.attributes.dn }}
+### Encapsulation: {{ context.l3Ctx.attributes.encap }}
+### GSDB Context: {{ context.l3Ctx.attributes.gsdbCtx }}
+### Hardware Resource ID: {{ context.l3Ctx.attributes.hwResourceId }}
+### ID: {{ context.l3Ctx.attributes.id }}
+### IP Learning Disabled: {{ context.l3Ctx.attributes.ipLearnDisable }}
+### L3 VM Config
+#### Failed Bmp: {{ context.l3Ctx.attributes.l3vmCfgFailedBmp }}
+#### Failed Timestamp: {{ context.l3Ctx.attributes.l3vmCfgFailedTs }}
+#### State: {{ context.l3Ctx.attributes.l3vmCfgState }}
+### Last Changed: {{ context.l3Ctx.attributes.lastChgdTs }}
+### Local Owner: {{ context.l3Ctx.attributes.lcOwn }}
+### Management PC Tag: {{ context.l3Ctx.attributes.mgmtPcTag }}
+### Last Modified: {{ context.l3Ctx.attributes.modTs }}
+### Monitoring Policy DN: {{ context.l3Ctx.attributes.monPolDn }}
+### NG AVS: {{ context.l3Ctx.attributes.ngAvs }}
+### Oper State
+#### Old Quality: {{ context.l3Ctx.attributes.oldOperStQual }}
+#### Quality: {{ context.l3Ctx.attributes.operStQual }}
+#### State: {{ context.l3Ctx.attributes.operState }}
+### OUI: {{ context.l3Ctx.attributes.oui }}
+### PC Enforced
+#### Direction: {{ context.l3Ctx.attributes.pcEnfDir }}
+#### Preference: {{ context.l3Ctx.attributes.pcEnfPref }}
+### PC Tag: {{ context.l3Ctx.attributes.pcTag }}
+### Pending: {{ context.l3Ctx.attributes.pending }}
+### Port Control Bmp: {{ context.l3Ctx.attributes.prtclBmp }}
+### Resource ID: {{ context.l3Ctx.attributes.resourceId }}
+### Scope: {{ context.l3Ctx.attributes.scope }}
+### Status: {{ context.l3Ctx.attributes.status }}
+### Type: {{ context.l3Ctx.attributes.type }}
+### IPv4 TIB
+#### ID: {{ context.l3Ctx.attributes.v4TibId }}
+#### Name: {{ context.l3Ctx.attributes.v4TibName }}
+#### Old Oper State Quality: {{ context.l3Ctx.attributes.v4TibOldOperStQual }}
+#### Oper State Quality: {{ context.l3Ctx.attributes.v4TibOperStQual }}
+#### Oper State: {{ context.l3Ctx.attributes.v4TibOperState }}
+#### Pending: {{ context.l3Ctx.attributes.v4TibPending }}
+#### Valid: {{ context.l3Ctx.attributes.v4TibValid }}
+### IPv6 TIB
+#### ID: {{ context.l3Ctx.attributes.v6TibId }}
+#### Name: {{ context.l3Ctx.attributes.v6TibName }}
+#### Old Oper State Quality: {{ context.l3Ctx.attributes.v6TibOldOperStQual }}
+#### Oper State Quality: {{ context.l3Ctx.attributes.v6TibOperStQual }}
+#### Oper State: {{ context.l3Ctx.attributes.v6TibOperState }}
+#### Pending: {{ context.l3Ctx.attributes.v6TibPending }}
+#### Valid: {{ context.l3Ctx.attributes.v6TibValid }}
+### VPN ID: {{ context.l3Ctx.attributes.vpnId }}
+{%-          endfor %}
+{%- elif "l3EncRtdIf" in api %}
+# L3 Subinterfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.l3EncRtdIf.attributes.name }}
+### Admin State: {{ interface.l3EncRtdIf.attributes.adminSt }}
+### Bandwidth: {{ interface.l3EncRtdIf.attributes.bw }}
+### Child Action: {{ interface.l3EncRtdIf.attributes.childAction }}
+### Delay: {{ interface.l3EncRtdIf.attributes.delay }}
+### Description: {{ interface.l3EncRtdIf.attributes.descr }}
+### DN: {{ interface.l3EncRtdIf.attributes.dn }}
+### Encapsulation: {{ interface.l3EncRtdIf.attributes.encap }}
+### Ethernet PM Config
+#### Failed Bmp: {{ interface.l3EncRtdIf.attributes.ethpmCfgFailedBmp }}
+#### Failed Timestamp: {{ interface.l3EncRtdIf.attributes.ethpmCfgFailedTs }}
+#### Config State: {{ interface.l3EncRtdIf.attributes.ethpmCfgState }}
+### ID: {{ interface.l3EncRtdIf.attributes.id }}
+### Interface Conn DN: {{ interface.l3EncRtdIf.attributes.ifConnDn }}
+### Local Owner: {{ interface.l3EncRtdIf.attributes.lcOwn }}
+### Link Log Enabled: {{ interface.l3EncRtdIf.attributes.linkLogEn }}
+### Last Modified: {{ interface.l3EncRtdIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.l3EncRtdIf.attributes.monPolDn }}
+### MTU
+#### MTU: {{ interface.l3EncRtdIf.attributes.mtu }}
+#### Inherit: {{ interface.l3EncRtdIf.attributes.mtuInherit }}
+### QOS Priority: {{ interface.l3EncRtdIf.attributes.qosPrio }}
+### Router MAC: {{ interface.l3EncRtdIf.attributes.routerMac }}
+### Routed Outside Def DN: {{ interface.l3EncRtdIf.attributes.rtdOutDefDn }}
+### Status: {{ interface.l3EncRtdIf.attributes.status }}
+{%-          endfor %}
 {%- endif %}

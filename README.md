@@ -270,15 +270,43 @@ ISIS Domains Level
 
 ISIS Entities
 
+ISIS Instances
+
 ISIS Interfaces
+
+ISIS Interfaces Level
+
+ISIS Next Hop
+
+ISIS Routes
 
 License Entitlements
 
+L2 Bridge Domains
+
+L2 EPG Bridge Domain Source Relationships
+
+L2 External Instance Profiles
+
+L2 External Interfaces
+
+L2 External Logical Interface Profiles
+
+L2 External Logical Node Profiles
+
+L2 Interface Source Relationships
+
+L2Out Paths
+
 L2Outs
+
+L3 Contexts
 
 L3 Domains
 
 L3 Interfaces
+
+L3 Subinterfaces
 
 L3Outs
 

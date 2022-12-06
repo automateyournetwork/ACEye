@@ -351,6 +351,34 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.isis_interfaces(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.isis_interfaces_level(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.isis_instances(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.isis_nexthop(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.isis_routes(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l2_bd(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l2_external_interfaces(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l2_interface_source_relationships(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l2_external_instance_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l2_external_logical_interface_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l2_external_logical_node_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l2_epg_bd_source_relationships(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l2_out_paths(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l3_contexts(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l3_subinterfaces(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -485,11 +513,25 @@ class ACEye():
                     'ISIS Domains',
                     'ISIS Domains Level',
                     'ISIS Entities',
+                    'ISIS Instances',
                     'ISIS Interfaces',
+                    'ISIS Interfaces Level',
+                    'ISIS Next Hop',
+                    'ISIS Routes',
                     'License Entitlements',
+                    'L2 Bridge Domains',
+                    'L2 EPG Bridge Domain Source Relationships',
+                    'L2 External Instance Profiles',
+                    'L2 External Interfaces',
+                    'L2 External Logical Interface Profiles',
+                    'L2 External Logical Node Profiles',
+                    'L2 Interface Source Relationships'
+                    'L2Out Paths',
                     'L2Outs',
+                    'L3 Contexts',
                     'L3 Domains',
                     'L3 Interfaces',
+                    'L3 Subinterfaces',
                     'L3Outs',
                     'Leaf Interface Profiles',
                     'Leaf Switch Profiles',
@@ -1747,6 +1789,104 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def isis_interfaces_level(self):
+        self.url = f"{ self.aci }/api/node/class/isisIfLvl.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<ISIS Interfaces Level code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def isis_instances(self):
+        self.url = f"{ self.aci }/api/node/class/isisInst.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<ISIS Instances code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def isis_nexthop(self):
+        self.url = f"{ self.aci }/api/node/class/isisNexthop.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<ISIS Next Hop code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def isis_routes(self):
+        self.url = f"{ self.aci }/api/node/class/isisRoute.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<ISIS Routes code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def l2_bd(self):
+        self.url = f"{ self.aci }/api/node/class/l2BD.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L2 Bridge Domains code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def l2_external_interfaces(self):
+        self.url = f"{ self.aci }/api/node/class/l2ExtIf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L2 External Interfaces code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def l2_interface_source_relationships(self):
+        self.url = f"{ self.aci }/api/node/class/l2RsEthIf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L2 Interface Source Relationships code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def l2_external_instance_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/l2extInstP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L2 External Instance Profiles code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def l2_external_logical_interface_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/l2extLIfP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L2 External Logical Interface Profiles code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def l2_external_logical_node_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/l2extLNodeP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L2 External Logical Node Profiles code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def l2_epg_bd_source_relationships(self):
+        self.url = f"{ self.aci }/api/node/class/l2extRsEBd.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L2 EPG Bridge Domain Source Relationships code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def l2_out_paths(self):
+        self.url = f"{ self.aci }/api/node/class/l2extRsPathL2OutAtt.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L2 Out Paths code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def l3_contexts(self):
+        self.url = f"{ self.aci }/api/node/class/l3Ctx.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L3 Contexts code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def l3_subinterfaces(self):
+        self.url = f"{ self.aci }/api/node/class/l3EncRtdIf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L3 Subinterfaces code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2405,7 +2545,63 @@ class ACEye():
                 f.write(parsed_json)
 
         if "isisIf" in self.url:
-            with open('ISIS Interfaces/JSON/ISIS Interfaces.json', 'w' ) as f:
+            if "Lvl" in self.url:
+                with open('ISIS Interfaces Level/JSON/ISIS Interfaces Level.json', 'w' ) as f:
+                    f.write(parsed_json)
+            else:
+                with open('ISIS Interfaces/JSON/ISIS Interfaces.json', 'w' ) as f:
+                    f.write(parsed_json)
+
+        if "isisInst" in self.url:
+            with open('ISIS Instances/JSON/ISIS Instances.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "isisNexthop" in self.url:
+            with open('ISIS Next Hop/JSON/ISIS Next Hop.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "isisRoute" in self.url:
+            with open('ISIS Routes/JSON/ISIS Routes.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l2BD" in self.url:
+            with open('L2 Bridge Domains/JSON/L2 Bridge Domains.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l2ExtIf" in self.url:
+            with open('L2 External Interfaces/JSON/L2 External Interfaces.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l2RsEthIf" in self.url:
+            with open('L2 Interface Source Relationships/JSON/L2 Interface Source Relationships.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l2extInstP" in self.url:
+            with open('L2 External Instance Profiles/JSON/L2 External Instance Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l2extLIfP" in self.url:
+            with open('L2 External Logical Interface Profiles/JSON/L2 External Logical Interface Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l2extLNodeP" in self.url:
+            with open('L2 External Logical Node Profiles/JSON/L2 External Logical Node Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l2extRsEBd" in self.url:
+            with open('L2 EPG Bridge Domain Source Relationships/JSON/L2 EPG Bridge Domain Source Relationships.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l2extRsPathL2OutAtt" in self.url:
+            with open('L2Out Paths/JSON/L2Out Paths.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l3Ctx" in self.url:
+            with open('L3 Contexts/JSON/L3 Contexts.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l3EncRtdIf" in self.url:
+            with open('L3 Subinterfaces/JSON/L3 Subinterfaces.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -3071,7 +3267,63 @@ class ACEye():
                 f.write(clean_yaml)
 
         if "isisIf" in self.url:
-            with open('ISIS Interfaces/YAML/ISIS Interfaces.yaml', 'w' ) as f:
+            if "Lvl" in self.url:
+                with open('ISIS Interfaces Level/YAML/ISIS Interfaces Level.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
+            else:
+                with open('ISIS Interfaces/YAML/ISIS Interfaces.yaml', 'w' ) as f:
+                    f.write(clean_yaml)
+
+        if "isisInst" in self.url:
+            with open('ISIS Instances/YAML/ISIS Instances.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "isisNexthop" in self.url:
+            with open('ISIS Next Hop/YAML/ISIS Next Hop.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "isisRoute" in self.url:
+            with open('ISIS Routes/YAML/ISIS Routes.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l2BD" in self.url:
+            with open('L2 Bridge Domains/YAML/L2 Bridge Domains.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l2ExtIf" in self.url:
+            with open('L2 External Interfaces/YAML/L2 External Interfaces.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l2RsEthIf" in self.url:
+            with open('L2 Interface Source Relationships/YAML/L2 Interface Source Relationships.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l2extInstP" in self.url:
+            with open('L2 External Instance Profiles/YAML/L2 External Instance Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l2extLIfP" in self.url:
+            with open('L2 External Logical Interface Profiles/YAML/L2 External Logical Interface Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l2extLNodeP" in self.url:
+            with open('L2 External Logical Node Profiles/YAML/L2 External Logical Node Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l2extRsEBd" in self.url:
+            with open('L2 EPG Bridge Domain Source Relationships/YAML/L2 EPG Bridge Domain Source Relationships.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l2extRsPathL2OutAtt" in self.url:
+            with open('L2Out Paths/YAML/L2Out Paths.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l3Ctx" in self.url:
+            with open('L3 Contexts/YAML/L3 Contexts.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l3EncRtdIf" in self.url:
+            with open('L3 Subinterfaces/YAML/L3 Subinterfaces.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -3741,7 +3993,63 @@ class ACEye():
                 f.write(csv_output)
 
         if "isisIf" in self.url:
-            with open('ISIS Interfaces/CSV/ISIS Interfaces.csv', 'w' ) as f:
+            if "Lvl" in self.url:
+                with open('ISIS Interfaces Level/CSV/ISIS Interfaces Level.csv', 'w' ) as f:
+                    f.write(csv_output)
+            else:
+                with open('ISIS Interfaces/CSV/ISIS Interfaces.csv', 'w' ) as f:
+                    f.write(csv_output)
+
+        if "isisInst" in self.url:
+            with open('ISIS Instances/CSV/ISIS Instances.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "isisNexthop" in self.url:
+            with open('ISIS Next Hop/CSV/ISIS Next Hop.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "isisRoute" in self.url:
+            with open('ISIS Routes/CSV/ISIS Routes.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l2BD" in self.url:
+            with open('L2 Bridge Domains/CSV/L2 Bridge Domains.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l2ExtIf" in self.url:
+            with open('L2 External Interfaces/CSV/L2 External Interfaces.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l2RsEthIf" in self.url:
+            with open('L2 Interface Source Relationships/CSV/L2 Interface Source Relationships.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l2extInstP" in self.url:
+            with open('L2 External Instance Profiles/CSV/L2 External Instance Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l2extLIfP" in self.url:
+            with open('L2 External Logical Interface Profiles/CSV/L2 External Logical Interface Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l2extLNodeP" in self.url:
+            with open('L2 External Logical Node Profiles/CSV/L2 External Logical Node Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l2extRsEBd" in self.url:
+            with open('L2 EPG Bridge Domain Source Relationships/CSV/L2 EPG Bridge Domain Source Relationships.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l2extRsPathL2OutAtt" in self.url:
+            with open('L2Out Paths/CSV/L2Out Paths.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l3Ctx" in self.url:
+            with open('L3 Contexts/CSV/L3 Contexts.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l3EncRtdIf" in self.url:
+            with open('L3 Subinterfaces/CSV/L3 Subinterfaces.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -4412,7 +4720,63 @@ class ACEye():
                 f.write(markdown_output)
 
         if "isisIf" in self.url:
-            with open('ISIS Interfaces/Markdown/ISIS Interfaces.md', 'w' ) as f:
+            if "Lvl" in self.url:
+                with open('ISIS Interfaces Level/Markdown/ISIS Interfaces Level.md', 'w' ) as f:
+                    f.write(markdown_output)
+            else:
+                with open('ISIS Interfaces/Markdown/ISIS Interfaces.md', 'w' ) as f:
+                    f.write(markdown_output)
+
+        if "isisInst" in self.url:
+            with open('ISIS Instances/Markdown/ISIS Instances.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "isisNexthop" in self.url:
+            with open('ISIS Next Hop/Markdown/ISIS Next Hop.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "isisRoute" in self.url:
+            with open('ISIS Routes/Markdown/ISIS Routes.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "l2BD" in self.url:
+            with open('L2 Bridge Domains/Markdown/L2 Bridge Domains.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "l2ExtIf" in self.url:
+            with open('L2 External Interfaces/Markdown/L2 External Interfaces.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "l2RsEthIf" in self.url:
+            with open('L2 Interface Source Relationships/Markdown/L2 Interface Source Relationships.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "l2extInstP" in self.url:
+            with open('L2 External Instance Profiles/Markdown/L2 External Instance Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "l2extLIfP" in self.url:
+            with open('L2 External Logical Interface Profiles/Markdown/L2 External Logical Interface Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "l2extLNodeP" in self.url:
+            with open('L2 External Logical Node Profiles/Markdown/L2 External Logical Node Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "l2extRsEBd" in self.url:
+            with open('L2 EPG Bridge Domain Source Relationships/Markdown/L2 EPG Bridge Domain Source Relationships.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "l2extRsPathL2OutAtt" in self.url:
+            with open('L2Out Paths/Markdown/L2Out Paths.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "l3Ctx" in self.url:
+            with open('L3 Contexts/Markdown/L3 Contexts.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "l3EncRtdIf" in self.url:
+            with open('L3 Subinterfaces/Markdown/L3 Subinterfaces.md', 'w' ) as f:
                 f.write(markdown_output)
 
     def html_file(self, parsed_json):
@@ -5083,7 +5447,63 @@ class ACEye():
                 f.write(html_output)
 
         if "isisIf" in self.url:
-            with open('ISIS Interfaces/HTML/ISIS Interfaces.html', 'w' ) as f:
+            if "Lvl" in self.url:
+                with open('ISIS Interfaces Level/HTML/ISIS Interfaces Level.html', 'w' ) as f:
+                    f.write(html_output)
+            else:
+                with open('ISIS Interfaces/HTML/ISIS Interfaces.html', 'w' ) as f:
+                    f.write(html_output)
+
+        if "isisInst" in self.url:
+            with open('ISIS Instances/HTML/ISIS Instances.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "isisNexthop" in self.url:
+            with open('ISIS Next Hop/HTML/ISIS Next Hop.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "isisRoute" in self.url:
+            with open('ISIS Routes/HTML/ISIS Routes.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "l2BD" in self.url:
+            with open('L2 Bridge Domains/HTML/L2 Bridge Domains.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "l2ExtIf" in self.url:
+            with open('L2 External Interfaces/HTML/L2 External Interfaces.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "l2RsEthIf" in self.url:
+            with open('L2 Interface Source Relationships/HTML/L2 Interface Source Relationships.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "l2extInstP" in self.url:
+            with open('L2 External Instance Profiles/HTML/L2 External Instance Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "l2extLIfP" in self.url:
+            with open('L2 External Logical Interface Profiles/HTML/L2 External Logical Interface Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "l2extLNodeP" in self.url:
+            with open('L2 External Logical Node Profiles/HTML/L2 External Logical Node Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "l2extRsEBd" in self.url:
+            with open('L2 EPG Bridge Domain Source Relationships/HTML/L2 EPG Bridge Domain Source Relationships.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "l2extRsPathL2OutAtt" in self.url:
+            with open('L2Out Paths/HTML/L2Out Paths.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "l3Ctx" in self.url:
+            with open('L3 Contexts/HTML/L3 Contexts.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "l3EncRtdIf" in self.url:
+            with open('L3 Subinterfaces/HTML/L3 Subinterfaces.html', 'w' ) as f:
                 f.write(html_output)
 
     def mindmap_file(self, parsed_json):
@@ -5750,7 +6170,63 @@ class ACEye():
                 f.write(mindmap_output)
 
         if "isisIf" in self.url:
-            with open('ISIS Interfaces/Mindmap/ISIS Interfaces.md', 'w' ) as f:
+            if "Lvl" in self.url:
+                with open('ISIS Interfaces Level/Mindmap/ISIS Interfaces Level.md', 'w' ) as f:
+                    f.write(mindmap_output)
+            else:
+                with open('ISIS Interfaces/Mindmap/ISIS Interfaces.md', 'w' ) as f:
+                    f.write(mindmap_output)
+
+        if "isisInst" in self.url:
+            with open('ISIS Instances/Mindmap/ISIS Instances.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "isisNexthop" in self.url:
+            with open('ISIS Next Hop/Mindmap/ISIS Next Hop.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "isisRoute" in self.url:
+            with open('ISIS Routes/Mindmap/ISIS Routes.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l2BD" in self.url:
+            with open('L2 Bridge Domains/Mindmap/L2 Bridge Domains.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l2ExtIf" in self.url:
+            with open('L2 External Interfaces/Mindmap/L2 External Interfaces.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l2RsEthIf" in self.url:
+            with open('L2 Interface Source Relationships/Mindmap/L2 Interface Source Relationships.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l2extInstP" in self.url:
+            with open('L2 External Instance Profiles/Mindmap/L2 External Instance Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l2extLIfP" in self.url:
+            with open('L2 External Logical Interface Profiles/Mindmap/L2 External Logical Interface Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l2extLNodeP" in self.url:
+            with open('L2 External Logical Node Profiles/Mindmap/L2 External Logical Node Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l2extRsEBd" in self.url:
+            with open('L2 EPG Bridge Domain Source Relationships/Mindmap/L2 EPG Bridge Domain Source Relationships.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l2extRsPathL2OutAtt" in self.url:
+            with open('L2Out Paths/Mindmap/L2Out Paths.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l3Ctx" in self.url:
+            with open('L3 Contexts/Mindmap/L3 Contexts.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l3EncRtdIf" in self.url:
+            with open('L3 Subinterfaces/Mindmap/L3 Subinterfaces.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

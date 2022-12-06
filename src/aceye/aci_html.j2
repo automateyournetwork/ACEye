@@ -8462,6 +8462,49 @@
 </tbody>
 </table>
 {%- elif "isisIf" in api %}
+{%-     if "Lvl" in api %}
+<h1>ISIS Interfaces Level</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>Csnp Interval</th>
+    <th>DN</th>
+    <th>Hello Interval</th>
+    <th>Hello Mult</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Next Csnp Timestamp</th>
+    <th>Priority</th>
+    <th>Protocol Error</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-         for level in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ level.isisIfLvl.attributes.name }}</td>
+    <td>{{ level.isisIfLvl.attributes.childAction }}</td>
+    <td>{{ level.isisIfLvl.attributes.csnpIntvl }}</td>
+    <td>{{ level.isisIfLvl.attributes.dn }}</td>
+    <td>{{ level.isisIfLvl.attributes.helloIntvl }}</td>
+    <td>{{ level.isisIfLvl.attributes.helloMult }}</td>
+    <td>{{ level.isisIfLvl.attributes.lcOwn }}</td>
+    <td>{{ level.isisIfLvl.attributes.modTs }}</td>
+    <td>{{ level.isisIfLvl.attributes.monPolDn }}</td>
+    <td>{{ level.isisIfLvl.attributes.nextCsnpTs }}</td>
+    <td>{{ level.isisIfLvl.attributes.priority }}</td>
+    <td>{{ level.isisIfLvl.attributes.protoError }}</td>
+    <td>{{ level.isisIfLvl.attributes.status }}</td>
+    <td>{{ level.isisIfLvl.attributes.type }}</td>
+  </tr>
+{%-         endfor %}
+</tbody>
+</table>
+{%-     else %}
 <h1>ISIS Interfaces</h1>
 <table id = "datatable">
 <thead>
@@ -8491,7 +8534,7 @@
   </tr>
 </thead>
 <tbody>
-{%-     for interface in data_to_template['imdata'] %}
+{%-         for interface in data_to_template['imdata'] %}
   <tr>
     <td>{{ interface.isisIf.attributes.name }}</td>
     <td>{{ interface.isisIf.attributes.adminSt }}</td>
@@ -8516,7 +8559,734 @@
     <td>{{ interface.isisIf.attributes.p2pCktId }}</td>
     <td>{{ interface.isisIf.attributes.status }}</td>
   </tr>
-{%-         endfor %}
+{%-          endfor %}
+</tbody>
+</table>
+{%-      endif %}
+{%- elif "isisInst" in api %}
+<h1>ISIS Instances</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>Duplicate System ID Error</th>
+    <th>Local Owner</th>
+    <th>Memory Alert</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>MTS Error</th>
+    <th>Oper Error</th>
+    <th>Oper State</th>
+    <th>Process Queue</th>
+    <th>Process Sap</th>
+    <th>Process Tag</th>
+    <th>Protocol Error</th>
+    <th>PSS Error</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for instance in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ instance.isisInst.attributes.name }}</td>
+    <td>{{ instance.isisInst.attributes.adminSt }}</td>
+    <td>{{ instance.isisInst.attributes.childAction }}</td>
+    <td>{{ instance.isisInst.attributes.ctrl }}</td>
+    <td>{{ instance.isisInst.attributes.dn }}</td>
+    <td>{{ instance.isisInst.attributes.dupSysIdErr }}</td>
+    <td>{{ instance.isisInst.attributes.lcOwn }}</td>
+    <td>{{ instance.isisInst.attributes.memAlert }}</td>
+    <td>{{ instance.isisInst.attributes.modTs }}</td>
+    <td>{{ instance.isisInst.attributes.monPolDn }}</td>
+    <td>{{ instance.isisInst.attributes.mtsErr }}</td>
+    <td>{{ instance.isisInst.attributes.operErr }}</td>
+    <td>{{ instance.isisInst.attributes.operSt }}</td>
+    <td>{{ instance.isisInst.attributes.processQueue }}</td>
+    <td>{{ instance.isisInst.attributes.processSap }}</td>
+    <td>{{ instance.isisInst.attributes.processTag }}</td>
+    <td>{{ instance.isisInst.attributes.protoErr }}</td>
+    <td>{{ instance.isisInst.attributes.pssErr }}</td>
+    <td>{{ instance.isisInst.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "isisNexthop" in api %}
+<h1>ISIS Next Hop</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Interface</th>
+    <th>Last Modified</th>
+    <th>Next Hop Interface</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for nexthop in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ nexthop.isisNexthop.attributes.name }}</td>
+    <td>{{ nexthop.isisNexthop.attributes.addr }}</td>
+    <td>{{ nexthop.isisNexthop.attributes.childAction }}</td>
+    <td>{{ nexthop.isisNexthop.attributes.dn }}</td>
+    <td>{{ nexthop.isisNexthop.attributes.if }}</td>
+    <td>{{ nexthop.isisNexthop.attributes.modTs }}</td>
+    <td>{{ nexthop.isisNexthop.attributes.nhIf }}</td>
+    <td>{{ nexthop.isisNexthop.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "isisRoute" in api %}
+<h1>ISIS Routes</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Metric</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Prefix</th>
+    <th>Preference</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for route in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ route.isisRoute.attributes.name }}</td>
+    <td>{{ route.isisRoute.attributes.childAction }}</td>
+    <td>{{ route.isisRoute.attributes.dn }}</td>
+    <td>{{ route.isisRoute.attributes.metric }}</td>
+    <td>{{ route.isisRoute.attributes.modTs }}</td>
+    <td>{{ route.isisRoute.attributes.monPolDn }}</td>
+    <td>{{ route.isisRoute.attributes.pfx }}</td>
+    <td>{{ route.isisRoute.attributes.pref }}</td>
+    <td>{{ route.isisRoute.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l2BD" in api %}
+<h1>L2 Bridge Domains</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Access Encapsulation</th>
+    <th>Address</th>
+    <th>Admin State</th>
+    <th>BD Def DN</th>
+    <th>Bridge Mode</th>
+    <th>Child Action</th>
+    <th>Created</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>Endpoing Move Detect Mode</th>
+    <th>Endpoint Oper State</th>
+    <th>Endpoint Oper State Quality</th>
+    <th>Endpoint Up Sequence Number</th>
+    <th>Fabric Encapsulation</th>
+    <th>Forward Control</th>
+    <th>Forward Mode</th>
+    <th>Hardware ID</th>
+    <th>Hardware Resource ID</th>
+    <th>Hardware Shadow ID</th>
+    <th>ID</th>
+    <th>IPv6 Multicast Allow</th>
+    <th>Local Owner</th>
+    <th>Multicast Allow</th>
+    <th>Multicast Oper State</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>Multi Destination Packet Action</th>
+    <th>Oper State</th>
+    <th>PC Tag</th>
+    <th>Q in Q L2 Protocol Tunnel Mask</th>
+    <th>QOS Priority</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>Unknown MAC Unicast Action</th>
+    <th>Unknown Multicast Action</th>
+    <th>v6 Unknown Multicast Action</th>
+    <th>VLAN Manager Config Failed Bmp</th>
+    <th>VLAN Manager Config Failed Timestamp</th>
+    <th>VLAN Manager Config State</th>
+    <th>VLAN Manager Custom Fault Bmp</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for bd in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ bd.l2BD.attributes.name }}</td>
+    <td>{{ bd.l2BD.attributes.accEncap }}</td>
+    <td>{{ bd.l2BD.attributes.addr }}</td>
+    <td>{{ bd.l2BD.attributes.adminSt }}</td>
+    <td>{{ bd.l2BD.attributes.bdDefDn }}</td>
+    <td>{{ bd.l2BD.attributes.bridgeMode }}</td>
+    <td>{{ bd.l2BD.attributes.childAction }}</td>
+    <td>{{ bd.l2BD.attributes.createTs }}</td>
+    <td>{{ bd.l2BD.attributes.ctrl }}</td>
+    <td>{{ bd.l2BD.attributes.dn }}</td>
+    <td>{{ bd.l2BD.attributes.epMoveDetectMode }}</td>
+    <td>{{ bd.l2BD.attributes.epOperSt }}</td>
+    <td>{{ bd.l2BD.attributes.epOperStQual }}</td>
+    <td>{{ bd.l2BD.attributes.epUpSeqNum }}</td>
+    <td>{{ bd.l2BD.attributes.fabEncap }}</td>
+    <td>{{ bd.l2BD.attributes.fwdCtrl }}</td>
+    <td>{{ bd.l2BD.attributes.fwdMode }}</td>
+    <td>{{ bd.l2BD.attributes.hwId }}</td>
+    <td>{{ bd.l2BD.attributes.hwResourceId }}</td>
+    <td>{{ bd.l2BD.attributes.hwShadowId }}</td>
+    <td>{{ bd.l2BD.attributes.id }}</td>
+    <td>{{ bd.l2BD.attributes.ipv6McastAllow }}</td>
+    <td>{{ bd.l2BD.attributes.lcOwn }}</td>
+    <td>{{ bd.l2BD.attributes.mcastAllow }}</td>
+    <td>{{ bd.l2BD.attributes.mcastOperSt }}</td>
+    <td>{{ bd.l2BD.attributes.modTs }}</td>
+    <td>{{ bd.l2BD.attributes.mode }}</td>
+    <td>{{ bd.l2BD.attributes.monPolDn }}</td>
+    <td>{{ bd.l2BD.attributes.multiDstPktAct }}</td>
+    <td>{{ bd.l2BD.attributes.operSt }}</td>
+    <td>{{ bd.l2BD.attributes.pcTag }}</td>
+    <td>{{ bd.l2BD.attributes.qiqL2ProtTunMask }}</td>
+    <td>{{ bd.l2BD.attributes.qosPrio }}</td>
+    <td>{{ bd.l2BD.attributes.status }}</td>
+    <td>{{ bd.l2BD.attributes.type }}</td>
+    <td>{{ bd.l2BD.attributes.unkMacUcastAct }}</td>
+    <td>{{ bd.l2BD.attributes.unkMcastAct }}</td>
+    <td>{{ bd.l2BD.attributes.v6unkMcastAct }}</td>
+    <td>{{ bd.l2BD.attributes.vlanmgrCfgFailedBmp }}</td>
+    <td>{{ bd.l2BD.attributes.vlanmgrCfgFailedTs }}</td>
+    <td>{{ bd.l2BD.attributes.vlanmgrCfgState }}</td>
+    <td>{{ bd.l2BD.attributes.vlanmgrCustFaultBmp }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l2ExtIf" in api %}
+<h1>L2 External Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>External Chassis ID</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>SAT Manager Config Failed Bmp</th>
+    <th>SAT Manager Config Failed Timestamp</th>
+    <th>SAT Manager Config State</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.l2ExtIf.attributes.name }}</td>
+    <td>{{ interface.l2ExtIf.attributes.childAction }}</td>
+    <td>{{ interface.l2ExtIf.attributes.descr }}</td>
+    <td>{{ interface.l2ExtIf.attributes.dn }}</td>
+    <td>{{ interface.l2ExtIf.attributes.extChasId }}</td>
+    <td>{{ interface.l2ExtIf.attributes.id }}</td>
+    <td>{{ interface.l2ExtIf.attributes.lcOwn }}</td>
+    <td>{{ interface.l2ExtIf.attributes.modTs }}</td>
+    <td>{{ interface.l2ExtIf.attributes.monPolDn }}</td>
+    <td>{{ interface.l2ExtIf.attributes.satmgrCfgFailedBmp }}</td>
+    <td>{{ interface.l2ExtIf.attributes.satmgrCfgFailedTs }}</td>
+    <td>{{ interface.l2ExtIf.attributes.satmgrCfgState }}</td>
+    <td>{{ interface.l2ExtIf.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l2RsEthIf" in api %}
+<h1>L2 Interface Source Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Parent Source Key</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tSKey</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.l2RsEthIf.attributes.dn }}</td>
+    <td>{{ interface.l2RsEthIf.attributes.childAction }}</td>
+    <td>{{ interface.l2RsEthIf.attributes.forceResolve }}</td>
+    <td>{{ interface.l2RsEthIf.attributes.lcOwn }}</td>
+    <td>{{ interface.l2RsEthIf.attributes.modTs }}</td>
+    <td>{{ interface.l2RsEthIf.attributes.parentSKey }}</td>
+    <td>{{ interface.l2RsEthIf.attributes.rType }}</td>
+    <td>{{ interface.l2RsEthIf.attributes.state }}</td>
+    <td>{{ interface.l2RsEthIf.attributes.stateQual }}</td>
+    <td>{{ interface.l2RsEthIf.attributes.status }}</td>
+    <td>{{ interface.l2RsEthIf.attributes.tCl }}</td>
+    <td>{{ interface.l2RsEthIf.attributes.tDn }}</td>
+    <td>{{ interface.l2RsEthIf.attributes.tSKey }}</td>
+    <td>{{ interface.l2RsEthIf.attributes.tType }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l2extInstP" in api %}
+<h1>L2 External Instance Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Config Issues</th>
+    <th>Config State</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Exception Tag</th>
+    <th>Externally Managed By</th>
+    <th>Flood On Encapsulation</th>
+    <th>Is Shared Service Multisite EPG</th>
+    <th>Local Owner</th>
+    <th>Match Type</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>PC Enforced Preference</th>
+    <th>PC Tag</th>
+    <th>Preferred Group Member</th>
+    <th>Priority</th>
+    <th>Scope</th>
+    <th>Status</th>
+    <th>Target DSCP</th>
+    <th>Trigger State</th>
+    <th>TX ID</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.l2extInstP.attributes.name }}</td>
+    <td>{{ profile.l2extInstP.attributes.nameAlias }}</td>
+    <td>{{ profile.l2extInstP.attributes.annotation }}</td>
+    <td>{{ profile.l2extInstP.attributes.childAction }}</td>
+    <td>{{ profile.l2extInstP.attributes.configIssues }}</td>
+    <td>{{ profile.l2extInstP.attributes.configSt }}</td>
+    <td>{{ profile.l2extInstP.attributes.descr }}</td>
+    <td>{{ profile.l2extInstP.attributes.dn }}</td>
+    <td>{{ profile.l2extInstP.attributes.exceptionTag }}</td>
+    <td>{{ profile.l2extInstP.attributes.extMngdBy }}</td>
+    <td>{{ profile.l2extInstP.attributes.floodOnEncap }}</td>
+    <td>{{ profile.l2extInstP.attributes.isSharedSrvMsiteEPg }}</td>
+    <td>{{ profile.l2extInstP.attributes.lcOwn }}</td>
+    <td>{{ profile.l2extInstP.attributes.matchT }}</td>
+    <td>{{ profile.l2extInstP.attributes.modTs }}</td>
+    <td>{{ profile.l2extInstP.attributes.monPolDn }}</td>
+    <td>{{ profile.l2extInstP.attributes.pcEnfPref }}</td>
+    <td>{{ profile.l2extInstP.attributes.pcTag }}</td>
+    <td>{{ profile.l2extInstP.attributes.prefGrMemb }}</td>
+    <td>{{ profile.l2extInstP.attributes.prio }}</td>
+    <td>{{ profile.l2extInstP.attributes.scope }}</td>
+    <td>{{ profile.l2extInstP.attributes.status }}</td>
+    <td>{{ profile.l2extInstP.attributes.targetDscp }}</td>
+    <td>{{ profile.l2extInstP.attributes.triggerSt }}</td>
+    <td>{{ profile.l2extInstP.attributes.txId }}</td>
+    <td>{{ profile.l2extInstP.attributes.uid }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l2extLIfP" in api %}
+<h1>L2 External Logical Interface Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>Tag</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.l2extLIfP.attributes.name }}</td>
+    <td>{{ profile.l2extLIfP.attributes.nameAlias }}</td>
+    <td>{{ profile.l2extLIfP.attributes.annotation }}</td>
+    <td>{{ profile.l2extLIfP.attributes.childAction }}</td>
+    <td>{{ profile.l2extLIfP.attributes.descr }}</td>
+    <td>{{ profile.l2extLIfP.attributes.dn }}</td>
+    <td>{{ profile.l2extLIfP.attributes.extMngdBy }}</td>
+    <td>{{ profile.l2extLIfP.attributes.lcOwn }}</td>
+    <td>{{ profile.l2extLIfP.attributes.modTs }}</td>
+    <td>{{ profile.l2extLIfP.attributes.monPolDn }}</td>
+    <td>{{ profile.l2extLIfP.attributes.ownerKey }}</td>
+    <td>{{ profile.l2extLIfP.attributes.ownerTag }}</td>
+    <td>{{ profile.l2extLIfP.attributes.status }}</td>
+    <td>{{ profile.l2extLIfP.attributes.tag }}</td>
+    <td>{{ profile.l2extLIfP.attributes.uid }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l2extLNodeP" in api %}
+<h1>L2 External Logical Interface Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>Tag</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for node in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ node.l2extLNodeP.attributes.name }}</td>
+    <td>{{ node.l2extLNodeP.attributes.nameAlias }}</td>
+    <td>{{ node.l2extLNodeP.attributes.annotation }}</td>
+    <td>{{ node.l2extLNodeP.attributes.childAction }}</td>
+    <td>{{ node.l2extLNodeP.attributes.descr }}</td>
+    <td>{{ node.l2extLNodeP.attributes.dn }}</td>
+    <td>{{ node.l2extLNodeP.attributes.extMngdBy }}</td>
+    <td>{{ node.l2extLNodeP.attributes.lcOwn }}</td>
+    <td>{{ node.l2extLNodeP.attributes.modTs }}</td>
+    <td>{{ node.l2extLNodeP.attributes.monPolDn }}</td>
+    <td>{{ node.l2extLNodeP.attributes.ownerKey }}</td>
+    <td>{{ node.l2extLNodeP.attributes.ownerTag }}</td>
+    <td>{{ node.l2extLNodeP.attributes.status }}</td>
+    <td>{{ node.l2extLNodeP.attributes.tag }}</td>
+    <td>{{ node.l2extLNodeP.attributes.uid }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l2extRsEBd" in api %}
+<h1>L2 EPG Bridge Domain Source Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>tnFv Bridge Domain Name</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for epg in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ epg.l2extRsEBd.attributes.uid }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.annotation }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.childAction }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.dn }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.encap }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.extMngdBy }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.forceResolve }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.lcOwn }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.modTs }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.monPolDn }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.rType }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.state }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.stateQual }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.status }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.tCl }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.tContextDn }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.tDn }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.tRn }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.tType }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.tnFvBDName }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l2extRsPathL2OutAtt" in api %}
+<h1>L2Out Paths</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDn</th>
+    <th>tType</th>
+    <th>Target DSCP</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for path in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.uid }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.annotation }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.childAction }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.descr }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.dn }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.extMngdBy }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.forceResolve }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.lcOwn }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.modTs }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.rType }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.state }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.stateQual }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.status }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.tCl }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.tDn }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.tType }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.targetDscp }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l3Ctx" in api %}
+<h1>L3 Contexts</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Bridge Domain Enforced Enable</th>
+    <th>BGP RD</th>
+    <th>BGP RD Display</th>
+    <th>Child Action</th>
+    <th>Created</th>
+    <th>Context P Key</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>GSDB Context</th>
+    <th>Hardware Resource ID</th>
+    <th>ID</th>
+    <th>IP Learning Disable</th>
+    <th>L3 VM Config Failed Bmp</th>
+    <th>L3 VM Config Failed Timestamp</th>
+    <th>L3 VM Config State</th>
+    <th>Last Changed Timestamp</th>
+    <th>Local Owner</th>
+    <th>Management PC Tag</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>NG AVS</th>
+    <th>Old Oper State Quality</th>
+    <th>Oper State Quality</th>
+    <th>Oper State</th>
+    <th>OUI</th>
+    <th>PC Enforced Direction</th>
+    <th>PC Enforced Preference</th>
+    <th>PC Tag</th>
+    <th>Pending</th>
+    <th>Port CL Bmp</th>
+    <th>Resource ID</th>
+    <th>Scope</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>v4 TIB ID</th>
+    <th>v4 TIB Name</th>
+    <th>v4 TIB Old Oper State Quality</th>
+    <th>v4 TIB Oper State Quality</th>
+    <th>v4 TIB Oper State</th>
+    <th>v4 TIB Pending</th>
+    <th>v4 TIB Valid</th>
+    <th>v6 TIB ID</th>
+    <th>v6 TIB Name</th>
+    <th>v6 TIB Old Oper State Quality</th>
+    <th>v6 TIB Oper State Quality</th>
+    <th>v6 TIB Oper State</th>
+    <th>v6 TIB Pending</th>
+    <th>v6 TIB Valid</th>
+    <th>VPN ID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for context in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ context.l3Ctx.attributes.name }}</td>
+    <td>{{ context.l3Ctx.attributes.adminState }}</td>
+    <td>{{ context.l3Ctx.attributes.bdEnforcedEnable }}</td>
+    <td>{{ context.l3Ctx.attributes.bgpRd }}</td>
+    <td>{{ context.l3Ctx.attributes.bgpRdDisp }}</td>
+    <td>{{ context.l3Ctx.attributes.childAction }}</td>
+    <td>{{ context.l3Ctx.attributes.createTs }}</td>
+    <td>{{ context.l3Ctx.attributes.ctxPKey }}</td>
+    <td>{{ context.l3Ctx.attributes.dn }}</td>
+    <td>{{ context.l3Ctx.attributes.encap }}</td>
+    <td>{{ context.l3Ctx.attributes.gsdbCtx }}</td>
+    <td>{{ context.l3Ctx.attributes.hwResourceId }}</td>
+    <td>{{ context.l3Ctx.attributes.id }}</td>
+    <td>{{ context.l3Ctx.attributes.ipLearnDisable }}</td>
+    <td>{{ context.l3Ctx.attributes.l3vmCfgFailedBmp }}</td>
+    <td>{{ context.l3Ctx.attributes.l3vmCfgFailedTs }}</td>
+    <td>{{ context.l3Ctx.attributes.l3vmCfgState }}</td>
+    <td>{{ context.l3Ctx.attributes.lastChgdTs }}</td>
+    <td>{{ context.l3Ctx.attributes.lcOwn }}</td>
+    <td>{{ context.l3Ctx.attributes.mgmtPcTag }}</td>
+    <td>{{ context.l3Ctx.attributes.modTs }}</td>
+    <td>{{ context.l3Ctx.attributes.monPolDn }}</td>
+    <td>{{ context.l3Ctx.attributes.ngAvs }}</td>
+    <td>{{ context.l3Ctx.attributes.oldOperStQual }}</td>
+    <td>{{ context.l3Ctx.attributes.operStQual }}</td>
+    <td>{{ context.l3Ctx.attributes.operState }}</td>
+    <td>{{ context.l3Ctx.attributes.oui }}</td>
+    <td>{{ context.l3Ctx.attributes.pcEnfDir }}</td>
+    <td>{{ context.l3Ctx.attributes.pcEnfPref }}</td>
+    <td>{{ context.l3Ctx.attributes.pcTag }}</td>
+    <td>{{ context.l3Ctx.attributes.pending }}</td>
+    <td>{{ context.l3Ctx.attributes.prtclBmp }}</td>
+    <td>{{ context.l3Ctx.attributes.resourceId }}</td>
+    <td>{{ context.l3Ctx.attributes.scope }}</td>
+    <td>{{ context.l3Ctx.attributes.status }}</td>
+    <td>{{ context.l3Ctx.attributes.type }}</td>
+    <td>{{ context.l3Ctx.attributes.v4TibId }}</td>
+    <td>{{ context.l3Ctx.attributes.v4TibName }}</td>
+    <td>{{ context.l3Ctx.attributes.v4TibOldOperStQual }}</td>
+    <td>{{ context.l3Ctx.attributes.v4TibOperStQual }}</td>
+    <td>{{ context.l3Ctx.attributes.v4TibOperState }}</td>
+    <td>{{ context.l3Ctx.attributes.v4TibPending }}</td>
+    <td>{{ context.l3Ctx.attributes.v4TibValid }}</td>
+    <td>{{ context.l3Ctx.attributes.v6TibId }}</td>
+    <td>{{ context.l3Ctx.attributes.v6TibName }}</td>
+    <td>{{ context.l3Ctx.attributes.v6TibOldOperStQual }}</td>
+    <td>{{ context.l3Ctx.attributes.v6TibOperStQual }}</td>
+    <td>{{ context.l3Ctx.attributes.v6TibOperState }}</td>
+    <td>{{ context.l3Ctx.attributes.v6TibPending }}</td>
+    <td>{{ context.l3Ctx.attributes.v6TibValid }}</td>
+    <td>{{ context.l3Ctx.attributes.vpnId }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l3EncRtdIf" in api %}
+<h1>L3 Subinterfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Bandwidth</th>
+    <th>Child Action</th>
+    <th>Delay</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>Ethernet PM Config Failed Bmp</th>
+    <th>Ethernet PM Config Failed Timestamp</th>
+    <th>Ethernet PM Config State</th>
+    <th>ID</th>
+    <th>Interface Connection DN</th>
+    <th>Local Owner</th>
+    <th>Link Log Enable</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>MTU</th>
+    <th>MTU Inherit</th>
+    <th>QOS Priority</th>
+    <th>Router MAC</th>
+    <th>Routed Out Def DN</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.l3EncRtdIf.attributes.name }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.adminSt }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.bw }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.childAction }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.delay }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.descr }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.dn }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.encap }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.ethpmCfgFailedBmp }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.ethpmCfgFailedTs }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.ethpmCfgState }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.id }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.ifConnDn }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.lcOwn }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.linkLogEn }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.modTs }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.monPolDn }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.mtu }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.mtuInherit }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.qosPrio }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.routerMac }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.rtdOutDefDn }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
 </tbody>
 </table>
 {%- endif %}
