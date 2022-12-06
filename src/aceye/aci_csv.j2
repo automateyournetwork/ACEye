@@ -793,4 +793,8 @@
 {%-     for loopback in data_to_template['imdata'] %}
 {{ loopback.l3LbRtdIf.attributes.name }},{{ loopback.l3LbRtdIf.attributes.adminSt }},{{ loopback.l3LbRtdIf.attributes.childAction }},{{ loopback.l3LbRtdIf.attributes.descr }},{{ loopback.l3LbRtdIf.attributes.dn }},{{ loopback.l3LbRtdIf.attributes.id }},{{ loopback.l3LbRtdIf.attributes.lcOwn }},{{ loopback.l3LbRtdIf.attributes.linkLog }},{{ loopback.l3LbRtdIf.attributes.modTs }},{{ loopback.l3LbRtdIf.attributes.monPolDn }},{{ loopback.l3LbRtdIf.attributes.qosPrio }},{{ loopback.l3LbRtdIf.attributes.rtdOutDefDn }},{{ loopback.l3LbRtdIf.attributes.status }},{{ loopback.l3LbRtdIf.attributes.type }}
 {%-     endfor %}
+{%- elif "l3RsEncPhysRtdConf" in api %}DN,Child Action,Force Resolve,Local Owner,Last Modified,Parent S Key,rType,State,State Quality,Status,tCl,tDN,tSKey,tType
+{%-     for interface in data_to_template['imdata'] %}
+{{ interface.l3RsEncPhysRtdConf.attributes.dn }},{{ interface.l3RsEncPhysRtdConf.attributes.childAction }},{{ interface.l3RsEncPhysRtdConf.attributes.forceResolve }},{{ interface.l3RsEncPhysRtdConf.attributes.lcOwn }},{{ interface.l3RsEncPhysRtdConf.attributes.modTs }},{{ interface.l3RsEncPhysRtdConf.attributes.parentSKey }},{{ interface.l3RsEncPhysRtdConf.attributes.rType }},{{ interface.l3RsEncPhysRtdConf.attributes.state }},{{ interface.l3RsEncPhysRtdConf.attributes.stateQual }},{{ interface.l3RsEncPhysRtdConf.attributes.status }},{{ interface.l3RsEncPhysRtdConf.attributes.tCl }},{{ interface.l3RsEncPhysRtdConf.attributes.tDn }},{{ interface.l3RsEncPhysRtdConf.attributes.tSKey }},{{ interface.l3RsEncPhysRtdConf.attributes.tType }}
+{%-     endfor %}
 {%- endif %}

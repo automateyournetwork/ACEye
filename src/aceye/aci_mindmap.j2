@@ -4510,4 +4510,23 @@
 ### Status: {{ loopback.l3LbRtdIf.attributes.status }}
 ### Type: {{ loopback.l3LbRtdIf.attributes.type }}
 {%-          endfor %}
+{%- elif "l3RsEncPhysRtdConf" in api %}
+# L3 Physical Interface Source Relationships
+{%-     for interface in data_to_template['imdata'] %}
+## DN: {{ interface.l3RsEncPhysRtdConf.attributes.dn }}
+### Child Action: {{ interface.l3RsEncPhysRtdConf.attributes.childAction }}
+### Force Resolve: {{ interface.l3RsEncPhysRtdConf.attributes.forceResolve }}
+### Local Owner: {{ interface.l3RsEncPhysRtdConf.attributes.lcOwn }}
+### Last Modified: {{ interface.l3RsEncPhysRtdConf.attributes.modTs }}
+### Parent S Key: {{ interface.l3RsEncPhysRtdConf.attributes.parentSKey }}
+### rType: {{ interface.l3RsEncPhysRtdConf.attributes.rType }}
+### State: {{ interface.l3RsEncPhysRtdConf.attributes.state }}
+### State Quality: {{ interface.l3RsEncPhysRtdConf.attributes.stateQual }}
+### Status: {{ interface.l3RsEncPhysRtdConf.attributes.status }}
+### t
+#### Cl: {{ interface.l3RsEncPhysRtdConf.attributes.tCl }}
+#### DN: {{ interface.l3RsEncPhysRtdConf.attributes.tDn }}
+#### S Key: {{ interface.l3RsEncPhysRtdConf.attributes.tSKey }}
+#### Type: {{ interface.l3RsEncPhysRtdConf.attributes.tType }}
+{%-          endfor %}
 {%- endif %}
