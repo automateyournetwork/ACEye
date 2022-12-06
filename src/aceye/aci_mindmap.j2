@@ -4284,4 +4284,24 @@
 ### Tag: {{ profile.l2extLIfP.attributes.tag }}
 ### UID: {{ profile.l2extLIfP.attributes.uid }}
 {%-          endfor %}
+{%- elif "l2extLNodeP" in api %}
+# L2 External Logical Interface Profiles
+{%-     for node in data_to_template['imdata'] %}
+## Name: {{ profile.l2extLNodeP.attributes.name }}
+### Name Alias: {{ profile.l2extLNodeP.attributes.nameAlias }}
+### Annotation: {{ profile.l2extLNodeP.attributes.annotation }}
+### Child Action: {{ profile.l2extLNodeP.attributes.childAction }}
+### Description: {{ profile.l2extLNodeP.attributes.descr }}
+### DN: {{ profile.l2extLNodeP.attributes.dn }}
+### Externally Managed By: {{ profile.l2extLNodeP.attributes.extMngdBy }}
+### Local Owner: {{ profile.l2extLNodeP.attributes.lcOwn }}
+### Last Modified: {{ profile.l2extLNodeP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.l2extLNodeP.attributes.monPolDn }}
+### Owner
+#### Key: {{ profile.l2extLNodeP.attributes.ownerKey }}
+#### Tag: {{ profile.l2extLNodeP.attributes.ownerTag }}
+### Status: {{ profile.l2extLNodeP.attributes.status }}
+### Tag: {{ profile.l2extLNodeP.attributes.tag }}
+### UID: {{ profile.l2extLNodeP.attributes.uid }}
+{%-          endfor %}
 {%- endif %}

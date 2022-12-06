@@ -369,6 +369,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.l2_external_logical_interface_profiles(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l2_external_logical_node_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -513,6 +515,7 @@ class ACEye():
                     'L2 External Instance Profiles',
                     'L2 External Interfaces',
                     'L2 External Logical Interface Profiles',
+                    'L2 External Logical Node Profiles',
                     'L2 Interface Source Relationships'
                     'L2Outs',
                     'L3 Domains',
@@ -1837,6 +1840,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def l2_external_logical_node_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/l2extLNodeP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L2 External Logical Node Profiles code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2532,6 +2542,10 @@ class ACEye():
 
         if "l2extLIfP" in self.url:
             with open('L2 External Logical Interface Profiles/JSON/L2 External Logical Interface Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l2extLNodeP" in self.url:
+            with open('L2 External Logical Node Profiles/JSON/L2 External Logical Node Profiles.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -3234,6 +3248,10 @@ class ACEye():
 
         if "l2extLIfP" in self.url:
             with open('L2 External Logical Interface Profiles/YAML/L2 External Logical Interface Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l2extLNodeP" in self.url:
+            with open('L2 External Logical Node Profiles/YAML/L2 External Logical Node Profiles.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -3940,6 +3958,10 @@ class ACEye():
 
         if "l2extLIfP" in self.url:
             with open('L2 External Logical Interface Profiles/CSV/L2 External Logical Interface Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l2extLNodeP" in self.url:
+            with open('L2 External Logical Node Profiles/CSV/L2 External Logical Node Profiles.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -4649,6 +4671,10 @@ class ACEye():
             with open('L2 External Logical Interface Profiles/Markdown/L2 External Logical Interface Profiles.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "l2extLNodeP" in self.url:
+            with open('L2 External Logical Node Profiles/Markdown/L2 External Logical Node Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5356,6 +5382,10 @@ class ACEye():
             with open('L2 External Logical Interface Profiles/HTML/L2 External Logical Interface Profiles.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "l2extLNodeP" in self.url:
+            with open('L2 External Logical Node Profiles/HTML/L2 External Logical Node Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -6057,6 +6087,10 @@ class ACEye():
 
         if "l2extLIfP" in self.url:
             with open('L2 External Logical Interface Profiles/Mindmap/L2 External Logical Interface Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l2extLNodeP" in self.url:
+            with open('L2 External Logical Node Profiles/Mindmap/L2 External Logical Node Profiles.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

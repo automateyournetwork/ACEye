@@ -8967,5 +8967,49 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l2extLNodeP" in api %}
+<h1>L2 External Logical Interface Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>Tag</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for node in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.l2extLNodeP.attributes.name }}</td>
+    <td>{{ profile.l2extLNodeP.attributes.nameAlias }}</td>
+    <td>{{ profile.l2extLNodeP.attributes.annotation }}</td>
+    <td>{{ profile.l2extLNodeP.attributes.childAction }}</td>
+    <td>{{ profile.l2extLNodeP.attributes.descr }}</td>
+    <td>{{ profile.l2extLNodeP.attributes.dn }}</td>
+    <td>{{ profile.l2extLNodeP.attributes.extMngdBy }}</td>
+    <td>{{ profile.l2extLNodeP.attributes.lcOwn }}</td>
+    <td>{{ profile.l2extLNodeP.attributes.modTs }}</td>
+    <td>{{ profile.l2extLNodeP.attributes.monPolDn }}</td>
+    <td>{{ profile.l2extLNodeP.attributes.ownerKey }}</td>
+    <td>{{ profile.l2extLNodeP.attributes.ownerTag }}</td>
+    <td>{{ profile.l2extLNodeP.attributes.status }}</td>
+    <td>{{ profile.l2extLNodeP.attributes.tag }}</td>
+    <td>{{ profile.l2extLNodeP.attributes.uid }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

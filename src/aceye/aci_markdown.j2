@@ -1115,4 +1115,10 @@
 {%-     for profile in data_to_template['imdata'] %}
 | {{ profile.l2extLIfP.attributes.name }} | {{ profile.l2extLIfP.attributes.nameAlias }} | {{ profile.l2extLIfP.attributes.annotation }} | {{ profile.l2extLIfP.attributes.childAction }} | {{ profile.l2extLIfP.attributes.descr }} | {{ profile.l2extLIfP.attributes.dn }} | {{ profile.l2extLIfP.attributes.extMngdBy }} | {{ profile.l2extLIfP.attributes.lcOwn }} | {{ profile.l2extLIfP.attributes.modTs }} | {{ profile.l2extLIfP.attributes.monPolDn }} | {{ profile.l2extLIfP.attributes.ownerKey }} | {{ profile.l2extLIfP.attributes.ownerTag }} | {{ profile.l2extLIfP.attributes.status }} | {{ profile.l2extLIfP.attributes.tag }} | {{ profile.l2extLIfP.attributes.uid }} |
 {%-     endfor %}
+{%- elif "l2extLNodeP" in api %}# L2 External Logical Node Profiles
+| Name | Name Alias | Annotation | Child Action | Description | DN | Externally Managed By | Local Owner | Last Modified | Monitoring Policy DN | Owner Key | Owner Tag | Status | Tag | UID |
+| ---- | ---------- | ---------- | ------------ | ----------- | -- | --------------------- | ----------- | ------------- | -------------------- | --------- | --------- | ------ | --- | --- |
+{%-     for node in data_to_template['imdata'] %}
+| {{ profile.l2extLNodeP.attributes.name }} | {{ profile.l2extLNodeP.attributes.nameAlias }} | {{ profile.l2extLNodeP.attributes.annotation }} | {{ profile.l2extLNodeP.attributes.childAction }} | {{ profile.l2extLNodeP.attributes.descr }} | {{ profile.l2extLNodeP.attributes.dn }} | {{ profile.l2extLNodeP.attributes.extMngdBy }} | {{ profile.l2extLNodeP.attributes.lcOwn }} | {{ profile.l2extLNodeP.attributes.modTs }} | {{ profile.l2extLNodeP.attributes.monPolDn }} | {{ profile.l2extLNodeP.attributes.ownerKey }} | {{ profile.l2extLNodeP.attributes.ownerTag }} | {{ profile.l2extLNodeP.attributes.status }} | {{ profile.l2extLNodeP.attributes.tag }} | {{ profile.l2extLNodeP.attributes.uid }} |
+{%-     endfor %}
 {%- endif %}
