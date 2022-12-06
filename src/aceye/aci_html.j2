@@ -9289,5 +9289,103 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l3Inst" in api %}
+<h1>L3 Instances</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>BGP RD</th>
+    <th>BGP RD Display</th>
+    <th>Child Action</th>
+    <th>Created</th>
+    <th>Context P Key</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>GSDB Context</th>
+    <th>ID</th>
+    <th>L3 VM Config Failed Bmp</th>
+    <th>L3 VM Config Failed Timestamp</th>
+    <th>L3 VM Config State</th>
+    <th>Last Chaged</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Old Oper State Quality</th>
+    <th>Oper State Quality</th>
+    <th>Oper State</th>
+    <th>OUI</th>
+    <th>Pending</th>
+    <th>Protocol Bmp</th>
+    <th>Resource ID</th>
+    <th>Scope</th>
+    <th>Status</th>
+    <th>v4 TIB ID</th>
+    <th>v4 TIB Name</th>
+    <th>v4 TIB Old Oper State Quality</th>
+    <th>v4 TIB Oper State Quality</th>
+    <th>v4 TIB Oper State</th>
+    <th>v4 TIB Pending</th>
+    <th>v4 TIB Valid</th>
+    <th>v6 TIB ID</th>
+    <th>v6 TIB Name</th>
+    <th>v6 TIB Old Oper State Quality</th>
+    <th>v6 TIB Oper State Quality</th>
+    <th>v6 TIB Oper State</th>
+    <th>v6 TIB Pending</th>
+    <th>v6 TIB Valid</th>
+    <th>VPN ID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for instance in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ instance.l3Inst.attributes.name }}</td>
+    <td>{{ instance.l3Inst.attributes.adminState }}</td>
+    <td>{{ instance.l3Inst.attributes.bgpRd }}</td>
+    <td>{{ instance.l3Inst.attributes.bgpRdDisp }}</td>
+    <td>{{ instance.l3Inst.attributes.childAction }}</td>
+    <td>{{ instance.l3Inst.attributes.createTs }}</td>
+    <td>{{ instance.l3Inst.attributes.ctxPKey }}</td>
+    <td>{{ instance.l3Inst.attributes.dn }}</td>
+    <td>{{ instance.l3Inst.attributes.encap }}</td>
+    <td>{{ instance.l3Inst.attributes.gsdbCtx }}</td>
+    <td>{{ instance.l3Inst.attributes.id }}</td>
+    <td>{{ instance.l3Inst.attributes.l3vmCfgFailedBmp }}</td>
+    <td>{{ instance.l3Inst.attributes.l3vmCfgFailedTs }}</td>
+    <td>{{ instance.l3Inst.attributes.l3vmCfgState }}</td>
+    <td>{{ instance.l3Inst.attributes.lastChgdTs }}</td>
+    <td>{{ instance.l3Inst.attributes.lcOwn }}</td>
+    <td>{{ instance.l3Inst.attributes.modTs }}</td>
+    <td>{{ instance.l3Inst.attributes.monPolDn }}</td>
+    <td>{{ instance.l3Inst.attributes.oldOperStQual }}</td>
+    <td>{{ instance.l3Inst.attributes.operStQual }}</td>
+    <td>{{ instance.l3Inst.attributes.operState }}</td>
+    <td>{{ instance.l3Inst.attributes.oui }}</td>
+    <td>{{ instance.l3Inst.attributes.pending }}</td>
+    <td>{{ instance.l3Inst.attributes.prtclBmp }}</td>
+    <td>{{ instance.l3Inst.attributes.resourceId }}</td>
+    <td>{{ instance.l3Inst.attributes.scope }}</td>
+    <td>{{ instance.l3Inst.attributes.status }}</td>
+    <td>{{ instance.l3Inst.attributes.v4TibId }}</td>
+    <td>{{ instance.l3Inst.attributes.v4TibName }}</td>
+    <td>{{ instance.l3Inst.attributes.v4TibOldOperStQual }}</td>
+    <td>{{ instance.l3Inst.attributes.v4TibOperStQual }}</td>
+    <td>{{ instance.l3Inst.attributes.v4TibOperState }}</td>
+    <td>{{ instance.l3Inst.attributes.v4TibPending }}</td>
+    <td>{{ instance.l3Inst.attributes.v4TibValid }}</td>
+    <td>{{ instance.l3Inst.attributes.v6TibId }}</td>
+    <td>{{ instance.l3Inst.attributes.v6TibName }}</td>
+    <td>{{ instance.l3Inst.attributes.v6TibOldOperStQual }}</td>
+    <td>{{ instance.l3Inst.attributes.v6TibOperStQual }}</td>
+    <td>{{ instance.l3Inst.attributes.v6TibOperState }}</td>
+    <td>{{ instance.l3Inst.attributes.v6TibPending }}</td>
+    <td>{{ instance.l3Inst.attributes.v6TibValid }}</td>
+    <td>{{ instance.l3Inst.attributes.vpnId }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

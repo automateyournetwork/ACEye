@@ -4441,4 +4441,55 @@
 ### Routed Outside Def DN: {{ interface.l3EncRtdIf.attributes.rtdOutDefDn }}
 ### Status: {{ interface.l3EncRtdIf.attributes.status }}
 {%-          endfor %}
+{%- elif "l3Inst" in api %}
+# L3 Instances
+{%-     for instance in data_to_template['imdata'] %}
+## Name: {{ instance.l3Inst.attributes.name }}
+### Admin State: {{ instance.l3Inst.attributes.adminState }}
+### BGP
+#### RD: {{ instance.l3Inst.attributes.bgpRd }}
+#### RD Display: {{ instance.l3Inst.attributes.bgpRdDisp }}
+### Child Action: {{ instance.l3Inst.attributes.childAction }}
+### Created: {{ instance.l3Inst.attributes.createTs }}
+### Context P Key: {{ instance.l3Inst.attributes.ctxPKey }}
+### DN: {{ instance.l3Inst.attributes.dn }}
+### Encapsulation: {{ instance.l3Inst.attributes.encap }}
+### GSDB Context: {{ instance.l3Inst.attributes.gsdbCtx }}
+### ID: {{ instance.l3Inst.attributes.id }}
+### L3 VM Config
+#### Failed Bmp: {{ instance.l3Inst.attributes.l3vmCfgFailedBmp }}
+#### Failed Timestamp: {{ instance.l3Inst.attributes.l3vmCfgFailedTs }}
+#### State: {{ instance.l3Inst.attributes.l3vmCfgState }}
+### Last Changed: {{ instance.l3Inst.attributes.lastChgdTs }}
+### Local Owner: {{ instance.l3Inst.attributes.lcOwn }}
+### Last Modified: {{ instance.l3Inst.attributes.modTs }}
+### Monitoring Policy DN: {{ instance.l3Inst.attributes.monPolDn }}
+### Oper State
+#### Old Quality: {{ instance.l3Inst.attributes.oldOperStQual }}
+#### Quality: {{ instance.l3Inst.attributes.operStQual }}
+#### State: {{ instance.l3Inst.attributes.operState }}
+### OUI: {{ instance.l3Inst.attributes.oui }}
+### Pending: {{ instance.l3Inst.attributes.pending }}
+### Protocol Bmp: {{ instance.l3Inst.attributes.prtclBmp }}
+### Resource ID: {{ instance.l3Inst.attributes.resourceId }}
+### Scope: {{ instance.l3Inst.attributes.scope }}
+### Status: {{ instance.l3Inst.attributes.status }}
+### IPv4 TIB
+#### ID: {{ instance.l3Inst.attributes.v4TibId }}
+#### Name: {{ instance.l3Inst.attributes.v4TibName }}
+#### Old Oper State Quality: {{ instance.l3Inst.attributes.v4TibOldOperStQual }}
+#### Oper State Quality: {{ instance.l3Inst.attributes.v4TibOperStQual }}
+#### Oper State: {{ instance.l3Inst.attributes.v4TibOperState }}
+#### Pending: {{ instance.l3Inst.attributes.v4TibPending }}
+#### Valid: {{ instance.l3Inst.attributes.v4TibValid }}
+### IPv6 TIB
+#### ID: {{ instance.l3Inst.attributes.v6TibId }}
+#### Name: {{ instance.l3Inst.attributes.v6TibName }}
+#### Old Oper State Quality: {{ instance.l3Inst.attributes.v6TibOldOperStQual }}
+#### Oper State Quality: {{ instance.l3Inst.attributes.v6TibOperStQual }}
+#### Oper State: {{ instance.l3Inst.attributes.v6TibOperState }}
+#### Pending: {{ instance.l3Inst.attributes.v6TibPending }}
+#### Valid: {{ instance.l3Inst.attributes.v6TibValid }}
+### VPN ID: {{ instance.l3Inst.attributes.vpnId }}
+{%-          endfor %}
 {%- endif %}
