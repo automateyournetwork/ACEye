@@ -9509,5 +9509,71 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l3extInstP" in api %}
+<h1>L3Out Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Config Issues</th>
+    <th>Config State</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Exception Tag</th>
+    <th>Externally Managed By</th>
+    <th>Flood On Encapsulation</th>
+    <th>Is Shared Service Multisite EPG</th>
+    <th>Local Owner</th>
+    <th>Match Type</th>
+    <th>Multicast</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>PC Tag</th>
+    <th>Preferred Group Member</th>
+    <th>Priority</th>
+    <th>Scope</th>
+    <th>Status</th>
+    <th>Target DSCP</th>
+    <th>Trigger State</th>
+    <th>TX ID</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.l3extInstP.attributes.name }}</td>
+    <td>{{ profile.l3extInstP.attributes.nameAlias }}</td>
+    <td>{{ profile.l3extInstP.attributes.annotation }}</td>
+    <td>{{ profile.l3extInstP.attributes.childAction }}</td>
+    <td>{{ profile.l3extInstP.attributes.configIssues }}</td>
+    <td>{{ profile.l3extInstP.attributes.configSt }}</td>
+    <td>{{ profile.l3extInstP.attributes.descr }}</td>
+    <td>{{ profile.l3extInstP.attributes.dn }}</td>
+    <td>{{ profile.l3extInstP.attributes.exceptionTag }}</td>
+    <td>{{ profile.l3extInstP.attributes.extMngdBy }}</td>
+    <td>{{ profile.l3extInstP.attributes.floodOnEncap }}</td>
+    <td>{{ profile.l3extInstP.attributes.isSharedSrvMsiteEPg }}</td>
+    <td>{{ profile.l3extInstP.attributes.lcOwn }}</td>
+    <td>{{ profile.l3extInstP.attributes.matchT }}</td>
+    <td>{{ profile.l3extInstP.attributes.mcast }}</td>
+    <td>{{ profile.l3extInstP.attributes.modTs }}</td>
+    <td>{{ profile.l3extInstP.attributes.monPolDn }}</td>
+    <td>{{ profile.l3extInstP.attributes.pcTag }}</td>
+    <td>{{ profile.l3extInstP.attributes.prefGrMemb }}</td>
+    <td>{{ profile.l3extInstP.attributes.prio }}</td>
+    <td>{{ profile.l3extInstP.attributes.scope }}</td>
+    <td>{{ profile.l3extInstP.attributes.status }}</td>
+    <td>{{ profile.l3extInstP.attributes.targetDscp }}</td>
+    <td>{{ profile.l3extInstP.attributes.triggerSt }}</td>
+    <td>{{ profile.l3extInstP.attributes.txId }}</td>
+    <td>{{ profile.l3extInstP.attributes.uid }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

@@ -4545,4 +4545,35 @@
 ### Routed Out Def DN: {{ interface.l3RtdIf.attributes.rtdOutDefDn }}
 ### Status: {{ interface.l3RtdIf.attributes.status }}
 {%-          endfor %}
+{%- elif "l3extInstP" in api %}
+# L3Out Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.l3extInstP.attributes.name }}
+### Name Alias: {{ profile.l3extInstP.attributes.nameAlias }}
+### Annotation: {{ profile.l3extInstP.attributes.annotation }}
+### Child Action: {{ profile.l3extInstP.attributes.childAction }}
+### Config
+#### Issue: {{ profile.l3extInstP.attributes.configIssues }}
+#### State: {{ profile.l3extInstP.attributes.configSt }}
+### Description: {{ profile.l3extInstP.attributes.descr }}
+### DN: {{ profile.l3extInstP.attributes.dn }}
+### Exception Tag: {{ profile.l3extInstP.attributes.exceptionTag }}
+### Externally Managed By: {{ profile.l3extInstP.attributes.extMngdBy }}
+### Flood On Encapsulation: {{ profile.l3extInstP.attributes.floodOnEncap }}
+### Is Shared Service Multisite EPG: {{ profile.l3extInstP.attributes.isSharedSrvMsiteEPg }}
+### Local Owner: {{ profile.l3extInstP.attributes.lcOwn }}
+### Match Type: {{ profile.l3extInstP.attributes.matchT }}
+### Multicast: {{ profile.l3extInstP.attributes.mcast }}
+### Last Modified: {{ profile.l3extInstP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.l3extInstP.attributes.monPolDn }}
+### PC Tag: {{ profile.l3extInstP.attributes.pcTag }}
+### Preferred Group Memeber: {{ profile.l3extInstP.attributes.prefGrMemb }}
+### Priority: {{ profile.l3extInstP.attributes.prio }}
+### Scope: {{ profile.l3extInstP.attributes.scope }}
+### Status: {{ profile.l3extInstP.attributes.status }}
+### Target DSCP: {{ profile.l3extInstP.attributes.targetDscp }}
+### Trigger State: {{ profile.l3extInstP.attributes.triggerSt }}
+### TX ID: {{ profile.l3extInstP.attributes.txId }}
+### UID: {{ profile.l3extInstP.attributes.uid }}
+{%-          endfor %}
 {%- endif %}
