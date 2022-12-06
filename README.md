@@ -296,6 +296,8 @@ L2 External Logical Node Profiles
 
 L2 Interface Source Relationships
 
+L2Out Paths
+
 L2Outs
 
 L3 Domains

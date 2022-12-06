@@ -9065,5 +9065,53 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l2extRsPathL2OutAtt" in api %}
+<h1>L2Out Paths</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDn</th>
+    <th>tType</th>
+    <th>Target DSCP</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for path in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.uid }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.annotation }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.childAction }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.descr }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.dn }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.extMngdBy }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.forceResolve }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.lcOwn }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.modTs }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.rType }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.state }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.stateQual }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.status }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.tCl }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.tDn }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.tType }}</td>
+    <td>{{ path.l2extRsPathL2OutAtt.attributes.targetDscp }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

@@ -373,6 +373,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.l2_epg_bd_source_relationships(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l2_out_paths(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -520,6 +522,7 @@ class ACEye():
                     'L2 External Logical Interface Profiles',
                     'L2 External Logical Node Profiles',
                     'L2 Interface Source Relationships'
+                    'L2Out Paths',
                     'L2Outs',
                     'L3 Domains',
                     'L3 Interfaces',
@@ -1857,6 +1860,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def l2_out_paths(self):
+        self.url = f"{ self.aci }/api/node/class/l2extRsPathL2OutAtt.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L2 Out Paths code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2560,6 +2570,10 @@ class ACEye():
 
         if "l2extRsEBd" in self.url:
             with open('L2 EPG Bridge Domain Source Relationships/JSON/L2 EPG Bridge Domain Source Relationships.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l2extRsPathL2OutAtt" in self.url:
+            with open('L2Out Paths/JSON/L2Out Paths.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -3270,6 +3284,10 @@ class ACEye():
 
         if "l2extRsEBd" in self.url:
             with open('L2 EPG Bridge Domain Source Relationships/YAML/L2 EPG Bridge Domain Source Relationships.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l2extRsPathL2OutAtt" in self.url:
+            with open('L2Out Paths/YAML/L2Out Paths.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -3984,6 +4002,10 @@ class ACEye():
 
         if "l2extRsEBd" in self.url:
             with open('L2 EPG Bridge Domain Source Relationships/CSV/L2 EPG Bridge Domain Source Relationships.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l2extRsPathL2OutAtt" in self.url:
+            with open('L2Out Paths/CSV/L2Out Paths.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -4701,6 +4723,10 @@ class ACEye():
             with open('L2 EPG Bridge Domain Source Relationships/Markdown/L2 EPG Bridge Domain Source Relationships.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "l2extRsPathL2OutAtt" in self.url:
+            with open('L2Out Paths/Markdown/L2Out Paths.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5416,6 +5442,10 @@ class ACEye():
             with open('L2 EPG Bridge Domain Source Relationships/HTML/L2 EPG Bridge Domain Source Relationships.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "l2extRsPathL2OutAtt" in self.url:
+            with open('L2Out Paths/HTML/L2Out Paths.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -6125,6 +6155,10 @@ class ACEye():
 
         if "l2extRsEBd" in self.url:
             with open('L2 EPG Bridge Domain Source Relationships/Mindmap/L2 EPG Bridge Domain Source Relationships.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l2extRsPathL2OutAtt" in self.url:
+            with open('L2Out Paths/Mindmap/L2Out Paths.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

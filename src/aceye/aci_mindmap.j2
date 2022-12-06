@@ -4329,4 +4329,26 @@
 #### Type: {{ epg.l2extRsEBd.attributes.tType }}
 ### tn Fv Bridge Domain Name: {{ epg.l2extRsEBd.attributes.tnFvBDName }}
 {%-          endfor %}
+{%- elif "l2extRsPathL2OutAtt" in api %}
+# L2Out Paths
+{%-     for path in data_to_template['imdata'] %}
+## UID: {{ path.l2extRsPathL2OutAtt.attributes.uid }}
+### Annotation: {{ path.l2extRsPathL2OutAtt.attributes.annotation }}
+### Child Action: {{ path.l2extRsPathL2OutAtt.attributes.childAction }}
+### Description: {{ path.l2extRsPathL2OutAtt.attributes.descr }}
+### DN: {{ path.l2extRsPathL2OutAtt.attributes.dn }}
+### Externally Managed By: {{ path.l2extRsPathL2OutAtt.attributes.extMngdBy }}
+### Force Resolve: {{ path.l2extRsPathL2OutAtt.attributes.forceResolve }}
+### Local Owner: {{ path.l2extRsPathL2OutAtt.attributes.lcOwn }}
+### Last Modified: {{ path.l2extRsPathL2OutAtt.attributes.modTs }}
+### rType: {{ path.l2extRsPathL2OutAtt.attributes.rType }}
+### State: {{ path.l2extRsPathL2OutAtt.attributes.state }}
+### State Quality: {{ path.l2extRsPathL2OutAtt.attributes.stateQual }}
+### Status: {{ path.l2extRsPathL2OutAtt.attributes.status }}
+### t
+#### Cl: {{ path.l2extRsPathL2OutAtt.attributes.tCl }}
+#### DN: {{ path.l2extRsPathL2OutAtt.attributes.tDn }}
+#### Type: {{ path.l2extRsPathL2OutAtt.attributes.tType }}
+### Target DSCP: {{ path.l2extRsPathL2OutAtt.attributes.targetDscp }}
+{%-          endfor %}
 {%- endif %}
