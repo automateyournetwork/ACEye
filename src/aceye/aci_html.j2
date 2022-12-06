@@ -9229,5 +9229,65 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l3EncRtdIf" in api %}
+<h1>L3 Subinterfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Bandwidth</th>
+    <th>Child Action</th>
+    <th>Delay</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>Ethernet PM Config Failed Bmp</th>
+    <th>Ethernet PM Config Failed Timestamp</th>
+    <th>Ethernet PM Config State</th>
+    <th>ID</th>
+    <th>Interface Connection DN</th>
+    <th>Local Owner</th>
+    <th>Link Log Enable</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>MTU</th>
+    <th>MTU Inherit</th>
+    <th>QOS Priority</th>
+    <th>Router MAC</th>
+    <th>Routed Out Def DN</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.l3EncRtdIf.attributes.name }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.adminSt }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.bw }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.childAction }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.delay }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.descr }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.dn }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.encap }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.ethpmCfgFailedBmp }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.ethpmCfgFailedTs }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.ethpmCfgState }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.id }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.ifConnDn }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.lcOwn }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.linkLogEn }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.modTs }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.monPolDn }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.mtu }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.mtuInherit }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.qosPrio }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.routerMac }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.rtdOutDefDn }}</td>
+    <td>{{ interface.l3EncRtdIf.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

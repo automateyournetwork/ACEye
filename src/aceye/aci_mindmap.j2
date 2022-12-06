@@ -4412,4 +4412,33 @@
 #### Valid: {{ context.l3Ctx.attributes.v6TibValid }}
 ### VPN ID: {{ context.l3Ctx.attributes.vpnId }}
 {%-          endfor %}
+{%- elif "l3EncRtdIf" in api %}
+# L3 Subinterfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.l3EncRtdIf.attributes.name }}
+### Admin State: {{ interface.l3EncRtdIf.attributes.adminSt }}
+### Bandwidth: {{ interface.l3EncRtdIf.attributes.bw }}
+### Child Action: {{ interface.l3EncRtdIf.attributes.childAction }}
+### Delay: {{ interface.l3EncRtdIf.attributes.delay }}
+### Description: {{ interface.l3EncRtdIf.attributes.descr }}
+### DN: {{ interface.l3EncRtdIf.attributes.dn }}
+### Encapsulation: {{ interface.l3EncRtdIf.attributes.encap }}
+### Ethernet PM Config
+#### Failed Bmp: {{ interface.l3EncRtdIf.attributes.ethpmCfgFailedBmp }}
+#### Failed Timestamp: {{ interface.l3EncRtdIf.attributes.ethpmCfgFailedTs }}
+#### Config State: {{ interface.l3EncRtdIf.attributes.ethpmCfgState }}
+### ID: {{ interface.l3EncRtdIf.attributes.id }}
+### Interface Conn DN: {{ interface.l3EncRtdIf.attributes.ifConnDn }}
+### Local Owner: {{ interface.l3EncRtdIf.attributes.lcOwn }}
+### Link Log Enabled: {{ interface.l3EncRtdIf.attributes.linkLogEn }}
+### Last Modified: {{ interface.l3EncRtdIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.l3EncRtdIf.attributes.monPolDn }}
+### MTU
+#### MTU: {{ interface.l3EncRtdIf.attributes.mtu }}
+#### Inherit: {{ interface.l3EncRtdIf.attributes.mtuInherit }}
+### QOS Priority: {{ interface.l3EncRtdIf.attributes.qosPrio }}
+### Router MAC: {{ interface.l3EncRtdIf.attributes.routerMac }}
+### Routed Outside Def DN: {{ interface.l3EncRtdIf.attributes.rtdOutDefDn }}
+### Status: {{ interface.l3EncRtdIf.attributes.status }}
+{%-          endfor %}
 {%- endif %}
