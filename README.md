@@ -284,6 +284,8 @@ License Entitlements
 
 L2 Bridge Domains
 
+L2 EPG Bridge Domain Source Relationships
+
 L2 External Instance Profiles
 
 L2 External Interfaces

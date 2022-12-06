@@ -8992,21 +8992,75 @@
 <tbody>
 {%-     for node in data_to_template['imdata'] %}
   <tr>
-    <td>{{ profile.l2extLNodeP.attributes.name }}</td>
-    <td>{{ profile.l2extLNodeP.attributes.nameAlias }}</td>
-    <td>{{ profile.l2extLNodeP.attributes.annotation }}</td>
-    <td>{{ profile.l2extLNodeP.attributes.childAction }}</td>
-    <td>{{ profile.l2extLNodeP.attributes.descr }}</td>
-    <td>{{ profile.l2extLNodeP.attributes.dn }}</td>
-    <td>{{ profile.l2extLNodeP.attributes.extMngdBy }}</td>
-    <td>{{ profile.l2extLNodeP.attributes.lcOwn }}</td>
-    <td>{{ profile.l2extLNodeP.attributes.modTs }}</td>
-    <td>{{ profile.l2extLNodeP.attributes.monPolDn }}</td>
-    <td>{{ profile.l2extLNodeP.attributes.ownerKey }}</td>
-    <td>{{ profile.l2extLNodeP.attributes.ownerTag }}</td>
-    <td>{{ profile.l2extLNodeP.attributes.status }}</td>
-    <td>{{ profile.l2extLNodeP.attributes.tag }}</td>
-    <td>{{ profile.l2extLNodeP.attributes.uid }}</td>
+    <td>{{ node.l2extLNodeP.attributes.name }}</td>
+    <td>{{ node.l2extLNodeP.attributes.nameAlias }}</td>
+    <td>{{ node.l2extLNodeP.attributes.annotation }}</td>
+    <td>{{ node.l2extLNodeP.attributes.childAction }}</td>
+    <td>{{ node.l2extLNodeP.attributes.descr }}</td>
+    <td>{{ node.l2extLNodeP.attributes.dn }}</td>
+    <td>{{ node.l2extLNodeP.attributes.extMngdBy }}</td>
+    <td>{{ node.l2extLNodeP.attributes.lcOwn }}</td>
+    <td>{{ node.l2extLNodeP.attributes.modTs }}</td>
+    <td>{{ node.l2extLNodeP.attributes.monPolDn }}</td>
+    <td>{{ node.l2extLNodeP.attributes.ownerKey }}</td>
+    <td>{{ node.l2extLNodeP.attributes.ownerTag }}</td>
+    <td>{{ node.l2extLNodeP.attributes.status }}</td>
+    <td>{{ node.l2extLNodeP.attributes.tag }}</td>
+    <td>{{ node.l2extLNodeP.attributes.uid }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l2extRsEBd" in api %}
+<h1>L2 EPG Bridge Domain Source Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>tnFv Bridge Domain Name</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for epg in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ epg.l2extRsEBd.attributes.uid }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.annotation }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.childAction }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.dn }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.encap }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.extMngdBy }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.forceResolve }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.lcOwn }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.modTs }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.monPolDn }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.rType }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.state }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.stateQual }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.status }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.tCl }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.tContextDn }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.tDn }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.tRn }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.tType }}</td>
+    <td>{{ epg.l2extRsEBd.attributes.tnFvBDName }}</td>
   </tr>
 {%-          endfor %}
 </tbody>
