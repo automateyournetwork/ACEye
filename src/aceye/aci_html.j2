@@ -9471,5 +9471,43 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l3RtdIf" in api %}
+<h1>L3 Routed Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>QOS Priority</th>
+    <th>Routed Out Def DN</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.l3RtdIf.attributes.name }}</td>
+    <td>{{ interface.l3RtdIf.attributes.adminSt }}</td>
+    <td>{{ interface.l3RtdIf.attributes.childAction }}</td>
+    <td>{{ interface.l3RtdIf.attributes.descr }}</td>
+    <td>{{ interface.l3RtdIf.attributes.dn }}</td>
+    <td>{{ interface.l3RtdIf.attributes.id }}</td>
+    <td>{{ interface.l3RtdIf.attributes.lcOwn }}</td>
+    <td>{{ interface.l3RtdIf.attributes.modTs }}</td>
+    <td>{{ interface.l3RtdIf.attributes.monPolDn }}</td>
+    <td>{{ interface.l3RtdIf.attributes.qosPrio }}</td>
+    <td>{{ interface.l3RtdIf.attributes.rtdOutDefDn }}</td>
+    <td>{{ interface.l3RtdIf.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

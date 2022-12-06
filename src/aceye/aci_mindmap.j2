@@ -4529,4 +4529,20 @@
 #### S Key: {{ interface.l3RsEncPhysRtdConf.attributes.tSKey }}
 #### Type: {{ interface.l3RsEncPhysRtdConf.attributes.tType }}
 {%-          endfor %}
+{%- elif "l3RtdIf" in api %}
+# L3 Routed Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.l3RtdIf.attributes.name }}
+### Admin State: {{ interface.l3RtdIf.attributes.adminSt }}
+### Child Action: {{ interface.l3RtdIf.attributes.childAction }}
+### Description: {{ interface.l3RtdIf.attributes.descr }}
+### DN: {{ interface.l3RtdIf.attributes.dn }}
+### ID: {{ interface.l3RtdIf.attributes.id }}
+### Local Owner: {{ interface.l3RtdIf.attributes.lcOwn }}
+### Last Modified: {{ interface.l3RtdIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.l3RtdIf.attributes.monPolDn }}
+### QOS Priority: {{ interface.l3RtdIf.attributes.qosPrio }}
+### Routed Out Def DN: {{ interface.l3RtdIf.attributes.rtdOutDefDn }}
+### Status: {{ interface.l3RtdIf.attributes.status }}
+{%-          endfor %}
 {%- endif %}

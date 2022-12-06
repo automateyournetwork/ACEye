@@ -797,4 +797,8 @@
 {%-     for interface in data_to_template['imdata'] %}
 {{ interface.l3RsEncPhysRtdConf.attributes.dn }},{{ interface.l3RsEncPhysRtdConf.attributes.childAction }},{{ interface.l3RsEncPhysRtdConf.attributes.forceResolve }},{{ interface.l3RsEncPhysRtdConf.attributes.lcOwn }},{{ interface.l3RsEncPhysRtdConf.attributes.modTs }},{{ interface.l3RsEncPhysRtdConf.attributes.parentSKey }},{{ interface.l3RsEncPhysRtdConf.attributes.rType }},{{ interface.l3RsEncPhysRtdConf.attributes.state }},{{ interface.l3RsEncPhysRtdConf.attributes.stateQual }},{{ interface.l3RsEncPhysRtdConf.attributes.status }},{{ interface.l3RsEncPhysRtdConf.attributes.tCl }},{{ interface.l3RsEncPhysRtdConf.attributes.tDn }},{{ interface.l3RsEncPhysRtdConf.attributes.tSKey }},{{ interface.l3RsEncPhysRtdConf.attributes.tType }}
 {%-     endfor %}
+{%- elif "l3RtdIf" in api %}Name,Admin State,Child Action,Description,DN,ID,Local Owner,Last Modified,Monitoring Policy DN,QOS Priority,Routed Out Def DN,Status
+{%-     for interface in data_to_template['imdata'] %}
+{{ interface.l3RtdIf.attributes.name }},{{ interface.l3RtdIf.attributes.adminSt }},{{ interface.l3RtdIf.attributes.childAction }},{{ interface.l3RtdIf.attributes.descr }},{{ interface.l3RtdIf.attributes.dn }},{{ interface.l3RtdIf.attributes.id }},{{ interface.l3RtdIf.attributes.lcOwn }},{{ interface.l3RtdIf.attributes.modTs }},{{ interface.l3RtdIf.attributes.monPolDn }},{{ interface.l3RtdIf.attributes.qosPrio }},{{ interface.l3RtdIf.attributes.rtdOutDefDn }},{{ interface.l3RtdIf.attributes.status }}
+{%-     endfor %}
 {%- endif %}
