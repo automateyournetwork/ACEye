@@ -9387,5 +9387,47 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l3LbRtdIf" in api %}
+<h1>L3 Routed Loopback Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Link Log</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>QOS Priority</th>
+    <th>Routed Out Def DN</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for loopback in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ loopback.l3LbRtdIf.attributes.name }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.adminSt }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.childAction }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.descr }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.dn }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.id }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.lcOwn }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.linkLog }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.modTs }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.monPolDn }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.qosPrio }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.rtdOutDefDn }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.status }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.type }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

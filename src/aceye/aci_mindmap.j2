@@ -4492,4 +4492,22 @@
 #### Valid: {{ instance.l3Inst.attributes.v6TibValid }}
 ### VPN ID: {{ instance.l3Inst.attributes.vpnId }}
 {%-          endfor %}
+{%- elif "l3LbRtdIf" in api %}
+# L3 Routed Loopback Interfaces
+{%-     for loopback in data_to_template['imdata'] %}
+## Name: {{ loopback.l3LbRtdIf.attributes.name }}
+### Admin State: {{ loopback.l3LbRtdIf.attributes.adminSt }}
+### Child Action: {{ loopback.l3LbRtdIf.attributes.childAction }}
+### Description: {{ loopback.l3LbRtdIf.attributes.descr }}
+### DN: {{ loopback.l3LbRtdIf.attributes.dn }}
+### ID: {{ loopback.l3LbRtdIf.attributes.id }}
+### Local Owner: {{ loopback.l3LbRtdIf.attributes.lcOwn }}
+### Link Log: {{ loopback.l3LbRtdIf.attributes.linkLog }}
+### Last Modified: {{ loopback.l3LbRtdIf.attributes.modTs }}
+### Monitoring Policy DN: {{ loopback.l3LbRtdIf.attributes.monPolDn }}
+### QOS Priority: {{ loopback.l3LbRtdIf.attributes.qosPrio }}
+### Routed Out Def DN: {{ loopback.l3LbRtdIf.attributes.rtdOutDefDn }}
+### Status: {{ loopback.l3LbRtdIf.attributes.status }}
+### Type: {{ loopback.l3LbRtdIf.attributes.type }}
+{%-          endfor %}
 {%- endif %}
