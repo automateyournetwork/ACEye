@@ -379,6 +379,20 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.l3_subinterfaces(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l3_instances(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l3_routed_loopback_interfaces(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l3_rs_enc_physical_rtd_conf(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l3_routed_interfaces(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l3_out_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l3_out_ips(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l3_logical_interface_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -530,8 +544,15 @@ class ACEye():
                     'L2Outs',
                     'L3 Contexts',
                     'L3 Domains',
+                    'L3 Instances',
                     'L3 Interfaces',
+                    'L3 Logical Interface Profiles'
+                    'L3 Physical Interface Source Relationships'
+                    'L3 Routed Interfaces',
+                    'L3 Routed Loopback Interfaces',
                     'L3 Subinterfaces',
+                    'L3Out IP Addresses',
+                    'L3Out Profiles',
                     'L3Outs',
                     'Leaf Interface Profiles',
                     'Leaf Switch Profiles',
@@ -1887,6 +1908,55 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def l3_instances(self):
+        self.url = f"{ self.aci }/api/node/class/l3Inst.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L3 Instances code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def l3_routed_loopback_interfaces(self):
+        self.url = f"{ self.aci }/api/node/class/l3LbRtdIf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L3 Routed Loopback Interfaces code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def l3_rs_enc_physical_rtd_conf(self):
+        self.url = f"{ self.aci }/api/node/class/l3RsEncPhysRtdConf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L3 Physical Interface Source Relationships code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def l3_routed_interfaces(self):
+        self.url = f"{ self.aci }/api/node/class/l3RtdIf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L3 Routed Interfaces code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def l3_out_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/l3extInstP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L3Out Profiles code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def l3_out_ips(self):
+        self.url = f"{ self.aci }/api/node/class/l3extIp.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L3Out IP Addresses code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def l3_logical_interface_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/l3extLIfP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L3 Logical Interface Profiles code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2602,6 +2672,34 @@ class ACEye():
 
         if "l3EncRtdIf" in self.url:
             with open('L3 Subinterfaces/JSON/L3 Subinterfaces.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l3Inst" in self.url:
+            with open('L3 Instances/JSON/L3 Instances.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l3LbRtdIf" in self.url:
+            with open('L3 Routed Loopback Interfaces/JSON/L3 Routed Loopback Interfaces.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l3RsEncPhysRtdConf" in self.url:
+            with open('L3 Physical Interface Source Relationships/JSON/L3 Physical Interface Source Relationships.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l3RtdIf" in self.url:
+            with open('L3 Routed Interfaces/JSON/L3 Routed Interfaces.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l3extInstP" in self.url:
+            with open('L3Out Profiles/JSON/L3Out Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l3extIp" in self.url:
+            with open('L3Out IP Addresses/JSON/L3Out IP Addresses.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l3extLIfP" in self.url:
+            with open('L3 Logical Interface Profiles/JSON/L3 Logical Interface Profiles.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -3324,6 +3422,34 @@ class ACEye():
 
         if "l3EncRtdIf" in self.url:
             with open('L3 Subinterfaces/YAML/L3 Subinterfaces.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l3Inst" in self.url:
+            with open('L3 Instances/YAML/L3 Instances.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l3LbRtdIf" in self.url:
+            with open('L3 Routed Loopback Interfaces/YAML/L3 Routed Loopback Interfaces.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l3RsEncPhysRtdConf" in self.url:
+            with open('L3 Physical Interface Source Relationships/YAML/L3 Physical Interface Source Relationships.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l3RtdIf" in self.url:
+            with open('L3 Routed Interfaces/YAML/L3 Routed Interfaces.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l3extInstP" in self.url:
+            with open('L3Out Profiles/YAML/L3Out Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l3extIp" in self.url:
+            with open('L3Out IP Addresses/YAML/L3Out IP Addresses.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l3extLIfP" in self.url:
+            with open('L3 Logical Interface Profiles/YAML/L3 Logical Interface Profiles.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -4050,6 +4176,34 @@ class ACEye():
 
         if "l3EncRtdIf" in self.url:
             with open('L3 Subinterfaces/CSV/L3 Subinterfaces.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l3Inst" in self.url:
+            with open('L3 Instances/CSV/L3 Instances.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l3LbRtdIf" in self.url:
+            with open('L3 Routed Loopback Interfaces/CSV/L3 Routed Loopback Interfaces.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l3RsEncPhysRtdConf" in self.url:
+            with open('L3 Physical Interface Source Relationships/CSV/L3 Physical Interface Source Relationships.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l3RtdIf" in self.url:
+            with open('L3 Routed Interfaces/CSV/L3 Routed Interfaces.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l3extInstP" in self.url:
+            with open('L3Out Profiles/CSV/L3Out Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l3extIp" in self.url:
+            with open('L3Out IP Addresses/CSV/L3Out IP Addresses.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l3extLIfP" in self.url:
+            with open('L3 Logical Interface Profiles/CSV/L3 Logical Interface Profiles.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -4779,6 +4933,34 @@ class ACEye():
             with open('L3 Subinterfaces/Markdown/L3 Subinterfaces.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "l3Inst" in self.url:
+            with open('L3 Instances/Markdown/L3 Instances.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "l3LbRtdIf" in self.url:
+            with open('L3 Routed Loopback Interfaces/Markdown/L3 Routed Loopback Interfaces.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "l3RsEncPhysRtdConf" in self.url:
+            with open('L3 Physical Interface Source Relationships/Markdown/L3 Physical Interface Source Relationships.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "l3RtdIf" in self.url:
+            with open('L3 Routed Interfaces/Markdown/L3 Routed Interfaces.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "l3extInstP" in self.url:
+            with open('L3Out Profiles/Markdown/L3Out Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "l3extIp" in self.url:
+            with open('L3Out IP Addresses/Markdown/L3Out IP Addresses.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "l3extLIfP" in self.url:
+            with open('L3 Logical Interface Profiles/Markdown/L3 Logical Interface Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5506,6 +5688,34 @@ class ACEye():
             with open('L3 Subinterfaces/HTML/L3 Subinterfaces.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "l3Inst" in self.url:
+            with open('L3 Instances/HTML/L3 Instances.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "l3LbRtdIf" in self.url:
+            with open('L3 Routed Loopback Interfaces/HTML/L3 Routed Loopback Interfaces.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "l3RsEncPhysRtdConf" in self.url:
+            with open('L3 Physical Interface Source Relationships/HTML/L3 Physical Interface Source Relationships.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "l3RtdIf" in self.url:
+            with open('L3 Routed Interfaces/HTML/L3 Routed Interfaces.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "l3extInstP" in self.url:
+            with open('L3Out Profiles/HTML/L3Out Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "l3extIp" in self.url:
+            with open('L3Out IP Addresses/HTML/L3Out IP Addresses.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "l3extLIfP" in self.url:
+            with open('L3 Logical Interface Profiles/HTML/L3 Logical Interface Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -6227,6 +6437,34 @@ class ACEye():
 
         if "l3EncRtdIf" in self.url:
             with open('L3 Subinterfaces/Mindmap/L3 Subinterfaces.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l3Inst" in self.url:
+            with open('L3 Instances/Mindmap/L3 Instances.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l3LbRtdIf" in self.url:
+            with open('L3 Routed Loopback Interfaces/Mindmap/L3 Routed Loopback Interfaces.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l3RsEncPhysRtdConf" in self.url:
+            with open('L3 Physical Interface Source Relationships/Mindmap/L3 Physical Interface Source Relationships.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l3RtdIf" in self.url:
+            with open('L3 Routed Interfaces/Mindmap/L3 Routed Interfaces.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l3extInstP" in self.url:
+            with open('L3Out Profiles/Mindmap/L3Out Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l3extIp" in self.url:
+            with open('L3Out IP Addresses/Mindmap/L3Out IP Addresses.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l3extLIfP" in self.url:
+            with open('L3 Logical Interface Profiles/Mindmap/L3 Logical Interface Profiles.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

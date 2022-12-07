@@ -9289,5 +9289,385 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l3Inst" in api %}
+<h1>L3 Instances</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>BGP RD</th>
+    <th>BGP RD Display</th>
+    <th>Child Action</th>
+    <th>Created</th>
+    <th>Context P Key</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>GSDB Context</th>
+    <th>ID</th>
+    <th>L3 VM Config Failed Bmp</th>
+    <th>L3 VM Config Failed Timestamp</th>
+    <th>L3 VM Config State</th>
+    <th>Last Chaged</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Old Oper State Quality</th>
+    <th>Oper State Quality</th>
+    <th>Oper State</th>
+    <th>OUI</th>
+    <th>Pending</th>
+    <th>Protocol Bmp</th>
+    <th>Resource ID</th>
+    <th>Scope</th>
+    <th>Status</th>
+    <th>v4 TIB ID</th>
+    <th>v4 TIB Name</th>
+    <th>v4 TIB Old Oper State Quality</th>
+    <th>v4 TIB Oper State Quality</th>
+    <th>v4 TIB Oper State</th>
+    <th>v4 TIB Pending</th>
+    <th>v4 TIB Valid</th>
+    <th>v6 TIB ID</th>
+    <th>v6 TIB Name</th>
+    <th>v6 TIB Old Oper State Quality</th>
+    <th>v6 TIB Oper State Quality</th>
+    <th>v6 TIB Oper State</th>
+    <th>v6 TIB Pending</th>
+    <th>v6 TIB Valid</th>
+    <th>VPN ID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for instance in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ instance.l3Inst.attributes.name }}</td>
+    <td>{{ instance.l3Inst.attributes.adminState }}</td>
+    <td>{{ instance.l3Inst.attributes.bgpRd }}</td>
+    <td>{{ instance.l3Inst.attributes.bgpRdDisp }}</td>
+    <td>{{ instance.l3Inst.attributes.childAction }}</td>
+    <td>{{ instance.l3Inst.attributes.createTs }}</td>
+    <td>{{ instance.l3Inst.attributes.ctxPKey }}</td>
+    <td>{{ instance.l3Inst.attributes.dn }}</td>
+    <td>{{ instance.l3Inst.attributes.encap }}</td>
+    <td>{{ instance.l3Inst.attributes.gsdbCtx }}</td>
+    <td>{{ instance.l3Inst.attributes.id }}</td>
+    <td>{{ instance.l3Inst.attributes.l3vmCfgFailedBmp }}</td>
+    <td>{{ instance.l3Inst.attributes.l3vmCfgFailedTs }}</td>
+    <td>{{ instance.l3Inst.attributes.l3vmCfgState }}</td>
+    <td>{{ instance.l3Inst.attributes.lastChgdTs }}</td>
+    <td>{{ instance.l3Inst.attributes.lcOwn }}</td>
+    <td>{{ instance.l3Inst.attributes.modTs }}</td>
+    <td>{{ instance.l3Inst.attributes.monPolDn }}</td>
+    <td>{{ instance.l3Inst.attributes.oldOperStQual }}</td>
+    <td>{{ instance.l3Inst.attributes.operStQual }}</td>
+    <td>{{ instance.l3Inst.attributes.operState }}</td>
+    <td>{{ instance.l3Inst.attributes.oui }}</td>
+    <td>{{ instance.l3Inst.attributes.pending }}</td>
+    <td>{{ instance.l3Inst.attributes.prtclBmp }}</td>
+    <td>{{ instance.l3Inst.attributes.resourceId }}</td>
+    <td>{{ instance.l3Inst.attributes.scope }}</td>
+    <td>{{ instance.l3Inst.attributes.status }}</td>
+    <td>{{ instance.l3Inst.attributes.v4TibId }}</td>
+    <td>{{ instance.l3Inst.attributes.v4TibName }}</td>
+    <td>{{ instance.l3Inst.attributes.v4TibOldOperStQual }}</td>
+    <td>{{ instance.l3Inst.attributes.v4TibOperStQual }}</td>
+    <td>{{ instance.l3Inst.attributes.v4TibOperState }}</td>
+    <td>{{ instance.l3Inst.attributes.v4TibPending }}</td>
+    <td>{{ instance.l3Inst.attributes.v4TibValid }}</td>
+    <td>{{ instance.l3Inst.attributes.v6TibId }}</td>
+    <td>{{ instance.l3Inst.attributes.v6TibName }}</td>
+    <td>{{ instance.l3Inst.attributes.v6TibOldOperStQual }}</td>
+    <td>{{ instance.l3Inst.attributes.v6TibOperStQual }}</td>
+    <td>{{ instance.l3Inst.attributes.v6TibOperState }}</td>
+    <td>{{ instance.l3Inst.attributes.v6TibPending }}</td>
+    <td>{{ instance.l3Inst.attributes.v6TibValid }}</td>
+    <td>{{ instance.l3Inst.attributes.vpnId }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l3LbRtdIf" in api %}
+<h1>L3 Routed Loopback Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Link Log</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>QOS Priority</th>
+    <th>Routed Out Def DN</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for loopback in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ loopback.l3LbRtdIf.attributes.name }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.adminSt }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.childAction }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.descr }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.dn }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.id }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.lcOwn }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.linkLog }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.modTs }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.monPolDn }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.qosPrio }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.rtdOutDefDn }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.status }}</td>
+    <td>{{ loopback.l3LbRtdIf.attributes.type }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l3RsEncPhysRtdConf" in api %}
+<h1>L3 Physical Interface Source Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Parent S Key</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tSKey</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.l3RsEncPhysRtdConf.attributes.dn }}</td>
+    <td>{{ interface.l3RsEncPhysRtdConf.attributes.childAction }}</td>
+    <td>{{ interface.l3RsEncPhysRtdConf.attributes.forceResolve }}</td>
+    <td>{{ interface.l3RsEncPhysRtdConf.attributes.lcOwn }}</td>
+    <td>{{ interface.l3RsEncPhysRtdConf.attributes.modTs }}</td>
+    <td>{{ interface.l3RsEncPhysRtdConf.attributes.parentSKey }}</td>
+    <td>{{ interface.l3RsEncPhysRtdConf.attributes.rType }}</td>
+    <td>{{ interface.l3RsEncPhysRtdConf.attributes.state }}</td>
+    <td>{{ interface.l3RsEncPhysRtdConf.attributes.stateQual }}</td>
+    <td>{{ interface.l3RsEncPhysRtdConf.attributes.status }}</td>
+    <td>{{ interface.l3RsEncPhysRtdConf.attributes.tCl }}</td>
+    <td>{{ interface.l3RsEncPhysRtdConf.attributes.tDn }}</td>
+    <td>{{ interface.l3RsEncPhysRtdConf.attributes.tSKey }}</td>
+    <td>{{ interface.l3RsEncPhysRtdConf.attributes.tType }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l3RtdIf" in api %}
+<h1>L3 Routed Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>QOS Priority</th>
+    <th>Routed Out Def DN</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.l3RtdIf.attributes.name }}</td>
+    <td>{{ interface.l3RtdIf.attributes.adminSt }}</td>
+    <td>{{ interface.l3RtdIf.attributes.childAction }}</td>
+    <td>{{ interface.l3RtdIf.attributes.descr }}</td>
+    <td>{{ interface.l3RtdIf.attributes.dn }}</td>
+    <td>{{ interface.l3RtdIf.attributes.id }}</td>
+    <td>{{ interface.l3RtdIf.attributes.lcOwn }}</td>
+    <td>{{ interface.l3RtdIf.attributes.modTs }}</td>
+    <td>{{ interface.l3RtdIf.attributes.monPolDn }}</td>
+    <td>{{ interface.l3RtdIf.attributes.qosPrio }}</td>
+    <td>{{ interface.l3RtdIf.attributes.rtdOutDefDn }}</td>
+    <td>{{ interface.l3RtdIf.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l3extInstP" in api %}
+<h1>L3Out Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Config Issues</th>
+    <th>Config State</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Exception Tag</th>
+    <th>Externally Managed By</th>
+    <th>Flood On Encapsulation</th>
+    <th>Is Shared Service Multisite EPG</th>
+    <th>Local Owner</th>
+    <th>Match Type</th>
+    <th>Multicast</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>PC Tag</th>
+    <th>Preferred Group Member</th>
+    <th>Priority</th>
+    <th>Scope</th>
+    <th>Status</th>
+    <th>Target DSCP</th>
+    <th>Trigger State</th>
+    <th>TX ID</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.l3extInstP.attributes.name }}</td>
+    <td>{{ profile.l3extInstP.attributes.nameAlias }}</td>
+    <td>{{ profile.l3extInstP.attributes.annotation }}</td>
+    <td>{{ profile.l3extInstP.attributes.childAction }}</td>
+    <td>{{ profile.l3extInstP.attributes.configIssues }}</td>
+    <td>{{ profile.l3extInstP.attributes.configSt }}</td>
+    <td>{{ profile.l3extInstP.attributes.descr }}</td>
+    <td>{{ profile.l3extInstP.attributes.dn }}</td>
+    <td>{{ profile.l3extInstP.attributes.exceptionTag }}</td>
+    <td>{{ profile.l3extInstP.attributes.extMngdBy }}</td>
+    <td>{{ profile.l3extInstP.attributes.floodOnEncap }}</td>
+    <td>{{ profile.l3extInstP.attributes.isSharedSrvMsiteEPg }}</td>
+    <td>{{ profile.l3extInstP.attributes.lcOwn }}</td>
+    <td>{{ profile.l3extInstP.attributes.matchT }}</td>
+    <td>{{ profile.l3extInstP.attributes.mcast }}</td>
+    <td>{{ profile.l3extInstP.attributes.modTs }}</td>
+    <td>{{ profile.l3extInstP.attributes.monPolDn }}</td>
+    <td>{{ profile.l3extInstP.attributes.pcTag }}</td>
+    <td>{{ profile.l3extInstP.attributes.prefGrMemb }}</td>
+    <td>{{ profile.l3extInstP.attributes.prio }}</td>
+    <td>{{ profile.l3extInstP.attributes.scope }}</td>
+    <td>{{ profile.l3extInstP.attributes.status }}</td>
+    <td>{{ profile.l3extInstP.attributes.targetDscp }}</td>
+    <td>{{ profile.l3extInstP.attributes.triggerSt }}</td>
+    <td>{{ profile.l3extInstP.attributes.txId }}</td>
+    <td>{{ profile.l3extInstP.attributes.uid }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l3extIp" in api %}
+<h1>L3Out IP Addresses</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Address</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>IPv6 DAD</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for ip in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ ip.l3extIp.attributes.name }}</td>
+    <td>{{ ip.l3extIp.attributes.nameAlias }}</td>
+    <td>{{ ip.l3extIp.attributes.addr }}</td>
+    <td>{{ ip.l3extIp.attributes.annotation }}</td>
+    <td>{{ ip.l3extIp.attributes.childAction }}</td>
+    <td>{{ ip.l3extIp.attributes.descr }}</td>
+    <td>{{ ip.l3extIp.attributes.dn }}</td>
+    <td>{{ ip.l3extIp.attributes.extMngdBy }}</td>
+    <td>{{ ip.l3extIp.attributes.ipv6Dad }}</td>
+    <td>{{ ip.l3extIp.attributes.lcOwn }}</td>
+    <td>{{ ip.l3extIp.attributes.modTs }}</td>
+    <td>{{ ip.l3extIp.attributes.monPolDn }}</td>
+    <td>{{ ip.l3extIp.attributes.status }}</td>
+    <td>{{ ip.l3extIp.attributes.uid }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l3extLIfP" in api %}
+<h1>L3 Logical Interface Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Address</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Priority</th>
+    <th>Status</th>
+    <th>Tag</th>
+    <th>Target DSCP</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.l3extLIfP.attributes.name }}</td>
+    <td>{{ profile.l3extLIfP.attributes.nameAlias }}</td>
+    <td>{{ profile.l3extLIfP.attributes.addr }}</td>
+    <td>{{ profile.l3extLIfP.attributes.annotation }}</td>
+    <td>{{ profile.l3extLIfP.attributes.childAction }}</td>
+    <td>{{ profile.l3extLIfP.attributes.descr }}</td>
+    <td>{{ profile.l3extLIfP.attributes.dn }}</td>
+    <td>{{ profile.l3extLIfP.attributes.encap }}</td>
+    <td>{{ profile.l3extLIfP.attributes.extMngdBy }}</td>
+    <td>{{ profile.l3extLIfP.attributes.lcOwn }}</td>
+    <td>{{ profile.l3extLIfP.attributes.modTs }}</td>
+    <td>{{ profile.l3extLIfP.attributes.monPolDn }}</td>
+    <td>{{ profile.l3extLIfP.attributes.ownerKey }}</td>
+    <td>{{ profile.l3extLIfP.attributes.ownerTag }}</td>
+    <td>{{ profile.l3extLIfP.attributes.prio }}</td>
+    <td>{{ profile.l3extLIfP.attributes.status }}</td>
+    <td>{{ profile.l3extLIfP.attributes.tag }}</td>
+    <td>{{ profile.l3extLIfP.attributes.targetDscp }}</td>
+    <td>{{ profile.l3extLIfP.attributes.uid }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

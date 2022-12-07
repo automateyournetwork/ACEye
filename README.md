@@ -304,9 +304,23 @@ L3 Contexts
 
 L3 Domains
 
+L3 Instances
+
 L3 Interfaces
 
+L3 Logical Interface Profiles
+
+L3 Physical Interface Source Relationships
+
+L3 Routed Interfaces
+
+L3 Routed Loopback Interfaces
+
 L3 Subinterfaces
+
+L3Out IP Addresses
+
+L3Out Profiles
 
 L3Outs
 
