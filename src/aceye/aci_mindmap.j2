@@ -4640,4 +4640,24 @@
 ### Target DSCP: {{ profile.l3extLNodeP.attributes.targetDscp }}
 ### UID: {{ profile.l3extLNodeP.attributes.uid }}
 {%-          endfor %}
+{%- elif "l3extMember" in api %}
+# L3Out Members
+{%-     for member in data_to_template['imdata'] %}
+## Name: {{ member.l3extMember.attributes.name }}
+### Name Alias: {{ member.l3extMember.attributes.nameAlias }}
+### Address: {{ member.l3extMember.attributes.addr }}
+### Annotation: {{ member.l3extMember.attributes.annotation }}
+### Child Action: {{ member.l3extMember.attributes.childAction }}
+### Description: {{ member.l3extMember.attributes.descr }}
+### DN: {{ member.l3extMember.attributes.dn }}
+### Externally Managed By: {{ member.l3extMember.attributes.extMngdBy }}
+### IPv6 DAD: {{ member.l3extMember.attributes.ipv6Dad }}
+### Local Owner: {{ member.l3extMember.attributes.lcOwn }}
+### Logical Link Address: {{ member.l3extMember.attributes.llAddr }}
+### Last Modified: {{ member.l3extMember.attributes.modTs }}
+### Monitoring Policy DN: {{ member.l3extMember.attributes.monPolDn }}
+### Side: {{ member.l3extMember.attributes.side }}
+### Status: {{ member.l3extMember.attributes.status }}
+### UID: {{ member.l3extMember.attributes.uid }}
+{%-          endfor %}
 {%- endif %}
