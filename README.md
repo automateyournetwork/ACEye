@@ -310,6 +310,8 @@ L3 Interfaces
 
 L3 Logical Interface Profiles
 
+L3 Logical Node Profiles
+
 L3 Physical Interface Source Relationships
 
 L3 Routed Interfaces
