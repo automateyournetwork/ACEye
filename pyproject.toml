@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aceye"
-version = "1.3.35"
+version = "1.3.36"
 description = "Business ready documents from Cisco ACI"
 authors = ["John Capobianco <ptcapo@gmail.com>"]
 packages = [{ include = "aceye", from = "src"}]

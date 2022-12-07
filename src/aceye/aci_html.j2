@@ -9985,5 +9985,49 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l3extSubnet" in api %}
+<h1>L3 Subnets</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Aggregate</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>IP</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Scope</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for subnet in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ subnet.l3extSubnet.attributes.name }}</td>
+    <td>{{ subnet.l3extSubnet.attributes.nameAlias }}</td>
+    <td>{{ subnet.l3extSubnet.attributes.aggregate }}</td>
+    <td>{{ subnet.l3extSubnet.attributes.annotation }}</td>
+    <td>{{ subnet.l3extSubnet.attributes.childAction }}</td>
+    <td>{{ subnet.l3extSubnet.attributes.descr }}</td>
+    <td>{{ subnet.l3extSubnet.attributes.dn }}</td>
+    <td>{{ subnet.l3extSubnet.attributes.extMngdBy }}</td>
+    <td>{{ subnet.l3extSubnet.attributes.ip }}</td>
+    <td>{{ subnet.l3extSubnet.attributes.lcOwn }}</td>
+    <td>{{ subnet.l3extSubnet.attributes.modTs }}</td>
+    <td>{{ subnet.l3extSubnet.attributes.monPolDn }}</td>
+    <td>{{ subnet.l3extSubnet.attributes.scope }}</td>
+    <td>{{ subnet.l3extSubnet.attributes.status }}</td>
+    <td>{{ subnet.l3extSubnet.attributes.uid }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
