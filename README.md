@@ -306,6 +306,8 @@ L3 Contexts Source Relationships
 
 L3 Domains
 
+L3 Domains Source Relationships
+
 L3 Instances
 
 L3 Interfaces
@@ -325,6 +327,8 @@ L3 Subinterfaces
 L3Out IP Addresses
 
 L3Out Members
+
+L3Out Node Source Relationships
 
 L3Out Profiles
 

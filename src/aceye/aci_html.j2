@@ -9815,5 +9815,103 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l3extRsL3DomAtt" in api %}
+<h1>L3 Domain Source Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>External Managed By</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDn</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for domain in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ domain.l3extRsL3DomAtt.attributes.uid }}</td>
+    <td>{{ domain.l3extRsL3DomAtt.attributes.annotation }}</td>
+    <td>{{ domain.l3extRsL3DomAtt.attributes.childAction }}</td>
+    <td>{{ domain.l3extRsL3DomAtt.attributes.dn }}</td>
+    <td>{{ domain.l3extRsL3DomAtt.attributes.extMngdBy }}</td>
+    <td>{{ domain.l3extRsL3DomAtt.attributes.forceResolve }}</td>
+    <td>{{ domain.l3extRsL3DomAtt.attributes.lcOwn }}</td>
+    <td>{{ domain.l3extRsL3DomAtt.attributes.modTs }}</td>
+    <td>{{ domain.l3extRsL3DomAtt.attributes.monPolDn }}</td>
+    <td>{{ domain.l3extRsL3DomAtt.attributes.rType }}</td>
+    <td>{{ domain.l3extRsL3DomAtt.attributes.state }}</td>
+    <td>{{ domain.l3extRsL3DomAtt.attributes.stateQual }}</td>
+    <td>{{ domain.l3extRsL3DomAtt.attributes.status }}</td>
+    <td>{{ domain.l3extRsL3DomAtt.attributes.tCl }}</td>
+    <td>{{ domain.l3extRsL3DomAtt.attributes.tDn }}</td>
+    <td>{{ domain.l3extRsL3DomAtt.attributes.tType }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "l3extRsNodeL3OutAtt" in api %}
+<h1>L3Out Node Source Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Config Issues</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>Router ID</th>
+    <th>Router ID Loopback</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDn</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for node in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.uid }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.annotation }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.childAction }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.configIssues }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.dn }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.extMngdBy }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.forceResolve }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.lcOwn }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.modTs }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.monPolDn }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.rType }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.rtrId }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.rtrIdLoopBack }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.state }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.stateQual }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.status }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.tCl }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.tDn }}</td>
+    <td>{{ node.l3extRsNodeL3OutAtt.attributes.tType }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
