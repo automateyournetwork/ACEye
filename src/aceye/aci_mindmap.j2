@@ -4730,4 +4730,39 @@
 #### DN: {{ node.l3extRsNodeL3OutAtt.attributes.tDn }}
 #### Type: {{ node.l3extRsNodeL3OutAtt.attributes.tType }}
 {%-          endfor %}
+{%- elif "l3extRsPathL3OutAtt" in api %}
+# L3Out Path Source Relationships
+{%-     for path in data_to_template['imdata'] %}
+## UID: {{ path.l3extRsPathL3OutAtt.attributes.uid }}
+### Address: {{ path.l3extRsPathL3OutAtt.attributes.addr }}
+### Annotation: {{ path.l3extRsPathL3OutAtt.attributes.annotation }}
+### Auto State: {{ path.l3extRsPathL3OutAtt.attributes.autostate }}
+### Child Action: {{ path.l3extRsPathL3OutAtt.attributes.childAction }}
+### Config Issues: {{ path.l3extRsPathL3OutAtt.attributes.configIssues }}
+### Description: {{ path.l3extRsPathL3OutAtt.attributes.descr }}
+### DN: {{ path.l3extRsPathL3OutAtt.attributes.dn }}
+### Encapsulation
+#### Encapsulation {{ path.l3extRsPathL3OutAtt.attributes.encap }}
+#### Scope: {{ path.l3extRsPathL3OutAtt.attributes.encapScope }}
+### Externally Managed By: {{ path.l3extRsPathL3OutAtt.attributes.extMngdBy }}
+### Force Resolve: {{ path.l3extRsPathL3OutAtt.attributes.forceResolve }}
+### Interface Instance Type: {{ path.l3extRsPathL3OutAtt.attributes.ifInstT }}
+### IPv6 DAD: {{ path.l3extRsPathL3OutAtt.attributes.ipv6Dad }}
+### Local Owner: {{ path.l3extRsPathL3OutAtt.attributes.lcOwn }}
+### Link Local Address: {{ path.l3extRsPathL3OutAtt.attributes.llAddr }}
+### MAC: {{ path.l3extRsPathL3OutAtt.attributes.mac }}
+### Last Modified: {{ path.l3extRsPathL3OutAtt.attributes.modTs }}
+### Mode: {{ path.l3extRsPathL3OutAtt.attributes.mode }}
+### Monitoring Policy DN: {{ path.l3extRsPathL3OutAtt.attributes.monPolDn }}
+### MTU: {{ path.l3extRsPathL3OutAtt.attributes.mtu }}
+### rType: {{ path.l3extRsPathL3OutAtt.attributes.rType }}
+### State: {{ path.l3extRsPathL3OutAtt.attributes.state }}
+### State Quality: {{ path.l3extRsPathL3OutAtt.attributes.stateQual }}
+### Status: {{ path.l3extRsPathL3OutAtt.attributes.status }}
+### t
+#### Cl: {{ path.l3extRsPathL3OutAtt.attributes.tCl }}
+#### DN: {{ path.l3extRsPathL3OutAtt.attributes.tDn }}
+#### Type: {{ path.l3extRsPathL3OutAtt.attributes.tType }}
+### Target DSCP: {{ path.l3extRsPathL3OutAtt.attributes.targetDscp }}
+{%-          endfor %}
 {%- endif %}

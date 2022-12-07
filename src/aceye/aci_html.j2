@@ -9913,5 +9913,77 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l3extRsPathL3OutAtt" in api %}
+<h1>L3Out Path Source Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Address</th>
+    <th>Annotation</th>
+    <th>Auto State</th>
+    <th>Child Action</th>
+    <th>Config Issues</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>Encapsulation Scope</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Interface Instance Type</th>
+    <th>IPv6 DAD</th>
+    <th>Local Owner</th>
+    <th>Link Local Address</th>
+    <th>MAC</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>MTU</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tType</th>
+    <th>Target DSCP</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for path in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.uid }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.addr }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.annotation }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.autostate }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.childAction }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.configIssues }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.descr }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.dn }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.encap }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.encapScope }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.extMngdBy }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.forceResolve }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.ifInstT }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.ipv6Dad }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.lcOwn }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.llAddr }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.mac }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.modTs }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.mode }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.monPolDn }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.mtu }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.rType }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.state }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.stateQual }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.status }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.tCl }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.tDn }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.tType }}</td>
+    <td>{{ path.l3extRsPathL3OutAtt.attributes.targetDscp }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
