@@ -4684,4 +4684,25 @@
 #### Type: {{ context.l3extRsEctx.attributes.tType }}
 ### tn Fv Context Name: {{ context.l3extRsEctx.attributes.tnFvCtxName }}
 {%-          endfor %}
+{%- elif "l3extRsL3DomAtt" in api %}
+# L3 Domain Source Relationships
+{%-     for domain in data_to_template['imdata'] %}
+## UID: {{ domain.l3extRsL3DomAtt.attributes.uid }}
+### Annotation: {{ domain.l3extRsL3DomAtt.attributes.annotation }}
+### Child Action: {{ domain.l3extRsL3DomAtt.attributes.childAction }}
+### DN: {{ domain.l3extRsL3DomAtt.attributes.dn }}
+### Externally Managed By: {{ domain.l3extRsL3DomAtt.attributes.extMngdBy }}
+### Force Resolve: {{ domain.l3extRsL3DomAtt.attributes.forceResolve }}
+### Local Owner: {{ domain.l3extRsL3DomAtt.attributes.lcOwn }}
+### Last Modified: {{ domain.l3extRsL3DomAtt.attributes.modTs }}
+### Monitoring Policy DN: {{ domain.l3extRsL3DomAtt.attributes.monPolDn }}
+### rType: {{ domain.l3extRsL3DomAtt.attributes.rType }}
+### State: {{ domain.l3extRsL3DomAtt.attributes.state }}
+### State Quality: {{ domain.l3extRsL3DomAtt.attributes.stateQual }}
+### Status: {{ domain.l3extRsL3DomAtt.attributes.status }}
+### t
+#### Cl: {{ domain.l3extRsL3DomAtt.attributes.tCl }}
+#### DN: {{ domain.l3extRsL3DomAtt.attributes.tDn }}
+#### Type: {{ domain.l3extRsL3DomAtt.attributes.tType }}
+{%-          endfor %}
 {%- endif %}
