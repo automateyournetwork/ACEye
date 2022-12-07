@@ -51,6 +51,7 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.leaf_switch_profiles(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        self.cookie = self.get_token()        
         parsed_json = json.dumps(self.spine_switch_profiles(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.vlan_pools(), indent=4, sort_keys=True)
@@ -85,6 +86,7 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.fabric_pods(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        self.cookie = self.get_token()        
         parsed_json = json.dumps(self.fabric_paths(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.prefix_list(), indent=4, sort_keys=True)
@@ -115,6 +117,7 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.access_control_entities(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        self.cookie = self.get_token()        
         parsed_json = json.dumps(self.access_control_instances(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.access_control_rules(), indent=4, sort_keys=True)
@@ -145,6 +148,7 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.bgp_domains(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        self.cookie = self.get_token()        
         parsed_json = json.dumps(self.bgp_domain_af(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.bgp_entities(), indent=4, sort_keys=True)
@@ -175,6 +179,7 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.cluster_rs_member_interfaces(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        self.cookie = self.get_token()        
         parsed_json = json.dumps(self.compute_rs_domain_policies(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.equipment_board_slots(), indent=4, sort_keys=True)
@@ -205,6 +210,7 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.equipment_leaf_ports(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        self.cookie = self.get_token()        
         parsed_json = json.dumps(self.equipment_port_locator_leds(), indent=4, sort_keys=True)
         self.all_files(parsed_json)        
         parsed_json = json.dumps(self.equipment_power_supplies(), indent=4, sort_keys=True)
@@ -235,6 +241,7 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.fabric_extended_path_endpoint_containers(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        self.cookie = self.get_token()        
         parsed_json = json.dumps(self.fabric_instances(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.fabric_links(), indent=4, sort_keys=True)
@@ -265,6 +272,7 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.bridge_domain_to_outside(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        self.cookie = self.get_token()        
         parsed_json = json.dumps(self.epg_bridge_domain_links(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.endpoints_to_paths(), indent=4, sort_keys=True)
@@ -295,6 +303,7 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.access_port_profiles(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        self.cookie = self.get_token()        
         parsed_json = json.dumps(self.controllers(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.fex_policies(), indent=4, sort_keys=True)
@@ -323,6 +332,7 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.static_route_next_hop_policies(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        self.cookie = self.get_token()        
         parsed_json = json.dumps(self.route_policies(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.ipv4_addresses(), indent=4, sort_keys=True)
@@ -353,6 +363,7 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.isis_interfaces_level(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        self.cookie = self.get_token()        
         parsed_json = json.dumps(self.isis_instances(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.isis_nexthop(), indent=4, sort_keys=True)
@@ -383,6 +394,7 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.l3_routed_loopback_interfaces(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        self.cookie = self.get_token()        
         parsed_json = json.dumps(self.l3_rs_enc_physical_rtd_conf(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.l3_routed_interfaces(), indent=4, sort_keys=True)
@@ -394,6 +406,10 @@ class ACEye():
         parsed_json = json.dumps(self.l3_logical_interface_profiles(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.l3_logical_node_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l3_logical_node_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l3_out_members(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
 
     def make_directories(self):
@@ -555,6 +571,7 @@ class ACEye():
                     'L3 Routed Loopback Interfaces',
                     'L3 Subinterfaces',
                     'L3Out IP Addresses',
+                    'L3Out Members',
                     'L3Out Profiles',
                     'L3Outs',
                     'Leaf Interface Profiles',
@@ -1967,6 +1984,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def l3_out_members(self):
+        self.url = f"{ self.aci }/api/node/class/l3extMember.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L3 Out Members code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2714,6 +2738,10 @@ class ACEye():
 
         if "l3extLNodeP" in self.url:
             with open('L3 Logical Node Profiles/JSON/L3 Logical Node Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l3extMember" in self.url:
+            with open('L3Out Members/JSON/L3Out Members.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -3468,6 +3496,10 @@ class ACEye():
 
         if "l3extLNodeP" in self.url:
             with open('L3 Logical Node Profiles/YAML/L3 Logical Node Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l3extMember" in self.url:
+            with open('L3Out Members/YAML/L3Out Members.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -4226,6 +4258,10 @@ class ACEye():
 
         if "l3extLNodeP" in self.url:
             with open('L3 Logical Node Profiles/CSV/L3 Logical Node Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l3extMember" in self.url:
+            with open('L3Out Members/CSV/L3Out Members.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -4987,6 +5023,10 @@ class ACEye():
             with open('L3 Logical Node Profiles/Markdown/L3 Logical Node Profiles.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "l3extMember" in self.url:
+            with open('L3Out Members/Markdown/L3Out Members.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5746,6 +5786,10 @@ class ACEye():
             with open('L3 Logical Node Profiles/HTML/L3 Logical Node Profiles.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "l3extMember" in self.url:
+            with open('L3Out Members/HTML/L3Out Members.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -6499,6 +6543,10 @@ class ACEye():
 
         if "l3extLNodeP" in self.url:
             with open('L3 Logical Node Profiles/Mindmap/L3 Logical Node Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l3extMember" in self.url:
+            with open('L3Out Members/Mindmap/L3Out Members.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

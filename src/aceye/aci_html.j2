@@ -9717,5 +9717,51 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l3extMember" in api %}
+<h1>L3Out Members</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Address</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>IPv6 DAD</th>
+    <th>Local Owner</th>
+    <th>Logical Link Address</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Side</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for member in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ member.l3extMember.attributes.name }}</td>
+    <td>{{ member.l3extMember.attributes.nameAlias }}</td>
+    <td>{{ member.l3extMember.attributes.addr }}</td>
+    <td>{{ member.l3extMember.attributes.annotation }}</td>
+    <td>{{ member.l3extMember.attributes.childAction }}</td>
+    <td>{{ member.l3extMember.attributes.descr }}</td>
+    <td>{{ member.l3extMember.attributes.dn }}</td>
+    <td>{{ member.l3extMember.attributes.extMngdBy }}</td>
+    <td>{{ member.l3extMember.attributes.ipv6Dad }}</td>
+    <td>{{ member.l3extMember.attributes.lcOwn }}</td>
+    <td>{{ member.l3extMember.attributes.llAddr }}</td>
+    <td>{{ member.l3extMember.attributes.modTs }}</td>
+    <td>{{ member.l3extMember.attributes.monPolDn }}</td>
+    <td>{{ member.l3extMember.attributes.side }}</td>
+    <td>{{ member.l3extMember.attributes.status }}</td>
+    <td>{{ member.l3extMember.attributes.uid }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

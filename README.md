@@ -322,6 +322,8 @@ L3 Subinterfaces
 
 L3Out IP Addresses
 
+L3Out Members
+
 L3Out Profiles
 
 L3Outs
