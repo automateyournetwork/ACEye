@@ -4705,4 +4705,29 @@
 #### DN: {{ domain.l3extRsL3DomAtt.attributes.tDn }}
 #### Type: {{ domain.l3extRsL3DomAtt.attributes.tType }}
 {%-          endfor %}
+{%- elif "l3extRsNodeL3OutAtt" in api %}
+# L3Out Node Source Relationships
+{%-     for node in data_to_template['imdata'] %}
+## UID: {{ node.l3extRsNodeL3OutAtt.attributes.uid }}
+### Annotation: {{ node.l3extRsNodeL3OutAtt.attributes.annotation }}
+### Child Action: {{ node.l3extRsNodeL3OutAtt.attributes.childAction }}
+### Config Issues: {{ node.l3extRsNodeL3OutAtt.attributes.configIssues }}
+### DN: {{ node.l3extRsNodeL3OutAtt.attributes.dn }}
+### Externally Managed By: {{ node.l3extRsNodeL3OutAtt.attributes.extMngdBy }}
+### Force Resolve: {{ node.l3extRsNodeL3OutAtt.attributes.forceResolve }}
+### Local Owner: {{ node.l3extRsNodeL3OutAtt.attributes.lcOwn }}
+### Last Modified: {{ node.l3extRsNodeL3OutAtt.attributes.modTs }}
+### Monitoring Policy DN: {{ node.l3extRsNodeL3OutAtt.attributes.monPolDn }}
+### rType: {{ node.l3extRsNodeL3OutAtt.attributes.rType }}
+### Router
+#### ID: {{ node.l3extRsNodeL3OutAtt.attributes.rtrId }}
+#### ID Loopback: {{ node.l3extRsNodeL3OutAtt.attributes.rtrIdLoopBack }}
+### State: {{ node.l3extRsNodeL3OutAtt.attributes.state }}
+### State Quality: {{ node.l3extRsNodeL3OutAtt.attributes.stateQual }}
+### Status: {{ node.l3extRsNodeL3OutAtt.attributes.status }}
+### t
+#### Cl: {{ node.l3extRsNodeL3OutAtt.attributes.tCl }}
+#### DN: {{ node.l3extRsNodeL3OutAtt.attributes.tDn }}
+#### Type: {{ node.l3extRsNodeL3OutAtt.attributes.tType }}
+{%-          endfor %}
 {%- endif %}
