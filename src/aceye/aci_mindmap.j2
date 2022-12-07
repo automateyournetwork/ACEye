@@ -4765,4 +4765,23 @@
 #### Type: {{ path.l3extRsPathL3OutAtt.attributes.tType }}
 ### Target DSCP: {{ path.l3extRsPathL3OutAtt.attributes.targetDscp }}
 {%-          endfor %}
+{%- elif "l3extSubnet" in api %}
+# L3 Subnets
+{%-     for subnet in data_to_template['imdata'] %}
+## Name: {{ subnet.l3extSubnet.attributes.name }}
+### Name Alias: {{ subnet.l3extSubnet.attributes.nameAlias }}
+### Aggregate: {{ subnet.l3extSubnet.attributes.aggregate }}
+### Annotation: {{ subnet.l3extSubnet.attributes.annotation }}
+### Child Action: {{ subnet.l3extSubnet.attributes.childAction }}
+### Description: {{ subnet.l3extSubnet.attributes.descr }}
+### DN: {{ subnet.l3extSubnet.attributes.dn }}
+### Externally Managed By: {{ subnet.l3extSubnet.attributes.extMngdBy }}
+### IP: {{ subnet.l3extSubnet.attributes.ip }}
+### Local Owner: {{ subnet.l3extSubnet.attributes.lcOwn }}
+### Last Modified: {{ subnet.l3extSubnet.attributes.modTs }}
+### Monitoring Policy DN: {{ subnet.l3extSubnet.attributes.monPolDn }}
+### Scope: {{ subnet.l3extSubnet.attributes.scope }}
+### Status: {{ subnet.l3extSubnet.attributes.status }}
+### UID: {{ subnet.l3extSubnet.attributes.uid }}
+{%-          endfor %}
 {%- endif %}
