@@ -9763,5 +9763,57 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l3extRsEctx" in api %}
+<h1>L3 Context Source Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>tnFv Context Name</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for context in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ context.l3extRsEctx.attributes.uid }}</td>
+    <td>{{ context.l3extRsEctx.attributes.annotation }}</td>
+    <td>{{ context.l3extRsEctx.attributes.childAction }}</td>
+    <td>{{ context.l3extRsEctx.attributes.dn }}</td>
+    <td>{{ context.l3extRsEctx.attributes.extMngdBy }}</td>
+    <td>{{ context.l3extRsEctx.attributes.forceResolve }}</td>
+    <td>{{ context.l3extRsEctx.attributes.lcOwn }}</td>
+    <td>{{ context.l3extRsEctx.attributes.modTs }}</td>
+    <td>{{ context.l3extRsEctx.attributes.monPolDn }}</td>
+    <td>{{ context.l3extRsEctx.attributes.rType }}</td>
+    <td>{{ context.l3extRsEctx.attributes.state }}</td>
+    <td>{{ context.l3extRsEctx.attributes.stateQual }}</td>
+    <td>{{ context.l3extRsEctx.attributes.status }}</td>
+    <td>{{ context.l3extRsEctx.attributes.tCl }}</td>
+    <td>{{ context.l3extRsEctx.attributes.tContextDn }}</td>
+    <td>{{ context.l3extRsEctx.attributes.tDn }}</td>
+    <td>{{ context.l3extRsEctx.attributes.tRn }}</td>
+    <td>{{ context.l3extRsEctx.attributes.tType }}</td>
+    <td>{{ context.l3extRsEctx.attributes.tnFvCtxName }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

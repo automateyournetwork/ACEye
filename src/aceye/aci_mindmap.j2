@@ -4660,4 +4660,28 @@
 ### Status: {{ member.l3extMember.attributes.status }}
 ### UID: {{ member.l3extMember.attributes.uid }}
 {%-          endfor %}
+{%- elif "l3extRsEctx" in api %}
+# L3 Context Source Relationships
+{%-     for context in data_to_template['imdata'] %}
+## UID: {{ context.l3extRsEctx.attributes.uid }}
+### Annotation: {{ context.l3extRsEctx.attributes.annotation }}
+### Child Action: {{ context.l3extRsEctx.attributes.childAction }}
+### DN: {{ context.l3extRsEctx.attributes.dn }}
+### Externally Managed By: {{ context.l3extRsEctx.attributes.extMngdBy }}
+### Force Resolve: {{ context.l3extRsEctx.attributes.forceResolve }}
+### Local Owner: {{ context.l3extRsEctx.attributes.lcOwn }}
+### Last Modified: {{ context.l3extRsEctx.attributes.modTs }}
+### Monitoring Policy DN: {{ context.l3extRsEctx.attributes.monPolDn }}
+### rType: {{ context.l3extRsEctx.attributes.rType }}
+### State: {{ context.l3extRsEctx.attributes.state }}
+### State Quality: {{ context.l3extRsEctx.attributes.stateQual }}
+### Status: {{ context.l3extRsEctx.attributes.status }}
+### t
+#### Cl: {{ context.l3extRsEctx.attributes.tCl }}
+#### Context DN: {{ context.l3extRsEctx.attributes.tContextDn }}
+#### DN: {{ context.l3extRsEctx.attributes.tDn }}
+#### RN: {{ context.l3extRsEctx.attributes.tRn }}
+#### Type: {{ context.l3extRsEctx.attributes.tType }}
+### tn Fv Context Name: {{ context.l3extRsEctx.attributes.tnFvCtxName }}
+{%-          endfor %}
 {%- endif %}
