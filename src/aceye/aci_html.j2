@@ -9617,5 +9617,57 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l3extLIfP" in api %}
+<h1>L3 Logical Interface Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Address</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Priority</th>
+    <th>Status</th>
+    <th>Tag</th>
+    <th>Target DSCP</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.l3extLIfP.attributes.name }}</td>
+    <td>{{ profile.l3extLIfP.attributes.nameAlias }}</td>
+    <td>{{ profile.l3extLIfP.attributes.addr }}</td>
+    <td>{{ profile.l3extLIfP.attributes.annotation }}</td>
+    <td>{{ profile.l3extLIfP.attributes.childAction }}</td>
+    <td>{{ profile.l3extLIfP.attributes.descr }}</td>
+    <td>{{ profile.l3extLIfP.attributes.dn }}</td>
+    <td>{{ profile.l3extLIfP.attributes.encap }}</td>
+    <td>{{ profile.l3extLIfP.attributes.extMngdBy }}</td>
+    <td>{{ profile.l3extLIfP.attributes.lcOwn }}</td>
+    <td>{{ profile.l3extLIfP.attributes.modTs }}</td>
+    <td>{{ profile.l3extLIfP.attributes.monPolDn }}</td>
+    <td>{{ profile.l3extLIfP.attributes.ownerKey }}</td>
+    <td>{{ profile.l3extLIfP.attributes.ownerTag }}</td>
+    <td>{{ profile.l3extLIfP.attributes.prio }}</td>
+    <td>{{ profile.l3extLIfP.attributes.status }}</td>
+    <td>{{ profile.l3extLIfP.attributes.tag }}</td>
+    <td>{{ profile.l3extLIfP.attributes.targetDscp }}</td>
+    <td>{{ profile.l3extLIfP.attributes.uid }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

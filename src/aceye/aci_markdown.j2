@@ -1181,4 +1181,10 @@
 {%-     for ip in data_to_template['imdata'] %}
 | {{ ip.l3extIp.attributes.name }} | {{ ip.l3extIp.attributes.nameAlias }} | {{ ip.l3extIp.attributes.addr }} | {{ ip.l3extIp.attributes.annotation }} | {{ ip.l3extIp.attributes.childAction }} | {{ ip.l3extIp.attributes.descr }} | {{ ip.l3extIp.attributes.dn }} | {{ ip.l3extIp.attributes.extMngdBy }} | {{ ip.l3extIp.attributes.ipv6Dad }} | {{ ip.l3extIp.attributes.lcOwn }} | {{ ip.l3extIp.attributes.modTs }} | {{ ip.l3extIp.attributes.monPolDn }} | {{ ip.l3extIp.attributes.status }} | {{ ip.l3extIp.attributes.uid }} |
 {%-     endfor %}
+{%- elif "l3extLIfP" in api %}# L3 Logical Interface Profiles
+| Name | Name Alias | Address | Annotation | Child Action | Description | DN | Encapsulation | Externally Managed By | Local Owner | Last Modified | Monitoring Policy DN | Owner Key | Owner Tag | Priority | Status | Tag | Target DSCP | UID |
+| ---- | ---------- | ------- | ---------- | ------------ | ----------- | -- | ------------- | --------------------- | ----------- | ------------- | -------------------- | --------- | --------- | -------- | ------ | --- | ----------- | --- |
+{%-     for profile in data_to_template['imdata'] %}
+| {{ profile.l3extLIfP.attributes.name }} | {{ profile.l3extLIfP.attributes.nameAlias }} | {{ profile.l3extLIfP.attributes.addr }} | {{ profile.l3extLIfP.attributes.annotation }} | {{ profile.l3extLIfP.attributes.childAction }} | {{ profile.l3extLIfP.attributes.descr }} | {{ profile.l3extLIfP.attributes.dn }} | {{ profile.l3extLIfP.attributes.encap }} | {{ profile.l3extLIfP.attributes.extMngdBy }} | {{ profile.l3extLIfP.attributes.lcOwn }} | {{ profile.l3extLIfP.attributes.modTs }} | {{ profile.l3extLIfP.attributes.monPolDn }} | {{ profile.l3extLIfP.attributes.ownerKey }} | {{ profile.l3extLIfP.attributes.ownerTag }} | {{ profile.l3extLIfP.attributes.prio }} | {{ profile.l3extLIfP.attributes.status }} | {{ profile.l3extLIfP.attributes.tag }} | {{ profile.l3extLIfP.attributes.targetDscp }} | {{ profile.l3extLIfP.attributes.uid }} |
+{%-     endfor %}
 {%- endif %}
