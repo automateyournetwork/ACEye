@@ -389,6 +389,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.l3_out_profiles(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.l3_out_ips(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -546,6 +548,7 @@ class ACEye():
                     'L3 Routed Interfaces',
                     'L3 Routed Loopback Interfaces',
                     'L3 Subinterfaces',
+                    'L3Out IP Addresses',
                     'L3Out Profiles',
                     'L3Outs',
                     'Leaf Interface Profiles',
@@ -1937,6 +1940,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def l3_out_ips(self):
+        self.url = f"{ self.aci }/api/node/class/l3extIp.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<L3Out IP Addresses code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2672,6 +2682,10 @@ class ACEye():
 
         if "l3extInstP" in self.url:
             with open('L3Out Profiles/JSON/L3Out Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "l3extIp" in self.url:
+            with open('L3Out IP Addresses/JSON/L3Out IP Addresses.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -3414,6 +3428,10 @@ class ACEye():
 
         if "l3extInstP" in self.url:
             with open('L3Out Profiles/YAML/L3Out Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "l3extIp" in self.url:
+            with open('L3Out IP Addresses/YAML/L3Out IP Addresses.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -4160,6 +4178,10 @@ class ACEye():
 
         if "l3extInstP" in self.url:
             with open('L3Out Profiles/CSV/L3Out Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "l3extIp" in self.url:
+            with open('L3Out IP Addresses/CSV/L3Out IP Addresses.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -4909,6 +4931,10 @@ class ACEye():
             with open('L3Out Profiles/Markdown/L3Out Profiles.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "l3extIp" in self.url:
+            with open('L3Out IP Addresses/Markdown/L3Out IP Addresses.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5656,6 +5682,10 @@ class ACEye():
             with open('L3Out Profiles/HTML/L3Out Profiles.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "l3extIp" in self.url:
+            with open('L3Out IP Addresses/HTML/L3Out IP Addresses.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -6397,6 +6427,10 @@ class ACEye():
 
         if "l3extInstP" in self.url:
             with open('L3Out Profiles/Mindmap/L3Out Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "l3extIp" in self.url:
+            with open('L3Out IP Addresses/Mindmap/L3Out IP Addresses.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

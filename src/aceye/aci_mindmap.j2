@@ -4576,4 +4576,22 @@
 ### TX ID: {{ profile.l3extInstP.attributes.txId }}
 ### UID: {{ profile.l3extInstP.attributes.uid }}
 {%-          endfor %}
+{%- elif "l3extIp" in api %}
+# L3Out IP Addresses
+{%-     for ip in data_to_template['imdata'] %}
+## Name: {{ ip.l3extIp.attributes.name }}
+### Name Alias: {{ ip.l3extIp.attributes.nameAlias }}
+### Address: {{ ip.l3extIp.attributes.addr }}
+### Annotication: {{ ip.l3extIp.attributes.annotation }}
+### Child Action: {{ ip.l3extIp.attributes.childAction }}
+### Description: {{ ip.l3extIp.attributes.descr }}
+### DN: {{ ip.l3extIp.attributes.dn }}
+### Externally Managed By: {{ ip.l3extIp.attributes.extMngdBy }}
+### IPv6 DAD: {{ ip.l3extIp.attributes.ipv6Dad }}
+### Local Owner: {{ ip.l3extIp.attributes.lcOwn }}
+### Last Modified: {{ ip.l3extIp.attributes.modTs }}
+### Monitoring Policy DN: {{ ip.l3extIp.attributes.monPolDn }}
+### Status: {{ ip.l3extIp.attributes.status }}
+### UID: {{ ip.l3extIp.attributes.uid }}
+{%-          endfor %}
 {%- endif %}

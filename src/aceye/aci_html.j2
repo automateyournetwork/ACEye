@@ -9575,5 +9575,47 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "l3extIp" in api %}
+<h1>L3Out IP Addresses</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Address</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>IPv6 DAD</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for ip in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ ip.l3extIp.attributes.name }}</td>
+    <td>{{ ip.l3extIp.attributes.nameAlias }}</td>
+    <td>{{ ip.l3extIp.attributes.addr }}</td>
+    <td>{{ ip.l3extIp.attributes.annotation }}</td>
+    <td>{{ ip.l3extIp.attributes.childAction }}</td>
+    <td>{{ ip.l3extIp.attributes.descr }}</td>
+    <td>{{ ip.l3extIp.attributes.dn }}</td>
+    <td>{{ ip.l3extIp.attributes.extMngdBy }}</td>
+    <td>{{ ip.l3extIp.attributes.ipv6Dad }}</td>
+    <td>{{ ip.l3extIp.attributes.lcOwn }}</td>
+    <td>{{ ip.l3extIp.attributes.modTs }}</td>
+    <td>{{ ip.l3extIp.attributes.monPolDn }}</td>
+    <td>{{ ip.l3extIp.attributes.status }}</td>
+    <td>{{ ip.l3extIp.attributes.uid }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
