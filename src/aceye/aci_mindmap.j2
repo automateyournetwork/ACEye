@@ -4618,4 +4618,26 @@
 ### Target DSCP: {{ profile.l3extLIfP.attributes.targetDscp }}
 ### UID: {{ profile.l3extLIfP.attributes.uid }}
 {%-          endfor %}
+{%- elif "l3extLNodeP" in api %}
+# L3 Logical Node Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.l3extLNodeP.attributes.name }}
+### Name Alias: {{ profile.l3extLNodeP.attributes.nameAlias }}
+### Annotation: {{ profile.l3extLNodeP.attributes.annotation }}
+### Child Action: {{ profile.l3extLNodeP.attributes.childAction }}
+### Config Issues: {{ profile.l3extLNodeP.attributes.configIssues }}
+### Description: {{ profile.l3extLNodeP.attributes.descr }}
+### DN: {{ profile.l3extLNodeP.attributes.dn }}
+### Externally Managed By: {{ profile.l3extLNodeP.attributes.extMngdBy }}
+### Local Owner: {{ profile.l3extLNodeP.attributes.lcOwn }}
+### Last Modified: {{ profile.l3extLNodeP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.l3extLNodeP.attributes.monPolDn }}
+### Owner
+#### Key: {{ profile.l3extLNodeP.attributes.ownerKey }}
+#### Tag: {{ profile.l3extLNodeP.attributes.ownerTag }}
+### Status: {{ profile.l3extLNodeP.attributes.status }}
+### Tag: {{ profile.l3extLNodeP.attributes.tag }}
+### Target DSCP: {{ profile.l3extLNodeP.attributes.targetDscp }}
+### UID: {{ profile.l3extLNodeP.attributes.uid }}
+{%-          endfor %}
 {%- endif %}
