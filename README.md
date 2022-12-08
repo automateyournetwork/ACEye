@@ -372,6 +372,12 @@ OSPF Database
 
 OSPF Domains
 
+OSPF Entities
+
+OSPF External Profiles
+
+OSPF Interfaces
+
 Path Attachments
 
 Physical Domains

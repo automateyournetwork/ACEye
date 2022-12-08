@@ -5080,4 +5080,65 @@
 #### State: {{ entity.ospfEntity.attributes.operSt }}
 ### Status: {{ entity.ospfEntity.attributes.status }}
 {%-          endfor %}
+{%- elif "ospfExtP" in api %}
+# OSPF External Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.ospfExtP.attributes.name }}
+### Name Alias: {{ profile.ospfExtP.attributes.nameAlias }}
+### Annotation: {{ profile.ospfExtP.attributes.annotation }}
+### Area
+#### Cost: {{ profile.ospfExtP.attributes.areaCost }}
+#### Control: {{ profile.ospfExtP.attributes.areaCtrl }}
+#### ID: {{ profile.ospfExtP.attributes.areaId }}
+#### Type: {{ profile.ospfExtP.attributes.areaType }}
+### Child Action: {{ profile.ospfExtP.attributes.childAction }}
+### Description: {{ profile.ospfExtP.attributes.descr }}
+### DN: {{ profile.ospfExtP.attributes.dn }}
+### Externally Managed By: {{ profile.ospfExtP.attributes.extMngdBy }}
+### Local Owner: {{ profile.ospfExtP.attributes.lcOwn }}
+### Last Modified: {{ profile.ospfExtP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.ospfExtP.attributes.monPolDn }}
+### Multipod Internal: {{ profile.ospfExtP.attributes.multipodInternal }}
+### Status: {{ profile.ospfExtP.attributes.status }}
+### UID: {{ profile.ospfExtP.attributes.uid }}
+{%-          endfor %}
+{%- elif "ospfIf" in api %}
+# OSPF Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.ospfIf.attributes.name }}
+### Address: {{ interface.ospfIf.attributes.addr }}
+### Admin State: {{ interface.ospfIf.attributes.adminSt }}
+### Area: {{ interface.ospfIf.attributes.area }}
+### BDR
+#### BDR: {{ interface.ospfIf.attributes.bdr }}
+#### ID: {{ interface.ospfIf.attributes.bdrId }}
+### Child Action: {{ interface.ospfIf.attributes.childAction }}
+### Cost: {{ interface.ospfIf.attributes.cost }}
+### Control: {{ interface.ospfIf.attributes.ctrl }}
+### Dead Interval: {{ interface.ospfIf.attributes.deadIntvl }}
+### Description: {{ interface.ospfIf.attributes.descr }}
+### DN: {{ interface.ospfIf.attributes.dn }}
+### DR
+#### DR: {{ interface.ospfIf.attributes.dr }}
+#### ID: {{ interface.ospfIf.attributes.drId }}
+### Failed State Quality: {{ interface.ospfIf.attributes.failStQual }}
+### Flags: {{ interface.ospfIf.attributes.flags }}
+### Hello Interval: {{ interface.ospfIf.attributes.helloIntvl }}
+### ID: {{ interface.ospfIf.attributes.id }}
+### Local Owner: {{ interface.ospfIf.attributes.lcOwn }}
+### LSA Checksum Summary: {{ interface.ospfIf.attributes.lsaCksumSum }}
+### Last Modified: {{ interface.ospfIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.ospfIf.attributes.monPolDn }}
+### NW Type: {{ interface.ospfIf.attributes.nwT }}
+### Oper
+#### Cost: {{ interface.ospfIf.attributes.operCost }}
+#### State: {{ interface.ospfIf.attributes.operSt }}
+### P2P Oper State: {{ interface.ospfIf.attributes.p2pOperSt }}
+### Prefix Suppress: {{ interface.ospfIf.attributes.pfxSuppress }}
+### Priority: {{ interface.ospfIf.attributes.prio }}
+### Retransmit Interval: {{ interface.ospfIf.attributes.rexmitIntvl }}
+### Status: {{ interface.ospfIf.attributes.status }}
+### Type: {{ interface.ospfIf.attributes.type }}
+### Transmit Delay: {{ interface.ospfIf.attributes.xmitDelay }}
+{%-          endfor %}
 {%- endif %}

@@ -450,6 +450,10 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.ospf_entities(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.ospf_external_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.ospf_interfaces(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -636,6 +640,8 @@ class ACEye():
                     'OSPF Database',
                     'OSPF Domains',
                     'OSPF Entities',
+                    'OSPF External Profiles',
+                    'OSPF Interfaces',
                     'Path Attachments',
                     'Physical Domains',
                     'Physical Interfaces',
@@ -2190,6 +2196,20 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def ospf_external_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/ospfExtP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<OSPF External Profiles code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def ospf_interfaces(self):
+        self.url = f"{ self.aci }/api/node/class/ospfIf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<OSPF Interfaces code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -3021,6 +3041,14 @@ class ACEye():
 
         if "ospfEntity" in self.url:
             with open('OSPF Entities/JSON/OSPF Entities.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "ospfExtP" in self.url:
+            with open('OSPF External Profiles/JSON/OSPF External Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "ospfIf" in self.url:
+            with open('OSPF Interfaces/JSON/OSPF Interfaces.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -3859,6 +3887,14 @@ class ACEye():
 
         if "ospfEntity" in self.url:
             with open('OSPF Entities/YAML/OSPF Entities.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "ospfExtP" in self.url:
+            with open('OSPF External Profiles/YAML/OSPF External Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "ospfIf" in self.url:
+            with open('OSPF Interfaces/YAML/OSPF Interfaces.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -4701,6 +4737,14 @@ class ACEye():
 
         if "ospfEntity" in self.url:
             with open('OSPF Entities/CSV/OSPF Entities.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "ospfExtP" in self.url:
+            with open('OSPF External Profiles/CSV/OSPF External Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "ospfIf" in self.url:
+            with open('OSPF Interfaces/CSV/OSPF Interfaces.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -5546,6 +5590,14 @@ class ACEye():
             with open('OSPF Entities/Markdown/OSPF Entities.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "ospfExtP" in self.url:
+            with open('OSPF External Profiles/Markdown/OSPF External Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "ospfIf" in self.url:
+            with open('OSPF Interfaces/Markdown/OSPF Interfaces.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -6389,6 +6441,14 @@ class ACEye():
             with open('OSPF Entities/HTML/OSPF Entities.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "ospfExtP" in self.url:
+            with open('OSPF External Profiles/HTML/OSPF External Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "ospfIf" in self.url:
+            with open('OSPF Interfaces/HTML/OSPF Interfaces.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -7226,6 +7286,14 @@ class ACEye():
 
         if "ospfEntity" in self.url:
             with open('OSPF Entities/Mindmap/OSPF Entities.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "ospfExtP" in self.url:
+            with open('OSPF External Profiles/Mindmap/OSPF External Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "ospfIf" in self.url:
+            with open('OSPF Interfaces/Mindmap/OSPF Interfaces.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
