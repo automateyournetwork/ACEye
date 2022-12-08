@@ -10323,5 +10323,59 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "lldpIf" in api %}
+<h1>LLDP Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin RX State</th>
+    <th>Admin State</th>
+    <th>Admin TX State</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>MAC</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper RX State</th>
+    <th>Oper TX State</th>
+    <th>Port Description</th>
+    <th>Port Mode</th>
+    <th>Port VLAN</th>
+    <th>Status</th>
+    <th>System Description</th>
+    <th>Wiring Issues</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.lldpIf.attributes.name }}</td>
+    <td>{{ interface.lldpIf.attributes.adminRxSt }}</td>
+    <td>{{ interface.lldpIf.attributes.adminSt }}</td>
+    <td>{{ interface.lldpIf.attributes.adminTxSt }}</td>
+    <td>{{ interface.lldpIf.attributes.childAction }}</td>
+    <td>{{ interface.lldpIf.attributes.descr }}</td>
+    <td>{{ interface.lldpIf.attributes.dn }}</td>
+    <td>{{ interface.lldpIf.attributes.id }}</td>
+    <td>{{ interface.lldpIf.attributes.lcOwn }}</td>
+    <td>{{ interface.lldpIf.attributes.mac }}</td>
+    <td>{{ interface.lldpIf.attributes.modTs }}</td>
+    <td>{{ interface.lldpIf.attributes.monPolDn }}</td>
+    <td>{{ interface.lldpIf.attributes.operRxSt }}</td>
+    <td>{{ interface.lldpIf.attributes.operTxSt }}</td>
+    <td>{{ interface.lldpIf.attributes.portDesc }}</td>
+    <td>{{ interface.lldpIf.attributes.portMode }}</td>
+    <td>{{ interface.lldpIf.attributes.portVlan }}</td>
+    <td>{{ interface.lldpIf.attributes.status }}</td>
+    <td>{{ interface.lldpIf.attributes.sysDesc }}</td>
+    <td>{{ interface.lldpIf.attributes.wiringIssues }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

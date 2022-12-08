@@ -434,6 +434,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.lldp_entities(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.lldp_interfaces(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -611,6 +613,7 @@ class ACEye():
                     'License Entitlements',
                     'LLDP Adjacency Endpoints',
                     'LLDP Entities',
+                    'LLDP Interfaces',
                     'Locales',
                     'Path Attachments',
                     'Physical Domains',
@@ -2110,6 +2113,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def lldp_interfaces(self):
+        self.url = f"{ self.aci }/api/node/class/lldpIf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<LLDP Interfaces code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2909,6 +2919,10 @@ class ACEye():
 
         if "lldpEntity" in self.url:
             with open('LLDP Entities/JSON/LLDP Entities.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "lldpIf" in self.url:
+            with open('LLDP Interfaces/JSON/LLDP Interfaces.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -3715,6 +3729,10 @@ class ACEye():
 
         if "lldpEntity" in self.url:
             with open('LLDP Entities/YAML/LLDP Entities.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "lldpIf" in self.url:
+            with open('LLDP Interfaces/YAML/LLDP Interfaces.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -4525,6 +4543,10 @@ class ACEye():
 
         if "lldpEntity" in self.url:
             with open('LLDP Entities/CSV/LLDP Entities.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "lldpIf" in self.url:
+            with open('LLDP Interfaces/CSV/LLDP Interfaces.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -5338,6 +5360,10 @@ class ACEye():
             with open('LLDP Entities/Markdown/LLDP Entities.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "lldpIf" in self.url:
+            with open('LLDP Interfaces/Markdown/LLDP Interfaces.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -6149,6 +6175,10 @@ class ACEye():
             with open('LLDP Entities/HTML/LLDP Entities.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "lldpIf" in self.url:
+            with open('LLDP Interfaces/HTML/LLDP Interfaces.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -6954,6 +6984,10 @@ class ACEye():
 
         if "lldpEntity" in self.url:
             with open('LLDP Entities/Mindmap/LLDP Entities.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "lldpIf" in self.url:
+            with open('LLDP Interfaces/Mindmap/LLDP Interfaces.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

@@ -4921,4 +4921,31 @@
 #### State: {{ entity.lldpEntity.attributes.operSt }}
 ### Status: {{ entity.lldpEntity.attributes.status }}
 {%-          endfor %}
+{%- elif "lldpIf" in api %}
+# LLDP Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.lldpIf.attributes.name }}
+### Admin
+#### RX State: {{ interface.lldpIf.attributes.adminRxSt }}
+#### State: {{ interface.lldpIf.attributes.adminSt }}
+#### TX State: {{ interface.lldpIf.attributes.adminTxSt }}
+### Child Action: {{ interface.lldpIf.attributes.childAction }}
+### Description: {{ interface.lldpIf.attributes.descr }}
+### DN: {{ interface.lldpIf.attributes.dn }}
+### ID: {{ interface.lldpIf.attributes.id }}
+### Local Owner: {{ interface.lldpIf.attributes.lcOwn }}
+### MAC: {{ interface.lldpIf.attributes.mac }}
+### Last Modified: {{ interface.lldpIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.lldpIf.attributes.monPolDn }}
+### Oper
+#### RX State: {{ interface.lldpIf.attributes.operRxSt }}
+#### TX State: {{ interface.lldpIf.attributes.operTxSt }}
+### Port
+#### Description: {{ interface.lldpIf.attributes.portDesc }}
+#### Mode: {{ interface.lldpIf.attributes.portMode }}
+#### VLAN: {{ interface.lldpIf.attributes.portVlan }}
+### Status: {{ interface.lldpIf.attributes.status }}
+### System Description: {{ interface.lldpIf.attributes.sysDesc }}
+### Wiring Issues: {{ interface.lldpIf.attributes.wiringIssues }}
+{%-          endfor %}
 {%- endif %}

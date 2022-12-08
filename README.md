@@ -356,6 +356,8 @@ LLDP Adjacency Endpoints
 
 LLDP Entities
 
+LLDP Interfaces
+
 Locales
 
 Path Attachments

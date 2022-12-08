@@ -869,4 +869,8 @@
 {%-     for entity in data_to_template['imdata'] %}
 {{ entity.lldpEntity.attributes.name }},{{ entity.lldpEntity.attributes.adminSt }},{{ entity.lldpEntity.attributes.childAction }},{{ entity.lldpEntity.attributes.dn }},{{ entity.lldpEntity.attributes.lcOwn }},{{ entity.lldpEntity.attributes.modTs }},{{ entity.lldpEntity.attributes.monPolDn }},{{ entity.lldpEntity.attributes.operErr }},{{ entity.lldpEntity.attributes.operSt }},{{ entity.lldpEntity.attributes.status }}
 {%-     endfor %}
+{%- elif "lldpIf" in api %}Name,Admin RX State,Admin State,Admin TX State,Child Action,Description,DN,ID,Local Owner,MAC,Last Modified,Monitoring Policy DN,Oper RX State,Oper TX State,Port Description,Port Mode,Port VLAN,Status,System Description,Wiring Issues
+{%-     for interface in data_to_template['imdata'] %}
+{{ interface.lldpIf.attributes.name }},{{ interface.lldpIf.attributes.adminRxSt }},{{ interface.lldpIf.attributes.adminSt }},{{ interface.lldpIf.attributes.adminTxSt }},{{ interface.lldpIf.attributes.childAction }},{{ interface.lldpIf.attributes.descr }},{{ interface.lldpIf.attributes.dn }},{{ interface.lldpIf.attributes.id }},{{ interface.lldpIf.attributes.lcOwn }},{{ interface.lldpIf.attributes.mac }},{{ interface.lldpIf.attributes.modTs }},{{ interface.lldpIf.attributes.monPolDn }},{{ interface.lldpIf.attributes.operRxSt }},{{ interface.lldpIf.attributes.operTxSt }},{{ interface.lldpIf.attributes.portDesc }},{{ interface.lldpIf.attributes.portMode }},{{ interface.lldpIf.attributes.portVlan }},{{ interface.lldpIf.attributes.status }},{{ interface.lldpIf.attributes.sysDesc }},{{ interface.lldpIf.attributes.wiringIssues }}
+{%-     endfor %}
 {%- endif %}
