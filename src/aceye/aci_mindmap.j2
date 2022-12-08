@@ -4857,4 +4857,23 @@
 #### Name: {{ node.leqptLooseNode.attributes.sysName }}
 #### Description: {{ node.leqptLooseNode.attributes.sysDesc | replace("\n"," ") }}
 {%-          endfor %}
+{%- elif "leqptRsLsNodeToIf" in api %}
+# External Unmanaged Nodes Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## DN: {{ interface.leqptRsLsNodeToIf.attributes.dn }}
+### Child Action: {{ interface.leqptRsLsNodeToIf.attributes.childAction }}
+### Force Resolve: {{ interface.leqptRsLsNodeToIf.attributes.forceResolve }}
+### Local Owner: {{ interface.leqptRsLsNodeToIf.attributes.lcOwn }}
+### Last Modified: {{ interface.leqptRsLsNodeToIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.leqptRsLsNodeToIf.attributes.monPolDn }}
+### rType: {{ interface.leqptRsLsNodeToIf.attributes.rType }}
+### State: {{ interface.leqptRsLsNodeToIf.attributes.state }}
+### State Quality: {{ interface.leqptRsLsNodeToIf.attributes.stateQual }}
+### Status: {{ interface.leqptRsLsNodeToIf.attributes.status }}
+### t
+#### Cl: {{ interface.leqptRsLsNodeToIf.attributes.tCl }}
+#### DN: {{ interface.leqptRsLsNodeToIf.attributes.tDn }}
+#### SKey: {{ interface.leqptRsLsNodeToIf.attributes.tSKey }}
+#### Type: {{ interface.leqptRsLsNodeToIf.attributes.tType }}
+{%-          endfor %}
 {%- endif %}

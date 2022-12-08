@@ -857,4 +857,8 @@
 {%-     for node in data_to_template['imdata'] %}
 {{ node.leqptLooseNode.attributes.name }},{{ node.leqptLooseNode.attributes.nameAlias }},{{ node.leqptLooseNode.attributes.childAction }},{{ node.leqptLooseNode.attributes.dn }},{{ node.leqptLooseNode.attributes.edmNodeDn }},{{ node.leqptLooseNode.attributes.id }},{{ node.leqptLooseNode.attributes.lcOwn }},{{ node.leqptLooseNode.attributes.managedLooseNode }},{{ node.leqptLooseNode.attributes.modTs }},{{ node.leqptLooseNode.attributes.monPolDn }},{{ node.leqptLooseNode.attributes.status }},{{ node.leqptLooseNode.attributes.sysDesc | replace("\n"," ") | replace(","," ") }},{{ node.leqptLooseNode.attributes.sysName }}
 {%-     endfor %}
+{%- elif "leqptRsLsNodeToIf" in api %}DN,Child Action,Force Resolve,Local Owner,Last Modified,Monitoring Policy DN,rType,State,State Quality,Status,tCl,tDN,tSKey,tType
+{%-     for interface in data_to_template['imdata'] %}
+{{ interface.leqptRsLsNodeToIf.attributes.dn }},{{ interface.leqptRsLsNodeToIf.attributes.childAction }},{{ interface.leqptRsLsNodeToIf.attributes.forceResolve }},{{ interface.leqptRsLsNodeToIf.attributes.lcOwn }},{{ interface.leqptRsLsNodeToIf.attributes.modTs }},{{ interface.leqptRsLsNodeToIf.attributes.monPolDn }},{{ interface.leqptRsLsNodeToIf.attributes.rType }},{{ interface.leqptRsLsNodeToIf.attributes.state }},{{ interface.leqptRsLsNodeToIf.attributes.stateQual }},{{ interface.leqptRsLsNodeToIf.attributes.status }},{{ interface.leqptRsLsNodeToIf.attributes.tCl }},{{ interface.leqptRsLsNodeToIf.attributes.tDn }},{{ interface.leqptRsLsNodeToIf.attributes.tSKey }},{{ interface.leqptRsLsNodeToIf.attributes.tType }}
+{%-     endfor %}
 {%- endif %}
