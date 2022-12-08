@@ -4968,4 +4968,24 @@
 ### System Description: {{ instance.lldpInst.attributes.sysDesc }}
 ### TX Frequency: {{ instance.lldpInst.attributes.txFreq }}
 {%-          endfor %}
+{%- elif "mgmtMgmtIf" in api %}
+# Management Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.mgmtMgmtIf.attributes.name }}
+### Admin State: {{ interface.mgmtMgmtIf.attributes.adminSt }}
+### Auto Negotiate: {{ interface.mgmtMgmtIf.attributes.autoNeg }}
+### Child Action: {{ interface.mgmtMgmtIf.attributes.childAction }}
+### Description: {{ interface.mgmtMgmtIf.attributes.descr }}
+### DN: {{ interface.mgmtMgmtIf.attributes.dn }}
+### FCOT Channel Number: {{ interface.mgmtMgmtIf.attributes.fcotChannelNumber }}
+### ID: {{ interface.mgmtMgmtIf.attributes.id }}
+### Local Owner: {{ interface.mgmtMgmtIf.attributes.lcOwn }}
+### Last Modified: {{ interface.mgmtMgmtIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.mgmtMgmtIf.attributes.monPolDn }}
+### MTU: {{ interface.mgmtMgmtIf.attributes.mtu }}
+### SNMP Trap State: {{ interface.mgmtMgmtIf.attributes.snmpTrapSt }}
+### Speed: {{ interface.mgmtMgmtIf.attributes.speed }}
+### Status: {{ interface.mgmtMgmtIf.attributes.status }}
+### Switching State: {{ interface.mgmtMgmtIf.attributes.switchingSt }}
+{%-          endfor %}
 {%- endif %}

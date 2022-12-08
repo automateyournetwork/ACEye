@@ -362,6 +362,8 @@ LLDP Interfaces
 
 Locales
 
+Management Interfaces
+
 Path Attachments
 
 Physical Domains

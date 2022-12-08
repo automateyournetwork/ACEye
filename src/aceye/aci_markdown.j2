@@ -1283,4 +1283,10 @@
 {%-     for instance in data_to_template['imdata'] %}
 | {{ instance.lldpInst.attributes.name }} | {{ instance.lldpInst.attributes.adminSt }} | {{ instance.lldpInst.attributes.childAction }} | {{ instance.lldpInst.attributes.ctrl }} | {{ instance.lldpInst.attributes.dn }} | {{ instance.lldpInst.attributes.holdTime }} | {{ instance.lldpInst.attributes.infraVlan }} | {{ instance.lldpInst.attributes.initDelayTime }} | {{ instance.lldpInst.attributes.lcOwn }} | {{ instance.lldpInst.attributes.modTs }} | {{ instance.lldpInst.attributes.monPolDn }} | {{ instance.lldpInst.attributes.operErr }} | {{ instance.lldpInst.attributes.optTlvSel }} | {{ instance.lldpInst.attributes.status }} | {{ instance.lldpInst.attributes.sysDesc }} | {{ instance.lldpInst.attributes.txFreq }} |
 {%-     endfor %}
+{%- elif "mgmtMgmtIf" in api %}# Management Interfaces
+| Name | Admin State | Auto Negotiate | Child Action | Description | DN | FCOT Channel Number | ID | Local Owner | Last Modified | Monitoring Policy DN | MTU | SNMP Trap State | Speed | Status | Switching State |
+| ---- | ----------- | -------------- | ------------ | ----------- | -- | ------------------- | -- | ----------- | ------------- | -------------------- | --- | --------------- | ----- | ------ | --------------- |
+{%-     for interface in data_to_template['imdata'] %}
+| {{ interface.mgmtMgmtIf.attributes.name }} | {{ interface.mgmtMgmtIf.attributes.adminSt }} | {{ interface.mgmtMgmtIf.attributes.autoNeg }} | {{ interface.mgmtMgmtIf.attributes.childAction }} | {{ interface.mgmtMgmtIf.attributes.descr }} | {{ interface.mgmtMgmtIf.attributes.dn }} | {{ interface.mgmtMgmtIf.attributes.fcotChannelNumber }} | {{ interface.mgmtMgmtIf.attributes.id }} | {{ interface.mgmtMgmtIf.attributes.lcOwn }} | {{ interface.mgmtMgmtIf.attributes.modTs }} | {{ interface.mgmtMgmtIf.attributes.monPolDn }} | {{ interface.mgmtMgmtIf.attributes.mtu }} | {{ interface.mgmtMgmtIf.attributes.snmpTrapSt }} | {{ interface.mgmtMgmtIf.attributes.speed }} | {{ interface.mgmtMgmtIf.attributes.status }} | {{ interface.mgmtMgmtIf.attributes.switchingSt }} |
+{%-     endfor %}
 {%- endif %}
