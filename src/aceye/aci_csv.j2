@@ -897,4 +897,8 @@
 {%-     for domain in data_to_template['imdata'] %}
 {{ domain.ospfDom.attributes.name }},{{ domain.ospfDom.attributes.bwRef }},{{ domain.ospfDom.attributes.childAction }},{{ domain.ospfDom.attributes.ctrl }},{{ domain.ospfDom.attributes.dist }},{{ domain.ospfDom.attributes.dn }},{{ domain.ospfDom.attributes.ecmpOperSt }},{{ domain.ospfDom.attributes.failStQual }},{{ domain.ospfDom.attributes.flags | replace(","," ") }},{{ domain.ospfDom.attributes.lcOwn }},{{ domain.ospfDom.attributes.maxEcmp }},{{ domain.ospfDom.attributes.modTs }},{{ domain.ospfDom.attributes.monPolDn }},{{ domain.ospfDom.attributes.operSt }},{{ domain.ospfDom.attributes.rtrId }},{{ domain.ospfDom.attributes.selfAdvRtTag }},{{ domain.ospfDom.attributes.status }}
 {%-     endfor %}
+{%- elif "ospfEntity" in api %}Name,Admin State,Child Action,DN,Local Owner,Last Modified,Monitoring Policy DN,Oper Error,Oper State,Status
+{%-     for entity in data_to_template['imdata'] %}
+{{ entity.ospfEntity.attributes.name }},{{ entity.ospfEntity.attributes.adminSt }},{{ entity.ospfEntity.attributes.childAction }},{{ entity.ospfEntity.attributes.dn }},{{ entity.ospfEntity.attributes.lcOwn }},{{ entity.ospfEntity.attributes.modTs }},{{ entity.ospfEntity.attributes.monPolDn }},{{ entity.ospfEntity.attributes.operErr }},{{ entity.ospfEntity.attributes.operSt }},{{ entity.ospfEntity.attributes.status }}
+{%-     endfor %}
 {%- endif %}

@@ -5065,4 +5065,19 @@
 ### Seld Advertised Router Tag: {{ domain.ospfDom.attributes.selfAdvRtTag }}
 ### Status: {{ domain.ospfDom.attributes.status }}
 {%-          endfor %}
+{%- elif "ospfEntity" in api %}
+# OSPF Entities
+{%-     for entity in data_to_template['imdata'] %}
+## Name: {{ entity.ospfEntity.attributes.name }}
+### Admin State: {{ entity.ospfEntity.attributes.adminSt }}
+### Child Action: {{ entity.ospfEntity.attributes.childAction }}
+### DN: {{ entity.ospfEntity.attributes.dn }}
+### Local Owner: {{ entity.ospfEntity.attributes.lcOwn }}
+### Last Modified: {{ entity.ospfEntity.attributes.modTs }}
+### Monitoring Policy DN: {{ entity.ospfEntity.attributes.monPolDn }}
+### Oper
+#### Error: {{ entity.ospfEntity.attributes.operErr }}
+#### State: {{ entity.ospfEntity.attributes.operSt }}
+### Status: {{ entity.ospfEntity.attributes.status }}
+{%-          endfor %}
 {%- endif %}
