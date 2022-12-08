@@ -2085,7 +2085,7 @@ class ACEye():
                 with open('Top System/JSON/Top System.json', 'w' ) as f:
                     f.write(parsed_json)
 
-        if "Subnet" in self.url:
+        if "fvSubnet" in self.url:
             with open('Subnets/JSON/Subnets.json', 'w' ) as f:
                 f.write(parsed_json)
 
@@ -2863,7 +2863,7 @@ class ACEye():
                 with open('Top System/YAML/Top System.yaml', 'w' ) as f:
                     f.write(clean_yaml)
 
-        if "Subnet" in self.url:
+        if "fvSubnet" in self.url:
             with open('Subnets/YAML/Subnets.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
@@ -3649,7 +3649,7 @@ class ACEye():
                 with open('Top System/CSV/Top System.csv', 'w' ) as f:
                     f.write(csv_output)
 
-        if "Subnet" in self.url:
+        if "fvSubnet" in self.url:
             with open('Subnets/CSV/Subnets.csv', 'w' ) as f:
                 f.write(csv_output)
 
@@ -4436,7 +4436,7 @@ class ACEye():
                 with open('Top System/Markdown/Top System.md', 'w' ) as f:
                     f.write(markdown_output)
 
-        if "Subnet" in self.url:
+        if "fvSubnet" in self.url:
             with open('Subnets/Markdown/Subnets.md', 'w' ) as f:
                 f.write(markdown_output)
 
@@ -5223,7 +5223,7 @@ class ACEye():
                 with open('Top System/HTML/Top System.html', 'w' ) as f:
                     f.write(html_output)
 
-        if "Subnet" in self.url:
+        if "fvSubnet" in self.url:
             with open('Subnets/HTML/Subnets.html', 'w' ) as f:
                 f.write(html_output)
 
@@ -6010,7 +6010,7 @@ class ACEye():
                 with open('Top System/Mindmap/Top System.md', 'w' ) as f:
                     f.write(mindmap_output)
 
-        if "Subnet" in self.url:
+        if "fvSubnet" in self.url:
             with open('Subnets/Mindmap/Subnets.md', 'w' ) as f:
                 f.write(mindmap_output)
 
