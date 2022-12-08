@@ -4820,4 +4820,23 @@
 ### Status: {{ interface.lacpIf.attributes.status }}
 ### TX Rate: {{ interface.lacpIf.attributes.txRate }}
 {%-          endfor %}
+{%- elif "lacpInst" in api %}
+# LACP Instances
+{%-     for instance in data_to_template['imdata'] %}
+## Name: {{ instance.lacpInst.attributes.name }}
+### Admin
+#### Priority: {{ instance.lacpInst.attributes.adminPrio }}
+#### State: {{ instance.lacpInst.attributes.adminSt }}
+### Child Action: {{ instance.lacpInst.attributes.childAction }}
+### Control: {{ instance.lacpInst.attributes.ctrl }}
+### DN: {{ instance.lacpInst.attributes.dn }}
+### Local Owner: {{ instance.lacpInst.attributes.lcOwn }}
+### Last Modified: {{ instance.lacpInst.attributes.modTs }}
+### Monitoring Policy DN: {{ instance.lacpInst.attributes.monPolDn }}
+### Oper
+#### Error: {{ instance.lacpInst.attributes.operErr }}
+#### Priority: {{ instance.lacpInst.attributes.operPrio }}
+### Status:{{ instance.lacpInst.attributes.status }}
+### System MAC: {{ instance.lacpInst.attributes.sysMac }}
+{%-          endfor %}
 {%- endif %}

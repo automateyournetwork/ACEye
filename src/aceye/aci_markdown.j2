@@ -1241,4 +1241,10 @@
 {%-     for interface in data_to_template['imdata'] %}
 | {{ interface.lacpIf.attributes.name }} | {{ interface.lacpIf.attributes.activityFlags }} | {{ interface.lacpIf.attributes.adminSt }} | {{ interface.lacpIf.attributes.childAction }} | {{ interface.lacpIf.attributes.descr }} | {{ interface.lacpIf.attributes.dn }} | {{ interface.lacpIf.attributes.id }} | {{ interface.lacpIf.attributes.key }} | {{ interface.lacpIf.attributes.lastActive }} | {{ interface.lacpIf.attributes.lcOwn }} | {{ interface.lacpIf.attributes.modTs }} | {{ interface.lacpIf.attributes.monPolDn }} | {{ interface.lacpIf.attributes.operPrio }} | {{ interface.lacpIf.attributes.port }} | {{ interface.lacpIf.attributes.prio }} | {{ interface.lacpIf.attributes.status }} | {{ interface.lacpIf.attributes.txRate }} |
 {%-     endfor %}
+{%- elif "lacpInst" in api %}# LACP Instances
+| Name | Admin Priority | Admin State | Child Action | Control | DN | Local Owner | Last Modified | Monitoring Policy DN | Oper Error | Oper Priority | Status | System MAC |
+| ---- | -------------- | ----------- | ------------ | ------- | -- | ----------- | ------------- | -------------------- | ---------- | ------------- | ------ | ---------- |
+{%-     for instance in data_to_template['imdata'] %}
+| {{ instance.lacpInst.attributes.name }} | {{ instance.lacpInst.attributes.adminPrio }} | {{ instance.lacpInst.attributes.adminSt }} | {{ instance.lacpInst.attributes.childAction }} | {{ instance.lacpInst.attributes.ctrl }} | {{ instance.lacpInst.attributes.dn }} | {{ instance.lacpInst.attributes.lcOwn }} | {{ instance.lacpInst.attributes.modTs }} | {{ instance.lacpInst.attributes.monPolDn }} | {{ instance.lacpInst.attributes.operErr }} | {{ instance.lacpInst.attributes.operPrio }} | {{ instance.lacpInst.attributes.status }} | {{ instance.lacpInst.attributes.sysMac }} |
+{%-     endfor %}
 {%- endif %}

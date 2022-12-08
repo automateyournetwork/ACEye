@@ -839,7 +839,7 @@
 {%-     endfor %}
 {%- elif "l3extSubnet" in api %}Name,Name Alias,Aggregate,Annotation,Child Action,Description,DN,Externally Managed By,IP,Local Owner,Last Modified,Monitoring Policy DN,Scope,Status,UID
 {%-     for subnet in data_to_template['imdata'] %}
-{{ subnet.l3extSubnet.attributes.name }},{{ subnet.l3extSubnet.attributes.nameAlias }},{{ subnet.l3extSubnet.attributes.aggregate }},{{ subnet.l3extSubnet.attributes.annotation }},{{ subnet.l3extSubnet.attributes.childAction }},{{ subnet.l3extSubnet.attributes.descr }},{{ subnet.l3extSubnet.attributes.dn }},{{ subnet.l3extSubnet.attributes.extMngdBy }},{{ subnet.l3extSubnet.attributes.ip }},{{ subnet.l3extSubnet.attributes.lcOwn }},{{ subnet.l3extSubnet.attributes.modTs }},{{ subnet.l3extSubnet.attributes.monPolDn }},{{ subnet.l3extSubnet.attributes.scope }},{{ subnet.l3extSubnet.attributes.status }},{{ subnet.l3extSubnet.attributes.uid }}
+{{ subnet.l3extSubnet.attributes.name }},{{ subnet.l3extSubnet.attributes.nameAlias }},{{ subnet.l3extSubnet.attributes.aggregate }},{{ subnet.l3extSubnet.attributes.annotation }},{{ subnet.l3extSubnet.attributes.childAction }},{{ subnet.l3extSubnet.attributes.descr }},{{ subnet.l3extSubnet.attributes.dn }},{{ subnet.l3extSubnet.attributes.extMngdBy }},{{ subnet.l3extSubnet.attributes.ip }},{{ subnet.l3extSubnet.attributes.lcOwn }},{{ subnet.l3extSubnet.attributes.modTs }},{{ subnet.l3extSubnet.attributes.monPolDn }},{{ subnet.l3extSubnet.attributes.scope | replace(","," ") }},{{ subnet.l3extSubnet.attributes.status }},{{ subnet.l3extSubnet.attributes.uid }}
 {%-     endfor %}
 {%- elif "lacpEntity" in api %}Name,Admin State,Child Action,DN,Local Owner,Last Modified,Oper Error,Oper State,Status
 {%-     for entity in data_to_template['imdata'] %}
@@ -848,5 +848,9 @@
 {%- elif "lacpIf" in api %}Name,Activity Flags,Admin State,Child Action,Description,DN,ID,Key,Last Active,Local Owner,Last Modified,Monitoring Policy DN,Oper Priority,Port,Priority,Status,TX Rate
 {%-     for interface in data_to_template['imdata'] %}
 {{ interface.lacpIf.attributes.name }},{{ interface.lacpIf.attributes.activityFlags | replace(","," ") }},{{ interface.lacpIf.attributes.adminSt }},{{ interface.lacpIf.attributes.childAction }},{{ interface.lacpIf.attributes.descr }},{{ interface.lacpIf.attributes.dn }},{{ interface.lacpIf.attributes.id }},{{ interface.lacpIf.attributes.key }},{{ interface.lacpIf.attributes.lastActive }},{{ interface.lacpIf.attributes.lcOwn }},{{ interface.lacpIf.attributes.modTs }},{{ interface.lacpIf.attributes.monPolDn }},{{ interface.lacpIf.attributes.operPrio }},{{ interface.lacpIf.attributes.port }},{{ interface.lacpIf.attributes.prio }},{{ interface.lacpIf.attributes.status }},{{ interface.lacpIf.attributes.txRate }}
+{%-     endfor %}
+{%- elif "lacpInst" in api %}Name,Admin Priority,Admin State,Child Action,Control,DN,Local Owner,Last Modified,Monitoring Policy DN,Oper Error,Oper Priority,Status,System MAC
+{%-     for instance in data_to_template['imdata'] %}
+{{ instance.lacpInst.attributes.name }},{{ instance.lacpInst.attributes.adminPrio }},{{ instance.lacpInst.attributes.adminSt }},{{ instance.lacpInst.attributes.childAction }},{{ instance.lacpInst.attributes.ctrl }},{{ instance.lacpInst.attributes.dn }},{{ instance.lacpInst.attributes.lcOwn }},{{ instance.lacpInst.attributes.modTs }},{{ instance.lacpInst.attributes.monPolDn }},{{ instance.lacpInst.attributes.operErr }},{{ instance.lacpInst.attributes.operPrio }},{{ instance.lacpInst.attributes.status }},{{ instance.lacpInst.attributes.sysMac }}
 {%-     endfor %}
 {%- endif %}
