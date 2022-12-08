@@ -10521,5 +10521,51 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "ospfArea" in api %}
+<h1>OSPF Areas</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>ASBR Count</th>
+    <th>BR Count</th>
+    <th>Child Action</th>
+    <th>Cost</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>LSA Checksum Summary</th>
+    <th>Last Modified</th>
+    <th>NSSA Trans Role</th>
+    <th>NSSA Trans State</th>
+    <th>NSSA Trans Stable Interval</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for area in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ area.ospfArea.attributes.name }}</td>
+    <td>{{ area.ospfArea.attributes.asbrCnt }}</td>
+    <td>{{ area.ospfArea.attributes.brCnt }}</td>
+    <td>{{ area.ospfArea.attributes.childAction }}</td>
+    <td>{{ area.ospfArea.attributes.cost }}</td>
+    <td>{{ area.ospfArea.attributes.ctrl }}</td>
+    <td>{{ area.ospfArea.attributes.dn }}</td>
+    <td>{{ area.ospfArea.attributes.id }}</td>
+    <td>{{ area.ospfArea.attributes.lcOwn }}</td>
+    <td>{{ area.ospfArea.attributes.lsaCksumSum }}</td>
+    <td>{{ area.ospfArea.attributes.modTs }}</td>
+    <td>{{ area.ospfArea.attributes.nssaTransRole }}</td>
+    <td>{{ area.ospfArea.attributes.nssaTransSt }}</td>
+    <td>{{ area.ospfArea.attributes.nssaTransStabIntvl }}</td>
+    <td>{{ area.ospfArea.attributes.status }}</td>
+    <td>{{ area.ospfArea.attributes.type }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

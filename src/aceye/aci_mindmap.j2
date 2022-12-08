@@ -5012,4 +5012,26 @@
 ### Priority: {{ endpoint.ospfAdjEp.attributes.prio }}
 ### Status: {{ endpoint.ospfAdjEp.attributes.status }}
 {%-          endfor %}
+{%- elif "ospfArea" in api %}
+# OSPF Areas
+{%-     for area in data_to_template['imdata'] %}
+## Name: {{ area.ospfArea.attributes.name }}
+### Count
+#### ASBR: {{ area.ospfArea.attributes.asbrCnt }}
+#### BR: {{ area.ospfArea.attributes.brCnt }}
+### Child Action: {{ area.ospfArea.attributes.childAction }}
+### Cost: {{ area.ospfArea.attributes.cost }}
+### Control: {{ area.ospfArea.attributes.ctrl }}
+### DN: {{ area.ospfArea.attributes.dn }}
+### ID: {{ area.ospfArea.attributes.id }}
+### Local Owner: {{ area.ospfArea.attributes.lcOwn }}
+### LSA Checksum Summary: {{ area.ospfArea.attributes.lsaCksumSum }}
+### Last Modified: {{ area.ospfArea.attributes.modTs }}
+### NSSA Trans
+#### Role: {{ area.ospfArea.attributes.nssaTransRole }}
+#### State: {{ area.ospfArea.attributes.nssaTransSt }}
+#### Stable Interval: {{ area.ospfArea.attributes.nssaTransStabIntvl }}
+### Status: {{ area.ospfArea.attributes.status }}
+### Type: {{ area.ospfArea.attributes.type }}
+{%-          endfor %}
 {%- endif %}

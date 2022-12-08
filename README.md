@@ -366,6 +366,8 @@ Management Interfaces
 
 OSPF Adjacency Endpoints
 
+OSPF Areas
+
 Path Attachments
 
 Physical Domains
