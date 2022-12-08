@@ -10109,5 +10109,45 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "lacpInst" in api %}
+<h1>LACP Instances</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin Priority</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Oper Priority</th>
+    <th>Status</th>
+    <th>System MAC</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for instance in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ instance.lacpInst.attributes.name }}</td>
+    <td>{{ instance.lacpInst.attributes.adminPrio }}</td>
+    <td>{{ instance.lacpInst.attributes.adminSt }}</td>
+    <td>{{ instance.lacpInst.attributes.childAction }}</td>
+    <td>{{ instance.lacpInst.attributes.ctrl }}</td>
+    <td>{{ instance.lacpInst.attributes.dn }}</td>
+    <td>{{ instance.lacpInst.attributes.lcOwn }}</td>
+    <td>{{ instance.lacpInst.attributes.modTs }}</td>
+    <td>{{ instance.lacpInst.attributes.monPolDn }}</td>
+    <td>{{ instance.lacpInst.attributes.operErr }}</td>
+    <td>{{ instance.lacpInst.attributes.operPrio }}</td>
+    <td>{{ instance.lacpInst.attributes.status }}</td>
+    <td>{{ instance.lacpInst.attributes.sysMac }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

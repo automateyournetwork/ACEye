@@ -340,6 +340,8 @@ L3Outs
 
 LACP Entities
 
+LACP Instances
+
 LACP Interfaces
 
 Leaf Interface Profiles
