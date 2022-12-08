@@ -184,7 +184,7 @@
 ### UID: {{ l2out.l2extOut.attributes.uid }}
 ### User Domain: {{ l2out.l2extOut.attributes.userdom }}
 {%-     endfor %}
-{%- elif "Subnet" in api %}
+{%- elif "fvSubnet" in api %}
 # Subnets
 {%-     for subnet in data_to_template['imdata'] %}
 ## Name: {{ subnet.fvSubnet.attributes.name }}
