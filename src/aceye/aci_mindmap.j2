@@ -4784,4 +4784,18 @@
 ### Status: {{ subnet.l3extSubnet.attributes.status }}
 ### UID: {{ subnet.l3extSubnet.attributes.uid }}
 {%-          endfor %}
+{%- elif "lacpEntity" in api %}
+# LACP Entities
+{%-     for entity in data_to_template['imdata'] %}
+## Name: {{ entity.lacpEntity.attributes.name }}
+### Admin State: {{ entity.lacpEntity.attributes.adminSt }}
+### Child Action: {{ entity.lacpEntity.attributes.childAction }}
+### DN: {{ entity.lacpEntity.attributes.dn }}
+### Local Owner: {{ entity.lacpEntity.attributes.lcOwn }}
+### Last Modified: {{ entity.lacpEntity.attributes.modTs }}
+### Oper
+#### Error: {{ entity.lacpEntity.attributes.operErr }}
+#### State: {{ entity.lacpEntity.attributes.openSt }}
+### Status: {{ entity.lacpEntity.attributes.status }}
+{%-          endfor %}
 {%- endif %}
