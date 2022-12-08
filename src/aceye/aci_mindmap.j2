@@ -4798,4 +4798,26 @@
 #### State: {{ entity.lacpEntity.attributes.openSt }}
 ### Status: {{ entity.lacpEntity.attributes.status }}
 {%-          endfor %}
+{%- elif "lacpIf" in api %}
+# LACP Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.lacpIf.attributes.name }}
+### Activity Flags: {{ interface.lacpIf.attributes.activityFlags }}
+### Admin State: {{ interface.lacpIf.attributes.adminSt }}
+### Child Action: {{ interface.lacpIf.attributes.childAction }}
+### Description: {{ interface.lacpIf.attributes.descr }}
+### DN: {{ interface.lacpIf.attributes.dn }}
+### ID: {{ interface.lacpIf.attributes.id }}
+### Key: {{ interface.lacpIf.attributes.key }}
+### Last Active: {{ interface.lacpIf.attributes.lastActive }}
+### Local Owner: {{ interface.lacpIf.attributes.lcOwn }}
+### Last Modified: {{ interface.lacpIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.lacpIf.attributes.monPolDn }}
+### Priority
+#### Oper: {{ interface.lacpIf.attributes.operPrio }}
+#### Priority: {{ interface.lacpIf.attributes.prio }}
+### Port: {{ interface.lacpIf.attributes.port }}
+### Status: {{ interface.lacpIf.attributes.status }}
+### TX Rate: {{ interface.lacpIf.attributes.txRate }}
+{%-          endfor %}
 {%- endif %}

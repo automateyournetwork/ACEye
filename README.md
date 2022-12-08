@@ -340,6 +340,8 @@ L3Outs
 
 LACP Entities
 
+LACP Interfaces
+
 Leaf Interface Profiles
 
 Leaf Switch Profiles
