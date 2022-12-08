@@ -192,6 +192,8 @@ Ethernet Port Manager Physical Interfaces
 
 *Events
 
+External Unmanaged Nodes
+
 Fabric Extended Path Endpoint Containers
 
 Fabric Instances
