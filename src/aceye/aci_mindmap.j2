@@ -4906,4 +4906,19 @@
 #### Description: {{ endpoint.lldpAdjEp.attributes.sysDesc | replace("\n"," ") }}
 ### TTL: {{ endpoint.lldpAdjEp.attributes.ttl }}
 {%-          endfor %}
+{%- elif "lldpEntity" in api %}
+# LLDP Entities
+{%-     for entity in data_to_template['imdata'] %}
+## Name: {{ entity.lldpEntity.attributes.name }}
+### Admin State: {{ entity.lldpEntity.attributes.adminSt }}
+### Child Action: {{ entity.lldpEntity.attributes.childAction }}
+### DN: {{ entity.lldpEntity.attributes.dn }}
+### Local Owner: {{ entity.lldpEntity.attributes.lcOwn }}
+### Last Modified: {{ entity.lldpEntity.attributes.modTs }}
+### Monitoring Policy DN: {{ entity.lldpEntity.attributes.monPolDn }}
+### Oper
+#### Error: {{ entity.lldpEntity.attributes.operErr }}
+#### State: {{ entity.lldpEntity.attributes.operSt }}
+### Status: {{ entity.lldpEntity.attributes.status }}
+{%-          endfor %}
 {%- endif %}

@@ -10289,5 +10289,39 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "lldpEntity" in api %}
+<h1>LLDP Entities</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Oper State</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for entity in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ entity.lldpEntity.attributes.name }}</td>
+    <td>{{ entity.lldpEntity.attributes.adminSt }}</td>
+    <td>{{ entity.lldpEntity.attributes.childAction }}</td>
+    <td>{{ entity.lldpEntity.attributes.dn }}</td>
+    <td>{{ entity.lldpEntity.attributes.lcOwn }}</td>
+    <td>{{ entity.lldpEntity.attributes.modTs }}</td>
+    <td>{{ entity.lldpEntity.attributes.monPolDn }}</td>
+    <td>{{ entity.lldpEntity.attributes.operErr }}</td>
+    <td>{{ entity.lldpEntity.attributes.operSt }}</td>
+    <td>{{ entity.lldpEntity.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

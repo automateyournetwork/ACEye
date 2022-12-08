@@ -354,6 +354,8 @@ License Entitlements
 
 LLDP Adjacency Endpoints
 
+LLDP Entities
+
 Locales
 
 Path Attachments

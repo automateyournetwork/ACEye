@@ -1265,4 +1265,10 @@
 {%-     for endpoint in data_to_template['imdata'] %}
 {{ endpoint.lldpAdjEp.attributes.name }} | {{ endpoint.lldpAdjEp.attributes.capability }} | {{ endpoint.lldpAdjEp.attributes.chassisIdT }} | {{ endpoint.lldpAdjEp.attributes.chassisIdV }} | {{ endpoint.lldpAdjEp.attributes.childAction }} | {{ endpoint.lldpAdjEp.attributes.dn }} | {{ endpoint.lldpAdjEp.attributes.enCap }} | {{ endpoint.lldpAdjEp.attributes.id }} | {{ endpoint.lldpAdjEp.attributes.mgmtId }} | {{ endpoint.lldpAdjEp.attributes.mgmtIp }} | {{ endpoint.lldpAdjEp.attributes.mgmtPortMac }} | {{ endpoint.lldpAdjEp.attributes.modTs }} | {{ endpoint.lldpAdjEp.attributes.monPolDn }} | {{ endpoint.lldpAdjEp.attributes.portDesc }} | {{ endpoint.lldpAdjEp.attributes.portIdT }} | {{ endpoint.lldpAdjEp.attributes.portIdV }} | {{ endpoint.lldpAdjEp.attributes.portVlan }} | {{ endpoint.lldpAdjEp.attributes.stQual }} | {{ endpoint.lldpAdjEp.attributes.status }} | {{ endpoint.lldpAdjEp.attributes.sysDesc | replace("\n"," ") }} | {{ endpoint.lldpAdjEp.attributes.sysName }} | {{ endpoint.lldpAdjEp.attributes.ttl }}
 {%-     endfor %}
+{%- elif "lldpEntity" in api %}# LLDP Entities
+| Name | Admin State | Child Action | DN | Local Owner | Last Modified | Monitoring Policy DN | Oper Error | Oper State | Status |
+| ---- | ----------- | ------------ | -- | ----------- | ------------- | -------------------- | ---------- | ---------- | ------ |
+{%-     for entity in data_to_template['imdata'] %}
+| {{ entity.lldpEntity.attributes.name }} | {{ entity.lldpEntity.attributes.adminSt }} | {{ entity.lldpEntity.attributes.childAction }} | {{ entity.lldpEntity.attributes.dn }} | {{ entity.lldpEntity.attributes.lcOwn }} | {{ entity.lldpEntity.attributes.modTs }} | {{ entity.lldpEntity.attributes.monPolDn }} | {{ entity.lldpEntity.attributes.operErr }} | {{ entity.lldpEntity.attributes.operSt }} | {{ entity.lldpEntity.attributes.status }} |
+{%-     endfor %}
 {%- endif %}
