@@ -1301,4 +1301,10 @@
 {%-     for area in data_to_template['imdata'] %}
 | {{ area.ospfArea.attributes.name }} | {{ area.ospfArea.attributes.asbrCnt }} | {{ area.ospfArea.attributes.brCnt }} | {{ area.ospfArea.attributes.childAction }} | {{ area.ospfArea.attributes.cost }} | {{ area.ospfArea.attributes.ctrl }} | {{ area.ospfArea.attributes.dn }} | {{ area.ospfArea.attributes.id }} | {{ area.ospfArea.attributes.lcOwn }} | {{ area.ospfArea.attributes.lsaCksumSum }} | {{ area.ospfArea.attributes.modTs }} | {{ area.ospfArea.attributes.nssaTransRole }} | {{ area.ospfArea.attributes.nssaTransSt }} | {{ area.ospfArea.attributes.nssaTransStabIntvl }} | {{ area.ospfArea.attributes.status }} | {{ area.ospfArea.attributes.type }} |
 {%-     endfor %}
+{%- elif "ospfDb" in api %}# OSPF Database
+| Name | Child Action | DN | Last Modified | Status | Type |
+| ---- | ------------ | -- | ------------- | ------ | ---- |
+{%-     for database in data_to_template['imdata'] %}
+| {{ database.ospfDb.attributes.name }} | {{ database.ospfDb.attributes.childAction }} | {{ database.ospfDb.attributes.dn }} | {{ database.ospfDb.attributes.modTs }} | {{ database.ospfDb.attributes.status }} | {{ database.ospfDb.attributes.type }} |
+{%-     endfor %}
 {%- endif %}

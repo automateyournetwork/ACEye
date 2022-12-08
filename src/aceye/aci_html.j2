@@ -10567,5 +10567,31 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "ospfDb" in api %}
+<h1>OSPF Database</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Last Modified</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for database in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ database.ospfDb.attributes.name }}</td>
+    <td>{{ database.ospfDb.attributes.childAction }}</td>
+    <td>{{ database.ospfDb.attributes.dn }}</td>
+    <td>{{ database.ospfDb.attributes.modTs }}</td>
+    <td>{{ database.ospfDb.attributes.status }}</td>
+    <td>{{ database.ospfDb.attributes.type }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

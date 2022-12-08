@@ -444,6 +444,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.ospf_areas(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.ospf_database(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -627,6 +629,7 @@ class ACEye():
                     'Management Interfaces',
                     'OSPF Adjacency Endpoints',
                     'OSPF Areas',
+                    'OSPF Database',
                     'Path Attachments',
                     'Physical Domains',
                     'Physical Interfaces',
@@ -2160,6 +2163,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def ospf_database(self):
+        self.url = f"{ self.aci }/api/node/class/ospfDb.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<OSPF Database code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2979,6 +2989,10 @@ class ACEye():
 
         if "ospfArea" in self.url:
             with open('OSPF Areas/JSON/OSPF Areas.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "ospfDb" in self.url:
+            with open('OSPF Database/JSON/OSPF Database.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -3805,6 +3819,10 @@ class ACEye():
 
         if "ospfArea" in self.url:
             with open('OSPF Areas/YAML/OSPF Areas.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "ospfDb" in self.url:
+            with open('OSPF Database/YAML/OSPF Database.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -4635,6 +4653,10 @@ class ACEye():
 
         if "ospfArea" in self.url:
             with open('OSPF Areas/CSV/OSPF Areas.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "ospfDb" in self.url:
+            with open('OSPF Database/CSV/OSPF Database.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -5468,6 +5490,10 @@ class ACEye():
             with open('OSPF Areas/Markdown/OSPF Areas.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "ospfDb" in self.url:
+            with open('OSPF Database/Markdown/OSPF Database.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -6299,6 +6325,10 @@ class ACEye():
             with open('OSPF Areas/HTML/OSPF Areas.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "ospfDb" in self.url:
+            with open('OSPF Database/HTML/OSPF Database.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -7124,6 +7154,10 @@ class ACEye():
 
         if "ospfArea" in self.url:
             with open('OSPF Areas/Mindmap/OSPF Areas.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "ospfDb" in self.url:
+            with open('OSPF Database/Mindmap/OSPF Database.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

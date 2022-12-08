@@ -5034,4 +5034,14 @@
 ### Status: {{ area.ospfArea.attributes.status }}
 ### Type: {{ area.ospfArea.attributes.type }}
 {%-          endfor %}
+{%- elif "ospfDb" in api %}
+# OSPF Database
+{%-     for database in data_to_template['imdata'] %}
+## Name: {{ database.ospfDb.attributes.name }}
+### Child Action: {{ database.ospfDb.attributes.childAction }}
+### DN: {{ database.ospfDb.attributes.dn }}
+### Last Modified: {{ database.ospfDb.attributes.modTs }}
+### Status: {{ database.ospfDb.attributes.status }}
+### Type: {{ database.ospfDb.attributes.type }}
+{%-          endfor %}
 {%- endif %}
