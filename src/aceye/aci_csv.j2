@@ -845,4 +845,8 @@
 {%-     for entity in data_to_template['imdata'] %}
 {{ entity.lacpEntity.attributes.name }},{{ entity.lacpEntity.attributes.adminSt }},{{ entity.lacpEntity.attributes.childAction }},{{ entity.lacpEntity.attributes.dn }},{{ entity.lacpEntity.attributes.lcOwn }},{{ entity.lacpEntity.attributes.modTs }},{{ entity.lacpEntity.attributes.operErr }},{{ entity.lacpEntity.attributes.openSt }},{{ entity.lacpEntity.attributes.status }}
 {%-     endfor %}
+{%- elif "lacpIf" in api %}Name,Activity Flags,Admin State,Child Action,Description,DN,ID,Key,Last Active,Local Owner,Last Modified,Monitoring Policy DN,Oper Priority,Port,Priority,Status,TX Rate
+{%-     for interface in data_to_template['imdata'] %}
+{{ interface.lacpIf.attributes.name }},{{ interface.lacpIf.attributes.activityFlags | replace(","," ") }},{{ interface.lacpIf.attributes.adminSt }},{{ interface.lacpIf.attributes.childAction }},{{ interface.lacpIf.attributes.descr }},{{ interface.lacpIf.attributes.dn }},{{ interface.lacpIf.attributes.id }},{{ interface.lacpIf.attributes.key }},{{ interface.lacpIf.attributes.lastActive }},{{ interface.lacpIf.attributes.lcOwn }},{{ interface.lacpIf.attributes.modTs }},{{ interface.lacpIf.attributes.monPolDn }},{{ interface.lacpIf.attributes.operPrio }},{{ interface.lacpIf.attributes.port }},{{ interface.lacpIf.attributes.prio }},{{ interface.lacpIf.attributes.status }},{{ interface.lacpIf.attributes.txRate }}
+{%-     endfor %}
 {%- endif %}

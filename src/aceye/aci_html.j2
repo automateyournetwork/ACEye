@@ -10061,5 +10061,53 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "lacpIf" in api %}
+<h1>LACP Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Activity Flags</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>ID</th>
+    <th>Key</th>
+    <th>Last Active</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Priority</th>
+    <th>Port</th>
+    <th>Priority</th>
+    <th>Status</th>
+    <th>TX Rate</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.lacpIf.attributes.name }}</td>
+    <td>{{ interface.lacpIf.attributes.activityFlags }}</td>
+    <td>{{ interface.lacpIf.attributes.adminSt }}</td>
+    <td>{{ interface.lacpIf.attributes.childAction }}</td>
+    <td>{{ interface.lacpIf.attributes.descr }}</td>
+    <td>{{ interface.lacpIf.attributes.dn }}</td>
+    <td>{{ interface.lacpIf.attributes.id }}</td>
+    <td>{{ interface.lacpIf.attributes.key }}</td>
+    <td>{{ interface.lacpIf.attributes.lastActive }}</td>
+    <td>{{ interface.lacpIf.attributes.lcOwn }}</td>
+    <td>{{ interface.lacpIf.attributes.modTs }}</td>
+    <td>{{ interface.lacpIf.attributes.monPolDn }}</td>
+    <td>{{ interface.lacpIf.attributes.operPrio }}</td>
+    <td>{{ interface.lacpIf.attributes.port }}</td>
+    <td>{{ interface.lacpIf.attributes.prio }}</td>
+    <td>{{ interface.lacpIf.attributes.status }}</td>
+    <td>{{ interface.lacpIf.attributes.txRate }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
