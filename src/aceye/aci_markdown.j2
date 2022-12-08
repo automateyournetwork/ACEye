@@ -1307,4 +1307,10 @@
 {%-     for database in data_to_template['imdata'] %}
 | {{ database.ospfDb.attributes.name }} | {{ database.ospfDb.attributes.childAction }} | {{ database.ospfDb.attributes.dn }} | {{ database.ospfDb.attributes.modTs }} | {{ database.ospfDb.attributes.status }} | {{ database.ospfDb.attributes.type }} |
 {%-     endfor %}
+{%- elif "ospfDom" in api %}# OSPF Domains
+| Name | Bandwidth Reference | Child Action | Control | Distance | DN | ECMP Oper State | Fail State Quality | Flags | Local Owner | Max ECMP | Last Modified | Monitoring Policy DN | Oper State | Router ID | Self Advertised Router Tag | Status |
+| ---- | ------------------- | ------------ | ------- | -------- | -- | --------------- | ------------------ | ----- | ----------- | -------- | ------------- | -------------------- | ---------- | --------- | -------------------------- | ------ |
+{%-     for domain in data_to_template['imdata'] %}
+| {{ domain.ospfDom.attributes.name }} | {{ domain.ospfDom.attributes.bwRef }} | {{ domain.ospfDom.attributes.childAction }} | {{ domain.ospfDom.attributes.ctrl }} | {{ domain.ospfDom.attributes.dist }} | {{ domain.ospfDom.attributes.dn }} | {{ domain.ospfDom.attributes.ecmpOperSt }} | {{ domain.ospfDom.attributes.failStQual }} | {{ domain.ospfDom.attributes.flags }} | {{ domain.ospfDom.attributes.lcOwn }} | {{ domain.ospfDom.attributes.maxEcmp }} | {{ domain.ospfDom.attributes.modTs }} | {{ domain.ospfDom.attributes.monPolDn }} | {{ domain.ospfDom.attributes.operSt }} | {{ domain.ospfDom.attributes.rtrId }} | {{ domain.ospfDom.attributes.selfAdvRtTag }} | {{ domain.ospfDom.attributes.status }} |
+{%-     endfor %}
 {%- endif %}

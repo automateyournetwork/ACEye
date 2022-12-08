@@ -370,6 +370,8 @@ OSPF Areas
 
 OSPF Database
 
+OSPF Domains
+
 Path Attachments
 
 Physical Domains
