@@ -10289,5 +10289,185 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "lldpEntity" in api %}
+<h1>LLDP Entities</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Oper State</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for entity in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ entity.lldpEntity.attributes.name }}</td>
+    <td>{{ entity.lldpEntity.attributes.adminSt }}</td>
+    <td>{{ entity.lldpEntity.attributes.childAction }}</td>
+    <td>{{ entity.lldpEntity.attributes.dn }}</td>
+    <td>{{ entity.lldpEntity.attributes.lcOwn }}</td>
+    <td>{{ entity.lldpEntity.attributes.modTs }}</td>
+    <td>{{ entity.lldpEntity.attributes.monPolDn }}</td>
+    <td>{{ entity.lldpEntity.attributes.operErr }}</td>
+    <td>{{ entity.lldpEntity.attributes.operSt }}</td>
+    <td>{{ entity.lldpEntity.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "lldpIf" in api %}
+<h1>LLDP Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin RX State</th>
+    <th>Admin State</th>
+    <th>Admin TX State</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>MAC</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper RX State</th>
+    <th>Oper TX State</th>
+    <th>Port Description</th>
+    <th>Port Mode</th>
+    <th>Port VLAN</th>
+    <th>Status</th>
+    <th>System Description</th>
+    <th>Wiring Issues</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.lldpIf.attributes.name }}</td>
+    <td>{{ interface.lldpIf.attributes.adminRxSt }}</td>
+    <td>{{ interface.lldpIf.attributes.adminSt }}</td>
+    <td>{{ interface.lldpIf.attributes.adminTxSt }}</td>
+    <td>{{ interface.lldpIf.attributes.childAction }}</td>
+    <td>{{ interface.lldpIf.attributes.descr }}</td>
+    <td>{{ interface.lldpIf.attributes.dn }}</td>
+    <td>{{ interface.lldpIf.attributes.id }}</td>
+    <td>{{ interface.lldpIf.attributes.lcOwn }}</td>
+    <td>{{ interface.lldpIf.attributes.mac }}</td>
+    <td>{{ interface.lldpIf.attributes.modTs }}</td>
+    <td>{{ interface.lldpIf.attributes.monPolDn }}</td>
+    <td>{{ interface.lldpIf.attributes.operRxSt }}</td>
+    <td>{{ interface.lldpIf.attributes.operTxSt }}</td>
+    <td>{{ interface.lldpIf.attributes.portDesc }}</td>
+    <td>{{ interface.lldpIf.attributes.portMode }}</td>
+    <td>{{ interface.lldpIf.attributes.portVlan }}</td>
+    <td>{{ interface.lldpIf.attributes.status }}</td>
+    <td>{{ interface.lldpIf.attributes.sysDesc }}</td>
+    <td>{{ interface.lldpIf.attributes.wiringIssues }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "lldpInst" in api %}
+<h1>LLDP Instances</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>Hold Time</th>
+    <th>Infra VLAN</th>
+    <th>Init Delay Time</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Opt Tlv Sel</th>
+    <th>Status</th>
+    <th>System Description</th>
+    <th>TX Frequency</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for instance in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ instance.lldpInst.attributes.name }}</td>
+    <td>{{ instance.lldpInst.attributes.adminSt }}</td>
+    <td>{{ instance.lldpInst.attributes.childAction }}</td>
+    <td>{{ instance.lldpInst.attributes.ctrl }}</td>
+    <td>{{ instance.lldpInst.attributes.dn }}</td>
+    <td>{{ instance.lldpInst.attributes.holdTime }}</td>
+    <td>{{ instance.lldpInst.attributes.infraVlan }}</td>
+    <td>{{ instance.lldpInst.attributes.initDelayTime }}</td>
+    <td>{{ instance.lldpInst.attributes.lcOwn }}</td>
+    <td>{{ instance.lldpInst.attributes.modTs }}</td>
+    <td>{{ instance.lldpInst.attributes.monPolDn }}</td>
+    <td>{{ instance.lldpInst.attributes.operErr }}</td>
+    <td>{{ instance.lldpInst.attributes.optTlvSel }}</td>
+    <td>{{ instance.lldpInst.attributes.status }}</td>
+    <td>{{ instance.lldpInst.attributes.sysDesc }}</td>
+    <td>{{ instance.lldpInst.attributes.txFreq }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "mgmtMgmtIf" in api %}
+<h1>Management Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Auto Negotiate</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>FCOT Channel Number</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>MTU</th>
+    <th>SNMP Trap State</th>
+    <th>Speed</th>
+    <th>Status</th>
+    <th>Switching State</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.mgmtMgmtIf.attributes.name }}</td>
+    <td>{{ interface.mgmtMgmtIf.attributes.adminSt }}</td>
+    <td>{{ interface.mgmtMgmtIf.attributes.autoNeg }}</td>
+    <td>{{ interface.mgmtMgmtIf.attributes.childAction }}</td>
+    <td>{{ interface.mgmtMgmtIf.attributes.descr }}</td>
+    <td>{{ interface.mgmtMgmtIf.attributes.dn }}</td>
+    <td>{{ interface.mgmtMgmtIf.attributes.fcotChannelNumber }}</td>
+    <td>{{ interface.mgmtMgmtIf.attributes.id }}</td>
+    <td>{{ interface.mgmtMgmtIf.attributes.lcOwn }}</td>
+    <td>{{ interface.mgmtMgmtIf.attributes.modTs }}</td>
+    <td>{{ interface.mgmtMgmtIf.attributes.monPolDn }}</td>
+    <td>{{ interface.mgmtMgmtIf.attributes.mtu }}</td>
+    <td>{{ interface.mgmtMgmtIf.attributes.snmpTrapSt }}</td>
+    <td>{{ interface.mgmtMgmtIf.attributes.speed }}</td>
+    <td>{{ interface.mgmtMgmtIf.attributes.status }}</td>
+    <td>{{ interface.mgmtMgmtIf.attributes.switchingSt }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

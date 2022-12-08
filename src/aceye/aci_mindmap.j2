@@ -4906,4 +4906,86 @@
 #### Description: {{ endpoint.lldpAdjEp.attributes.sysDesc | replace("\n"," ") }}
 ### TTL: {{ endpoint.lldpAdjEp.attributes.ttl }}
 {%-          endfor %}
+{%- elif "lldpEntity" in api %}
+# LLDP Entities
+{%-     for entity in data_to_template['imdata'] %}
+## Name: {{ entity.lldpEntity.attributes.name }}
+### Admin State: {{ entity.lldpEntity.attributes.adminSt }}
+### Child Action: {{ entity.lldpEntity.attributes.childAction }}
+### DN: {{ entity.lldpEntity.attributes.dn }}
+### Local Owner: {{ entity.lldpEntity.attributes.lcOwn }}
+### Last Modified: {{ entity.lldpEntity.attributes.modTs }}
+### Monitoring Policy DN: {{ entity.lldpEntity.attributes.monPolDn }}
+### Oper
+#### Error: {{ entity.lldpEntity.attributes.operErr }}
+#### State: {{ entity.lldpEntity.attributes.operSt }}
+### Status: {{ entity.lldpEntity.attributes.status }}
+{%-          endfor %}
+{%- elif "lldpIf" in api %}
+# LLDP Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.lldpIf.attributes.name }}
+### Admin
+#### RX State: {{ interface.lldpIf.attributes.adminRxSt }}
+#### State: {{ interface.lldpIf.attributes.adminSt }}
+#### TX State: {{ interface.lldpIf.attributes.adminTxSt }}
+### Child Action: {{ interface.lldpIf.attributes.childAction }}
+### Description: {{ interface.lldpIf.attributes.descr }}
+### DN: {{ interface.lldpIf.attributes.dn }}
+### ID: {{ interface.lldpIf.attributes.id }}
+### Local Owner: {{ interface.lldpIf.attributes.lcOwn }}
+### MAC: {{ interface.lldpIf.attributes.mac }}
+### Last Modified: {{ interface.lldpIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.lldpIf.attributes.monPolDn }}
+### Oper
+#### RX State: {{ interface.lldpIf.attributes.operRxSt }}
+#### TX State: {{ interface.lldpIf.attributes.operTxSt }}
+### Port
+#### Description: {{ interface.lldpIf.attributes.portDesc }}
+#### Mode: {{ interface.lldpIf.attributes.portMode }}
+#### VLAN: {{ interface.lldpIf.attributes.portVlan }}
+### Status: {{ interface.lldpIf.attributes.status }}
+### System Description: {{ interface.lldpIf.attributes.sysDesc }}
+### Wiring Issues: {{ interface.lldpIf.attributes.wiringIssues }}
+{%-          endfor %}
+{%- elif "lldpInst" in api %}
+# LLDP Instances
+{%-     for instance in data_to_template['imdata'] %}
+## Name: {{ instance.lldpInst.attributes.name }}
+### Admin State: {{ instance.lldpInst.attributes.adminSt }}
+### Child Action: {{ instance.lldpInst.attributes.childAction }}
+### Control: {{ instance.lldpInst.attributes.ctrl }}
+### DN: {{ instance.lldpInst.attributes.dn }}
+### Hold Time: {{ instance.lldpInst.attributes.holdTime }}
+### Infra VLAN: {{ instance.lldpInst.attributes.infraVlan }}
+### Init Delay Time: {{ instance.lldpInst.attributes.initDelayTime }}
+### Local Owner: {{ instance.lldpInst.attributes.lcOwn }}
+### Last Modified: {{ instance.lldpInst.attributes.modTs }}
+### Monitoring Policy DN: {{ instance.lldpInst.attributes.monPolDn }}
+### Oper Error: {{ instance.lldpInst.attributes.operErr }}
+### Opt Tlv Sel: {{ instance.lldpInst.attributes.optTlvSel }}
+### Status: {{ instance.lldpInst.attributes.status }}
+### System Description: {{ instance.lldpInst.attributes.sysDesc }}
+### TX Frequency: {{ instance.lldpInst.attributes.txFreq }}
+{%-          endfor %}
+{%- elif "mgmtMgmtIf" in api %}
+# Management Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.mgmtMgmtIf.attributes.name }}
+### Admin State: {{ interface.mgmtMgmtIf.attributes.adminSt }}
+### Auto Negotiate: {{ interface.mgmtMgmtIf.attributes.autoNeg }}
+### Child Action: {{ interface.mgmtMgmtIf.attributes.childAction }}
+### Description: {{ interface.mgmtMgmtIf.attributes.descr }}
+### DN: {{ interface.mgmtMgmtIf.attributes.dn }}
+### FCOT Channel Number: {{ interface.mgmtMgmtIf.attributes.fcotChannelNumber }}
+### ID: {{ interface.mgmtMgmtIf.attributes.id }}
+### Local Owner: {{ interface.mgmtMgmtIf.attributes.lcOwn }}
+### Last Modified: {{ interface.mgmtMgmtIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.mgmtMgmtIf.attributes.monPolDn }}
+### MTU: {{ interface.mgmtMgmtIf.attributes.mtu }}
+### SNMP Trap State: {{ interface.mgmtMgmtIf.attributes.snmpTrapSt }}
+### Speed: {{ interface.mgmtMgmtIf.attributes.speed }}
+### Status: {{ interface.mgmtMgmtIf.attributes.status }}
+### Switching State: {{ interface.mgmtMgmtIf.attributes.switchingSt }}
+{%-          endfor %}
 {%- endif %}
