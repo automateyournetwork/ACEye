@@ -194,6 +194,8 @@ Ethernet Port Manager Physical Interfaces
 
 External Unmanaged Nodes
 
+External Unmanaged Nodes Interfaces
+
 Fabric Extended Path Endpoint Containers
 
 Fabric Instances
@@ -282,8 +284,6 @@ ISIS Next Hop
 
 ISIS Routes
 
-License Entitlements
-
 L2 Bridge Domains
 
 L2 EPG Bridge Domain Source Relationships
@@ -349,6 +349,10 @@ LACP Interfaces
 Leaf Interface Profiles
 
 Leaf Switch Profiles
+
+License Entitlements
+
+LLDP Adjacency Endpoints
 
 Locales
 

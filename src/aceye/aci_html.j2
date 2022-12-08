@@ -8692,7 +8692,7 @@
     <th>Created</th>
     <th>Control</th>
     <th>DN</th>
-    <th>Endpoing Move Detect Mode</th>
+    <th>Endpoint Move Detect Mode</th>
     <th>Endpoint Oper State</th>
     <th>Endpoint Oper State Quality</th>
     <th>Endpoint Up Sequence Number</th>
@@ -10185,6 +10185,106 @@
     <td>{{ node.leqptLooseNode.attributes.status }}</td>
     <td>{{ node.leqptLooseNode.attributes.sysDesc | replace("\n"," ") }}</td>
     <td>{{ node.leqptLooseNode.attributes.sysName }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "leqptRsLsNodeToIf" in api %}
+<h1>External Unmanaged Nodes Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tSKey</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.leqptRsLsNodeToIf.attributes.dn }}</td>
+    <td>{{ interface.leqptRsLsNodeToIf.attributes.childAction }}</td>
+    <td>{{ interface.leqptRsLsNodeToIf.attributes.forceResolve }}</td>
+    <td>{{ interface.leqptRsLsNodeToIf.attributes.lcOwn }}</td>
+    <td>{{ interface.leqptRsLsNodeToIf.attributes.modTs }}</td>
+    <td>{{ interface.leqptRsLsNodeToIf.attributes.monPolDn }}</td>
+    <td>{{ interface.leqptRsLsNodeToIf.attributes.rType }}</td>
+    <td>{{ interface.leqptRsLsNodeToIf.attributes.state }}</td>
+    <td>{{ interface.leqptRsLsNodeToIf.attributes.stateQual }}</td>
+    <td>{{ interface.leqptRsLsNodeToIf.attributes.status }}</td>
+    <td>{{ interface.leqptRsLsNodeToIf.attributes.tCl }}</td>
+    <td>{{ interface.leqptRsLsNodeToIf.attributes.tDn }}</td>
+    <td>{{ interface.leqptRsLsNodeToIf.attributes.tSKey }}</td>
+    <td>{{ interface.leqptRsLsNodeToIf.attributes.tType }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "lldpAdjEp" in api %}
+<h1>LLDP Adjacency Endpoints</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Capability</th>
+    <th>Chassis ID Type</th>
+    <th>Chassis ID Version</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>ID</th>
+    <th>Management ID</th>
+    <th>Management IP</th>
+    <th>Management Port MAC</th>
+    <th>Last Modified</th>
+    <th>Monitoring Polily DN</th>
+    <th>Port Description</th>
+    <th>Port ID Type</th>
+    <th>Port ID Version</th>
+    <th>Port VLAN</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>System Description</th>
+    <th>System Name</th>
+    <th>TTL</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for endpoint in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ endpoint.lldpAdjEp.attributes.name }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.capability }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.chassisIdT }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.chassisIdV }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.childAction }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.dn }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.enCap }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.id }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.mgmtId }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.mgmtIp }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.mgmtPortMac }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.modTs }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.monPolDn }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.portDesc }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.portIdT }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.portIdV }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.portVlan }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.stQual }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.status }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.sysDesc | replace("\n"," ") }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.sysName }}</td>
+    <td>{{ endpoint.lldpAdjEp.attributes.ttl }}</td>
   </tr>
 {%-          endfor %}
 </tbody>
