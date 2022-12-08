@@ -4839,4 +4839,22 @@
 ### Status:{{ instance.lacpInst.attributes.status }}
 ### System MAC: {{ instance.lacpInst.attributes.sysMac }}
 {%-          endfor %}
+{%- elif "leqptLooseNode" in api %}
+# External Unmanaged Nodes
+{%-     for node in data_to_template['imdata'] %}
+## Name: {{ node.leqptLooseNode.attributes.name }}
+### Name Alias: {{ node.leqptLooseNode.attributes.nameAlias }}
+### Child Action: {{ node.leqptLooseNode.attributes.childAction }}
+### DN: {{ node.leqptLooseNode.attributes.dn }}
+### Edm Node DN: {{ node.leqptLooseNode.attributes.edmNodeDn }}
+### ID: {{ node.leqptLooseNode.attributes.id }}
+### Local Owner: {{ node.leqptLooseNode.attributes.lcOwn }}
+### Managed Loose Node: {{ node.leqptLooseNode.attributes.managedLooseNode }}
+### Last Modified: {{ node.leqptLooseNode.attributes.modTs }}
+### Monitoring Policy DN: {{ node.leqptLooseNode.attributes.monPolDn }}
+### Status: {{ node.leqptLooseNode.attributes.status }}
+### System
+#### Name: {{ node.leqptLooseNode.attributes.sysName }}
+#### Description: {{ node.leqptLooseNode.attributes.sysDesc | replace("\n"," ") }}
+{%-          endfor %}
 {%- endif %}

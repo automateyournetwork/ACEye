@@ -10149,5 +10149,45 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "leqptLooseNode" in api %}
+<h1>External Unmanaged Nodes</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Edm Node DN</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Managed Loose Node</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Status</th>
+    <th>System Description</th>
+    <th>System Name</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for node in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ node.leqptLooseNode.attributes.name }}</td>
+    <td>{{ node.leqptLooseNode.attributes.nameAlias }}</td>
+    <td>{{ node.leqptLooseNode.attributes.childAction }}</td>
+    <td>{{ node.leqptLooseNode.attributes.dn }}</td>
+    <td>{{ node.leqptLooseNode.attributes.edmNodeDn }}</td>
+    <td>{{ node.leqptLooseNode.attributes.id }}</td>
+    <td>{{ node.leqptLooseNode.attributes.lcOwn }}</td>
+    <td>{{ node.leqptLooseNode.attributes.managedLooseNode }}</td>
+    <td>{{ node.leqptLooseNode.attributes.modTs }}</td>
+    <td>{{ node.leqptLooseNode.attributes.monPolDn }}</td>
+    <td>{{ node.leqptLooseNode.attributes.status }}</td>
+    <td>{{ node.leqptLooseNode.attributes.sysDesc | replace("\n"," ") }}</td>
+    <td>{{ node.leqptLooseNode.attributes.sysName }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

@@ -1247,4 +1247,10 @@
 {%-     for instance in data_to_template['imdata'] %}
 | {{ instance.lacpInst.attributes.name }} | {{ instance.lacpInst.attributes.adminPrio }} | {{ instance.lacpInst.attributes.adminSt }} | {{ instance.lacpInst.attributes.childAction }} | {{ instance.lacpInst.attributes.ctrl }} | {{ instance.lacpInst.attributes.dn }} | {{ instance.lacpInst.attributes.lcOwn }} | {{ instance.lacpInst.attributes.modTs }} | {{ instance.lacpInst.attributes.monPolDn }} | {{ instance.lacpInst.attributes.operErr }} | {{ instance.lacpInst.attributes.operPrio }} | {{ instance.lacpInst.attributes.status }} | {{ instance.lacpInst.attributes.sysMac }} |
 {%-     endfor %}
+{%- elif "leqptLooseNode" in api %}# External Unmanaged Nodes
+| Name | Name Alias | Child Action | DN | Edm Node DN | ID | Local Owner | Managed Loose Node | Last Modified | Monitoring Policy DN | Status | System Description | System Name |
+| ---- | ---------- | ------------ | -- | ----------- | -- | ----------- | ------------------ | ------------- | -------------------- | ------ | ------------------ | ----------- |
+{%-     for node in data_to_template['imdata'] %}
+| {{ node.leqptLooseNode.attributes.name }} | {{ node.leqptLooseNode.attributes.nameAlias }} | {{ node.leqptLooseNode.attributes.childAction }} | {{ node.leqptLooseNode.attributes.dn }} | {{ node.leqptLooseNode.attributes.edmNodeDn }} | {{ node.leqptLooseNode.attributes.id }} | {{ node.leqptLooseNode.attributes.lcOwn }} | {{ node.leqptLooseNode.attributes.managedLooseNode }} | {{ node.leqptLooseNode.attributes.modTs }} | {{ node.leqptLooseNode.attributes.monPolDn }} | {{ node.leqptLooseNode.attributes.status }} | {{ node.leqptLooseNode.attributes.sysDesc | replace("\n"," ") }} | {{ node.leqptLooseNode.attributes.sysName }} |
+{%-     endfor %}
 {%- endif %}
