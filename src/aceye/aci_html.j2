@@ -10469,5 +10469,57 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "ospfAdjEp" in api %}
+<h1>OSPF Adjacency Endpoints</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Area</th>
+    <th>BDR</th>
+    <th>BFD State</th>
+    <th>Child Action</th>
+    <th>DBD Options</th>
+    <th>DN</th>
+    <th>DR</th>
+    <th>Flags</th>
+    <th>Hello Options</th>
+    <th>ID</th>
+    <th>Interface ID</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Peer IP</th>
+    <th>Peer Name</th>
+    <th>Priority</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for endpoint in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ endpoint.ospfAdjEp.attributes.name }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.area }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.bdr }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.bfdSt }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.childAction }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.dbdOptions }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.dn }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.dr }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.flags }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.helloOptions }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.id }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.ifId }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.modTs }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.monPolDn }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.operSt }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.peerIp }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.peerName }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.prio }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

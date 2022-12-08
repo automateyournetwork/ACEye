@@ -4988,4 +4988,28 @@
 ### Status: {{ interface.mgmtMgmtIf.attributes.status }}
 ### Switching State: {{ interface.mgmtMgmtIf.attributes.switchingSt }}
 {%-          endfor %}
+{%- elif "ospfAdjEp" in api %}
+# OSPF Adjacency Endpoints
+{%-     for endpoint in data_to_template['imdata'] %}
+## Name: {{ endpoint.ospfAdjEp.attributes.name }}
+### Area: {{ endpoint.ospfAdjEp.attributes.area }}
+### BDR: {{ endpoint.ospfAdjEp.attributes.bdr }}
+### BFD State: {{ endpoint.ospfAdjEp.attributes.bfdSt }}
+### Child Action: {{ endpoint.ospfAdjEp.attributes.childAction }}
+### DBD Options: {{ endpoint.ospfAdjEp.attributes.dbdOptions }}
+### DN: {{ endpoint.ospfAdjEp.attributes.dn }}
+### DR: {{ endpoint.ospfAdjEp.attributes.dr }}
+### Flags: {{ endpoint.ospfAdjEp.attributes.flags }}
+### Hello Options: {{ endpoint.ospfAdjEp.attributes.helloOptions }}
+### ID: {{ endpoint.ospfAdjEp.attributes.id }}
+### Interface ID: {{ endpoint.ospfAdjEp.attributes.ifId }}
+### Last Modified: {{ endpoint.ospfAdjEp.attributes.modTs }}
+### Monitoring Policy DN: {{ endpoint.ospfAdjEp.attributes.monPolDn }}
+### Oper State: {{ endpoint.ospfAdjEp.attributes.operSt }}
+### Peer
+#### IP: {{ endpoint.ospfAdjEp.attributes.peerIp }}
+#### Name: {{ endpoint.ospfAdjEp.attributes.peerName }}
+### Priority: {{ endpoint.ospfAdjEp.attributes.prio }}
+### Status: {{ endpoint.ospfAdjEp.attributes.status }}
+{%-          endfor %}
 {%- endif %}
