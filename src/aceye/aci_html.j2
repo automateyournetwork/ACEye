@@ -10469,5 +10469,129 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "ospfAdjEp" in api %}
+<h1>OSPF Adjacency Endpoints</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Area</th>
+    <th>BDR</th>
+    <th>BFD State</th>
+    <th>Child Action</th>
+    <th>DBD Options</th>
+    <th>DN</th>
+    <th>DR</th>
+    <th>Flags</th>
+    <th>Hello Options</th>
+    <th>ID</th>
+    <th>Interface ID</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Peer IP</th>
+    <th>Peer Name</th>
+    <th>Priority</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for endpoint in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ endpoint.ospfAdjEp.attributes.name }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.area }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.bdr }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.bfdSt }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.childAction }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.dbdOptions }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.dn }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.dr }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.flags }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.helloOptions }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.id }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.ifId }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.modTs }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.monPolDn }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.operSt }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.peerIp }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.peerName }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.prio }}</td>
+    <td>{{ endpoint.ospfAdjEp.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "ospfArea" in api %}
+<h1>OSPF Areas</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>ASBR Count</th>
+    <th>BR Count</th>
+    <th>Child Action</th>
+    <th>Cost</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>LSA Checksum Summary</th>
+    <th>Last Modified</th>
+    <th>NSSA Trans Role</th>
+    <th>NSSA Trans State</th>
+    <th>NSSA Trans Stable Interval</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for area in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ area.ospfArea.attributes.name }}</td>
+    <td>{{ area.ospfArea.attributes.asbrCnt }}</td>
+    <td>{{ area.ospfArea.attributes.brCnt }}</td>
+    <td>{{ area.ospfArea.attributes.childAction }}</td>
+    <td>{{ area.ospfArea.attributes.cost }}</td>
+    <td>{{ area.ospfArea.attributes.ctrl }}</td>
+    <td>{{ area.ospfArea.attributes.dn }}</td>
+    <td>{{ area.ospfArea.attributes.id }}</td>
+    <td>{{ area.ospfArea.attributes.lcOwn }}</td>
+    <td>{{ area.ospfArea.attributes.lsaCksumSum }}</td>
+    <td>{{ area.ospfArea.attributes.modTs }}</td>
+    <td>{{ area.ospfArea.attributes.nssaTransRole }}</td>
+    <td>{{ area.ospfArea.attributes.nssaTransSt }}</td>
+    <td>{{ area.ospfArea.attributes.nssaTransStabIntvl }}</td>
+    <td>{{ area.ospfArea.attributes.status }}</td>
+    <td>{{ area.ospfArea.attributes.type }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "ospfDb" in api %}
+<h1>OSPF Database</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Last Modified</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for database in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ database.ospfDb.attributes.name }}</td>
+    <td>{{ database.ospfDb.attributes.childAction }}</td>
+    <td>{{ database.ospfDb.attributes.dn }}</td>
+    <td>{{ database.ospfDb.attributes.modTs }}</td>
+    <td>{{ database.ospfDb.attributes.status }}</td>
+    <td>{{ database.ospfDb.attributes.type }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

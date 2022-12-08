@@ -881,4 +881,16 @@
 {%-     for interface in data_to_template['imdata'] %}
 {{ interface.mgmtMgmtIf.attributes.name }},{{ interface.mgmtMgmtIf.attributes.adminSt }},{{ interface.mgmtMgmtIf.attributes.autoNeg }},{{ interface.mgmtMgmtIf.attributes.childAction }},{{ interface.mgmtMgmtIf.attributes.descr }},{{ interface.mgmtMgmtIf.attributes.dn }},{{ interface.mgmtMgmtIf.attributes.fcotChannelNumber }},{{ interface.mgmtMgmtIf.attributes.id }},{{ interface.mgmtMgmtIf.attributes.lcOwn }},{{ interface.mgmtMgmtIf.attributes.modTs }},{{ interface.mgmtMgmtIf.attributes.monPolDn }},{{ interface.mgmtMgmtIf.attributes.mtu }},{{ interface.mgmtMgmtIf.attributes.snmpTrapSt }},{{ interface.mgmtMgmtIf.attributes.speed }},{{ interface.mgmtMgmtIf.attributes.status }},{{ interface.mgmtMgmtIf.attributes.switchingSt }}
 {%-     endfor %}
+{%- elif "ospfAdjEp" in api %}Name,Area,BDR,BFD State,Child Action,DBD Options,DN,DR,Flags,Hello Options,ID,Interface ID,Last Modified,Monitoring Policy DN,Oper State,Peer IP,Peer Name,Priority,Status
+{%-     for endpoint in data_to_template['imdata'] %}
+{{ endpoint.ospfAdjEp.attributes.name }},{{ endpoint.ospfAdjEp.attributes.area }},{{ endpoint.ospfAdjEp.attributes.bdr }},{{ endpoint.ospfAdjEp.attributes.bfdSt }},{{ endpoint.ospfAdjEp.attributes.childAction }},{{ endpoint.ospfAdjEp.attributes.dbdOptions }},{{ endpoint.ospfAdjEp.attributes.dn }},{{ endpoint.ospfAdjEp.attributes.dr }},{{ endpoint.ospfAdjEp.attributes.flags }},{{ endpoint.ospfAdjEp.attributes.helloOptions }},{{ endpoint.ospfAdjEp.attributes.id }},{{ endpoint.ospfAdjEp.attributes.ifId }},{{ endpoint.ospfAdjEp.attributes.modTs }},{{ endpoint.ospfAdjEp.attributes.monPolDn }},{{ endpoint.ospfAdjEp.attributes.operSt }},{{ endpoint.ospfAdjEp.attributes.peerIp }},{{ endpoint.ospfAdjEp.attributes.peerName }},{{ endpoint.ospfAdjEp.attributes.prio }},{{ endpoint.ospfAdjEp.attributes.status }}
+{%-     endfor %}
+{%- elif "ospfArea" in api %}Name,ASBR Count,BR Count,Child Action,Cost,Control,DN,ID,Local Owner,LSA Checksum Summary,Last Modified,NSSA Trans Role,NSSA Trans State,NSSA Trans Stable Interval,Status,Type
+{%-     for area in data_to_template['imdata'] %}
+{{ area.ospfArea.attributes.name }},{{ area.ospfArea.attributes.asbrCnt }},{{ area.ospfArea.attributes.brCnt }},{{ area.ospfArea.attributes.childAction }},{{ area.ospfArea.attributes.cost }},{{ area.ospfArea.attributes.ctrl | replace(","," ") }},{{ area.ospfArea.attributes.dn }},{{ area.ospfArea.attributes.id }},{{ area.ospfArea.attributes.lcOwn }},{{ area.ospfArea.attributes.lsaCksumSum }},{{ area.ospfArea.attributes.modTs }},{{ area.ospfArea.attributes.nssaTransRole }},{{ area.ospfArea.attributes.nssaTransSt }},{{ area.ospfArea.attributes.nssaTransStabIntvl }},{{ area.ospfArea.attributes.status }},{{ area.ospfArea.attributes.type }}
+{%-     endfor %}
+{%- elif "ospfDb" in api %}Name,Child Action,DN,Last Modified,Status,Type
+{%-     for database in data_to_template['imdata'] %}
+{{ database.ospfDb.attributes.name }},{{ database.ospfDb.attributes.childAction }},{{ database.ospfDb.attributes.dn }},{{ database.ospfDb.attributes.modTs }},{{ database.ospfDb.attributes.status }},{{ database.ospfDb.attributes.type }}
+{%-     endfor %}
 {%- endif %}

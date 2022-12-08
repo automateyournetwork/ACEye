@@ -364,6 +364,12 @@ Locales
 
 Management Interfaces
 
+OSPF Adjacency Endpoints
+
+OSPF Areas
+
+OSPF Database
+
 Path Attachments
 
 Physical Domains
