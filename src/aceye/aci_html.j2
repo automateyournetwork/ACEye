@@ -10723,5 +10723,83 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "ospfIf" in api %}
+<h1>OSPF Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Admin State</th>
+    <th>Area</th>
+    <th>BDR</th>
+    <th>BDR ID</th>
+    <th>Child Action</th>
+    <th>Cost</th>
+    <th>Control</th>
+    <th>Dead Interval</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>DR</th>
+    <th>DR ID</th>
+    <th>Failed State Quality</th>
+    <th>Flags</th>
+    <th>Hello Interval</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>LSA Checksum Summary</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>NW Type</th>
+    <th>Oper Cost</th>
+    <th>Oper State</th>
+    <th>P2P Oper State</th>
+    <th>Prefix Suppress</th>
+    <th>Priority</th>
+    <th>Retransmit Interval</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>Transmit Delay</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.ospfIf.attributes.name }}</td>
+    <td>{{ interface.ospfIf.attributes.addr }}</td>
+    <td>{{ interface.ospfIf.attributes.adminSt }}</td>
+    <td>{{ interface.ospfIf.attributes.area }}</td>
+    <td>{{ interface.ospfIf.attributes.bdr }}</td>
+    <td>{{ interface.ospfIf.attributes.bdrId }}</td>
+    <td>{{ interface.ospfIf.attributes.childAction }}</td>
+    <td>{{ interface.ospfIf.attributes.cost }}</td>
+    <td>{{ interface.ospfIf.attributes.ctrl }}</td>
+    <td>{{ interface.ospfIf.attributes.deadIntvl }}</td>
+    <td>{{ interface.ospfIf.attributes.descr }}</td>
+    <td>{{ interface.ospfIf.attributes.dn }}</td>
+    <td>{{ interface.ospfIf.attributes.dr }}</td>
+    <td>{{ interface.ospfIf.attributes.drId }}</td>
+    <td>{{ interface.ospfIf.attributes.failStQual }}</td>
+    <td>{{ interface.ospfIf.attributes.flags }}</td>
+    <td>{{ interface.ospfIf.attributes.helloIntvl }}</td>
+    <td>{{ interface.ospfIf.attributes.id }}</td>
+    <td>{{ interface.ospfIf.attributes.lcOwn }}</td>
+    <td>{{ interface.ospfIf.attributes.lsaCksumSum }}</td>
+    <td>{{ interface.ospfIf.attributes.modTs }}</td>
+    <td>{{ interface.ospfIf.attributes.monPolDn }}</td>
+    <td>{{ interface.ospfIf.attributes.nwT }}</td>
+    <td>{{ interface.ospfIf.attributes.operCost }}</td>
+    <td>{{ interface.ospfIf.attributes.operSt }}</td>
+    <td>{{ interface.ospfIf.attributes.p2pOperSt }}</td>
+    <td>{{ interface.ospfIf.attributes.pfxSuppress }}</td>
+    <td>{{ interface.ospfIf.attributes.prio }}</td>
+    <td>{{ interface.ospfIf.attributes.rexmitIntvl }}</td>
+    <td>{{ interface.ospfIf.attributes.status }}</td>
+    <td>{{ interface.ospfIf.attributes.type }}</td>
+    <td>{{ interface.ospfIf.attributes.xmitDelay }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
