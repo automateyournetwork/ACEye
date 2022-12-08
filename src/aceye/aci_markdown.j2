@@ -34,7 +34,7 @@
 {%-     for l2out in data_to_template['imdata'] %}
 | {{ l2out.l2extOut.attributes.name }} | {{ l2out.l2extOut.attributes.nameAlias }} | {{ l2out.l2extOut.attributes.annotation }} | {{ l2out.l2extOut.attributes.childAction }} | {{ l2out.l2extOut.attributes.descr }} | {{ l2out.l2extOut.attributes.dn }} | {{ l2out.l2extOut.attributes.extMngdBy }} | {{ l2out.l2extOut.attributes.lcOwn }} | {{ l2out.l2extOut.attributes.modTs }} | {{ l2out.l2extOut.attributes.monPolDn }} | {{ l2out.l2extOut.attributes.ownerKey }} | {{ l2out.l2extOut.attributes.ownerTag }} | {{ l2out.l2extOut.attributes.status }} | {{ l2out.l2extOut.attributes.targetDscp }} | {{ l2out.l2extOut.attributes.uid }} | {{ l2out.l2extOut.attributes.userdom }} |
 {%-     endfor %}
-{%- elif "Subnet" in api %}# Subnets
+{%- elif "fvSubnet" in api %}# Subnets
 | Name | Alias | Annotation | Child Action | Config Issues | Control | Debug Message | Description | DN | Externally Managed By | IP | IP Data Plane Learning | LC Owner | Monitoring Policy DN | Preferred | Scope | Status | UID | User Domain | Virtual | Last Modified |
 | ---- | ----- | ---------- | ------------ | ------------- | ------- | ------------- | ----------- | -- | --------------------- | -- | ---------------------- | -------- | -------------------- | --------- | ----- | ------ | --- | ----------- | ------- | ------------- |
 {%-     for subnet in data_to_template['imdata'] %}
