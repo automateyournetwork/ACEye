@@ -1319,4 +1319,10 @@
 {%-     for entity in data_to_template['imdata'] %}
 | {{ entity.ospfEntity.attributes.name }} | {{ entity.ospfEntity.attributes.adminSt }} | {{ entity.ospfEntity.attributes.childAction }} | {{ entity.ospfEntity.attributes.dn }} | {{ entity.ospfEntity.attributes.lcOwn }} | {{ entity.ospfEntity.attributes.modTs }} | {{ entity.ospfEntity.attributes.monPolDn }} | {{ entity.ospfEntity.attributes.operErr }} | {{ entity.ospfEntity.attributes.operSt }} | {{ entity.ospfEntity.attributes.status }} |
 {%-     endfor %}
+{%- elif "ospfExtP" in api %}# OSPF External Profiles
+| Name | Name Alias | Annotation | Area Cost | Area Control | Area ID | Area Type | Child Action | Description | DN | Externally Managed By | Local Owner | Last Modified | Monitoring Policy DN | Multipod Internal | Status | UID |
+| ---- | ---------- | ---------- | --------- | ------------ | ------- | --------- | ------------ | ----------- | -- | --------------------- | ----------- | ------------- | -------------------- | ----------------- | ------ | --- |
+{%-     for profile in data_to_template['imdata'] %}
+| {{ profile.ospfExtP.attributes.name }} | {{ profile.ospfExtP.attributes.nameAlias }} | {{ profile.ospfExtP.attributes.annotation }} | {{ profile.ospfExtP.attributes.areaCost }} | {{ profile.ospfExtP.attributes.areaCtrl }} | {{ profile.ospfExtP.attributes.areaId }} | {{ profile.ospfExtP.attributes.areaType }} | {{ profile.ospfExtP.attributes.childAction }} | {{ profile.ospfExtP.attributes.descr }} | {{ profile.ospfExtP.attributes.dn }} | {{ profile.ospfExtP.attributes.extMngdBy }} | {{ profile.ospfExtP.attributes.lcOwn }} | {{ profile.ospfExtP.attributes.modTs }} | {{ profile.ospfExtP.attributes.monPolDn }} | {{ profile.ospfExtP.attributes.multipodInternal }} | {{ profile.ospfExtP.attributes.status }} | {{ profile.ospfExtP.attributes.uid }} |
+{%-     endfor %}
 {%- endif %}

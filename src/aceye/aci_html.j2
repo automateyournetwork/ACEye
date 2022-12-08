@@ -10675,5 +10675,53 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "ospfExtP" in api %}
+<h1>OSPF External Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Area Cost</th>
+    <th>Area Control</th>
+    <th>Area ID</th>
+    <th>Area Type</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Multipod Internal</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.ospfExtP.attributes.name }}</td>
+    <td>{{ profile.ospfExtP.attributes.nameAlias }}</td>
+    <td>{{ profile.ospfExtP.attributes.annotation }}</td>
+    <td>{{ profile.ospfExtP.attributes.areaCost }}</td>
+    <td>{{ profile.ospfExtP.attributes.areaCtrl }}</td>
+    <td>{{ profile.ospfExtP.attributes.areaId }}</td>
+    <td>{{ profile.ospfExtP.attributes.areaType }}</td>
+    <td>{{ profile.ospfExtP.attributes.childAction }}</td>
+    <td>{{ profile.ospfExtP.attributes.descr }}</td>
+    <td>{{ profile.ospfExtP.attributes.dn }}</td>
+    <td>{{ profile.ospfExtP.attributes.extMngdBy }}</td>
+    <td>{{ profile.ospfExtP.attributes.lcOwn }}</td>
+    <td>{{ profile.ospfExtP.attributes.modTs }}</td>
+    <td>{{ profile.ospfExtP.attributes.monPolDn }}</td>
+    <td>{{ profile.ospfExtP.attributes.multipodInternal }}</td>
+    <td>{{ profile.ospfExtP.attributes.status }}</td>
+    <td>{{ profile.ospfExtP.attributes.uid }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

@@ -5080,4 +5080,26 @@
 #### State: {{ entity.ospfEntity.attributes.operSt }}
 ### Status: {{ entity.ospfEntity.attributes.status }}
 {%-          endfor %}
+{%- elif "ospfExtP" in api %}
+# OSPF External Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.ospfExtP.attributes.name }}
+### Name Alias: {{ profile.ospfExtP.attributes.nameAlias }}
+### Annotation: {{ profile.ospfExtP.attributes.annotation }}
+### Area
+#### Cost: {{ profile.ospfExtP.attributes.areaCost }}
+#### Control: {{ profile.ospfExtP.attributes.areaCtrl }}
+#### ID: {{ profile.ospfExtP.attributes.areaId }}
+#### Type: {{ profile.ospfExtP.attributes.areaType }}
+### Child Action: {{ profile.ospfExtP.attributes.childAction }}
+### Description: {{ profile.ospfExtP.attributes.descr }}
+### DN: {{ profile.ospfExtP.attributes.dn }}
+### Externally Managed By: {{ profile.ospfExtP.attributes.extMngdBy }}
+### Local Owner: {{ profile.ospfExtP.attributes.lcOwn }}
+### Last Modified: {{ profile.ospfExtP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.ospfExtP.attributes.monPolDn }}
+### Multipod Internal: {{ profile.ospfExtP.attributes.multipodInternal }}
+### Status: {{ profile.ospfExtP.attributes.status }}
+### UID: {{ profile.ospfExtP.attributes.uid }}
+{%-          endfor %}
 {%- endif %}
