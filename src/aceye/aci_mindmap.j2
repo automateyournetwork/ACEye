@@ -5044,4 +5044,40 @@
 ### Status: {{ database.ospfDb.attributes.status }}
 ### Type: {{ database.ospfDb.attributes.type }}
 {%-          endfor %}
+{%- elif "ospfDom" in api %}
+# OSPF Domains
+{%-     for domain in data_to_template['imdata'] %}
+## Name: {{ domain.ospfDom.attributes.name }}
+### Bandwidth Reference: {{ domain.ospfDom.attributes.bwRef }}
+### Child Action: {{ domain.ospfDom.attributes.childAction }}
+### Control: {{ domain.ospfDom.attributes.ctrl }}
+### Distance: {{ domain.ospfDom.attributes.dist }}
+### DN: {{ domain.ospfDom.attributes.dn }}
+### ECMP Oper State: {{ domain.ospfDom.attributes.ecmpOperSt }}
+### Failed State Quality: {{ domain.ospfDom.attributes.failStQual }}
+### Flags: {{ domain.ospfDom.attributes.flags }}
+### Local Owner: {{ domain.ospfDom.attributes.lcOwn }}
+### Max ECMP: {{ domain.ospfDom.attributes.maxEcmp }}
+### Last Modified: {{ domain.ospfDom.attributes.modTs }}
+### Monitoring Policy DN: {{ domain.ospfDom.attributes.monPolDn }}
+### Oper State: {{ domain.ospfDom.attributes.operSt }}
+### Router ID: {{ domain.ospfDom.attributes.rtrId }}
+### Seld Advertised Router Tag: {{ domain.ospfDom.attributes.selfAdvRtTag }}
+### Status: {{ domain.ospfDom.attributes.status }}
+{%-          endfor %}
+{%- elif "ospfEntity" in api %}
+# OSPF Entities
+{%-     for entity in data_to_template['imdata'] %}
+## Name: {{ entity.ospfEntity.attributes.name }}
+### Admin State: {{ entity.ospfEntity.attributes.adminSt }}
+### Child Action: {{ entity.ospfEntity.attributes.childAction }}
+### DN: {{ entity.ospfEntity.attributes.dn }}
+### Local Owner: {{ entity.ospfEntity.attributes.lcOwn }}
+### Last Modified: {{ entity.ospfEntity.attributes.modTs }}
+### Monitoring Policy DN: {{ entity.ospfEntity.attributes.monPolDn }}
+### Oper
+#### Error: {{ entity.ospfEntity.attributes.operErr }}
+#### State: {{ entity.ospfEntity.attributes.operSt }}
+### Status: {{ entity.ospfEntity.attributes.status }}
+{%-          endfor %}
 {%- endif %}

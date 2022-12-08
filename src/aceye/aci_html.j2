@@ -10593,5 +10593,87 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "ospfDom" in api %}
+<h1>OSPF Domains</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Bandwidth Reference</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>Distance</th>
+    <th>DN</th>
+    <th>ECMP Oper State</th>
+    <th>Fail State Quality</th>
+    <th>Flags</th>
+    <th>Local Owner</th>
+    <th>Max ECMP</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Router ID</th>
+    <th>Self Advertised Router Tag</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for domain in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ domain.ospfDom.attributes.name }}</td>
+    <td>{{ domain.ospfDom.attributes.bwRef }}</td>
+    <td>{{ domain.ospfDom.attributes.childAction }}</td>
+    <td>{{ domain.ospfDom.attributes.ctrl }}</td>
+    <td>{{ domain.ospfDom.attributes.dist }}</td>
+    <td>{{ domain.ospfDom.attributes.dn }}</td>
+    <td>{{ domain.ospfDom.attributes.ecmpOperSt }}</td>
+    <td>{{ domain.ospfDom.attributes.failStQual }}</td>
+    <td>{{ domain.ospfDom.attributes.flags }}</td>
+    <td>{{ domain.ospfDom.attributes.lcOwn }}</td>
+    <td>{{ domain.ospfDom.attributes.maxEcmp }}</td>
+    <td>{{ domain.ospfDom.attributes.modTs }}</td>
+    <td>{{ domain.ospfDom.attributes.monPolDn }}</td>
+    <td>{{ domain.ospfDom.attributes.operSt }}</td>
+    <td>{{ domain.ospfDom.attributes.rtrId }}</td>
+    <td>{{ domain.ospfDom.attributes.selfAdvRtTag }}</td>
+    <td>{{ domain.ospfDom.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "ospfEntity" in api %}
+<h1>OSPF Entities</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Oper State</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for entity in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ entity.ospfEntity.attributes.name }}</td>
+    <td>{{ entity.ospfEntity.attributes.adminSt }}</td>
+    <td>{{ entity.ospfEntity.attributes.childAction }}</td>
+    <td>{{ entity.ospfEntity.attributes.dn }}</td>
+    <td>{{ entity.ospfEntity.attributes.lcOwn }}</td>
+    <td>{{ entity.ospfEntity.attributes.modTs }}</td>
+    <td>{{ entity.ospfEntity.attributes.monPolDn }}</td>
+    <td>{{ entity.ospfEntity.attributes.operErr }}</td>
+    <td>{{ entity.ospfEntity.attributes.operSt }}</td>
+    <td>{{ entity.ospfEntity.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
