@@ -4876,4 +4876,34 @@
 #### SKey: {{ interface.leqptRsLsNodeToIf.attributes.tSKey }}
 #### Type: {{ interface.leqptRsLsNodeToIf.attributes.tType }}
 {%-          endfor %}
+{%- elif "lldpAdjEp" in api %}
+# LLDP Adjacency Endpoints
+{%-     for endpoint in data_to_template['imdata'] %}
+## Name: {{ endpoint.lldpAdjEp.attributes.name }}
+### Capabilites: {{ endpoint.lldpAdjEp.attributes.capability }}
+### Chassis
+#### ID Type: {{ endpoint.lldpAdjEp.attributes.chassisIdT }}
+#### ID Version: {{ endpoint.lldpAdjEp.attributes.chassisIdV }}
+### Child Action: {{ endpoint.lldpAdjEp.attributes.childAction }}
+### DN: {{ endpoint.lldpAdjEp.attributes.dn }}
+### Encapsulation: {{ endpoint.lldpAdjEp.attributes.enCap }}
+### ID: {{ endpoint.lldpAdjEp.attributes.id }}
+### Management
+#### ID: {{ endpoint.lldpAdjEp.attributes.mgmtId }}
+#### IP: {{ endpoint.lldpAdjEp.attributes.mgmtIp }}
+#### Port MAC: {{ endpoint.lldpAdjEp.attributes.mgmtPortMac }}
+### Last Modified: {{ endpoint.lldpAdjEp.attributes.modTs }}
+### Monitoring Policy DN: {{ endpoint.lldpAdjEp.attributes.monPolDn }}
+### Port
+#### Description: {{ endpoint.lldpAdjEp.attributes.portDesc }}
+#### ID Type: {{ endpoint.lldpAdjEp.attributes.portIdT }}
+#### ID Version: {{ endpoint.lldpAdjEp.attributes.portIdV }}
+#### VLAN: {{ endpoint.lldpAdjEp.attributes.portVlan }}
+### State Quality: {{ endpoint.lldpAdjEp.attributes.stQual }}
+### Status: {{ endpoint.lldpAdjEp.attributes.status }}
+### System
+#### Name: {{ endpoint.lldpAdjEp.attributes.sysName }}
+#### Description: {{ endpoint.lldpAdjEp.attributes.sysDesc | replace("\n"," ") }}
+### TTL: {{ endpoint.lldpAdjEp.attributes.ttl }}
+{%-          endfor %}
 {%- endif %}

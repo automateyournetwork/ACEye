@@ -284,8 +284,6 @@ ISIS Next Hop
 
 ISIS Routes
 
-License Entitlements
-
 L2 Bridge Domains
 
 L2 EPG Bridge Domain Source Relationships
@@ -351,6 +349,10 @@ LACP Interfaces
 Leaf Interface Profiles
 
 Leaf Switch Profiles
+
+License Entitlements
+
+LLDP Adjacency Endpoints
 
 Locales
 

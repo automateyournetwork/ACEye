@@ -430,6 +430,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.external_unmanaged_nodes_interfaces(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.lldp_adjacency_endpoints(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -571,7 +573,6 @@ class ACEye():
                     'ISIS Interfaces Level',
                     'ISIS Next Hop',
                     'ISIS Routes',
-                    'License Entitlements',
                     'L2 Bridge Domains',
                     'L2 EPG Bridge Domain Source Relationships',
                     'L2 External Instance Profiles',
@@ -605,6 +606,8 @@ class ACEye():
                     'LACP Interfaces',
                     'Leaf Interface Profiles',
                     'Leaf Switch Profiles',
+                    'License Entitlements',
+                    'LLDP Adjacency Endpoints',
                     'Locales',
                     'Path Attachments',
                     'Physical Domains',
@@ -2090,6 +2093,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def lldp_adjacency_endpoints(self):
+        self.url = f"{ self.aci }/api/node/class/lldpAdjEp.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<LLDP Adjacency Endpoints code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2881,6 +2891,10 @@ class ACEye():
 
         if "leqptRsLsNodeToIf" in self.url:
             with open('External Unmanaged Nodes Interfaces/JSON/External Unmanaged Nodes Interfaces.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "lldpAdjEp" in self.url:
+            with open('LLDP Adjacency Endpoints/JSON/LLDP Adjacency Endpoints.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -3679,6 +3693,10 @@ class ACEye():
 
         if "leqptRsLsNodeToIf" in self.url:
             with open('External Unmanaged Nodes Interfaces/YAML/External Unmanaged Nodes Interfaces.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "lldpAdjEp" in self.url:
+            with open('LLDP Adjacency Endpoints/YAML/LLDP Adjacency Endpoints.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -4481,6 +4499,10 @@ class ACEye():
 
         if "leqptRsLsNodeToIf" in self.url:
             with open('External Unmanaged Nodes Interfaces/CSV/External Unmanaged Nodes Interfaces.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "lldpAdjEp" in self.url:
+            with open('LLDP Adjacency Endpoints/CSV/LLDP Adjacency Endpoints.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -5286,6 +5308,10 @@ class ACEye():
             with open('External Unmanaged Nodes Interfaces/Markdown/External Unmanaged Nodes Interfaces.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "lldpAdjEp" in self.url:
+            with open('LLDP Adjacency Endpoints/Markdown/LLDP Adjacency Endpoints.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -6089,6 +6115,10 @@ class ACEye():
             with open('External Unmanaged Nodes Interfaces/HTML/External Unmanaged Nodes Interfaces.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "lldpAdjEp" in self.url:
+            with open('LLDP Adjacency Endpoints/HTML/LLDP Adjacency Endpoints.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -6886,6 +6916,10 @@ class ACEye():
 
         if "leqptRsLsNodeToIf" in self.url:
             with open('External Unmanaged Nodes Interfaces/Mindmap/External Unmanaged Nodes Interfaces.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "lldpAdjEp" in self.url:
+            with open('LLDP Adjacency Endpoints/Mindmap/LLDP Adjacency Endpoints.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
