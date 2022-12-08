@@ -10029,5 +10029,37 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "lacpEntity" in api %}
+<h1>LACP Entities</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Oper Error</th>
+    <th>Oper State</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for entity in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ entity.lacpEntity.attributes.name }}</td>
+    <td>{{ entity.lacpEntity.attributes.adminSt }}</td>
+    <td>{{ entity.lacpEntity.attributes.childAction }}</td>
+    <td>{{ entity.lacpEntity.attributes.dn }}</td>
+    <td>{{ entity.lacpEntity.attributes.lcOwn }}</td>
+    <td>{{ entity.lacpEntity.attributes.modTs }}</td>
+    <td>{{ entity.lacpEntity.attributes.operErr }}</td>
+    <td>{{ entity.lacpEntity.attributes.openSt }}</td>
+    <td>{{ entity.lacpEntity.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

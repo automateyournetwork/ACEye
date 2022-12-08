@@ -841,4 +841,8 @@
 {%-     for subnet in data_to_template['imdata'] %}
 {{ subnet.l3extSubnet.attributes.name }},{{ subnet.l3extSubnet.attributes.nameAlias }},{{ subnet.l3extSubnet.attributes.aggregate }},{{ subnet.l3extSubnet.attributes.annotation }},{{ subnet.l3extSubnet.attributes.childAction }},{{ subnet.l3extSubnet.attributes.descr }},{{ subnet.l3extSubnet.attributes.dn }},{{ subnet.l3extSubnet.attributes.extMngdBy }},{{ subnet.l3extSubnet.attributes.ip }},{{ subnet.l3extSubnet.attributes.lcOwn }},{{ subnet.l3extSubnet.attributes.modTs }},{{ subnet.l3extSubnet.attributes.monPolDn }},{{ subnet.l3extSubnet.attributes.scope }},{{ subnet.l3extSubnet.attributes.status }},{{ subnet.l3extSubnet.attributes.uid }}
 {%-     endfor %}
+{%- elif "lacpEntity" in api %}Name,Admin State,Child Action,DN,Local Owner,Last Modified,Oper Error,Oper State,Status
+{%-     for entity in data_to_template['imdata'] %}
+{{ entity.lacpEntity.attributes.name }},{{ entity.lacpEntity.attributes.adminSt }},{{ entity.lacpEntity.attributes.childAction }},{{ entity.lacpEntity.attributes.dn }},{{ entity.lacpEntity.attributes.lcOwn }},{{ entity.lacpEntity.attributes.modTs }},{{ entity.lacpEntity.attributes.operErr }},{{ entity.lacpEntity.attributes.openSt }},{{ entity.lacpEntity.attributes.status }}
+{%-     endfor %}
 {%- endif %}
