@@ -4948,4 +4948,24 @@
 ### System Description: {{ interface.lldpIf.attributes.sysDesc }}
 ### Wiring Issues: {{ interface.lldpIf.attributes.wiringIssues }}
 {%-          endfor %}
+{%- elif "lldpInst" in api %}
+# LLDP Instances
+{%-     for instance in data_to_template['imdata'] %}
+## Name: {{ instance.lldpInst.attributes.name }}
+### Admin State: {{ instance.lldpInst.attributes.adminSt }}
+### Child Action: {{ instance.lldpInst.attributes.childAction }}
+### Control: {{ instance.lldpInst.attributes.ctrl }}
+### DN: {{ instance.lldpInst.attributes.dn }}
+### Hold Time: {{ instance.lldpInst.attributes.holdTime }}
+### Infra VLAN: {{ instance.lldpInst.attributes.infraVlan }}
+### Init Delay Time: {{ instance.lldpInst.attributes.initDelayTime }}
+### Local Owner: {{ instance.lldpInst.attributes.lcOwn }}
+### Last Modified: {{ instance.lldpInst.attributes.modTs }}
+### Monitoring Policy DN: {{ instance.lldpInst.attributes.monPolDn }}
+### Oper Error: {{ instance.lldpInst.attributes.operErr }}
+### Opt Tlv Sel: {{ instance.lldpInst.attributes.optTlvSel }}
+### Status: {{ instance.lldpInst.attributes.status }}
+### System Description: {{ instance.lldpInst.attributes.sysDesc }}
+### TX Frequency: {{ instance.lldpInst.attributes.txFreq }}
+{%-          endfor %}
 {%- endif %}

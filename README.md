@@ -356,6 +356,8 @@ LLDP Adjacency Endpoints
 
 LLDP Entities
 
+LLDP Instances
+
 LLDP Interfaces
 
 Locales

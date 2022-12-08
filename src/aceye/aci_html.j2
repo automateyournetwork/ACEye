@@ -10377,5 +10377,51 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "lldpInst" in api %}
+<h1>LLDP Instances</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>Hold Time</th>
+    <th>Infra VLAN</th>
+    <th>Init Delay Time</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Opt Tlv Sel</th>
+    <th>Status</th>
+    <th>System Description</th>
+    <th>TX Frequency</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for instance in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ instance.lldpInst.attributes.name }}</td>
+    <td>{{ instance.lldpInst.attributes.adminSt }}</td>
+    <td>{{ instance.lldpInst.attributes.childAction }}</td>
+    <td>{{ instance.lldpInst.attributes.ctrl }}</td>
+    <td>{{ instance.lldpInst.attributes.dn }}</td>
+    <td>{{ instance.lldpInst.attributes.holdTime }}</td>
+    <td>{{ instance.lldpInst.attributes.infraVlan }}</td>
+    <td>{{ instance.lldpInst.attributes.initDelayTime }}</td>
+    <td>{{ instance.lldpInst.attributes.lcOwn }}</td>
+    <td>{{ instance.lldpInst.attributes.modTs }}</td>
+    <td>{{ instance.lldpInst.attributes.monPolDn }}</td>
+    <td>{{ instance.lldpInst.attributes.operErr }}</td>
+    <td>{{ instance.lldpInst.attributes.optTlvSel }}</td>
+    <td>{{ instance.lldpInst.attributes.status }}</td>
+    <td>{{ instance.lldpInst.attributes.sysDesc }}</td>
+    <td>{{ instance.lldpInst.attributes.txFreq }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
