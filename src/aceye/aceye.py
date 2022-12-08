@@ -407,8 +407,6 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.l3_logical_node_profiles(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_logical_node_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
         parsed_json = json.dumps(self.l3_out_members(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.l3_contexts_source_relationships(), indent=4, sort_keys=True)
@@ -2830,7 +2828,7 @@ class ACEye():
             with open('L3Out Path Source Relationships/JSON/L3Out Path Source Relationships.json', 'w' ) as f:
                 f.write(parsed_json)
 
-        if "l3extSubnets" in self.url:
+        if "l3extSubnet" in self.url:
             with open('L3 Subnets/JSON/L3 Subnets.json', 'w' ) as f:
                 f.write(parsed_json)
 
@@ -3616,7 +3614,7 @@ class ACEye():
             with open('L3Out Path Source Relationships/YAML/L3Out Path Source Relationships.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
-        if "l3extSubnets" in self.url:
+        if "l3extSubnet" in self.url:
             with open('L3 Subnets/YAML/L3 Subnets.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
@@ -4406,7 +4404,7 @@ class ACEye():
             with open('L3Out Path Source Relationships/CSV/L3Out Path Source Relationships.csv', 'w' ) as f:
                 f.write(csv_output)
 
-        if "l3extSubnets" in self.url:
+        if "l3extSubnet" in self.url:
             with open('L3 Subnets/CSV/L3 Subnets.csv', 'w' ) as f:
                 f.write(csv_output)
 
@@ -5197,7 +5195,7 @@ class ACEye():
             with open('L3Out Path Source Relationships/Markdown/L3Out Path Source Relationships.md', 'w' ) as f:
                 f.write(markdown_output)
 
-        if "l3extSubnets" in self.url:
+        if "l3extSubnet" in self.url:
             with open('L3 Subnets/Markdown/L3 Subnets.md', 'w' ) as f:
                 f.write(markdown_output)
 
@@ -5988,7 +5986,7 @@ class ACEye():
             with open('L3Out Path Source Relationships/HTML/L3Out Path Source Relationships.html', 'w' ) as f:
                 f.write(html_output)
 
-        if "l3extSubnets" in self.url:
+        if "l3extSubnet" in self.url:
             with open('L3 Subnets/HTML/L3 Subnets.html', 'w' ) as f:
                 f.write(html_output)
 
@@ -6775,7 +6773,7 @@ class ACEye():
             with open('L3Out Path Source Relationships/Mindmap/L3Out Path Source Relationships.md', 'w' ) as f:
                 f.write(mindmap_output)
 
-        if "l3extSubnets" in self.url:
+        if "l3extSubnet" in self.url:
             with open('L3 Subnets/Mindmap/L3 Subnets.md', 'w' ) as f:
                 f.write(mindmap_output)
 
