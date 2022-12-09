@@ -5290,4 +5290,43 @@
 #### DN: {{ member.pcRsMbrIfs.attributes.tDn }}
 #### Type: {{ member.pcRsMbrIfs.attributes.tType }}
 {%-          endfor %}
+{%- elif "sviIf" in api %}
+# SVIs
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.sviIf.attributes.name }}
+### Admin State: {{ interface.sviIf.attributes.adminSt }}
+### Auto State: {{ interface.sviIf.attributes.autostate }}
+### Bandwidth: {{ interface.sviIf.attributes.bw }}
+### Car Del: {{ interface.sviIf.attributes.carDel }}
+### Child Action: {{ interface.sviIf.attributes.childAction }}
+### Delay: {{ interface.sviIf.attributes.delay }}
+### Description: {{ interface.sviIf.attributes.descr }}
+### DN: {{ interface.sviIf.attributes.dn }}
+### ID: {{ interface.sviIf.attributes.id }}
+### Inband Management: {{ interface.sviIf.attributes.inbMgmt }}
+### IOD: {{ interface.sviIf.attributes.iod }}
+### Local Owner: {{ interface.sviIf.attributes.lcOwn }}
+### Load Interval
+#### 1: {{ interface.sviIf.attributes.loadIntvl1 }}
+#### 2: {{ interface.sviIf.attributes.loadIntvl2 }}
+#### 3: {{ interface.sviIf.attributes.loadIntvl3 }}
+### MAC: {{ interface.sviIf.attributes.mac }}
+### Medium: {{ interface.sviIf.attributes.medium }}
+### Last Modified: {{ interface.sviIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.sviIf.attributes.monPolDn }}
+### MTU
+#### MTU: {{ interface.sviIf.attributes.mtu }}
+#### Inherit: {{ interface.sviIf.attributes.mtuInherit }}
+### Oper
+#### State: {{ interface.sviIf.attributes.operSt }}
+#### State Quality: {{ interface.sviIf.attributes.operStQual }}
+### OS Summary: {{ interface.sviIf.attributes.osSum }}
+### QoS Priority: {{ interface.sviIf.attributes.qosPrio }}
+### Routed Out Def DN: {{ interface.sviIf.attributes.rtdOutDefDn }}
+### Status: {{ interface.sviIf.attributes.status }}
+### VLAN
+#### ID: {{ interface.sviIf.attributes.vlanId }}
+#### Type: {{ interface.sviIf.attributes.vlanT }}
+### vMAC: {{ interface.sviIf.attributes.vmac }}
+{%-          endfor %}
 {%- endif %}

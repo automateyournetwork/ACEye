@@ -11105,5 +11105,81 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "sviIf" in api %}
+<h1>SVIs</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Auto State</th>
+    <th>Bandwidth</th>
+    <th>Car Del</th>
+    <th>Child Action</th>
+    <th>Delay</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>ID</th>
+    <th>Inband Management</th>
+    <th>IOD</th>
+    <th>Local Owner</th>
+    <th>Load Interval 1</th>
+    <th>Load Interval 2</th>
+    <th>Load Interval 3</th>
+    <th>MAC</th>
+    <th>Medium</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>MTU</th>
+    <th>MTU Inherit</th>
+    <th>Oper State</th>
+    <th>Oper State Quality</th>
+    <th>OS Summary</th>
+    <th>QoS Priority</th>
+    <th>Routed Out Def DN</th>
+    <th>Status</th>
+    <th>VLAN ID</th>
+    <th>VLAN Type</th>
+    <th>vMAC</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.sviIf.attributes.name }}</td>
+    <td>{{ interface.sviIf.attributes.adminSt }}</td>
+    <td>{{ interface.sviIf.attributes.autostate }}</td>
+    <td>{{ interface.sviIf.attributes.bw }}</td>
+    <td>{{ interface.sviIf.attributes.carDel }}</td>
+    <td>{{ interface.sviIf.attributes.childAction }}</td>
+    <td>{{ interface.sviIf.attributes.delay }}</td>
+    <td>{{ interface.sviIf.attributes.descr }}</td>
+    <td>{{ interface.sviIf.attributes.dn }}</td>
+    <td>{{ interface.sviIf.attributes.id }}</td>
+    <td>{{ interface.sviIf.attributes.inbMgmt }}</td>
+    <td>{{ interface.sviIf.attributes.iod }}</td>
+    <td>{{ interface.sviIf.attributes.lcOwn }}</td>
+    <td>{{ interface.sviIf.attributes.loadIntvl1 }}</td>
+    <td>{{ interface.sviIf.attributes.loadIntvl2 }}</td>
+    <td>{{ interface.sviIf.attributes.loadIntvl3 }}</td>
+    <td>{{ interface.sviIf.attributes.mac }}</td>
+    <td>{{ interface.sviIf.attributes.medium }}</td>
+    <td>{{ interface.sviIf.attributes.modTs }}</td>
+    <td>{{ interface.sviIf.attributes.monPolDn }}</td>
+    <td>{{ interface.sviIf.attributes.mtu }}</td>
+    <td>{{ interface.sviIf.attributes.mtuInherit }}</td>
+    <td>{{ interface.sviIf.attributes.operSt }}</td>
+    <td>{{ interface.sviIf.attributes.operStQual }}</td>
+    <td>{{ interface.sviIf.attributes.osSum }}</td>
+    <td>{{ interface.sviIf.attributes.qosPrio }}</td>
+    <td>{{ interface.sviIf.attributes.rtdOutDefDn }}</td>
+    <td>{{ interface.sviIf.attributes.status }}</td>
+    <td>{{ interface.sviIf.attributes.vlanId }}</td>
+    <td>{{ interface.sviIf.attributes.vlanT }}</td>
+    <td>{{ interface.sviIf.attributes.vmac }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

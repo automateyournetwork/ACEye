@@ -420,6 +420,8 @@ Static Route Next Hop Policies
 
 Subnets
 
+SVIs
+
 Tenant
 
 Tenant Health
