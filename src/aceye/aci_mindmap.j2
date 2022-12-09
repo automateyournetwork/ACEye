@@ -5393,4 +5393,28 @@
 #### State: {{ entity.uribv4Entity.attributes.operSt }}
 ### Status: {{ entity.uribv4Entity.attributes.status }}
 {%-          endfor %}
+{%- elif "uribv4Nexthop" in api %}
+# Unicast Route Next Hop
+{%-     for nexthop in data_to_template['imdata'] %}
+## Name: {{ nexthop.uribv4Nexthop.attributes.name }}
+### Next Hop
+#### Metric: {{ nexthop.uribv4Nexthop.attributes.Nhmetric }}
+#### Tag: {{ nexthop.uribv4Nexthop.attributes.Nhtag }}
+### Active: {{ nexthop.uribv4Nexthop.attributes.active }}
+### Address: {{ nexthop.uribv4Nexthop.attributes.addr }}
+### Child Action: {{ nexthop.uribv4Nexthop.attributes.childAction }}
+### Created: {{ nexthop.uribv4Nexthop.attributes.createTs }}
+### DN: {{ nexthop.uribv4Nexthop.attributes.dn }}
+### Interface: {{ nexthop.uribv4Nexthop.attributes.if }}
+### Metric: {{ nexthop.uribv4Nexthop.attributes.metric }}
+### Last Modified: {{ nexthop.uribv4Nexthop.attributes.modTs }}
+### Owner: {{ nexthop.uribv4Nexthop.attributes.owner }}
+### Preference: {{ nexthop.uribv4Nexthop.attributes.pref }}
+### Route Type: {{ nexthop.uribv4Nexthop.attributes.routeType }}
+### rw VNID: {{ nexthop.uribv4Nexthop.attributes.rwVnid }}
+### Status: {{ nexthop.uribv4Nexthop.attributes.status }}
+### Tag: {{ nexthop.uribv4Nexthop.attributes.tag }}
+### Type: {{ nexthop.uribv4Nexthop.attributes.type }}
+### VRF: {{ nexthop.uribv4Nexthop.attributes.vrf }}
+{%-          endfor %}
 {%- endif %}

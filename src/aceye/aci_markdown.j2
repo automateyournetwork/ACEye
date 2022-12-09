@@ -1391,4 +1391,10 @@
 {%-     for entity in data_to_template['imdata'] %}
 | {{ entity.uribv4Entity.attributes.name }} | {{ entity.uribv4Entity.attributes.adminSt }} | {{ entity.uribv4Entity.attributes.childAction }} | {{ entity.uribv4Entity.attributes.dn }} | {{ entity.uribv4Entity.attributes.modTs }} | {{ entity.uribv4Entity.attributes.monPolDn }} | {{ entity.uribv4Entity.attributes.operErr }} | {{ entity.uribv4Entity.attributes.operSt }} | {{ entity.uribv4Entity.attributes.status }} |
 {%-     endfor %}
+{%- elif "uribv4Nexthop" in api %}# Unicast Route Next Hop
+| Name | Next Hop Metric | Next Hop Tag | Active | Address | Child Action | Created | DN | Interface | Metric | Last Modified | Owner | Preference | Route Type | rw VNID | Status | Tag | Type | VRF |
+| ---- | --------------- | ------------ | ------ | ------- | ------------ | ------- | -- | --------- | ------ | ------------- | ----- | ---------- | ---------- | ------- | ------ | --- | ---- | --- |
+{%-     for nexthop in data_to_template['imdata'] %}
+| {{ nexthop.uribv4Nexthop.attributes.name }} | {{ nexthop.uribv4Nexthop.attributes.Nhmetric }} | {{ nexthop.uribv4Nexthop.attributes.Nhtag }} | {{ nexthop.uribv4Nexthop.attributes.active }} | {{ nexthop.uribv4Nexthop.attributes.addr }} | {{ nexthop.uribv4Nexthop.attributes.childAction }} | {{ nexthop.uribv4Nexthop.attributes.createTs }} | {{ nexthop.uribv4Nexthop.attributes.dn }} | {{ nexthop.uribv4Nexthop.attributes.if }} | {{ nexthop.uribv4Nexthop.attributes.metric }} | {{ nexthop.uribv4Nexthop.attributes.modTs }} | {{ nexthop.uribv4Nexthop.attributes.owner }} | {{ nexthop.uribv4Nexthop.attributes.pref }} | {{ nexthop.uribv4Nexthop.attributes.routeType }} | {{ nexthop.uribv4Nexthop.attributes.rwVnid }} | {{ nexthop.uribv4Nexthop.attributes.status }} | {{ nexthop.uribv4Nexthop.attributes.tag }} | {{ nexthop.uribv4Nexthop.attributes.type }} | {{ nexthop.uribv4Nexthop.attributes.vrf }} |
+{%-     endfor %}
 {%- endif %}
