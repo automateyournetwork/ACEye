@@ -5186,4 +5186,84 @@
 ### Last Modified: {{ nexthop.ospfUcNexthop.attributes.modTs }}
 ### Status: {{ nexthop.ospfUcNexthop.attributes.status }}
 {%-          endfor %}
+{%- elif "pcAggrIf" in api %}
+# Port Channel Aggregate Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.pcAggrIf.attributes.name }}
+### Active Ports: {{ interface.pcAggrIf.attributes.activePorts }}
+### Admin State: {{ interface.pcAggrIf.attributes.adminSt }}
+### Auto Negotiate: {{ interface.pcAggrIf.attributes.autoNeg }}
+### Bandwidth
+#### Actual: {{ interface.pcAggrIf.attributes.bw }}
+#### Inherited: {{ interface.pcAggrIf.attributes.inhBw }}
+### Child Action: {{ interface.pcAggrIf.attributes.childAction }}
+### Created: {{ interface.pcAggrIf.attributes.createTime }}
+### Control: {{ interface.pcAggrIf.attributes.ctrl }}
+### Delay: {{ interface.pcAggrIf.attributes.delay }}
+### Description: {{ interface.pcAggrIf.attributes.descr }}
+### DN: {{ interface.pcAggrIf.attributes.dn }}
+### Dot1q EtherType: {{ interface.pcAggrIf.attributes.dot1qEtherType }}
+### Ethpm Config
+#### Failed Bmp: {{ interface.pcAggrIf.attributes.ethpmCfgFailedBmp }}
+#### Failed Timestamp: {{ interface.pcAggrIf.attributes.ethpmCfgFailedTs }}
+#### State: {{ interface.pcAggrIf.attributes.ethpmCfgState }}
+### FCOT Channel Number: {{ interface.pcAggrIf.attributes.fcotChannelNumber }}
+### FOP: {{ interface.pcAggrIf.attributes.fop }}
+### Hash Dist: {{ interface.pcAggrIf.attributes.hashDist }}
+### ID: {{ interface.pcAggrIf.attributes.id }}
+### IOD: {{ interface.pcAggrIf.attributes.iod }}
+### Is Platform Supported: {{ interface.pcAggrIf.attributes.isPlatformSupported }}
+### Is Relfective Relay Config Supported: {{ interface.pcAggrIf.attributes.isReflectiveRelayCfgSupported }}
+### Last Bundle
+#### Member: {{ interface.pcAggrIf.attributes.lastBundleMbr }}
+#### Timestamp: {{ interface.pcAggrIf.attributes.lastBundleTime }}
+### Last State
+#### State: {{ interface.pcAggrIf.attributes.lastSt }}
+#### Cause {{ interface.pcAggrIf.attributes.lastStCause }}
+#### Timestamp: {{ interface.pcAggrIf.attributes.lastTime }}
+### Last Unbundle
+#### Member: {{ interface.pcAggrIf.attributes.lastUnbundleMbr }}
+#### Timestamp: {{ interface.pcAggrIf.attributes.lastUnbundleTime }}
+### Layer: {{ interface.pcAggrIf.attributes.layer }}
+### Local Owner: {{ interface.pcAggrIf.attributes.lcOwn }}
+### Logical Interface: {{ interface.pcAggrIf.attributes.lif }}
+### Link
+#### Debounce: {{ interface.pcAggrIf.attributes.linkDebounce }}
+#### Log: {{ interface.pcAggrIf.attributes.linkLog }}
+### Load Defer Start Time: {{ interface.pcAggrIf.attributes.loadDeferStartTime }}
+### LTL: {{ interface.pcAggrIf.attributes.ltl }}
+### Max
+#### Active: {{ interface.pcAggrIf.attributes.maxActive }}
+#### Links: {{ interface.pcAggrIf.attributes.maxLinks }}
+### MDIX: {{ interface.pcAggrIf.attributes.mdix }}
+### Medium: {{ interface.pcAggrIf.attributes.medium }}
+### Minimum Links: {{ interface.pcAggrIf.attributes.minLinks }}
+### Last Modified: {{ interface.pcAggrIf.attributes.modTs }}
+### Mode: {{ interface.pcAggrIf.attributes.mode }}
+### Monitoring Policy DN: {{ interface.pcAggrIf.attributes.monPolDn }}
+### MTU: {{ interface.pcAggrIf.attributes.mtu }}
+### Oper Channel Mode: {{ interface.pcAggrIf.attributes.operChannelMode }}
+### OS Summary: {{ interface.pcAggrIf.attributes.osSum }}
+### Path S Description: {{ interface.pcAggrIf.attributes.pathSDescr }}
+### Port Channel
+#### ID: {{ interface.pcAggrIf.attributes.pcId }}
+#### Mode: {{ interface.pcAggrIf.attributes.pcMode }}
+#### Config
+#### Failed Bmp: {{ interface.pcAggrIf.attributes.pcmCfgFailedBmp }}
+#### Failed Timestamp: {{ interface.pcAggrIf.attributes.pcmCfgFailedTs }}
+#### State: {{ interface.pcAggrIf.attributes.pcmCfgState }}
+### Port Type: {{ interface.pcAggrIf.attributes.portT }}
+### Priority Flow Control: {{ interface.pcAggrIf.attributes.prioFlowCtrl }}
+### Reflective Relay Enabled: {{ interface.pcAggrIf.attributes.reflectiveRelayEn }}
+### Router MAC: {{ interface.pcAggrIf.attributes.routerMac }}
+### Row State: {{ interface.pcAggrIf.attributes.rowSt }}
+### SNMP Trap State: {{ interface.pcAggrIf.attributes.snmpTrapSt }}
+### Span Mode: {{ interface.pcAggrIf.attributes.spanMode }}
+### Speed: {{ interface.pcAggrIf.attributes.speed }}
+### Status: {{ interface.pcAggrIf.attributes.status }}
+### Susp Min Links: {{ interface.pcAggrIf.attributes.suspMinlinks }}
+### Switching State: {{ interface.pcAggrIf.attributes.switchingSt }}
+### Trunk Log: {{ interface.pcAggrIf.attributes.trunkLog }}
+### Usage: {{ interface.pcAggrIf.attributes.usage }}
+{%-          endfor %}
 {%- endif %}

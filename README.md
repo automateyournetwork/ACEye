@@ -392,6 +392,8 @@ Physical Interfaces
 
 Port Blocks
 
+Port Channel Aggregate Interfaces
+
 Prefix List
 
 Prefix List Detailed

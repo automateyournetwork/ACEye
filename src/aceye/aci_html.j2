@@ -10907,5 +10907,153 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "pcAggrIf" in api %}
+<h1>Port Channel Aggregate Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Active Ports</th>
+    <th>Admin State</th>
+    <th>Auto Negotiate</th>
+    <th>Bandwidth</th>
+    <th>Child Action</th>
+    <th>Created</th>
+    <th>Control</th>
+    <th>Delay</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Dot1q EtherType</th>
+    <th>Ethpm Config Failed Bmp</th>
+    <th>Ethpm Config Failed Timestamp</th>
+    <th>Ethpm Config State</th>
+    <th>FCOT Channel Number</th>
+    <th>FOP</th>
+    <th>Hash Dist</th>
+    <th>ID</th>
+    <th>Inherited Bandwidth</th>
+    <th>IOD</th>
+    <th>Is Platform Supported</th>
+    <th>Is Reflective Relay Config Supported</th>
+    <th>Last Bundle Member</th>
+    <th>Last Bundle Time</th>
+    <th>Last State</th>
+    <th>Last State Cause</th>
+    <th>Last Time</th>
+    <th>Last Unbundle Member</th>
+    <th>Last Unbundle Time</th>
+    <th>Layer</th>
+    <th>Local Owner</th>
+    <th>Logical Interface</th>
+    <th>Link Debounce</th>
+    <th>Link Log</th>
+    <th>Load Defer Start Time</th>
+    <th>LTL</th>
+    <th>Max Active</th>
+    <th>Max Links</th>
+    <th>MDIX</th>
+    <th>Medium</th>
+    <th>Min Links</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>MTU</th>
+    <th>Oper Channel Mode</th>
+    <th>OS Summary</th>
+    <th>Path S Description</th>
+    <th>Port Channel ID</th>
+    <th>Port Channel Mode</th>
+    <th>Port Channel Manager Config Failed Bmp</th>
+    <th>Port Channel Manager Config Failed Timestamp</th>
+    <th>Port Channel Manager Config State</th>
+    <th>Port Type</th>
+    <th>Priority Flow Control</th>
+    <th>Reflective Relay Enable</th>
+    <th>Router MAC</th>
+    <th>Row State</th>
+    <th>SNMP Trap State</th>
+    <th>Span Mode</th>
+    <th>Speed</th>
+    <th>Status</th>
+    <th>Susp Min Links</th>
+    <th>Switching State</th>
+    <th>Trunk Log</th>
+    <th>Usage</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.pcAggrIf.attributes.name }}</td>
+    <td>{{ interface.pcAggrIf.attributes.activePorts }}</td>
+    <td>{{ interface.pcAggrIf.attributes.adminSt }}</td>
+    <td>{{ interface.pcAggrIf.attributes.autoNeg }}</td>
+    <td>{{ interface.pcAggrIf.attributes.bw }}</td>
+    <td>{{ interface.pcAggrIf.attributes.childAction }}</td>
+    <td>{{ interface.pcAggrIf.attributes.createTime }}</td>
+    <td>{{ interface.pcAggrIf.attributes.ctrl }}</td>
+    <td>{{ interface.pcAggrIf.attributes.delay }}</td>
+    <td>{{ interface.pcAggrIf.attributes.descr }}</td>
+    <td>{{ interface.pcAggrIf.attributes.dn }}</td>
+    <td>{{ interface.pcAggrIf.attributes.dot1qEtherType }}</td>
+    <td>{{ interface.pcAggrIf.attributes.ethpmCfgFailedBmp }}</td>
+    <td>{{ interface.pcAggrIf.attributes.ethpmCfgFailedTs }}</td>
+    <td>{{ interface.pcAggrIf.attributes.ethpmCfgState }}</td>
+    <td>{{ interface.pcAggrIf.attributes.fcotChannelNumber }}</td>
+    <td>{{ interface.pcAggrIf.attributes.fop }}</td>
+    <td>{{ interface.pcAggrIf.attributes.hashDist }}</td>
+    <td>{{ interface.pcAggrIf.attributes.id }}</td>
+    <td>{{ interface.pcAggrIf.attributes.inhBw }}</td>
+    <td>{{ interface.pcAggrIf.attributes.iod }}</td>
+    <td>{{ interface.pcAggrIf.attributes.isPlatformSupported }}</td>
+    <td>{{ interface.pcAggrIf.attributes.isReflectiveRelayCfgSupported }}</td>
+    <td>{{ interface.pcAggrIf.attributes.lastBundleMbr }}</td>
+    <td>{{ interface.pcAggrIf.attributes.lastBundleTime }}</td>
+    <td>{{ interface.pcAggrIf.attributes.lastSt }}</td>
+    <td>{{ interface.pcAggrIf.attributes.lastStCause }}</td>
+    <td>{{ interface.pcAggrIf.attributes.lastTime }}</td>
+    <td>{{ interface.pcAggrIf.attributes.lastUnbundleMbr }}</td>
+    <td>{{ interface.pcAggrIf.attributes.lastUnbundleTime }}</td>
+    <td>{{ interface.pcAggrIf.attributes.layer }}</td>
+    <td>{{ interface.pcAggrIf.attributes.lcOwn }}</td>
+    <td>{{ interface.pcAggrIf.attributes.lif }}</td>
+    <td>{{ interface.pcAggrIf.attributes.linkDebounce }}</td>
+    <td>{{ interface.pcAggrIf.attributes.linkLog }}</td>
+    <td>{{ interface.pcAggrIf.attributes.loadDeferStartTime }}</td>
+    <td>{{ interface.pcAggrIf.attributes.ltl }}</td>
+    <td>{{ interface.pcAggrIf.attributes.maxActive }}</td>
+    <td>{{ interface.pcAggrIf.attributes.maxLinks }}</td>
+    <td>{{ interface.pcAggrIf.attributes.mdix }}</td>
+    <td>{{ interface.pcAggrIf.attributes.medium }}</td>
+    <td>{{ interface.pcAggrIf.attributes.minLinks }}</td>
+    <td>{{ interface.pcAggrIf.attributes.modTs }}</td>
+    <td>{{ interface.pcAggrIf.attributes.mode }}</td>
+    <td>{{ interface.pcAggrIf.attributes.monPolDn }}</td>
+    <td>{{ interface.pcAggrIf.attributes.mtu }}</td>
+    <td>{{ interface.pcAggrIf.attributes.operChannelMode }}</td>
+    <td>{{ interface.pcAggrIf.attributes.osSum }}</td>
+    <td>{{ interface.pcAggrIf.attributes.pathSDescr }}</td>
+    <td>{{ interface.pcAggrIf.attributes.pcId }}</td>
+    <td>{{ interface.pcAggrIf.attributes.pcMode }}</td>
+    <td>{{ interface.pcAggrIf.attributes.pcmCfgFailedBmp }}</td>
+    <td>{{ interface.pcAggrIf.attributes.pcmCfgFailedTs }}</td>
+    <td>{{ interface.pcAggrIf.attributes.pcmCfgState }}</td>
+    <td>{{ interface.pcAggrIf.attributes.portT }}</td>
+    <td>{{ interface.pcAggrIf.attributes.prioFlowCtrl }}</td>
+    <td>{{ interface.pcAggrIf.attributes.reflectiveRelayEn }}</td>
+    <td>{{ interface.pcAggrIf.attributes.routerMac }}</td>
+    <td>{{ interface.pcAggrIf.attributes.rowSt }}</td>
+    <td>{{ interface.pcAggrIf.attributes.snmpTrapSt }}</td>
+    <td>{{ interface.pcAggrIf.attributes.spanMode }}</td>
+    <td>{{ interface.pcAggrIf.attributes.speed }}</td>
+    <td>{{ interface.pcAggrIf.attributes.status }}</td>
+    <td>{{ interface.pcAggrIf.attributes.suspMinlinks }}</td>
+    <td>{{ interface.pcAggrIf.attributes.switchingSt }}</td>
+    <td>{{ interface.pcAggrIf.attributes.trunkLog }}</td>
+    <td>{{ interface.pcAggrIf.attributes.usage }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
