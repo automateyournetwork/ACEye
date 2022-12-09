@@ -11259,5 +11259,31 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "uribv4Db" in api %}
+<h1>Unicast Route Database</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Last Modified</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for route in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ route.uribv4Db.attributes.name }}</td>
+    <td>{{ route.uribv4Db.attributes.childAction }}</td>
+    <td>{{ route.uribv4Db.attributes.dn }}</td>
+    <td>{{ route.uribv4Db.attributes.modTs }}</td>
+    <td>{{ route.uribv4Db.attributes.status }}</td>
+    <td>{{ route.uribv4Db.attributes.type }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

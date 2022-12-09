@@ -5369,4 +5369,14 @@
 ### v6 Source: {{ interface.tunnelIf.attributes.v6Src }}
 ### VRF Name: {{ interface.tunnelIf.attributes.vrfName }}
 {%-          endfor %}
+{%- elif "uribv4Db" in api %}
+# Unicast Route Database
+{%-     for route in data_to_template['imdata'] %}
+## Name: {{ route.uribv4Db.attributes.name }}
+### Child Action: {{ route.uribv4Db.attributes.childAction }}
+### DN: {{ route.uribv4Db.attributes.dn }}
+### Last Modified: {{ route.uribv4Db.attributes.modTs }}
+### Status: {{ route.uribv4Db.attributes.status }}
+### Type: {{ route.uribv4Db.attributes.type }}
+{%-          endfor %}
 {%- endif %}
