@@ -376,7 +376,13 @@ OSPF Entities
 
 OSPF External Profiles
 
+OSPF Instances
+
 OSPF Interfaces
+
+OSPF Routes
+
+OSPF Unicast Next Hop
 
 Path Attachments
 

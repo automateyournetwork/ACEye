@@ -10801,5 +10801,111 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "ospfInst" in api %}
+<h1>OSPF Instances</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Memory Alert</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for instance in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ instance.ospfInst.attributes.name }}</td>
+    <td>{{ instance.ospfInst.attributes.adminSt }}</td>
+    <td>{{ instance.ospfInst.attributes.childAction }}</td>
+    <td>{{ instance.ospfInst.attributes.ctrl }}</td>
+    <td>{{ instance.ospfInst.attributes.dn }}</td>
+    <td>{{ instance.ospfInst.attributes.lcOwn }}</td>
+    <td>{{ instance.ospfInst.attributes.memAlert }}</td>
+    <td>{{ instance.ospfInst.attributes.modTs }}</td>
+    <td>{{ instance.ospfInst.attributes.monPolDn }}</td>
+    <td>{{ instance.ospfInst.attributes.operErr }}</td>
+    <td>{{ instance.ospfInst.attributes.status}}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "ospfRoute" in api %}
+<h1>OSPF Routes</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Area</th>
+    <th>Child Action</th>
+    <th>Distance</th>
+    <th>DN</th>
+    <th>Flags</th>
+    <th>Multicast Cost</th>
+    <th>Last Modified</th>
+    <th>Path Type</th>
+    <th>Prefix</th>
+    <th>Status</th>
+    <th>Tag</th>
+    <th>Unicast Cost</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for route in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ route.ospfRoute.attributes.name }}</td>
+    <td>{{ route.ospfRoute.attributes.area }}</td>
+    <td>{{ route.ospfRoute.attributes.childAction }}</td>
+    <td>{{ route.ospfRoute.attributes.dist }}</td>
+    <td>{{ route.ospfRoute.attributes.dn }}</td>
+    <td>{{ route.ospfRoute.attributes.flags }}</td>
+    <td>{{ route.ospfRoute.attributes.mcastCost }}</td>
+    <td>{{ route.ospfRoute.attributes.modTs }}</td>
+    <td>{{ route.ospfRoute.attributes.pathT }}</td>
+    <td>{{ route.ospfRoute.attributes.pfx }}</td>
+    <td>{{ route.ospfRoute.attributes.status }}</td>
+    <td>{{ route.ospfRoute.attributes.tag }}</td>
+    <td>{{ route.ospfRoute.attributes.ucastCost }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "ospfUcNexthop" in api %}
+<h1>OSPF Unicast Next Hop</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Flags</th>
+    <th>Interface</th>
+    <th>Last Modified</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for nexthop in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ nexthop.ospfUcNexthop.attributes.name }}</td>
+    <td>{{ nexthop.ospfUcNexthop.attributes.addr }}</td>
+    <td>{{ nexthop.ospfUcNexthop.attributes.childAction }}</td>
+    <td>{{ nexthop.ospfUcNexthop.attributes.dn }}</td>
+    <td>{{ nexthop.ospfUcNexthop.attributes.flags }}</td>
+    <td>{{ nexthop.ospfUcNexthop.attributes.if }}</td>
+    <td>{{ nexthop.ospfUcNexthop.attributes.modTs }}</td>
+    <td>{{ nexthop.ospfUcNexthop.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
