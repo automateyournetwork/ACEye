@@ -5586,4 +5586,70 @@
 ### UID: {{ profile.vmmUsrAccP.attributes.uid }}
 ### User: {{ profile.vmmUsrAccP.attributes.usr }}
 {%-          endfor %}
+{%- elif "vpcDom" in api %}
+# VPC Domains
+{%-     for domain in data_to_template['imdata'] %}
+## Name: {{ domain.vpcDom.attributes.name }}
+### Batched VPC Inv: {{ domain.vpcDom.attributes.batchedVpcInv }}
+### Child Action: {{ domain.vpcDom.attributes.childAction }}
+### Compatibility
+#### Quality: {{ domain.vpcDom.attributes.compatQual }}
+#### Quality State: {{ domain.vpcDom.attributes.compatQualStr }}
+### Compatibility State: {{ domain.vpcDom.attributes.compatSt }}
+### Dead Interval: {{ domain.vpcDom.attributes.deadIntvl }}
+### DN: {{ domain.vpcDom.attributes.dn }}
+### Dual Active State: {{ domain.vpcDom.attributes.dualActiveSt }}
+### ID: {{ domain.vpcDom.attributes.id }}
+### ISSU
+#### From Version: {{ domain.vpcDom.attributes.issuFromVer }}
+#### To Version: {{ domain.vpcDom.attributes.issuToVer }}
+### LACP Role: {{ domain.vpcDom.attributes.lacpRole }}
+### Local
+#### Owner: {{ domain.vpcDom.attributes.lcOwn }}
+#### MAC: {{ domain.vpcDom.attributes.localMAC }}
+#### Priority: {{ domain.vpcDom.attributes.localPrio }}
+### Last Modified: {{ domain.vpcDom.attributes.modTs }}
+### Monitoring Policy DN: {{ domain.vpcDom.attributes.monPolDn }}
+### Old Role: {{ domain.vpcDom.attributes.oldRole }}
+### Oper
+#### Role: {{ domain.vpcDom.attributes.operRole }}
+#### State: {{ domain.vpcDom.attributes.operSt }}
+### Orphan Port List: {{ domain.vpcDom.attributes.orphanPortList }}
+### Peer
+#### IP: {{ domain.vpcDom.attributes.peerIp }}
+#### MAC: {{ domain.vpcDom.attributes.peerMAC }}
+#### Priority: {{ domain.vpcDom.attributes.peerPrio }}
+#### State: {{ domain.vpcDom.attributes.peerSt }}
+#### State Quality: {{ domain.vpcDom.attributes.peerStQual }}
+#### Version: {{ domain.vpcDom.attributes.peerVersion }}
+### Role Priority: {{ domain.vpcDom.attributes.rolePrio }}
+### Self Init Fabric Link Flap Count: {{ domain.vpcDom.attributes.selfIniFabLinkFlapCnt }}
+### Split Brain Timer
+#### Duration: {{ domain.vpcDom.attributes.splitBrainTimerDuration }}
+#### Is Running: {{ domain.vpcDom.attributes.splitBrainTimerIsRun }}
+#### Start Time: {{ domain.vpcDom.attributes.splitBrainTimerStartTime }}
+### Status: {{ domain.vpcDom.attributes.status }}
+### Summary Oper Role: {{ domain.vpcDom.attributes.summOperRole }}
+### System
+#### MAC: {{ domain.vpcDom.attributes.sysMac }}
+#### Priority: {{ domain.vpcDom.attributes.sysPrio }}
+### Try Role Establish Timer
+#### Duration: {{ domain.vpcDom.attributes.tryRoleEstabTimerDuration }}
+#### Is Running: {{ domain.vpcDom.attributes.tryRoleEstabTimerIsRun }}
+#### Start Time: {{ domain.vpcDom.attributes.tryRoleEstabTimerStartTime }}
+### Type2 Compatibility
+#### Quality: {{ domain.vpcDom.attributes.type2CompatQual }}
+#### Quality String: {{ domain.vpcDom.attributes.type2CompatQualStr }}
+#### State: {{ domain.vpcDom.attributes.type2CompatSt }}
+### Virtual IP
+#### Announce Delay: {{ domain.vpcDom.attributes.vIpAnnounceDelay }}
+#### IP: {{ domain.vpcDom.attributes.virtualIp }}
+### VPC Config
+#### Failed Bmp: {{ domain.vpcDom.attributes.vpcCfgFailedBmp }}
+#### Failed Timestamp: {{ domain.vpcDom.attributes.vpcCfgFailedTs }}
+#### State: {{ domain.vpcDom.attributes.vpcCfgState }}
+### VPC
+#### MAC: {{ domain.vpcDom.attributes.vpcMAC }}
+#### Priority: {{ domain.vpcDom.attributes.vpcPrio }}
+{%-          endfor %}
 {%- endif %}
