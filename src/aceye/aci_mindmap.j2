@@ -5141,4 +5141,19 @@
 ### Type: {{ interface.ospfIf.attributes.type }}
 ### Transmit Delay: {{ interface.ospfIf.attributes.xmitDelay }}
 {%-          endfor %}
+{%- elif "ospfInst" in api %}
+# OSPF Instances
+{%-     for instance in data_to_template['imdata'] %}
+## Name: {{ instance.ospfInst.attributes.name }}
+### Admin State: {{ instance.ospfInst.attributes.adminSt }}
+### Child Action: {{ instance.ospfInst.attributes.childAction }}
+### Control: {{ instance.ospfInst.attributes.ctrl }}
+### DN: {{ instance.ospfInst.attributes.dn }}
+### Local Owner: {{ instance.ospfInst.attributes.lcOwn }}
+### Memory Alert: {{ instance.ospfInst.attributes.memAlert }}
+### Last Modified: {{ instance.ospfInst.attributes.modTs }}
+### Monitoring Policy DN: {{ instance.ospfInst.attributes.monPolDn }}
+### Oper Error: {{ instance.ospfInst.attributes.operErr }}
+### Status: {{ instance.ospfInst.attributes.status}}
+{%-          endfor %}
 {%- endif %}

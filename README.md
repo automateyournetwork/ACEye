@@ -376,6 +376,8 @@ OSPF Entities
 
 OSPF External Profiles
 
+OSPF Instances
+
 OSPF Interfaces
 
 Path Attachments
