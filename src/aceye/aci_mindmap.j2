@@ -5547,4 +5547,24 @@
 ### UID: {{ profile.vmmDomP.attributes.uid }}
 ### Unique ID: {{ profile.vmmDomP.attributes.uniqueId }}
 {%-          endfor %}
+{%- elif "vmmProvP" in api %}
+# VMM Provider Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.vmmProvP.attributes.name }}
+### Name Alias: {{ profile.vmmProvP.attributes.nameAlias }}
+### Annotation: {{ profile.vmmProvP.attributes.annotation }}
+### Child Action: {{ profile.vmmProvP.attributes.childAction }}
+### DN: {{ profile.vmmProvP.attributes.dn }}
+### Externally Managed By: {{ profile.vmmProvP.attributes.extMngdBy }}
+### Local Owner: {{ profile.vmmProvP.attributes.lcOwn }}
+### Last Modified: {{ profile.vmmProvP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.vmmProvP.attributes.monPolDn }}
+### Owner
+#### Key: {{ profile.vmmProvP.attributes.ownerKey }}
+#### Tag: {{ profile.vmmProvP.attributes.ownerTag }}
+### Status: {{ profile.vmmProvP.attributes.status }}
+### Type: {{ profile.vmmProvP.attributes.type }}
+### UID: {{ profile.vmmProvP.attributes.uid }}
+### Vendor: {{ profile.vmmProvP.attributes.vendor }}
+{%-          endfor %}
 {%- endif %}
