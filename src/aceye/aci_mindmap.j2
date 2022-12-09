@@ -5372,11 +5372,25 @@
 {%- elif "uribv4Dom" in api %}
 # Unicast Route Domains
 {%-     for route in data_to_template['imdata'] %}
-## Name: {{ route.uribv4Db.attributes.name }}
-### Child Action: {{ route.uribv4Db.attributes.childAction }}
-### DN: {{ route.uribv4Db.attributes.dn }}
-### Last Modified: {{ route.uribv4Db.attributes.modTs }}
-### Oper State: {{ route.uribv4Db.attributes.operSt }}
-### Status: {{ route.uribv4Db.attributes.status }}
+## Name: {{ route.uribv4Dom.attributes.name }}
+### Child Action: {{ route.uribv4Dom.attributes.childAction }}
+### DN: {{ route.uribv4Dom.attributes.dn }}
+### Last Modified: {{ route.uribv4Dom.attributes.modTs }}
+### Oper State: {{ route.uribv4Dom.attributes.operSt }}
+### Status: {{ route.uribv4Dom.attributes.status }}
+{%-          endfor %}
+{%- elif "uribv4Entity" in api %}
+# Unicast Route Entities
+{%-     for entity in data_to_template['imdata'] %}
+## Name: {{ entity.uribv4Entity.attributes.name }}
+### Admin State: {{ entity.uribv4Entity.attributes.adminSt }}
+### Child Action: {{ entity.uribv4Entity.attributes.childAction }}
+### DN: {{ entity.uribv4Entity.attributes.dn }}
+### Last Modified: {{ entity.uribv4Entity.attributes.modTs }}
+### Monitoring Policy DN: {{ entity.uribv4Entity.attributes.monPolDn }}
+### Oper
+#### Error: {{ entity.uribv4Entity.attributes.operErr }}
+#### State: {{ entity.uribv4Entity.attributes.operSt }}
+### Status: {{ entity.uribv4Entity.attributes.status }}
 {%-          endfor %}
 {%- endif %}

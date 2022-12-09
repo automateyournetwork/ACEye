@@ -11301,12 +11301,44 @@
 <tbody>
 {%-     for route in data_to_template['imdata'] %}
   <tr>
-    <td>{{ route.uribv4Db.attributes.name }}</td>
-    <td>{{ route.uribv4Db.attributes.childAction }}</td>
-    <td>{{ route.uribv4Db.attributes.dn }}</td>
-    <td>{{ route.uribv4Db.attributes.modTs }}</td>
-    <td>{{ route.uribv4Db.attributes.operSt }}</td>
-    <td>{{ route.uribv4Db.attributes.status }}</td>
+    <td>{{ route.uribv4Dom.attributes.name }}</td>
+    <td>{{ route.uribv4Dom.attributes.childAction }}</td>
+    <td>{{ route.uribv4Dom.attributes.dn }}</td>
+    <td>{{ route.uribv4Dom.attributes.modTs }}</td>
+    <td>{{ route.uribv4Dom.attributes.operSt }}</td>
+    <td>{{ route.uribv4Dom.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "uribv4Entity" in api %}
+<h1>Unicast Route Entities</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Oper State</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for entity in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ entity.uribv4Entity.attributes.name }}</td>
+    <td>{{ entity.uribv4Entity.attributes.adminSt }}</td>
+    <td>{{ entity.uribv4Entity.attributes.childAction }}</td>
+    <td>{{ entity.uribv4Entity.attributes.dn }}</td>
+    <td>{{ entity.uribv4Entity.attributes.modTs }}</td>
+    <td>{{ entity.uribv4Entity.attributes.monPolDn }}</td>
+    <td>{{ entity.uribv4Entity.attributes.operErr }}</td>
+    <td>{{ entity.uribv4Entity.attributes.operSt }}</td>
+    <td>{{ entity.uribv4Entity.attributes.status }}</td>
   </tr>
 {%-          endfor %}
 </tbody>

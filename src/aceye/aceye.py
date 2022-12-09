@@ -473,6 +473,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.unicast_route_domains(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.unicast_route_entities(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -689,6 +691,7 @@ class ACEye():
                     'Tunnel Interfaces',
                     'Unicast Route Database',
                     'Unicast Route Domains',
+                    'Unicast Route Entities',
                     'Users',
                     'VLAN Encapsulation Blocks',
                     'VLAN Namespace Policies',
@@ -2301,6 +2304,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def unicast_route_entities(self):
+        self.url = f"{ self.aci }/api/node/class/uribv4Entity.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Unicast Route Entities code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -3176,6 +3186,10 @@ class ACEye():
 
         if "uribv4Dom" in self.url:
             with open('Unicast Route Domains/JSON/Unicast Route Domains.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "uribv4Entity" in self.url:
+            with open('Unicast Route Entities/JSON/Unicast Route Entities.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -4058,6 +4072,10 @@ class ACEye():
 
         if "uribv4Dom" in self.url:
             with open('Unicast Route Domains/YAML/Unicast Route Domains.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "uribv4Entity" in self.url:
+            with open('Unicast Route Entities/YAML/Unicast Route Entities.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -4944,6 +4962,10 @@ class ACEye():
 
         if "uribv4Dom" in self.url:
             with open('Unicast Route Domains/CSV/Unicast Route Domains.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "uribv4Entity" in self.url:
+            with open('Unicast Route Entities/CSV/Unicast Route Entities.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -5833,6 +5855,10 @@ class ACEye():
             with open('Unicast Route Domains/Markdown/Unicast Route Domains.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "uribv4Entity" in self.url:
+            with open('Unicast Route Entities/Markdown/Unicast Route Entities.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -6720,6 +6746,10 @@ class ACEye():
             with open('Unicast Route Domains/HTML/Unicast Route Domains.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "uribv4Entity" in self.url:
+            with open('Unicast Route Entities/HTML/Unicast Route Entities.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -7601,7 +7631,11 @@ class ACEye():
 
         if "uribv4Dom" in self.url:
             with open('Unicast Route Domains/Mindmap/Unicast Route Domains.md', 'w' ) as f:
-                f.write(html_output)
+                f.write(mindmap_output)
+
+        if "uribv4Entity" in self.url:
+            with open('Unicast Route Entities/Mindmap/Unicast Route Entities.md', 'w' ) as f:
+                f.write(mindmap_output)
 
     def all_files(self, parsed_json):
         self.json_file(parsed_json)

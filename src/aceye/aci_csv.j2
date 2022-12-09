@@ -943,6 +943,10 @@
 {%-     endfor %}
 {%- elif "uribv4Dom" in api %}Name,Child Action,DN,Last Modified,Oper State,Status
 {%-     for route in data_to_template['imdata'] %}
-{{ route.uribv4Db.attributes.name }},{{ route.uribv4Db.attributes.childAction }},{{ route.uribv4Db.attributes.dn }},{{ route.uribv4Db.attributes.modTs }},{{ route.uribv4Db.attributes.operSt }}{{ route.uribv4Db.attributes.status }}
+{{ route.uribv4Dom.attributes.name }},{{ route.uribv4Dom.attributes.childAction }},{{ route.uribv4Dom.attributes.dn }},{{ route.uribv4Dom.attributes.modTs }},{{ route.uribv4Dom.attributes.operSt }}{{ route.uribv4Dom.attributes.status }}
+{%-     endfor %}
+{%- elif "uribv4Entity" in api %}Name,Admin State,Child Action,DN,Last Modified,Monitoring Policy DN,Oper Error,Oper State,Status
+{%-     for entity in data_to_template['imdata'] %}
+{{ entity.uribv4Entity.attributes.name }},{{ entity.uribv4Entity.attributes.adminSt }},{{ entity.uribv4Entity.attributes.childAction }},{{ entity.uribv4Entity.attributes.dn }},{{ entity.uribv4Entity.attributes.modTs }},{{ entity.uribv4Entity.attributes.monPolDn }},{{ entity.uribv4Entity.attributes.operErr }},{{ entity.uribv4Entity.attributes.operSt }},{{ entity.uribv4Entity.attributes.status }}
 {%-     endfor %}
 {%- endif %}
