@@ -5156,4 +5156,22 @@
 ### Oper Error: {{ instance.ospfInst.attributes.operErr }}
 ### Status: {{ instance.ospfInst.attributes.status}}
 {%-          endfor %}
+{%- elif "ospfRoute" in api %}
+# OSPF Routes
+{%-     for route in data_to_template['imdata'] %}
+## Name: {{ route.ospfRoute.attributes.name }}
+### Area: {{ route.ospfRoute.attributes.area }}
+### Child Action: {{ route.ospfRoute.attributes.childAction }}
+### Distance: {{ route.ospfRoute.attributes.dist }}
+### DN: {{ route.ospfRoute.attributes.dn }}
+### Flags: {{ route.ospfRoute.attributes.flags }}
+### Last Modified: {{ route.ospfRoute.attributes.modTs }}
+### Path Type: {{ route.ospfRoute.attributes.pathT }}
+### Prefix: {{ route.ospfRoute.attributes.pfx }}
+### Status: {{ route.ospfRoute.attributes.status }}
+### Tag: {{ route.ospfRoute.attributes.tag }}
+### Cost
+#### Unicast: {{ route.ospfRoute.attributes.ucastCost }}
+#### Multicast: {{ route.ospfRoute.attributes.mcastCost }}
+{%-          endfor %}
 {%- endif %}

@@ -380,6 +380,8 @@ OSPF Instances
 
 OSPF Interfaces
 
+OSPF Routes
+
 Path Attachments
 
 Physical Domains
