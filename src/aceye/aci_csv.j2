@@ -917,4 +917,8 @@
 {%-     for route in data_to_template['imdata'] %}
 {{ route.ospfRoute.attributes.name }},{{ route.ospfRoute.attributes.area }},{{ route.ospfRoute.attributes.childAction }},{{ route.ospfRoute.attributes.dist }},{{ route.ospfRoute.attributes.dn }},{{ route.ospfRoute.attributes.flags | replace(","," ") }},{{ route.ospfRoute.attributes.mcastCost }},{{ route.ospfRoute.attributes.modTs }},{{ route.ospfRoute.attributes.pathT }},{{ route.ospfRoute.attributes.pfx }},{{ route.ospfRoute.attributes.status }},{{ route.ospfRoute.attributes.tag }},{{ route.ospfRoute.attributes.ucastCost }}
 {%-     endfor %}
+{%- elif "ospfUcNexthop" in api %}Name,Address,Child Action,DN,Flags,Interface,Last Modified,Status
+{%-     for nexthop in data_to_template['imdata'] %}
+{{ nexthop.ospfUcNexthop.attributes.name }},{{ nexthop.ospfUcNexthop.attributes.addr }},{{ nexthop.ospfUcNexthop.attributes.childAction }},{{ nexthop.ospfUcNexthop.attributes.dn }},{{ nexthop.ospfUcNexthop.attributes.flags | replace(","," ") }},{{ nexthop.ospfUcNexthop.attributes.if }},{{ nexthop.ospfUcNexthop.attributes.modTs }},{{ nexthop.ospfUcNexthop.attributes.status }}
+{%-     endfor %}
 {%- endif %}

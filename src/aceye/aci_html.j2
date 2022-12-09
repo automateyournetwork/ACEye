@@ -10877,5 +10877,35 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "ospfUcNexthop" in api %}
+<h1>OSPF Unicast Next Hop</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Flags</th>
+    <th>Interface</th>
+    <th>Last Modified</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for nexthop in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ nexthop.ospfUcNexthop.attributes.name }}</td>
+    <td>{{ nexthop.ospfUcNexthop.attributes.addr }}</td>
+    <td>{{ nexthop.ospfUcNexthop.attributes.childAction }}</td>
+    <td>{{ nexthop.ospfUcNexthop.attributes.dn }}</td>
+    <td>{{ nexthop.ospfUcNexthop.attributes.flags }}</td>
+    <td>{{ nexthop.ospfUcNexthop.attributes.if }}</td>
+    <td>{{ nexthop.ospfUcNexthop.attributes.modTs }}</td>
+    <td>{{ nexthop.ospfUcNexthop.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

@@ -5174,4 +5174,16 @@
 #### Unicast: {{ route.ospfRoute.attributes.ucastCost }}
 #### Multicast: {{ route.ospfRoute.attributes.mcastCost }}
 {%-          endfor %}
+{%- elif "ospfUcNexthop" in api %}
+# OSPF Unicast Next Hop
+{%-     for nexthop in data_to_template['imdata'] %}
+## Name: {{ nexthop.ospfUcNexthop.attributes.name }}
+### Address: {{ nexthop.ospfUcNexthop.attributes.addr }}
+### Child Action: {{ nexthop.ospfUcNexthop.attributes.childAction }}
+### DN: {{ nexthop.ospfUcNexthop.attributes.dn }}
+### Flags: {{ nexthop.ospfUcNexthop.attributes.flags }}
+### Interface: {{ nexthop.ospfUcNexthop.attributes.if }}
+### Last Modified: {{ nexthop.ospfUcNexthop.attributes.modTs }}
+### Status: {{ nexthop.ospfUcNexthop.attributes.status }}
+{%-          endfor %}
 {%- endif %}
