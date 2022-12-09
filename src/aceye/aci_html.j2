@@ -11703,5 +11703,47 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vmmUsrAccP" in api %}
+<h1>VMM User Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.vmmUsrAccP.attributes.name }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.nameAlias }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.annotation }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.childAction }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.descr }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.dn }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.extMngdBy }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.lcOwn }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.modTs }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.ownerKey }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.ownerTag }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.status }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.uid }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.usr }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

@@ -1066,7 +1066,7 @@
 ## Name: {{ subject.vzSubj.attributes.name }}
 ### Name Alias: {{ subject.vzSubj.attributes.nameAlias }}
 ### Access Privilege: {{ subject.vzSubj.attributes.accessPrivilege }}
-### Annotication: {{ subject.vzSubj.attributes.annotation }}
+### Annotation: {{ subject.vzSubj.attributes.annotation }}
 ### Child Action: {{ subject.vzSubj.attributes.childAction }}
 ### Configuration Issues: {{ subject.vzSubj.attributes.configIssues }}
 ### Match T
@@ -4582,7 +4582,7 @@
 ## Name: {{ ip.l3extIp.attributes.name }}
 ### Name Alias: {{ ip.l3extIp.attributes.nameAlias }}
 ### Address: {{ ip.l3extIp.attributes.addr }}
-### Annotication: {{ ip.l3extIp.attributes.annotation }}
+### Annotation: {{ ip.l3extIp.attributes.annotation }}
 ### Child Action: {{ ip.l3extIp.attributes.childAction }}
 ### Description: {{ ip.l3extIp.attributes.descr }}
 ### DN: {{ ip.l3extIp.attributes.dn }}
@@ -5566,5 +5566,24 @@
 ### Type: {{ profile.vmmProvP.attributes.type }}
 ### UID: {{ profile.vmmProvP.attributes.uid }}
 ### Vendor: {{ profile.vmmProvP.attributes.vendor }}
+{%-          endfor %}
+{%- elif "vmmUsrAccP" in api %}
+# VMM User Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.vmmUsrAccP.attributes.name }}
+### Name Alias: {{ profile.vmmUsrAccP.attributes.nameAlias }}
+### Annotation{{ profile.vmmUsrAccP.attributes.annotation }}
+### Child Action: {{ profile.vmmUsrAccP.attributes.childAction }}
+### Description: {{ profile.vmmUsrAccP.attributes.descr }}
+### DN: {{ profile.vmmUsrAccP.attributes.dn }}
+### Externally Managed By: {{ profile.vmmUsrAccP.attributes.extMngdBy }}
+### Local Owner: {{ profile.vmmUsrAccP.attributes.lcOwn }}
+### Last Modified: {{ profile.vmmUsrAccP.attributes.modTs }}
+### Owner
+#### Key: {{ profile.vmmUsrAccP.attributes.ownerKey }}
+#### Tag: {{ profile.vmmUsrAccP.attributes.ownerTag }}
+### Status: {{ profile.vmmUsrAccP.attributes.status }}
+### UID: {{ profile.vmmUsrAccP.attributes.uid }}
+### User: {{ profile.vmmUsrAccP.attributes.usr }}
 {%-          endfor %}
 {%- endif %}

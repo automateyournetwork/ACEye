@@ -973,4 +973,8 @@
 {%-     for profile in data_to_template['imdata'] %}
 {{ profile.vmmProvP.attributes.name }},{{ profile.vmmProvP.attributes.nameAlias }},{{ profile.vmmProvP.attributes.annotation }},{{ profile.vmmProvP.attributes.childAction }},{{ profile.vmmProvP.attributes.dn }},{{ profile.vmmProvP.attributes.extMngdBy }},{{ profile.vmmProvP.attributes.lcOwn }},{{ profile.vmmProvP.attributes.modTs }},{{ profile.vmmProvP.attributes.monPolDn }},{{ profile.vmmProvP.attributes.ownerKey }},{{ profile.vmmProvP.attributes.ownerTag }},{{ profile.vmmProvP.attributes.status }},{{ profile.vmmProvP.attributes.type }},{{ profile.vmmProvP.attributes.uid }},{{ profile.vmmProvP.attributes.vendor }}
 {%-     endfor %}
+{%- elif "vmmUsrAccP" in api %}Name,Name Alias,Annotation,Child Action,Description,DN,Externally Managed By,Local Owner,Last Modified,Owner Key,Owner Tag,Status,UID,User
+{%-     for profile in data_to_template['imdata'] %}
+{{ profile.vmmUsrAccP.attributes.name }},{{ profile.vmmUsrAccP.attributes.nameAlias }},{{ profile.vmmUsrAccP.attributes.annotation }},{{ profile.vmmUsrAccP.attributes.childAction }},{{ profile.vmmUsrAccP.attributes.descr }},{{ profile.vmmUsrAccP.attributes.dn }},{{ profile.vmmUsrAccP.attributes.extMngdBy }},{{ profile.vmmUsrAccP.attributes.lcOwn }},{{ profile.vmmUsrAccP.attributes.modTs }},{{ profile.vmmUsrAccP.attributes.ownerKey }},{{ profile.vmmUsrAccP.attributes.ownerTag }},{{ profile.vmmUsrAccP.attributes.status }},{{ profile.vmmUsrAccP.attributes.uid }},{{ profile.vmmUsrAccP.attributes.usr }}
+{%-     endfor %}
 {%- endif %}
