@@ -941,4 +941,8 @@
 {%-     for route in data_to_template['imdata'] %}
 {{ route.uribv4Db.attributes.name }},{{ route.uribv4Db.attributes.childAction }},{{ route.uribv4Db.attributes.dn }},{{ route.uribv4Db.attributes.modTs }},{{ route.uribv4Db.attributes.status }},{{ route.uribv4Db.attributes.type }}
 {%-     endfor %}
+{%- elif "uribv4Dom" in api %}Name,Child Action,DN,Last Modified,Oper State,Status
+{%-     for route in data_to_template['imdata'] %}
+{{ route.uribv4Db.attributes.name }},{{ route.uribv4Db.attributes.childAction }},{{ route.uribv4Db.attributes.dn }},{{ route.uribv4Db.attributes.modTs }},{{ route.uribv4Db.attributes.operSt }}{{ route.uribv4Db.attributes.status }}
+{%-     endfor %}
 {%- endif %}
