@@ -11285,5 +11285,143 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "uribv4Dom" in api %}
+<h1>Unicast Route Domains</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Last Modified</th>
+    <th>Oper State</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for route in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ route.uribv4Dom.attributes.name }}</td>
+    <td>{{ route.uribv4Dom.attributes.childAction }}</td>
+    <td>{{ route.uribv4Dom.attributes.dn }}</td>
+    <td>{{ route.uribv4Dom.attributes.modTs }}</td>
+    <td>{{ route.uribv4Dom.attributes.operSt }}</td>
+    <td>{{ route.uribv4Dom.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "uribv4Entity" in api %}
+<h1>Unicast Route Entities</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Oper State</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for entity in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ entity.uribv4Entity.attributes.name }}</td>
+    <td>{{ entity.uribv4Entity.attributes.adminSt }}</td>
+    <td>{{ entity.uribv4Entity.attributes.childAction }}</td>
+    <td>{{ entity.uribv4Entity.attributes.dn }}</td>
+    <td>{{ entity.uribv4Entity.attributes.modTs }}</td>
+    <td>{{ entity.uribv4Entity.attributes.monPolDn }}</td>
+    <td>{{ entity.uribv4Entity.attributes.operErr }}</td>
+    <td>{{ entity.uribv4Entity.attributes.operSt }}</td>
+    <td>{{ entity.uribv4Entity.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "uribv4Nexthop" in api %}
+<h1>Unicast Route Next Hop</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Next Hop Metric</th>
+    <th>Next Hop Tag</th>
+    <th>Active</th>
+    <th>Address</th>
+    <th>Child Action</th>
+    <th>Created</th>
+    <th>DN</th>
+    <th>Interface</th>
+    <th>Metric</th>
+    <th>Last Modified</th>
+    <th>Owner</th>
+    <th>Preference</th>
+    <th>Route Type</th>
+    <th>rw VNID</th>
+    <th>Status</th>
+    <th>Tag</th>
+    <th>Type</th>
+    <th>VRF</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for nexthop in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ nexthop.uribv4Nexthop.attributes.name }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.Nhmetric }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.Nhtag }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.active }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.addr }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.childAction }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.createTs }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.dn }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.if }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.metric }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.modTs }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.owner }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.pref }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.routeType }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.rwVnid }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.status }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.tag }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.type }}</td>
+    <td>{{ nexthop.uribv4Nexthop.attributes.vrf }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "uribv4Route" in api %}
+<h1>Unicast Routes</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Last Modified</th>
+    <th>Prefix</th>
+    <th>Prefix Length</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for route in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ route.uribv4Route.attributes.name }}</td>
+    <td>{{ route.uribv4Route.attributes.childAction }}</td>
+    <td>{{ route.uribv4Route.attributes.dn }}</td>
+    <td>{{ route.uribv4Route.attributes.modTs }}</td>
+    <td>{{ route.uribv4Route.attributes.prefix }}</td>
+    <td>{{ route.uribv4Route.attributes.prefixLength }}</td>
+    <td>{{ route.uribv4Route.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

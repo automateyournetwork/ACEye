@@ -5369,14 +5369,64 @@
 ### v6 Source: {{ interface.tunnelIf.attributes.v6Src }}
 ### VRF Name: {{ interface.tunnelIf.attributes.vrfName }}
 {%-          endfor %}
-{%- elif "uribv4Db" in api %}
-# Unicast Route Database
+{%- elif "uribv4Dom" in api %}
+# Unicast Route Domains
 {%-     for route in data_to_template['imdata'] %}
-## Name: {{ route.uribv4Db.attributes.name }}
-### Child Action: {{ route.uribv4Db.attributes.childAction }}
-### DN: {{ route.uribv4Db.attributes.dn }}
-### Last Modified: {{ route.uribv4Db.attributes.modTs }}
-### Status: {{ route.uribv4Db.attributes.status }}
-### Type: {{ route.uribv4Db.attributes.type }}
+## Name: {{ route.uribv4Dom.attributes.name }}
+### Child Action: {{ route.uribv4Dom.attributes.childAction }}
+### DN: {{ route.uribv4Dom.attributes.dn }}
+### Last Modified: {{ route.uribv4Dom.attributes.modTs }}
+### Oper State: {{ route.uribv4Dom.attributes.operSt }}
+### Status: {{ route.uribv4Dom.attributes.status }}
+{%-          endfor %}
+{%- elif "uribv4Entity" in api %}
+# Unicast Route Entities
+{%-     for entity in data_to_template['imdata'] %}
+## Name: {{ entity.uribv4Entity.attributes.name }}
+### Admin State: {{ entity.uribv4Entity.attributes.adminSt }}
+### Child Action: {{ entity.uribv4Entity.attributes.childAction }}
+### DN: {{ entity.uribv4Entity.attributes.dn }}
+### Last Modified: {{ entity.uribv4Entity.attributes.modTs }}
+### Monitoring Policy DN: {{ entity.uribv4Entity.attributes.monPolDn }}
+### Oper
+#### Error: {{ entity.uribv4Entity.attributes.operErr }}
+#### State: {{ entity.uribv4Entity.attributes.operSt }}
+### Status: {{ entity.uribv4Entity.attributes.status }}
+{%-          endfor %}
+{%- elif "uribv4Nexthop" in api %}
+# Unicast Route Next Hop
+{%-     for nexthop in data_to_template['imdata'] %}
+## Name: {{ nexthop.uribv4Nexthop.attributes.name }}
+### Next Hop
+#### Metric: {{ nexthop.uribv4Nexthop.attributes.Nhmetric }}
+#### Tag: {{ nexthop.uribv4Nexthop.attributes.Nhtag }}
+### Active: {{ nexthop.uribv4Nexthop.attributes.active }}
+### Address: {{ nexthop.uribv4Nexthop.attributes.addr }}
+### Child Action: {{ nexthop.uribv4Nexthop.attributes.childAction }}
+### Created: {{ nexthop.uribv4Nexthop.attributes.createTs }}
+### DN: {{ nexthop.uribv4Nexthop.attributes.dn }}
+### Interface: {{ nexthop.uribv4Nexthop.attributes.if }}
+### Metric: {{ nexthop.uribv4Nexthop.attributes.metric }}
+### Last Modified: {{ nexthop.uribv4Nexthop.attributes.modTs }}
+### Owner: {{ nexthop.uribv4Nexthop.attributes.owner }}
+### Preference: {{ nexthop.uribv4Nexthop.attributes.pref }}
+### Route Type: {{ nexthop.uribv4Nexthop.attributes.routeType }}
+### rw VNID: {{ nexthop.uribv4Nexthop.attributes.rwVnid }}
+### Status: {{ nexthop.uribv4Nexthop.attributes.status }}
+### Tag: {{ nexthop.uribv4Nexthop.attributes.tag }}
+### Type: {{ nexthop.uribv4Nexthop.attributes.type }}
+### VRF: {{ nexthop.uribv4Nexthop.attributes.vrf }}
+{%-          endfor %}
+{%- elif "uribv4Route" in api %}
+# Unicast Routes
+{%-     for route in data_to_template['imdata'] %}
+## Name: {{ route.uribv4Route.attributes.name }}
+### Child Action: {{ route.uribv4Route.attributes.childAction }}
+### DN: {{ route.uribv4Route.attributes.dn }}
+### Last Modified: {{ route.uribv4Route.attributes.modTs }}
+### Prefix
+#### Prefix: {{ route.uribv4Route.attributes.prefix }}
+#### Length: {{ route.uribv4Route.attributes.prefixLength }}
+### Status: {{ route.uribv4Route.attributes.status }}
 {%-          endfor %}
 {%- endif %}
