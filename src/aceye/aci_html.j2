@@ -11423,5 +11423,241 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vlanCktEp" in api %}
+<h1>VLAN Endpoint Group Encapsulation</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Allow USeg Unsupported</th>
+    <th>Child Action</th>
+    <th>Class Preferred Oper State</th>
+    <th>Created</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>Encapsulation</th>
+    <th>Enforced Preference</th>
+    <th>Endpoint Up Sequence Number</th>
+    <th>EPG DN</th>
+    <th>Excessive TCN Flush Control</th>
+    <th>Fabric Encapsulation</th>
+    <th>Flood In Encapsulation Unsupported</th>
+    <th>Forward Control</th>
+    <th>Hardware ID</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Oper State Quality</th>
+    <th>Oper State</th>
+    <th>Port Channel Tag</th>
+    <th>Proxy ARP Unsupported</th>
+    <th>QoS Priority</th>
+    <th>QoS M Config Failed Bmp</th>
+    <th>QoS M Config Failed Timestamp</th>
+    <th>QoS M Config State</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>VLAN Manager Config Failed Bmp</th>
+    <th>VLAN Manager Config Failed Timestamp</th>
+    <th>VLAN Manager Config State</th>
+    <th>VLAN Manager Custom Fault Bmp</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for vlan in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ vlan.vlanCktEp.attributes.name }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.adminSt }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.allowUsegUnsupported }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.childAction }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.classPrefOperSt }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.createTs }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.ctrl }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.dn }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.encap }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.enfPref }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.epUpSeqNum }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.epgDn }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.excessiveTcnFlushCnt }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.fabEncap }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.floodInEncapUnsupported }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.fwdCtrl }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.hwId }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.id }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.lcOwn }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.modTs }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.mode }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.monPolDn }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.operSt }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.operStQual }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.operState }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.pcTag }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.proxyArpUnsupported }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.qosPrio }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.qosmCfgFailedBmp }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.qosmCfgFailedTs }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.qosmCfgState }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.status }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.type }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.vlanmgrCfgFailedBmp }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.vlanmgrCfgFailedTs }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.vlanmgrCfgState }}</td>
+    <td>{{ vlan.vlanCktEp.attributes.vlanmgrCustFaultBmp }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vmmCtrlrP" in api %}
+<h1>VMM Controller Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Config Issues</th>
+    <th>DN</th>
+    <th>Domain Name</th>
+    <th>DVS Version</th>
+    <th>Externally Managed By</th>
+    <th>Host Or IP</th>
+    <th>Inventory Trigger State</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>Microsoft Config Error Message</th>
+    <th>Microsoft Config Issues</th>
+    <th>N1KV Stats Mode</th>
+    <th>Port</th>
+    <th>Root Container Name</th>
+    <th>Scope</th>
+    <th>Sequence Number</th>
+    <th>Stats Mode</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>VXLAN Deployment Preference</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.vmmCtrlrP.attributes.name }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.nameAlias }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.annotation }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.childAction }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.configIssues }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.dn }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.domName }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.dvsVersion }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.extMngdBy }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.hostOrIp }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.inventoryTrigSt }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.lcOwn }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.modTs }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.mode }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.monPolDn }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.msftConfigErrMsg }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.msftConfigIssues }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.n1kvStatsMode }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.port }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.rootContName }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.scope }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.seqNum }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.statsMode }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.status }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.uid }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.vxlanDeplPref }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vmmDomP" in api %}
+<h1>VMM Domain Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Access Mode</th>
+    <th>Annotation</th>
+    <th>ARP Learning</th>
+    <th>AVE Timeout</th>
+    <th>Child Action</th>
+    <th>Config Infra Pg</th>
+    <th>Config Issues</th>
+    <th>Control Knob</th>
+    <th>Delimiter</th>
+    <th>DN</th>
+    <th>Enable AVE</th>
+    <th>Enable Tag</th>
+    <th>Enable VM Folder</th>
+    <th>Encapsulation Mode</th>
+    <th>Enforced Preference</th>
+    <th>Endpoint Inventory Type</th>
+    <th>Endpoint Retention Time</th>
+    <th>Externally Managed By</th>
+    <th>Hypervisor Availability Monitor</th>
+    <th>LAG Policy Name</th>
+    <th>Local Owner</th>
+    <th>Multicast Address</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Preferred Encapsulation Mode</th>
+    <th>Status</th>
+    <th>TX ID</th>
+    <th>UID</th>
+    <th>Unique ID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.vmmDomP.attributes.name }}</td>
+    <td>{{ profile.vmmDomP.attributes.nameAlias }}</td>
+    <td>{{ profile.vmmDomP.attributes.accessMode }}</td>
+    <td>{{ profile.vmmDomP.attributes.annotation }}</td>
+    <td>{{ profile.vmmDomP.attributes.arpLearning }}</td>
+    <td>{{ profile.vmmDomP.attributes.aveTimeOut }}</td>
+    <td>{{ profile.vmmDomP.attributes.childAction }}</td>
+    <td>{{ profile.vmmDomP.attributes.configInfraPg }}</td>
+    <td>{{ profile.vmmDomP.attributes.configIssues }}</td>
+    <td>{{ profile.vmmDomP.attributes.ctrlKnob }}</td>
+    <td>{{ profile.vmmDomP.attributes.delimiter }}</td>
+    <td>{{ profile.vmmDomP.attributes.dn }}</td>
+    <td>{{ profile.vmmDomP.attributes.enableAVE }}</td>
+    <td>{{ profile.vmmDomP.attributes.enableTag }}</td>
+    <td>{{ profile.vmmDomP.attributes.enableVmFolder }}</td>
+    <td>{{ profile.vmmDomP.attributes.encapMode }}</td>
+    <td>{{ profile.vmmDomP.attributes.enfPref }}</td>
+    <td>{{ profile.vmmDomP.attributes.epInventoryType }}</td>
+    <td>{{ profile.vmmDomP.attributes.epRetTime }}</td>
+    <td>{{ profile.vmmDomP.attributes.extMngdBy }}</td>
+    <td>{{ profile.vmmDomP.attributes.hvAvailMonitor }}</td>
+    <td>{{ profile.vmmDomP.attributes.lagPolicyName }}</td>
+    <td>{{ profile.vmmDomP.attributes.lcOwn }}</td>
+    <td>{{ profile.vmmDomP.attributes.mcastAddr }}</td>
+    <td>{{ profile.vmmDomP.attributes.modTs }}</td>
+    <td>{{ profile.vmmDomP.attributes.mode }}</td>
+    <td>{{ profile.vmmDomP.attributes.monPolDn }}</td>
+    <td>{{ profile.vmmDomP.attributes.ownerKey }}</td>
+    <td>{{ profile.vmmDomP.attributes.ownerTag }}</td>
+    <td>{{ profile.vmmDomP.attributes.prefEncapMode }}</td>
+    <td>{{ profile.vmmDomP.attributes.status }}</td>
+    <td>{{ profile.vmmDomP.attributes.txId }}</td>
+    <td>{{ profile.vmmDomP.attributes.uid }}</td>
+    <td>{{ profile.vmmDomP.attributes.uniqueId }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

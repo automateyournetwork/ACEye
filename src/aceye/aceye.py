@@ -454,7 +454,7 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.ospf_interfaces(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
-        self.cookie = self.get_token()        
+        self.cookie = self.get_token()
         parsed_json = json.dumps(self.ospf_instances(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.ospf_routes(), indent=4, sort_keys=True)
@@ -479,6 +479,13 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.unicast_routes(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vlan_endpoint_encapsulation(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vmm_controller_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vmm_domain_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        self.cookie = self.get_token()
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -700,9 +707,12 @@ class ACEye():
                     'Unicast Routes',
                     'Users',
                     'VLAN Encapsulation Blocks',
+                    'VLAN Endpoint Group Encapsulation',
                     'VLAN Namespace Policies',
                     'VLAN Namespace Source Relationships',
                     'VLAN Pools',
+                    'VMM Controller Profiles',
+                    'VMM Domain Profiles',
                     'Wired Nodes']
         current_directory = os.getcwd()
         for api in api_list:
@@ -2331,6 +2341,27 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def vlan_endpoint_encapsulation(self):
+        self.url = f"{ self.aci }/api/node/class/vlanCktEp.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<VLAN Endpoint Group Encapsulation code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def vmm_controller_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/vmmCtrlrP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<VMM Controller Profiles code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def vmm_domain_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/vmmDomP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<VMM Domain Profiles code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -3218,6 +3249,18 @@ class ACEye():
 
         if "uribv4Route" in self.url:
             with open('Unicast Routes/JSON/Unicast Routes.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vlanCktEp" in self.url:
+            with open('VLAN Endpoint Group Encapsulation/JSON/VLAN Endpoint Group Encapsulation.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vmmCtrlrP" in self.url:
+            with open('VMM Controller Profiles/JSON/VMM Controller Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vmmDomP" in self.url:
+            with open('VMM Domain Profiles/JSON/VMM Domain Profiles.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -4112,6 +4155,18 @@ class ACEye():
 
         if "uribv4Route" in self.url:
             with open('Unicast Routes/YAML/Unicast Routes.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vlanCktEp" in self.url:
+            with open('VLAN Endpoint Group Encapsulation/YAML/VLAN Endpoint Group Encapsulation.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vmmCtrlrP" in self.url:
+            with open('VMM Controller Profiles/YAML/VMM Controller Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vmmDomP" in self.url:
+            with open('VMM Domain Profiles/YAML/VMM Domain Profiles.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -5010,6 +5065,18 @@ class ACEye():
 
         if "uribv4Route" in self.url:
             with open('Unicast Routes/CSV/Unicast Routes.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vlanCktEp" in self.url:
+            with open('VLAN Endpoint Group Encapsulation/CSV/VLAN Endpoint Group Encapsulation.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vmmCtrlrP" in self.url:
+            with open('VMM Controller Profiles/CSV/VMM Controller Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vmmDomP" in self.url:
+            with open('VMM Domain Profiles/CSV/VMM Domain Profiles.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -5911,6 +5978,18 @@ class ACEye():
             with open('Unicast Routes/Markdown/Unicast Routes.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "vlanCktEp" in self.url:
+            with open('VLAN Endpoint Group Encapsulation/Markdown/VLAN Endpoint Group Encapsulation.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vmmCtrlrP" in self.url:
+            with open('VMM Controller Profiles/Markdown/VMM Controller Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vmmDomP" in self.url:
+            with open('VMM Domain Profiles/Markdown/VMM Domain Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -6810,6 +6889,18 @@ class ACEye():
             with open('Unicast Routes/HTML/Unicast Routes.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "vlanCktEp" in self.url:
+            with open('VLAN Endpoint Group Encapsulation/HTML/VLAN Endpoint Group Encapsulation.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vmmCtrlrP" in self.url:
+            with open('VMM Controller Profiles/HTML/VMM Controller Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vmmDomP" in self.url:
+            with open('VMM Domain Profiles/HTML/VMM Domain Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -7703,6 +7794,18 @@ class ACEye():
 
         if "uribv4Route" in self.url:
             with open('Unicast Routes/Mindmap/Unicast Routes.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vlanCktEp" in self.url:
+            with open('VLAN Endpoint Group Encapsulation/Mindmap/VLAN Endpoint Group Encapsulation.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vmmCtrlrP" in self.url:
+            with open('VMM Controller Profiles/Mindmap/VMM Controller Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vmmDomP" in self.url:
+            with open('VMM Domain Profiles/Mindmap/VMM Domain Profiles.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

@@ -444,11 +444,17 @@ Users
 
 VLAN Encapsulation Blocks
 
+VLAN Endpoint Group Encapsulation
+
 VLAN Namespace Policies
 
 VLAN Namespace Source Relationships
 
 VLAN Pools
+
+VMM Controller Profiles
+
+VMM Domain Profiles
 
 Wired Nodes
 
