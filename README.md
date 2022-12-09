@@ -444,6 +444,8 @@ Users
 
 VLAN Encapsulation Blocks
 
+VLAN Endpoint Group Encapsulation
+
 VLAN Namespace Policies
 
 VLAN Namespace Source Relationships

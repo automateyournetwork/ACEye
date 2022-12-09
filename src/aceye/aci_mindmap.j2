@@ -5429,4 +5429,49 @@
 #### Length: {{ route.uribv4Route.attributes.prefixLength }}
 ### Status: {{ route.uribv4Route.attributes.status }}
 {%-          endfor %}
+{%- elif "vlanCktEp" in api %}
+# VLAN Endpoint Group Encapsulation
+{%-     for vlan in data_to_template['imdata'] %}
+## Name: {{ vlan.vlanCktEp.attributes.name }}
+### Admin State: {{ vlan.vlanCktEp.attributes.adminSt }}
+### Allow USeg Unsupported: {{ vlan.vlanCktEp.attributes.allowUsegUnsupported }}
+### Child Action: {{ vlan.vlanCktEp.attributes.childAction }}
+### Class Preferred Oper State:{{ vlan.vlanCktEp.attributes.classPrefOperSt }}
+### Created: {{ vlan.vlanCktEp.attributes.createTs }}
+### Control: {{ vlan.vlanCktEp.attributes.ctrl }}
+### DN: {{ vlan.vlanCktEp.attributes.dn }}
+### Encapsulation: {{ vlan.vlanCktEp.attributes.encap }}
+### Enforced Preference: {{ vlan.vlanCktEp.attributes.enfPref }}
+### Endpoint Up Sequence Number: {{ vlan.vlanCktEp.attributes.epUpSeqNum }}
+### EPG DN: {{ vlan.vlanCktEp.attributes.epgDn }}
+### Excessive TCN Flush Control: {{ vlan.vlanCktEp.attributes.excessiveTcnFlushCnt }}
+### Fabric Encapsulation: {{ vlan.vlanCktEp.attributes.fabEncap }}
+### Flood In Encapsulation Unsupported: {{ vlan.vlanCktEp.attributes.floodInEncapUnsupported }}
+### Forward Control: {{ vlan.vlanCktEp.attributes.fwdCtrl }}
+### Hardware ID: {{ vlan.vlanCktEp.attributes.hwId }}
+### ID: {{ vlan.vlanCktEp.attributes.id }}
+### Local Owner: {{ vlan.vlanCktEp.attributes.lcOwn }}
+### Last Modified: {{ vlan.vlanCktEp.attributes.modTs }}
+### Mode: {{ vlan.vlanCktEp.attributes.mode }}
+### Monitoring Policy DN: {{ vlan.vlanCktEp.attributes.monPolDn }}
+### Oper
+#### State: {{ vlan.vlanCktEp.attributes.operSt }}
+#### State Quality: {{ vlan.vlanCktEp.attributes.operStQual }}
+#### State: {{ vlan.vlanCktEp.attributes.operState }}
+### Port Channel Tag: {{ vlan.vlanCktEp.attributes.pcTag }}
+### Proxy ARP Unsupported: {{ vlan.vlanCktEp.attributes.proxyArpUnsupported }}
+### QoS
+#### Priority: {{ vlan.vlanCktEp.attributes.qosPrio }}
+#### M Config
+##### Failed Bmp: {{ vlan.vlanCktEp.attributes.qosmCfgFailedBmp }}
+##### Failed Timestamp: {{ vlan.vlanCktEp.attributes.qosmCfgFailedTs }}
+##### State: {{ vlan.vlanCktEp.attributes.qosmCfgState }}
+### Status: {{ vlan.vlanCktEp.attributes.status }}
+### Type: {{ vlan.vlanCktEp.attributes.type }}
+### VLAN Manager Config
+#### Failed Bmp: {{ vlan.vlanCktEp.attributes.vlanmgrCfgFailedBmp }}
+#### Failed Timestamp: {{ vlan.vlanCktEp.attributes.vlanmgrCfgFailedTs }}
+#### State: {{ vlan.vlanCktEp.attributes.vlanmgrCfgState }}
+### Custom Fault Bmp: {{ vlan.vlanCktEp.attributes.vlanmgrCustFaultBmp }}
+{%-          endfor %}
 {%- endif %}
