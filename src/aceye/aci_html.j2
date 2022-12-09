@@ -11511,5 +11511,71 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vmmCtrlrP" in api %}
+<h1>VMM Controller Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Config Issues</th>
+    <th>DN</th>
+    <th>Domain Name</th>
+    <th>DVS Version</th>
+    <th>Externally Managed By</th>
+    <th>Host Or IP</th>
+    <th>Inventory Trigger State</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>Microsoft Config Error Message</th>
+    <th>Microsoft Config Issues</th>
+    <th>N1KV Stats Mode</th>
+    <th>Port</th>
+    <th>Root Container Name</th>
+    <th>Scope</th>
+    <th>Sequence Number</th>
+    <th>Stats Mode</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>VXLAN Deployment Preference</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.vmmCtrlrP.attributes.name }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.nameAlias }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.annotation }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.childAction }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.configIssues }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.dn }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.domName }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.dvsVersion }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.extMngdBy }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.hostOrIp }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.inventoryTrigSt }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.lcOwn }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.modTs }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.mode }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.monPolDn }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.msftConfigErrMsg }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.msftConfigIssues }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.n1kvStatsMode }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.port }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.rootContName }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.scope }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.seqNum }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.statsMode }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.status }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.uid }}</td>
+    <td>{{ profile.vmmCtrlrP.attributes.vxlanDeplPref }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

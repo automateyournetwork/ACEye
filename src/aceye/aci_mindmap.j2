@@ -5474,4 +5474,35 @@
 #### State: {{ vlan.vlanCktEp.attributes.vlanmgrCfgState }}
 ### Custom Fault Bmp: {{ vlan.vlanCktEp.attributes.vlanmgrCustFaultBmp }}
 {%-          endfor %}
+{%- elif "vmmCtrlrP" in api %}
+# VMM Controller Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.vmmCtrlrP.attributes.name }}
+### Name Alias: {{ profile.vmmCtrlrP.attributes.nameAlias }}
+### Annotation: {{ profile.vmmCtrlrP.attributes.annotation }}
+### Child Action: {{ profile.vmmCtrlrP.attributes.childAction }}
+### Config Issues: {{ profile.vmmCtrlrP.attributes.configIssues }}
+### DN: {{ profile.vmmCtrlrP.attributes.dn }}
+### Domain Name: {{ profile.vmmCtrlrP.attributes.domName }}
+### DVS Version: {{ profile.vmmCtrlrP.attributes.dvsVersion }}
+### Externally Managed By: {{ profile.vmmCtrlrP.attributes.extMngdBy }}
+### Host or IP: {{ profile.vmmCtrlrP.attributes.hostOrIp }}
+### Inventory Trigger State: {{ profile.vmmCtrlrP.attributes.inventoryTrigSt }}
+### Local Owner: {{ profile.vmmCtrlrP.attributes.lcOwn }}
+### Last Modified: {{ profile.vmmCtrlrP.attributes.modTs }}
+### Mode: {{ profile.vmmCtrlrP.attributes.mode }}
+### Monitoring Policy DN: {{ profile.vmmCtrlrP.attributes.monPolDn }}
+### Microsoft Config
+#### Error Message: {{ profile.vmmCtrlrP.attributes.msftConfigErrMsg }}
+#### Issues: {{ profile.vmmCtrlrP.attributes.msftConfigIssues }}
+### N1KV Stats Mode: {{ profile.vmmCtrlrP.attributes.n1kvStatsMode }}
+### Port: {{ profile.vmmCtrlrP.attributes.port }}
+### Root Container Name: {{ profile.vmmCtrlrP.attributes.rootContName }}
+### Scope: {{ profile.vmmCtrlrP.attributes.scope }}
+### Sequence Number: {{ profile.vmmCtrlrP.attributes.seqNum }}
+### Stats Mode: {{ profile.vmmCtrlrP.attributes.statsMode }}
+### Status: {{ profile.vmmCtrlrP.attributes.status }}
+### UID: {{ profile.vmmCtrlrP.attributes.uid }}
+### VXLAN Deployment Preference: {{ profile.vmmCtrlrP.attributes.vxlanDeplPref }}
+{%-          endfor %}
 {%- endif %}
