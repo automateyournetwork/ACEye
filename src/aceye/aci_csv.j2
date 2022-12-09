@@ -953,4 +953,8 @@
 {%-     for nexthop in data_to_template['imdata'] %}
 {{ nexthop.uribv4Nexthop.attributes.name }},{{ nexthop.uribv4Nexthop.attributes.Nhmetric }},{{ nexthop.uribv4Nexthop.attributes.Nhtag }},{{ nexthop.uribv4Nexthop.attributes.active }},{{ nexthop.uribv4Nexthop.attributes.addr }},{{ nexthop.uribv4Nexthop.attributes.childAction }},{{ nexthop.uribv4Nexthop.attributes.createTs }},{{ nexthop.uribv4Nexthop.attributes.dn }},{{ nexthop.uribv4Nexthop.attributes.if }},{{ nexthop.uribv4Nexthop.attributes.metric }},{{ nexthop.uribv4Nexthop.attributes.modTs }},{{ nexthop.uribv4Nexthop.attributes.owner }},{{ nexthop.uribv4Nexthop.attributes.pref }},{{ nexthop.uribv4Nexthop.attributes.routeType }},{{ nexthop.uribv4Nexthop.attributes.rwVnid }},{{ nexthop.uribv4Nexthop.attributes.status }},{{ nexthop.uribv4Nexthop.attributes.tag }},{{ nexthop.uribv4Nexthop.attributes.type | replace(","," ") }},{{ nexthop.uribv4Nexthop.attributes.vrf }}
 {%-     endfor %}
+{%- elif "uribv4Route" in api %}Name,Child Action,DN,Last Modified,Prefix,Prefix Length,Status
+{%-     for route in data_to_template['imdata'] %}
+{{ route.uribv4Route.attributes.name }},{{ route.uribv4Route.attributes.childAction }},{{ route.uribv4Route.attributes.dn }},{{ route.uribv4Route.attributes.modTs }},{{ route.uribv4Route.attributes.prefix }},{{ route.uribv4Route.attributes.prefixLength }},{{ route.uribv4Route.attributes.status }}
+{%-     endfor %}
 {%- endif %}

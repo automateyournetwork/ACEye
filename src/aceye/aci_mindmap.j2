@@ -5417,4 +5417,16 @@
 ### Type: {{ nexthop.uribv4Nexthop.attributes.type }}
 ### VRF: {{ nexthop.uribv4Nexthop.attributes.vrf }}
 {%-          endfor %}
+{%- elif "uribv4Route" in api %}
+# Unicast Routes
+{%-     for route in data_to_template['imdata'] %}
+## Name: {{ route.uribv4Route.attributes.name }}
+### Child Action: {{ route.uribv4Route.attributes.childAction }}
+### DN: {{ route.uribv4Route.attributes.dn }}
+### Last Modified: {{ route.uribv4Route.attributes.modTs }}
+### Prefix
+#### Prefix: {{ route.uribv4Route.attributes.prefix }}
+#### Length: {{ route.uribv4Route.attributes.prefixLength }}
+### Status: {{ route.uribv4Route.attributes.status }}
+{%-          endfor %}
 {%- endif %}
