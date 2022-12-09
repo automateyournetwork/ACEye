@@ -10963,9 +10963,9 @@
     <th>Path S Description</th>
     <th>Port Channel ID</th>
     <th>Port Channel Mode</th>
-    <th>Port Channel Manager Config Failed Bmp</th>
-    <th>Port Channel Manager Config Failed Timestamp</th>
-    <th>Port Channel Manager Config State</th>
+    <th>Port Channel Member Config Failed Bmp</th>
+    <th>Port Channel Member Config Failed Timestamp</th>
+    <th>Port Channel Member Config State</th>
     <th>Port Type</th>
     <th>Priority Flow Control</th>
     <th>Reflective Relay Enable</th>
@@ -11051,6 +11051,56 @@
     <td>{{ interface.pcAggrIf.attributes.switchingSt }}</td>
     <td>{{ interface.pcAggrIf.attributes.trunkLog }}</td>
     <td>{{ interface.pcAggrIf.attributes.usage }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "pcRsMbrIfs" in api %}
+<h1>Port Channel Member Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>t S Key</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Parent S Key</th>
+    <th>Port Channel Member Config Failed Bmp</th>
+    <th>Port Channel Member Config Failed Timestamp</th>
+    <th>Port Channel Member Config State</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDn</th>
+    <th>tType</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for member in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ member.pcRsMbrIfs.attributes.tSKey }}</td>
+    <td>{{ member.pcRsMbrIfs.attributes.childAction }}</td>
+    <td>{{ member.pcRsMbrIfs.attributes.dn }}</td>
+    <td>{{ member.pcRsMbrIfs.attributes.forceResolve }}</td>
+    <td>{{ member.pcRsMbrIfs.attributes.lcOwn }}</td>
+    <td>{{ member.pcRsMbrIfs.attributes.modTs }}</td>
+    <td>{{ member.pcRsMbrIfs.attributes.monPolDn }}</td>
+    <td>{{ member.pcRsMbrIfs.attributes.parentSKey }}</td>
+    <td>{{ member.pcRsMbrIfs.attributes.pcmCfgFailedBmp }}</td>
+    <td>{{ member.pcRsMbrIfs.attributes.pcmCfgFailedTs }}</td>
+    <td>{{ member.pcRsMbrIfs.attributes.pcmCfgState }}</td>
+    <td>{{ member.pcRsMbrIfs.attributes.rType }}</td>
+    <td>{{ member.pcRsMbrIfs.attributes.state }}</td>
+    <td>{{ member.pcRsMbrIfs.attributes.stateQual }}</td>
+    <td>{{ member.pcRsMbrIfs.attributes.status }}</td>
+    <td>{{ member.pcRsMbrIfs.attributes.tCl }}</td>
+    <td>{{ member.pcRsMbrIfs.attributes.tDn }}</td>
+    <td>{{ member.pcRsMbrIfs.attributes.tType }}</td>
   </tr>
 {%-          endfor %}
 </tbody>

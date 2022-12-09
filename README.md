@@ -394,6 +394,8 @@ Port Blocks
 
 Port Channel Aggregate Interfaces
 
+Port Channel Member Interfaces
+
 Prefix List
 
 Prefix List Detailed

@@ -5248,7 +5248,7 @@
 ### Port Channel
 #### ID: {{ interface.pcAggrIf.attributes.pcId }}
 #### Mode: {{ interface.pcAggrIf.attributes.pcMode }}
-#### Config
+#### Member Config
 #### Failed Bmp: {{ interface.pcAggrIf.attributes.pcmCfgFailedBmp }}
 #### Failed Timestamp: {{ interface.pcAggrIf.attributes.pcmCfgFailedTs }}
 #### State: {{ interface.pcAggrIf.attributes.pcmCfgState }}
@@ -5265,5 +5265,29 @@
 ### Switching State: {{ interface.pcAggrIf.attributes.switchingSt }}
 ### Trunk Log: {{ interface.pcAggrIf.attributes.trunkLog }}
 ### Usage: {{ interface.pcAggrIf.attributes.usage }}
+{%-          endfor %}
+{%- elif "pcRsMbrIfs" in api %}
+# Port Channel Member Interfaces
+{%-     for member in data_to_template['imdata'] %}
+## t S Key: {{ member.pcRsMbrIfs.attributes.tSKey }}
+### Child Action: {{ member.pcRsMbrIfs.attributes.childAction }}
+### DN: {{ member.pcRsMbrIfs.attributes.dn }}
+### Force Resolve: {{ member.pcRsMbrIfs.attributes.forceResolve }}
+### Local Owner: {{ member.pcRsMbrIfs.attributes.lcOwn }}
+### Last Modified: {{ member.pcRsMbrIfs.attributes.modTs }}
+### Monitoring Policy DN: {{ member.pcRsMbrIfs.attributes.monPolDn }}
+### Parent S Key: {{ member.pcRsMbrIfs.attributes.parentSKey }}
+### Port Channel Member Config
+#### Failed Bmp: {{ member.pcRsMbrIfs.attributes.pcmCfgFailedBmp }}
+#### Failed Timestamp: {{ member.pcRsMbrIfs.attributes.pcmCfgFailedTs }}
+#### State: {{ member.pcRsMbrIfs.attributes.pcmCfgState }}
+### rType: {{ member.pcRsMbrIfs.attributes.rType }}
+### State: {{ member.pcRsMbrIfs.attributes.state }}
+### State Quality: {{ member.pcRsMbrIfs.attributes.stateQual }}
+### Status: {{ member.pcRsMbrIfs.attributes.status }}
+### t
+#### Cl: {{ member.pcRsMbrIfs.attributes.tCl }}
+#### DN: {{ member.pcRsMbrIfs.attributes.tDn }}
+#### Type: {{ member.pcRsMbrIfs.attributes.tType }}
 {%-          endfor %}
 {%- endif %}
