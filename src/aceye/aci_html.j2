@@ -11181,5 +11181,83 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "tunnelIf" in api %}
+<h1>Tunnel Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>ACL TCAM State Quality</th>
+    <th>Admin State</th>
+    <th>Configured MTU</th>
+    <th>Child Action</th>
+    <th>Del In Progress</th>
+    <th>Description</th>
+    <th>Destination</th>
+    <th>DN</th>
+    <th>ID</th>
+    <th>ID Requestor DN</th>
+    <th>IOD</th>
+    <th>Keep Alive Interval</th>
+    <th>Keep Alive Retries</th>
+    <th>LCC</th>
+    <th>Local Owner</th>
+    <th>MAC</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper State</th>
+    <th>Oper State Quality</th>
+    <th>Source</th>
+    <th>Status</th>
+    <th>T Layer</th>
+    <th>T Type</th>
+    <th>TM Config Failed Bmp</th>
+    <th>TM Config Failed Timestamp</th>
+    <th>TM Config State</th>
+    <th>Type</th>
+    <th>Underlay VRF Name</th>
+    <th>v6 Source</th>
+    <th>VRF Name</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.tunnelIf.attributes.name }}</td>
+    <td>{{ interface.tunnelIf.attributes.aclTcamStQual }}</td>
+    <td>{{ interface.tunnelIf.attributes.adminSt }}</td>
+    <td>{{ interface.tunnelIf.attributes.cfgdMtu }}</td>
+    <td>{{ interface.tunnelIf.attributes.childAction }}</td>
+    <td>{{ interface.tunnelIf.attributes.delInProg }}</td>
+    <td>{{ interface.tunnelIf.attributes.descr }}</td>
+    <td>{{ interface.tunnelIf.attributes.dest }}</td>
+    <td>{{ interface.tunnelIf.attributes.dn }}</td>
+    <td>{{ interface.tunnelIf.attributes.id }}</td>
+    <td>{{ interface.tunnelIf.attributes.idRequestorDn }}</td>
+    <td>{{ interface.tunnelIf.attributes.iod }}</td>
+    <td>{{ interface.tunnelIf.attributes.keepAlvIntvl }}</td>
+    <td>{{ interface.tunnelIf.attributes.keepAlvRetries }}</td>
+    <td>{{ interface.tunnelIf.attributes.lcC }}</td>
+    <td>{{ interface.tunnelIf.attributes.lcOwn }}</td>
+    <td>{{ interface.tunnelIf.attributes.mac }}</td>
+    <td>{{ interface.tunnelIf.attributes.modTs }}</td>
+    <td>{{ interface.tunnelIf.attributes.monPolDn }}</td>
+    <td>{{ interface.tunnelIf.attributes.operSt }}</td>
+    <td>{{ interface.tunnelIf.attributes.operStQual }}</td>
+    <td>{{ interface.tunnelIf.attributes.src }}</td>
+    <td>{{ interface.tunnelIf.attributes.status }}</td>
+    <td>{{ interface.tunnelIf.attributes.tLayer }}</td>
+    <td>{{ interface.tunnelIf.attributes.tType }}</td>
+    <td>{{ interface.tunnelIf.attributes.tmCfgFailedBmp }}</td>
+    <td>{{ interface.tunnelIf.attributes.tmCfgFailedTs }}</td>
+    <td>{{ interface.tunnelIf.attributes.tmCfgState }}</td>
+    <td>{{ interface.tunnelIf.attributes.type }}</td>
+    <td>{{ interface.tunnelIf.attributes.underlayVrfName }}</td>
+    <td>{{ interface.tunnelIf.attributes.v6Src }}</td>
+    <td>{{ interface.tunnelIf.attributes.vrfName }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

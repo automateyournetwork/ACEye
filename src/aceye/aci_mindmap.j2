@@ -5329,4 +5329,44 @@
 #### Type: {{ interface.sviIf.attributes.vlanT }}
 ### vMAC: {{ interface.sviIf.attributes.vmac }}
 {%-          endfor %}
+{%- elif "tunnelIf" in api %}
+# Tunnel Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.tunnelIf.attributes.name }}
+### ACL TCAM State Quality: {{ interface.tunnelIf.attributes.aclTcamStQual }}
+### Admin State: {{ interface.tunnelIf.attributes.adminSt }}
+### Configured MTU: {{ interface.tunnelIf.attributes.cfgdMtu }}
+### Child Action: {{ interface.tunnelIf.attributes.childAction }}
+### Del in Progress: {{ interface.tunnelIf.attributes.delInProg }}
+### Description: {{ interface.tunnelIf.attributes.descr }}
+### Destination: {{ interface.tunnelIf.attributes.dest }}
+### DN: {{ interface.tunnelIf.attributes.dn }}
+### ID: {{ interface.tunnelIf.attributes.id }}
+### ID Requestor DN: {{ interface.tunnelIf.attributes.idRequestorDn }}
+### IOD: {{ interface.tunnelIf.attributes.iod }}
+### Keep Alive
+#### Interval: {{ interface.tunnelIf.attributes.keepAlvIntvl }}
+#### Retries: {{ interface.tunnelIf.attributes.keepAlvRetries }}
+### LCC: {{ interface.tunnelIf.attributes.lcC }}
+### Local Owner: {{ interface.tunnelIf.attributes.lcOwn }}
+### MAC: {{ interface.tunnelIf.attributes.mac }}
+### Last Modified: {{ interface.tunnelIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.tunnelIf.attributes.monPolDn }}
+### Oper
+#### State: {{ interface.tunnelIf.attributes.operSt }}
+#### State Quality: {{ interface.tunnelIf.attributes.operStQual }}
+### Source: {{ interface.tunnelIf.attributes.src }}
+### Status: {{ interface.tunnelIf.attributes.status }}
+### t
+#### Layer: {{ interface.tunnelIf.attributes.tLayer }}
+#### Type: {{ interface.tunnelIf.attributes.tType }}
+### TM Config
+#### Failed Bmp: {{ interface.tunnelIf.attributes.tmCfgFailedBmp }}
+#### Failed Timestamp: {{ interface.tunnelIf.attributes.tmCfgFailedTs }}
+#### State: {{ interface.tunnelIf.attributes.tmCfgState }}
+### Type: {{ interface.tunnelIf.attributes.type }}
+### Underlay VRF Name: {{ interface.tunnelIf.attributes.underlayVrfName }}
+### v6 Source: {{ interface.tunnelIf.attributes.v6Src }}
+### VRF Name: {{ interface.tunnelIf.attributes.vrfName }}
+{%-          endfor %}
 {%- endif %}
