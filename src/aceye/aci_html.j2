@@ -11577,5 +11577,87 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vmmDomP" in api %}
+<h1>VMM Domain Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Access Mode</th>
+    <th>Annotation</th>
+    <th>ARP Learning</th>
+    <th>AVE Timeout</th>
+    <th>Child Action</th>
+    <th>Config Infra Pg</th>
+    <th>Config Issues</th>
+    <th>Control Knob</th>
+    <th>Delimiter</th>
+    <th>DN</th>
+    <th>Enable AVE</th>
+    <th>Enable Tag</th>
+    <th>Enable VM Folder</th>
+    <th>Encapsulation Mode</th>
+    <th>Enforced Preference</th>
+    <th>Endpoint Inventory Type</th>
+    <th>Endpoint Retention Time</th>
+    <th>Externally Managed By</th>
+    <th>Hypervisor Availability Monitor</th>
+    <th>LAG Policy Name</th>
+    <th>Local Owner</th>
+    <th>Multicast Address</th>
+    <th>Last Modified</th>
+    <th>Mode</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Preferred Encapsulation Mode</th>
+    <th>Status</th>
+    <th>TX ID</th>
+    <th>UID</th>
+    <th>Unique ID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.vmmDomP.attributes.name }}</td>
+    <td>{{ profile.vmmDomP.attributes.nameAlias }}</td>
+    <td>{{ profile.vmmDomP.attributes.accessMode }}</td>
+    <td>{{ profile.vmmDomP.attributes.annotation }}</td>
+    <td>{{ profile.vmmDomP.attributes.arpLearning }}</td>
+    <td>{{ profile.vmmDomP.attributes.aveTimeOut }}</td>
+    <td>{{ profile.vmmDomP.attributes.childAction }}</td>
+    <td>{{ profile.vmmDomP.attributes.configInfraPg }}</td>
+    <td>{{ profile.vmmDomP.attributes.configIssues }}</td>
+    <td>{{ profile.vmmDomP.attributes.ctrlKnob }}</td>
+    <td>{{ profile.vmmDomP.attributes.delimiter }}</td>
+    <td>{{ profile.vmmDomP.attributes.dn }}</td>
+    <td>{{ profile.vmmDomP.attributes.enableAVE }}</td>
+    <td>{{ profile.vmmDomP.attributes.enableTag }}</td>
+    <td>{{ profile.vmmDomP.attributes.enableVmFolder }}</td>
+    <td>{{ profile.vmmDomP.attributes.encapMode }}</td>
+    <td>{{ profile.vmmDomP.attributes.enfPref }}</td>
+    <td>{{ profile.vmmDomP.attributes.epInventoryType }}</td>
+    <td>{{ profile.vmmDomP.attributes.epRetTime }}</td>
+    <td>{{ profile.vmmDomP.attributes.extMngdBy }}</td>
+    <td>{{ profile.vmmDomP.attributes.hvAvailMonitor }}</td>
+    <td>{{ profile.vmmDomP.attributes.lagPolicyName }}</td>
+    <td>{{ profile.vmmDomP.attributes.lcOwn }}</td>
+    <td>{{ profile.vmmDomP.attributes.mcastAddr }}</td>
+    <td>{{ profile.vmmDomP.attributes.modTs }}</td>
+    <td>{{ profile.vmmDomP.attributes.mode }}</td>
+    <td>{{ profile.vmmDomP.attributes.monPolDn }}</td>
+    <td>{{ profile.vmmDomP.attributes.ownerKey }}</td>
+    <td>{{ profile.vmmDomP.attributes.ownerTag }}</td>
+    <td>{{ profile.vmmDomP.attributes.prefEncapMode }}</td>
+    <td>{{ profile.vmmDomP.attributes.status }}</td>
+    <td>{{ profile.vmmDomP.attributes.txId }}</td>
+    <td>{{ profile.vmmDomP.attributes.uid }}</td>
+    <td>{{ profile.vmmDomP.attributes.uniqueId }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

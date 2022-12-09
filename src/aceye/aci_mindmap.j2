@@ -5505,4 +5505,46 @@
 ### UID: {{ profile.vmmCtrlrP.attributes.uid }}
 ### VXLAN Deployment Preference: {{ profile.vmmCtrlrP.attributes.vxlanDeplPref }}
 {%-          endfor %}
+{%- elif "vmmDomP" in api %}
+# VMM Domain Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.vmmDomP.attributes.name }}
+### Name Alias: {{ profile.vmmDomP.attributes.nameAlias }}
+### Access Mode: {{ profile.vmmDomP.attributes.accessMode }}
+### Annotation: {{ profile.vmmDomP.attributes.annotation }}
+### ARP Learning: {{ profile.vmmDomP.attributes.arpLearning }}
+### AVE Timeout: {{ profile.vmmDomP.attributes.aveTimeOut }}
+### Child Action: {{ profile.vmmDomP.attributes.childAction }}
+### Config
+#### Infra Pg: {{ profile.vmmDomP.attributes.configInfraPg }}
+#### Issues: {{ profile.vmmDomP.attributes.configIssues }}
+### Control Knob: {{ profile.vmmDomP.attributes.ctrlKnob }}
+### Delimeter: {{ profile.vmmDomP.attributes.delimiter }}
+### DN: {{ profile.vmmDomP.attributes.dn }}
+### Enable
+#### AVE: {{ profile.vmmDomP.attributes.enableAVE }}
+#### Tag: {{ profile.vmmDomP.attributes.enableTag }}
+#### VM Folder: {{ profile.vmmDomP.attributes.enableVmFolder }}
+### Encapsulation Mode: {{ profile.vmmDomP.attributes.encapMode }}
+### Enforced Preference: {{ profile.vmmDomP.attributes.enfPref }}
+### Endpoint
+#### Inventory Type: {{ profile.vmmDomP.attributes.epInventoryType }}
+#### Retention Time: {{ profile.vmmDomP.attributes.epRetTime }}
+### Externally Managed By: {{ profile.vmmDomP.attributes.extMngdBy }}
+### Hypervisor Availability Monitor: {{ profile.vmmDomP.attributes.hvAvailMonitor }}
+### LAG Policy Name: {{ profile.vmmDomP.attributes.lagPolicyName }}
+### Local Owner: {{ profile.vmmDomP.attributes.lcOwn }}
+### Multicast Address: {{ profile.vmmDomP.attributes.mcastAddr }}
+### Last Modified: {{ profile.vmmDomP.attributes.modTs }}
+### Mode: {{ profile.vmmDomP.attributes.mode }}
+### Monitoring Policy DN: {{ profile.vmmDomP.attributes.monPolDn }}
+### Owner
+#### Key: {{ profile.vmmDomP.attributes.ownerKey }}
+#### Tag: {{ profile.vmmDomP.attributes.ownerTag }}
+### Preferred Encapsulation Mode: {{ profile.vmmDomP.attributes.prefEncapMode }}
+### Status: {{ profile.vmmDomP.attributes.status }}
+### TX ID: {{ profile.vmmDomP.attributes.txId }}
+### UID: {{ profile.vmmDomP.attributes.uid }}
+### Unique ID: {{ profile.vmmDomP.attributes.uniqueId }}
+{%-          endfor %}
 {%- endif %}
