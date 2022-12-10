@@ -2489,7 +2489,7 @@ class ACEye():
         return response_dict
 
     def vzInterface_source_relationships(self):
-        self.url = f"{ self.aci }/api/node/class/vzRsRsIf.json"
+        self.url = f"{ self.aci }/api/node/class/vzRsIf.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
         print(f"<vzInterface Source Relationships code { response.status_code } for { self.url }>")
         response_dict  = response.json()
