@@ -12271,5 +12271,59 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vzRsDenyRule" in api %}
+<h1>vzDeny Rules</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Directives</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>tnVz Filter Name</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for rule in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ rule.vzRsDenyRule.attributes.uid }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.annotation }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.childAction }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.directives }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.dn }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.extMngdBy }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.forceResolve }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.lcOwn }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.modTs }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.monPolDn }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.rType }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.state }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.stateQual }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.status }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.tCl }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.tContextDn }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.tDn }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.tRn }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.tType }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.tnVzFilterName }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

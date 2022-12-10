@@ -5846,4 +5846,29 @@
 ### Contract Name: {{ provider.vzRsAnyToProv.attributes.tnVzBrCPName }}
 ### Update Collection: {{ provider.vzRsAnyToProv.attributes.updateCollection }}
 {%-          endfor %}
+{%- elif "vzRsDenyRule" in api %}
+# vzDeny Rules
+{%-     for rule in data_to_template['imdata'] %}
+## UID: {{ rule.vzRsDenyRule.attributes.uid }}
+### Annotation: {{ rule.vzRsDenyRule.attributes.annotation }}
+### Child Action: {{ rule.vzRsDenyRule.attributes.childAction }}
+### Directives: {{ rule.vzRsDenyRule.attributes.directives }}
+### DN: {{ rule.vzRsDenyRule.attributes.dn }}
+### Externally Managed By: {{ rule.vzRsDenyRule.attributes.extMngdBy }}
+### Force Resolve: {{ rule.vzRsDenyRule.attributes.forceResolve }}
+### Local Owner: {{ rule.vzRsDenyRule.attributes.lcOwn }}
+### Last Modified: {{ rule.vzRsDenyRule.attributes.modTs }}
+### Monitoring Policy DN: {{ rule.vzRsDenyRule.attributes.monPolDn }}
+### rType: {{ rule.vzRsDenyRule.attributes.rType }}
+### State: {{ rule.vzRsDenyRule.attributes.state }}
+### State Quality: {{ rule.vzRsDenyRule.attributes.stateQual }}
+### Status: {{ rule.vzRsDenyRule.attributes.status }}
+### t
+#### Cl: {{ rule.vzRsDenyRule.attributes.tCl }}
+#### Context DN: {{ rule.vzRsDenyRule.attributes.tContextDn }}
+#### DN: {{ rule.vzRsDenyRule.attributes.tDn }}
+#### RN: {{ rule.vzRsDenyRule.attributes.tRn }}
+#### Type: {{ rule.vzRsDenyRule.attributes.tType }}
+### tnVz Filter Name: {{ rule.vzRsDenyRule.attributes.tnVzFilterName }}
+{%-          endfor %}
 {%- endif %}

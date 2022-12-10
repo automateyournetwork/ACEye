@@ -474,6 +474,8 @@ vzAny To Consumers
 
 vzAny To Providers
 
+vzDeny Rules
+
 vzEntries
 
 vzFilters
