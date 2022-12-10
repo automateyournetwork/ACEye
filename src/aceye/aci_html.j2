@@ -12045,5 +12045,549 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vzAny" in api %}
+<h1>vzAny</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Config State</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Match Type</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Port Channel Tag</th>
+    <th>Preferred Group Member</th>
+    <th>Status</th>
+    <th>TX ID</th>
+    <th>UID</th>
+    <th>Use Any Def</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for any in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ any.vzAny.attributes.name }}</td>
+    <td>{{ any.vzAny.attributes.nameAlias }}</td>
+    <td>{{ any.vzAny.attributes.annotation }}</td>
+    <td>{{ any.vzAny.attributes.childAction }}</td>
+    <td>{{ any.vzAny.attributes.configSt }}</td>
+    <td>{{ any.vzAny.attributes.descr }}</td>
+    <td>{{ any.vzAny.attributes.dn }}</td>
+    <td>{{ any.vzAny.attributes.extMngdBy }}</td>
+    <td>{{ any.vzAny.attributes.lcOwn }}</td>
+    <td>{{ any.vzAny.attributes.matchT }}</td>
+    <td>{{ any.vzAny.attributes.modTs }}</td>
+    <td>{{ any.vzAny.attributes.monPolDn }}</td>
+    <td>{{ any.vzAny.attributes.pcTag }}</td>
+    <td>{{ any.vzAny.attributes.prefGrMemb }}</td>
+    <td>{{ any.vzAny.attributes.status }}</td>
+    <td>{{ any.vzAny.attributes.txId }}</td>
+    <td>{{ any.vzAny.attributes.uid }}</td>
+    <td>{{ any.vzAny.attributes.useAnyDef }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vzFilter" in api %}
+<h1>vzFilters</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Forward ID</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Revision ID</th>
+    <th>Status</th>
+    <th>TX ID</th>
+    <th>UID</th>
+    <th>Unsupported Entries</th>
+    <th>Unsupported Management Entries</th>
+    <th>Uses IDs</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for vzfilter in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ vzfilter.vzFilter.attributes.name }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.nameAlias }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.annotation }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.childAction }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.descr }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.dn }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.extMngdBy }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.fwdId }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.id }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.lcOwn }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.modTs }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.monPolDn }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.ownerKey }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.ownerTag }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.revId }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.status }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.txId }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.uid }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.unsupportedEntries }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.unsupportedMgmtEntries }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.usesIds }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vzRsAnyToCons" in api %}
+<h1>vzAny To Consumers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Deployment Info</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Intent</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Priority</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>Contract Name</th>
+    <th>Update Collection</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for consumer in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ consumer.vzRsAnyToCons.attributes.uid }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.annotation }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.childAction }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.deplInfo }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.dn }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.extMngdBy }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.forceResolve }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.intent }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.lcOwn }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.modTs }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.monPolDn }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.prio }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.rType }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.state }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.stateQual }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.status }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.tCl }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.tContextDn }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.tDn }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.tRn }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.tType }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.tnVzBrCPName }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.updateCollection }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vzRsAnyToProv" in api %}
+<h1>vzAny To Providers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Intent</th>
+    <th>Local Owner</th>
+    <th>Match Type</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Priority</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>Contract Name</th>
+    <th>Update Collection</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for provider in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ provider.vzRsAnyToProv.attributes.uid }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.annotation }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.childAction }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.dn }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.extMngdBy }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.forceResolve }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.intent }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.lcOwn }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.matchT }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.modTs }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.monPolDn }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.prio }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.rType }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.state }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.stateQual }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.status }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.tCl }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.tContextDn }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.tDn }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.tRn }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.tType }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.tnVzBrCPName }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.updateCollection }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vzRsDenyRule" in api %}
+<h1>vzDeny Rules</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Directives</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>tnVz Filter Name</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for rule in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ rule.vzRsDenyRule.attributes.uid }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.annotation }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.childAction }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.directives }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.dn }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.extMngdBy }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.forceResolve }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.lcOwn }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.modTs }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.monPolDn }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.rType }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.state }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.stateQual }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.status }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.tCl }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.tContextDn }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.tDn }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.tRn }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.tType }}</td>
+    <td>{{ rule.vzRsDenyRule.attributes.tnVzFilterName }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vzRsIf" in api %}
+<h1>vzInterface Source Relationships</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Intent</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Priority</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tType</th>
+    <th>Update Collection</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.vzRsIf.attributes.uid }}</td>
+    <td>{{ interface.vzRsIf.attributes.annotation }}</td>
+    <td>{{ interface.vzRsIf.attributes.childAction }}</td>
+    <td>{{ interface.vzRsIf.attributes.dn }}</td>
+    <td>{{ interface.vzRsIf.attributes.extMngdBy }}</td>
+    <td>{{ interface.vzRsIf.attributes.forceResolve }}</td>
+    <td>{{ interface.vzRsIf.attributes.intent }}</td>
+    <td>{{ interface.vzRsIf.attributes.lcOwn }}</td>
+    <td>{{ interface.vzRsIf.attributes.modTs }}</td>
+    <td>{{ interface.vzRsIf.attributes.monPolDn }}</td>
+    <td>{{ interface.vzRsIf.attributes.prio }}</td>
+    <td>{{ interface.vzRsIf.attributes.rType }}</td>
+    <td>{{ interface.vzRsIf.attributes.state }}</td>
+    <td>{{ interface.vzRsIf.attributes.stateQual }}</td>
+    <td>{{ interface.vzRsIf.attributes.status }}</td>
+    <td>{{ interface.vzRsIf.attributes.tCl }}</td>
+    <td>{{ interface.vzRsIf.attributes.tDn }}</td>
+    <td>{{ interface.vzRsIf.attributes.tType }}</td>
+    <td>{{ interface.vzRsIf.attributes.updateCollection }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vzRsSubjFiltAtt" in api %}
+<h1>Contract Subjects Filter Attributes</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Action</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Directives</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Priority Override</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>tnVz Filter Name</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for subject_filter in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.uid }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.action }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.annotation }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.childAction }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.directives }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.dn }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.extMngdBy }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.forceResolve }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.lcOwn }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.modTs }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.monPolDn }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.priorityOverride }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.rType }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.state }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.stateQual }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.status }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.tCl }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.tContextDn }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.tDn }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.tRn }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.tType }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.tnVzFilterName }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vzRtCons" in api %}
+<h1>Contract Consumers Root</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for consumer in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ consumer.vzRtCons.attributes.dn }}</td>
+    <td>{{ consumer.vzRtCons.attributes.childAction }}</td>
+    <td>{{ consumer.vzRtCons.attributes.lcOwn }}</td>
+    <td>{{ consumer.vzRtCons.attributes.modTs }}</td>
+    <td>{{ consumer.vzRtCons.attributes.status }}</td>
+    <td>{{ consumer.vzRtCons.attributes.tCl }}</td>
+    <td>{{ consumer.vzRtCons.attributes.tDn }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vzRtProv" in api %}
+<h1>Contract Providers Root</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for provider in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ provider.vzRtProv.attributes.dn }}</td>
+    <td>{{ provider.vzRtProv.attributes.childAction }}</td>
+    <td>{{ provider.vzRtProv.attributes.lcOwn }}</td>
+    <td>{{ provider.vzRtProv.attributes.modTs }}</td>
+    <td>{{ provider.vzRtProv.attributes.status }}</td>
+    <td>{{ provider.vzRtProv.attributes.tCl }}</td>
+    <td>{{ provider.vzRtProv.attributes.tDn }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vzRuleOwner" in api %}
+<h1>vzRule Owner</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Action</th>
+    <th>Child Action</th>
+    <th>Creator DN</th>
+    <th>Contract Name</th>
+    <th>Direction</th>
+    <th>DN</th>
+    <th>Intent</th>
+    <th>Local Owner</th>
+    <th>Mark DSCP</th>
+    <th>Last Modified</th>
+    <th>Monitor DN</th>
+    <th>Priority</th>
+    <th>QoS Group</th>
+    <th>Status</th>
+    <th>Tag</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for owner in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ owner.vzRuleOwner.attributes.name }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.nameAlias }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.action }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.childAction }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.creatorDn }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.ctrctName }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.direction }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.dn }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.intent }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.lcOwn }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.markDscp }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.modTs }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.monitorDn }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.prio }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.qosGrp }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.status }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.tag }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.type }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vzTaboo" in api %}
+<h1>vzTaboo</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Config Issues</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Reevaluate All</th>
+    <th>Scope</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for taboo in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ taboo.vzTaboo.attributes.name }}</td>
+    <td>{{ taboo.vzTaboo.attributes.nameAlias }}</td>
+    <td>{{ taboo.vzTaboo.attributes.annotation }}</td>
+    <td>{{ taboo.vzTaboo.attributes.childAction }}</td>
+    <td>{{ taboo.vzTaboo.attributes.configIssues }}</td>
+    <td>{{ taboo.vzTaboo.attributes.descr }}</td>
+    <td>{{ taboo.vzTaboo.attributes.dn }}</td>
+    <td>{{ taboo.vzTaboo.attributes.extMngdBy }}</td>
+    <td>{{ taboo.vzTaboo.attributes.lcOwn }}</td>
+    <td>{{ taboo.vzTaboo.attributes.modTs }}</td>
+    <td>{{ taboo.vzTaboo.attributes.monPolDn }}</td>
+    <td>{{ taboo.vzTaboo.attributes.ownerKey }}</td>
+    <td>{{ taboo.vzTaboo.attributes.ownerTag }}</td>
+    <td>{{ taboo.vzTaboo.attributes.reevaluateAll }}</td>
+    <td>{{ taboo.vzTaboo.attributes.scope }}</td>
+    <td>{{ taboo.vzTaboo.attributes.status }}</td>
+    <td>{{ taboo.vzTaboo.attributes.uid }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

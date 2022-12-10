@@ -5741,4 +5741,253 @@
 #### Failed Timestamp: {{ configuration.vpcRsVpcConf.attributes.vpcCfgFailedTs }}
 #### State: {{ configuration.vpcRsVpcConf.attributes.vpcCfgState }}
 {%-          endfor %}
+{%- elif "vzAny" in api %}
+# vzAny
+{%-     for any in data_to_template['imdata'] %}
+## Name: {{ any.vzAny.attributes.name }}
+### Name Alias: {{ any.vzAny.attributes.nameAlias }}
+### Annotation: {{ any.vzAny.attributes.annotation }}
+### Child Action: {{ any.vzAny.attributes.childAction }}
+### Config State: {{ any.vzAny.attributes.configSt }}
+### Description: {{ any.vzAny.attributes.descr }}
+### DN: {{ any.vzAny.attributes.dn }}
+### Externally Managed By: {{ any.vzAny.attributes.extMngdBy }}
+### Local Owner: {{ any.vzAny.attributes.lcOwn }}
+### Match Type: {{ any.vzAny.attributes.matchT }}
+### Last Modified: {{ any.vzAny.attributes.modTs }}
+### Monitoring Policy DN: {{ any.vzAny.attributes.monPolDn }}
+### Port Channel Tag: {{ any.vzAny.attributes.pcTag }}
+### Preferred Group Member: {{ any.vzAny.attributes.prefGrMemb }}
+### Status: {{ any.vzAny.attributes.status }}
+### TX ID: {{ any.vzAny.attributes.txId }}
+### UID: {{ any.vzAny.attributes.uid }}
+### Use Any Def: {{ any.vzAny.attributes.useAnyDef }}
+{%-          endfor %}
+{%- elif "vzFilter" in api %}
+# vzFilters
+{%-     for vzfilter in data_to_template['imdata'] %}
+## Name: {{ vzfilter.vzFilter.attributes.name }}
+### Name Alias: {{ vzfilter.vzFilter.attributes.nameAlias }}
+### Annotation: {{ vzfilter.vzFilter.attributes.annotation }}
+### Child Action: {{ vzfilter.vzFilter.attributes.childAction }}
+### Description: {{ vzfilter.vzFilter.attributes.descr }}
+### DN: {{ vzfilter.vzFilter.attributes.dn }}
+### Externally Managed By: {{ vzfilter.vzFilter.attributes.extMngdBy }}
+### Forward ID: {{ vzfilter.vzFilter.attributes.fwdId }}
+### ID: {{ vzfilter.vzFilter.attributes.id }}
+### Local Owner: {{ vzfilter.vzFilter.attributes.lcOwn }}
+### Last Modified: {{ vzfilter.vzFilter.attributes.modTs }}
+### Monitoring Policy DN: {{ vzfilter.vzFilter.attributes.monPolDn }}
+### Owner
+#### Key: {{ vzfilter.vzFilter.attributes.ownerKey }}
+#### Tag: {{ vzfilter.vzFilter.attributes.ownerTag }}
+### Revision ID: {{ vzfilter.vzFilter.attributes.revId }}
+### Status: {{ vzfilter.vzFilter.attributes.status }}
+### TX ID: {{ vzfilter.vzFilter.attributes.txId }}
+### UID: {{ vzfilter.vzFilter.attributes.uid }}
+### Unsupported
+#### Entries: {{ vzfilter.vzFilter.attributes.unsupportedEntries }}
+#### Management Entries: {{ vzfilter.vzFilter.attributes.unsupportedMgmtEntries }}
+### Uses IDs: {{ vzfilter.vzFilter.attributes.usesIds }}
+{%-          endfor %}
+{%- elif "vzRsAnyToCons" in api %}
+# vzAny To Consumers
+{%-     for consumer in data_to_template['imdata'] %}
+## UID: {{ consumer.vzRsAnyToCons.attributes.uid }}
+### Annotation: {{ consumer.vzRsAnyToCons.attributes.annotation }}
+### Child Action: {{ consumer.vzRsAnyToCons.attributes.childAction }}
+### Deployment Info: {{ consumer.vzRsAnyToCons.attributes.deplInfo }}
+### DN: {{ consumer.vzRsAnyToCons.attributes.dn }}
+### Externally Managed By: {{ consumer.vzRsAnyToCons.attributes.extMngdBy }}
+### Force Resolve: {{ consumer.vzRsAnyToCons.attributes.forceResolve }}
+### Intent: {{ consumer.vzRsAnyToCons.attributes.intent }}
+### Local Owner: {{ consumer.vzRsAnyToCons.attributes.lcOwn }}
+### Last Modified: {{ consumer.vzRsAnyToCons.attributes.modTs }}
+### Monitoring Policy DN: {{ consumer.vzRsAnyToCons.attributes.monPolDn }}
+### Priority: {{ consumer.vzRsAnyToCons.attributes.prio }}
+### rType: {{ consumer.vzRsAnyToCons.attributes.rType }}
+### State: {{ consumer.vzRsAnyToCons.attributes.state }}
+### State Quality: {{ consumer.vzRsAnyToCons.attributes.stateQual }}
+### Status: {{ consumer.vzRsAnyToCons.attributes.status }}
+### t
+#### Cl: {{ consumer.vzRsAnyToCons.attributes.tCl }}
+#### Context DN: {{ consumer.vzRsAnyToCons.attributes.tContextDn }}
+#### DN: {{ consumer.vzRsAnyToCons.attributes.tDn }}
+#### RN: {{ consumer.vzRsAnyToCons.attributes.tRn }}
+#### Type: {{ consumer.vzRsAnyToCons.attributes.tType }}
+### Contract Name: {{ consumer.vzRsAnyToCons.attributes.tnVzBrCPName }}
+### Update Collection: {{ consumer.vzRsAnyToCons.attributes.updateCollection }}
+{%-          endfor %}
+{%- elif "vzRsAnyToProv" in api %}
+# vzAny To Providers
+{%-     for provider in data_to_template['imdata'] %}
+## UID: {{ provider.vzRsAnyToProv.attributes.uid }}
+### Annotation: {{ provider.vzRsAnyToProv.attributes.annotation }}
+### Child Action: {{ provider.vzRsAnyToProv.attributes.childAction }}
+### DN: {{ provider.vzRsAnyToProv.attributes.dn }}
+### Externally Managed By: {{ provider.vzRsAnyToProv.attributes.extMngdBy }}
+### Force Resolve: {{ provider.vzRsAnyToProv.attributes.forceResolve }}
+### Intent: {{ provider.vzRsAnyToProv.attributes.intent }}
+### Local Owner: {{ provider.vzRsAnyToProv.attributes.lcOwn }}
+### Match Type: {{ provider.vzRsAnyToProv.attributes.matchT }}
+### Last Modified: {{ provider.vzRsAnyToProv.attributes.modTs }}
+### Monitoring Policy DN: {{ provider.vzRsAnyToProv.attributes.monPolDn }}
+### Priority: {{ provider.vzRsAnyToProv.attributes.prio }}
+### rType: {{ provider.vzRsAnyToProv.attributes.rType }}
+### State: {{ provider.vzRsAnyToProv.attributes.state }}
+### State Quality: {{ provider.vzRsAnyToProv.attributes.stateQual }}
+### Status: {{ provider.vzRsAnyToProv.attributes.status }}
+### t
+#### Cl: {{ provider.vzRsAnyToProv.attributes.tCl }}
+#### Context DN: {{ provider.vzRsAnyToProv.attributes.tContextDn }}
+#### DN: {{ provider.vzRsAnyToProv.attributes.tDn }}
+#### RN: {{ provider.vzRsAnyToProv.attributes.tRn }}
+#### Type: {{ provider.vzRsAnyToProv.attributes.tType }}
+### Contract Name: {{ provider.vzRsAnyToProv.attributes.tnVzBrCPName }}
+### Update Collection: {{ provider.vzRsAnyToProv.attributes.updateCollection }}
+{%-          endfor %}
+{%- elif "vzRsDenyRule" in api %}
+# vzDeny Rules
+{%-     for rule in data_to_template['imdata'] %}
+## UID: {{ rule.vzRsDenyRule.attributes.uid }}
+### Annotation: {{ rule.vzRsDenyRule.attributes.annotation }}
+### Child Action: {{ rule.vzRsDenyRule.attributes.childAction }}
+### Directives: {{ rule.vzRsDenyRule.attributes.directives }}
+### DN: {{ rule.vzRsDenyRule.attributes.dn }}
+### Externally Managed By: {{ rule.vzRsDenyRule.attributes.extMngdBy }}
+### Force Resolve: {{ rule.vzRsDenyRule.attributes.forceResolve }}
+### Local Owner: {{ rule.vzRsDenyRule.attributes.lcOwn }}
+### Last Modified: {{ rule.vzRsDenyRule.attributes.modTs }}
+### Monitoring Policy DN: {{ rule.vzRsDenyRule.attributes.monPolDn }}
+### rType: {{ rule.vzRsDenyRule.attributes.rType }}
+### State: {{ rule.vzRsDenyRule.attributes.state }}
+### State Quality: {{ rule.vzRsDenyRule.attributes.stateQual }}
+### Status: {{ rule.vzRsDenyRule.attributes.status }}
+### t
+#### Cl: {{ rule.vzRsDenyRule.attributes.tCl }}
+#### Context DN: {{ rule.vzRsDenyRule.attributes.tContextDn }}
+#### DN: {{ rule.vzRsDenyRule.attributes.tDn }}
+#### RN: {{ rule.vzRsDenyRule.attributes.tRn }}
+#### Type: {{ rule.vzRsDenyRule.attributes.tType }}
+### tnVz Filter Name: {{ rule.vzRsDenyRule.attributes.tnVzFilterName }}
+{%-          endfor %}
+{%- elif "vzRsIf" in api %}
+# vzInterface Source Relationships
+{%-     for interface in data_to_template['imdata'] %}
+## UID: {{ interface.vzRsIf.attributes.uid }}
+### Annotation: {{ interface.vzRsIf.attributes.annotation }}
+### Child Action: {{ interface.vzRsIf.attributes.childAction }}
+### DN: {{ interface.vzRsIf.attributes.dn }}
+### Externally Managed By: {{ interface.vzRsIf.attributes.extMngdBy }}
+### Force Resolve: {{ interface.vzRsIf.attributes.forceResolve }}
+### Intent: {{ interface.vzRsIf.attributes.intent }}
+### Local Owner: {{ interface.vzRsIf.attributes.lcOwn }}
+### Last Modified: {{ interface.vzRsIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.vzRsIf.attributes.monPolDn }}
+### Priority: {{ interface.vzRsIf.attributes.prio }}
+### rType: {{ interface.vzRsIf.attributes.rType }}
+### State: {{ interface.vzRsIf.attributes.state }}
+### State Quality: {{ interface.vzRsIf.attributes.stateQual }}
+### Status: {{ interface.vzRsIf.attributes.status }}
+### t
+#### Cl: {{ interface.vzRsIf.attributes.tCl }}
+#### DN: {{ interface.vzRsIf.attributes.tDn }}
+#### Type: {{ interface.vzRsIf.attributes.tType }}
+### Update Collection: {{ interface.vzRsIf.attributes.updateCollection }}
+{%-          endfor %}
+{%- elif "vzRsSubjFiltAtt" in api %}
+# Contract Subjects Filter Attributes
+{%-     for subject_filter in data_to_template['imdata'] %}
+## UID: {{ subject_filter.vzRsSubjFiltAtt.attributes.uid }}
+### Action: {{ subject_filter.vzRsSubjFiltAtt.attributes.action }}
+### Annotation: {{ subject_filter.vzRsSubjFiltAtt.attributes.annotation }}
+### Child Action: {{ subject_filter.vzRsSubjFiltAtt.attributes.childAction }}
+### Directives: {{ subject_filter.vzRsSubjFiltAtt.attributes.directives }}
+### DN: {{ subject_filter.vzRsSubjFiltAtt.attributes.dn }}
+### Externally Managed By: {{ subject_filter.vzRsSubjFiltAtt.attributes.extMngdBy }}
+### Force Resolve: {{ subject_filter.vzRsSubjFiltAtt.attributes.forceResolve }}
+### Local Owner: {{ subject_filter.vzRsSubjFiltAtt.attributes.lcOwn }}
+### Last Modified: {{ subject_filter.vzRsSubjFiltAtt.attributes.modTs }}
+### Monitoring Policy DN: {{ subject_filter.vzRsSubjFiltAtt.attributes.monPolDn }}
+### Priority Override: {{ subject_filter.vzRsSubjFiltAtt.attributes.priorityOverride }}
+### rType: {{ subject_filter.vzRsSubjFiltAtt.attributes.rType }}
+### State: {{ subject_filter.vzRsSubjFiltAtt.attributes.state }}
+### State Quality: {{ subject_filter.vzRsSubjFiltAtt.attributes.stateQual }}
+### Status: {{ subject_filter.vzRsSubjFiltAtt.attributes.status }}
+### t
+#### Cl: {{ subject_filter.vzRsSubjFiltAtt.attributes.tCl }}
+#### Context DN: {{ subject_filter.vzRsSubjFiltAtt.attributes.tContextDn }}
+#### DN: {{ subject_filter.vzRsSubjFiltAtt.attributes.tDn }}
+#### RN: {{ subject_filter.vzRsSubjFiltAtt.attributes.tRn }}
+#### Type: {{ subject_filter.vzRsSubjFiltAtt.attributes.tType }}
+### tnVz Filter Name: {{ subject_filter.vzRsSubjFiltAtt.attributes.tnVzFilterName }}
+{%-          endfor %}
+{%- elif "vzRtCons" in api %}
+# Contract Consumers Root
+{%-     for consumer in data_to_template['imdata'] %}
+## DN: {{ consumer.vzRtCons.attributes.dn }}
+### Child Action: {{ consumer.vzRtCons.attributes.childAction }}
+### Local Owner: {{ consumer.vzRtCons.attributes.lcOwn }}
+### Last Modified: {{ consumer.vzRtCons.attributes.modTs }}
+### Status: {{ consumer.vzRtCons.attributes.status }}
+### t
+#### Cl: {{ consumer.vzRtCons.attributes.tCl }}
+#### DN: {{ consumer.vzRtCons.attributes.tDn }}
+{%-          endfor %}
+{%- elif "vzRtProv" in api %}
+# Contract Providers Root
+{%-     for provider in data_to_template['imdata'] %}
+## DN: {{ provider.vzRtProv.attributes.dn }}
+### Child Action: {{ provider.vzRtProv.attributes.childAction }}
+### Local Owner: {{ provider.vzRtProv.attributes.lcOwn }}
+### Last Modified: {{ provider.vzRtProv.attributes.modTs }}
+### Status: {{ provider.vzRtProv.attributes.status }}
+### t
+#### Cl: {{ provider.vzRtProv.attributes.tCl }}
+#### DN: {{ provider.vzRtProv.attributes.tDn }}
+{%-          endfor %}
+{%- elif "vzRuleOwner" in api %}
+# vzRule Owner
+{%-     for owner in data_to_template['imdata'] %}
+## Name: {{ owner.vzRuleOwner.attributes.name }}
+### Name Alias: {{ owner.vzRuleOwner.attributes.nameAlias }}
+### Action: {{ owner.vzRuleOwner.attributes.action }}
+### Child Action: {{ owner.vzRuleOwner.attributes.childAction }}
+### Creator DN: {{ owner.vzRuleOwner.attributes.creatorDn }}
+### Contract Name: {{ owner.vzRuleOwner.attributes.ctrctName }}
+### Direction: {{ owner.vzRuleOwner.attributes.direction }}
+### DN: {{ owner.vzRuleOwner.attributes.dn }}
+### Intent: {{ owner.vzRuleOwner.attributes.intent }}
+### Local Owner: {{ owner.vzRuleOwner.attributes.lcOwn }}
+### Mark DSCP: {{ owner.vzRuleOwner.attributes.markDscp }}
+### Last Modified: {{ owner.vzRuleOwner.attributes.modTs }}
+### Monitor DN: {{ owner.vzRuleOwner.attributes.monitorDn }}
+### Priority: {{ owner.vzRuleOwner.attributes.prio }}
+### QoS Group: {{ owner.vzRuleOwner.attributes.qosGrp }}
+### Status: {{ owner.vzRuleOwner.attributes.status }}
+### Tag: {{ owner.vzRuleOwner.attributes.tag }}
+### Type: {{ owner.vzRuleOwner.attributes.type }}
+{%-          endfor %}
+{%- elif "vzTaboo" in api %}
+# vzTaboo
+{%-     for taboo in data_to_template['imdata'] %}
+## Name: {{ taboo.vzTaboo.attributes.name }}
+### Name Alias: {{ taboo.vzTaboo.attributes.nameAlias }}
+### Annotation: {{ taboo.vzTaboo.attributes.annotation }}
+### Child Action: {{ taboo.vzTaboo.attributes.childAction }}
+### Config Issues: {{ taboo.vzTaboo.attributes.configIssues }}
+### Description: {{ taboo.vzTaboo.attributes.descr }}
+### DN: {{ taboo.vzTaboo.attributes.dn }}
+### Externally Managed By: {{ taboo.vzTaboo.attributes.extMngdBy }}
+### Local Owner: {{ taboo.vzTaboo.attributes.lcOwn }}
+### Last Modified: {{ taboo.vzTaboo.attributes.modTs }}
+### Monitoring Policy DN: {{ taboo.vzTaboo.attributes.monPolDn }}
+### Owner
+#### Key: {{ taboo.vzTaboo.attributes.ownerKey }}
+#### Tag: {{ taboo.vzTaboo.attributes.ownerTag }}
+### Reevaluate All: {{ taboo.vzTaboo.attributes.reevaluateAll }}
+### Scope: {{ taboo.vzTaboo.attributes.scope }}
+### Status: {{ taboo.vzTaboo.attributes.status }}
+### UID: {{ taboo.vzTaboo.attributes.uid }}
+{%-          endfor %}
 {%- endif %}

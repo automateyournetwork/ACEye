@@ -110,9 +110,15 @@ Contract Consumer Interfaces
 
 Contract Consumers
 
+Contract Consumers Root
+
 Contract Providers
 
+Contract Providers Root
+
 Contract Subjects
+
+Contract Subjects Filter Attributes
 
 Controllers
 
@@ -229,8 +235,6 @@ Fault Summary
 FEX Policies
 
 Fibre Channel Entity
-
-Filters
 
 Firmware Card Running
 
@@ -469,6 +473,24 @@ VPC Entities
 VPC Instances
 
 VPC Interfaces
+
+vzAny
+
+vzAny To Consumers
+
+vzAny To Providers
+
+vzDeny Rules
+
+vzEntries
+
+vzFilters
+
+vzInterface Source Relationships
+
+vzRule Owner
+
+vzTaboo
 
 Wired Nodes
 

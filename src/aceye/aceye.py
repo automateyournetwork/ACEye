@@ -500,6 +500,29 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.vpc_configurations(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vzAny(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vzFilters(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vzAny_to_consumers(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vzAny_to_providers(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vzDeny(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vzInterface_source_relationships(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vz_subject_filter_attributes(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.contract_consumers_root(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        self.cookie = self.get_token()
+        parsed_json = json.dumps(self.contract_providers_root(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vzRule_owner(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vzTaboo(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -553,8 +576,11 @@ class ACEye():
                     'Contexts Target Relationships',
                     'Contract Consumer Interfaces',
                     'Contract Consumers',
+                    'Contract Consumers Root',
                     'Contract Providers',
+                    'Contract Providers Root',
                     'Contract Subjects',
+                    'Contract Subjects Filter Attributes',
                     'Contracts',
                     'Controllers',
                     'Device Packages',
@@ -614,7 +640,6 @@ class ACEye():
                     'Fault Summary',
                     'FEX Policies',
                     'Fibre Channel Entities',
-                    'Filters',
                     'Firmware Card Running',
                     'Firmware Compute Running',
                     'Firmware Running',
@@ -734,6 +759,15 @@ class ACEye():
                     'VPC Entities',
                     'VPC Instances',
                     'VPC Interfaces',
+                    'vzAny',
+                    'vzAny To Consumers',
+                    'vzAny To Providers',
+                    'vzDeny Rules',
+                    'vzEntries',
+                    'vzFilters',
+                    'vzInterface Source Relationships',
+                    'vzRule Owner',
+                    'vzTaboo',
                     'Wired Nodes']
         current_directory = os.getcwd()
         for api in api_list:
@@ -908,7 +942,7 @@ class ACEye():
     def filters(self):
         self.url = f"{ self.aci }/api/node/class/vzEntry.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Filters Status code { response.status_code } for { self.url }>")
+        print(f"<vz Entries Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
         return response_dict
 
@@ -2432,6 +2466,83 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def vzAny(self):
+        self.url = f"{ self.aci }/api/node/class/vzAny.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<vzAny code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def vzFilters(self):
+        self.url = f"{ self.aci }/api/node/class/vzFilter.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<vzFilters code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def vzAny_to_consumers(self):
+        self.url = f"{ self.aci }/api/node/class/vzRsAnyToCons.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<vzAny To Consumers code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def vzAny_to_providers(self):
+        self.url = f"{ self.aci }/api/node/class/vzRsAnyToProv.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<vzAny To Providers code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def vzDeny(self):
+        self.url = f"{ self.aci }/api/node/class/vzRsDenyRule.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<vzDeny Rules code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def vzInterface_source_relationships(self):
+        self.url = f"{ self.aci }/api/node/class/vzRsIf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<vzInterface Source Relationships code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def vz_subject_filter_attributes(self):
+        self.url = f"{ self.aci }/api/node/class/vzRsSubjFiltAtt.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<vzContract Subject Filter Attributes code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def contract_consumers_root(self):
+        self.url = f"{ self.aci }/api/node/class/vzRtCons.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Contract Consumers Root code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def contract_providers_root(self):
+        self.url = f"{ self.aci }/api/node/class/vzRtProv.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Contract Providers Root code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def vzRule_owner(self):
+        self.url = f"{ self.aci }/api/node/class/vzRuleOwner.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<vzRule Owner code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def vzTaboo(self):
+        self.url = f"{ self.aci }/api/node/class/vzTaboo.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<vzTaboo code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2511,7 +2622,7 @@ class ACEye():
                 f.write(parsed_json)
 
         if "vzEntry" in self.url:
-            with open('Filters/JSON/Filters.json', 'w' ) as f:
+            with open('vzEntries/JSON/vzEntries.json', 'w' ) as f:
                 f.write(parsed_json)
 
         if "physDomP" in self.url:
@@ -3361,6 +3472,50 @@ class ACEye():
             with open('VPC Configurations/JSON/VPC Configurations.json', 'w' ) as f:
                 f.write(parsed_json)
 
+        if "vzAny" in self.url:
+            with open('vzAny/JSON/vzAny.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vzFilter" in self.url:
+            with open('vzFilters/JSON/vzFilters.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vzRsAnyToCons" in self.url:
+            with open('vzAny To Consumers/JSON/vzAny To Consumers.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vzRsAnyToProv" in self.url:
+            with open('vzAny To Providers/JSON/vzAny To Providers.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vzRsDenyRule" in self.url:
+            with open('vzDeny Rules/JSON/vzDeny Rules.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vzRsIf" in self.url:
+            with open('vzInterface Source Relationships/JSON/vzInterface Source Relationships.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vzRsSubjFiltAtt" in self.url:
+            with open('Contract Subjects Filter Attributes/JSON/Contract Subjects Filter Attributes.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vzRtCons" in self.url:
+            with open('Contract Consumers Root/JSON/Contract Consumers Root.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vzRtProv" in self.url:
+            with open('Contract Providers Root/JSON/Contract Providers Root.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vzRuleOwner" in self.url:
+            with open('vzRule Owner/JSON/vzRule Owner.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vzTaboo" in self.url:
+            with open('vzTaboo/JSON/vzTaboo.json', 'w' ) as f:
+                f.write(parsed_json)
+
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
         if "Tenant" in self.url:
@@ -3441,7 +3596,7 @@ class ACEye():
                 f.write(clean_yaml)
 
         if "vzEntry" in self.url:
-            with open('Filters/YAML/Filters.yaml', 'w' ) as f:
+            with open('vzEntries/YAML/vzEntries.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
         if "physDomP" in self.url:
@@ -4295,6 +4450,50 @@ class ACEye():
             with open('VPC Configurations/YAML/VPC Configurations.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
+        if "vzAny" in self.url:
+            with open('vzAny/YAML/vzAny.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vzFilter" in self.url:
+            with open('vzFilters/YAML/vzFilters.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vzRsAnyToCons" in self.url:
+            with open('vzAny To Consumers/YAML/vzAny To Consumers.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vzRsAnyToProv" in self.url:
+            with open('vzAny To Providers/YAML/vzAny To Providers.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vzRsDenyRule" in self.url:
+            with open('vzDeny Rules/YAML/vzDeny Rules.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vzRsIf" in self.url:
+            with open('vzInterface Source Relationships/YAML/vzInterface Source Relationships.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vzRsSubjFiltAtt" in self.url:
+            with open('Contract Subjects Filter Attributes/YAML/Contract Subjects Filter Attributes.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vzRtCons" in self.url:
+            with open('Contract Consumers Root/YAML/Contract Consumers Root.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vzRtProv" in self.url:
+            with open('Contract Providers Root/YAML/Contract Providers Root.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vzRuleOwner" in self.url:
+            with open('vzRule Owner/YAML/vzRule Owner.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vzTaboo" in self.url:
+            with open('vzTaboo/YAML/vzTaboo.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
     def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -4379,7 +4578,7 @@ class ACEye():
                 f.write(csv_output)
 
         if "vzEntry" in self.url:
-            with open('Filters/CSV/Filters.csv', 'w' ) as f:
+            with open('vzEntries/CSV/vzEntries.csv', 'w' ) as f:
                 f.write(csv_output)
 
         if "physDomP" in self.url:
@@ -5233,6 +5432,50 @@ class ACEye():
             with open('VPC Configurations/CSV/VPC Configurations.csv', 'w' ) as f:
                 f.write(csv_output)
 
+        if "vzAny" in self.url:
+            with open('vzAny/CSV/vzAny.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vzFilter" in self.url:
+            with open('vzFilters/CSV/vzFilters.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vzRsAnyToCons" in self.url:
+            with open('vzAny To Consumers/CSV/vzAny To Consumers.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vzRsAnyToProv" in self.url:
+            with open('vzAny To Providers/CSV/vzAny To Providers.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vzRsDenyRule" in self.url:
+            with open('vzDeny Rules/CSV/vzDeny Rules.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vzRsIf" in self.url:
+            with open('vzInterface Source Relationships/CSV/vzInterface Source Relationships.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vzRsSubjFiltAtt" in self.url:
+            with open('Contract Subjects Filter Attributes/CSV/Contract Subjects Filter Attributes.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vzRtCons" in self.url:
+            with open('Contract Consumers Root/CSV/Contract Consumers Root.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vzRtProv" in self.url:
+            with open('Contract Providers Root/CSV/Contract Providers Root.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vzRuleOwner" in self.url:
+            with open('vzRule Owner/CSV/vzRule Owner.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vzTaboo" in self.url:
+            with open('vzTaboo/CSV/vzTaboo.csv', 'w' ) as f:
+                f.write(csv_output)
+
     def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5318,7 +5561,7 @@ class ACEye():
                 f.write(markdown_output)
 
         if "vzEntry" in self.url:
-            with open('Filters/Markdown/Filters.md', 'w' ) as f:
+            with open('vzEntries/Markdown/vzEntries.md', 'w' ) as f:
                 f.write(markdown_output)
 
         if "physDomP" in self.url:
@@ -6172,6 +6415,50 @@ class ACEye():
             with open('VPC Configurations/Markdown/VPC Configurations.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "vzAny" in self.url:
+            with open('vzAny/Markdown/vzAny.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vzFilter" in self.url:
+            with open('vzFilters/Markdown/vzFilters.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vzRsAnyToCons" in self.url:
+            with open('vzAny To Consumers/Markdown/vzAny To Consumers.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vzRsAnyToProv" in self.url:
+            with open('vzAny To Providers/Markdown/vzAny To Providers.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vzRsDenyRule" in self.url:
+            with open('vzDeny Rules/Markdown/vzDeny Rules.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vzRsIf" in self.url:
+            with open('vzInterface Source Relationships/Markdown/vzInterface Source Relationships.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vzRsSubjFiltAtt" in self.url:
+            with open('Contract Subjects Filter Attributes/Markdown/Contract Subjects Filter Attributes.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vzRtCons" in self.url:
+            with open('Contract Consumers Root/Markdown/Contract Consumers Root.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vzRtProv" in self.url:
+            with open('Contract Providers Root/Markdown/Contract Providers Root.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vzRuleOwner" in self.url:
+            with open('vzRule Owner/Markdown/vzRule Owner.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vzTaboo" in self.url:
+            with open('vzTaboo/Markdown/vzTaboo.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -6257,7 +6544,7 @@ class ACEye():
                 f.write(html_output)
 
         if "vzEntry" in self.url:
-            with open('Filters/HTML/Filters.html', 'w' ) as f:
+            with open('vzEntries/HTML/vzEntries.html', 'w' ) as f:
                 f.write(html_output)
 
         if "physDomP" in self.url:
@@ -7111,6 +7398,50 @@ class ACEye():
             with open('VPC Configurations/HTML/VPC Configurations.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "vzAny" in self.url:
+            with open('vzAny/HTML/vzAny.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vzFilter" in self.url:
+            with open('vzFilters/HTML/vzFilters.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vzRsAnyToCons" in self.url:
+            with open('vzAny To Consumers/HTML/vzAny To Consumers.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vzRsAnyToProv" in self.url:
+            with open('vzAny To Providers/HTML/vzAny To Providers.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vzRsDenyRule" in self.url:
+            with open('vzDeny Rules/HTML/vzDeny Rules.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vzRsIf" in self.url:
+            with open('vzInterface Source Relationships/HTML/vzInterface Source Relationships.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vzRsSubjFiltAtt" in self.url:
+            with open('Contract Subjects Filter Attributes/HTML/Contract Subjects Filter Attributes.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vzRtCons" in self.url:
+            with open('Contract Consumers Root/HTML/Contract Consumers Root.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vzRtProv" in self.url:
+            with open('Contract Providers Root/HTML/Contract Providers Root.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vzRuleOwner" in self.url:
+            with open('vzRule Owner/HTML/vzRule Owner.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vzTaboo" in self.url:
+            with open('vzTaboo/HTML/vzTaboo.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -7196,7 +7527,7 @@ class ACEye():
                 f.write(mindmap_output)
 
         if "vzEntry" in self.url:
-            with open('Filters/Mindmap/Filters.md', 'w' ) as f:
+            with open('vzEntries/Mindmap/vzEntries.md', 'w' ) as f:
                 f.write(mindmap_output)
 
         if "physDomP" in self.url:
@@ -8044,6 +8375,50 @@ class ACEye():
 
         if "vpcRsVpcConf" in self.url:
             with open('VPC Configurations/Mindmap/VPC Configurations.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzAny" in self.url:
+            with open('vzAny/Mindmap/vzAny.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzFilter" in self.url:
+            with open('vzFilters/Mindmap/vzFilters.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzRsAnyToCons" in self.url:
+            with open('vzAny To Consumers/Mindmap/vzAny To Consumers.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzRsAnyToProv" in self.url:
+            with open('vzAny To Providers/Mindmap/vzAny To Providers.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzRsDenyRule" in self.url:
+            with open('vzDeny Rules/Mindmap/vzDeny Rules.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzRsIf" in self.url:
+            with open('vzInterface Source Relationships/Mindmap/vzInterface Source Relationships.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzRsSubjFiltAtt" in self.url:
+            with open('Contract Subjects Filter Attributes/Mindmap/Contract Subjects Filter Attributes.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzRtCons" in self.url:
+            with open('Contract Consumers Root/Mindmap/Contract Consumers Root.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzRtProv" in self.url:
+            with open('Contract Providers Root/Mindmap/Contract Providers Root.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzRuleOwner" in self.url:
+            with open('vzRule Owner/Mindmap/vzRule Owner.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzTaboo" in self.url:
+            with open('vzTaboo/Mindmap/vzTaboo.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
