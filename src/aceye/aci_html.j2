@@ -12095,5 +12095,61 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vzFilter" in api %}
+<h1>vzFilters</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Forward ID</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Revision ID</th>
+    <th>Status</th>
+    <th>TX ID</th>
+    <th>UID</th>
+    <th>Unsupported Entries</th>
+    <th>Unsupported Management Entries</th>
+    <th>Uses IDs</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for vzfilter in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ vzfilter.vzFilter.attributes.name }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.nameAlias }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.annotation }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.childAction }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.descr }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.dn }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.extMngdBy }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.fwdId }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.id }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.lcOwn }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.modTs }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.monPolDn }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.ownerKey }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.ownerTag }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.revId }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.status }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.txId }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.uid }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.unsupportedEntries }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.unsupportedMgmtEntries }}</td>
+    <td>{{ vzfilter.vzFilter.attributes.usesIds }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

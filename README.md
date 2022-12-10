@@ -230,8 +230,6 @@ FEX Policies
 
 Fibre Channel Entity
 
-Filters
-
 Firmware Card Running
 
 Firmware Compute Running
@@ -471,6 +469,10 @@ VPC Instances
 VPC Interfaces
 
 vzAny
+
+vzEntries
+
+vzFilters
 
 Wired Nodes
 

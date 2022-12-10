@@ -502,6 +502,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.vzAny(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vzFilters(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -616,7 +618,6 @@ class ACEye():
                     'Fault Summary',
                     'FEX Policies',
                     'Fibre Channel Entities',
-                    'Filters',
                     'Firmware Card Running',
                     'Firmware Compute Running',
                     'Firmware Running',
@@ -737,6 +738,8 @@ class ACEye():
                     'VPC Instances',
                     'VPC Interfaces',
                     'vzAny',
+                    'vzEntries',
+                    'vzFilters',
                     'Wired Nodes']
         current_directory = os.getcwd()
         for api in api_list:
@@ -911,7 +914,7 @@ class ACEye():
     def filters(self):
         self.url = f"{ self.aci }/api/node/class/vzEntry.json"
         response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Filters Status code { response.status_code } for { self.url }>")
+        print(f"<vz Entries Status code { response.status_code } for { self.url }>")
         response_dict  = response.json()
         return response_dict
 
@@ -2442,6 +2445,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def vzFilters(self):
+        self.url = f"{ self.aci }/api/node/class/vzFilter.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<vzFilters code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -2521,7 +2531,7 @@ class ACEye():
                 f.write(parsed_json)
 
         if "vzEntry" in self.url:
-            with open('Filters/JSON/Filters.json', 'w' ) as f:
+            with open('vzEntries/JSON/vzEntries.json', 'w' ) as f:
                 f.write(parsed_json)
 
         if "physDomP" in self.url:
@@ -3375,6 +3385,10 @@ class ACEye():
             with open('vzAny/JSON/vzAny.json', 'w' ) as f:
                 f.write(parsed_json)
 
+        if "vzFilter" in self.url:
+            with open('vzFilters/JSON/vzFilters.json', 'w' ) as f:
+                f.write(parsed_json)
+
     def yaml_file(self, parsed_json):
         clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
         if "Tenant" in self.url:
@@ -3455,7 +3469,7 @@ class ACEye():
                 f.write(clean_yaml)
 
         if "vzEntry" in self.url:
-            with open('Filters/YAML/Filters.yaml', 'w' ) as f:
+            with open('vzEntries/YAML/vzEntries.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
         if "physDomP" in self.url:
@@ -4313,6 +4327,10 @@ class ACEye():
             with open('vzAny/YAML/vzAny.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
+        if "vzFilter" in self.url:
+            with open('vzFilters/YAML/vzFilters.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
     def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -4397,7 +4415,7 @@ class ACEye():
                 f.write(csv_output)
 
         if "vzEntry" in self.url:
-            with open('Filters/CSV/Filters.csv', 'w' ) as f:
+            with open('vzEntries/CSV/vzEntries.csv', 'w' ) as f:
                 f.write(csv_output)
 
         if "physDomP" in self.url:
@@ -5255,6 +5273,10 @@ class ACEye():
             with open('vzAny/CSV/vzAny.csv', 'w' ) as f:
                 f.write(csv_output)
 
+        if "vzFilter" in self.url:
+            with open('vzFilters/CSV/vzFilters.csv', 'w' ) as f:
+                f.write(csv_output)
+
     def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -5340,7 +5362,7 @@ class ACEye():
                 f.write(markdown_output)
 
         if "vzEntry" in self.url:
-            with open('Filters/Markdown/Filters.md', 'w' ) as f:
+            with open('vzEntries/Markdown/vzEntries.md', 'w' ) as f:
                 f.write(markdown_output)
 
         if "physDomP" in self.url:
@@ -6198,6 +6220,10 @@ class ACEye():
             with open('vzAny/Markdown/vzAny.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "vzFilter" in self.url:
+            with open('vzFilters/Markdown/vzFilters.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -6283,7 +6309,7 @@ class ACEye():
                 f.write(html_output)
 
         if "vzEntry" in self.url:
-            with open('Filters/HTML/Filters.html', 'w' ) as f:
+            with open('vzEntries/HTML/vzEntries.html', 'w' ) as f:
                 f.write(html_output)
 
         if "physDomP" in self.url:
@@ -7141,6 +7167,10 @@ class ACEye():
             with open('vzAny/HTML/vzAny.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "vzFilter" in self.url:
+            with open('vzFilters/HTML/vzFilters.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -7226,7 +7256,7 @@ class ACEye():
                 f.write(mindmap_output)
 
         if "vzEntry" in self.url:
-            with open('Filters/Mindmap/Filters.md', 'w' ) as f:
+            with open('vzEntries/Mindmap/vzEntries.md', 'w' ) as f:
                 f.write(mindmap_output)
 
         if "physDomP" in self.url:
@@ -8078,6 +8108,10 @@ class ACEye():
 
         if "vzAny" in self.url:
             with open('vzAny/Mindmap/vzAny.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzFilter" in self.url:
+            with open('vzFilters/Mindmap/vzFilters.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

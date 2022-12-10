@@ -5763,4 +5763,31 @@
 ### UID: {{ any.vzAny.attributes.uid }}
 ### Use Any Def: {{ any.vzAny.attributes.useAnyDef }}
 {%-          endfor %}
+{%- elif "vzFilter" in api %}
+# vzFilters
+{%-     for vzfilter in data_to_template['imdata'] %}
+## Name: {{ vzfilter.vzFilter.attributes.name }}
+### Name Alias: {{ vzfilter.vzFilter.attributes.nameAlias }}
+### Annotation: {{ vzfilter.vzFilter.attributes.annotation }}
+### Child Action: {{ vzfilter.vzFilter.attributes.childAction }}
+### Description: {{ vzfilter.vzFilter.attributes.descr }}
+### DN: {{ vzfilter.vzFilter.attributes.dn }}
+### Externally Managed By: {{ vzfilter.vzFilter.attributes.extMngdBy }}
+### Forward ID: {{ vzfilter.vzFilter.attributes.fwdId }}
+### ID: {{ vzfilter.vzFilter.attributes.id }}
+### Local Owner: {{ vzfilter.vzFilter.attributes.lcOwn }}
+### Last Modified: {{ vzfilter.vzFilter.attributes.modTs }}
+### Monitoring Policy DN: {{ vzfilter.vzFilter.attributes.monPolDn }}
+### Owner
+#### Key: {{ vzfilter.vzFilter.attributes.ownerKey }}
+#### Tag: {{ vzfilter.vzFilter.attributes.ownerTag }}
+### Revision ID: {{ vzfilter.vzFilter.attributes.revId }}
+### Status: {{ vzfilter.vzFilter.attributes.status }}
+### TX ID: {{ vzfilter.vzFilter.attributes.txId }}
+### UID: {{ vzfilter.vzFilter.attributes.uid }}
+### Unsupported
+#### Entries: {{ vzfilter.vzFilter.attributes.unsupportedEntries }}
+#### Management Entries: {{ vzfilter.vzFilter.attributes.unsupportedMgmtEntries }}
+### Uses IDs: {{ vzfilter.vzFilter.attributes.usesIds }}
+{%-          endfor %}
 {%- endif %}
