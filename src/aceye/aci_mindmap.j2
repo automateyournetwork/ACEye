@@ -5871,4 +5871,28 @@
 #### Type: {{ rule.vzRsDenyRule.attributes.tType }}
 ### tnVz Filter Name: {{ rule.vzRsDenyRule.attributes.tnVzFilterName }}
 {%-          endfor %}
+{%- elif "vzRsIf" in api %}
+# vzInterface Source Relationships
+{%-     for interface in data_to_template['imdata'] %}
+## UID: {{ interface.vzRsIf.attributes.uid }}
+### Annotation: {{ interface.vzRsIf.attributes.annotation }}
+### Child Action: {{ interface.vzRsIf.attributes.childAction }}
+### DN: {{ interface.vzRsIf.attributes.dn }}
+### Externally Managed By: {{ interface.vzRsIf.attributes.extMngdBy }}
+### Force Resolve: {{ interface.vzRsIf.attributes.forceResolve }}
+### Intent: {{ interface.vzRsIf.attributes.intent }}
+### Local Owner: {{ interface.vzRsIf.attributes.lcOwn }}
+### Last Modified: {{ interface.vzRsIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.vzRsIf.attributes.monPolDn }}
+### Priority: {{ interface.vzRsIf.attributes.prio }}
+### rType: {{ interface.vzRsIf.attributes.rType }}
+### State: {{ interface.vzRsIf.attributes.state }}
+### State Quality: {{ interface.vzRsIf.attributes.stateQual }}
+### Status: {{ interface.vzRsIf.attributes.status }}
+### t
+#### Cl: {{ interface.vzRsIf.attributes.tCl }}
+#### DN: {{ interface.vzRsIf.attributes.tDn }}
+#### Type: {{ interface.vzRsIf.attributes.tType }}
+### Update Collection: {{ interface.vzRsIf.attributes.updateCollection }}
+{%-          endfor %}
 {%- endif %}

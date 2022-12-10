@@ -510,6 +510,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.vzDeny(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vzInterface_source_relationships(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -749,6 +751,7 @@ class ACEye():
                     'vzDeny Rules',
                     'vzEntries',
                     'vzFilters',
+                    'vzInterface Source Relationships',
                     'Wired Nodes']
         current_directory = os.getcwd()
         for api in api_list:
@@ -2482,6 +2485,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def vzInterface_source_relationships(self):
+        self.url = f"{ self.aci }/api/node/class/vzRsRsIf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<vzInterface Source Relationships code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -3429,6 +3439,10 @@ class ACEye():
 
         if "vzRsDenyRule" in self.url:
             with open('vzDeny Rules/JSON/vzDeny Rules.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vzRsIf" in self.url:
+            with open('vzInterface Source Relationships/JSON/vzInterface Source Relationships.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -4383,6 +4397,10 @@ class ACEye():
 
         if "vzRsDenyRule" in self.url:
             with open('vzDeny Rules/YAML/vzDeny Rules.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vzRsIf" in self.url:
+            with open('vzInterface Source Relationships/YAML/vzInterface Source Relationships.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -5341,6 +5359,10 @@ class ACEye():
 
         if "vzRsDenyRule" in self.url:
             with open('vzDeny Rules/CSV/vzDeny Rules.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vzRsIf" in self.url:
+            with open('vzInterface Source Relationships/CSV/vzInterface Source Relationships.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -6302,6 +6324,10 @@ class ACEye():
             with open('vzDeny Rules/Markdown/vzDeny Rules.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "vzRsIf" in self.url:
+            with open('vzInterface Source Relationships/Markdown/vzInterface Source Relationships.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -7261,6 +7287,10 @@ class ACEye():
             with open('vzDeny Rules/HTML/vzDeny Rules.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "vzRsIf" in self.url:
+            with open('vzInterface Source Relationships/HTML/vzInterface Source Relationships.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -8214,6 +8244,10 @@ class ACEye():
 
         if "vzRsDenyRule" in self.url:
             with open('vzDeny Rules/Mindmap/vzDeny Rules.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzRsIf" in self.url:
+            with open('vzInterface Source Relationships/Mindmap/vzInterface Source Relationships.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
