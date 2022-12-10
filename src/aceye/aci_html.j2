@@ -12491,5 +12491,55 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vzRuleOwner" in api %}
+<h1>vzRule Owner</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Action</th>
+    <th>Child Action</th>
+    <th>Creator DN</th>
+    <th>Contract Name</th>
+    <th>Direction</th>
+    <th>DN</th>
+    <th>Intent</th>
+    <th>Local Owner</th>
+    <th>Mark DSCP</th>
+    <th>Last Modified</th>
+    <th>Monitor DN</th>
+    <th>Priority</th>
+    <th>QoS Group</th>
+    <th>Status</th>
+    <th>Tag</th>
+    <th>Type</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for owner in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ owner.vzRuleOwner.attributes.name }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.nameAlias }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.action }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.childAction }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.creatorDn }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.ctrctName }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.direction }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.dn }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.intent }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.lcOwn }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.markDscp }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.modTs }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.monitorDn }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.prio }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.qosGrp }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.status }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.tag }}</td>
+    <td>{{ owner.vzRuleOwner.attributes.type }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

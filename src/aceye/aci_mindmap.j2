@@ -5946,4 +5946,26 @@
 #### Cl: {{ provider.vzRtProv.attributes.tCl }}
 #### DN: {{ provider.vzRtProv.attributes.tDn }}
 {%-          endfor %}
+{%- elif "vzRuleOwner" in api %}
+# vzRule Owner
+{%-     for owner in data_to_template['imdata'] %}
+## Name: {{ owner.vzRuleOwner.attributes.name }}
+### Name Alias: {{ owner.vzRuleOwner.attributes.nameAlias }}
+### Action: {{ owner.vzRuleOwner.attributes.action }}
+### Child Action: {{ owner.vzRuleOwner.attributes.childAction }}
+### Creator DN: {{ owner.vzRuleOwner.attributes.creatorDn }}
+### Contract Name: {{ owner.vzRuleOwner.attributes.ctrctName }}
+### Direction: {{ owner.vzRuleOwner.attributes.direction }}
+### DN: {{ owner.vzRuleOwner.attributes.dn }}
+### Intent: {{ owner.vzRuleOwner.attributes.intent }}
+### Local Owner: {{ owner.vzRuleOwner.attributes.lcOwn }}
+### Mark DSCP: {{ owner.vzRuleOwner.attributes.markDscp }}
+### Last Modified: {{ owner.vzRuleOwner.attributes.modTs }}
+### Monitor DN: {{ owner.vzRuleOwner.attributes.monitorDn }}
+### Priority: {{ owner.vzRuleOwner.attributes.prio }}
+### QoS Group: {{ owner.vzRuleOwner.attributes.qosGrp }}
+### Status: {{ owner.vzRuleOwner.attributes.status }}
+### Tag: {{ owner.vzRuleOwner.attributes.tag }}
+### Type: {{ owner.vzRuleOwner.attributes.type }}
+{%-          endfor %}
 {%- endif %}

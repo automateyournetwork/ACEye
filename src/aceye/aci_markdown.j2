@@ -1517,4 +1517,10 @@
 {%-     for provider in data_to_template['imdata'] %}
 | {{ provider.vzRtProv.attributes.dn }} | {{ provider.vzRtProv.attributes.childAction }} | {{ provider.vzRtProv.attributes.lcOwn }} | {{ provider.vzRtProv.attributes.modTs }} | {{ provider.vzRtProv.attributes.status }} | {{ provider.vzRtProv.attributes.tCl }} | {{ provider.vzRtProv.attributes.tDn }} |
 {%-     endfor %}
+{%- elif "vzRuleOwner" in api %}# vzRule Owner
+| Name | Name Alias | Action | Child Action | Creator DN | Contract Name | Direction | DN | Intent | Local Owner | Mark DSCP | Last Modified | Monitor DN | Priority | QoS Group | Status | Tag | Type |
+| ---- | ---------- | ------ | ------------ | ---------- | ------------- | --------- | -- | ------ | ----------- | --------- | ------------- | ---------- | -------- | --------- | ------ | --- | ---- |
+{%-     for owner in data_to_template['imdata'] %}
+| {{ owner.vzRuleOwner.attributes.name }} | {{ owner.vzRuleOwner.attributes.nameAlias }} | {{ owner.vzRuleOwner.attributes.action }} | {{ owner.vzRuleOwner.attributes.childAction }} | {{ owner.vzRuleOwner.attributes.creatorDn }} | {{ owner.vzRuleOwner.attributes.ctrctName }} | {{ owner.vzRuleOwner.attributes.direction }} | {{ owner.vzRuleOwner.attributes.dn }} | {{ owner.vzRuleOwner.attributes.intent }} | {{ owner.vzRuleOwner.attributes.lcOwn }} | {{ owner.vzRuleOwner.attributes.markDscp }} | {{ owner.vzRuleOwner.attributes.modTs }} | {{ owner.vzRuleOwner.attributes.monitorDn }} | {{ owner.vzRuleOwner.attributes.prio }} | {{ owner.vzRuleOwner.attributes.qosGrp }} | {{ owner.vzRuleOwner.attributes.status }} | {{ owner.vzRuleOwner.attributes.tag }} | {{ owner.vzRuleOwner.attributes.type }} |
+{%-     endfor %}
 {%- endif %}
