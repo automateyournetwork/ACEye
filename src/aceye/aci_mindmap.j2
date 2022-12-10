@@ -5790,4 +5790,32 @@
 #### Management Entries: {{ vzfilter.vzFilter.attributes.unsupportedMgmtEntries }}
 ### Uses IDs: {{ vzfilter.vzFilter.attributes.usesIds }}
 {%-          endfor %}
+{%- elif "vzRsAnyToCons" in api %}
+# vzAny To Consumers
+{%-     for consumer in data_to_template['imdata'] %}
+## UID: {{ consumer.vzRsAnyToCons.attributes.uid }}
+### Annotation: {{ consumer.vzRsAnyToCons.attributes.annotation }}
+### Child Action: {{ consumer.vzRsAnyToCons.attributes.childAction }}
+### Deployment Info: {{ consumer.vzRsAnyToCons.attributes.deplInfo }}
+### DN: {{ consumer.vzRsAnyToCons.attributes.dn }}
+### Externally Managed By: {{ consumer.vzRsAnyToCons.attributes.extMngdBy }}
+### Force Resolve: {{ consumer.vzRsAnyToCons.attributes.forceResolve }}
+### Intent: {{ consumer.vzRsAnyToCons.attributes.intent }}
+### Local Owner: {{ consumer.vzRsAnyToCons.attributes.lcOwn }}
+### Last Modified: {{ consumer.vzRsAnyToCons.attributes.modTs }}
+### Monitoring Policy DN: {{ consumer.vzRsAnyToCons.attributes.monPolDn }}
+### Priority: {{ consumer.vzRsAnyToCons.attributes.prio }}
+### rType: {{ consumer.vzRsAnyToCons.attributes.rType }}
+### State: {{ consumer.vzRsAnyToCons.attributes.state }}
+### State Quality: {{ consumer.vzRsAnyToCons.attributes.stateQual }}
+### Status: {{ consumer.vzRsAnyToCons.attributes.status }}
+### t
+#### Cl: {{ consumer.vzRsAnyToCons.attributes.tCl }}
+#### Context DN: {{ consumer.vzRsAnyToCons.attributes.tContextDn }}
+#### DN: {{ consumer.vzRsAnyToCons.attributes.tDn }}
+#### RN: {{ consumer.vzRsAnyToCons.attributes.tRn }}
+#### Type: {{ consumer.vzRsAnyToCons.attributes.tType }}
+### Contract Name: {{ consumer.vzRsAnyToCons.attributes.tnVzBrCPName }}
+### Update Collection: {{ consumer.vzRsAnyToCons.attributes.updateCollection }}
+{%-          endfor %}
 {%- endif %}

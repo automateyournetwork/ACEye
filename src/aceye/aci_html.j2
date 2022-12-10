@@ -12151,5 +12151,65 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vzRsAnyToCons" in api %}
+<h1>vzAny To Consumers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Deployment Info</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Intent</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Priority</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>Contract Name</th>
+    <th>Update Collection</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for consumer in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ consumer.vzRsAnyToCons.attributes.uid }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.annotation }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.childAction }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.deplInfo }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.dn }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.extMngdBy }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.forceResolve }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.intent }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.lcOwn }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.modTs }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.monPolDn }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.prio }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.rType }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.state }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.stateQual }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.status }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.tCl }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.tContextDn }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.tDn }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.tRn }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.tType }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.tnVzBrCPName }}</td>
+    <td>{{ consumer.vzRsAnyToCons.attributes.updateCollection }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
