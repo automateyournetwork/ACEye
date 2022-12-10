@@ -492,6 +492,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.vpc_domains(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vpc_entities(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -722,6 +724,7 @@ class ACEye():
                     'VMM Provider Profiles',
                     'VMM User Profiles',
                     'VPC Domains',
+                    'VPC Entities',
                     'Wired Nodes']
         current_directory = os.getcwd()
         for api in api_list:
@@ -2392,6 +2395,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def vpc_entities(self):
+        self.url = f"{ self.aci }/api/node/class/vpcEntity.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<VPC Entities code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -3303,6 +3313,10 @@ class ACEye():
 
         if "vpcDom" in self.url:
             with open('VPC Domains/JSON/VPC Domains.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vpcEntity" in self.url:
+            with open('VPC Entities/JSON/VPC Entities.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -4221,6 +4235,10 @@ class ACEye():
 
         if "vpcDom" in self.url:
             with open('VPC Domains/YAML/VPC Domains.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vpcEntity" in self.url:
+            with open('VPC Entities/YAML/VPC Entities.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -5143,6 +5161,10 @@ class ACEye():
 
         if "vpcDom" in self.url:
             with open('VPC Domains/CSV/VPC Domains.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vpcEntity" in self.url:
+            with open('VPC Entities/CSV/VPC Entities.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -6068,6 +6090,10 @@ class ACEye():
             with open('VPC Domains/Markdown/VPC Domains.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "vpcEntity" in self.url:
+            with open('VPC Entities/Markdown/VPC Entities.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -6991,6 +7017,10 @@ class ACEye():
             with open('VPC Domains/HTML/VPC Domains.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "vpcEntity" in self.url:
+            with open('VPC Entities/HTML/VPC Entities.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -7908,6 +7938,10 @@ class ACEye():
 
         if "vpcDom" in self.url:
             with open('VPC Domains/Mindmap/VPC Domains.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vpcEntity" in self.url:
+            with open('VPC Entities/Mindmap/VPC Entities.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

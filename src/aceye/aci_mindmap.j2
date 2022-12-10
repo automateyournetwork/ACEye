@@ -5652,4 +5652,19 @@
 #### MAC: {{ domain.vpcDom.attributes.vpcMAC }}
 #### Priority: {{ domain.vpcDom.attributes.vpcPrio }}
 {%-          endfor %}
+{%- elif "vpcEntity" in api %}
+# VPC Entities
+{%-     for entity in data_to_template['imdata'] %}
+## Name: {{ entity.vpcEntity.attributes.name }}
+### Admin State: {{ entity.vpcEntity.attributes.adminSt }}
+### Child Action: {{ entity.vpcEntity.attributes.childAction }}
+### DN: {{ entity.vpcEntity.attributes.dn }}
+### Local Owner: {{ entity.vpcEntity.attributes.locOwn }}
+### Last Modified: {{ entity.vpcEntity.attributes.modTs }}
+### Monitoring Policy DN: {{ entity.vpcEntity.attributes.monPolDn }}
+### Oper
+#### Error: {{ entity.vpcEntity.attributes.operErr }}
+#### State: {{ entity.vpcEntity.attributes.operSt }}
+### Status: {{ entity.vpcEntity.attributes.status }}
+{%-          endfor %}
 {%- endif %}
