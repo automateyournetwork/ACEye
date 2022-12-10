@@ -110,6 +110,8 @@ Contract Consumer Interfaces
 
 Contract Consumers
 
+Contract Consumers Root
+
 Contract Providers
 
 Contract Subjects

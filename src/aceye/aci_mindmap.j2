@@ -5922,4 +5922,16 @@
 #### Type: {{ subject_filter.vzRsSubjFiltAtt.attributes.tType }}
 ### tnVz Filter Name: {{ subject_filter.vzRsSubjFiltAtt.attributes.tnVzFilterName }}
 {%-          endfor %}
+{%- elif "vzRtCons" in api %}
+# Contract Consumers Root
+{%-     for consumer in data_to_template['imdata'] %}
+## DN: {{ consumer.vzRtCons.attributes.dn }}
+### Child Action: {{ consumer.vzRtCons.attributes.childAction }}
+### Local Owner: {{ consumer.vzRtCons.attributes.lcOwn }}
+### Last Modified: {{ consumer.vzRtCons.attributes.modTs }}
+### Status: {{ consumer.vzRtCons.attributes.status }}
+### t
+#### Cl: {{ consumer.vzRtCons.attributes.tCl }}
+#### DN: {{ consumer.vzRtCons.attributes.tDn }}
+{%-          endfor %}
 {%- endif %}
