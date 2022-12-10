@@ -5717,4 +5717,28 @@
 ### Oper Error: {{ instance.vpcInst.attributes.operErr }}
 ### Status: {{ instance.vpcInst.attributes.status }}
 {%-          endfor %}
+{%- elif "vpcRsVpcConf" in api %}
+# VPC Configurations
+{%-     for configuration in data_to_template['imdata'] %}
+## DN: {{ configuration.vpcRsVpcConf.attributes.dn }}
+### Child Action: {{ configuration.vpcRsVpcConf.attributes.childAction }}
+### Force Resolve: {{ configuration.vpcRsVpcConf.attributes.forceResolve }}
+### Local Owner: {{ configuration.vpcRsVpcConf.attributes.lcOwn }}
+### Last Modified: {{ configuration.vpcRsVpcConf.attributes.modTs }}
+### Monitoring Policy DN: {{ configuration.vpcRsVpcConf.attributes.monPolDn }}
+### Parent SKey: {{ configuration.vpcRsVpcConf.attributes.parentSKey }}
+### rType: {{ configuration.vpcRsVpcConf.attributes.rType }}
+### State: {{ configuration.vpcRsVpcConf.attributes.state }}
+### State Quality: {{ configuration.vpcRsVpcConf.attributes.stateQual }}
+### Status: {{ configuration.vpcRsVpcConf.attributes.status }}
+### t
+#### Cl: {{ configuration.vpcRsVpcConf.attributes.tCl }}
+#### DN: {{ configuration.vpcRsVpcConf.attributes.tDn }}
+#### SKey: {{ configuration.vpcRsVpcConf.attributes.tSKey }}
+#### Type: {{ configuration.vpcRsVpcConf.attributes.tType }}
+### VPC Config 
+#### Failed Bmp: {{ configuration.vpcRsVpcConf.attributes.vpcCfgFailedBmp }}
+#### Failed Timestamp: {{ configuration.vpcRsVpcConf.attributes.vpcCfgFailedTs }}
+#### State: {{ configuration.vpcRsVpcConf.attributes.vpcCfgState }}
+{%-          endfor %}
 {%- endif %}

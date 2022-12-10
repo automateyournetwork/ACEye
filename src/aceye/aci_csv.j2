@@ -993,4 +993,8 @@
 {%-     for instance in data_to_template['imdata'] %}
 {{ instance.vpcInst.attributes.name }},{{ instance.vpcInst.attributes.adminSt }},{{ instance.vpcInst.attributes.childAction }},{{ instance.vpcInst.attributes.ctrl }},{{ instance.vpcInst.attributes.dn }},{{ instance.vpcInst.attributes.lcOwn }},{{ instance.vpcInst.attributes.modTs }},{{ instance.vpcInst.attributes.monPolDn }},{{ instance.vpcInst.attributes.operErr }},{{ instance.vpcInst.attributes.status }}
 {%-     endfor %}
+{%- elif "vpcRsVpcConf" in api %}DN,Child Action,Force Resolve,Local Owner,Last Modified,Monitoring Policy DN,Parent S Key,rType,State,State Quality,Status,tCl,tDN,tSKey,tType,VPC Config Failed Bmp,VPC Config Failed Timestamp,VPC Config State
+{%-     for configuration in data_to_template['imdata'] %}
+{{ configuration.vpcRsVpcConf.attributes.dn }},{{ configuration.vpcRsVpcConf.attributes.childAction }},{{ configuration.vpcRsVpcConf.attributes.forceResolve }},{{ configuration.vpcRsVpcConf.attributes.lcOwn }},{{ configuration.vpcRsVpcConf.attributes.modTs }},{{ configuration.vpcRsVpcConf.attributes.monPolDn }},{{ configuration.vpcRsVpcConf.attributes.parentSKey }},{{ configuration.vpcRsVpcConf.attributes.rType }},{{ configuration.vpcRsVpcConf.attributes.state }},{{ configuration.vpcRsVpcConf.attributes.stateQual }},{{ configuration.vpcRsVpcConf.attributes.status }},{{ configuration.vpcRsVpcConf.attributes.tCl }},{{ configuration.vpcRsVpcConf.attributes.tDn }},{{ configuration.vpcRsVpcConf.attributes.tSKey }},{{ configuration.vpcRsVpcConf.attributes.tType }},{{ configuration.vpcRsVpcConf.attributes.vpcCfgFailedBmp }},{{ configuration.vpcRsVpcConf.attributes.vpcCfgFailedTs }},{{ configuration.vpcRsVpcConf.attributes.vpcCfgState }}
+{%-     endfor %}
 {%- endif %}

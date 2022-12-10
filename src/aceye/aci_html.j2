@@ -11995,5 +11995,55 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vpcRsVpcConf" in api %}
+<h1>VPC Configurations</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Parent S Key</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tSKey</th>
+    <th>tType</th>
+    <th>VPC Config Failed Bmp</th>
+    <th>VPC Config Failed Timestamp</th>
+    <th>VPC Config State</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for configuration in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ configuration.vpcRsVpcConf.attributes.dn }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.childAction }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.forceResolve }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.lcOwn }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.modTs }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.monPolDn }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.parentSKey }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.rType }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.state }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.stateQual }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.status }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.tCl }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.tDn }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.tSKey }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.tType }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.vpcCfgFailedBmp }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.vpcCfgFailedTs }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.vpcCfgState }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

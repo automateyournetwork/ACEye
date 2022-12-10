@@ -460,6 +460,8 @@ VMM Provider Profiles
 
 VMM User Profiles
 
+VPC Configurations
+
 VPC Domains
 
 VPC Entities
