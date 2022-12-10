@@ -5667,4 +5667,40 @@
 #### State: {{ entity.vpcEntity.attributes.operSt }}
 ### Status: {{ entity.vpcEntity.attributes.status }}
 {%-          endfor %}
+{%- elif "vpcIf" in api %}
+# VPC Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.vpcIf.attributes.name }}
+### Access Bundle Group DN: {{ interface.vpcIf.attributes.accBndlGrpDn }}
+### Configured
+#### Access VLAN: {{ interface.vpcIf.attributes.cfgdAccessVlan }}
+#### Trunk VLANs: {{ interface.vpcIf.attributes.cfgdTrunkVlans }}
+#### VLANs: {{ interface.vpcIf.attributes.cfgdVlans }}
+### Child Action: {{ interface.vpcIf.attributes.childAction }}
+### Compatibility
+#### Quality: {{ interface.vpcIf.attributes.compatQual }}
+#### Quality String: {{ interface.vpcIf.attributes.compatQualStr }}
+#### State: {{ interface.vpcIf.attributes.compatSt }}
+### Description: {{ interface.vpcIf.attributes.descr }}
+### DN: {{ interface.vpcIf.attributes.dn }}
+### Fabric Mismatch
+#### VLANs: {{ interface.vpcIf.attributes.fabEncMismatchVlans }}
+#### VLANs Set: {{ interface.vpcIf.attributes.fabEncMismatchVlansSet }}
+### Fabric Path DN: {{ interface.vpcIf.attributes.fabricPathDn }}
+### ID: {{ interface.vpcIf.attributes.id }}
+### Local Owner: {{ interface.vpcIf.attributes.lcOwn }}
+### Local Oper State: {{ interface.vpcIf.attributes.localOperSt }}
+### Last Modified: {{ interface.vpcIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.vpcIf.attributes.monPolDn }}
+### Port Channel Mode: {{ interface.vpcIf.attributes.pcMode }}
+### Peer VLANs
+#### Configured: {{ interface.vpcIf.attributes.peerCfgdVlans }}
+#### Up: {{ interface.vpcIf.attributes.peerUpVlans }}
+### Remote Oper State: {{ interface.vpcIf.attributes.remoteOperSt }}
+### Status: {{ interface.vpcIf.attributes.status }}
+### VLANs
+#### Suspended: {{ interface.vpcIf.attributes.suspVlans }}
+#### Up: {{ interface.vpcIf.attributes.upVlans }}
+### Usage: {{ interface.vpcIf.attributes.usage }}
+{%-          endfor %}
 {%- endif %}

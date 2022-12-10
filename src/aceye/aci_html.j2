@@ -11893,5 +11893,73 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vpcIf" in api %}
+<h1>VPC Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Access Bundle Group DN</th>
+    <th>Configured Access VLAN</th>
+    <th>Configured Trunk VLANs</th>
+    <th>Configured VLANs</th>
+    <th>Child Action</th>
+    <th>Compatibility Quality</th>
+    <th>Compatibility Quality String</th>
+    <th>Compatibility State</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Fabric Encapsulation Mismatch VLANs</th>
+    <th>Fabric encapChanged Mismatch VLANs Set</th>
+    <th>Fabric Path DN</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Local Oper State</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Port Channel Mode</th>
+    <th>Peer Configured VLANs</th>
+    <th>Peer Up VLANs</th>
+    <th>Remote Oper State</th>
+    <th>Status</th>
+    <th>Suspended VLANs</th>
+    <th>Up VLANs</th>
+    <th>Usage</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.vpcIf.attributes.name }}</td>
+    <td>{{ interface.vpcIf.attributes.accBndlGrpDn }}</td>
+    <td>{{ interface.vpcIf.attributes.cfgdAccessVlan }}</td>
+    <td>{{ interface.vpcIf.attributes.cfgdTrunkVlans }}</td>
+    <td>{{ interface.vpcIf.attributes.cfgdVlans }}</td>
+    <td>{{ interface.vpcIf.attributes.childAction }}</td>
+    <td>{{ interface.vpcIf.attributes.compatQual }}</td>
+    <td>{{ interface.vpcIf.attributes.compatQualStr }}</td>
+    <td>{{ interface.vpcIf.attributes.compatSt }}</td>
+    <td>{{ interface.vpcIf.attributes.descr }}</td>
+    <td>{{ interface.vpcIf.attributes.dn }}</td>
+    <td>{{ interface.vpcIf.attributes.fabEncMismatchVlans }}</td>
+    <td>{{ interface.vpcIf.attributes.fabEncMismatchVlansSet }}</td>
+    <td>{{ interface.vpcIf.attributes.fabricPathDn }}</td>
+    <td>{{ interface.vpcIf.attributes.id }}</td>
+    <td>{{ interface.vpcIf.attributes.lcOwn }}</td>
+    <td>{{ interface.vpcIf.attributes.localOperSt }}</td>
+    <td>{{ interface.vpcIf.attributes.modTs }}</td>
+    <td>{{ interface.vpcIf.attributes.monPolDn }}</td>
+    <td>{{ interface.vpcIf.attributes.pcMode }}</td>
+    <td>{{ interface.vpcIf.attributes.peerCfgdVlans }}</td>
+    <td>{{ interface.vpcIf.attributes.peerUpVlans }}</td>
+    <td>{{ interface.vpcIf.attributes.remoteOperSt }}</td>
+    <td>{{ interface.vpcIf.attributes.status }}</td>
+    <td>{{ interface.vpcIf.attributes.suspVlans }}</td>
+    <td>{{ interface.vpcIf.attributes.upVlans }}</td>
+    <td>{{ interface.vpcIf.attributes.usage }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
