@@ -521,6 +521,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.vzRule_owner(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vzTaboo(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -765,6 +767,7 @@ class ACEye():
                     'vzFilters',
                     'vzInterface Source Relationships',
                     'vzRule Owner',
+                    'vzTaboo',
                     'Wired Nodes']
         current_directory = os.getcwd()
         for api in api_list:
@@ -2533,6 +2536,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def vzTaboo(self):
+        self.url = f"{ self.aci }/api/node/class/vzTaboo.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<vzTaboo code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -3500,6 +3510,10 @@ class ACEye():
 
         if "vzRuleOwner" in self.url:
             with open('vzRule Owner/JSON/vzRule Owner.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vzTaboo" in self.url:
+            with open('vzTaboo/JSON/vzTaboo.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -4474,6 +4488,10 @@ class ACEye():
 
         if "vzRuleOwner" in self.url:
             with open('vzRule Owner/YAML/vzRule Owner.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vzTaboo" in self.url:
+            with open('vzTaboo/YAML/vzTaboo.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -5452,6 +5470,10 @@ class ACEye():
 
         if "vzRuleOwner" in self.url:
             with open('vzRule Owner/CSV/vzRule Owner.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vzTaboo" in self.url:
+            with open('vzTaboo/CSV/vzTaboo.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -6433,6 +6455,10 @@ class ACEye():
             with open('vzRule Owner/Markdown/vzRule Owner.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "vzTaboo" in self.url:
+            with open('vzTaboo/Markdown/vzTaboo.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -7412,6 +7438,10 @@ class ACEye():
             with open('vzRule Owner/HTML/vzRule Owner.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "vzTaboo" in self.url:
+            with open('vzTaboo/HTML/vzTaboo.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -8385,6 +8415,10 @@ class ACEye():
 
         if "vzRuleOwner" in self.url:
             with open('vzRule Owner/Mindmap/vzRule Owner.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzTaboo" in self.url:
+            with open('vzTaboo/Mindmap/vzTaboo.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

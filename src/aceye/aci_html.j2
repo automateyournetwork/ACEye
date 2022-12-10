@@ -12541,5 +12541,53 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vzTaboo" in api %}
+<h1>vzTaboo</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Config Issues</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Reevaluate All</th>
+    <th>Scope</th>
+    <th>Status</th>
+    <th>UID</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for taboo in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ taboo.vzTaboo.attributes.name }}</td>
+    <td>{{ taboo.vzTaboo.attributes.nameAlias }}</td>
+    <td>{{ taboo.vzTaboo.attributes.annotation }}</td>
+    <td>{{ taboo.vzTaboo.attributes.childAction }}</td>
+    <td>{{ taboo.vzTaboo.attributes.configIssues }}</td>
+    <td>{{ taboo.vzTaboo.attributes.descr }}</td>
+    <td>{{ taboo.vzTaboo.attributes.dn }}</td>
+    <td>{{ taboo.vzTaboo.attributes.extMngdBy }}</td>
+    <td>{{ taboo.vzTaboo.attributes.lcOwn }}</td>
+    <td>{{ taboo.vzTaboo.attributes.modTs }}</td>
+    <td>{{ taboo.vzTaboo.attributes.monPolDn }}</td>
+    <td>{{ taboo.vzTaboo.attributes.ownerKey }}</td>
+    <td>{{ taboo.vzTaboo.attributes.ownerTag }}</td>
+    <td>{{ taboo.vzTaboo.attributes.reevaluateAll }}</td>
+    <td>{{ taboo.vzTaboo.attributes.scope }}</td>
+    <td>{{ taboo.vzTaboo.attributes.status }}</td>
+    <td>{{ taboo.vzTaboo.attributes.uid }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

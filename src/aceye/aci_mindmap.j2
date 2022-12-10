@@ -5968,4 +5968,26 @@
 ### Tag: {{ owner.vzRuleOwner.attributes.tag }}
 ### Type: {{ owner.vzRuleOwner.attributes.type }}
 {%-          endfor %}
+{%- elif "vzTaboo" in api %}
+# vzTaboo
+{%-     for taboo in data_to_template['imdata'] %}
+## Name: {{ taboo.vzTaboo.attributes.name }}
+### Name Alias: {{ taboo.vzTaboo.attributes.nameAlias }}
+### Annotation: {{ taboo.vzTaboo.attributes.annotation }}
+### Child Action: {{ taboo.vzTaboo.attributes.childAction }}
+### Config Issues: {{ taboo.vzTaboo.attributes.configIssues }}
+### Description: {{ taboo.vzTaboo.attributes.descr }}
+### DN: {{ taboo.vzTaboo.attributes.dn }}
+### Externally Managed By: {{ taboo.vzTaboo.attributes.extMngdBy }}
+### Local Owner: {{ taboo.vzTaboo.attributes.lcOwn }}
+### Last Modified: {{ taboo.vzTaboo.attributes.modTs }}
+### Monitoring Policy DN: {{ taboo.vzTaboo.attributes.monPolDn }}
+### Owner
+#### Key: {{ taboo.vzTaboo.attributes.ownerKey }}
+#### Tag: {{ taboo.vzTaboo.attributes.ownerTag }}
+### Reevaluate All: {{ taboo.vzTaboo.attributes.reevaluateAll }}
+### Scope: {{ taboo.vzTaboo.attributes.scope }}
+### Status: {{ taboo.vzTaboo.attributes.status }}
+### UID: {{ taboo.vzTaboo.attributes.uid }}
+{%-          endfor %}
 {%- endif %}
