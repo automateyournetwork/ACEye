@@ -506,6 +506,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.vzAny_to_consumers(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vzAny_to_providers(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -741,6 +743,7 @@ class ACEye():
                     'VPC Interfaces',
                     'vzAny',
                     'vzAny To Consumers',
+                    'vzAny To Providers',
                     'vzEntries',
                     'vzFilters',
                     'Wired Nodes']
@@ -2462,6 +2465,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def vzAny_to_providers(self):
+        self.url = f"{ self.aci }/api/node/class/vzRsAnyToProv.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<vzAny To Providers code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -3401,6 +3411,10 @@ class ACEye():
 
         if "vzRsAnyToCons" in self.url:
             with open('vzAny To Consumers/JSON/vzAny To Consumers.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vzRsAnyToProv" in self.url:
+            with open('vzAny To Providers/JSON/vzAny To Providers.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -4347,6 +4361,10 @@ class ACEye():
 
         if "vzRsAnyToCons" in self.url:
             with open('vzAny To Consumers/YAML/vzAny To Consumers.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vzRsAnyToProv" in self.url:
+            with open('vzAny To Providers/YAML/vzAny To Providers.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -5297,6 +5315,10 @@ class ACEye():
 
         if "vzRsAnyToCons" in self.url:
             with open('vzAny To Consumers/CSV/vzAny To Consumers.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vzRsAnyToProv" in self.url:
+            with open('vzAny To Providers/CSV/vzAny To Providers.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -6250,6 +6272,10 @@ class ACEye():
             with open('vzAny To Consumers/Markdown/vzAny To Consumers.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "vzRsAnyToProv" in self.url:
+            with open('vzAny To Providers/Markdown/vzAny To Providers.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -7201,6 +7227,10 @@ class ACEye():
             with open('vzAny To Consumers/HTML/vzAny To Consumers.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "vzRsAnyToProv" in self.url:
+            with open('vzAny To Providers/HTML/vzAny To Providers.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -8146,6 +8176,10 @@ class ACEye():
 
         if "vzRsAnyToCons" in self.url:
             with open('vzAny To Consumers/Mindmap/vzAny To Consumers.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzRsAnyToProv" in self.url:
+            with open('vzAny To Providers/Mindmap/vzAny To Providers.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

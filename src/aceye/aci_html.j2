@@ -12211,5 +12211,65 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vzRsAnyToProv" in api %}
+<h1>vzAny To Providers</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Intent</th>
+    <th>Local Owner</th>
+    <th>Match Type</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Priority</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>Contract Name</th>
+    <th>Update Collection</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for provider in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ provider.vzRsAnyToProv.attributes.uid }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.annotation }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.childAction }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.dn }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.extMngdBy }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.forceResolve }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.intent }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.lcOwn }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.matchT }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.modTs }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.monPolDn }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.prio }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.rType }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.state }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.stateQual }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.status }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.tCl }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.tContextDn }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.tDn }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.tRn }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.tType }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.tnVzBrCPName }}</td>
+    <td>{{ provider.vzRsAnyToProv.attributes.updateCollection }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

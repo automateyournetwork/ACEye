@@ -5818,4 +5818,32 @@
 ### Contract Name: {{ consumer.vzRsAnyToCons.attributes.tnVzBrCPName }}
 ### Update Collection: {{ consumer.vzRsAnyToCons.attributes.updateCollection }}
 {%-          endfor %}
+{%- elif "vzRsAnyToProv" in api %}
+# vzAny To Providers
+{%-     for provider in data_to_template['imdata'] %}
+## UID: {{ provider.vzRsAnyToProv.attributes.uid }}
+### Annotation: {{ provider.vzRsAnyToProv.attributes.annotation }}
+### Child Action: {{ provider.vzRsAnyToProv.attributes.childAction }}
+### DN: {{ provider.vzRsAnyToProv.attributes.dn }}
+### Externally Managed By: {{ provider.vzRsAnyToProv.attributes.extMngdBy }}
+### Force Resolve: {{ provider.vzRsAnyToProv.attributes.forceResolve }}
+### Intent: {{ provider.vzRsAnyToProv.attributes.intent }}
+### Local Owner: {{ provider.vzRsAnyToProv.attributes.lcOwn }}
+### Match Type: {{ provider.vzRsAnyToProv.attributes.matchT }}
+### Last Modified: {{ provider.vzRsAnyToProv.attributes.modTs }}
+### Monitoring Policy DN: {{ provider.vzRsAnyToProv.attributes.monPolDn }}
+### Priority: {{ provider.vzRsAnyToProv.attributes.prio }}
+### rType: {{ provider.vzRsAnyToProv.attributes.rType }}
+### State: {{ provider.vzRsAnyToProv.attributes.state }}
+### State Quality: {{ provider.vzRsAnyToProv.attributes.stateQual }}
+### Status: {{ provider.vzRsAnyToProv.attributes.status }}
+### t
+#### Cl: {{ provider.vzRsAnyToProv.attributes.tCl }}
+#### Context DN: {{ provider.vzRsAnyToProv.attributes.tContextDn }}
+#### DN: {{ provider.vzRsAnyToProv.attributes.tDn }}
+#### RN: {{ provider.vzRsAnyToProv.attributes.tRn }}
+#### Type: {{ provider.vzRsAnyToProv.attributes.tType }}
+### Contract Name: {{ provider.vzRsAnyToProv.attributes.tnVzBrCPName }}
+### Update Collection: {{ provider.vzRsAnyToProv.attributes.updateCollection }}
+{%-          endfor %}
 {%- endif %}
