@@ -11659,5 +11659,391 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vmmProvP" in api %}
+<h1>VMM Provider Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>UID</th>
+    <th>Vendor</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.vmmProvP.attributes.name }}</td>
+    <td>{{ profile.vmmProvP.attributes.nameAlias }}</td>
+    <td>{{ profile.vmmProvP.attributes.annotation }}</td>
+    <td>{{ profile.vmmProvP.attributes.childAction }}</td>
+    <td>{{ profile.vmmProvP.attributes.dn }}</td>
+    <td>{{ profile.vmmProvP.attributes.extMngdBy }}</td>
+    <td>{{ profile.vmmProvP.attributes.lcOwn }}</td>
+    <td>{{ profile.vmmProvP.attributes.modTs }}</td>
+    <td>{{ profile.vmmProvP.attributes.monPolDn }}</td>
+    <td>{{ profile.vmmProvP.attributes.ownerKey }}</td>
+    <td>{{ profile.vmmProvP.attributes.ownerTag }}</td>
+    <td>{{ profile.vmmProvP.attributes.status }}</td>
+    <td>{{ profile.vmmProvP.attributes.type }}</td>
+    <td>{{ profile.vmmProvP.attributes.uid }}</td>
+    <td>{{ profile.vmmProvP.attributes.vendor }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vmmUsrAccP" in api %}
+<h1>VMM User Profiles</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Owner Key</th>
+    <th>Owner Tag</th>
+    <th>Status</th>
+    <th>UID</th>
+    <th>User</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for profile in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ profile.vmmUsrAccP.attributes.name }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.nameAlias }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.annotation }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.childAction }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.descr }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.dn }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.extMngdBy }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.lcOwn }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.modTs }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.ownerKey }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.ownerTag }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.status }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.uid }}</td>
+    <td>{{ profile.vmmUsrAccP.attributes.usr }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vpcDom" in api %}
+<h1>VPC Domains</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Batched VPC Inv</th>
+    <th>Child Action</th>
+    <th>Compatibility Quality</th>
+    <th>Compatibility Quality String</th>
+    <th>Compatibility State</th>
+    <th>Dead Interval</th>
+    <th>DN</th>
+    <th>Dual Active State</th>
+    <th>ID</th>
+    <th>ISSU From Version</th>
+    <th>ISSU To Version</th>
+    <th>LACP Role</th>
+    <th>Local Owner</th>
+    <th>Local MAC</th>
+    <th>Local Priority</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Old Role</th>
+    <th>Oper Role</th>
+    <th>Oper State</th>
+    <th>Orphan Port List</th>
+    <th>Peer IP</th>
+    <th>Peer MAC</th>
+    <th>Peer Priority</th>
+    <th>Peer State</th>
+    <th>Peer State Quality</th>
+    <th>Peer Version</th>
+    <th>Role Priority</th>
+    <th>Self Init Fabric Link Flap Count</th>
+    <th>Split Brain Timer Duration</th>
+    <th>Split Brain Timer Is Running</th>
+    <th>Split Brain Timer Start Time</th>
+    <th>Status</th>
+    <th>Summary Oper Role</th>
+    <th>System MAC</th>
+    <th>System Priority</th>
+    <th>Try Role Establish Timer Duration</th>
+    <th>Try Role Establish Timer Is Running</th>
+    <th>Try Role Establish Timer Start Time</th>
+    <th>Type2 Compatibility Quality</th>
+    <th>Type2 Compatibility Quality String</th>
+    <th>Type2 Compatibility State</th>
+    <th>Virtual IP Announce Delay</th>
+    <th>Virtual IP</th>
+    <th>VPC Config Failed Bmp</th>
+    <th>VPC Config Failed Timestamp</th>
+    <th>VPC Config State</th>
+    <th>VPC MAC</th>
+    <th>VPC Priority</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for domain in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ domain.vpcDom.attributes.name }}</td>
+    <td>{{ domain.vpcDom.attributes.batchedVpcInv }}</td>
+    <td>{{ domain.vpcDom.attributes.childAction }}</td>
+    <td>{{ domain.vpcDom.attributes.compatQual }}</td>
+    <td>{{ domain.vpcDom.attributes.compatQualStr }}</td>
+    <td>{{ domain.vpcDom.attributes.compatSt }}</td>
+    <td>{{ domain.vpcDom.attributes.deadIntvl }}</td>
+    <td>{{ domain.vpcDom.attributes.dn }}</td>
+    <td>{{ domain.vpcDom.attributes.dualActiveSt }}</td>
+    <td>{{ domain.vpcDom.attributes.id }}</td>
+    <td>{{ domain.vpcDom.attributes.issuFromVer }}</td>
+    <td>{{ domain.vpcDom.attributes.issuToVer }}</td>
+    <td>{{ domain.vpcDom.attributes.lacpRole }}</td>
+    <td>{{ domain.vpcDom.attributes.lcOwn }}</td>
+    <td>{{ domain.vpcDom.attributes.localMAC }}</td>
+    <td>{{ domain.vpcDom.attributes.localPrio }}</td>
+    <td>{{ domain.vpcDom.attributes.modTs }}</td>
+    <td>{{ domain.vpcDom.attributes.monPolDn }}</td>
+    <td>{{ domain.vpcDom.attributes.oldRole }}</td>
+    <td>{{ domain.vpcDom.attributes.operRole }}</td>
+    <td>{{ domain.vpcDom.attributes.operSt }}</td>
+    <td>{{ domain.vpcDom.attributes.orphanPortList }}</td>
+    <td>{{ domain.vpcDom.attributes.peerIp }}</td>
+    <td>{{ domain.vpcDom.attributes.peerMAC }}</td>
+    <td>{{ domain.vpcDom.attributes.peerPrio }}</td>
+    <td>{{ domain.vpcDom.attributes.peerSt }}</td>
+    <td>{{ domain.vpcDom.attributes.peerStQual }}</td>
+    <td>{{ domain.vpcDom.attributes.peerVersion }}</td>
+    <td>{{ domain.vpcDom.attributes.rolePrio }}</td>
+    <td>{{ domain.vpcDom.attributes.selfIniFabLinkFlapCnt }}</td>
+    <td>{{ domain.vpcDom.attributes.splitBrainTimerDuration }}</td>
+    <td>{{ domain.vpcDom.attributes.splitBrainTimerIsRun }}</td>
+    <td>{{ domain.vpcDom.attributes.splitBrainTimerStartTime }}</td>
+    <td>{{ domain.vpcDom.attributes.status }}</td>
+    <td>{{ domain.vpcDom.attributes.summOperRole }}</td>
+    <td>{{ domain.vpcDom.attributes.sysMac }}</td>
+    <td>{{ domain.vpcDom.attributes.sysPrio }}</td>
+    <td>{{ domain.vpcDom.attributes.tryRoleEstabTimerDuration }}</td>
+    <td>{{ domain.vpcDom.attributes.tryRoleEstabTimerIsRun }}</td>
+    <td>{{ domain.vpcDom.attributes.tryRoleEstabTimerStartTime }}</td>
+    <td>{{ domain.vpcDom.attributes.type2CompatQual }}</td>
+    <td>{{ domain.vpcDom.attributes.type2CompatQualStr }}</td>
+    <td>{{ domain.vpcDom.attributes.type2CompatSt }}</td>
+    <td>{{ domain.vpcDom.attributes.vIpAnnounceDelay }}</td>
+    <td>{{ domain.vpcDom.attributes.virtualIp }}</td>
+    <td>{{ domain.vpcDom.attributes.vpcCfgFailedBmp }}</td>
+    <td>{{ domain.vpcDom.attributes.vpcCfgFailedTs }}</td>
+    <td>{{ domain.vpcDom.attributes.vpcCfgState }}</td>
+    <td>{{ domain.vpcDom.attributes.vpcMAC }}</td>
+    <td>{{ domain.vpcDom.attributes.vpcPrio }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vpcEntity" in api %}
+<h1>VPC Entities</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Oper State</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for entity in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ entity.vpcEntity.attributes.name }}</td>
+    <td>{{ entity.vpcEntity.attributes.adminSt }}</td>
+    <td>{{ entity.vpcEntity.attributes.childAction }}</td>
+    <td>{{ entity.vpcEntity.attributes.dn }}</td>
+    <td>{{ entity.vpcEntity.attributes.locOwn }}</td>
+    <td>{{ entity.vpcEntity.attributes.modTs }}</td>
+    <td>{{ entity.vpcEntity.attributes.monPolDn }}</td>
+    <td>{{ entity.vpcEntity.attributes.operErr }}</td>
+    <td>{{ entity.vpcEntity.attributes.operSt }}</td>
+    <td>{{ entity.vpcEntity.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vpcIf" in api %}
+<h1>VPC Interfaces</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Access Bundle Group DN</th>
+    <th>Configured Access VLAN</th>
+    <th>Configured Trunk VLANs</th>
+    <th>Configured VLANs</th>
+    <th>Child Action</th>
+    <th>Compatibility Quality</th>
+    <th>Compatibility Quality String</th>
+    <th>Compatibility State</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Fabric Encapsulation Mismatch VLANs</th>
+    <th>Fabric encapChanged Mismatch VLANs Set</th>
+    <th>Fabric Path DN</th>
+    <th>ID</th>
+    <th>Local Owner</th>
+    <th>Local Oper State</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Port Channel Mode</th>
+    <th>Peer Configured VLANs</th>
+    <th>Peer Up VLANs</th>
+    <th>Remote Oper State</th>
+    <th>Status</th>
+    <th>Suspended VLANs</th>
+    <th>Up VLANs</th>
+    <th>Usage</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for interface in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ interface.vpcIf.attributes.name }}</td>
+    <td>{{ interface.vpcIf.attributes.accBndlGrpDn }}</td>
+    <td>{{ interface.vpcIf.attributes.cfgdAccessVlan }}</td>
+    <td>{{ interface.vpcIf.attributes.cfgdTrunkVlans }}</td>
+    <td>{{ interface.vpcIf.attributes.cfgdVlans }}</td>
+    <td>{{ interface.vpcIf.attributes.childAction }}</td>
+    <td>{{ interface.vpcIf.attributes.compatQual }}</td>
+    <td>{{ interface.vpcIf.attributes.compatQualStr }}</td>
+    <td>{{ interface.vpcIf.attributes.compatSt }}</td>
+    <td>{{ interface.vpcIf.attributes.descr }}</td>
+    <td>{{ interface.vpcIf.attributes.dn }}</td>
+    <td>{{ interface.vpcIf.attributes.fabEncMismatchVlans }}</td>
+    <td>{{ interface.vpcIf.attributes.fabEncMismatchVlansSet }}</td>
+    <td>{{ interface.vpcIf.attributes.fabricPathDn }}</td>
+    <td>{{ interface.vpcIf.attributes.id }}</td>
+    <td>{{ interface.vpcIf.attributes.lcOwn }}</td>
+    <td>{{ interface.vpcIf.attributes.localOperSt }}</td>
+    <td>{{ interface.vpcIf.attributes.modTs }}</td>
+    <td>{{ interface.vpcIf.attributes.monPolDn }}</td>
+    <td>{{ interface.vpcIf.attributes.pcMode }}</td>
+    <td>{{ interface.vpcIf.attributes.peerCfgdVlans }}</td>
+    <td>{{ interface.vpcIf.attributes.peerUpVlans }}</td>
+    <td>{{ interface.vpcIf.attributes.remoteOperSt }}</td>
+    <td>{{ interface.vpcIf.attributes.status }}</td>
+    <td>{{ interface.vpcIf.attributes.suspVlans }}</td>
+    <td>{{ interface.vpcIf.attributes.upVlans }}</td>
+    <td>{{ interface.vpcIf.attributes.usage }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vpcInst" in api %}
+<h1>VPC Instances</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for instance in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ instance.vpcInst.attributes.name }}</td>
+    <td>{{ instance.vpcInst.attributes.adminSt }}</td>
+    <td>{{ instance.vpcInst.attributes.childAction }}</td>
+    <td>{{ instance.vpcInst.attributes.ctrl }}</td>
+    <td>{{ instance.vpcInst.attributes.dn }}</td>
+    <td>{{ instance.vpcInst.attributes.lcOwn }}</td>
+    <td>{{ instance.vpcInst.attributes.modTs }}</td>
+    <td>{{ instance.vpcInst.attributes.monPolDn }}</td>
+    <td>{{ instance.vpcInst.attributes.operErr }}</td>
+    <td>{{ instance.vpcInst.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
+{%- elif "vpcRsVpcConf" in api %}
+<h1>VPC Configurations</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Parent S Key</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+    <th>tSKey</th>
+    <th>tType</th>
+    <th>VPC Config Failed Bmp</th>
+    <th>VPC Config Failed Timestamp</th>
+    <th>VPC Config State</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for configuration in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ configuration.vpcRsVpcConf.attributes.dn }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.childAction }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.forceResolve }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.lcOwn }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.modTs }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.monPolDn }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.parentSKey }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.rType }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.state }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.stateQual }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.status }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.tCl }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.tDn }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.tSKey }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.tType }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.vpcCfgFailedBmp }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.vpcCfgFailedTs }}</td>
+    <td>{{ configuration.vpcRsVpcConf.attributes.vpcCfgState }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

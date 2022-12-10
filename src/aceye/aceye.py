@@ -486,6 +486,20 @@ class ACEye():
         parsed_json = json.dumps(self.vmm_domain_profiles(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         self.cookie = self.get_token()
+        parsed_json = json.dumps(self.vmm_provider_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vmm_user_profiles(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vpc_domains(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vpc_entities(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vpc_interfaces(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vpc_instances(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vpc_configurations(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -713,6 +727,13 @@ class ACEye():
                     'VLAN Pools',
                     'VMM Controller Profiles',
                     'VMM Domain Profiles',
+                    'VMM Provider Profiles',
+                    'VMM User Profiles',
+                    'VPC Configurations',
+                    'VPC Domains',
+                    'VPC Entities',
+                    'VPC Instances',
+                    'VPC Interfaces',
                     'Wired Nodes']
         current_directory = os.getcwd()
         for api in api_list:
@@ -2362,6 +2383,55 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def vmm_provider_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/vmmProvP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<VMM Provider Profiles code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def vmm_user_profiles(self):
+        self.url = f"{ self.aci }/api/node/class/vmmUsrAccP.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<VMM User Profiles code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def vpc_domains(self):
+        self.url = f"{ self.aci }/api/node/class/vpcDom.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<VPC Domains code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def vpc_entities(self):
+        self.url = f"{ self.aci }/api/node/class/vpcEntity.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<VPC Entities code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def vpc_interfaces(self):
+        self.url = f"{ self.aci }/api/node/class/vpcIf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<VPC Interfaces code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def vpc_instances(self):
+        self.url = f"{ self.aci }/api/node/class/vpcInst.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<VPC Instances code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
+    def vpc_configurations(self):
+        self.url = f"{ self.aci }/api/node/class/vpcRsVpcConf.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<VPC Configurations code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -3261,6 +3331,34 @@ class ACEye():
 
         if "vmmDomP" in self.url:
             with open('VMM Domain Profiles/JSON/VMM Domain Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vmmProvP" in self.url:
+            with open('VMM Provider Profiles/JSON/VMM Provider Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vmmUsrAccP" in self.url:
+            with open('VMM User Profiles/JSON/VMM User Profiles.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vpcDom" in self.url:
+            with open('VPC Domains/JSON/VPC Domains.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vpcEntity" in self.url:
+            with open('VPC Entities/JSON/VPC Entities.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vpcIf" in self.url:
+            with open('VPC Interfaces/JSON/VPC Interfaces.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vpcInst" in self.url:
+            with open('VPC Instances/JSON/VPC Instances.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vpcRsVpcConf" in self.url:
+            with open('VPC Configurations/JSON/VPC Configurations.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -4167,6 +4265,34 @@ class ACEye():
 
         if "vmmDomP" in self.url:
             with open('VMM Domain Profiles/YAML/VMM Domain Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vmmProvP" in self.url:
+            with open('VMM Provider Profiles/YAML/VMM Provider Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vmmUsrAccP" in self.url:
+            with open('VMM User Profiles/YAML/VMM User Profiles.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vpcDom" in self.url:
+            with open('VPC Domains/YAML/VPC Domains.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vpcEntity" in self.url:
+            with open('VPC Entities/YAML/VPC Entities.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vpcIf" in self.url:
+            with open('VPC Interfaces/YAML/VPC Interfaces.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vpcInst" in self.url:
+            with open('VPC Instances/YAML/VPC Instances.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vpcRsVpcConf" in self.url:
+            with open('VPC Configurations/YAML/VPC Configurations.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -5077,6 +5203,34 @@ class ACEye():
 
         if "vmmDomP" in self.url:
             with open('VMM Domain Profiles/CSV/VMM Domain Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vmmProvP" in self.url:
+            with open('VMM Provider Profiles/CSV/VMM Provider Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vmmUsrAccP" in self.url:
+            with open('VMM User Profiles/CSV/VMM User Profiles.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vpcDom" in self.url:
+            with open('VPC Domains/CSV/VPC Domains.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vpcEntity" in self.url:
+            with open('VPC Entities/CSV/VPC Entities.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vpcIf" in self.url:
+            with open('VPC Interfaces/CSV/VPC Interfaces.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vpcInst" in self.url:
+            with open('VPC Instances/CSV/VPC Instances.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vpcRsVpcConf" in self.url:
+            with open('VPC Configurations/CSV/VPC Configurations.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -5990,6 +6144,34 @@ class ACEye():
             with open('VMM Domain Profiles/Markdown/VMM Domain Profiles.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "vmmProvP" in self.url:
+            with open('VMM Provider Profiles/Markdown/VMM Provider Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vmmUsrAccP" in self.url:
+            with open('VMM User Profiles/Markdown/VMM User Profiles.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vpcDom" in self.url:
+            with open('VPC Domains/Markdown/VPC Domains.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vpcEntity" in self.url:
+            with open('VPC Entities/Markdown/VPC Entities.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vpcIf" in self.url:
+            with open('VPC Interfaces/Markdown/VPC Interfaces.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vpcInst" in self.url:
+            with open('VPC Instances/Markdown/VPC Instances.md', 'w' ) as f:
+                f.write(markdown_output)
+
+        if "vpcRsVpcConf" in self.url:
+            with open('VPC Configurations/Markdown/VPC Configurations.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -6901,6 +7083,34 @@ class ACEye():
             with open('VMM Domain Profiles/HTML/VMM Domain Profiles.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "vmmProvP" in self.url:
+            with open('VMM Provider Profiles/HTML/VMM Provider Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vmmUsrAccP" in self.url:
+            with open('VMM User Profiles/HTML/VMM User Profiles.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vpcDom" in self.url:
+            with open('VPC Domains/HTML/VPC Domains.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vpcEntity" in self.url:
+            with open('VPC Entities/HTML/VPC Entities.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vpcIf" in self.url:
+            with open('VPC Interfaces/HTML/VPC Interfaces.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vpcInst" in self.url:
+            with open('VPC Instances/HTML/VPC Instances.html', 'w' ) as f:
+                f.write(html_output)
+
+        if "vpcRsVpcConf" in self.url:
+            with open('VPC Configurations/HTML/VPC Configurations.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -7806,6 +8016,34 @@ class ACEye():
 
         if "vmmDomP" in self.url:
             with open('VMM Domain Profiles/Mindmap/VMM Domain Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vmmProvP" in self.url:
+            with open('VMM Provider Profiles/Mindmap/VMM Provider Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vmmUsrAccP" in self.url:
+            with open('VMM User Profiles/Mindmap/VMM User Profiles.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vpcDom" in self.url:
+            with open('VPC Domains/Mindmap/VPC Domains.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vpcEntity" in self.url:
+            with open('VPC Entities/Mindmap/VPC Entities.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vpcIf" in self.url:
+            with open('VPC Interfaces/Mindmap/VPC Interfaces.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vpcInst" in self.url:
+            with open('VPC Instances/Mindmap/VPC Instances.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vpcRsVpcConf" in self.url:
+            with open('VPC Configurations/Mindmap/VPC Configurations.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

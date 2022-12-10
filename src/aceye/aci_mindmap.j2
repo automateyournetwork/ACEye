@@ -1066,7 +1066,7 @@
 ## Name: {{ subject.vzSubj.attributes.name }}
 ### Name Alias: {{ subject.vzSubj.attributes.nameAlias }}
 ### Access Privilege: {{ subject.vzSubj.attributes.accessPrivilege }}
-### Annotication: {{ subject.vzSubj.attributes.annotation }}
+### Annotation: {{ subject.vzSubj.attributes.annotation }}
 ### Child Action: {{ subject.vzSubj.attributes.childAction }}
 ### Configuration Issues: {{ subject.vzSubj.attributes.configIssues }}
 ### Match T
@@ -4582,7 +4582,7 @@
 ## Name: {{ ip.l3extIp.attributes.name }}
 ### Name Alias: {{ ip.l3extIp.attributes.nameAlias }}
 ### Address: {{ ip.l3extIp.attributes.addr }}
-### Annotication: {{ ip.l3extIp.attributes.annotation }}
+### Annotation: {{ ip.l3extIp.attributes.annotation }}
 ### Child Action: {{ ip.l3extIp.attributes.childAction }}
 ### Description: {{ ip.l3extIp.attributes.descr }}
 ### DN: {{ ip.l3extIp.attributes.dn }}
@@ -5546,5 +5546,199 @@
 ### TX ID: {{ profile.vmmDomP.attributes.txId }}
 ### UID: {{ profile.vmmDomP.attributes.uid }}
 ### Unique ID: {{ profile.vmmDomP.attributes.uniqueId }}
+{%-          endfor %}
+{%- elif "vmmProvP" in api %}
+# VMM Provider Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.vmmProvP.attributes.name }}
+### Name Alias: {{ profile.vmmProvP.attributes.nameAlias }}
+### Annotation: {{ profile.vmmProvP.attributes.annotation }}
+### Child Action: {{ profile.vmmProvP.attributes.childAction }}
+### DN: {{ profile.vmmProvP.attributes.dn }}
+### Externally Managed By: {{ profile.vmmProvP.attributes.extMngdBy }}
+### Local Owner: {{ profile.vmmProvP.attributes.lcOwn }}
+### Last Modified: {{ profile.vmmProvP.attributes.modTs }}
+### Monitoring Policy DN: {{ profile.vmmProvP.attributes.monPolDn }}
+### Owner
+#### Key: {{ profile.vmmProvP.attributes.ownerKey }}
+#### Tag: {{ profile.vmmProvP.attributes.ownerTag }}
+### Status: {{ profile.vmmProvP.attributes.status }}
+### Type: {{ profile.vmmProvP.attributes.type }}
+### UID: {{ profile.vmmProvP.attributes.uid }}
+### Vendor: {{ profile.vmmProvP.attributes.vendor }}
+{%-          endfor %}
+{%- elif "vmmUsrAccP" in api %}
+# VMM User Profiles
+{%-     for profile in data_to_template['imdata'] %}
+## Name: {{ profile.vmmUsrAccP.attributes.name }}
+### Name Alias: {{ profile.vmmUsrAccP.attributes.nameAlias }}
+### Annotation{{ profile.vmmUsrAccP.attributes.annotation }}
+### Child Action: {{ profile.vmmUsrAccP.attributes.childAction }}
+### Description: {{ profile.vmmUsrAccP.attributes.descr }}
+### DN: {{ profile.vmmUsrAccP.attributes.dn }}
+### Externally Managed By: {{ profile.vmmUsrAccP.attributes.extMngdBy }}
+### Local Owner: {{ profile.vmmUsrAccP.attributes.lcOwn }}
+### Last Modified: {{ profile.vmmUsrAccP.attributes.modTs }}
+### Owner
+#### Key: {{ profile.vmmUsrAccP.attributes.ownerKey }}
+#### Tag: {{ profile.vmmUsrAccP.attributes.ownerTag }}
+### Status: {{ profile.vmmUsrAccP.attributes.status }}
+### UID: {{ profile.vmmUsrAccP.attributes.uid }}
+### User: {{ profile.vmmUsrAccP.attributes.usr }}
+{%-          endfor %}
+{%- elif "vpcDom" in api %}
+# VPC Domains
+{%-     for domain in data_to_template['imdata'] %}
+## Name: {{ domain.vpcDom.attributes.name }}
+### Batched VPC Inv: {{ domain.vpcDom.attributes.batchedVpcInv }}
+### Child Action: {{ domain.vpcDom.attributes.childAction }}
+### Compatibility
+#### Quality: {{ domain.vpcDom.attributes.compatQual }}
+#### Quality State: {{ domain.vpcDom.attributes.compatQualStr }}
+### Compatibility State: {{ domain.vpcDom.attributes.compatSt }}
+### Dead Interval: {{ domain.vpcDom.attributes.deadIntvl }}
+### DN: {{ domain.vpcDom.attributes.dn }}
+### Dual Active State: {{ domain.vpcDom.attributes.dualActiveSt }}
+### ID: {{ domain.vpcDom.attributes.id }}
+### ISSU
+#### From Version: {{ domain.vpcDom.attributes.issuFromVer }}
+#### To Version: {{ domain.vpcDom.attributes.issuToVer }}
+### LACP Role: {{ domain.vpcDom.attributes.lacpRole }}
+### Local
+#### Owner: {{ domain.vpcDom.attributes.lcOwn }}
+#### MAC: {{ domain.vpcDom.attributes.localMAC }}
+#### Priority: {{ domain.vpcDom.attributes.localPrio }}
+### Last Modified: {{ domain.vpcDom.attributes.modTs }}
+### Monitoring Policy DN: {{ domain.vpcDom.attributes.monPolDn }}
+### Old Role: {{ domain.vpcDom.attributes.oldRole }}
+### Oper
+#### Role: {{ domain.vpcDom.attributes.operRole }}
+#### State: {{ domain.vpcDom.attributes.operSt }}
+### Orphan Port List: {{ domain.vpcDom.attributes.orphanPortList }}
+### Peer
+#### IP: {{ domain.vpcDom.attributes.peerIp }}
+#### MAC: {{ domain.vpcDom.attributes.peerMAC }}
+#### Priority: {{ domain.vpcDom.attributes.peerPrio }}
+#### State: {{ domain.vpcDom.attributes.peerSt }}
+#### State Quality: {{ domain.vpcDom.attributes.peerStQual }}
+#### Version: {{ domain.vpcDom.attributes.peerVersion }}
+### Role Priority: {{ domain.vpcDom.attributes.rolePrio }}
+### Self Init Fabric Link Flap Count: {{ domain.vpcDom.attributes.selfIniFabLinkFlapCnt }}
+### Split Brain Timer
+#### Duration: {{ domain.vpcDom.attributes.splitBrainTimerDuration }}
+#### Is Running: {{ domain.vpcDom.attributes.splitBrainTimerIsRun }}
+#### Start Time: {{ domain.vpcDom.attributes.splitBrainTimerStartTime }}
+### Status: {{ domain.vpcDom.attributes.status }}
+### Summary Oper Role: {{ domain.vpcDom.attributes.summOperRole }}
+### System
+#### MAC: {{ domain.vpcDom.attributes.sysMac }}
+#### Priority: {{ domain.vpcDom.attributes.sysPrio }}
+### Try Role Establish Timer
+#### Duration: {{ domain.vpcDom.attributes.tryRoleEstabTimerDuration }}
+#### Is Running: {{ domain.vpcDom.attributes.tryRoleEstabTimerIsRun }}
+#### Start Time: {{ domain.vpcDom.attributes.tryRoleEstabTimerStartTime }}
+### Type2 Compatibility
+#### Quality: {{ domain.vpcDom.attributes.type2CompatQual }}
+#### Quality String: {{ domain.vpcDom.attributes.type2CompatQualStr }}
+#### State: {{ domain.vpcDom.attributes.type2CompatSt }}
+### Virtual IP
+#### Announce Delay: {{ domain.vpcDom.attributes.vIpAnnounceDelay }}
+#### IP: {{ domain.vpcDom.attributes.virtualIp }}
+### VPC Config
+#### Failed Bmp: {{ domain.vpcDom.attributes.vpcCfgFailedBmp }}
+#### Failed Timestamp: {{ domain.vpcDom.attributes.vpcCfgFailedTs }}
+#### State: {{ domain.vpcDom.attributes.vpcCfgState }}
+### VPC
+#### MAC: {{ domain.vpcDom.attributes.vpcMAC }}
+#### Priority: {{ domain.vpcDom.attributes.vpcPrio }}
+{%-          endfor %}
+{%- elif "vpcEntity" in api %}
+# VPC Entities
+{%-     for entity in data_to_template['imdata'] %}
+## Name: {{ entity.vpcEntity.attributes.name }}
+### Admin State: {{ entity.vpcEntity.attributes.adminSt }}
+### Child Action: {{ entity.vpcEntity.attributes.childAction }}
+### DN: {{ entity.vpcEntity.attributes.dn }}
+### Local Owner: {{ entity.vpcEntity.attributes.locOwn }}
+### Last Modified: {{ entity.vpcEntity.attributes.modTs }}
+### Monitoring Policy DN: {{ entity.vpcEntity.attributes.monPolDn }}
+### Oper
+#### Error: {{ entity.vpcEntity.attributes.operErr }}
+#### State: {{ entity.vpcEntity.attributes.operSt }}
+### Status: {{ entity.vpcEntity.attributes.status }}
+{%-          endfor %}
+{%- elif "vpcIf" in api %}
+# VPC Interfaces
+{%-     for interface in data_to_template['imdata'] %}
+## Name: {{ interface.vpcIf.attributes.name }}
+### Access Bundle Group DN: {{ interface.vpcIf.attributes.accBndlGrpDn }}
+### Configured
+#### Access VLAN: {{ interface.vpcIf.attributes.cfgdAccessVlan }}
+#### Trunk VLANs: {{ interface.vpcIf.attributes.cfgdTrunkVlans }}
+#### VLANs: {{ interface.vpcIf.attributes.cfgdVlans }}
+### Child Action: {{ interface.vpcIf.attributes.childAction }}
+### Compatibility
+#### Quality: {{ interface.vpcIf.attributes.compatQual }}
+#### Quality String: {{ interface.vpcIf.attributes.compatQualStr }}
+#### State: {{ interface.vpcIf.attributes.compatSt }}
+### Description: {{ interface.vpcIf.attributes.descr }}
+### DN: {{ interface.vpcIf.attributes.dn }}
+### Fabric Mismatch
+#### VLANs: {{ interface.vpcIf.attributes.fabEncMismatchVlans }}
+#### VLANs Set: {{ interface.vpcIf.attributes.fabEncMismatchVlansSet }}
+### Fabric Path DN: {{ interface.vpcIf.attributes.fabricPathDn }}
+### ID: {{ interface.vpcIf.attributes.id }}
+### Local Owner: {{ interface.vpcIf.attributes.lcOwn }}
+### Local Oper State: {{ interface.vpcIf.attributes.localOperSt }}
+### Last Modified: {{ interface.vpcIf.attributes.modTs }}
+### Monitoring Policy DN: {{ interface.vpcIf.attributes.monPolDn }}
+### Port Channel Mode: {{ interface.vpcIf.attributes.pcMode }}
+### Peer VLANs
+#### Configured: {{ interface.vpcIf.attributes.peerCfgdVlans }}
+#### Up: {{ interface.vpcIf.attributes.peerUpVlans }}
+### Remote Oper State: {{ interface.vpcIf.attributes.remoteOperSt }}
+### Status: {{ interface.vpcIf.attributes.status }}
+### VLANs
+#### Suspended: {{ interface.vpcIf.attributes.suspVlans }}
+#### Up: {{ interface.vpcIf.attributes.upVlans }}
+### Usage: {{ interface.vpcIf.attributes.usage }}
+{%-          endfor %}
+{%- elif "vpcInst" in api %}
+# VPC Instances
+{%-     for instance in data_to_template['imdata'] %}
+## Name: {{ instance.vpcInst.attributes.name }}
+### Admin State: {{ instance.vpcInst.attributes.adminSt }}
+### Child Action: {{ instance.vpcInst.attributes.childAction }}
+### Control: {{ instance.vpcInst.attributes.ctrl }}
+### DN: {{ instance.vpcInst.attributes.dn }}
+### Local Owner: {{ instance.vpcInst.attributes.lcOwn }}
+### Last Modified: {{ instance.vpcInst.attributes.modTs }}
+### Monitoring Policy DN: {{ instance.vpcInst.attributes.monPolDn }}
+### Oper Error: {{ instance.vpcInst.attributes.operErr }}
+### Status: {{ instance.vpcInst.attributes.status }}
+{%-          endfor %}
+{%- elif "vpcRsVpcConf" in api %}
+# VPC Configurations
+{%-     for configuration in data_to_template['imdata'] %}
+## DN: {{ configuration.vpcRsVpcConf.attributes.dn }}
+### Child Action: {{ configuration.vpcRsVpcConf.attributes.childAction }}
+### Force Resolve: {{ configuration.vpcRsVpcConf.attributes.forceResolve }}
+### Local Owner: {{ configuration.vpcRsVpcConf.attributes.lcOwn }}
+### Last Modified: {{ configuration.vpcRsVpcConf.attributes.modTs }}
+### Monitoring Policy DN: {{ configuration.vpcRsVpcConf.attributes.monPolDn }}
+### Parent SKey: {{ configuration.vpcRsVpcConf.attributes.parentSKey }}
+### rType: {{ configuration.vpcRsVpcConf.attributes.rType }}
+### State: {{ configuration.vpcRsVpcConf.attributes.state }}
+### State Quality: {{ configuration.vpcRsVpcConf.attributes.stateQual }}
+### Status: {{ configuration.vpcRsVpcConf.attributes.status }}
+### t
+#### Cl: {{ configuration.vpcRsVpcConf.attributes.tCl }}
+#### DN: {{ configuration.vpcRsVpcConf.attributes.tDn }}
+#### SKey: {{ configuration.vpcRsVpcConf.attributes.tSKey }}
+#### Type: {{ configuration.vpcRsVpcConf.attributes.tType }}
+### VPC Config 
+#### Failed Bmp: {{ configuration.vpcRsVpcConf.attributes.vpcCfgFailedBmp }}
+#### Failed Timestamp: {{ configuration.vpcRsVpcConf.attributes.vpcCfgFailedTs }}
+#### State: {{ configuration.vpcRsVpcConf.attributes.vpcCfgState }}
 {%-          endfor %}
 {%- endif %}
