@@ -12045,5 +12045,55 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vzAny" in api %}
+<h1>vzAny</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Name Alias</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Config State</th>
+    <th>Description</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Local Owner</th>
+    <th>Match Type</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Port Channel Tag</th>
+    <th>Preferred Group Member</th>
+    <th>Status</th>
+    <th>TX ID</th>
+    <th>UID</th>
+    <th>Use Any Def</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for any in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ any.vzAny.attributes.name }}</td>
+    <td>{{ any.vzAny.attributes.nameAlias }}</td>
+    <td>{{ any.vzAny.attributes.annotation }}</td>
+    <td>{{ any.vzAny.attributes.childAction }}</td>
+    <td>{{ any.vzAny.attributes.configSt }}</td>
+    <td>{{ any.vzAny.attributes.descr }}</td>
+    <td>{{ any.vzAny.attributes.dn }}</td>
+    <td>{{ any.vzAny.attributes.extMngdBy }}</td>
+    <td>{{ any.vzAny.attributes.lcOwn }}</td>
+    <td>{{ any.vzAny.attributes.matchT }}</td>
+    <td>{{ any.vzAny.attributes.modTs }}</td>
+    <td>{{ any.vzAny.attributes.monPolDn }}</td>
+    <td>{{ any.vzAny.attributes.pcTag }}</td>
+    <td>{{ any.vzAny.attributes.prefGrMemb }}</td>
+    <td>{{ any.vzAny.attributes.status }}</td>
+    <td>{{ any.vzAny.attributes.txId }}</td>
+    <td>{{ any.vzAny.attributes.uid }}</td>
+    <td>{{ any.vzAny.attributes.useAnyDef }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

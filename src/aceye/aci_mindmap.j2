@@ -5741,4 +5741,26 @@
 #### Failed Timestamp: {{ configuration.vpcRsVpcConf.attributes.vpcCfgFailedTs }}
 #### State: {{ configuration.vpcRsVpcConf.attributes.vpcCfgState }}
 {%-          endfor %}
+{%- elif "vzAny" in api %}
+# vzAny
+{%-     for any in data_to_template['imdata'] %}
+## Name: {{ any.vzAny.attributes.name }}
+### Name Alias: {{ any.vzAny.attributes.nameAlias }}
+### Annotation: {{ any.vzAny.attributes.annotation }}
+### Child Action: {{ any.vzAny.attributes.childAction }}
+### Config State: {{ any.vzAny.attributes.configSt }}
+### Description: {{ any.vzAny.attributes.descr }}
+### DN: {{ any.vzAny.attributes.dn }}
+### Externally Managed By: {{ any.vzAny.attributes.extMngdBy }}
+### Local Owner: {{ any.vzAny.attributes.lcOwn }}
+### Match Type: {{ any.vzAny.attributes.matchT }}
+### Last Modified: {{ any.vzAny.attributes.modTs }}
+### Monitoring Policy DN: {{ any.vzAny.attributes.monPolDn }}
+### Port Channel Tag: {{ any.vzAny.attributes.pcTag }}
+### Preferred Group Member: {{ any.vzAny.attributes.prefGrMemb }}
+### Status: {{ any.vzAny.attributes.status }}
+### TX ID: {{ any.vzAny.attributes.txId }}
+### UID: {{ any.vzAny.attributes.uid }}
+### Use Any Def: {{ any.vzAny.attributes.useAnyDef }}
+{%-          endfor %}
 {%- endif %}
