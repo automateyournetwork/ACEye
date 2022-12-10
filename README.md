@@ -464,6 +464,8 @@ VPC Domains
 
 VPC Entities
 
+VPC Instances
+
 VPC Interfaces
 
 Wired Nodes

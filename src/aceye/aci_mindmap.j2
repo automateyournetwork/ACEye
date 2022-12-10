@@ -5703,4 +5703,18 @@
 #### Up: {{ interface.vpcIf.attributes.upVlans }}
 ### Usage: {{ interface.vpcIf.attributes.usage }}
 {%-          endfor %}
+{%- elif "vpcInst" in api %}
+# VPC Instances
+{%-     for instance in data_to_template['imdata'] %}
+## Name: {{ instance.vpcInst.attributes.name }}
+### Admin State: {{ instance.vpcInst.attributes.adminSt }}
+### Child Action: {{ instance.vpcInst.attributes.childAction }}
+### Control: {{ instance.vpcInst.attributes.ctrl }}
+### DN: {{ instance.vpcInst.attributes.dn }}
+### Local Owner: {{ instance.vpcInst.attributes.lcOwn }}
+### Last Modified: {{ instance.vpcInst.attributes.modTs }}
+### Monitoring Policy DN: {{ instance.vpcInst.attributes.monPolDn }}
+### Oper Error: {{ instance.vpcInst.attributes.operErr }}
+### Status: {{ instance.vpcInst.attributes.status }}
+{%-          endfor %}
 {%- endif %}

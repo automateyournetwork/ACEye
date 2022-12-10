@@ -11961,5 +11961,39 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vpcInst" in api %}
+<h1>VPC Instances</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Admin State</th>
+    <th>Child Action</th>
+    <th>Control</th>
+    <th>DN</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Oper Error</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for instance in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ instance.vpcInst.attributes.name }}</td>
+    <td>{{ instance.vpcInst.attributes.adminSt }}</td>
+    <td>{{ instance.vpcInst.attributes.childAction }}</td>
+    <td>{{ instance.vpcInst.attributes.ctrl }}</td>
+    <td>{{ instance.vpcInst.attributes.dn }}</td>
+    <td>{{ instance.vpcInst.attributes.lcOwn }}</td>
+    <td>{{ instance.vpcInst.attributes.modTs }}</td>
+    <td>{{ instance.vpcInst.attributes.monPolDn }}</td>
+    <td>{{ instance.vpcInst.attributes.operErr }}</td>
+    <td>{{ instance.vpcInst.attributes.status }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}
