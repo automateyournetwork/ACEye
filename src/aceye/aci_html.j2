@@ -12377,5 +12377,63 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vzRsSubjFiltAtt" in api %}
+<h1>Contract Subjects Filter Attributes</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>UID</th>
+    <th>Action</th>
+    <th>Annotation</th>
+    <th>Child Action</th>
+    <th>Directives</th>
+    <th>DN</th>
+    <th>Externally Managed By</th>
+    <th>Force Resolve</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Monitoring Policy DN</th>
+    <th>Priority Override</th>
+    <th>rType</th>
+    <th>State</th>
+    <th>State Quality</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tContext DN</th>
+    <th>tDN</th>
+    <th>tRN</th>
+    <th>tType</th>
+    <th>tnVz Filter Name</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for subject_filter in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.uid }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.action }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.annotation }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.childAction }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.directives }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.dn }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.extMngdBy }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.forceResolve }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.lcOwn }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.modTs }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.monPolDn }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.priorityOverride }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.rType }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.state }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.stateQual }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.status }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.tCl }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.tContextDn }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.tDn }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.tRn }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.tType }}</td>
+    <td>{{ subject_filter.vzRsSubjFiltAtt.attributes.tnVzFilterName }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

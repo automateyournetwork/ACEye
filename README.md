@@ -114,6 +114,8 @@ Contract Providers
 
 Contract Subjects
 
+Contract Subjects Filter Attributes
+
 Controllers
 
 Device Packages

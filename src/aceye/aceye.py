@@ -512,6 +512,8 @@ class ACEye():
         self.all_files(parsed_json)
         parsed_json = json.dumps(self.vzInterface_source_relationships(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
+        parsed_json = json.dumps(self.vz_subject_filter_attributes(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -567,6 +569,7 @@ class ACEye():
                     'Contract Consumers',
                     'Contract Providers',
                     'Contract Subjects',
+                    'Contract Subjects Filter Attributes',
                     'Contracts',
                     'Controllers',
                     'Device Packages',
@@ -2492,6 +2495,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def vz_subject_filter_attributes(self):
+        self.url = f"{ self.aci }/api/node/class/vzRsSubjFiltAtt.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<vzContract Subject Filter Attributes code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -3443,6 +3453,10 @@ class ACEye():
 
         if "vzRsIf" in self.url:
             with open('vzInterface Source Relationships/JSON/vzInterface Source Relationships.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vzRsSubjFiltAtt" in self.url:
+            with open('Contract Subjects Filter Attributes/JSON/Contract Subjects Filter Attributes.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -4401,6 +4415,10 @@ class ACEye():
 
         if "vzRsIf" in self.url:
             with open('vzInterface Source Relationships/YAML/vzInterface Source Relationships.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vzRsSubjFiltAtt" in self.url:
+            with open('Contract Subjects Filter Attributes/YAML/Contract Subjects Filter Attributes.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -5363,6 +5381,10 @@ class ACEye():
 
         if "vzRsIf" in self.url:
             with open('vzInterface Source Relationships/CSV/vzInterface Source Relationships.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vzRsSubjFiltAtt" in self.url:
+            with open('Contract Subjects Filter Attributes/CSV/Contract Subjects Filter Attributes.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -6328,6 +6350,10 @@ class ACEye():
             with open('vzInterface Source Relationships/Markdown/vzInterface Source Relationships.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "vzRsSubjFiltAtt" in self.url:
+            with open('Contract Subjects Filter Attributes/Markdown/Contract Subjects Filter Attributes.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -7291,6 +7317,10 @@ class ACEye():
             with open('vzInterface Source Relationships/HTML/vzInterface Source Relationships.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "vzRsSubjFiltAtt" in self.url:
+            with open('Contract Subjects Filter Attributes/HTML/Contract Subjects Filter Attributes.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -8248,6 +8278,10 @@ class ACEye():
 
         if "vzRsIf" in self.url:
             with open('vzInterface Source Relationships/Mindmap/vzInterface Source Relationships.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzRsSubjFiltAtt" in self.url:
+            with open('Contract Subjects Filter Attributes/Mindmap/Contract Subjects Filter Attributes.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):

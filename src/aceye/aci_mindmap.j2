@@ -5895,4 +5895,31 @@
 #### Type: {{ interface.vzRsIf.attributes.tType }}
 ### Update Collection: {{ interface.vzRsIf.attributes.updateCollection }}
 {%-          endfor %}
+{%- elif "vzRsSubjFiltAtt" in api %}
+# Contract Subjects Filter Attributes
+{%-     for subject_filter in data_to_template['imdata'] %}
+## UID: {{ subject_filter.vzRsSubjFiltAtt.attributes.uid }}
+### Action: {{ subject_filter.vzRsSubjFiltAtt.attributes.action }}
+### Annotation: {{ subject_filter.vzRsSubjFiltAtt.attributes.annotation }}
+### Child Action: {{ subject_filter.vzRsSubjFiltAtt.attributes.childAction }}
+### Directives: {{ subject_filter.vzRsSubjFiltAtt.attributes.directives }}
+### DN: {{ subject_filter.vzRsSubjFiltAtt.attributes.dn }}
+### Externally Managed By: {{ subject_filter.vzRsSubjFiltAtt.attributes.extMngdBy }}
+### Force Resolve: {{ subject_filter.vzRsSubjFiltAtt.attributes.forceResolve }}
+### Local Owner: {{ subject_filter.vzRsSubjFiltAtt.attributes.lcOwn }}
+### Last Modified: {{ subject_filter.vzRsSubjFiltAtt.attributes.modTs }}
+### Monitoring Policy DN: {{ subject_filter.vzRsSubjFiltAtt.attributes.monPolDn }}
+### Priority Override: {{ subject_filter.vzRsSubjFiltAtt.attributes.priorityOverride }}
+### rType: {{ subject_filter.vzRsSubjFiltAtt.attributes.rType }}
+### State: {{ subject_filter.vzRsSubjFiltAtt.attributes.state }}
+### State Quality: {{ subject_filter.vzRsSubjFiltAtt.attributes.stateQual }}
+### Status: {{ subject_filter.vzRsSubjFiltAtt.attributes.status }}
+### t
+#### Cl: {{ subject_filter.vzRsSubjFiltAtt.attributes.tCl }}
+#### Context DN: {{ subject_filter.vzRsSubjFiltAtt.attributes.tContextDn }}
+#### DN: {{ subject_filter.vzRsSubjFiltAtt.attributes.tDn }}
+#### RN: {{ subject_filter.vzRsSubjFiltAtt.attributes.tRn }}
+#### Type: {{ subject_filter.vzRsSubjFiltAtt.attributes.tType }}
+### tnVz Filter Name: {{ subject_filter.vzRsSubjFiltAtt.attributes.tnVzFilterName }}
+{%-          endfor %}
 {%- endif %}
