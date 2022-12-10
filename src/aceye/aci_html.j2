@@ -12463,5 +12463,33 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "vzRtProv" in api %}
+<h1>Contract Providers Root</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>DN</th>
+    <th>Child Action</th>
+    <th>Local Owner</th>
+    <th>Last Modified</th>
+    <th>Status</th>
+    <th>tCl</th>
+    <th>tDN</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for provider in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ provider.vzRtProv.attributes.dn }}</td>
+    <td>{{ provider.vzRtProv.attributes.childAction }}</td>
+    <td>{{ provider.vzRtProv.attributes.lcOwn }}</td>
+    <td>{{ provider.vzRtProv.attributes.modTs }}</td>
+    <td>{{ provider.vzRtProv.attributes.status }}</td>
+    <td>{{ provider.vzRtProv.attributes.tCl }}</td>
+    <td>{{ provider.vzRtProv.attributes.tDn }}</td>
+  </tr>
+{%-          endfor %}
+</tbody>
+</table>
 {%- endif %}
 {%- include 'datatable_footer.j2' %}

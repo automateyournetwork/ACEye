@@ -1029,4 +1029,8 @@
 {%-     for consumer in data_to_template['imdata'] %}
 {{ consumer.vzRtCons.attributes.dn }},{{ consumer.vzRtCons.attributes.childAction }},{{ consumer.vzRtCons.attributes.lcOwn }},{{ consumer.vzRtCons.attributes.modTs }},{{ consumer.vzRtCons.attributes.status }},{{ consumer.vzRtCons.attributes.tCl }},{{ consumer.vzRtCons.attributes.tDn }}
 {%-     endfor %}
+{%- elif "vzRtProv" in api %}DN,Child Action,Local Owner,Last Modified,Status,tCl,tDN
+{%-     for provider in data_to_template['imdata'] %}
+{{ provider.vzRtProv.attributes.dn }},{{ provider.vzRtProv.attributes.childAction }},{{ provider.vzRtProv.attributes.lcOwn }},{{ provider.vzRtProv.attributes.modTs }},{{ provider.vzRtProv.attributes.status }},{{ provider.vzRtProv.attributes.tCl }},{{ provider.vzRtProv.attributes.tDn }}
+{%-     endfor %}
 {%- endif %}

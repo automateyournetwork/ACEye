@@ -114,6 +114,8 @@ Contract Consumers Root
 
 Contract Providers
 
+Contract Providers Root
+
 Contract Subjects
 
 Contract Subjects Filter Attributes

@@ -5934,4 +5934,16 @@
 #### Cl: {{ consumer.vzRtCons.attributes.tCl }}
 #### DN: {{ consumer.vzRtCons.attributes.tDn }}
 {%-          endfor %}
+{%- elif "vzRtProv" in api %}
+# Contract Providers Root
+{%-     for provider in data_to_template['imdata'] %}
+## DN: {{ provider.vzRtProv.attributes.dn }}
+### Child Action: {{ provider.vzRtProv.attributes.childAction }}
+### Local Owner: {{ provider.vzRtProv.attributes.lcOwn }}
+### Last Modified: {{ provider.vzRtProv.attributes.modTs }}
+### Status: {{ provider.vzRtProv.attributes.status }}
+### t
+#### Cl: {{ provider.vzRtProv.attributes.tCl }}
+#### DN: {{ provider.vzRtProv.attributes.tDn }}
+{%-          endfor %}
 {%- endif %}

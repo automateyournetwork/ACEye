@@ -517,6 +517,8 @@ class ACEye():
         parsed_json = json.dumps(self.contract_consumers_root(), indent=4, sort_keys=True)
         self.all_files(parsed_json)
         self.cookie = self.get_token()
+        parsed_json = json.dumps(self.contract_providers_root(), indent=4, sort_keys=True)
+        self.all_files(parsed_json)
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -572,6 +574,7 @@ class ACEye():
                     'Contract Consumers',
                     'Contract Consumers Root',
                     'Contract Providers',
+                    'Contract Providers Root',
                     'Contract Subjects',
                     'Contract Subjects Filter Attributes',
                     'Contracts',
@@ -2513,6 +2516,13 @@ class ACEye():
         response_dict  = response.json()
         return response_dict
 
+    def contract_providers_root(self):
+        self.url = f"{ self.aci }/api/node/class/vzRtProv.json"
+        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
+        print(f"<Contract Providers Root code { response.status_code } for { self.url }>")
+        response_dict  = response.json()
+        return response_dict
+
     def json_file(self, parsed_json):
         if "Tenant" in self.url:
             with open('Tenant/JSON/Tenants.json', 'w' ) as f:
@@ -3472,6 +3482,10 @@ class ACEye():
 
         if "vzRtCons" in self.url:
             with open('Contract Consumers Root/JSON/Contract Consumers Root.json', 'w' ) as f:
+                f.write(parsed_json)
+
+        if "vzRtProv" in self.url:
+            with open('Contract Providers Root/JSON/Contract Providers Root.json', 'w' ) as f:
                 f.write(parsed_json)
 
     def yaml_file(self, parsed_json):
@@ -4438,6 +4452,10 @@ class ACEye():
 
         if "vzRtCons" in self.url:
             with open('Contract Consumers Root/YAML/Contract Consumers Root.yaml', 'w' ) as f:
+                f.write(clean_yaml)
+
+        if "vzRtProv" in self.url:
+            with open('Contract Providers Root/YAML/Contract Providers Root.yaml', 'w' ) as f:
                 f.write(clean_yaml)
 
     def csv_file(self, parsed_json):
@@ -5408,6 +5426,10 @@ class ACEye():
 
         if "vzRtCons" in self.url:
             with open('Contract Consumers Root/CSV/Contract Consumers Root.csv', 'w' ) as f:
+                f.write(csv_output)
+
+        if "vzRtProv" in self.url:
+            with open('Contract Providers Root/CSV/Contract Providers Root.csv', 'w' ) as f:
                 f.write(csv_output)
 
     def markdown_file(self, parsed_json):
@@ -6381,6 +6403,10 @@ class ACEye():
             with open('Contract Consumers Root/Markdown/Contract Consumers Root.md', 'w' ) as f:
                 f.write(markdown_output)
 
+        if "vzRtProv" in self.url:
+            with open('Contract Providers Root/Markdown/Contract Providers Root.md', 'w' ) as f:
+                f.write(markdown_output)
+
     def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -7352,6 +7378,10 @@ class ACEye():
             with open('Contract Consumers Root/HTML/Contract Consumers Root.html', 'w' ) as f:
                 f.write(html_output)
 
+        if "vzRtProv" in self.url:
+            with open('Contract Providers Root/HTML/Contract Providers Root.html', 'w' ) as f:
+                f.write(html_output)
+
     def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
         env = Environment(loader=FileSystemLoader(str(template_dir)))
@@ -8317,6 +8347,10 @@ class ACEye():
 
         if "vzRtCons" in self.url:
             with open('Contract Consumers Root/Mindmap/Contract Consumers Root.md', 'w' ) as f:
+                f.write(mindmap_output)
+
+        if "vzRtProv" in self.url:
+            with open('Contract Providers Root/Mindmap/Contract Providers Root.md', 'w' ) as f:
                 f.write(mindmap_output)
 
     def all_files(self, parsed_json):
