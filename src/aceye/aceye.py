@@ -1,6 +1,9 @@
 import os
 import json
 import requests
+import aiohttp
+import asyncio
+import aiofiles
 import rich_click as click
 import yaml
 import urllib3
@@ -21,508 +24,8 @@ class ACEye():
     def aceye(self):
         self.make_directories()
         self.cookie = self.get_token()
-        parsed_json = json.dumps(self.tenants(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.epgs(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.bridge_domains(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.contexts(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.application_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3outs(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l2outs(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.topSystem(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.subnets(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.endpoints(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.fabric_nodes(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.physical_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.leaf_interface_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.spine_interface_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.leaf_switch_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        self.cookie = self.get_token()
-        parsed_json = json.dumps(self.spine_switch_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vlan_pools(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.attachable_access_entity_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.contracts(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.filters(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.physical_domains(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_domains(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.qos_classes(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.fault_summary(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        # parsed_json = json.dumps(self.audit_log(), indent=4, sort_keys=True)
-        # self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ip_addresses(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        # parsed_json = json.dumps(self.events(), indent=4, sort_keys=True)
-        # self.all_files(parsed_json)
-        parsed_json = json.dumps(self.licenses(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.bgp_rr(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.interface_policies(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.interface_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.fabric_pods(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        self.cookie = self.get_token()
-        parsed_json = json.dumps(self.fabric_paths(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.prefix_list(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.prefix_list_detailed(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.users(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.security_domains(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.contract_subjects(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.health(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.fabric_node_ssl_certificate(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.tenant_health(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.fabric_membership(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.cluster_health(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.device_packages(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.cluster_aggregate_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.access_control_entities(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        self.cookie = self.get_token()
-        parsed_json = json.dumps(self.access_control_instances(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.access_control_rules(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.access_control_scopes(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.cluster_physical_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.compute_controllers(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.compute_domains(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.compute_endpoint_policy_descriptions(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.compute_providers(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.arp_adjacency_endpoints(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.arp_db(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.arp_domain(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.arp_entity(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.arp_interface(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.arp_instances(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.bgp_domains(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        self.cookie = self.get_token()
-        parsed_json = json.dumps(self.bgp_domain_af(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.bgp_entities(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.bgp_instances(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.bgp_instances_policy(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.bgp_peers(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.bgp_peer_af_entries(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.bgp_peer_entries(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.bgp_rr_policies(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.cdp_adjacency_endpoints(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.cdp_entities(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.cdp_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.cdp_instances(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.cdp_interface_addresses(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.cdp_management_addresses(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.cluster_rs_member_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        self.cookie = self.get_token()
-        parsed_json = json.dumps(self.compute_rs_domain_policies(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_board_slots(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_boards(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_cpus(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_chassis(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_dimms(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_fabric_extenders(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_fabric_ports(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_fpga(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_fan_trays(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_fan_tray_slots(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_indicator_leds(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_line_cards(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_line_card_slots(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_leaf_ports(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        self.cookie = self.get_token()
-        parsed_json = json.dumps(self.equipment_port_locator_leds(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)        
-        parsed_json = json.dumps(self.equipment_power_supplies(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_power_supply_slots(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_rs_io(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_sensors(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_sp_cmn_blk(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_sprom_lc(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_sprom_psu(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_sprom_psu_blocks(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_sprom_supervisors(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_storage(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_supervisors(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.equipment_supervisor_slots(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ethernet_port_manager_physical_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.fabric_extended_path_endpoint_containers(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        self.cookie = self.get_token()
-        parsed_json = json.dumps(self.fabric_instances(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.fabric_links(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.fabric_link_containers(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.fabric_loose_links(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.fabric_loose_nodes(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.fabric_path_endpoints(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.fabric_path_endpoint_containers(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.fabric_protected_path_ep_containers(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.fc_entity(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.firmware_card_running(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.firmware_compute_running(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.firmware_running(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.endpoint_profile_containers(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.locales(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.bridge_domain_to_outside(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        self.cookie = self.get_token()
-        parsed_json = json.dumps(self.epg_bridge_domain_links(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.endpoints_to_paths(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.contract_consumers(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.contract_consumer_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.context_source_relationships(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.domain_attachments(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.path_attachments(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.contract_providers(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.bridge_domain_target_relationships(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.contexts_target_relationships(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vlan_encapsulation_blocks(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vlan_namespace_policies(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.access_bundle_groups(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.access_port_groups(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.access_port_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        self.cookie = self.get_token()
-        parsed_json = json.dumps(self.controllers(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.fex_policies(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.function_policies(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.host_port_selectors(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.port_blocks(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.access_policy_group_source_relationships(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.attachable_entity_profile_source_relationships(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.domain_profile_source_relationships(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.spine_access_policy_groups(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vlan_namespace_source_relationships(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.spine_host_port_selectors(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.spine_access_port_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.wired_nodes(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.static_route_next_hop_policies(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        self.cookie = self.get_token()
-        parsed_json = json.dumps(self.route_policies(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ipv4_addresses(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ipv4_domains(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ipv4_entities(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ipv4_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ipv4_instances(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ipv4_next_hop(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ipv4_routes(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.isis_adjacency_endpoints(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.isis_discovered_tunnel_endpoints(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.isis_domains(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.isis_domains_level(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.isis_entities(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.isis_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.isis_interfaces_level(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        self.cookie = self.get_token()
-        parsed_json = json.dumps(self.isis_instances(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.isis_nexthop(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.isis_routes(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l2_bd(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l2_external_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l2_interface_source_relationships(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l2_external_instance_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l2_external_logical_interface_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l2_external_logical_node_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l2_epg_bd_source_relationships(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l2_out_paths(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_contexts(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_subinterfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_instances(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_routed_loopback_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        self.cookie = self.get_token()
-        parsed_json = json.dumps(self.l3_rs_enc_physical_rtd_conf(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_routed_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_out_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_out_ips(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_logical_interface_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_logical_node_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_out_members(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_contexts_source_relationships(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_domains_source_relationships(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_out_node_source_relationships(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_out_path_source_relationships(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.l3_subnets(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.lacp_entities(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.lacp_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        self.cookie = self.get_token()
-        parsed_json = json.dumps(self.lacp_instances(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.external_unmanaged_nodes(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.external_unmanaged_nodes_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.lldp_adjacency_endpoints(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.lldp_entities(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.lldp_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.lldp_instances(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.management_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ospf_adjacency_endpoints(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ospf_areas(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ospf_database(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ospf_domains(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ospf_entities(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ospf_external_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ospf_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        self.cookie = self.get_token()
-        parsed_json = json.dumps(self.ospf_instances(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ospf_routes(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.ospf_unicast_nexthop(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.pc_aggregate_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.pc_member_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.svis(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.tunnel_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.unicast_route_database(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.unicast_route_domains(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.unicast_route_entities(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.unicast_route_next_hop(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.unicast_routes(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vlan_endpoint_encapsulation(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vmm_controller_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vmm_domain_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        self.cookie = self.get_token()
-        parsed_json = json.dumps(self.vmm_provider_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vmm_user_profiles(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vpc_domains(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vpc_entities(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vpc_interfaces(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vpc_instances(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vpc_configurations(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vzAny(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vzFilters(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vzAny_to_consumers(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vzAny_to_providers(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vzDeny(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vzInterface_source_relationships(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vz_subject_filter_attributes(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.contract_consumers_root(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        self.cookie = self.get_token()
-        parsed_json = json.dumps(self.contract_providers_root(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vzRule_owner(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
-        parsed_json = json.dumps(self.vzTaboo(), indent=4, sort_keys=True)
-        self.all_files(parsed_json)
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(self.main())
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -799,7635 +302,6237 @@ class ACEye():
         print(f"<Authentication Status code {response.status_code} for { url }>")
         return response.cookies
 
-    def tenants(self):
-        self.url = f"{ self.aci }/api/node/class/fvTenant.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Tenant Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def epgs(self):
-        self.url = f"{ self.aci }/api/node/class/fvAEPg.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<EPG Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def bridge_domains(self):
-        self.url = f"{ self.aci }/api/node/class/fvBD.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Bridge Domains Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def contexts(self):
-        self.url = f"{ self.aci }/api/node/class/fvCtx.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Contexts Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def application_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/fvAp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Application Profiles Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3outs(self):
-        self.url = f"{ self.aci }/api/node/class/l3extOut.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3Outs Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l2outs(self):
-        self.url = f"{ self.aci }/api/node/class/l2extOut.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L2Outs Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def topSystem(self):
-        self.url = f"{ self.aci }/api/node/class/topSystem.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Top System Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def subnets(self):
-        self.url = f"{ self.aci }/api/node/class/fvSubnet.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Subnet Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def endpoints(self):
-        self.url = f"{ self.aci }/api/node/class/fvCEp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Connected Endpoints Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def fabric_nodes(self):
-        self.url = f"{ self.aci }/api/node/class/fabricNode.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Fabric Nodes Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def physical_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/fabricNode.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Fabric Nodes Status code { response.status_code } for { self.url }>")
-        node_response_dict  = response.json()
-        physical_interfaces = []
-        for node in node_response_dict['imdata']:
-            self.url = f"{ self.aci }/api/node/class/{ node['fabricNode']['attributes']['dn']}/l1PhysIf.json"
-            response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-            print(f"<Physical Interface Status code { response.status_code } for { self.url }>")
-            response_dict  = response.json()
-            physical_interfaces.append(response_dict['imdata'])
-        return physical_interfaces
-
-    def leaf_interface_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/infraAccPortP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Leaf Interface Profiles Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def spine_interface_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/infraSpAccPortP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Spine Interface Profiles Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def leaf_switch_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/infraNodeP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Leaf Switch Profiles Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def spine_switch_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/infraSpineP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Spine Switch Profiles Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vlan_pools(self):
-        self.url = f"{ self.aci }/api/node/class/fvnsVlanInstP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<VLAN Pools Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def attachable_access_entity_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/infraAttEntityP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Attachable Access Entity Profiles Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def contracts(self):
-        self.url = f"{ self.aci }/api/node/class/vzBrCP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Contracts Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def filters(self):
-        self.url = f"{ self.aci }/api/node/class/vzEntry.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<vz Entries Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def physical_domains(self):
-        self.url = f"{ self.aci }/api/node/class/physDomP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Physical Domains Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_domains(self):
-        self.url = f"{ self.aci }/api/node/class/l3extDomP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3 Domains Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def qos_classes(self):
-        self.url = f"{ self.aci }/api/node/class/qosClass.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<QOS Classes Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def fault_summary(self):
-        self.url = f"{ self.aci }/api/node/class/faultSummary.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Fault Summary Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def audit_log(self):
-        self.url = f"{ self.aci }/api/node/class/aaaModLR.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Audit Log Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ip_addresses(self):
-        self.url = f"{ self.aci }/api/node/class/fvIp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<IP Addresses Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def events(self):
-        self.url = f"{ self.aci }/api/node/class/eventRecord.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Events Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def licenses(self):
-        self.url = f"{ self.aci }/api/node/class/licenseEntitlement.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<License Entitlements Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def bgp_rr(self):
-        self.url = f"{ self.aci }/api/node/class/bgpRRNodePEp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<BGP Route Reflectors Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def interface_policies(self):
-        self.url = f"{ self.aci }/api/node/class/infraPortS.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Interface Policies Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def interface_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/infraProfile.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Interface Profiles Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def fabric_pods(self):
-        self.url = f"{ self.aci }/api/node/class/fabricPod.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Fabric Pods Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def fabric_paths(self):
-        self.url = f"{ self.aci }/api/node/class/fabricPath.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Fabric Paths Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def prefix_list(self):
-        self.url = f"{ self.aci }/api/node/class/fvTenant.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Tenant Status code { response.status_code } for { self.url }>")
-        tenants  = response.json()
-        prefix_lists = []
-        for tenant in tenants['imdata']:
-            self.url = f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
-            response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-            print(f"<Prefix List Status code { response.status_code } for { self.url }>")
-            response_dict  = response.json()
-            prefix_lists.append(response_dict['imdata'])
-        return prefix_lists
-
-    def prefix_list_detailed(self):
-        self.url = f"{ self.aci }/api/node/class/fvTenant.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Tenant Status code { response.status_code } for { self.url }>")
-        tenants  = response.json()
-        prefix_lists = []
-        ip_prefix_list_details = []
-        for tenant in tenants['imdata']:
-            self.url = f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
-            response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-            print(f"<Prefix List Status code { response.status_code } for { self.url }>")
-            response_dict  = response.json()
-            prefix_lists.append(response_dict['imdata'])
-            for item in prefix_lists:
-                for prefix in item:
-                    self.url = f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }/subj-{ prefix['rtctrlSubjP']['attributes']['name']}.json?query-target=children&target-subtree-class=rtctrlMatchRtDest"
-                    response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-                    print(f"<Prefix List Detailed Status code { response.status_code } for { self.url }>")
-                    response_dict  = response.json()
-                    ip_prefix_list_details.append(response_dict['imdata'])
-        return ip_prefix_list_details
-
-    def users(self):
-        self.url = f"{ self.aci }/api/node/class/aaaUser.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Users Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def security_domains(self):
-        self.url = f"{ self.aci }/api/node/class/aaaDomain.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Security Domains Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def contract_subjects(self):
-        self.url = f"{ self.aci }/api/node/class/vzSubj.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Contract Subjects Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def health(self):
-        self.url = f"{ self.aci }/api/node/mo/topology/health.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Health Status code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def fabric_node_ssl_certificate(self):
-        self.url = f"{ self.aci }/api/node/class/pkiFabricNodeSSLCertificate.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<PKI Fabric Node SSL Certificate code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def tenant_health(self):
-        self.url = f"{ self.aci }/api/node/class/fvTenant.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Tenant Status code { response.status_code } for { self.url }>")
-        tenants  = response.json()
-        tenant_health = []
-        for tenant in tenants['imdata']:
-            self.url = f"{ self.aci }/api/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }/health.json"
-            response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-            print(f"<Tenant Health Status code { response.status_code } for { self.url }>")
-            response_dict  = response.json()
-            tenant_health.append(response_dict['imdata'])
-        return tenant_health
-
-    def fabric_membership(self):
-        self.url = f"{ self.aci }/api/node/class/topSystem.json?query-target=subtree&target-subtree-class=firmwareCtrlrRunning"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Fabric Membership code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def cluster_health(self):
-        self.url = f"{ self.aci }/api/node/mo/topology/pod-1/node-1/av.json?query-target=children&target-subtree-class=infraWiNode"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Cluster Health code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def device_packages(self):
-        self.url = f"{ self.aci }/api/node/class/vnsMDev.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Device Packages code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def cluster_aggregate_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/cnwAggrIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Cluster Aggregate Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/l3Inst.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3 Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def access_control_entities(self):
-        self.url = f"{ self.aci }/api/node/class/actrlEntity.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Access Control Entities code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def access_control_instances(self):
-        self.url = f"{ self.aci }/api/node/class/actrlInst.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Access Control Instances code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def access_control_rules(self):
-        self.url = f"{ self.aci }/api/node/class/actrlRule.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Access Control Rules code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def access_control_scopes(self):
-        self.url = f"{ self.aci }/api/node/class/actrlScope.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Access Control Scopes code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def cluster_physical_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/cnwPhysIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Cluster Physical Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def compute_controllers(self):
-        self.url = f"{ self.aci }/api/node/class/compCtrlr.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Compute Controllers code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def compute_domains(self):
-        self.url = f"{ self.aci }/api/node/class/compDom.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Compute Domains code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def compute_endpoint_policy_descriptions(self):
-        self.url = f"{ self.aci }/api/node/class/compEpPD.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Compute Endpoint Policy Descriptions code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def compute_providers(self):
-        self.url = f"{ self.aci }/api/node/class/compProv.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Compute Providers code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def arp_adjacency_endpoints(self):
-        self.url = f"{ self.aci }/api/node/class/arpAdjEp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<ARP Adjacency Endpoints code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def arp_db(self):
-        self.url = f"{ self.aci }/api/node/class/arpDb.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<ARP Database code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def arp_domain(self):
-        self.url = f"{ self.aci }/api/node/class/arpDom.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<ARP Domain code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def arp_entity(self):
-        self.url = f"{ self.aci }/api/node/class/arpEntity.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<ARP Entity code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def arp_interface(self):
-        self.url = f"{ self.aci }/api/node/class/arpIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<ARP Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def arp_instances(self):
-        self.url = f"{ self.aci }/api/node/class/arpInst.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<ARP Instances code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def bgp_domains(self):
-        self.url = f"{ self.aci }/api/node/class/bgpDom.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<BGP Domains code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def bgp_domain_af(self):
-        self.url = f"{ self.aci }/api/node/class/bgpDomAf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<BGP Domain Address Family code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def bgp_entities(self):
-        self.url = f"{ self.aci }/api/node/class/bgpEntity.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<BGP Entity code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def bgp_instances(self):
-        self.url = f"{ self.aci }/api/node/class/bgpInst.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<BGP Instances code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def bgp_instances_policy(self):
-        self.url = f"{ self.aci }/api/node/class/bgpInstPol.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<BGP Instances Policy code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def bgp_peers(self):
-        self.url = f"{ self.aci }/api/node/class/bgpPeer.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<BGP Peers code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def bgp_peer_af_entries(self):
-        self.url = f"{ self.aci }/api/node/class/bgpPeerAfEntry.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<BGP Peers AF Entries code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def bgp_peer_entries(self):
-        self.url = f"{ self.aci }/api/node/class/bgpPeerEntry.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<BGP Peers Entries code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def bgp_rr_policies(self):
-        self.url = f"{ self.aci }/api/node/class/bgpRRP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<BGP Route Reflector Policies code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def cdp_adjacency_endpoints(self):
-        self.url = f"{ self.aci }/api/node/class/cdpAdjEp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<CDP Adjacency Endpoints code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def cdp_entities(self):
-        self.url = f"{ self.aci }/api/node/class/cdpEntity.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<CDP Entities code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def cdp_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/cdpIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<CDP Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def cdp_instances(self):
-        self.url = f"{ self.aci }/api/node/class/cdpInst.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<CDP Instances code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def cdp_interface_addresses(self):
-        self.url = f"{ self.aci }/api/node/class/cdpIntfAddr.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<CDP Interface Addresses code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def cdp_management_addresses(self):
-        self.url = f"{ self.aci }/api/node/class/cdpMgmtAddr.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<CDP Management Addresses code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def cluster_rs_member_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/cnwRsMbrIfs.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Cluster Node RS Member Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def compute_rs_domain_policies(self):
-        self.url = f"{ self.aci }/api/node/class/compRsDomP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Compute RS Domain Policies code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_board_slots(self):
-        self.url = f"{ self.aci }/api/node/class/eqptBSlot.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Board Slots code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_boards(self):
-        self.url = f"{ self.aci }/api/node/class/eqptBoard.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Boards code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_cpus(self):
-        self.url = f"{ self.aci }/api/node/class/eqptCPU.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment CPUs code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_chassis(self):
-        self.url = f"{ self.aci }/api/node/class/eqptCh.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Chassis code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_dimms(self):
-        self.url = f"{ self.aci }/api/node/class/eqptDimm.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment DIMMs code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_fabric_extenders(self):
-        self.url = f"{ self.aci }/api/node/class/eqptExtCh.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Fabric Extenders code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_fabric_ports(self):
-        self.url = f"{ self.aci }/api/node/class/eqptFabP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Fabric Ports code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_fans(self):
-        self.url = f"{ self.aci }/api/node/class/eqptFan.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Fans code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_fpga(self):
-        self.url = f"{ self.aci }/api/node/class/eqptFpga.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Field Programmable Gate Arrays code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_fan_trays(self):
-        self.url = f"{ self.aci }/api/node/class/eqptFt.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Fan Trays code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_fan_tray_slots(self):
-        self.url = f"{ self.aci }/api/node/class/eqptFtSlot.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Fan Tray Slots code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_indicator_leds(self):
-        self.url = f"{ self.aci }/api/node/class/eqptIndLed.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Indicator LEDs code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_line_cards(self):
-        self.url = f"{ self.aci }/api/node/class/eqptLC.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Line Cards code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_line_card_slots(self):
-        self.url = f"{ self.aci }/api/node/class/eqptLCSlot.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Line Card Slots code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_leaf_ports(self):
-        self.url = f"{ self.aci }/api/node/class/eqptLeafP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Leaf Ports code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_port_locator_leds(self):
-        self.url = f"{ self.aci }/api/node/class/eqptLocLed.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Port Locator LEDs code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_power_supplies(self):
-        self.url = f"{ self.aci }/api/node/class/eqptPsu.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Power Supplies code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_power_supply_slots(self):
-        self.url = f"{ self.aci }/api/node/class/eqptPsuSlot.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Power Supply Slots code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_rs_io(self):
-        self.url = f"{ self.aci }/api/node/class/eqptRsIoPPhysConf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment RS IO Port Physical Configuration code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_sensors(self):
-        self.url = f"{ self.aci }/api/node/class/eqptSensor.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Sensors code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_sp_cmn_blk(self):
-        self.url = f"{ self.aci }/api/node/class/eqptSpCmnBlk.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment SP Common Blocks code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_sprom_lc(self):
-        self.url = f"{ self.aci }/api/node/class/eqptSpromLc.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment SPROM LC code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_sprom_psu(self):
-        self.url = f"{ self.aci }/api/node/class/eqptSpromPsu.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment SPROM Power Supplies code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_sprom_psu_blocks(self):
-        self.url = f"{ self.aci }/api/node/class/eqptSpromPsuBlk.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment SPROM Power Supply Blocks code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_sprom_supervisors(self):
-        self.url = f"{ self.aci }/api/node/class/eqptSpromSup.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment SPROM Supervisors code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_storage(self):
-        self.url = f"{ self.aci }/api/node/class/eqptStorage.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Storage code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_supervisors(self):
-        self.url = f"{ self.aci }/api/node/class/eqptSupC.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Supervisors code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def equipment_supervisor_slots(self):
-        self.url = f"{ self.aci }/api/node/class/eqptSupCSlot.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Equipment Supervisor Slots code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ethernet_port_manager_physical_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/ethpmPhysIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Ethernet Port Manager Physical Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def fabric_extended_path_endpoint_containers(self):
-        self.url = f"{ self.aci }/api/node/class/fabricExtPathEpCont.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Fabric Extended Path Endpoint Containers code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def fabric_instances(self):
-        self.url = f"{ self.aci }/api/node/class/fabricInst.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Fabric Instances code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def fabric_links(self):
-        self.url = f"{ self.aci }/api/node/class/fabricLink.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Fabric Links code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def fabric_link_containers(self):
-        self.url = f"{ self.aci }/api/node/class/fabricLinkCont.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Fabric Link Containers code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def fabric_loose_links(self):
-        self.url = f"{ self.aci }/api/node/class/fabricLooseLink.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Fabric Loose Links code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def fabric_loose_nodes(self):
-        self.url = f"{ self.aci }/api/node/class/fabricLooseNode.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Fabric Loose Nodes code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def fabric_path_endpoints(self):
-        self.url = f"{ self.aci }/api/node/class/fabricPathEp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Fabric Path Endpoints code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def fabric_path_endpoint_containers(self):
-        self.url = f"{ self.aci }/api/node/class/fabricPathEpCont.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Fabric Path Endpoint Containers code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def fabric_protected_path_ep_containers(self):
-        self.url = f"{ self.aci }/api/node/class/fabricProtPathEpCont.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Fabric Protected Path Endpoint Containers code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def fc_entity(self):
-        self.url = f"{ self.aci }/api/node/class/fcEntity.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Fibre Channel Entities code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def firmware_card_running(self):
-        self.url = f"{ self.aci }/api/node/class/firmwareCardRunning.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Firmware Card Running code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def firmware_compute_running(self):
-        self.url = f"{ self.aci }/api/node/class/firmwareCompRunning.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Firmware Compute Running code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def firmware_running(self):
-        self.url = f"{ self.aci }/api/node/class/firmwareRunning.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Firmware Running code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def endpoint_profile_containers(self):
-        self.url = f"{ self.aci }/api/node/class/fvEpPCont.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Endpoint Profile Containers code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def locales(self):
-        self.url = f"{ self.aci }/api/node/class/fvLocale.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Locales code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def bridge_domain_to_outside(self):
-        self.url = f"{ self.aci }/api/node/class/fvRsBDToOut.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Bridge Domains To Outside code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def epg_bridge_domain_links(self):
-        self.url = f"{ self.aci }/api/node/class/fvRsBd.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<EPG Bridge Domain Links code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def endpoints_to_paths(self):
-        self.url = f"{ self.aci }/api/node/class/fvRsCEpToPathEp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Endpoints To Paths code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def contract_consumers(self):
-        self.url = f"{ self.aci }/api/node/class/fvRsCons.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Contract Consumers code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def contract_consumer_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/fvRsConsIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Contract Consumer Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def context_source_relationships(self):
-        self.url = f"{ self.aci }/api/node/class/fvRsCtx.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Context Source Relationships code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def domain_attachments(self):
-        self.url = f"{ self.aci }/api/node/class/fvRsDomAtt.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Domain Attachments code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def path_attachments(self):
-        self.url = f"{ self.aci }/api/node/class/fvRsPathAtt.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Path Attachments code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def contract_providers(self):
-        self.url = f"{ self.aci }/api/node/class/fvRsProv.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Contract Providers code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def bridge_domain_target_relationships(self):
-        self.url = f"{ self.aci }/api/node/class/fvRtBd.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Bridge Domains Target Relationships code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def contexts_target_relationships(self):
-        self.url = f"{ self.aci }/api/node/class/fvRtCtx.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Contexts Target Relationships code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vlan_encapsulation_blocks(self):
-        self.url = f"{ self.aci }/api/node/class/fvnsEncapBlk.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<VLAN Encapsulation Blocks code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vlan_namespace_policies(self):
-        self.url = f"{ self.aci }/api/node/class/fvnsVlanInstP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<VLAN Namespace Policies code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def access_bundle_groups(self):
-        self.url = f"{ self.aci }/api/node/class/infraAccBndlGrp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Access Bundle Groups code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def access_port_groups(self):
-        self.url = f"{ self.aci }/api/node/class/infraAccPortGrp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Access Port Groups code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def access_port_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/infraAccPortP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Access Port Profiles code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def controllers(self):
-        self.url = f"{ self.aci }/api/node/class/infraCont.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Controllers code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def fex_policies(self):
-        self.url = f"{ self.aci }/api/node/class/infraFexP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<FEX Policies code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def function_policies(self):
-        self.url = f"{ self.aci }/api/node/class/infraFuncP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Function Policies code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def host_port_selectors(self):
-        self.url = f"{ self.aci }/api/node/class/infraHPortS.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Host Port Selectors code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def port_blocks(self):
-        self.url = f"{ self.aci }/api/node/class/infraPortBlk.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Port Blocks code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def access_policy_group_source_relationships(self):
-        self.url = f"{ self.aci }/api/node/class/infraRsAccBaseGrp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Access Policy Group Source Relationships code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def attachable_entity_profile_source_relationships(self):
-        self.url = f"{ self.aci }/api/node/class/infraRsAttEntP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Attachable Entity Profile Source Relationships code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def domain_profile_source_relationships(self):
-        self.url = f"{ self.aci }/api/node/class/infraRsDomP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Domain Profile Source Relationships code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def spine_access_policy_groups(self):
-        self.url = f"{ self.aci }/api/node/class/infraRsSpAccGrp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Spine Access Policy Groups code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vlan_namespace_source_relationships(self):
-        self.url = f"{ self.aci }/api/node/class/infraRsVlanNs.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<VLAN Namespace Source Relationships Groups code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def spine_host_port_selectors(self):
-        self.url = f"{ self.aci }/api/node/class/infraSHPortS.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Spine Host Port Selectors code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def spine_access_port_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/infraSpAccPortP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Spine Access Port Profiles code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def wired_nodes(self):
-        self.url = f"{ self.aci }/api/node/class/infraWiNode.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Wired Nodes code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def static_route_next_hop_policies(self):
-        self.url = f"{ self.aci }/api/node/class/ipNexthopP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Static Route Next Hop Policies code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def route_policies(self):
-        self.url = f"{ self.aci }/api/node/class/ipRouteP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Route Policies code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ipv4_addresses(self):
-        self.url = f"{ self.aci }/api/node/class/ipv4Addr.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<IPv4 Addresses code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ipv4_domains(self):
-        self.url = f"{ self.aci }/api/node/class/ipv4Dom.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<IPv4 Domains code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ipv4_entities(self):
-        self.url = f"{ self.aci }/api/node/class/ipv4Entity.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<IPv4 Entities code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ipv4_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/ipv4If.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<IPv4 Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ipv4_instances(self):
-        self.url = f"{ self.aci }/api/node/class/ipv4Inst.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<IPv4 Instances code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ipv4_next_hop(self):
-        self.url = f"{ self.aci }/api/node/class/ipv4Nexthop.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<IPv4 Next Hop code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ipv4_routes(self):
-        self.url = f"{ self.aci }/api/node/class/ipv4Route.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<IPv4 Routes code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def isis_adjacency_endpoints(self):
-        self.url = f"{ self.aci }/api/node/class/isisAdjEp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<ISIS Adjacency Endpoints code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def isis_discovered_tunnel_endpoints(self):
-        self.url = f"{ self.aci }/api/node/class/isisDTEp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<ISIS Discovered Tunnel Endpoints code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def isis_domains(self):
-        self.url = f"{ self.aci }/api/node/class/isisDom.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<ISIS Domains code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def isis_domains_level(self):
-        self.url = f"{ self.aci }/api/node/class/isisDomLvl.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<ISIS Domains Level code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def isis_entities(self):
-        self.url = f"{ self.aci }/api/node/class/isisEntity.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<ISIS Entities code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def isis_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/isisIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<ISIS Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def isis_interfaces_level(self):
-        self.url = f"{ self.aci }/api/node/class/isisIfLvl.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<ISIS Interfaces Level code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def isis_instances(self):
-        self.url = f"{ self.aci }/api/node/class/isisInst.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<ISIS Instances code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def isis_nexthop(self):
-        self.url = f"{ self.aci }/api/node/class/isisNexthop.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<ISIS Next Hop code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def isis_routes(self):
-        self.url = f"{ self.aci }/api/node/class/isisRoute.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<ISIS Routes code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l2_bd(self):
-        self.url = f"{ self.aci }/api/node/class/l2BD.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L2 Bridge Domains code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l2_external_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/l2ExtIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L2 External Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l2_interface_source_relationships(self):
-        self.url = f"{ self.aci }/api/node/class/l2RsEthIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L2 Interface Source Relationships code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l2_external_instance_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/l2extInstP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L2 External Instance Profiles code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l2_external_logical_interface_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/l2extLIfP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L2 External Logical Interface Profiles code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l2_external_logical_node_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/l2extLNodeP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L2 External Logical Node Profiles code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l2_epg_bd_source_relationships(self):
-        self.url = f"{ self.aci }/api/node/class/l2extRsEBd.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L2 EPG Bridge Domain Source Relationships code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l2_out_paths(self):
-        self.url = f"{ self.aci }/api/node/class/l2extRsPathL2OutAtt.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L2 Out Paths code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_contexts(self):
-        self.url = f"{ self.aci }/api/node/class/l3Ctx.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3 Contexts code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_subinterfaces(self):
-        self.url = f"{ self.aci }/api/node/class/l3EncRtdIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3 Subinterfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_instances(self):
-        self.url = f"{ self.aci }/api/node/class/l3Inst.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3 Instances code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_routed_loopback_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/l3LbRtdIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3 Routed Loopback Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_rs_enc_physical_rtd_conf(self):
-        self.url = f"{ self.aci }/api/node/class/l3RsEncPhysRtdConf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3 Physical Interface Source Relationships code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_routed_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/l3RtdIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3 Routed Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_out_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/l3extInstP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3Out Profiles code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_out_ips(self):
-        self.url = f"{ self.aci }/api/node/class/l3extIp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3Out IP Addresses code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_logical_interface_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/l3extLIfP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3 Logical Interface Profiles code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_logical_node_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/l3extLNodeP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3 Logical Node Profiles code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_out_members(self):
-        self.url = f"{ self.aci }/api/node/class/l3extMember.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3 Out Members code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_contexts_source_relationships(self):
-        self.url = f"{ self.aci }/api/node/class/l3extRsEctx.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3 Context Source Relationships code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_domains_source_relationships(self):
-        self.url = f"{ self.aci }/api/node/class/l3extRsL3DomAtt.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3 Domains Source Relationships code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_out_node_source_relationships(self):
-        self.url = f"{ self.aci }/api/node/class/l3extRsNodeL3OutAtt.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3 Out Node Source Relationships code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_out_path_source_relationships(self):
-        self.url = f"{ self.aci }/api/node/class/l3extRsPathL3OutAtt.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3 Out Path Source Relationships code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def l3_subnets(self):
-        self.url = f"{ self.aci }/api/node/class/l3extSubnet.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<L3 Subnets code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def lacp_entities(self):
-        self.url = f"{ self.aci }/api/node/class/lacpEntity.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<LACP Entities code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def lacp_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/lacpIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<LACP Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def lacp_instances(self):
-        self.url = f"{ self.aci }/api/node/class/lacpInst.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<LACP Instances code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def external_unmanaged_nodes(self):
-        self.url = f"{ self.aci }/api/node/class/leqptLooseNode.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<External Unmanaged Nodes code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def external_unmanaged_nodes_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/leqptRsLsNodeToIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<External Unmanaged Nodes Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def lldp_adjacency_endpoints(self):
-        self.url = f"{ self.aci }/api/node/class/lldpAdjEp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<LLDP Adjacency Endpoints code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def lldp_entities(self):
-        self.url = f"{ self.aci }/api/node/class/lldpEntity.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<LLDP Entities code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def lldp_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/lldpIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<LLDP Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def lldp_instances(self):
-        self.url = f"{ self.aci }/api/node/class/lldpInst.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<LLDP Instances code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def management_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/mgmtMgmtIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Management Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ospf_adjacency_endpoints(self):
-        self.url = f"{ self.aci }/api/node/class/ospfAdjEp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<OSPF Adjacency Endpoints code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ospf_areas(self):
-        self.url = f"{ self.aci }/api/node/class/ospfArea.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<OSPF Areas code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ospf_database(self):
-        self.url = f"{ self.aci }/api/node/class/ospfDb.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<OSPF Database code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ospf_domains(self):
-        self.url = f"{ self.aci }/api/node/class/ospfDom.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<OSPF Domains code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ospf_entities(self):
-        self.url = f"{ self.aci }/api/node/class/ospfEntity.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<OSPF Entities code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ospf_external_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/ospfExtP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<OSPF External Profiles code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ospf_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/ospfIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<OSPF Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ospf_instances(self):
-        self.url = f"{ self.aci }/api/node/class/ospfInst.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<OSPF Instances code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ospf_routes(self):
-        self.url = f"{ self.aci }/api/node/class/ospfRoute.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<OSPF Routes code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def ospf_unicast_nexthop(self):
-        self.url = f"{ self.aci }/api/node/class/ospfUcNexthop.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<OSPF Unicast Next Hop code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def pc_aggregate_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/pcAggrIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Port Channel Aggregate Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def pc_member_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/pcRsMbrIfs.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Port Channel Member Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def svis(self):
-        self.url = f"{ self.aci }/api/node/class/sviIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<SVIs code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def tunnel_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/tunnelIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Tunnel Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def unicast_route_database(self):
-        self.url = f"{ self.aci }/api/node/class/uribv4Db.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Unicast Route Database code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def unicast_route_domains(self):
-        self.url = f"{ self.aci }/api/node/class/uribv4Dom.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Unicast Route Domains code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def unicast_route_entities(self):
-        self.url = f"{ self.aci }/api/node/class/uribv4Entity.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Unicast Route Entities code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def unicast_route_next_hop(self):
-        self.url = f"{ self.aci }/api/node/class/uribv4Nexthop.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Unicast Route Next Hop code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def unicast_routes(self):
-        self.url = f"{ self.aci }/api/node/class/uribv4Route.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Unicast Routes code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vlan_endpoint_encapsulation(self):
-        self.url = f"{ self.aci }/api/node/class/vlanCktEp.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<VLAN Endpoint Group Encapsulation code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vmm_controller_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/vmmCtrlrP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<VMM Controller Profiles code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vmm_domain_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/vmmDomP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<VMM Domain Profiles code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vmm_provider_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/vmmProvP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<VMM Provider Profiles code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vmm_user_profiles(self):
-        self.url = f"{ self.aci }/api/node/class/vmmUsrAccP.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<VMM User Profiles code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vpc_domains(self):
-        self.url = f"{ self.aci }/api/node/class/vpcDom.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<VPC Domains code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vpc_entities(self):
-        self.url = f"{ self.aci }/api/node/class/vpcEntity.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<VPC Entities code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vpc_interfaces(self):
-        self.url = f"{ self.aci }/api/node/class/vpcIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<VPC Interfaces code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vpc_instances(self):
-        self.url = f"{ self.aci }/api/node/class/vpcInst.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<VPC Instances code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vpc_configurations(self):
-        self.url = f"{ self.aci }/api/node/class/vpcRsVpcConf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<VPC Configurations code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vzAny(self):
-        self.url = f"{ self.aci }/api/node/class/vzAny.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<vzAny code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vzFilters(self):
-        self.url = f"{ self.aci }/api/node/class/vzFilter.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<vzFilters code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vzAny_to_consumers(self):
-        self.url = f"{ self.aci }/api/node/class/vzRsAnyToCons.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<vzAny To Consumers code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vzAny_to_providers(self):
-        self.url = f"{ self.aci }/api/node/class/vzRsAnyToProv.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<vzAny To Providers code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vzDeny(self):
-        self.url = f"{ self.aci }/api/node/class/vzRsDenyRule.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<vzDeny Rules code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vzInterface_source_relationships(self):
-        self.url = f"{ self.aci }/api/node/class/vzRsIf.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<vzInterface Source Relationships code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vz_subject_filter_attributes(self):
-        self.url = f"{ self.aci }/api/node/class/vzRsSubjFiltAtt.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<vzContract Subject Filter Attributes code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def contract_consumers_root(self):
-        self.url = f"{ self.aci }/api/node/class/vzRtCons.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Contract Consumers Root code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def contract_providers_root(self):
-        self.url = f"{ self.aci }/api/node/class/vzRtProv.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<Contract Providers Root code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vzRule_owner(self):
-        self.url = f"{ self.aci }/api/node/class/vzRuleOwner.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<vzRule Owner code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def vzTaboo(self):
-        self.url = f"{ self.aci }/api/node/class/vzTaboo.json"
-        response = requests.request("GET", self.url, cookies = self.cookie, verify=False)
-        print(f"<vzTaboo code { response.status_code } for { self.url }>")
-        response_dict  = response.json()
-        return response_dict
-
-    def json_file(self, parsed_json):
-        if "Tenant" in self.url:
-            with open('Tenant/JSON/Tenants.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "AEPg" in self.url:
-            with open('EPGs/JSON/EPGs.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fvBD" in self.url:
-            with open('Bridge Domains/JSON/Bridge Domains.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fvCtx" in self.url:
-            with open('Contexts/JSON/Contexts.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "Ap" in self.url:
-            with open('Application Profiles/JSON/Application Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3extOut" in self.url:
-            with open('L3Outs/JSON/L3Outs.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l2extOut" in self.url:
-            with open('L2Outs/JSON/L2Outs.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "topSystem" in self.url:
-            if "?" not in self.url:
-                with open('Top System/JSON/Top System.json', 'w' ) as f:
-                    f.write(parsed_json)
-
-        if "fvSubnet" in self.url:
-            with open('Subnets/JSON/Subnets.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fvCEp" in self.url:
-            with open('Endpoints/JSON/Endpoints.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fabricNode" in self.url:
-            with open('Fabric Nodes/JSON/Fabric Nodes.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l1PhysIf" in self.url:
-            with open('Physical Interfaces/JSON/Physical Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraAccPortP" in self.url:
-            with open('Leaf Interface Profiles/JSON/Leaf Interface Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraSpAccPortP" in self.url:
-            with open('Spine Interface Profiles/JSON/Spine Interface Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraNodeP" in self.url:
-            with open('Leaf Switch Profiles/JSON/Leaf Switch Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraSpineP" in self.url:
-            with open('Spine Switch Profiles/JSON/Spine Switch Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fvnsVlanInstP" in self.url:
-            with open('VLAN Pools/JSON/VLAN Pools.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraAttEntityP" in self.url:
-            with open('Attachable Access Entity Profiles/JSON/Attachable Access Entity Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vzBrCP" in self.url:
-            with open('Contracts/JSON/Contracts.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vzEntry" in self.url:
-            with open('vzEntries/JSON/vzEntries.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "physDomP" in self.url:
-            with open('Physical Domains/JSON/Physical Domains.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3extDomP" in self.url:
-            with open('L3 Domains/JSON/L3 Domains.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "qosClass" in self.url:
-            with open('QOS Classes/JSON/QOS Classes.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "faultSummary" in self.url:
-            with open('Fault Summary/JSON/Fault Summary.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "aaaModLR" in self.url:
-            with open('Audit Log/JSON/Audit Log.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fvIp" in self.url:
-            with open('IP Addresses/JSON/IP Addresses.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eventRecord" in self.url:
-            with open('Events/JSON/Events.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "licenseEntitlement" in self.url:
-            with open('License Entitlements/JSON/License Entitlements.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "bgpRRNodePEp" in self.url:
-            with open('BGP Route Reflectors/JSON/BGP Route Reflectors.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraPortS" in self.url:
-            with open('Interface Policies/JSON/Interface Policies.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraProfile" in self.url:
-            with open('Interface Profiles/JSON/Interface Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fabricPod" in self.url:
-            with open('Fabric Pods/JSON/Fabric Pods.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fabricPath" in self.url:
-            if "fabricPathEp" in self.url:
-                if "Cont" in self.url:
-                    with open('Fabric Path Endpoint Containers/JSON/Fabric Path Endpoint Containers.json', 'w' ) as f:
-                        f.write(parsed_json)
+    api_list = ["/api/node/class/fvTenant.json",
+                "/api/node/class/fvAEPg.json",
+                "/api/node/class/fvBD.json",
+                '/api/node/class/fvCtx.json',
+                '/api/node/class/fvAp.json',
+                '/api/node/class/l3extOut.json',
+                '/api/node/class/l2extOut.json',
+                '/api/node/class/topSystem.json',
+                '/api/node/class/fvSubnet.json',
+                '/api/node/class/fvCEp.json',
+                '/api/node/class/fabricNode.json',
+                '/api/node/class/infraAccPortP.json',
+                '/api/node/class/infraSpAccPortP.json',
+                '/api/node/class/infraNodeP.json',
+                '/api/node/class/infraSpineP.json',
+                '/api/node/class/fvnsVlanInstP.json',
+                '/api/node/class/infraAttEntityP.json',
+                '/api/node/class/vzBrCP.json',
+                '/api/node/class/vzEntry.json',
+                '/api/node/class/physDomP.json',
+                '/api/node/class/l3extDomP.json',
+                '/api/node/class/qosClass.json',
+                '/api/node/class/faultSummary.json',
+                '/api/node/class/aaaModLR.json',
+                '/api/node/class/fvIp.json',
+                #'/api/node/class/eventRecord.json',
+                '/api/node/class/licenseEntitlement.json',
+                '/api/node/class/bgpRRNodePEp.json',
+                '/api/node/class/infraPortS.json',
+                '/api/node/class/infraProfile.json',
+                '/api/node/class/fabricPod.json',
+                '/api/node/class/fabricPath.json',
+                '/api/node/class/fvTenant.json',
+                '/api/node/class/aaaUser.json',
+                '/api/node/class/aaaDomain.json',
+                '/api/node/class/vzSubj.json',
+                '/api/node/mo/topology/health.json',
+                '/api/node/class/pkiFabricNodeSSLCertificate.json',
+                '/api/node/class/topSystem.json?query-target=subtree&target-subtree-class=firmwareCtrlrRunning',
+                '/api/node/mo/topology/pod-1/node-1/av.json?query-target=children&target-subtree-class=infraWiNode',
+                '/api/node/class/vnsMDev.json',
+                '/api/node/class/cnwAggrIf.json',
+                '/api/node/class/l3Inst.json',
+                '/api/node/class/actrlEntity.json',
+                '/api/node/class/actrlInst.json',
+                '/api/node/class/actrlRule.json',
+                '/api/node/class/actrlScope.json',
+                '/api/node/class/cnwPhysIf.json',
+                '/api/node/class/compCtrlr.json',
+                '/api/node/class/compDom.json',
+                '/api/node/class/compEpPD.json',
+                '/api/node/class/compProv.json',
+                '/api/node/class/arpAdjEp.json',
+                '/api/node/class/arpDb.json',
+                '/api/node/class/arpDom.json',
+                '/api/node/class/arpEntity.json',
+                '/api/node/class/arpIf.json',
+                '/api/node/class/arpInst.json',
+                '/api/node/class/bgpDom.json',
+                '/api/node/class/bgpDomAf.json',
+                '/api/node/class/bgpEntity.json',
+                '/api/node/class/bgpInst.json',
+                '/api/node/class/bgpInstPol.json',
+                '/api/node/class/bgpPeer.json',
+                '/api/node/class/bgpPeerAfEntry.json',
+                '/api/node/class/bgpPeerEntry.json',
+                '/api/node/class/bgpRRP.json',
+                '/api/node/class/cdpAdjEp.json',
+                '/api/node/class/cdpEntity.json',
+                '/api/node/class/cdpIf.json',
+                '/api/node/class/cdpInst.json',
+                '/api/node/class/cdpIntfAddr.json',
+                '/api/node/class/cdpMgmtAddr.json',
+                '/api/node/class/cnwRsMbrIfs.json',
+                '/api/node/class/compRsDomP.json',
+                '/api/node/class/eqptBSlot.json',
+                '/api/node/class/eqptBoard.json',
+                '/api/node/class/eqptCPU.json',
+                '/api/node/class/eqptCh.json',
+                '/api/node/class/eqptDimm.json',
+                '/api/node/class/eqptExtCh.json',
+                '/api/node/class/eqptFabP.json',
+                '/api/node/class/eqptFan.json',
+                '/api/node/class/eqptFpga.json',
+                '/api/node/class/eqptFt.json',
+                '/api/node/class/eqptFtSlot.json',
+                '/api/node/class/eqptIndLed.json',
+                '/api/node/class/eqptLC.json',
+                '/api/node/class/eqptLCSlot.json',
+                '/api/node/class/eqptLeafP.json',
+                '/api/node/class/eqptLocLed.json',
+                '/api/node/class/eqptPsu.json',
+                '/api/node/class/eqptPsuSlot.json',
+                '/api/node/class/eqptRsIoPPhysConf.json',
+                '/api/node/class/eqptSensor.json',
+                '/api/node/class/eqptSpCmnBlk.json',
+                '/api/node/class/eqptSpromLc.json',
+                '/api/node/class/eqptSpromPsu.json',
+                '/api/node/class/eqptSpromPsuBlk.json',
+                '/api/node/class/eqptSpromSup.json',
+                '/api/node/class/eqptStorage.json',
+                '/api/node/class/eqptSupC.json',
+                '/api/node/class/eqptSupCSlot.json',
+                '/api/node/class/ethpmPhysIf.json',
+                '/api/node/class/fabricExtPathEpCont.json',
+                '/api/node/class/fabricInst.json',
+                '/api/node/class/fabricLink.json',
+                '/api/node/class/fabricLinkCont.json',
+                '/api/node/class/fabricLooseLink.json',
+                '/api/node/class/fabricLooseNode.json',
+                '/api/node/class/fabricPathEp.json',
+                '/api/node/class/fabricPathEpCont.json',
+                '/api/node/class/fabricProtPathEpCont.json',
+                '/api/node/class/fcEntity.json',
+                '/api/node/class/firmwareCardRunning.json',
+                '/api/node/class/firmwareCompRunning.json',
+                '/api/node/class/firmwareRunning.json',
+                '/api/node/class/fvEpPCont.json',
+                '/api/node/class/fvLocale.json',
+                '/api/node/class/fvRsBDToOut.json',
+                '/api/node/class/fvRsBd.json',
+                '/api/node/class/fvRsCEpToPathEp.json',
+                '/api/node/class/fvRsCons.json',
+                '/api/node/class/fvRsConsIf.json',
+                '/api/node/class/fvRsCtx.json',
+                '/api/node/class/fvRsDomAtt.json',
+                '/api/node/class/fvRsPathAtt.json',
+                '/api/node/class/fvRsProv.json',
+                '/api/node/class/fvRtBd.json',
+                '/api/node/class/fvRtCtx.json',
+                '/api/node/class/fvnsEncapBlk.json',
+                '/api/node/class/fvnsVlanInstP.json',
+                '/api/node/class/infraAccBndlGrp.json',
+                '/api/node/class/infraAccPortGrp.json',
+                '/api/node/class/infraAccPortP.json',
+                '/api/node/class/infraCont.json',
+                '/api/node/class/infraFexP.json',
+                '/api/node/class/infraFuncP.json',
+                '/api/node/class/infraHPortS.json',
+                '/api/node/class/infraPortBlk.json',
+                '/api/node/class/infraRsAccBaseGrp.json',
+                '/api/node/class/infraRsAttEntP.json',
+                '/api/node/class/infraRsDomP.json',
+                '/api/node/class/infraRsSpAccGrp.json',
+                '/api/node/class/infraRsVlanNs.json',
+                '/api/node/class/infraSHPortS.json',
+                '/api/node/class/infraSpAccPortP.json',
+                '/api/node/class/infraWiNode.json',
+                '/api/node/class/ipNexthopP.json',
+                '/api/node/class/ipRouteP.json',
+                '/api/node/class/ipv4Addr.json',
+                '/api/node/class/ipv4Dom.json',
+                '/api/node/class/ipv4Entity.json',
+                '/api/node/class/ipv4If.json',
+                '/api/node/class/ipv4Inst.json',
+                '/api/node/class/ipv4Nexthop.json',
+                '/api/node/class/ipv4Route.json',
+                '/api/node/class/isisAdjEp.json',
+                '/api/node/class/isisDTEp.json',
+                '/api/node/class/isisDom.json',
+                '/api/node/class/isisDomLvl.json',
+                '/api/node/class/isisEntity.json',
+                '/api/node/class/isisIf.json',
+                '/api/node/class/isisIfLvl.json',
+                '/api/node/class/isisInst.json',
+                '/api/node/class/isisNexthop.json',
+                '/api/node/class/isisRoute.json',
+                '/api/node/class/l2BD.json',
+                '/api/node/class/l2ExtIf.json',
+                '/api/node/class/l2RsEthIf.json',
+                '/api/node/class/l2extInstP.json',
+                '/api/node/class/l2extLIfP.json',
+                '/api/node/class/l2extLNodeP.json',
+                '/api/node/class/l2extRsEBd.json',
+                '/api/node/class/l2extRsPathL2OutAtt.json',
+                '/api/node/class/l3Ctx.json',
+                '/api/node/class/l3EncRtdIf.json',
+                '/api/node/class/l3Inst.json',
+                '/api/node/class/l3LbRtdIf.json',
+                '/api/node/class/l3RsEncPhysRtdConf.json',
+                '/api/node/class/l3RtdIf.json',
+                '/api/node/class/l3extInstP.json',
+                '/api/node/class/l3extIp.json',
+                '/api/node/class/l3extLIfP.json',
+                '/api/node/class/l3extLNodeP.json',
+                '/api/node/class/l3extMember.json',
+                '/api/node/class/l3extRsEctx.json',
+                '/api/node/class/l3extRsL3DomAtt.json',
+                '/api/node/class/l3extRsNodeL3OutAtt.json',
+                '/api/node/class/l3extRsPathL3OutAtt.json',
+                '/api/node/class/l3extSubnet.json',
+                '/api/node/class/lacpEntity.json',
+                '/api/node/class/lacpIf.json',
+                '/api/node/class/lacpInst.json',
+                '/api/node/class/leqptLooseNode.json',
+                '/api/node/class/leqptRsLsNodeToIf.json',
+                '/api/node/class/lldpAdjEp.json',
+                '/api/node/class/lldpEntity.json',
+                '/api/node/class/lldpIf.json',
+                '/api/node/class/lldpInst.json',
+                '/api/node/class/mgmtMgmtIf.json',
+                '/api/node/class/ospfAdjEp.json',
+                '/api/node/class/ospfArea.json',
+                '/api/node/class/ospfDb.json',
+                '/api/node/class/ospfDom.json',
+                '/api/node/class/ospfEntity.json',
+                '/api/node/class/ospfExtP.json',
+                '/api/node/class/ospfIf.json',
+                '/api/node/class/ospfInst.json',
+                '/api/node/class/ospfRoute.json',
+                '/api/node/class/ospfUcNexthop.json',
+                '/api/node/class/pcAggrIf.json',
+                '/api/node/class/pcRsMbrIfs.json',
+                '/api/node/class/sviIf.json',
+                '/api/node/class/tunnelIf.json',
+                '/api/node/class/uribv4Db.json',
+                '/api/node/class/uribv4Dom.json',
+                '/api/node/class/uribv4Entity.json',
+                '/api/node/class/uribv4Nexthop.json',
+                '/api/node/class/uribv4Route.json',
+                '/api/node/class/vlanCktEp.json',
+                '/api/node/class/vmmCtrlrP.json',
+                '/api/node/class/vmmDomP.json',
+                '/api/node/class/vmmProvP.json',
+                '/api/node/class/vmmUsrAccP.json',
+                '/api/node/class/vpcDom.json',
+                '/api/node/class/vpcEntity.json',
+                '/api/node/class/vpcIf.json',
+                '/api/node/class/vpcInst.json',
+                '/api/node/class/vpcRsVpcConf.json',
+                '/api/node/class/vzAny.json',
+                '/api/node/class/vzFilter.json',
+                '/api/node/class/vzRsAnyToCons.json',
+                '/api/node/class/vzRsAnyToProv.json',
+                '/api/node/class/vzRsDenyRule.json',
+                '/api/node/class/vzRsIf.json',
+                '/api/node/class/vzRsSubjFiltAtt.json',
+                '/api/node/class/vzRtCons.json',
+                '/api/node/class/vzRtProv.json',
+                '/api/node/class/vzRuleOwner.json',
+                '/api/node/class/vzTaboo.json'
+            ]
+
+    async def get_api(self, api_url):
+        async with aiohttp.ClientSession() as session:
+            async with session.get(f"{self.aci}{api_url}",cookies = self.cookie, verify_ssl=False) as resp:
+                response_dict = await resp.json()
+                print(f"{api_url} Status Code {resp.status}")
+                return (api_url,response_dict)
+
+    async def main(self):
+        results = await asyncio.gather(*(self.get_api(api_url) for api_url in self.api_list))
+        await self.all_files(json.dumps(results, indent=4, sort_keys=True))
+        results = await asyncio.gather((self.physical_interfaces()))
+        await self.all_files(json.dumps(results, indent=4, sort_keys=True))        
+        results = await asyncio.gather((self.prefix_list()))
+        await self.all_files(json.dumps(results, indent=4, sort_keys=True))        
+        results = await asyncio.gather((self.prefix_list_detailed()))
+        await self.all_files(json.dumps(results, indent=4, sort_keys=True))        
+        results = await asyncio.gather((self.tenant_health()))
+        await self.all_files(json.dumps(results, indent=4, sort_keys=True))
+
+
+    async def physical_interfaces(self):
+
+        async with aiohttp.ClientSession() as session:
+            api_url = f"{ self.aci }/api/node/class/fabricNode.json"
+            async with session.get(api_url,cookies = self.cookie, verify_ssl=False) as resp:
+                node_response_dict = await resp.json()
+                print(f"{api_url} Status Code {resp.status}")
+                physical_interfaces = []
+                for node in node_response_dict['imdata']:
+                    api_url = f"{self.aci}/api/node/class/{ node['fabricNode']['attributes']['dn']}/l1PhysIf.json"
+                    async with session.get(f"{self.aci}/api/node/class/{ node['fabricNode']['attributes']['dn']}/l1PhysIf.json",cookies = self.cookie, verify_ssl=False) as resp:                        
+                        print(f"{api_url} Status Code {resp.status}")
+                        response_dict  = await resp.json()
+                        physical_interfaces.append(response_dict['imdata'])
+                return(api_url,physical_interfaces)
+
+    async def prefix_list(self):
+
+        async with aiohttp.ClientSession() as session:
+            api_url = f"{ self.aci }/api/node/class/fvTenant.json"
+            async with session.get(api_url,cookies = self.cookie, verify_ssl=False) as resp:
+                print(f"{api_url} Status Code {resp.status}")
+                tenants  = await resp.json()
+                prefix_lists = []
+                for tenant in tenants['imdata']:
+                    api_url = f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
+                    async with session.get(f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }.json?query-target=subtree&target-subtree-class=rtctrlSubjP", cookies = self.cookie, verify_ssl=False) as resp:
+                        print(f"{api_url} Status Code {resp.status}")
+                        response_dict  = await resp.json()
+                        prefix_lists.append(response_dict['imdata'])
+                return(api_url,prefix_lists)
+
+    async def prefix_list_detailed(self):
+
+        async with aiohttp.ClientSession() as session:
+            api_url = f"{ self.aci }/api/node/class/fvTenant.json"
+            async with session.get(api_url,cookies = self.cookie, verify_ssl=False) as resp:
+                tenants  = await resp.json()
+                prefix_lists = []
+                ip_prefix_list_details = []
+                for tenant in tenants['imdata']:
+                    api_url = f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
+                    async with session.get(f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }.json?query-target=subtree&target-subtree-class=rtctrlSubjP", cookies = self.cookie, verify_ssl=False) as resp:
+                        response_dict  = await resp.json()
+                        prefix_lists.append(response_dict['imdata'])
+                        for item in prefix_lists:
+                            if item:
+                                for prefix in item:
+                                    api_url = f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }/subj-{ prefix['rtctrlSubjP']['attributes']['name']}.json?query-target=children&target-subtree-class=rtctrlMatchRtDest"
+                                    async with session.get(f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }/subj-{ prefix['rtctrlSubjP']['attributes']['name']}.json?query-target=children&target-subtree-class=rtctrlMatchRtDest", cookies = self.cookie, verify_ssl=False) as resp:
+                                        print(f"{api_url} Status Code {resp.status}")
+                                        response_dict  = await resp.json()
+                                        ip_prefix_list_details.append(response_dict['imdata'])
+                            else:
+                                print("No prefix lists")
+                        return(api_url,ip_prefix_list_details)
+
+    async def tenant_health(self):
+
+        async with aiohttp.ClientSession() as session:
+            api_url = f"{ self.aci }/api/node/class/fvTenant.json"
+            async with session.get(api_url,cookies = self.cookie, verify_ssl=False) as resp:
+                print(f"{api_url} Status Code {resp.status}")
+                tenants  = await resp.json()
+                tenant_health = []
+                for tenant in tenants['imdata']:
+                    api_url = f"{ self.aci }/api/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }/health.json"
+                    async with session.get(f"{ self.aci }/api/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }/health.json", cookies = self.cookie, verify_ssl=False) as resp:
+                        print(f"{api_url} Status Code {resp.status}")
+                        response_dict  = await resp.json()
+                        tenant_health.append(response_dict['imdata'])
+                        print(api_url)
+                return(api_url,tenant_health)
+
+    async def json_file(self, parsed_json):
+        for api, payload in json.loads(parsed_json):
+            if "Tenant" in api:
+                async with aiofiles.open('Tenant/JSON/Tenants.json', mode='w') as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "AEPg" in api:
+                async with aiofiles.open('EPGs/JSON/EPGs.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvBD" in api:
+                async with aiofiles.open('Bridge Domains/JSON/Bridge Domains.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvCtx" in api:
+                async with aiofiles.open('Contexts/JSON/Contexts.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "Ap" in api:
+                async with aiofiles.open('Application Profiles/JSON/Application Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3extOut" in api:
+                async with aiofiles.open('L3Outs/JSON/L3Outs.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l2extOut" in api:
+                async with aiofiles.open('L2Outs/JSON/L2Outs.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "topSystem" in api:
+                if "?" not in api:
+                    async with aiofiles.open('Top System/JSON/Top System.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvSubnet" in api:
+                async with aiofiles.open('Subnets/JSON/Subnets.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvCEp" in api:
+                async with aiofiles.open('Endpoints/JSON/Endpoints.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fabricNode" in api:
+                async with aiofiles.open('Fabric Nodes/JSON/Fabric Nodes.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l1PhysIf" in api:
+                async with aiofiles.open('Physical Interfaces/JSON/Physical Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload, indent=4, sort_keys=True))
+
+            if "infraAccPortP" in api:
+                async with aiofiles.open('Leaf Interface Profiles/JSON/Leaf Interface Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraSpAccPortP" in api:
+                async with aiofiles.open('Spine Interface Profiles/JSON/Spine Interface Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraNodeP" in api:
+                async with aiofiles.open('Leaf Switch Profiles/JSON/Leaf Switch Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraSpineP" in api:
+                async with aiofiles.open('Spine Switch Profiles/JSON/Spine Switch Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvnsVlanInstP" in api:
+                async with aiofiles.open('VLAN Pools/JSON/VLAN Pools.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraAttEntityP" in api:
+                async with aiofiles.open('Attachable Access Entity Profiles/JSON/Attachable Access Entity Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vzBrCP" in api:
+                async with aiofiles.open('Contracts/JSON/Contracts.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vzEntry" in api:
+                async with aiofiles.open('vzEntries/JSON/vzEntries.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "physDomP" in api:
+                async with aiofiles.open('Physical Domains/JSON/Physical Domains.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3extDomP" in api:
+                async with aiofiles.open('L3 Domains/JSON/L3 Domains.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "qosClass" in api:
+                async with aiofiles.open('QOS Classes/JSON/QOS Classes.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "faultSummary" in api:
+                async with aiofiles.open('Fault Summary/JSON/Fault Summary.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "aaaModLR" in api:
+                async with aiofiles.open('Audit Log/JSON/Audit Log.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvIp" in api:
+                async with aiofiles.open('IP Addresses/JSON/IP Addresses.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eventRecord" in api:
+                async with aiofiles.open('Events/JSON/Events.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "licenseEntitlement" in api:
+                async with aiofiles.open('License Entitlements/JSON/License Entitlements.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "bgpRRNodePEp" in api:
+                async with aiofiles.open('BGP Route Reflectors/JSON/BGP Route Reflectors.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraPortS" in api:
+                async with aiofiles.open('Interface Policies/JSON/Interface Policies.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraProfile" in api:
+                async with aiofiles.open('Interface Profiles/JSON/Interface Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fabricPod" in api:
+                async with aiofiles.open('Fabric Pods/JSON/Fabric Pods.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fabricPath" in api:
+                if "fabricPathEp" in api:
+                    if "Cont" in api:
+                        async with aiofiles.open('Fabric Path Endpoint Containers/JSON/Fabric Path Endpoint Containers.json', mode='w' ) as f:
+                            await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+                    else:
+                        async with aiofiles.open('Fabric Path Endpoints/JSON/Fabric Path Endpoints.json', mode='w' ) as f:
+                            await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
                 else:
-                    with open('Fabric Path Endpoints/JSON/Fabric Path Endpoints.json', 'w' ) as f:
-                        f.write(parsed_json)
-            else:
-                with open('Fabric Paths/JSON/Fabric Paths.json', 'w' ) as f:
-                    f.write(parsed_json)
-
-        if "rtctrlSubjP" in self.url:
-            with open('Prefix List/JSON/Prefix List.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "rtctrlMatchRtDest" in self.url:
-            with open('Prefix List Detailed/JSON/Prefix List Detailed.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "aaaUser" in self.url:
-            with open('Users/JSON/Users.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "aaaDomain" in self.url:
-            with open('Security Domains/JSON/Security Domains.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vzSubj" in self.url:
-            with open('Contract Subjects/JSON/Contract Subjects.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "topology/health" in self.url:
-            with open('Health/JSON/Health.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "pkiFabricNodeSSLCertificate" in self.url:
-            with open('Fabric Node SSL Certificates/JSON/Fabric Node SSL Certificates.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "tn-" and "health" in self.url:
-            with open('Tenant Health/JSON/Tenant Health.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "firmwareCtrlrRunning" in self.url:
-            with open('Fabric Membership/JSON/Fabric Membership.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraWiNode" in self.url:
-            with open('Cluster Health/JSON/Cluster Health.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vnsMDev" in self.url:
-            with open('Device Packages/JSON/Device Packages.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "cnwAggrIf" in self.url:
-            with open('Cluster Aggregate Interfaces/JSON/Cluster Aggregate Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3Inst" in self.url:
-            with open('L3 Interfaces/JSON/L3 Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "actrlEntity" in self.url:
-            with open('Access Control Entities/JSON/Access Control Entities.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "actrlInst" in self.url:
-            with open('Access Control Instances/JSON/Access Control Instances.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "actrlRule" in self.url:
-            with open('Access Control Rules/JSON/Access Control Rules.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "actrlScope" in self.url:
-            with open('Access Control Scopes/JSON/Access Control Scopes.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "cnwPhysIf" in self.url:
-            with open('Cluster Physical Interfaces/JSON/Cluster Physical Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "compCtrlr" in self.url:
-            with open('Compute Controllers/JSON/Compute Controllers.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "compDom" in self.url:
-            with open('Compute Domains/JSON/Compute Domains.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "compEpPD" in self.url:
-            with open('Compute Endpoint Policy Descriptions/JSON/Compute Endpoint Policy Descriptions.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "compProv" in self.url:
-            with open('Compute Providers/JSON/Compute Providers.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "arpAdjEp" in self.url:
-            with open('ARP Adjacency Endpoints/JSON/ARP Adjacency Endpoints.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "arpDb" in self.url:
-            with open('ARP Database/JSON/ARP Database.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "arpDom" in self.url:
-            with open('ARP Domain/JSON/ARP Domain.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "arpEntity" in self.url:
-            with open('ARP Entity/JSON/ARP Entity.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "arpIf" in self.url:
-            with open('ARP Interfaces/JSON/ARP Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "arpInst" in self.url:
-            with open('ARP Instances/JSON/ARP Instances.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "bgpDom" in self.url:
-            if "Af" in self.url:
-                with open('BGP Domain Address Families/JSON/BGP Domain Address Families.json', 'w' ) as f:
-                    f.write(parsed_json)
-            else:
-                with open('BGP Domains/JSON/BGP Domains.json', 'w' ) as f:
-                    f.write(parsed_json)
-
-        if "bgpEntity" in self.url:
-            with open('BGP Entities/JSON/BGP Entities.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "bgpInst" in self.url:
-            if "InstPol" in self.url:
-                with open('BGP Instances Policy/JSON/BGP Instances Policy.json', 'w' ) as f:
-                    f.write(parsed_json)
-            else:
-                with open('BGP Instances/JSON/BGP Instances.json', 'w' ) as f:
-                    f.write(parsed_json)
-
-        if "bgpPeer" in self.url:
-            if "bgpPeerAf" in self.url:
-                with open('BGP Peers AF Entries/JSON/BGP Peers AF Entries.json', 'w' ) as f:
-                    f.write(parsed_json)
-            elif "bgpPeerEntry" in self.url:
-                with open('BGP Peers Entries/JSON/BGP Peers Entries.json', 'w' ) as f:
-                    f.write(parsed_json)
-            else:
-                with open('BGP Peers/JSON/BGP Peers.json', 'w' ) as f:
-                    f.write(parsed_json)
-
-        if "bgpRRP" in self.url:
-            with open('BGP Route Reflector Policies/JSON/BGP Route Reflector Policies.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "cdpAdjEp" in self.url:
-            with open('CDP Adjacency Endpoints/JSON/CDP Adjacency Endpoints.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "cdpEntity" in self.url:
-            with open('CDP Entities/JSON/CDP Entities.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "cdpIf" in self.url:
-            with open('CDP Interfaces/JSON/CDP Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "cdpInst" in self.url:
-            with open('CDP Instances/JSON/CDP Instances.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "cdpIntfAddr" in self.url:
-            with open('CDP Interface Addresses/JSON/CDP Interface Addresses.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "cdpMgmtAddr" in self.url:
-            with open('CDP Management Addresses/JSON/CDP Management Addresses.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "cnwRsMbrIfs" in self.url:
-            with open('Cluster RS Member Interfaces/JSON/Cluster RS Member Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "compRsDomP" in self.url:
-            with open('Compute RS Domain Policies/JSON/Compute RS Domain Policies.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptBSlot" in self.url:
-            with open('Equipment Board Slots/JSON/Equipment Board Slots.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptBoard" in self.url:
-            with open('Equipment Boards/JSON/Equipment Boards.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptCPU" in self.url:
-            with open('Equipment CPUs/JSON/Equipment CPUs.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptCh" in self.url:
-            with open('Equipment Chassis/JSON/Equipment Chassis.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptDimm" in self.url:
-            with open('Equipment DIMMs/JSON/Equipment DIMMs.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptExtCh" in self.url:
-            with open('Equipment Fabric Extenders/JSON/Equipment Fabric Extenders.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptFabP" in self.url:
-            with open('Equipment Fabric Ports/JSON/Equipment Fabric Ports.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptFan" in self.url:
-            with open('Equipment Fans/JSON/Equipment Fans.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptFpga" in self.url:
-            with open('Equipment Field Programmable Gate Arrays/JSON/Equipment Field Programmable Gate Arrays.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptFt" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Fan Tray Slots/JSON/Equipment Fan Tray Slots.json', 'w' ) as f:
-                    f.write(parsed_json)
-            else:
-                with open('Equipment Fan Trays/JSON/Equipment Fan Trays.json', 'w' ) as f:
-                    f.write(parsed_json)
-
-        if "eqptIndLed" in self.url:
-            with open('Equipment Indicator LEDs/JSON/Equipment Indicator LEDs.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptLC" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Line Card Slots/JSON/Equipment Line Card Slots.json', 'w' ) as f:
-                    f.write(parsed_json)
-            else:
-                with open('Equipment Line Cards/JSON/Equipment Line Cards.json', 'w' ) as f:
-                    f.write(parsed_json)
-
-        if "eqptLeafP" in self.url:
-            with open('Equipment Leaf Ports/JSON/Equipment Leaf Ports.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptLocLed" in self.url:
-            with open('Equipment Port Locator LEDs/JSON/Equipment Port Locator LEDs.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptPsu" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Power Supply Slots/JSON/Equipment Power Supply Slots.json', 'w' ) as f:
-                    f.write(parsed_json)
-            else:
-                with open('Equipment Power Supplies/JSON/Equipment Power Supplies.json', 'w' ) as f:
-                    f.write(parsed_json)
-
-        if "eqptRsIoPPhysConf" in self.url:
-            with open('Equipment RS IO Port Physical Configs/JSON/Equipment RS IO Port Physical Configs.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptSensor" in self.url:
-            with open('Equipment Sensors/JSON/Equipment Sensors.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptSpCmnBlk" in self.url:
-            with open('Equipment SP Common Blocks/JSON/Equipment SP Common Blocks.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptSpromLc" in self.url:
-            with open('Equipment SPROM LCs/JSON/Equipment SPROM LCs.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptSpromPsu" in self.url:
-            if "Blk" in self.url:
-                with open('Equipment SPROM Power Supply Blocks/JSON/Equipment SPROM Power Supply Blocks.json', 'w' ) as f:
-                    f.write(parsed_json)
-            else: 
-                with open('Equipment SPROM Power Supplies/JSON/Equipment SPROM Power Supplies.json', 'w' ) as f:
-                    f.write(parsed_json)
-
-        if "eqptSpromSup" in self.url:
-            with open('Equipment SPROM Supervisors/JSON/Equipment SPROM Supervisors.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptStorage" in self.url:
-            with open('Equipment Storage/JSON/Equipment Storage.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "eqptSupC" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Supervisor Slots/JSON/Equipment Supervisor Slots.json', 'w' ) as f:
-                    f.write(parsed_json)
-            else:
-                with open('Equipment Supervisors/JSON/Equipment Supervisors.json', 'w' ) as f:
-                    f.write(parsed_json)
-
-        if "ethpmPhysIf" in self.url:
-            with open('Ethernet Port Manager Physical Interfaces/JSON/Ethernet Port Manager Physical Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fabricExtPathEpCont" in self.url:
-            with open('Fabric Extended Path Endpoint Containers/JSON/Fabric Extended Path Endpoint Containers.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fabricInst" in self.url:
-            with open('Fabric Instances/JSON/Fabric Instances.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fabricLink" in self.url:
-            if "Cont" in self.url:
-                with open('Fabric Link Containers/JSON/Fabric Link Containers.json', 'w' ) as f:
-                    f.write(parsed_json)
-            else:
-                with open('Fabric Links/JSON/Fabric Links.json', 'w' ) as f:
-                    f.write(parsed_json)
-
-        if "fabricLooseLink" in self.url:
-            with open('Fabric Loose Links/JSON/Fabric Loose Links.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fabricLooseNode" in self.url:
-            with open('Fabric Loose Nodes/JSON/Fabric Loose Nodes.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fabricProtPathEpCont" in self.url:
-            with open('Fabric Protected Path Endpoint Containers/JSON/Fabric Protected Path Endpoint Containers.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fcEntity" in self.url:
-            with open('Fibre Channel Entities/JSON/Fibre Channel Entities.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "firmwareCardRunning" in self.url:
-            with open('Firmware Card Running/JSON/Firmware Card Running.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "firmwareCompRunning" in self.url:
-            with open('Firmware Compute Running/JSON/Firmware Compute Running.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "firmwareRunning" in self.url:
-            with open('Firmware Running/JSON/Firmware Running.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fvEpPCont" in self.url:
-            with open('Endpoint Profile Containers/JSON/Endpoint Profile Containers.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fvLocale" in self.url:
-            with open('Locales/JSON/Locales.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fvRsBDToOut" in self.url:
-            with open('Bridge Domains To Outside/JSON/Bridge Domains To Outside.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fvRsBd" in self.url:
-            with open('EPG Bridge Domain Links/JSON/EPG Bridge Domain Links.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fvRsCons" in self.url:
-            if "If" in self.url:
-                with open('Contract Consumer Interfaces/JSON/Contract Consumer Interfaces.json', 'w' ) as f:
-                    f.write(parsed_json)
-            else:
-                with open('Contract Consumers/JSON/Contract Consumers.json', 'w' ) as f:
-                    f.write(parsed_json)
-
-        if "fvRsCtx" in self.url:
-            with open('Context Source Relationships/JSON/Context Source Relationships.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fvRsDomAtt" in self.url:
-            with open('Domain Attachments/JSON/Domain Attachments.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fvRsPathAtt" in self.url:
-            with open('Path Attachments/JSON/Path Attachments.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fvRsProv" in self.url:
-            with open('Contract Providers/JSON/Contract Providers.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fvRtBd" in self.url:
-            with open('Bridge Domains Target Relationships/JSON/Bridge Domains Target Relationships.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fvRtCtx" in self.url:
-            with open('Contexts Target Relationships/JSON/Contexts Target Relationships.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fvnsEncapBlk" in self.url:
-            with open('VLAN Encapsulation Blocks/JSON/VLAN Encapsulation Blocks.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "fvnsVlanInstP" in self.url:
-            with open('VLAN Namespace Policies/JSON/VLAN Namespace Policies.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraAccBndlGrp" in self.url:
-            with open('Access Bundle Groups/JSON/Access Bundle Groups.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraAccPortGrp" in self.url:
-            with open('Access Port Groups/JSON/Access Port Groups.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraAccPortP" in self.url:
-            with open('Access Port Profiles/JSON/Access Port Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraContr" in self.url:
-            with open('Controllers/JSON/Controllers.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraFexP" in self.url:
-            with open('FEX Policies/JSON/FEX Policies.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraFuncP" in self.url:
-            with open('Function Policies/JSON/Function Policies.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraHPortS" in self.url:
-            with open('Host Port Selectors/JSON/Host Port Selectors.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraPortBlk" in self.url:
-            with open('Port Blocks/JSON/Port Blocks.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraRsAccBaseGrp" in self.url:
-            with open('Access Policy Group Source Relationships/JSON/Access Policy Group Source Relationships.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraRsAttEntP" in self.url:
-            with open('Attachable Access Entity Profiles Source Relationships/JSON/Attachable Access Entity Profiles Source Relationships.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraRsDomP" in self.url:
-            with open('Domain Profile Source Relationships/JSON/Domain Profile Source Relationships.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraRsSpAccGrp" in self.url:
-            with open('Spine Access Policy Groups/JSON/Spine Access Policy Groups.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraRsVlanNs" in self.url:
-            with open('VLAN Namespace Source Relationships/JSON/VLAN Namespace Source Relationships.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraSHPortS" in self.url:
-            with open('Spine Host Port Selectors/JSON/Spine Host Port Selectors.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraSpAccPortP" in self.url:
-            with open('Spine Access Port Profiles/JSON/Spine Access Port Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "infraWiNode" in self.url:
-            with open('Wired Nodes/JSON/Wired Nodes.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ipNexthopP" in self.url:
-            with open('Static Route Next Hop Policies/JSON/Static Route Next Hop Policies.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ipRouteP" in self.url:
-            with open('Route Policies/JSON/Route Policies.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ipv4Addr" in self.url:
-            with open('IPv4 Addresses/JSON/IPv4 Addresses.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ipv4Dom" in self.url:
-            with open('IPv4 Domains/JSON/IPv4 Domains.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ipv4Entity" in self.url:
-            with open('IPv4 Entities/JSON/IPv4 Entities.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ipv4If" in self.url:
-            with open('IPv4 Interfaces/JSON/IPv4 Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ipv4Inst" in self.url:
-            with open('IPv4 Instances/JSON/IPv4 Instances.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ipv4Nexthop" in self.url:
-            with open('IPv4 Next Hop/JSON/IPv4 Next Hop.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ipv4Route" in self.url:
-            with open('IPv4 Routes/JSON/IPv4 Routes.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "isisAdjEp" in self.url:
-            with open('ISIS Adjacency Endpoints/JSON/ISIS Adjacency Endpoints.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "isisDTEp" in self.url:
-            with open('ISIS Discovered Tunnel Endpoints/JSON/ISIS Discovered Tunnel Endpoints.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "isisDom" in self.url:
-            if "Lvl" in self.url:
-                with open('ISIS Domains Level/JSON/ISIS Domains Level.json', 'w' ) as f:
-                    f.write(parsed_json)
-            else:
-                with open('ISIS Domains/JSON/ISIS Domains.json', 'w' ) as f:
-                    f.write(parsed_json)
-
-        if "isisEntity" in self.url:
-            with open('ISIS Entities/JSON/ISIS Entities.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "isisIf" in self.url:
-            if "Lvl" in self.url:
-                with open('ISIS Interfaces Level/JSON/ISIS Interfaces Level.json', 'w' ) as f:
-                    f.write(parsed_json)
-            else:
-                with open('ISIS Interfaces/JSON/ISIS Interfaces.json', 'w' ) as f:
-                    f.write(parsed_json)
-
-        if "isisInst" in self.url:
-            with open('ISIS Instances/JSON/ISIS Instances.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "isisNexthop" in self.url:
-            with open('ISIS Next Hop/JSON/ISIS Next Hop.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "isisRoute" in self.url:
-            with open('ISIS Routes/JSON/ISIS Routes.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l2BD" in self.url:
-            with open('L2 Bridge Domains/JSON/L2 Bridge Domains.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l2ExtIf" in self.url:
-            with open('L2 External Interfaces/JSON/L2 External Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l2RsEthIf" in self.url:
-            with open('L2 Interface Source Relationships/JSON/L2 Interface Source Relationships.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l2extInstP" in self.url:
-            with open('L2 External Instance Profiles/JSON/L2 External Instance Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l2extLIfP" in self.url:
-            with open('L2 External Logical Interface Profiles/JSON/L2 External Logical Interface Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l2extLNodeP" in self.url:
-            with open('L2 External Logical Node Profiles/JSON/L2 External Logical Node Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l2extRsEBd" in self.url:
-            with open('L2 EPG Bridge Domain Source Relationships/JSON/L2 EPG Bridge Domain Source Relationships.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l2extRsPathL2OutAtt" in self.url:
-            with open('L2Out Paths/JSON/L2Out Paths.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3Ctx" in self.url:
-            with open('L3 Contexts/JSON/L3 Contexts.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3EncRtdIf" in self.url:
-            with open('L3 Subinterfaces/JSON/L3 Subinterfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3Inst" in self.url:
-            with open('L3 Instances/JSON/L3 Instances.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3LbRtdIf" in self.url:
-            with open('L3 Routed Loopback Interfaces/JSON/L3 Routed Loopback Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3RsEncPhysRtdConf" in self.url:
-            with open('L3 Physical Interface Source Relationships/JSON/L3 Physical Interface Source Relationships.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3RtdIf" in self.url:
-            with open('L3 Routed Interfaces/JSON/L3 Routed Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3extInstP" in self.url:
-            with open('L3Out Profiles/JSON/L3Out Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3extIp" in self.url:
-            with open('L3Out IP Addresses/JSON/L3Out IP Addresses.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3extLIfP" in self.url:
-            with open('L3 Logical Interface Profiles/JSON/L3 Logical Interface Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3extLNodeP" in self.url:
-            with open('L3 Logical Node Profiles/JSON/L3 Logical Node Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3extMember" in self.url:
-            with open('L3Out Members/JSON/L3Out Members.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3extRsEctx" in self.url:
-            with open('L3 Contexts Source Relationships/JSON/L3 Contexts Source Relationships.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3extRsL3DomAtt" in self.url:
-            with open('L3 Domains Source Relationships/JSON/L3 Domains Source Relationships.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3extRsNodeL3OutAtt" in self.url:
-            with open('L3Out Node Source Relationships/JSON/L3Out Node Source Relationships.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3extRsPathL3OutAtt" in self.url:
-            with open('L3Out Path Source Relationships/JSON/L3Out Path Source Relationships.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "l3extSubnet" in self.url:
-            with open('L3 Subnets/JSON/L3 Subnets.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "lacpEntity" in self.url:
-            with open('LACP Entities/JSON/LACP Entities.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "lacpIf" in self.url:
-            with open('LACP Interfaces/JSON/LACP Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "lacpInst" in self.url:
-            with open('LACP Instances/JSON/LACP Instances.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "leqptLooseNode" in self.url:
-            with open('External Unmanaged Nodes/JSON/External Unmanaged Nodes.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "leqptRsLsNodeToIf" in self.url:
-            with open('External Unmanaged Nodes Interfaces/JSON/External Unmanaged Nodes Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "lldpAdjEp" in self.url:
-            with open('LLDP Adjacency Endpoints/JSON/LLDP Adjacency Endpoints.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "lldpEntity" in self.url:
-            with open('LLDP Entities/JSON/LLDP Entities.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "lldpIf" in self.url:
-            with open('LLDP Interfaces/JSON/LLDP Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "lldpInst" in self.url:
-            with open('LLDP Instances/JSON/LLDP Instances.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "mgmtMgmtIf" in self.url:
-            with open('Management Interfaces/JSON/Management Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ospfAdjEp" in self.url:
-            with open('OSPF Adjacency Endpoints/JSON/OSPF Adjacency Endpoints.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ospfArea" in self.url:
-            with open('OSPF Areas/JSON/OSPF Areas.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ospfDb" in self.url:
-            with open('OSPF Database/JSON/OSPF Database.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ospfDom" in self.url:
-            with open('OSPF Domains/JSON/OSPF Domains.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ospfEntity" in self.url:
-            with open('OSPF Entities/JSON/OSPF Entities.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ospfExtP" in self.url:
-            with open('OSPF External Profiles/JSON/OSPF External Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ospfIf" in self.url:
-            with open('OSPF Interfaces/JSON/OSPF Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ospfInst" in self.url:
-            with open('OSPF Instances/JSON/OSPF Instances.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ospfRoute" in self.url:
-            with open('OSPF Routes/JSON/OSPF Routes.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "ospfUcNexthop" in self.url:
-            with open('OSPF Unicast Next Hop/JSON/OSPF Unicast Next Hop.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "pcAggrIf" in self.url:
-            with open('Port Channel Aggregate Interfaces/JSON/Port Channel Aggregate Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "pcRsMbrIfs" in self.url:
-            with open('Port Channel Member Interfaces/JSON/Port Channel Member Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "sviIf" in self.url:
-            with open('SVIs/JSON/SVIs.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "tunnelIf" in self.url:
-            with open('Tunnel Interfaces/JSON/Tunnel Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "uribv4Db" in self.url:
-            with open('Unicast Route Database/JSON/Unicast Route Database.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "uribv4Dom" in self.url:
-            with open('Unicast Route Domains/JSON/Unicast Route Domains.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "uribv4Entity" in self.url:
-            with open('Unicast Route Entities/JSON/Unicast Route Entities.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "uribv4Nexthop" in self.url:
-            with open('Unicast Route Next Hop/JSON/Unicast Route Next Hop.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "uribv4Route" in self.url:
-            with open('Unicast Routes/JSON/Unicast Routes.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vlanCktEp" in self.url:
-            with open('VLAN Endpoint Group Encapsulation/JSON/VLAN Endpoint Group Encapsulation.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vmmCtrlrP" in self.url:
-            with open('VMM Controller Profiles/JSON/VMM Controller Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vmmDomP" in self.url:
-            with open('VMM Domain Profiles/JSON/VMM Domain Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vmmProvP" in self.url:
-            with open('VMM Provider Profiles/JSON/VMM Provider Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vmmUsrAccP" in self.url:
-            with open('VMM User Profiles/JSON/VMM User Profiles.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vpcDom" in self.url:
-            with open('VPC Domains/JSON/VPC Domains.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vpcEntity" in self.url:
-            with open('VPC Entities/JSON/VPC Entities.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vpcIf" in self.url:
-            with open('VPC Interfaces/JSON/VPC Interfaces.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vpcInst" in self.url:
-            with open('VPC Instances/JSON/VPC Instances.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vpcRsVpcConf" in self.url:
-            with open('VPC Configurations/JSON/VPC Configurations.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vzAny" in self.url:
-            with open('vzAny/JSON/vzAny.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vzFilter" in self.url:
-            with open('vzFilters/JSON/vzFilters.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vzRsAnyToCons" in self.url:
-            with open('vzAny To Consumers/JSON/vzAny To Consumers.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vzRsAnyToProv" in self.url:
-            with open('vzAny To Providers/JSON/vzAny To Providers.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vzRsDenyRule" in self.url:
-            with open('vzDeny Rules/JSON/vzDeny Rules.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vzRsIf" in self.url:
-            with open('vzInterface Source Relationships/JSON/vzInterface Source Relationships.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vzRsSubjFiltAtt" in self.url:
-            with open('Contract Subjects Filter Attributes/JSON/Contract Subjects Filter Attributes.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vzRtCons" in self.url:
-            with open('Contract Consumers Root/JSON/Contract Consumers Root.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vzRtProv" in self.url:
-            with open('Contract Providers Root/JSON/Contract Providers Root.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vzRuleOwner" in self.url:
-            with open('vzRule Owner/JSON/vzRule Owner.json', 'w' ) as f:
-                f.write(parsed_json)
-
-        if "vzTaboo" in self.url:
-            with open('vzTaboo/JSON/vzTaboo.json', 'w' ) as f:
-                f.write(parsed_json)
-
-    def yaml_file(self, parsed_json):
-        clean_yaml = yaml.dump(json.loads(parsed_json), default_flow_style=False)
-        if "Tenant" in self.url:
-            with open('Tenant/YAML/Tenants.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "AEPg" in self.url:
-            with open('EPGs/YAML/EPGs.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvBD" in self.url:
-            with open('Bridge Domains/YAML/Bridge Domains.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvCtx" in self.url:
-            with open('Contexts/YAML/Contexts.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "Ap" in self.url:
-            with open('Application Profiles/YAML/Application Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3extOut" in self.url:
-            with open('L3Outs/YAML/L3Outs.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l2extOut" in self.url:
-            with open('L2Outs/YAML/L2Outs.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "topSystem" in self.url:
-            if "?" not in self.url:
-                with open('Top System/YAML/Top System.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-
-        if "fvSubnet" in self.url:
-            with open('Subnets/YAML/Subnets.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvCEp" in self.url:
-            with open('Endpoints/YAML/Endpoints.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fabricNode" in self.url:
-            with open('Fabric Nodes/YAML/Fabric Nodes.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l1PhysIf" in self.url:
-            with open('Physical Interfaces/YAML/Physical Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraAccPortP" in self.url:
-            with open('Leaf Interface Profiles/YAML/Leaf Interface Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraSpAccPortP" in self.url:
-            with open('Spine Interface Profiles/YAML/Spine Interface Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraNodeP" in self.url:
-            with open('Leaf Switch Profiles/YAML/Leaf Switch Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraSpineP" in self.url:
-            with open('Spine Switch Profiles/YAML/Spine Switch Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvnsVlanInstP" in self.url:
-            with open('VLAN Pools/YAML/VLAN Pools.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraAttEntityP" in self.url:
-            with open('Attachable Access Entity Profiles/YAML/Attachable Access Entity Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vzBrCP" in self.url:
-            with open('Contracts/YAML/Contracts.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vzEntry" in self.url:
-            with open('vzEntries/YAML/vzEntries.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "physDomP" in self.url:
-            with open('Physical Domains/YAML/Physical Domains.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3extDomP" in self.url:
-            with open('L3 Domains/YAML/L3 Domains.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "qosClass" in self.url:
-            with open('QOS Classes/YAML/QOS Classes.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "faultSummary" in self.url:
-            with open('Fault Summary/YAML/Fault Summary.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "aaaModLR" in self.url:
-            with open('Audit Log/YAML/Audit Log.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvIp" in self.url:
-            with open('IP Addresses/YAML/IP Addresses.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eventRecord" in self.url:
-            with open('Events/YAML/Events.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "licenseEntitlement" in self.url:
-            with open('License Entitlements/YAML/License Entitlements.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "bgpRRNodePEp" in self.url:
-            with open('BGP Route Reflectors/YAML/BGP Route Reflectors.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraPortS" in self.url:
-            with open('Interface Policies/YAML/Interface Policies.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraProfile" in self.url:
-            with open('Interface Profiles/YAML/Interface Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fabricPod" in self.url:
-            with open('Fabric Pods/YAML/Fabric Pods.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fabricPath" in self.url:
-            if "fabricPathEp" in self.url:
-                if "Cont" in self.url:
-                    with open('Fabric Path Endpoint Containers/YAML/Fabric Path Endpoint Containers.yaml', 'w' ) as f:
-                        f.write(clean_yaml)
+                    async with aiofiles.open('Fabric Paths/JSON/Fabric Paths.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "rtctrlSubjP" in api:
+                async with aiofiles.open('Prefix List/JSON/Prefix List.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload, indent=4, sort_keys=True))
+
+            if "rtctrlMatchRtDest" in api:
+                async with aiofiles.open('Prefix List Detailed/JSON/Prefix List Detailed.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload, indent=4, sort_keys=True))
+
+            if "aaaUser" in api:
+                async with aiofiles.open('Users/JSON/Users.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "aaaDomain" in api:
+                async with aiofiles.open('Security Domains/JSON/Security Domains.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vzSubj" in api:
+                async with aiofiles.open('Contract Subjects/JSON/Contract Subjects.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "topology/health" in api:
+                async with aiofiles.open('Health/JSON/Health.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "pkiFabricNodeSSLCertificate" in api:
+                async with aiofiles.open('Fabric Node SSL Certificates/JSON/Fabric Node SSL Certificates.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "tn-" in api:
+                if "health" in api:
+                    async with aiofiles.open('Tenant Health/JSON/Tenant Health.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload, indent=4, sort_keys=True))
+
+            if "firmwareCtrlrRunning" in api:
+                async with aiofiles.open('Fabric Membership/JSON/Fabric Membership.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraWiNode" in api:
+                async with aiofiles.open('Cluster Health/JSON/Cluster Health.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vnsMDev" in api:
+                async with aiofiles.open('Device Packages/JSON/Device Packages.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "cnwAggrIf" in api:
+                async with aiofiles.open('Cluster Aggregate Interfaces/JSON/Cluster Aggregate Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3Inst" in api:
+                async with aiofiles.open('L3 Interfaces/JSON/L3 Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "actrlEntity" in api:
+                async with aiofiles.open('Access Control Entities/JSON/Access Control Entities.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "actrlInst" in api:
+                async with aiofiles.open('Access Control Instances/JSON/Access Control Instances.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "actrlRule" in api:
+                async with aiofiles.open('Access Control Rules/JSON/Access Control Rules.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "actrlScope" in api:
+                async with aiofiles.open('Access Control Scopes/JSON/Access Control Scopes.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "cnwPhysIf" in api:
+                async with aiofiles.open('Cluster Physical Interfaces/JSON/Cluster Physical Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "compCtrlr" in api:
+                async with aiofiles.open('Compute Controllers/JSON/Compute Controllers.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "compDom" in api:
+                async with aiofiles.open('Compute Domains/JSON/Compute Domains.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "compEpPD" in api:
+                async with aiofiles.open('Compute Endpoint Policy Descriptions/JSON/Compute Endpoint Policy Descriptions.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "compProv" in api:
+                async with aiofiles.open('Compute Providers/JSON/Compute Providers.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "arpAdjEp" in api:
+                async with aiofiles.open('ARP Adjacency Endpoints/JSON/ARP Adjacency Endpoints.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "arpDb" in api:
+                async with aiofiles.open('ARP Database/JSON/ARP Database.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "arpDom" in api:
+                async with aiofiles.open('ARP Domain/JSON/ARP Domain.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "arpEntity" in api:
+                async with aiofiles.open('ARP Entity/JSON/ARP Entity.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "arpIf" in api:
+                async with aiofiles.open('ARP Interfaces/JSON/ARP Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "arpInst" in api:
+                async with aiofiles.open('ARP Instances/JSON/ARP Instances.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "bgpDom" in api:
+                if "Af" in api:
+                    async with aiofiles.open('BGP Domain Address Families/JSON/BGP Domain Address Families.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
                 else:
-                    with open('Fabric Path Endpoints/YAML/Fabric Path Endpoints.yaml', 'w' ) as f:
-                        f.write(clean_yaml)
-            else:
-                with open('Fabric Paths/YAML/Fabric Paths.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-
-        if "rtctrlSubjP" in self.url:
-            with open('Prefix List/YAML/Prefix List.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "rtctrlMatchRtDest" in self.url:
-            with open('Prefix List Detailed/YAML/Prefix List Detailed.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "aaaUser" in self.url:
-            with open('Users/YAML/Users.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "aaaDomain" in self.url:
-            with open('Security Domains/YAML/Security Domains.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vzSubj" in self.url:
-            with open('Contract Subjects/YAML/Contract Subjects.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "health" in self.url:
-            with open('Health/YAML/Health.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "pkiFabricNodeSSLCertificate" in self.url:
-            with open('Fabric Node SSL Certificates/YAML/Fabric Node SSL Certificates.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "tn-" and "health" in self.url:
-            with open('Tenant Health/YAML/Tenant Health.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "firmwareCtrlrRunning" in self.url:
-            with open('Fabric Membership/YAML/Fabric Membership.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraWiNode" in self.url:
-            with open('Cluster Health/YAML/Cluster Health.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vnsMDev" in self.url:
-            with open('Device Packages/YAML/Device Packages.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "cnwAggrIf" in self.url:
-            with open('Cluster Aggregate Interfaces/YAML/Cluster Aggregate Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3Inst" in self.url:
-            with open('L3 Interfaces/YAML/L3 Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "actrlEntity" in self.url:
-            with open('Access Control Entities/YAML/Access Control Entities.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "actrlInst" in self.url:
-            with open('Access Control Instances/YAML/Access Control Instances.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "actrlRule" in self.url:
-            with open('Access Control Rules/YAML/Access Control Rules.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "actrlScope" in self.url:
-            with open('Access Control Scopes/YAML/Access Control Scopes.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "cnwPhysIf" in self.url:
-            with open('Cluster Physical Interfaces/YAML/Cluster Physical Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "compCtrlr" in self.url:
-            with open('Compute Controllers/YAML/Compute Controllers.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "compDom" in self.url:
-            with open('Compute Domains/YAML/Compute Domains.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "compEpPD" in self.url:
-            with open('Compute Endpoint Policy Descriptions/YAML/Compute Endpoint Policy Descriptions.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "compProv" in self.url:
-            with open('Compute Providers/YAML/Compute Providers.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "arpAdjEp" in self.url:
-            with open('ARP Adjacency Endpoints/YAML/ARP Adjacency Endpoints.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "arpDb" in self.url:
-            with open('ARP Database/YAML/ARP Database.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "arpDom" in self.url:
-            with open('ARP Domain/YAML/ARP Domain.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "arpEntity" in self.url:
-            with open('ARP Entity/YAML/ARP Entity.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "arpIf" in self.url:
-            with open('ARP Interfaces/YAML/ARP Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "arpInst" in self.url:
-            with open('ARP Instances/YAML/ARP Instances.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "bgpDom" in self.url:
-            if "Af" in self.url:
-                with open('BGP Domain Address Families/YAML/BGP Domain Address Families.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-            else:
-                with open('BGP Domains/YAML/BGP Domains.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-
-        if "bgpEntity" in self.url:
-            with open('BGP Entities/YAML/BGP Entities.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "bgpInst" in self.url:
-            if "InstPol" in self.url:
-                with open('BGP Instances Policy/YAML/BGP Instances Policy.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-            else:
-                with open('BGP Instances/YAML/BGP Instances.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-
-        if "bgpPeer" in self.url:
-            if "bgpPeerAf" in self.url:
-                with open('BGP Peers AF Entries/YAML/BGP Peers AF Entries.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-            elif "bgpPeerEntry" in self.url:
-                with open('BGP Peers Entries/YAML/BGP Peers Entries.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-            else:
-                with open('BGP Peers/YAML/BGP Peers.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-
-        if "bgpRRP" in self.url:
-            with open('BGP Route Reflector Policies/YAML/BGP Route Reflector Policies.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "cdpAdjEp" in self.url:
-            with open('CDP Adjacency Endpoints/YAML/CDP Adjacency Endpoints.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "cdpEntity" in self.url:
-            with open('CDP Entities/YAML/CDP Entities.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "cdpIf" in self.url:
-            with open('CDP Interfaces/YAML/CDP Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "cdpInst" in self.url:
-            with open('CDP Instances/YAML/CDP Instances.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "cdpIntfAddr" in self.url:
-            with open('CDP Interface Addresses/YAML/CDP Interface Addresses.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "cdpMgmtAddr" in self.url:
-            with open('CDP Management Addresses/YAML/CDP Management Addresses.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "cnwRsMbrIfs" in self.url:
-            with open('Cluster RS Member Interfaces/YAML/Cluster RS Member Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "compRsDomP" in self.url:
-            with open('Compute RS Domain Policies/YAML/Compute RS Domain Policies.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptBSlot" in self.url:
-            with open('Equipment Board Slots/YAML/Equipment Board Slots.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptBoard" in self.url:
-            with open('Equipment Boards/YAML/Equipment Boards.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptCPU" in self.url:
-            with open('Equipment CPUs/YAML/Equipment CPUs.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptCh" in self.url:
-            with open('Equipment Chassis/YAML/Equipment Chassis.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptDimm" in self.url:
-            with open('Equipment DIMMs/YAML/Equipment DIMMs.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptExtCh" in self.url:
-            with open('Equipment Fabric Extenders/YAML/Equipment Fabric Extenders.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptFabP" in self.url:
-            with open('Equipment Fabric Ports/YAML/Equipment Fabric Ports.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptFan" in self.url:
-            with open('Equipment Fans/YAML/Equipment Fans.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptFpga" in self.url:
-            with open('Equipment Field Programmable Gate Arrays/YAML/Equipment Field Programmable Gate Arrays.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptFt" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Fan Tray Slots/YAML/Equipment Fan Tray Slots.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-            else:
-                with open('Equipment Fan Trays/YAML/Equipment Fan Trays.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-
-        if "eqptIndLed" in self.url:
-            with open('Equipment Indicator LEDs/YAML/Equipment Indicator LEDs.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptLC" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Line Card Slots/YAML/Equipment Line Card Slots.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-            else:
-                with open('Equipment Line Cards/YAML/Equipment Line Cards.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-
-        if "eqptLeafP" in self.url:
-            with open('Equipment Leaf Ports/YAML/Equipment Leaf Ports.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptLocLed" in self.url:
-            with open('Equipment Port Locator LEDs/YAML/Equipment Port Locator LEDs.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptPsu" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Power Supply Slots/YAML/Equipment Power Supply Slots.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-            else:
-                with open('Equipment Power Supplies/YAML/Equipment Power Supplies.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-
-        if "eqptRsIoPPhysConf" in self.url:
-            with open('Equipment RS IO Port Physical Configs/YAML/Equipment RS IO Port Physical Configs.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptSensor" in self.url:
-            with open('Equipment Sensors/YAML/Equipment Sensors.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptSpCmnBlk" in self.url:
-            with open('Equipment SP Common Blocks/YAML/Equipment SP Common Blocks.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptSpromLc" in self.url:
-            with open('Equipment SPROM LCs/YAML/Equipment SPROM LCs.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptSpromPsu" in self.url:
-            if "Blk" in self.url:
-                with open('Equipment SPROM Power Supply Blocks/YAML/Equipment SPROM Power Supply Blocks.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-            else:            
-                with open('Equipment SPROM Power Supplies/YAML/Equipment SPROM Power Supplies.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-
-        if "eqptSpromSup" in self.url:
-            with open('Equipment SPROM Supervisors/YAML/Equipment SPROM Supervisors.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptStorage" in self.url:
-            with open('Equipment Storage/YAML/Equipment Storage.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "eqptSupC" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Supervisor Slots/YAML/Equipment Supervisor Slots.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-            else:
-                with open('Equipment Supervisors/YAML/Equipment Supervisors.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-
-        if "ethpmPhysIf" in self.url:
-            with open('Ethernet Port Manager Physical Interfaces/YAML/Ethernet Port Manager Physical Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fabricExtPathEpCont" in self.url:
-            with open('Fabric Extended Path Endpoint Containers/YAML/Fabric Extended Path Endpoint Containers.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fabricInst" in self.url:
-            with open('Fabric Instances/YAML/Fabric Instances.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fabricLink" in self.url:
-            if "Cont" in self.url:
-                with open('Fabric Link Containers/YAML/Fabric Link Containers.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-            else:
-                with open('Fabric Links/YAML/Fabric Links.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-
-        if "fabricLooseLink" in self.url:
-            with open('Fabric Loose Links/YAML/Fabric Loose Links.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fabricLooseNode" in self.url:
-            with open('Fabric Loose Nodes/YAML/Fabric Loose Nodes.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fabricProtPathEpCont" in self.url:
-            with open('Fabric Protected Path Endpoint Containers/YAML/Fabric Protected Path Endpoint Containers.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fcEntity" in self.url:
-            with open('Fibre Channel Entities/YAML/Fibre Channel Entities.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "firmwareCardRunning" in self.url:
-            with open('Firmware Card Running/YAML/Firmware Card Running.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "firmwareCompRunning" in self.url:
-            with open('Firmware Compute Running/YAML/Firmware Compute Running.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "firmwareRunning" in self.url:
-            with open('Firmware Running/YAML/Firmware Running.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvEpPCont" in self.url:
-            with open('Endpoint Profile Containers/YAML/Endpoint Profile Containers.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvLocale" in self.url:
-            with open('Locales/YAML/Locales.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvRsBDToOut" in self.url:
-            with open('Bridge Domains To Outside/YAML/Bridge Domains To Outside.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvRsBd" in self.url:
-            with open('EPG Bridge Domain Links/YAML/EPG Bridge Domain Links.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvRsCEpToPathEp" in self.url:
-            with open('Endpoints To Paths/YAML/Endpoints To Paths.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvRsCons" in self.url:
-            if "If" in self.url:
-                with open('Contract Consumer Interfaces/YAML/Contract Consumer Interfaces.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-            else:
-                with open('Contract Consumers/YAML/Contract Consumers.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-
-        if "fvRsCtx" in self.url:
-            with open('Context Source Relationships/YAML/Context Source Relationships.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvRsDomAtt" in self.url:
-            with open('Domain Attachments/YAML/Domain Attachments.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvRsPathAtt" in self.url:
-            with open('Path Attachments/YAML/Path Attachments.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvRsProv" in self.url:
-            with open('Contract Providers/YAML/Contract Providers.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvRtBd" in self.url:
-            with open('Bridge Domains Target Relationships/YAML/Bridge Domains Target Relationships.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvRtCtx" in self.url:
-            with open('Contexts Target Relationships/YAML/Contexts Target Relationships.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvnsEncapBlk" in self.url:
-            with open('VLAN Encapsulation Blocks/YAML/VLAN Encapsulation Blocks.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "fvnsVlanInstP" in self.url:
-            with open('VLAN Namespace Policies/YAML/VLAN Namespace Policies.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraAccBndlGrp" in self.url:
-            with open('Access Bundle Groups/YAML/Access Bundle Groups.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraAccPortGrp" in self.url:
-            with open('Access Port Groups/YAML/Access Port Groups.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraAccPortP" in self.url:
-            with open('Access Port Profiles/YAML/Access Port Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraContr" in self.url:
-            with open('Controllers/YAML/Controllers.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraFexP" in self.url:
-            with open('FEX Policies/YAML/FEX Policies.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraFuncP" in self.url:
-            with open('Function Policies/YAML/Function Policies.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraHPortS" in self.url:
-            with open('Host Port Selectors/YAML/Host Port Selectors.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraPortBlk" in self.url:
-            with open('Port Blocks/YAML/Port Blocks.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraRsAccBaseGrp" in self.url:
-            with open('Access Policy Group Source Relationships/YAML/Access Policy Group Source Relationships.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraRsAttEntP" in self.url:
-            with open('Attachable Access Entity Profiles Source Relationships/YAML/Attachable Access Entity Profiles Source Relationships.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraRsDomP" in self.url:
-            with open('Domain Profile Source Relationships/YAML/Domain Profile Source Relationships.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraRsSpAccGrp" in self.url:
-            with open('Spine Access Policy Groups/YAML/Spine Access Policy Groups.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraRsVlanNs" in self.url:
-            with open('VLAN Namespace Source Relationships/YAML/VLAN Namespace Source Relationships.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraSHPortS" in self.url:
-            with open('Spine Host Port Selectors/YAML/Spine Host Port Selectors.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraSpAccPortP" in self.url:
-            with open('Spine Access Port Profiles/YAML/Spine Access Port Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "infraWiNode" in self.url:
-            with open('Wired Nodes/YAML/Wired Nodes.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ipNexthopP" in self.url:
-            with open('Static Route Next Hop Policies/YAML/Static Route Next Hop Policies.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ipRouteP" in self.url:
-            with open('Route Policies/YAML/Route Policies.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ipv4Addr" in self.url:
-            with open('IPv4 Addresses/YAML/IPv4 Addresses.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ipv4Dom" in self.url:
-            with open('IPv4 Domains/YAML/IPv4 Domains.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ipv4Entity" in self.url:
-            with open('IPv4 Entities/YAML/IPv4 Entities.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ipv4If" in self.url:
-            with open('IPv4 Interfaces/YAML/IPv4 Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ipv4Inst" in self.url:
-            with open('IPv4 Instances/YAML/IPv4 Instances.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ipv4Nexthop" in self.url:
-            with open('IPv4 Next Hop/YAML/IPv4 Next Hop.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ipv4Route" in self.url:
-            with open('IPv4 Routes/YAML/IPv4 Routes.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "isisAdjEp" in self.url:
-            with open('ISIS Adjacency Endpoints/YAML/ISIS Adjacency Endpoints.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "isisDTEp" in self.url:
-            with open('ISIS Discovered Tunnel Endpoints/YAML/ISIS Discovered Tunnel Endpoints.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "isisDom" in self.url:
-            if "Lvl" in self.url:
-                with open('ISIS Domains Level/YAML/ISIS Domains Level.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-            else:
-                with open('ISIS Domains/YAML/ISIS Domains.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-
-        if "isisEntity" in self.url:
-            with open('ISIS Entities/YAML/ISIS Entities.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "isisIf" in self.url:
-            if "Lvl" in self.url:
-                with open('ISIS Interfaces Level/YAML/ISIS Interfaces Level.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-            else:
-                with open('ISIS Interfaces/YAML/ISIS Interfaces.yaml', 'w' ) as f:
-                    f.write(clean_yaml)
-
-        if "isisInst" in self.url:
-            with open('ISIS Instances/YAML/ISIS Instances.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "isisNexthop" in self.url:
-            with open('ISIS Next Hop/YAML/ISIS Next Hop.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "isisRoute" in self.url:
-            with open('ISIS Routes/YAML/ISIS Routes.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l2BD" in self.url:
-            with open('L2 Bridge Domains/YAML/L2 Bridge Domains.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l2ExtIf" in self.url:
-            with open('L2 External Interfaces/YAML/L2 External Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l2RsEthIf" in self.url:
-            with open('L2 Interface Source Relationships/YAML/L2 Interface Source Relationships.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l2extInstP" in self.url:
-            with open('L2 External Instance Profiles/YAML/L2 External Instance Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l2extLIfP" in self.url:
-            with open('L2 External Logical Interface Profiles/YAML/L2 External Logical Interface Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l2extLNodeP" in self.url:
-            with open('L2 External Logical Node Profiles/YAML/L2 External Logical Node Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l2extRsEBd" in self.url:
-            with open('L2 EPG Bridge Domain Source Relationships/YAML/L2 EPG Bridge Domain Source Relationships.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l2extRsPathL2OutAtt" in self.url:
-            with open('L2Out Paths/YAML/L2Out Paths.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3Ctx" in self.url:
-            with open('L3 Contexts/YAML/L3 Contexts.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3EncRtdIf" in self.url:
-            with open('L3 Subinterfaces/YAML/L3 Subinterfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3Inst" in self.url:
-            with open('L3 Instances/YAML/L3 Instances.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3LbRtdIf" in self.url:
-            with open('L3 Routed Loopback Interfaces/YAML/L3 Routed Loopback Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3RsEncPhysRtdConf" in self.url:
-            with open('L3 Physical Interface Source Relationships/YAML/L3 Physical Interface Source Relationships.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3RtdIf" in self.url:
-            with open('L3 Routed Interfaces/YAML/L3 Routed Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3extInstP" in self.url:
-            with open('L3Out Profiles/YAML/L3Out Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3extIp" in self.url:
-            with open('L3Out IP Addresses/YAML/L3Out IP Addresses.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3extLIfP" in self.url:
-            with open('L3 Logical Interface Profiles/YAML/L3 Logical Interface Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3extLNodeP" in self.url:
-            with open('L3 Logical Node Profiles/YAML/L3 Logical Node Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3extMember" in self.url:
-            with open('L3Out Members/YAML/L3Out Members.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3extRsEctx" in self.url:
-            with open('L3 Contexts Source Relationships/YAML/L3 Contexts Source Relationships.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3extRsL3DomAtt" in self.url:
-            with open('L3 Domains Source Relationships/YAML/L3 Domains Source Relationships.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3extRsNodeL3OutAtt" in self.url:
-            with open('L3Out Node Source Relationships/YAML/L3Out Node Source Relationships.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3extRsPathL3OutAtt" in self.url:
-            with open('L3Out Path Source Relationships/YAML/L3Out Path Source Relationships.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "l3extSubnet" in self.url:
-            with open('L3 Subnets/YAML/L3 Subnets.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "lacpEntity" in self.url:
-            with open('LACP Entities/YAML/LACP Entities.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "lacpIf" in self.url:
-            with open('LACP Interfaces/YAML/LACP Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "lacpInst" in self.url:
-            with open('LACP Instances/YAML/LACP Instances.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "leqptLooseNode" in self.url:
-            with open('External Unmanaged Nodes/YAML/External Unmanaged Nodes.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "leqptRsLsNodeToIf" in self.url:
-            with open('External Unmanaged Nodes Interfaces/YAML/External Unmanaged Nodes Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "lldpAdjEp" in self.url:
-            with open('LLDP Adjacency Endpoints/YAML/LLDP Adjacency Endpoints.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "lldpEntity" in self.url:
-            with open('LLDP Entities/YAML/LLDP Entities.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "lldpIf" in self.url:
-            with open('LLDP Interfaces/YAML/LLDP Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "lldpInst" in self.url:
-            with open('LLDP Instances/YAML/LLDP Instances.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "mgmtMgmtIf" in self.url:
-            with open('Management Interfaces/YAML/Management Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ospfAdjEp" in self.url:
-            with open('OSPF Adjacency Endpoints/YAML/OSPF Adjacency Endpoints.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ospfArea" in self.url:
-            with open('OSPF Areas/YAML/OSPF Areas.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ospfDb" in self.url:
-            with open('OSPF Database/YAML/OSPF Database.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ospfDom" in self.url:
-            with open('OSPF Domains/YAML/OSPF Domains.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ospfEntity" in self.url:
-            with open('OSPF Entities/YAML/OSPF Entities.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ospfExtP" in self.url:
-            with open('OSPF External Profiles/YAML/OSPF External Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ospfIf" in self.url:
-            with open('OSPF Interfaces/YAML/OSPF Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ospfInst" in self.url:
-            with open('OSPF Instances/YAML/OSPF Instances.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ospfRoute" in self.url:
-            with open('OSPF Routes/YAML/OSPF Routes.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "ospfUcNexthop" in self.url:
-            with open('OSPF Unicast Next Hop/YAML/OSPF Unicast Next Hop.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "pcAggrIf" in self.url:
-            with open('Port Channel Aggregate Interfaces/YAML/Port Channel Aggregate Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "pcRsMbrIfs" in self.url:
-            with open('Port Channel Member Interfaces/YAML/Port Channel Member Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "sviIf" in self.url:
-            with open('SVIs/YAML/SVIs.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "tunnelIf" in self.url:
-            with open('Tunnel Interfaces/YAML/Tunnel Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "uribv4Db" in self.url:
-            with open('Unicast Route Database/YAML/Unicast Route Database.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "uribv4Dom" in self.url:
-            with open('Unicast Route Domains/YAML/Unicast Route Domains.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "uribv4Entity" in self.url:
-            with open('Unicast Route Entities/YAML/Unicast Route Entities.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "uribv4Nexthop" in self.url:
-            with open('Unicast Route Next Hop/YAML/Unicast Route Next Hop.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "uribv4Route" in self.url:
-            with open('Unicast Routes/YAML/Unicast Routes.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vlanCktEp" in self.url:
-            with open('VLAN Endpoint Group Encapsulation/YAML/VLAN Endpoint Group Encapsulation.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vmmCtrlrP" in self.url:
-            with open('VMM Controller Profiles/YAML/VMM Controller Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vmmDomP" in self.url:
-            with open('VMM Domain Profiles/YAML/VMM Domain Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vmmProvP" in self.url:
-            with open('VMM Provider Profiles/YAML/VMM Provider Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vmmUsrAccP" in self.url:
-            with open('VMM User Profiles/YAML/VMM User Profiles.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vpcDom" in self.url:
-            with open('VPC Domains/YAML/VPC Domains.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vpcEntity" in self.url:
-            with open('VPC Entities/YAML/VPC Entities.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vpcIf" in self.url:
-            with open('VPC Interfaces/YAML/VPC Interfaces.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vpcInst" in self.url:
-            with open('VPC Instances/YAML/VPC Instances.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vpcRsVpcConf" in self.url:
-            with open('VPC Configurations/YAML/VPC Configurations.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vzAny" in self.url:
-            with open('vzAny/YAML/vzAny.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vzFilter" in self.url:
-            with open('vzFilters/YAML/vzFilters.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vzRsAnyToCons" in self.url:
-            with open('vzAny To Consumers/YAML/vzAny To Consumers.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vzRsAnyToProv" in self.url:
-            with open('vzAny To Providers/YAML/vzAny To Providers.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vzRsDenyRule" in self.url:
-            with open('vzDeny Rules/YAML/vzDeny Rules.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vzRsIf" in self.url:
-            with open('vzInterface Source Relationships/YAML/vzInterface Source Relationships.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vzRsSubjFiltAtt" in self.url:
-            with open('Contract Subjects Filter Attributes/YAML/Contract Subjects Filter Attributes.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vzRtCons" in self.url:
-            with open('Contract Consumers Root/YAML/Contract Consumers Root.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vzRtProv" in self.url:
-            with open('Contract Providers Root/YAML/Contract Providers Root.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vzRuleOwner" in self.url:
-            with open('vzRule Owner/YAML/vzRule Owner.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-        if "vzTaboo" in self.url:
-            with open('vzTaboo/YAML/vzTaboo.yaml', 'w' ) as f:
-                f.write(clean_yaml)
-
-    def csv_file(self, parsed_json):
+                    async with aiofiles.open('BGP Domains/JSON/BGP Domains.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "bgpEntity" in api:
+                async with aiofiles.open('BGP Entities/JSON/BGP Entities.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "bgpInst" in api:
+                if "InstPol" in api:
+                    async with aiofiles.open('BGP Instances Policy/JSON/BGP Instances Policy.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+                else:
+                    async with aiofiles.open('BGP Instances/JSON/BGP Instances.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "bgpPeer" in api:
+                if "bgpPeerAf" in api:
+                    async with aiofiles.open('BGP Peers AF Entries/JSON/BGP Peers AF Entries.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+                elif "bgpPeerEntry" in api:
+                    async with aiofiles.open('BGP Peers Entries/JSON/BGP Peers Entries.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+                else:
+                    async with aiofiles.open('BGP Peers/JSON/BGP Peers.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "bgpRRP" in api:
+                async with aiofiles.open('BGP Route Reflector Policies/JSON/BGP Route Reflector Policies.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "cdpAdjEp" in api:
+                async with aiofiles.open('CDP Adjacency Endpoints/JSON/CDP Adjacency Endpoints.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "cdpEntity" in api:
+                async with aiofiles.open('CDP Entities/JSON/CDP Entities.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "cdpIf" in api:
+                async with aiofiles.open('CDP Interfaces/JSON/CDP Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "cdpInst" in api:
+                async with aiofiles.open('CDP Instances/JSON/CDP Instances.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "cdpIntfAddr" in api:
+                async with aiofiles.open('CDP Interface Addresses/JSON/CDP Interface Addresses.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "cdpMgmtAddr" in api:
+                async with aiofiles.open('CDP Management Addresses/JSON/CDP Management Addresses.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "cnwRsMbrIfs" in api:
+                async with aiofiles.open('Cluster RS Member Interfaces/JSON/Cluster RS Member Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "compRsDomP" in api:
+                async with aiofiles.open('Compute RS Domain Policies/JSON/Compute RS Domain Policies.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptBSlot" in api:
+                async with aiofiles.open('Equipment Board Slots/JSON/Equipment Board Slots.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptBoard" in api:
+                async with aiofiles.open('Equipment Boards/JSON/Equipment Boards.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptCPU" in api:
+                async with aiofiles.open('Equipment CPUs/JSON/Equipment CPUs.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptCh" in api:
+                async with aiofiles.open('Equipment Chassis/JSON/Equipment Chassis.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptDimm" in api:
+                async with aiofiles.open('Equipment DIMMs/JSON/Equipment DIMMs.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptExtCh" in api:
+                async with aiofiles.open('Equipment Fabric Extenders/JSON/Equipment Fabric Extenders.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptFabP" in api:
+                async with aiofiles.open('Equipment Fabric Ports/JSON/Equipment Fabric Ports.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptFan" in api:
+                async with aiofiles.open('Equipment Fans/JSON/Equipment Fans.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptFpga" in api:
+                async with aiofiles.open('Equipment Field Programmable Gate Arrays/JSON/Equipment Field Programmable Gate Arrays.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptFt" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Fan Tray Slots/JSON/Equipment Fan Tray Slots.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+                else:
+                    async with aiofiles.open('Equipment Fan Trays/JSON/Equipment Fan Trays.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptIndLed" in api:
+                async with aiofiles.open('Equipment Indicator LEDs/JSON/Equipment Indicator LEDs.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptLC" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Line Card Slots/JSON/Equipment Line Card Slots.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+                else:
+                    async with aiofiles.open('Equipment Line Cards/JSON/Equipment Line Cards.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptLeafP" in api:
+                async with aiofiles.open('Equipment Leaf Ports/JSON/Equipment Leaf Ports.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptLocLed" in api:
+                async with aiofiles.open('Equipment Port Locator LEDs/JSON/Equipment Port Locator LEDs.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptPsu" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Power Supply Slots/JSON/Equipment Power Supply Slots.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+                else:
+                    async with aiofiles.open('Equipment Power Supplies/JSON/Equipment Power Supplies.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptRsIoPPhysConf" in api:
+                async with aiofiles.open('Equipment RS IO Port Physical Configs/JSON/Equipment RS IO Port Physical Configs.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptSensor" in api:
+                async with aiofiles.open('Equipment Sensors/JSON/Equipment Sensors.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptSpCmnBlk" in api:
+                async with aiofiles.open('Equipment SP Common Blocks/JSON/Equipment SP Common Blocks.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptSpromLc" in api:
+                async with aiofiles.open('Equipment SPROM LCs/JSON/Equipment SPROM LCs.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptSpromPsu" in api:
+                if "Blk" in api:
+                    async with aiofiles.open('Equipment SPROM Power Supply Blocks/JSON/Equipment SPROM Power Supply Blocks.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+                else: 
+                    async with aiofiles.open('Equipment SPROM Power Supplies/JSON/Equipment SPROM Power Supplies.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptSpromSup" in api:
+                async with aiofiles.open('Equipment SPROM Supervisors/JSON/Equipment SPROM Supervisors.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptStorage" in api:
+                async with aiofiles.open('Equipment Storage/JSON/Equipment Storage.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "eqptSupC" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Supervisor Slots/JSON/Equipment Supervisor Slots.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+                else:
+                    async with aiofiles.open('Equipment Supervisors/JSON/Equipment Supervisors.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ethpmPhysIf" in api:
+                async with aiofiles.open('Ethernet Port Manager Physical Interfaces/JSON/Ethernet Port Manager Physical Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fabricExtPathEpCont" in api:
+                async with aiofiles.open('Fabric Extended Path Endpoint Containers/JSON/Fabric Extended Path Endpoint Containers.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fabricInst" in api:
+                async with aiofiles.open('Fabric Instances/JSON/Fabric Instances.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fabricLink" in api:
+                if "Cont" in api:
+                    async with aiofiles.open('Fabric Link Containers/JSON/Fabric Link Containers.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+                else:
+                    async with aiofiles.open('Fabric Links/JSON/Fabric Links.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fabricLooseLink" in api:
+                async with aiofiles.open('Fabric Loose Links/JSON/Fabric Loose Links.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fabricLooseNode" in api:
+                async with aiofiles.open('Fabric Loose Nodes/JSON/Fabric Loose Nodes.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fabricProtPathEpCont" in api:
+                async with aiofiles.open('Fabric Protected Path Endpoint Containers/JSON/Fabric Protected Path Endpoint Containers.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fcEntity" in api:
+                async with aiofiles.open('Fibre Channel Entities/JSON/Fibre Channel Entities.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "firmwareCardRunning" in api:
+                async with aiofiles.open('Firmware Card Running/JSON/Firmware Card Running.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "firmwareCompRunning" in api:
+                async with aiofiles.open('Firmware Compute Running/JSON/Firmware Compute Running.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "firmwareRunning" in api:
+                async with aiofiles.open('Firmware Running/JSON/Firmware Running.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvEpPCont" in api:
+                async with aiofiles.open('Endpoint Profile Containers/JSON/Endpoint Profile Containers.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvLocale" in api:
+                async with aiofiles.open('Locales/JSON/Locales.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvRsBDToOut" in api:
+                async with aiofiles.open('Bridge Domains To Outside/JSON/Bridge Domains To Outside.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvRsBd" in api:
+                async with aiofiles.open('EPG Bridge Domain Links/JSON/EPG Bridge Domain Links.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvRsCons" in api:
+                if "If" in api:
+                    async with aiofiles.open('Contract Consumer Interfaces/JSON/Contract Consumer Interfaces.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+                else:
+                    async with aiofiles.open('Contract Consumers/JSON/Contract Consumers.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvRsCtx" in api:
+                async with aiofiles.open('Context Source Relationships/JSON/Context Source Relationships.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvRsDomAtt" in api:
+                async with aiofiles.open('Domain Attachments/JSON/Domain Attachments.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvRsPathAtt" in api:
+                async with aiofiles.open('Path Attachments/JSON/Path Attachments.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvRsProv" in api:
+                async with aiofiles.open('Contract Providers/JSON/Contract Providers.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvRtBd" in api:
+                async with aiofiles.open('Bridge Domains Target Relationships/JSON/Bridge Domains Target Relationships.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvRtCtx" in api:
+                async with aiofiles.open('Contexts Target Relationships/JSON/Contexts Target Relationships.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvnsEncapBlk" in api:
+                async with aiofiles.open('VLAN Encapsulation Blocks/JSON/VLAN Encapsulation Blocks.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "fvnsVlanInstP" in api:
+                async with aiofiles.open('VLAN Namespace Policies/JSON/VLAN Namespace Policies.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraAccBndlGrp" in api:
+                async with aiofiles.open('Access Bundle Groups/JSON/Access Bundle Groups.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraAccPortGrp" in api:
+                async with aiofiles.open('Access Port Groups/JSON/Access Port Groups.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraAccPortP" in api:
+                async with aiofiles.open('Access Port Profiles/JSON/Access Port Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraContr" in api:
+                async with aiofiles.open('Controllers/JSON/Controllers.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraFexP" in api:
+                async with aiofiles.open('FEX Policies/JSON/FEX Policies.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraFuncP" in api:
+                async with aiofiles.open('Function Policies/JSON/Function Policies.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraHPortS" in api:
+                async with aiofiles.open('Host Port Selectors/JSON/Host Port Selectors.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraPortBlk" in api:
+                async with aiofiles.open('Port Blocks/JSON/Port Blocks.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraRsAccBaseGrp" in api:
+                async with aiofiles.open('Access Policy Group Source Relationships/JSON/Access Policy Group Source Relationships.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraRsAttEntP" in api:
+                async with aiofiles.open('Attachable Access Entity Profiles Source Relationships/JSON/Attachable Access Entity Profiles Source Relationships.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraRsDomP" in api:
+                async with aiofiles.open('Domain Profile Source Relationships/JSON/Domain Profile Source Relationships.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraRsSpAccGrp" in api:
+                async with aiofiles.open('Spine Access Policy Groups/JSON/Spine Access Policy Groups.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraRsVlanNs" in api:
+                async with aiofiles.open('VLAN Namespace Source Relationships/JSON/VLAN Namespace Source Relationships.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraSHPortS" in api:
+                async with aiofiles.open('Spine Host Port Selectors/JSON/Spine Host Port Selectors.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraSpAccPortP" in api:
+                async with aiofiles.open('Spine Access Port Profiles/JSON/Spine Access Port Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "infraWiNode" in api:
+                async with aiofiles.open('Wired Nodes/JSON/Wired Nodes.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ipNexthopP" in api:
+                async with aiofiles.open('Static Route Next Hop Policies/JSON/Static Route Next Hop Policies.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ipRouteP" in api:
+                async with aiofiles.open('Route Policies/JSON/Route Policies.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ipv4Addr" in api:
+                async with aiofiles.open('IPv4 Addresses/JSON/IPv4 Addresses.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ipv4Dom" in api:
+                async with aiofiles.open('IPv4 Domains/JSON/IPv4 Domains.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ipv4Entity" in api:
+                async with aiofiles.open('IPv4 Entities/JSON/IPv4 Entities.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ipv4If" in api:
+                async with aiofiles.open('IPv4 Interfaces/JSON/IPv4 Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ipv4Inst" in api:
+                async with aiofiles.open('IPv4 Instances/JSON/IPv4 Instances.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ipv4Nexthop" in api:
+                async with aiofiles.open('IPv4 Next Hop/JSON/IPv4 Next Hop.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ipv4Route" in api:
+                async with aiofiles.open('IPv4 Routes/JSON/IPv4 Routes.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "isisAdjEp" in api:
+                async with aiofiles.open('ISIS Adjacency Endpoints/JSON/ISIS Adjacency Endpoints.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "isisDTEp" in api:
+                async with aiofiles.open('ISIS Discovered Tunnel Endpoints/JSON/ISIS Discovered Tunnel Endpoints.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "isisDom" in api:
+                if "Lvl" in api:
+                    async with aiofiles.open('ISIS Domains Level/JSON/ISIS Domains Level.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+                else:
+                    async with aiofiles.open('ISIS Domains/JSON/ISIS Domains.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "isisEntity" in api:
+                async with aiofiles.open('ISIS Entities/JSON/ISIS Entities.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "isisIf" in api:
+                if "Lvl" in api:
+                    async with aiofiles.open('ISIS Interfaces Level/JSON/ISIS Interfaces Level.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+                else:
+                    async with aiofiles.open('ISIS Interfaces/JSON/ISIS Interfaces.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "isisInst" in api:
+                async with aiofiles.open('ISIS Instances/JSON/ISIS Instances.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "isisNexthop" in api:
+                async with aiofiles.open('ISIS Next Hop/JSON/ISIS Next Hop.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "isisRoute" in api:
+                async with aiofiles.open('ISIS Routes/JSON/ISIS Routes.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l2BD" in api:
+                async with aiofiles.open('L2 Bridge Domains/JSON/L2 Bridge Domains.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l2ExtIf" in api:
+                async with aiofiles.open('L2 External Interfaces/JSON/L2 External Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l2RsEthIf" in api:
+                async with aiofiles.open('L2 Interface Source Relationships/JSON/L2 Interface Source Relationships.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l2extInstP" in api:
+                async with aiofiles.open('L2 External Instance Profiles/JSON/L2 External Instance Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l2extLIfP" in api:
+                async with aiofiles.open('L2 External Logical Interface Profiles/JSON/L2 External Logical Interface Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l2extLNodeP" in api:
+                async with aiofiles.open('L2 External Logical Node Profiles/JSON/L2 External Logical Node Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l2extRsEBd" in api:
+                async with aiofiles.open('L2 EPG Bridge Domain Source Relationships/JSON/L2 EPG Bridge Domain Source Relationships.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l2extRsPathL2OutAtt" in api:
+                async with aiofiles.open('L2Out Paths/JSON/L2Out Paths.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3Ctx" in api:
+                async with aiofiles.open('L3 Contexts/JSON/L3 Contexts.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3EncRtdIf" in api:
+                async with aiofiles.open('L3 Subinterfaces/JSON/L3 Subinterfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3Inst" in api:
+                async with aiofiles.open('L3 Instances/JSON/L3 Instances.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3LbRtdIf" in api:
+                async with aiofiles.open('L3 Routed Loopback Interfaces/JSON/L3 Routed Loopback Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3RsEncPhysRtdConf" in api:
+                async with aiofiles.open('L3 Physical Interface Source Relationships/JSON/L3 Physical Interface Source Relationships.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3RtdIf" in api:
+                async with aiofiles.open('L3 Routed Interfaces/JSON/L3 Routed Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3extInstP" in api:
+                async with aiofiles.open('L3Out Profiles/JSON/L3Out Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3extIp" in api:
+                async with aiofiles.open('L3Out IP Addresses/JSON/L3Out IP Addresses.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3extLIfP" in api:
+                async with aiofiles.open('L3 Logical Interface Profiles/JSON/L3 Logical Interface Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3extLNodeP" in api:
+                async with aiofiles.open('L3 Logical Node Profiles/JSON/L3 Logical Node Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3extMember" in api:
+                async with aiofiles.open('L3Out Members/JSON/L3Out Members.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3extRsEctx" in api:
+                async with aiofiles.open('L3 Contexts Source Relationships/JSON/L3 Contexts Source Relationships.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3extRsL3DomAtt" in api:
+                async with aiofiles.open('L3 Domains Source Relationships/JSON/L3 Domains Source Relationships.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3extRsNodeL3OutAtt" in api:
+                async with aiofiles.open('L3Out Node Source Relationships/JSON/L3Out Node Source Relationships.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3extRsPathL3OutAtt" in api:
+                async with aiofiles.open('L3Out Path Source Relationships/JSON/L3Out Path Source Relationships.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "l3extSubnet" in api:
+                async with aiofiles.open('L3 Subnets/JSON/L3 Subnets.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "lacpEntity" in api:
+                async with aiofiles.open('LACP Entities/JSON/LACP Entities.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "lacpIf" in api:
+                async with aiofiles.open('LACP Interfaces/JSON/LACP Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "lacpInst" in api:
+                async with aiofiles.open('LACP Instances/JSON/LACP Instances.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "leqptLooseNode" in api:
+                async with aiofiles.open('External Unmanaged Nodes/JSON/External Unmanaged Nodes.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "leqptRsLsNodeToIf" in api:
+                async with aiofiles.open('External Unmanaged Nodes Interfaces/JSON/External Unmanaged Nodes Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "lldpAdjEp" in api:
+                async with aiofiles.open('LLDP Adjacency Endpoints/JSON/LLDP Adjacency Endpoints.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "lldpEntity" in api:
+                async with aiofiles.open('LLDP Entities/JSON/LLDP Entities.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "lldpIf" in api:
+                async with aiofiles.open('LLDP Interfaces/JSON/LLDP Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "lldpInst" in api:
+                async with aiofiles.open('LLDP Instances/JSON/LLDP Instances.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "mgmtMgmtIf" in api:
+                async with aiofiles.open('Management Interfaces/JSON/Management Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ospfAdjEp" in api:
+                async with aiofiles.open('OSPF Adjacency Endpoints/JSON/OSPF Adjacency Endpoints.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ospfArea" in api:
+                async with aiofiles.open('OSPF Areas/JSON/OSPF Areas.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ospfDb" in api:
+                async with aiofiles.open('OSPF Database/JSON/OSPF Database.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ospfDom" in api:
+                async with aiofiles.open('OSPF Domains/JSON/OSPF Domains.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ospfEntity" in api:
+                async with aiofiles.open('OSPF Entities/JSON/OSPF Entities.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ospfExtP" in api:
+                async with aiofiles.open('OSPF External Profiles/JSON/OSPF External Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ospfIf" in api:
+                async with aiofiles.open('OSPF Interfaces/JSON/OSPF Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ospfInst" in api:
+                async with aiofiles.open('OSPF Instances/JSON/OSPF Instances.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ospfRoute" in api:
+                async with aiofiles.open('OSPF Routes/JSON/OSPF Routes.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "ospfUcNexthop" in api:
+                async with aiofiles.open('OSPF Unicast Next Hop/JSON/OSPF Unicast Next Hop.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "pcAggrIf" in api:
+                async with aiofiles.open('Port Channel Aggregate Interfaces/JSON/Port Channel Aggregate Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "pcRsMbrIfs" in api:
+                async with aiofiles.open('Port Channel Member Interfaces/JSON/Port Channel Member Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "sviIf" in api:
+                async with aiofiles.open('SVIs/JSON/SVIs.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "tunnelIf" in api:
+                async with aiofiles.open('Tunnel Interfaces/JSON/Tunnel Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "uribv4Db" in api:
+                async with aiofiles.open('Unicast Route Database/JSON/Unicast Route Database.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "uribv4Dom" in api:
+                async with aiofiles.open('Unicast Route Domains/JSON/Unicast Route Domains.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "uribv4Entity" in api:
+                async with aiofiles.open('Unicast Route Entities/JSON/Unicast Route Entities.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "uribv4Nexthop" in api:
+                async with aiofiles.open('Unicast Route Next Hop/JSON/Unicast Route Next Hop.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "uribv4Route" in api:
+                async with aiofiles.open('Unicast Routes/JSON/Unicast Routes.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vlanCktEp" in api:
+                async with aiofiles.open('VLAN Endpoint Group Encapsulation/JSON/VLAN Endpoint Group Encapsulation.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vmmCtrlrP" in api:
+                async with aiofiles.open('VMM Controller Profiles/JSON/VMM Controller Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vmmDomP" in api:
+                async with aiofiles.open('VMM Domain Profiles/JSON/VMM Domain Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vmmProvP" in api:
+                async with aiofiles.open('VMM Provider Profiles/JSON/VMM Provider Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vmmUsrAccP" in api:
+                async with aiofiles.open('VMM User Profiles/JSON/VMM User Profiles.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vpcDom" in api:
+                async with aiofiles.open('VPC Domains/JSON/VPC Domains.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vpcEntity" in api:
+                async with aiofiles.open('VPC Entities/JSON/VPC Entities.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vpcIf" in api:
+                async with aiofiles.open('VPC Interfaces/JSON/VPC Interfaces.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vpcInst" in api:
+                async with aiofiles.open('VPC Instances/JSON/VPC Instances.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vpcRsVpcConf" in api:
+                async with aiofiles.open('VPC Configurations/JSON/VPC Configurations.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vzAny" in api:
+                async with aiofiles.open('vzAny/JSON/vzAny.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vzFilter" in api:
+                async with aiofiles.open('vzFilters/JSON/vzFilters.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vzRsAnyToCons" in api:
+                async with aiofiles.open('vzAny To Consumers/JSON/vzAny To Consumers.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vzRsAnyToProv" in api:
+                async with aiofiles.open('vzAny To Providers/JSON/vzAny To Providers.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vzRsDenyRule" in api:
+                async with aiofiles.open('vzDeny Rules/JSON/vzDeny Rules.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vzRsIf" in api:
+                async with aiofiles.open('vzInterface Source Relationships/JSON/vzInterface Source Relationships.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vzRsSubjFiltAtt" in api:
+                async with aiofiles.open('Contract Subjects Filter Attributes/JSON/Contract Subjects Filter Attributes.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vzRtCons" in api:
+                async with aiofiles.open('Contract Consumers Root/JSON/Contract Consumers Root.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vzRtProv" in api:
+                async with aiofiles.open('Contract Providers Root/JSON/Contract Providers Root.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vzRuleOwner" in api:
+                async with aiofiles.open('vzRule Owner/JSON/vzRule Owner.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "vzTaboo" in api:
+                async with aiofiles.open('vzTaboo/JSON/vzTaboo.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+    async def yaml_file(self, parsed_json):
+        for api, payload in json.loads(parsed_json):
+            clean_yaml = yaml.dump(payload, default_flow_style=False)
+            if "Tenant" in api:
+                async with aiofiles.open('Tenant/YAML/Tenants.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "AEPg" in api:
+                async with aiofiles.open('EPGs/YAML/EPGs.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvBD" in api:
+                async with aiofiles.open('Bridge Domains/YAML/Bridge Domains.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvCtx" in api:
+                async with aiofiles.open('Contexts/YAML/Contexts.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "Ap" in api:
+                async with aiofiles.open('Application Profiles/YAML/Application Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3extOut" in api:
+                async with aiofiles.open('L3Outs/YAML/L3Outs.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l2extOut" in api:
+                async with aiofiles.open('L2Outs/YAML/L2Outs.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "topSystem" in api:
+                if "?" not in api:
+                    async with aiofiles.open('Top System/YAML/Top System.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+
+            if "fvSubnet" in api:
+                async with aiofiles.open('Subnets/YAML/Subnets.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvCEp" in api:
+                async with aiofiles.open('Endpoints/YAML/Endpoints.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fabricNode" in api:
+                async with aiofiles.open('Fabric Nodes/YAML/Fabric Nodes.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l1PhysIf" in api:
+                async with aiofiles.open('Physical Interfaces/YAML/Physical Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraAccPortP" in api:
+                async with aiofiles.open('Leaf Interface Profiles/YAML/Leaf Interface Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraSpAccPortP" in api:
+                async with aiofiles.open('Spine Interface Profiles/YAML/Spine Interface Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraNodeP" in api:
+                async with aiofiles.open('Leaf Switch Profiles/YAML/Leaf Switch Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraSpineP" in api:
+                async with aiofiles.open('Spine Switch Profiles/YAML/Spine Switch Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvnsVlanInstP" in api:
+                async with aiofiles.open('VLAN Pools/YAML/VLAN Pools.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraAttEntityP" in api:
+                async with aiofiles.open('Attachable Access Entity Profiles/YAML/Attachable Access Entity Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vzBrCP" in api:
+                async with aiofiles.open('Contracts/YAML/Contracts.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vzEntry" in api:
+                async with aiofiles.open('vzEntries/YAML/vzEntries.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "physDomP" in api:
+                async with aiofiles.open('Physical Domains/YAML/Physical Domains.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3extDomP" in api:
+                async with aiofiles.open('L3 Domains/YAML/L3 Domains.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "qosClass" in api:
+                async with aiofiles.open('QOS Classes/YAML/QOS Classes.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "faultSummary" in api:
+                async with aiofiles.open('Fault Summary/YAML/Fault Summary.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "aaaModLR" in api:
+                async with aiofiles.open('Audit Log/YAML/Audit Log.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvIp" in api:
+                async with aiofiles.open('IP Addresses/YAML/IP Addresses.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eventRecord" in api:
+                async with aiofiles.open('Events/YAML/Events.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "licenseEntitlement" in api:
+                async with aiofiles.open('License Entitlements/YAML/License Entitlements.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "bgpRRNodePEp" in api:
+                async with aiofiles.open('BGP Route Reflectors/YAML/BGP Route Reflectors.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraPortS" in api:
+                async with aiofiles.open('Interface Policies/YAML/Interface Policies.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraProfile" in api:
+                async with aiofiles.open('Interface Profiles/YAML/Interface Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fabricPod" in api:
+                async with aiofiles.open('Fabric Pods/YAML/Fabric Pods.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fabricPath" in api:
+                if "fabricPathEp" in api:
+                    if "Cont" in api:
+                        async with aiofiles.open('Fabric Path Endpoint Containers/YAML/Fabric Path Endpoint Containers.yaml', mode='w' ) as f:
+                            await f.write(clean_yaml)
+                    else:
+                        async with aiofiles.open('Fabric Path Endpoints/YAML/Fabric Path Endpoints.yaml', mode='w' ) as f:
+                            await f.write(clean_yaml)
+                else:
+                    async with aiofiles.open('Fabric Paths/YAML/Fabric Paths.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+
+            if "rtctrlSubjP" in api:
+                async with aiofiles.open('Prefix List/YAML/Prefix List.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "rtctrlMatchRtDest" in api:
+                async with aiofiles.open('Prefix List Detailed/YAML/Prefix List Detailed.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "aaaUser" in api:
+                async with aiofiles.open('Users/YAML/Users.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "aaaDomain" in api:
+                async with aiofiles.open('Security Domains/YAML/Security Domains.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vzSubj" in api:
+                async with aiofiles.open('Contract Subjects/YAML/Contract Subjects.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "topology/health" in api:
+                async with aiofiles.open('Health/YAML/Health.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "pkiFabricNodeSSLCertificate" in api:
+                async with aiofiles.open('Fabric Node SSL Certificates/YAML/Fabric Node SSL Certificates.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "tn-" in api:
+                if "health" in api:
+                    async with aiofiles.open('Tenant Health/YAML/Tenant Health.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+
+            if "firmwareCtrlrRunning" in api:
+                async with aiofiles.open('Fabric Membership/YAML/Fabric Membership.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraWiNode" in api:
+                async with aiofiles.open('Cluster Health/YAML/Cluster Health.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vnsMDev" in api:
+                async with aiofiles.open('Device Packages/YAML/Device Packages.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "cnwAggrIf" in api:
+                async with aiofiles.open('Cluster Aggregate Interfaces/YAML/Cluster Aggregate Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3Inst" in api:
+                async with aiofiles.open('L3 Interfaces/YAML/L3 Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "actrlEntity" in api:
+                async with aiofiles.open('Access Control Entities/YAML/Access Control Entities.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "actrlInst" in api:
+                async with aiofiles.open('Access Control Instances/YAML/Access Control Instances.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "actrlRule" in api:
+                async with aiofiles.open('Access Control Rules/YAML/Access Control Rules.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "actrlScope" in api:
+                async with aiofiles.open('Access Control Scopes/YAML/Access Control Scopes.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "cnwPhysIf" in api:
+                async with aiofiles.open('Cluster Physical Interfaces/YAML/Cluster Physical Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "compCtrlr" in api:
+                async with aiofiles.open('Compute Controllers/YAML/Compute Controllers.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "compDom" in api:
+                async with aiofiles.open('Compute Domains/YAML/Compute Domains.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "compEpPD" in api:
+                async with aiofiles.open('Compute Endpoint Policy Descriptions/YAML/Compute Endpoint Policy Descriptions.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "compProv" in api:
+                async with aiofiles.open('Compute Providers/YAML/Compute Providers.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "arpAdjEp" in api:
+                async with aiofiles.open('ARP Adjacency Endpoints/YAML/ARP Adjacency Endpoints.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "arpDb" in api:
+                async with aiofiles.open('ARP Database/YAML/ARP Database.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "arpDom" in api:
+                async with aiofiles.open('ARP Domain/YAML/ARP Domain.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "arpEntity" in api:
+                async with aiofiles.open('ARP Entity/YAML/ARP Entity.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "arpIf" in api:
+                async with aiofiles.open('ARP Interfaces/YAML/ARP Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "arpInst" in api:
+                async with aiofiles.open('ARP Instances/YAML/ARP Instances.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "bgpDom" in api:
+                if "Af" in api:
+                    async with aiofiles.open('BGP Domain Address Families/YAML/BGP Domain Address Families.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+                else:
+                    async with aiofiles.open('BGP Domains/YAML/BGP Domains.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+
+            if "bgpEntity" in api:
+                async with aiofiles.open('BGP Entities/YAML/BGP Entities.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "bgpInst" in api:
+                if "InstPol" in api:
+                    async with aiofiles.open('BGP Instances Policy/YAML/BGP Instances Policy.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+                else:
+                    async with aiofiles.open('BGP Instances/YAML/BGP Instances.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+
+            if "bgpPeer" in api:
+                if "bgpPeerAf" in api:
+                    async with aiofiles.open('BGP Peers AF Entries/YAML/BGP Peers AF Entries.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+                elif "bgpPeerEntry" in api:
+                    async with aiofiles.open('BGP Peers Entries/YAML/BGP Peers Entries.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+                else:
+                    async with aiofiles.open('BGP Peers/YAML/BGP Peers.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+
+            if "bgpRRP" in api:
+                async with aiofiles.open('BGP Route Reflector Policies/YAML/BGP Route Reflector Policies.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "cdpAdjEp" in api:
+                async with aiofiles.open('CDP Adjacency Endpoints/YAML/CDP Adjacency Endpoints.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "cdpEntity" in api:
+                async with aiofiles.open('CDP Entities/YAML/CDP Entities.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "cdpIf" in api:
+                async with aiofiles.open('CDP Interfaces/YAML/CDP Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "cdpInst" in api:
+                async with aiofiles.open('CDP Instances/YAML/CDP Instances.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "cdpIntfAddr" in api:
+                async with aiofiles.open('CDP Interface Addresses/YAML/CDP Interface Addresses.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "cdpMgmtAddr" in api:
+                async with aiofiles.open('CDP Management Addresses/YAML/CDP Management Addresses.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "cnwRsMbrIfs" in api:
+                async with aiofiles.open('Cluster RS Member Interfaces/YAML/Cluster RS Member Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "compRsDomP" in api:
+                async with aiofiles.open('Compute RS Domain Policies/YAML/Compute RS Domain Policies.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptBSlot" in api:
+                async with aiofiles.open('Equipment Board Slots/YAML/Equipment Board Slots.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptBoard" in api:
+                async with aiofiles.open('Equipment Boards/YAML/Equipment Boards.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptCPU" in api:
+                async with aiofiles.open('Equipment CPUs/YAML/Equipment CPUs.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptCh" in api:
+                async with aiofiles.open('Equipment Chassis/YAML/Equipment Chassis.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptDimm" in api:
+                async with aiofiles.open('Equipment DIMMs/YAML/Equipment DIMMs.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptExtCh" in api:
+                async with aiofiles.open('Equipment Fabric Extenders/YAML/Equipment Fabric Extenders.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptFabP" in api:
+                async with aiofiles.open('Equipment Fabric Ports/YAML/Equipment Fabric Ports.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptFan" in api:
+                async with aiofiles.open('Equipment Fans/YAML/Equipment Fans.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptFpga" in api:
+                async with aiofiles.open('Equipment Field Programmable Gate Arrays/YAML/Equipment Field Programmable Gate Arrays.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptFt" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Fan Tray Slots/YAML/Equipment Fan Tray Slots.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+                else:
+                    async with aiofiles.open('Equipment Fan Trays/YAML/Equipment Fan Trays.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+
+            if "eqptIndLed" in api:
+                async with aiofiles.open('Equipment Indicator LEDs/YAML/Equipment Indicator LEDs.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptLC" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Line Card Slots/YAML/Equipment Line Card Slots.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+                else:
+                    async with aiofiles.open('Equipment Line Cards/YAML/Equipment Line Cards.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+
+            if "eqptLeafP" in api:
+                async with aiofiles.open('Equipment Leaf Ports/YAML/Equipment Leaf Ports.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptLocLed" in api:
+                async with aiofiles.open('Equipment Port Locator LEDs/YAML/Equipment Port Locator LEDs.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptPsu" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Power Supply Slots/YAML/Equipment Power Supply Slots.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+                else:
+                    async with aiofiles.open('Equipment Power Supplies/YAML/Equipment Power Supplies.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+
+            if "eqptRsIoPPhysConf" in api:
+                async with aiofiles.open('Equipment RS IO Port Physical Configs/YAML/Equipment RS IO Port Physical Configs.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptSensor" in api:
+                async with aiofiles.open('Equipment Sensors/YAML/Equipment Sensors.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptSpCmnBlk" in api:
+                async with aiofiles.open('Equipment SP Common Blocks/YAML/Equipment SP Common Blocks.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptSpromLc" in api:
+                async with aiofiles.open('Equipment SPROM LCs/YAML/Equipment SPROM LCs.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptSpromPsu" in api:
+                if "Blk" in api:
+                    async with aiofiles.open('Equipment SPROM Power Supply Blocks/YAML/Equipment SPROM Power Supply Blocks.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+                else:            
+                    async with aiofiles.open('Equipment SPROM Power Supplies/YAML/Equipment SPROM Power Supplies.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+
+            if "eqptSpromSup" in api:
+                async with aiofiles.open('Equipment SPROM Supervisors/YAML/Equipment SPROM Supervisors.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptStorage" in api:
+                async with aiofiles.open('Equipment Storage/YAML/Equipment Storage.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "eqptSupC" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Supervisor Slots/YAML/Equipment Supervisor Slots.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+                else:
+                    async with aiofiles.open('Equipment Supervisors/YAML/Equipment Supervisors.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+
+            if "ethpmPhysIf" in api:
+                async with aiofiles.open('Ethernet Port Manager Physical Interfaces/YAML/Ethernet Port Manager Physical Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fabricExtPathEpCont" in api:
+                async with aiofiles.open('Fabric Extended Path Endpoint Containers/YAML/Fabric Extended Path Endpoint Containers.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fabricInst" in api:
+                async with aiofiles.open('Fabric Instances/YAML/Fabric Instances.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fabricLink" in api:
+                if "Cont" in api:
+                    async with aiofiles.open('Fabric Link Containers/YAML/Fabric Link Containers.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+                else:
+                    async with aiofiles.open('Fabric Links/YAML/Fabric Links.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+
+            if "fabricLooseLink" in api:
+                async with aiofiles.open('Fabric Loose Links/YAML/Fabric Loose Links.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fabricLooseNode" in api:
+                async with aiofiles.open('Fabric Loose Nodes/YAML/Fabric Loose Nodes.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fabricProtPathEpCont" in api:
+                async with aiofiles.open('Fabric Protected Path Endpoint Containers/YAML/Fabric Protected Path Endpoint Containers.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fcEntity" in api:
+                async with aiofiles.open('Fibre Channel Entities/YAML/Fibre Channel Entities.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "firmwareCardRunning" in api:
+                async with aiofiles.open('Firmware Card Running/YAML/Firmware Card Running.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "firmwareCompRunning" in api:
+                async with aiofiles.open('Firmware Compute Running/YAML/Firmware Compute Running.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "firmwareRunning" in api:
+                async with aiofiles.open('Firmware Running/YAML/Firmware Running.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvEpPCont" in api:
+                async with aiofiles.open('Endpoint Profile Containers/YAML/Endpoint Profile Containers.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvLocale" in api:
+                async with aiofiles.open('Locales/YAML/Locales.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvRsBDToOut" in api:
+                async with aiofiles.open('Bridge Domains To Outside/YAML/Bridge Domains To Outside.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvRsBd" in api:
+                async with aiofiles.open('EPG Bridge Domain Links/YAML/EPG Bridge Domain Links.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvRsCEpToPathEp" in api:
+                async with aiofiles.open('Endpoints To Paths/YAML/Endpoints To Paths.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvRsCons" in api:
+                if "If" in api:
+                    async with aiofiles.open('Contract Consumer Interfaces/YAML/Contract Consumer Interfaces.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+                else:
+                    async with aiofiles.open('Contract Consumers/YAML/Contract Consumers.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+
+            if "fvRsCtx" in api:
+                async with aiofiles.open('Context Source Relationships/YAML/Context Source Relationships.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvRsDomAtt" in api:
+                async with aiofiles.open('Domain Attachments/YAML/Domain Attachments.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvRsPathAtt" in api:
+                async with aiofiles.open('Path Attachments/YAML/Path Attachments.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvRsProv" in api:
+                async with aiofiles.open('Contract Providers/YAML/Contract Providers.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvRtBd" in api:
+                async with aiofiles.open('Bridge Domains Target Relationships/YAML/Bridge Domains Target Relationships.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvRtCtx" in api:
+                async with aiofiles.open('Contexts Target Relationships/YAML/Contexts Target Relationships.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvnsEncapBlk" in api:
+                async with aiofiles.open('VLAN Encapsulation Blocks/YAML/VLAN Encapsulation Blocks.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "fvnsVlanInstP" in api:
+                async with aiofiles.open('VLAN Namespace Policies/YAML/VLAN Namespace Policies.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraAccBndlGrp" in api:
+                async with aiofiles.open('Access Bundle Groups/YAML/Access Bundle Groups.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraAccPortGrp" in api:
+                async with aiofiles.open('Access Port Groups/YAML/Access Port Groups.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraAccPortP" in api:
+                async with aiofiles.open('Access Port Profiles/YAML/Access Port Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraContr" in api:
+                async with aiofiles.open('Controllers/YAML/Controllers.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraFexP" in api:
+                async with aiofiles.open('FEX Policies/YAML/FEX Policies.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraFuncP" in api:
+                async with aiofiles.open('Function Policies/YAML/Function Policies.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraHPortS" in api:
+                async with aiofiles.open('Host Port Selectors/YAML/Host Port Selectors.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraPortBlk" in api:
+                async with aiofiles.open('Port Blocks/YAML/Port Blocks.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraRsAccBaseGrp" in api:
+                async with aiofiles.open('Access Policy Group Source Relationships/YAML/Access Policy Group Source Relationships.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraRsAttEntP" in api:
+                async with aiofiles.open('Attachable Access Entity Profiles Source Relationships/YAML/Attachable Access Entity Profiles Source Relationships.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraRsDomP" in api:
+                async with aiofiles.open('Domain Profile Source Relationships/YAML/Domain Profile Source Relationships.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraRsSpAccGrp" in api:
+                async with aiofiles.open('Spine Access Policy Groups/YAML/Spine Access Policy Groups.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraRsVlanNs" in api:
+                async with aiofiles.open('VLAN Namespace Source Relationships/YAML/VLAN Namespace Source Relationships.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraSHPortS" in api:
+                async with aiofiles.open('Spine Host Port Selectors/YAML/Spine Host Port Selectors.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraSpAccPortP" in api:
+                async with aiofiles.open('Spine Access Port Profiles/YAML/Spine Access Port Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "infraWiNode" in api:
+                async with aiofiles.open('Wired Nodes/YAML/Wired Nodes.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ipNexthopP" in api:
+                async with aiofiles.open('Static Route Next Hop Policies/YAML/Static Route Next Hop Policies.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ipRouteP" in api:
+                async with aiofiles.open('Route Policies/YAML/Route Policies.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ipv4Addr" in api:
+                async with aiofiles.open('IPv4 Addresses/YAML/IPv4 Addresses.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ipv4Dom" in api:
+                async with aiofiles.open('IPv4 Domains/YAML/IPv4 Domains.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ipv4Entity" in api:
+                async with aiofiles.open('IPv4 Entities/YAML/IPv4 Entities.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ipv4If" in api:
+                async with aiofiles.open('IPv4 Interfaces/YAML/IPv4 Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ipv4Inst" in api:
+                async with aiofiles.open('IPv4 Instances/YAML/IPv4 Instances.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ipv4Nexthop" in api:
+                async with aiofiles.open('IPv4 Next Hop/YAML/IPv4 Next Hop.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ipv4Route" in api:
+                async with aiofiles.open('IPv4 Routes/YAML/IPv4 Routes.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "isisAdjEp" in api:
+                async with aiofiles.open('ISIS Adjacency Endpoints/YAML/ISIS Adjacency Endpoints.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "isisDTEp" in api:
+                async with aiofiles.open('ISIS Discovered Tunnel Endpoints/YAML/ISIS Discovered Tunnel Endpoints.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "isisDom" in api:
+                if "Lvl" in api:
+                    async with aiofiles.open('ISIS Domains Level/YAML/ISIS Domains Level.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+                else:
+                    async with aiofiles.open('ISIS Domains/YAML/ISIS Domains.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+
+            if "isisEntity" in api:
+                async with aiofiles.open('ISIS Entities/YAML/ISIS Entities.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "isisIf" in api:
+                if "Lvl" in api:
+                    async with aiofiles.open('ISIS Interfaces Level/YAML/ISIS Interfaces Level.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+                else:
+                    async with aiofiles.open('ISIS Interfaces/YAML/ISIS Interfaces.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+
+            if "isisInst" in api:
+                async with aiofiles.open('ISIS Instances/YAML/ISIS Instances.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "isisNexthop" in api:
+                async with aiofiles.open('ISIS Next Hop/YAML/ISIS Next Hop.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "isisRoute" in api:
+                async with aiofiles.open('ISIS Routes/YAML/ISIS Routes.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l2BD" in api:
+                async with aiofiles.open('L2 Bridge Domains/YAML/L2 Bridge Domains.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l2ExtIf" in api:
+                async with aiofiles.open('L2 External Interfaces/YAML/L2 External Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l2RsEthIf" in api:
+                async with aiofiles.open('L2 Interface Source Relationships/YAML/L2 Interface Source Relationships.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l2extInstP" in api:
+                async with aiofiles.open('L2 External Instance Profiles/YAML/L2 External Instance Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l2extLIfP" in api:
+                async with aiofiles.open('L2 External Logical Interface Profiles/YAML/L2 External Logical Interface Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l2extLNodeP" in api:
+                async with aiofiles.open('L2 External Logical Node Profiles/YAML/L2 External Logical Node Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l2extRsEBd" in api:
+                async with aiofiles.open('L2 EPG Bridge Domain Source Relationships/YAML/L2 EPG Bridge Domain Source Relationships.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l2extRsPathL2OutAtt" in api:
+                async with aiofiles.open('L2Out Paths/YAML/L2Out Paths.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3Ctx" in api:
+                async with aiofiles.open('L3 Contexts/YAML/L3 Contexts.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3EncRtdIf" in api:
+                async with aiofiles.open('L3 Subinterfaces/YAML/L3 Subinterfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3Inst" in api:
+                async with aiofiles.open('L3 Instances/YAML/L3 Instances.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3LbRtdIf" in api:
+                async with aiofiles.open('L3 Routed Loopback Interfaces/YAML/L3 Routed Loopback Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3RsEncPhysRtdConf" in api:
+                async with aiofiles.open('L3 Physical Interface Source Relationships/YAML/L3 Physical Interface Source Relationships.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3RtdIf" in api:
+                async with aiofiles.open('L3 Routed Interfaces/YAML/L3 Routed Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3extInstP" in api:
+                async with aiofiles.open('L3Out Profiles/YAML/L3Out Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3extIp" in api:
+                async with aiofiles.open('L3Out IP Addresses/YAML/L3Out IP Addresses.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3extLIfP" in api:
+                async with aiofiles.open('L3 Logical Interface Profiles/YAML/L3 Logical Interface Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3extLNodeP" in api:
+                async with aiofiles.open('L3 Logical Node Profiles/YAML/L3 Logical Node Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3extMember" in api:
+                async with aiofiles.open('L3Out Members/YAML/L3Out Members.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3extRsEctx" in api:
+                async with aiofiles.open('L3 Contexts Source Relationships/YAML/L3 Contexts Source Relationships.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3extRsL3DomAtt" in api:
+                async with aiofiles.open('L3 Domains Source Relationships/YAML/L3 Domains Source Relationships.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3extRsNodeL3OutAtt" in api:
+                async with aiofiles.open('L3Out Node Source Relationships/YAML/L3Out Node Source Relationships.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3extRsPathL3OutAtt" in api:
+                async with aiofiles.open('L3Out Path Source Relationships/YAML/L3Out Path Source Relationships.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "l3extSubnet" in api:
+                async with aiofiles.open('L3 Subnets/YAML/L3 Subnets.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "lacpEntity" in api:
+                async with aiofiles.open('LACP Entities/YAML/LACP Entities.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "lacpIf" in api:
+                async with aiofiles.open('LACP Interfaces/YAML/LACP Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "lacpInst" in api:
+                async with aiofiles.open('LACP Instances/YAML/LACP Instances.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "leqptLooseNode" in api:
+                async with aiofiles.open('External Unmanaged Nodes/YAML/External Unmanaged Nodes.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "leqptRsLsNodeToIf" in api:
+                async with aiofiles.open('External Unmanaged Nodes Interfaces/YAML/External Unmanaged Nodes Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "lldpAdjEp" in api:
+                async with aiofiles.open('LLDP Adjacency Endpoints/YAML/LLDP Adjacency Endpoints.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "lldpEntity" in api:
+                async with aiofiles.open('LLDP Entities/YAML/LLDP Entities.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "lldpIf" in api:
+                async with aiofiles.open('LLDP Interfaces/YAML/LLDP Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "lldpInst" in api:
+                async with aiofiles.open('LLDP Instances/YAML/LLDP Instances.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "mgmtMgmtIf" in api:
+                async with aiofiles.open('Management Interfaces/YAML/Management Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ospfAdjEp" in api:
+                async with aiofiles.open('OSPF Adjacency Endpoints/YAML/OSPF Adjacency Endpoints.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ospfArea" in api:
+                async with aiofiles.open('OSPF Areas/YAML/OSPF Areas.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ospfDb" in api:
+                async with aiofiles.open('OSPF Database/YAML/OSPF Database.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ospfDom" in api:
+                async with aiofiles.open('OSPF Domains/YAML/OSPF Domains.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ospfEntity" in api:
+                async with aiofiles.open('OSPF Entities/YAML/OSPF Entities.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ospfExtP" in api:
+                async with aiofiles.open('OSPF External Profiles/YAML/OSPF External Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ospfIf" in api:
+                async with aiofiles.open('OSPF Interfaces/YAML/OSPF Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ospfInst" in api:
+                async with aiofiles.open('OSPF Instances/YAML/OSPF Instances.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ospfRoute" in api:
+                async with aiofiles.open('OSPF Routes/YAML/OSPF Routes.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "ospfUcNexthop" in api:
+                async with aiofiles.open('OSPF Unicast Next Hop/YAML/OSPF Unicast Next Hop.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "pcAggrIf" in api:
+                async with aiofiles.open('Port Channel Aggregate Interfaces/YAML/Port Channel Aggregate Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "pcRsMbrIfs" in api:
+                async with aiofiles.open('Port Channel Member Interfaces/YAML/Port Channel Member Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "sviIf" in api:
+                async with aiofiles.open('SVIs/YAML/SVIs.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "tunnelIf" in api:
+                async with aiofiles.open('Tunnel Interfaces/YAML/Tunnel Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "uribv4Db" in api:
+                async with aiofiles.open('Unicast Route Database/YAML/Unicast Route Database.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "uribv4Dom" in api:
+                async with aiofiles.open('Unicast Route Domains/YAML/Unicast Route Domains.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "uribv4Entity" in api:
+                async with aiofiles.open('Unicast Route Entities/YAML/Unicast Route Entities.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "uribv4Nexthop" in api:
+                async with aiofiles.open('Unicast Route Next Hop/YAML/Unicast Route Next Hop.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "uribv4Route" in api:
+                async with aiofiles.open('Unicast Routes/YAML/Unicast Routes.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vlanCktEp" in api:
+                async with aiofiles.open('VLAN Endpoint Group Encapsulation/YAML/VLAN Endpoint Group Encapsulation.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vmmCtrlrP" in api:
+                async with aiofiles.open('VMM Controller Profiles/YAML/VMM Controller Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vmmDomP" in api:
+                async with aiofiles.open('VMM Domain Profiles/YAML/VMM Domain Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vmmProvP" in api:
+                async with aiofiles.open('VMM Provider Profiles/YAML/VMM Provider Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vmmUsrAccP" in api:
+                async with aiofiles.open('VMM User Profiles/YAML/VMM User Profiles.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vpcDom" in api:
+                async with aiofiles.open('VPC Domains/YAML/VPC Domains.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vpcEntity" in api:
+                async with aiofiles.open('VPC Entities/YAML/VPC Entities.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vpcIf" in api:
+                async with aiofiles.open('VPC Interfaces/YAML/VPC Interfaces.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vpcInst" in api:
+                async with aiofiles.open('VPC Instances/YAML/VPC Instances.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vpcRsVpcConf" in api:
+                async with aiofiles.open('VPC Configurations/YAML/VPC Configurations.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vzAny" in api:
+                async with aiofiles.open('vzAny/YAML/vzAny.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vzFilter" in api:
+                async with aiofiles.open('vzFilters/YAML/vzFilters.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vzRsAnyToCons" in api:
+                async with aiofiles.open('vzAny To Consumers/YAML/vzAny To Consumers.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vzRsAnyToProv" in api:
+                async with aiofiles.open('vzAny To Providers/YAML/vzAny To Providers.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vzRsDenyRule" in api:
+                async with aiofiles.open('vzDeny Rules/YAML/vzDeny Rules.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vzRsIf" in api:
+                async with aiofiles.open('vzInterface Source Relationships/YAML/vzInterface Source Relationships.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vzRsSubjFiltAtt" in api:
+                async with aiofiles.open('Contract Subjects Filter Attributes/YAML/Contract Subjects Filter Attributes.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vzRtCons" in api:
+                async with aiofiles.open('Contract Consumers Root/YAML/Contract Consumers Root.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vzRtProv" in api:
+                async with aiofiles.open('Contract Providers Root/YAML/Contract Providers Root.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vzRuleOwner" in api:
+                async with aiofiles.open('vzRule Owner/YAML/vzRule Owner.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "vzTaboo" in api:
+                async with aiofiles.open('vzTaboo/YAML/vzTaboo.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+    async def csv_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
-        env = Environment(loader=FileSystemLoader(str(template_dir)))
+        env = Environment(loader=FileSystemLoader(str(template_dir)), enable_async=True)
         csv_template = env.get_template('aci_csv.j2')
-        csv_output = csv_template.render(api = self.url,
-                                         data_to_template = json.loads(parsed_json))
-        if "Tenant" in self.url:
-            with open('Tenant/CSV/Tenants.csv', 'w' ) as f:
-                f.write(csv_output)
+        for api, payload in json.loads(parsed_json):        
+            csv_output = await csv_template.render_async(api = api,
+                                         data_to_template = payload)
+            if "Tenant" in api:
+                async with aiofiles.open('Tenant/CSV/Tenants.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "AEPg" in self.url:
-            with open('EPGs/CSV/EPGs.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "AEPg" in api:
+                async with aiofiles.open('EPGs/CSV/EPGs.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "fvBD" in self.url:
-            with open('Bridge Domains/CSV/Bridge Domains.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "fvBD" in api:
+                async with aiofiles.open('Bridge Domains/CSV/Bridge Domains.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "fvCtx" in self.url:
-            with open('Contexts/CSV/Contexts.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "fvCtx" in api:
+                async with aiofiles.open('Contexts/CSV/Contexts.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "Ap" in self.url:
-            with open('Application Profiles/CSV/Application Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "Ap" in api:
+                async with aiofiles.open('Application Profiles/CSV/Application Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "l3extOut" in self.url:
-            with open('L3Outs/CSV/L3Outs.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "l3extOut" in api:
+                async with aiofiles.open('L3Outs/CSV/L3Outs.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "l2extOut" in self.url:
-            with open('L2Outs/CSV/L2Outs.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "l2extOut" in api:
+                async with aiofiles.open('L2Outs/CSV/L2Outs.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "topSystem" in self.url:
-            if "?" not in self.url:
-                with open('Top System/CSV/Top System.csv', 'w' ) as f:
-                    f.write(csv_output)
+            if "topSystem" in api:
+                if "?" not in api:
+                    async with aiofiles.open('Top System/CSV/Top System.csv', mode='w' ) as f:
+                        await f.write(csv_output)
 
-        if "fvSubnet" in self.url:
-            with open('Subnets/CSV/Subnets.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "fvSubnet" in api:
+                async with aiofiles.open('Subnets/CSV/Subnets.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "fvCEp" in self.url:
-            with open('Endpoints/CSV/Endpoints.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "fvCEp" in api:
+                async with aiofiles.open('Endpoints/CSV/Endpoints.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "fabricNode" in self.url:
-            with open('Fabric Nodes/CSV/Fabric Nodes.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "fabricNode" in api:
+                async with aiofiles.open('Fabric Nodes/CSV/Fabric Nodes.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "l1PhysIf" in self.url:
-            with open('Physical Interfaces/CSV/Physical Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "l1PhysIf" in api:
+                async with aiofiles.open('Physical Interfaces/CSV/Physical Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "infraAccPortP" in self.url:
-            with open('Leaf Interface Profiles/CSV/Leaf Interface Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "infraAccPortP" in api:
+                async with aiofiles.open('Leaf Interface Profiles/CSV/Leaf Interface Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "infraSpAccPortP" in self.url:
-            with open('Spine Interface Profiles/CSV/Spine Interface Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "infraSpAccPortP" in api:
+                async with aiofiles.open('Spine Interface Profiles/CSV/Spine Interface Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "infraNodeP" in self.url:
-            with open('Leaf Switch Profiles/CSV/Leaf Switch Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "infraNodeP" in api:
+                async with aiofiles.open('Leaf Switch Profiles/CSV/Leaf Switch Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "infraSpineP" in self.url:
-            with open('Spine Switch Profiles/CSV/Spine Switch Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "infraSpineP" in api:
+                async with aiofiles.open('Spine Switch Profiles/CSV/Spine Switch Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "fvnsVlanInstP" in self.url:
-            with open('VLAN Pools/CSV/VLAN Pools.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "fvnsVlanInstP" in api:
+                async with aiofiles.open('VLAN Pools/CSV/VLAN Pools.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "infraAttEntityP" in self.url:
-            with open('Attachable Access Entity Profiles/CSV/Attachable Access Entity Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "infraAttEntityP" in api:
+                async with aiofiles.open('Attachable Access Entity Profiles/CSV/Attachable Access Entity Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "vzBrCP" in self.url:
-            with open('Contracts/CSV/Contracts.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "vzBrCP" in api:
+                async with aiofiles.open('Contracts/CSV/Contracts.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "vzEntry" in self.url:
-            with open('vzEntries/CSV/vzEntries.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "vzEntry" in api:
+                async with aiofiles.open('vzEntries/CSV/vzEntries.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "physDomP" in self.url:
-            with open('Physical Domains/CSV/Physical Domains.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "physDomP" in api:
+                async with aiofiles.open('Physical Domains/CSV/Physical Domains.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "l3extDomP" in self.url:
-            with open('L3 Domains/CSV/L3 Domains.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "l3extDomP" in api:
+                async with aiofiles.open('L3 Domains/CSV/L3 Domains.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "qosClass" in self.url:
-            with open('QOS Classes/CSV/QOS Classes.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "qosClass" in api:
+                async with aiofiles.open('QOS Classes/CSV/QOS Classes.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "faultSummary" in self.url:
-            with open('Fault Summary/CSV/Fault Summary.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "faultSummary" in api:
+                async with aiofiles.open('Fault Summary/CSV/Fault Summary.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "aaaModLR" in self.url:
-            with open('Audit Log/CSV/Audit Log.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "aaaModLR" in api:
+                async with aiofiles.open('Audit Log/CSV/Audit Log.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "fvIp" in self.url:
-            with open('IP Addresses/CSV/IP Addresses.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "fvIp" in api:
+                async with aiofiles.open('IP Addresses/CSV/IP Addresses.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "eventRecord" in self.url:
-            with open('Events/CSV/Events.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "eventRecord" in api:
+                async with aiofiles.open('Events/CSV/Events.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "licenseEntitlement" in self.url:
-            with open('License Entitlements/CSV/License Entitlements.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "licenseEntitlement" in api:
+                async with aiofiles.open('License Entitlements/CSV/License Entitlements.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "bgpRRNodePEp" in self.url:
-            with open('BGP Route Reflectors/CSV/BGP Route Reflectors.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "bgpRRNodePEp" in api:
+                async with aiofiles.open('BGP Route Reflectors/CSV/BGP Route Reflectors.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "infraPortS" in self.url:
-            with open('Interface Policies/CSV/Interface Policies.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "infraPortS" in api:
+                async with aiofiles.open('Interface Policies/CSV/Interface Policies.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "infraProfile" in self.url:
-            with open('Interface Profiles/CSV/Interface Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "infraProfile" in api:
+                async with aiofiles.open('Interface Profiles/CSV/Interface Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "fabricPod" in self.url:
-            with open('Fabric Pods/CSV/Fabric Pods.csv', 'w' ) as f:
-                f.write(csv_output)
+            if "fabricPod" in api:
+                async with aiofiles.open('Fabric Pods/CSV/Fabric Pods.csv', mode='w' ) as f:
+                    await f.write(csv_output)
 
-        if "fabricPath" in self.url:
-            if "fabricPathEp" in self.url:
-                if "Cont" in self.url:
-                    with open('Fabric Path Endpoint Containers/CSV/Fabric Path Endpoint Containers.csv', 'w' ) as f:
-                        f.write(csv_output)
+            if "fabricPath" in api:
+                if "fabricPathEp" in api:
+                    if "Cont" in api:
+                        async with aiofiles.open('Fabric Path Endpoint Containers/CSV/Fabric Path Endpoint Containers.csv', mode='w' ) as f:
+                            await f.write(csv_output)
+                    else:
+                        async with aiofiles.open('Fabric Path Endpoints/CSV/Fabric Path Endpoints.csv', mode='w' ) as f:
+                            await f.write(csv_output)
                 else:
-                    with open('Fabric Path Endpoints/CSV/Fabric Path Endpoints.csv', 'w' ) as f:
-                        f.write(csv_output)
-            else:
-                with open('Fabric Paths/CSV/Fabric Paths.csv', 'w' ) as f:
-                    f.write(csv_output)
-
-        if "rtctrlSubjP" in self.url:
-            with open('Prefix List/CSV/Prefix List.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "rtctrlMatchRtDest" in self.url:
-            with open('Prefix List Detailed/CSV/Prefix List Detailed.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "aaaUser" in self.url:
-            with open('Users/CSV/Users.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "aaaDomain" in self.url:
-            with open('Security Domains/CSV/Security Domains.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vzSubj" in self.url:
-            with open('Contract Subjects/CSV/Contract Subjects.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "health" in self.url:
-            with open('Health/CSV/Health.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "pkiFabricNodeSSLCertificate" in self.url:
-            with open('Fabric Node SSL Certificates/CSV/Fabric Node SSL Certificates.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "tn-" and "health" in self.url:
-            with open('Tenant Health/CSV/Tenant Health.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "firmwareCtrlrRunning" in self.url:
-            with open('Fabric Membership/CSV/Fabric Membership.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "infraWiNode" in self.url:
-            with open('Cluster Health/CSV/Cluster Health.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vnsMDev" in self.url:
-            with open('Device Packages/CSV/Device Packages.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "cnwAggrIf" in self.url:
-            with open('Cluster Aggregate Interfaces/CSV/Cluster Aggregate Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l3Inst" in self.url:
-            with open('L3 Interfaces/CSV/L3 Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "actrlEntity" in self.url:
-            with open('Access Control Entities/CSV/Access Control Entities.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "actrlInst" in self.url:
-            with open('Access Control Instances/CSV/Access Control Instances.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "actrlRule" in self.url:
-            with open('Access Control Rules/CSV/Access Control Rules.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "actrlScope" in self.url:
-            with open('Access Control Scopes/CSV/Access Control Scopes.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "cnwPhysIf" in self.url:
-            with open('Cluster Physical Interfaces/CSV/Cluster Physical Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "compCtrlr" in self.url:
-            with open('Compute Controllers/CSV/Compute Controllers.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "compDom" in self.url:
-            with open('Compute Domains/CSV/Compute Domains.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "compEpPD" in self.url:
-            with open('Compute Endpoint Policy Descriptions/CSV/Compute Endpoint Policy Descriptions.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "compProv" in self.url:
-            with open('Compute Providers/CSV/Compute Providers.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "arpAdjEp" in self.url:
-            with open('ARP Adjacency Endpoints/CSV/ARP Adjacency Endpoints.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "arpDb" in self.url:
-            with open('ARP Database/CSV/ARP Database.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "arpDom" in self.url:
-            with open('ARP Domain/CSV/ARP Domain.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "arpEntity" in self.url:
-            with open('ARP Entity/CSV/ARP Entity.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "arpIf" in self.url:
-            with open('ARP Interfaces/CSV/ARP Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "arpInst" in self.url:
-            with open('ARP Instances/CSV/ARP Instances.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "bgpDom" in self.url:
-            if "Af" in self.url:
-                with open('BGP Domain Address Families/CSV/BGP Domain Address Families.csv', 'w' ) as f:
-                    f.write(csv_output)
-            else:
-                with open('BGP Domains/CSV/BGP Domains.csv', 'w' ) as f:
-                    f.write(csv_output)
-
-        if "bgpEntity" in self.url:
-            with open('BGP Entities/CSV/BGP Entities.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "bgpInst" in self.url:
-            if "InstPol" in self.url:
-                with open('BGP Instances Policy/CSV/BGP Instances Policy.csv', 'w' ) as f:
-                    f.write(csv_output)
-            else:
-                with open('BGP Instances/CSV/BGP Instances.csv', 'w' ) as f:
-                    f.write(csv_output)
-
-        if "bgpPeer" in self.url:
-            if "bgpPeerAf" in self.url:
-                with open('BGP Peers AF Entries/CSV/BGP Peers AF Entries.csv', 'w' ) as f:
-                    f.write(csv_output)
-            elif "bgpPeerEntry" in self.url:
-                with open('BGP Peers Entries/CSV/BGP Peers Entries.csv', 'w' ) as f:
-                    f.write(csv_output)
-            else:
-                with open('BGP Peers/CSV/BGP Peers.csv', 'w' ) as f:
-                    f.write(csv_output)
-
-        if "bgpRRP" in self.url:
-            with open('BGP Route Reflector Policies/CSV/BGP Route Reflector Policies.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "cdpAdjEp" in self.url:
-            with open('CDP Adjacency Endpoints/CSV/CDP Adjacency Endpoints.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "cdpEntity" in self.url:
-            with open('CDP Entities/CSV/CDP Entities.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "cdpIf" in self.url:
-            with open('CDP Interfaces/CSV/CDP Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "cdpInst" in self.url:
-            with open('CDP Instances/CSV/CDP Instances.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "cdpIntfAddr" in self.url:
-            with open('CDP Interface Addresses/CSV/CDP Interface Addresses.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "cdpMgmtAddr" in self.url:
-            with open('CDP Management Addresses/CSV/CDP Management Addresses.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "cnwRsMbrIfs" in self.url:
-            with open('Cluster RS Member Interfaces/CSV/Cluster RS Member Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "compRsDomP" in self.url:
-            with open('Compute RS Domain Policies/CSV/Compute RS Domain Policies.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptBSlot" in self.url:
-            with open('Equipment Board Slots/CSV/Equipment Board Slots.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptBoard" in self.url:
-            with open('Equipment Boards/CSV/Equipment Boards.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptCPU" in self.url:
-            with open('Equipment CPUs/CSV/Equipment CPUs.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptCh" in self.url:
-            with open('Equipment Chassis/CSV/Equipment Chassis.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptDimm" in self.url:
-            with open('Equipment DIMMs/CSV/Equipment DIMMs.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptExtCh" in self.url:
-            with open('Equipment Fabric Extenders/CSV/Equipment Fabric Extenders.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptFabP" in self.url:
-            with open('Equipment Fabric Ports/CSV/Equipment Fabric Ports.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptFan" in self.url:
-            with open('Equipment Fans/CSV/Equipment Fans.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptFpga" in self.url:
-            with open('Equipment Field Programmable Gate Arrays/CSV/Equipment Field Programmable Gate Arrays.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptFt" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Fan Tray Slots/CSV/Equipment Fan Tray Slots.csv', 'w' ) as f:
-                    f.write(csv_output)
-            else:
-                with open('Equipment Fan Trays/CSV/Equipment Fan Trays.csv', 'w' ) as f:
-                    f.write(csv_output)
-
-        if "eqptIndLed" in self.url:
-            with open('Equipment Indicator LEDs/CSV/Equipment Indicator LEDs.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptLC" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Line Card Slots/CSV/Equipment Line Card Slots.csv', 'w' ) as f:
-                    f.write(csv_output)
-            else:
-                with open('Equipment Line Cards/CSV/Equipment Line Cards.csv', 'w' ) as f:
-                    f.write(csv_output)
-
-        if "eqptLeafP" in self.url:
-            with open('Equipment Leaf Ports/CSV/Equipment Leaf Ports.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptLocLed" in self.url:
-            with open('Equipment Port Locator LEDs/CSV/Equipment Port Locator LEDs.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptPsu" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Power Supply Slots/CSV/Equipment Power Supply Slots.csv', 'w' ) as f:
-                    f.write(csv_output)
-            else:
-                with open('Equipment Power Supplies/CSV/Equipment Power Supplies.csv', 'w' ) as f:
-                    f.write(csv_output)
-
-        if "eqptRsIoPPhysConf" in self.url:
-            with open('Equipment RS IO Port Physical Configs/CSV/Equipment RS IO Port Physical Configs.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptSensor" in self.url:
-            with open('Equipment Sensors/CSV/Equipment Sensors.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptSpCmnBlk" in self.url:
-            with open('Equipment SP Common Blocks/CSV/Equipment SP Common Blocks.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptSpromLc" in self.url:
-            with open('Equipment SPROM LCs/CSV/Equipment SPROM LCs.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptSpromPsu" in self.url:
-            if "Blk" in self.url:
-                with open('Equipment SPROM Power Supply Blocks/CSV/Equipment SPROM Power Supply Blocks.csv', 'w' ) as f:
-                    f.write(csv_output)
-            else:
-                with open('Equipment SPROM Power Supplies/CSV/Equipment SPROM Power Supplies.csv', 'w' ) as f:
-                    f.write(csv_output)
-
-        if "eqptSpromSup" in self.url:
-            with open('Equipment SPROM Supervisors/CSV/Equipment SPROM Supervisors.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptStorage" in self.url:
-            with open('Equipment Storage/CSV/Equipment Storage.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "eqptSupC" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Supervisor Slots/CSV/Equipment Supervisor Slots.csv', 'w' ) as f:
-                    f.write(csv_output)
-            else:
-                with open('Equipment Supervisors/CSV/Equipment Supervisors.csv', 'w' ) as f:
-                    f.write(csv_output)
-
-        if "ethpmPhysIf" in self.url:
-            with open('Ethernet Port Manager Physical Interfaces/CSV/Ethernet Port Manager Physical Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fabricExtPathEpCont" in self.url:
-            with open('Fabric Extended Path Endpoint Containers/CSV/Fabric Extended Path Endpoint Containers.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fabricInst" in self.url:
-            with open('Fabric Instances/CSV/Fabric Instances.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fabricLink" in self.url:
-            if "Cont" in self.url:
-                with open('Fabric Link Containers/CSV/Fabric Link Containers.csv', 'w' ) as f:
-                    f.write(csv_output)
-            else:
-                with open('Fabric Links/CSV/Fabric Links.csv', 'w' ) as f:
-                    f.write(csv_output)
-
-        if "fabricLooseLink" in self.url:
-            with open('Fabric Loose Links/CSV/Fabric Loose Links.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fabricLooseNode" in self.url:
-            with open('Fabric Loose Nodes/CSV/Fabric Loose Nodes.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fabricProtPathEpCont" in self.url:
-            with open('Fabric Protected Path Endpoint Containers/CSV/Fabric Protected Path Endpoint Containers.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fcEntity" in self.url:
-            with open('Fibre Channel Entities/CSV/Fibre Channel Entities.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "firmwareCardRunning" in self.url:
-            with open('Firmware Card Running/CSV/Firmware Card Running.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "firmwareCompRunning" in self.url:
-            with open('Firmware Compute Running/CSV/Firmware Compute Running.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "firmwareRunning" in self.url:
-            with open('Firmware Running/CSV/Firmware Running.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fvEpPCont" in self.url:
-            with open('Endpoint Profile Containers/CSV/Endpoint Profile Containers.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fvLocale" in self.url:
-            with open('Locales/CSV/Locales.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fvRsBDToOut" in self.url:
-            with open('Bridge Domains To Outside/CSV/Bridge Domains To Outside.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fvRsBd" in self.url:
-            with open('EPG Bridge Domain Links/CSV/EPG Bridge Domain Links.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fvRsCEpToPathEp" in self.url:
-            with open('Endpoints To Paths/CSV/Endpoints To Paths.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fvRsCons" in self.url:
-            if "If" in self.url:
-                with open('Contract Consumer Interfaces/CSV/Contract Consumer Interfaces.csv', 'w' ) as f:
-                    f.write(csv_output)
-            else:
-                with open('Contract Consumers/CSV/Contract Consumers.csv', 'w' ) as f:
-                    f.write(csv_output)
-
-        if "fvRsCtx" in self.url:
-            with open('Context Source Relationships/CSV/Context Source Relationships.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fvRsDomAtt" in self.url:
-            with open('Domain Attachments/CSV/Domain Attachments.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fvRsPathAtt" in self.url:
-            with open('Path Attachments/CSV/Path Attachments.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fvRsProv" in self.url:
-            with open('Contract Providers/CSV/Contract Providers.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fvRtBd" in self.url:
-            with open('Bridge Domains Target Relationships/CSV/Bridge Domains Target Relationships.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fvRtCtx" in self.url:
-            with open('Contexts Target Relationships/CSV/Contexts Target Relationships.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fvnsEncapBlk" in self.url:
-            with open('VLAN Encapsulation Blocks/CSV/VLAN Encapsulation Blocks.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "fvnsVlanInstP" in self.url:
-            with open('VLAN Namespace Policies/CSV/VLAN Namespace Policies.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "infraAccBndlGrp" in self.url:
-            with open('Access Bundle Groups/CSV/Access Bundle Groups.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "infraAccPortGrp" in self.url:
-            with open('Access Port Groups/CSV/Access Port Groups.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "infraAccPortP" in self.url:
-            with open('Access Port Profiles/CSV/Access Port Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "infraContr" in self.url:
-            with open('Controllers/CSV/Controllers.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "infraFexP" in self.url:
-            with open('FEX Policies/CSV/FEX Policies.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "infraFuncP" in self.url:
-            with open('Function Policies/CSV/Function Policies.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "infraHPortS" in self.url:
-            with open('Host Port Selectors/CSV/Host Port Selectors.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "infraPortBlk" in self.url:
-            with open('Port Blocks/CSV/Port Blocks.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "infraRsAccBaseGrp" in self.url:
-            with open('Access Policy Group Source Relationships/CSV/Access Policy Group Source Relationships.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "infraRsAttEntP" in self.url:
-            with open('Attachable Access Entity Profiles Source Relationships/CSV/Attachable Access Entity Profiles Source Relationships.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "infraRsDomP" in self.url:
-            with open('Domain Profile Source Relationships/CSV/Domain Profile Source Relationships.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "infraRsSpAccGrp" in self.url:
-            with open('Spine Access Policy Groups/CSV/Spine Access Policy Groups.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "infraRsVlanNs" in self.url:
-            with open('VLAN Namespace Source Relationships/CSV/VLAN Namespace Source Relationships.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "infraSHPortS" in self.url:
-            with open('Spine Host Port Selectors/CSV/Spine Host Port Selectors.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "infraSpAccPortP" in self.url:
-            with open('Spine Access Port Profiles/CSV/Spine Access Port Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "infraWiNode" in self.url:
-            with open('Wired Nodes/CSV/Wired Nodes.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ipNexthopP" in self.url:
-            with open('Static Route Next Hop Policies/CSV/Static Route Next Hop Policies.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ipRouteP" in self.url:
-            with open('Route Policies/CSV/Route Policies.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ipv4Addr" in self.url:
-            with open('IPv4 Addresses/CSV/IPv4 Addresses.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ipv4Dom" in self.url:
-            with open('IPv4 Domains/CSV/IPv4 Domains.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ipv4Entity" in self.url:
-            with open('IPv4 Entities/CSV/IPv4 Entities.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ipv4If" in self.url:
-            with open('IPv4 Interfaces/CSV/IPv4 Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ipv4Inst" in self.url:
-            with open('IPv4 Instances/CSV/IPv4 Instances.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ipv4Nexthop" in self.url:
-            with open('IPv4 Next Hop/CSV/IPv4 Next Hop.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ipv4Route" in self.url:
-            with open('IPv4 Routes/CSV/IPv4 Routes.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "isisAdjEp" in self.url:
-            with open('ISIS Adjacency Endpoints/CSV/ISIS Adjacency Endpoints.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "isisDTEp" in self.url:
-            with open('ISIS Discovered Tunnel Endpoints/CSV/ISIS Discovered Tunnel Endpoints.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "isisDom" in self.url:
-            if "Lvl" in self.url:
-                with open('ISIS Domains Level/CSV/ISIS Domains Level.csv', 'w' ) as f:
-                    f.write(csv_output)
-            else:
-                with open('ISIS Domains/CSV/ISIS Domains.csv', 'w' ) as f:
-                    f.write(csv_output)
-
-        if "isisEntity" in self.url:
-            with open('ISIS Entities/CSV/ISIS Entities.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "isisIf" in self.url:
-            if "Lvl" in self.url:
-                with open('ISIS Interfaces Level/CSV/ISIS Interfaces Level.csv', 'w' ) as f:
-                    f.write(csv_output)
-            else:
-                with open('ISIS Interfaces/CSV/ISIS Interfaces.csv', 'w' ) as f:
-                    f.write(csv_output)
-
-        if "isisInst" in self.url:
-            with open('ISIS Instances/CSV/ISIS Instances.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "isisNexthop" in self.url:
-            with open('ISIS Next Hop/CSV/ISIS Next Hop.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "isisRoute" in self.url:
-            with open('ISIS Routes/CSV/ISIS Routes.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l2BD" in self.url:
-            with open('L2 Bridge Domains/CSV/L2 Bridge Domains.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l2ExtIf" in self.url:
-            with open('L2 External Interfaces/CSV/L2 External Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l2RsEthIf" in self.url:
-            with open('L2 Interface Source Relationships/CSV/L2 Interface Source Relationships.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l2extInstP" in self.url:
-            with open('L2 External Instance Profiles/CSV/L2 External Instance Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l2extLIfP" in self.url:
-            with open('L2 External Logical Interface Profiles/CSV/L2 External Logical Interface Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l2extLNodeP" in self.url:
-            with open('L2 External Logical Node Profiles/CSV/L2 External Logical Node Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l2extRsEBd" in self.url:
-            with open('L2 EPG Bridge Domain Source Relationships/CSV/L2 EPG Bridge Domain Source Relationships.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l2extRsPathL2OutAtt" in self.url:
-            with open('L2Out Paths/CSV/L2Out Paths.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l3Ctx" in self.url:
-            with open('L3 Contexts/CSV/L3 Contexts.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l3EncRtdIf" in self.url:
-            with open('L3 Subinterfaces/CSV/L3 Subinterfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l3Inst" in self.url:
-            with open('L3 Instances/CSV/L3 Instances.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l3LbRtdIf" in self.url:
-            with open('L3 Routed Loopback Interfaces/CSV/L3 Routed Loopback Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l3RsEncPhysRtdConf" in self.url:
-            with open('L3 Physical Interface Source Relationships/CSV/L3 Physical Interface Source Relationships.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l3RtdIf" in self.url:
-            with open('L3 Routed Interfaces/CSV/L3 Routed Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l3extInstP" in self.url:
-            with open('L3Out Profiles/CSV/L3Out Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l3extIp" in self.url:
-            with open('L3Out IP Addresses/CSV/L3Out IP Addresses.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l3extLIfP" in self.url:
-            with open('L3 Logical Interface Profiles/CSV/L3 Logical Interface Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l3extLNodeP" in self.url:
-            with open('L3 Logical Node Profiles/CSV/L3 Logical Node Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l3extMember" in self.url:
-            with open('L3Out Members/CSV/L3Out Members.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l3extRsEctx" in self.url:
-            with open('L3 Contexts Source Relationships/CSV/L3 Contexts Source Relationships.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l3extRsL3DomAtt" in self.url:
-            with open('L3 Domains Source Relationships/CSV/L3 Domains Source Relationships.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l3extRsNodeL3OutAtt" in self.url:
-            with open('L3Out Node Source Relationships/CSV/L3Out Node Source Relationships.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l3extRsPathL3OutAtt" in self.url:
-            with open('L3Out Path Source Relationships/CSV/L3Out Path Source Relationships.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "l3extSubnet" in self.url:
-            with open('L3 Subnets/CSV/L3 Subnets.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "lacpEntity" in self.url:
-            with open('LACP Entities/CSV/LACP Entities.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "lacpIf" in self.url:
-            with open('LACP Interfaces/CSV/LACP Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "lacpInst" in self.url:
-            with open('LACP Instances/CSV/LACP Instances.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "leqptLooseNode" in self.url:
-            with open('External Unmanaged Nodes/CSV/External Unmanaged Nodes.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "leqptRsLsNodeToIf" in self.url:
-            with open('External Unmanaged Nodes Interfaces/CSV/External Unmanaged Nodes Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "lldpAdjEp" in self.url:
-            with open('LLDP Adjacency Endpoints/CSV/LLDP Adjacency Endpoints.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "lldpEntity" in self.url:
-            with open('LLDP Entities/CSV/LLDP Entities.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "lldpIf" in self.url:
-            with open('LLDP Interfaces/CSV/LLDP Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "lldpInst" in self.url:
-            with open('LLDP Instances/CSV/LLDP Instances.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "mgmtMgmtIf" in self.url:
-            with open('Management Interfaces/CSV/Management Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ospfAdjEp" in self.url:
-            with open('OSPF Adjacency Endpoints/CSV/OSPF Adjacency Endpoints.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ospfArea" in self.url:
-            with open('OSPF Areas/CSV/OSPF Areas.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ospfDb" in self.url:
-            with open('OSPF Database/CSV/OSPF Database.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ospfDom" in self.url:
-            with open('OSPF Domains/CSV/OSPF Domains.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ospfEntity" in self.url:
-            with open('OSPF Entities/CSV/OSPF Entities.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ospfExtP" in self.url:
-            with open('OSPF External Profiles/CSV/OSPF External Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ospfIf" in self.url:
-            with open('OSPF Interfaces/CSV/OSPF Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ospfInst" in self.url:
-            with open('OSPF Instances/CSV/OSPF Instances.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ospfRoute" in self.url:
-            with open('OSPF Routes/CSV/OSPF Routes.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "ospfUcNexthop" in self.url:
-            with open('OSPF Unicast Next Hop/CSV/OSPF Unicast Next Hop.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "pcAggrIf" in self.url:
-            with open('Port Channel Aggregate Interfaces/CSV/Port Channel Aggregate Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "pcRsMbrIfs" in self.url:
-            with open('Port Channel Member Interfaces/CSV/Port Channel Member Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "sviIf" in self.url:
-            with open('SVIs/CSV/SVIs.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "tunnelIf" in self.url:
-            with open('Tunnel Interfaces/CSV/Tunnel Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "uribv4Db" in self.url:
-            with open('Unicast Route Database/CSV/Unicast Route Database.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "uribv4Dom" in self.url:
-            with open('Unicast Route Domains/CSV/Unicast Route Domains.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "uribv4Entity" in self.url:
-            with open('Unicast Route Entities/CSV/Unicast Route Entities.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "uribv4Nexthop" in self.url:
-            with open('Unicast Route Next Hop/CSV/Unicast Route Next Hop.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "uribv4Route" in self.url:
-            with open('Unicast Routes/CSV/Unicast Routes.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vlanCktEp" in self.url:
-            with open('VLAN Endpoint Group Encapsulation/CSV/VLAN Endpoint Group Encapsulation.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vmmCtrlrP" in self.url:
-            with open('VMM Controller Profiles/CSV/VMM Controller Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vmmDomP" in self.url:
-            with open('VMM Domain Profiles/CSV/VMM Domain Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vmmProvP" in self.url:
-            with open('VMM Provider Profiles/CSV/VMM Provider Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vmmUsrAccP" in self.url:
-            with open('VMM User Profiles/CSV/VMM User Profiles.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vpcDom" in self.url:
-            with open('VPC Domains/CSV/VPC Domains.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vpcEntity" in self.url:
-            with open('VPC Entities/CSV/VPC Entities.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vpcIf" in self.url:
-            with open('VPC Interfaces/CSV/VPC Interfaces.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vpcInst" in self.url:
-            with open('VPC Instances/CSV/VPC Instances.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vpcRsVpcConf" in self.url:
-            with open('VPC Configurations/CSV/VPC Configurations.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vzAny" in self.url:
-            with open('vzAny/CSV/vzAny.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vzFilter" in self.url:
-            with open('vzFilters/CSV/vzFilters.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vzRsAnyToCons" in self.url:
-            with open('vzAny To Consumers/CSV/vzAny To Consumers.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vzRsAnyToProv" in self.url:
-            with open('vzAny To Providers/CSV/vzAny To Providers.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vzRsDenyRule" in self.url:
-            with open('vzDeny Rules/CSV/vzDeny Rules.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vzRsIf" in self.url:
-            with open('vzInterface Source Relationships/CSV/vzInterface Source Relationships.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vzRsSubjFiltAtt" in self.url:
-            with open('Contract Subjects Filter Attributes/CSV/Contract Subjects Filter Attributes.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vzRtCons" in self.url:
-            with open('Contract Consumers Root/CSV/Contract Consumers Root.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vzRtProv" in self.url:
-            with open('Contract Providers Root/CSV/Contract Providers Root.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vzRuleOwner" in self.url:
-            with open('vzRule Owner/CSV/vzRule Owner.csv', 'w' ) as f:
-                f.write(csv_output)
-
-        if "vzTaboo" in self.url:
-            with open('vzTaboo/CSV/vzTaboo.csv', 'w' ) as f:
-                f.write(csv_output)
-
-    def markdown_file(self, parsed_json):
+                    async with aiofiles.open('Fabric Paths/CSV/Fabric Paths.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+
+            if "rtctrlSubjP" in api:
+                async with aiofiles.open('Prefix List/CSV/Prefix List.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "rtctrlMatchRtDest" in api:
+                async with aiofiles.open('Prefix List Detailed/CSV/Prefix List Detailed.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "aaaUser" in api:
+                async with aiofiles.open('Users/CSV/Users.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "aaaDomain" in api:
+                async with aiofiles.open('Security Domains/CSV/Security Domains.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vzSubj" in api:
+                async with aiofiles.open('Contract Subjects/CSV/Contract Subjects.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "topology/health" in api:
+                async with aiofiles.open('Health/CSV/Health.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "pkiFabricNodeSSLCertificate" in api:
+                async with aiofiles.open('Fabric Node SSL Certificates/CSV/Fabric Node SSL Certificates.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "tn-" in api:
+                if "health" in api:
+                    async with aiofiles.open('Tenant Health/CSV/Tenant Health.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+
+            if "firmwareCtrlrRunning" in api:
+                async with aiofiles.open('Fabric Membership/CSV/Fabric Membership.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "infraWiNode" in api:
+                async with aiofiles.open('Cluster Health/CSV/Cluster Health.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vnsMDev" in api:
+                async with aiofiles.open('Device Packages/CSV/Device Packages.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "cnwAggrIf" in api:
+                async with aiofiles.open('Cluster Aggregate Interfaces/CSV/Cluster Aggregate Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l3Inst" in api:
+                async with aiofiles.open('L3 Interfaces/CSV/L3 Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "actrlEntity" in api:
+                async with aiofiles.open('Access Control Entities/CSV/Access Control Entities.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "actrlInst" in api:
+                async with aiofiles.open('Access Control Instances/CSV/Access Control Instances.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "actrlRule" in api:
+                async with aiofiles.open('Access Control Rules/CSV/Access Control Rules.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "actrlScope" in api:
+                async with aiofiles.open('Access Control Scopes/CSV/Access Control Scopes.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "cnwPhysIf" in api:
+                async with aiofiles.open('Cluster Physical Interfaces/CSV/Cluster Physical Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "compCtrlr" in api:
+                async with aiofiles.open('Compute Controllers/CSV/Compute Controllers.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "compDom" in api:
+                async with aiofiles.open('Compute Domains/CSV/Compute Domains.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "compEpPD" in api:
+                async with aiofiles.open('Compute Endpoint Policy Descriptions/CSV/Compute Endpoint Policy Descriptions.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "compProv" in api:
+                async with aiofiles.open('Compute Providers/CSV/Compute Providers.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "arpAdjEp" in api:
+                async with aiofiles.open('ARP Adjacency Endpoints/CSV/ARP Adjacency Endpoints.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "arpDb" in api:
+                async with aiofiles.open('ARP Database/CSV/ARP Database.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "arpDom" in api:
+                async with aiofiles.open('ARP Domain/CSV/ARP Domain.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "arpEntity" in api:
+                async with aiofiles.open('ARP Entity/CSV/ARP Entity.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "arpIf" in api:
+                async with aiofiles.open('ARP Interfaces/CSV/ARP Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "arpInst" in api:
+                async with aiofiles.open('ARP Instances/CSV/ARP Instances.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "bgpDom" in api:
+                if "Af" in api:
+                    async with aiofiles.open('BGP Domain Address Families/CSV/BGP Domain Address Families.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+                else:
+                    async with aiofiles.open('BGP Domains/CSV/BGP Domains.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+
+            if "bgpEntity" in api:
+                async with aiofiles.open('BGP Entities/CSV/BGP Entities.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "bgpInst" in api:
+                if "InstPol" in api:
+                    async with aiofiles.open('BGP Instances Policy/CSV/BGP Instances Policy.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+                else:
+                    async with aiofiles.open('BGP Instances/CSV/BGP Instances.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+
+            if "bgpPeer" in api:
+                if "bgpPeerAf" in api:
+                    async with aiofiles.open('BGP Peers AF Entries/CSV/BGP Peers AF Entries.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+                elif "bgpPeerEntry" in api:
+                    async with aiofiles.open('BGP Peers Entries/CSV/BGP Peers Entries.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+                else:
+                    async with aiofiles.open('BGP Peers/CSV/BGP Peers.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+
+            if "bgpRRP" in api:
+                async with aiofiles.open('BGP Route Reflector Policies/CSV/BGP Route Reflector Policies.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "cdpAdjEp" in api:
+                async with aiofiles.open('CDP Adjacency Endpoints/CSV/CDP Adjacency Endpoints.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "cdpEntity" in api:
+                async with aiofiles.open('CDP Entities/CSV/CDP Entities.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "cdpIf" in api:
+                async with aiofiles.open('CDP Interfaces/CSV/CDP Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "cdpInst" in api:
+                async with aiofiles.open('CDP Instances/CSV/CDP Instances.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "cdpIntfAddr" in api:
+                async with aiofiles.open('CDP Interface Addresses/CSV/CDP Interface Addresses.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "cdpMgmtAddr" in api:
+                async with aiofiles.open('CDP Management Addresses/CSV/CDP Management Addresses.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "cnwRsMbrIfs" in api:
+                async with aiofiles.open('Cluster RS Member Interfaces/CSV/Cluster RS Member Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "compRsDomP" in api:
+                async with aiofiles.open('Compute RS Domain Policies/CSV/Compute RS Domain Policies.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptBSlot" in api:
+                async with aiofiles.open('Equipment Board Slots/CSV/Equipment Board Slots.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptBoard" in api:
+                async with aiofiles.open('Equipment Boards/CSV/Equipment Boards.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptCPU" in api:
+                async with aiofiles.open('Equipment CPUs/CSV/Equipment CPUs.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptCh" in api:
+                async with aiofiles.open('Equipment Chassis/CSV/Equipment Chassis.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptDimm" in api:
+                async with aiofiles.open('Equipment DIMMs/CSV/Equipment DIMMs.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptExtCh" in api:
+                async with aiofiles.open('Equipment Fabric Extenders/CSV/Equipment Fabric Extenders.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptFabP" in api:
+                async with aiofiles.open('Equipment Fabric Ports/CSV/Equipment Fabric Ports.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptFan" in api:
+                async with aiofiles.open('Equipment Fans/CSV/Equipment Fans.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptFpga" in api:
+                async with aiofiles.open('Equipment Field Programmable Gate Arrays/CSV/Equipment Field Programmable Gate Arrays.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptFt" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Fan Tray Slots/CSV/Equipment Fan Tray Slots.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+                else:
+                    async with aiofiles.open('Equipment Fan Trays/CSV/Equipment Fan Trays.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+
+            if "eqptIndLed" in api:
+                async with aiofiles.open('Equipment Indicator LEDs/CSV/Equipment Indicator LEDs.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptLC" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Line Card Slots/CSV/Equipment Line Card Slots.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+                else:
+                    async with aiofiles.open('Equipment Line Cards/CSV/Equipment Line Cards.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+
+            if "eqptLeafP" in api:
+                async with aiofiles.open('Equipment Leaf Ports/CSV/Equipment Leaf Ports.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptLocLed" in api:
+                async with aiofiles.open('Equipment Port Locator LEDs/CSV/Equipment Port Locator LEDs.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptPsu" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Power Supply Slots/CSV/Equipment Power Supply Slots.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+                else:
+                    async with aiofiles.open('Equipment Power Supplies/CSV/Equipment Power Supplies.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+
+            if "eqptRsIoPPhysConf" in api:
+                async with aiofiles.open('Equipment RS IO Port Physical Configs/CSV/Equipment RS IO Port Physical Configs.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptSensor" in api:
+                async with aiofiles.open('Equipment Sensors/CSV/Equipment Sensors.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptSpCmnBlk" in api:
+                async with aiofiles.open('Equipment SP Common Blocks/CSV/Equipment SP Common Blocks.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptSpromLc" in api:
+                async with aiofiles.open('Equipment SPROM LCs/CSV/Equipment SPROM LCs.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptSpromPsu" in api:
+                if "Blk" in api:
+                    async with aiofiles.open('Equipment SPROM Power Supply Blocks/CSV/Equipment SPROM Power Supply Blocks.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+                else:
+                    async with aiofiles.open('Equipment SPROM Power Supplies/CSV/Equipment SPROM Power Supplies.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+
+            if "eqptSpromSup" in api:
+                async with aiofiles.open('Equipment SPROM Supervisors/CSV/Equipment SPROM Supervisors.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptStorage" in api:
+                async with aiofiles.open('Equipment Storage/CSV/Equipment Storage.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "eqptSupC" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Supervisor Slots/CSV/Equipment Supervisor Slots.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+                else:
+                    async with aiofiles.open('Equipment Supervisors/CSV/Equipment Supervisors.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+
+            if "ethpmPhysIf" in api:
+                async with aiofiles.open('Ethernet Port Manager Physical Interfaces/CSV/Ethernet Port Manager Physical Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fabricExtPathEpCont" in api:
+                async with aiofiles.open('Fabric Extended Path Endpoint Containers/CSV/Fabric Extended Path Endpoint Containers.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fabricInst" in api:
+                async with aiofiles.open('Fabric Instances/CSV/Fabric Instances.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fabricLink" in api:
+                if "Cont" in api:
+                    async with aiofiles.open('Fabric Link Containers/CSV/Fabric Link Containers.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+                else:
+                    async with aiofiles.open('Fabric Links/CSV/Fabric Links.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+
+            if "fabricLooseLink" in api:
+                async with aiofiles.open('Fabric Loose Links/CSV/Fabric Loose Links.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fabricLooseNode" in api:
+                async with aiofiles.open('Fabric Loose Nodes/CSV/Fabric Loose Nodes.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fabricProtPathEpCont" in api:
+                async with aiofiles.open('Fabric Protected Path Endpoint Containers/CSV/Fabric Protected Path Endpoint Containers.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fcEntity" in api:
+                async with aiofiles.open('Fibre Channel Entities/CSV/Fibre Channel Entities.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "firmwareCardRunning" in api:
+                async with aiofiles.open('Firmware Card Running/CSV/Firmware Card Running.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "firmwareCompRunning" in api:
+                async with aiofiles.open('Firmware Compute Running/CSV/Firmware Compute Running.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "firmwareRunning" in api:
+                async with aiofiles.open('Firmware Running/CSV/Firmware Running.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fvEpPCont" in api:
+                async with aiofiles.open('Endpoint Profile Containers/CSV/Endpoint Profile Containers.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fvLocale" in api:
+                async with aiofiles.open('Locales/CSV/Locales.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fvRsBDToOut" in api:
+                async with aiofiles.open('Bridge Domains To Outside/CSV/Bridge Domains To Outside.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fvRsBd" in api:
+                async with aiofiles.open('EPG Bridge Domain Links/CSV/EPG Bridge Domain Links.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fvRsCEpToPathEp" in api:
+                async with aiofiles.open('Endpoints To Paths/CSV/Endpoints To Paths.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fvRsCons" in api:
+                if "If" in api:
+                    async with aiofiles.open('Contract Consumer Interfaces/CSV/Contract Consumer Interfaces.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+                else:
+                    async with aiofiles.open('Contract Consumers/CSV/Contract Consumers.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+
+            if "fvRsCtx" in api:
+                async with aiofiles.open('Context Source Relationships/CSV/Context Source Relationships.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fvRsDomAtt" in api:
+                async with aiofiles.open('Domain Attachments/CSV/Domain Attachments.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fvRsPathAtt" in api:
+                async with aiofiles.open('Path Attachments/CSV/Path Attachments.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fvRsProv" in api:
+                async with aiofiles.open('Contract Providers/CSV/Contract Providers.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fvRtBd" in api:
+                async with aiofiles.open('Bridge Domains Target Relationships/CSV/Bridge Domains Target Relationships.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fvRtCtx" in api:
+                async with aiofiles.open('Contexts Target Relationships/CSV/Contexts Target Relationships.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fvnsEncapBlk" in api:
+                async with aiofiles.open('VLAN Encapsulation Blocks/CSV/VLAN Encapsulation Blocks.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "fvnsVlanInstP" in api:
+                async with aiofiles.open('VLAN Namespace Policies/CSV/VLAN Namespace Policies.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "infraAccBndlGrp" in api:
+                async with aiofiles.open('Access Bundle Groups/CSV/Access Bundle Groups.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "infraAccPortGrp" in api:
+                async with aiofiles.open('Access Port Groups/CSV/Access Port Groups.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "infraAccPortP" in api:
+                async with aiofiles.open('Access Port Profiles/CSV/Access Port Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "infraContr" in api:
+                async with aiofiles.open('Controllers/CSV/Controllers.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "infraFexP" in api:
+                async with aiofiles.open('FEX Policies/CSV/FEX Policies.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "infraFuncP" in api:
+                async with aiofiles.open('Function Policies/CSV/Function Policies.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "infraHPortS" in api:
+                async with aiofiles.open('Host Port Selectors/CSV/Host Port Selectors.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "infraPortBlk" in api:
+                async with aiofiles.open('Port Blocks/CSV/Port Blocks.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "infraRsAccBaseGrp" in api:
+                async with aiofiles.open('Access Policy Group Source Relationships/CSV/Access Policy Group Source Relationships.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "infraRsAttEntP" in api:
+                async with aiofiles.open('Attachable Access Entity Profiles Source Relationships/CSV/Attachable Access Entity Profiles Source Relationships.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "infraRsDomP" in api:
+                async with aiofiles.open('Domain Profile Source Relationships/CSV/Domain Profile Source Relationships.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "infraRsSpAccGrp" in api:
+                async with aiofiles.open('Spine Access Policy Groups/CSV/Spine Access Policy Groups.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "infraRsVlanNs" in api:
+                async with aiofiles.open('VLAN Namespace Source Relationships/CSV/VLAN Namespace Source Relationships.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "infraSHPortS" in api:
+                async with aiofiles.open('Spine Host Port Selectors/CSV/Spine Host Port Selectors.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "infraSpAccPortP" in api:
+                async with aiofiles.open('Spine Access Port Profiles/CSV/Spine Access Port Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "infraWiNode" in api:
+                async with aiofiles.open('Wired Nodes/CSV/Wired Nodes.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ipNexthopP" in api:
+                async with aiofiles.open('Static Route Next Hop Policies/CSV/Static Route Next Hop Policies.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ipRouteP" in api:
+                async with aiofiles.open('Route Policies/CSV/Route Policies.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ipv4Addr" in api:
+                async with aiofiles.open('IPv4 Addresses/CSV/IPv4 Addresses.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ipv4Dom" in api:
+                async with aiofiles.open('IPv4 Domains/CSV/IPv4 Domains.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ipv4Entity" in api:
+                async with aiofiles.open('IPv4 Entities/CSV/IPv4 Entities.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ipv4If" in api:
+                async with aiofiles.open('IPv4 Interfaces/CSV/IPv4 Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ipv4Inst" in api:
+                async with aiofiles.open('IPv4 Instances/CSV/IPv4 Instances.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ipv4Nexthop" in api:
+                async with aiofiles.open('IPv4 Next Hop/CSV/IPv4 Next Hop.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ipv4Route" in api:
+                async with aiofiles.open('IPv4 Routes/CSV/IPv4 Routes.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "isisAdjEp" in api:
+                async with aiofiles.open('ISIS Adjacency Endpoints/CSV/ISIS Adjacency Endpoints.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "isisDTEp" in api:
+                async with aiofiles.open('ISIS Discovered Tunnel Endpoints/CSV/ISIS Discovered Tunnel Endpoints.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "isisDom" in api:
+                if "Lvl" in api:
+                    async with aiofiles.open('ISIS Domains Level/CSV/ISIS Domains Level.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+                else:
+                    async with aiofiles.open('ISIS Domains/CSV/ISIS Domains.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+
+            if "isisEntity" in api:
+                async with aiofiles.open('ISIS Entities/CSV/ISIS Entities.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "isisIf" in api:
+                if "Lvl" in api:
+                    async with aiofiles.open('ISIS Interfaces Level/CSV/ISIS Interfaces Level.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+                else:
+                    async with aiofiles.open('ISIS Interfaces/CSV/ISIS Interfaces.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+
+            if "isisInst" in api:
+                async with aiofiles.open('ISIS Instances/CSV/ISIS Instances.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "isisNexthop" in api:
+                async with aiofiles.open('ISIS Next Hop/CSV/ISIS Next Hop.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "isisRoute" in api:
+                async with aiofiles.open('ISIS Routes/CSV/ISIS Routes.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l2BD" in api:
+                async with aiofiles.open('L2 Bridge Domains/CSV/L2 Bridge Domains.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l2ExtIf" in api:
+                async with aiofiles.open('L2 External Interfaces/CSV/L2 External Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l2RsEthIf" in api:
+                async with aiofiles.open('L2 Interface Source Relationships/CSV/L2 Interface Source Relationships.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l2extInstP" in api:
+                async with aiofiles.open('L2 External Instance Profiles/CSV/L2 External Instance Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l2extLIfP" in api:
+                async with aiofiles.open('L2 External Logical Interface Profiles/CSV/L2 External Logical Interface Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l2extLNodeP" in api:
+                async with aiofiles.open('L2 External Logical Node Profiles/CSV/L2 External Logical Node Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l2extRsEBd" in api:
+                async with aiofiles.open('L2 EPG Bridge Domain Source Relationships/CSV/L2 EPG Bridge Domain Source Relationships.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l2extRsPathL2OutAtt" in api:
+                async with aiofiles.open('L2Out Paths/CSV/L2Out Paths.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l3Ctx" in api:
+                async with aiofiles.open('L3 Contexts/CSV/L3 Contexts.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l3EncRtdIf" in api:
+                async with aiofiles.open('L3 Subinterfaces/CSV/L3 Subinterfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l3Inst" in api:
+                async with aiofiles.open('L3 Instances/CSV/L3 Instances.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l3LbRtdIf" in api:
+                async with aiofiles.open('L3 Routed Loopback Interfaces/CSV/L3 Routed Loopback Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l3RsEncPhysRtdConf" in api:
+                async with aiofiles.open('L3 Physical Interface Source Relationships/CSV/L3 Physical Interface Source Relationships.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l3RtdIf" in api:
+                async with aiofiles.open('L3 Routed Interfaces/CSV/L3 Routed Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l3extInstP" in api:
+                async with aiofiles.open('L3Out Profiles/CSV/L3Out Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l3extIp" in api:
+                async with aiofiles.open('L3Out IP Addresses/CSV/L3Out IP Addresses.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l3extLIfP" in api:
+                async with aiofiles.open('L3 Logical Interface Profiles/CSV/L3 Logical Interface Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l3extLNodeP" in api:
+                async with aiofiles.open('L3 Logical Node Profiles/CSV/L3 Logical Node Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l3extMember" in api:
+                async with aiofiles.open('L3Out Members/CSV/L3Out Members.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l3extRsEctx" in api:
+                async with aiofiles.open('L3 Contexts Source Relationships/CSV/L3 Contexts Source Relationships.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l3extRsL3DomAtt" in api:
+                async with aiofiles.open('L3 Domains Source Relationships/CSV/L3 Domains Source Relationships.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l3extRsNodeL3OutAtt" in api:
+                async with aiofiles.open('L3Out Node Source Relationships/CSV/L3Out Node Source Relationships.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l3extRsPathL3OutAtt" in api:
+                async with aiofiles.open('L3Out Path Source Relationships/CSV/L3Out Path Source Relationships.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "l3extSubnet" in api:
+                async with aiofiles.open('L3 Subnets/CSV/L3 Subnets.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "lacpEntity" in api:
+                async with aiofiles.open('LACP Entities/CSV/LACP Entities.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "lacpIf" in api:
+                async with aiofiles.open('LACP Interfaces/CSV/LACP Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "lacpInst" in api:
+                async with aiofiles.open('LACP Instances/CSV/LACP Instances.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "leqptLooseNode" in api:
+                async with aiofiles.open('External Unmanaged Nodes/CSV/External Unmanaged Nodes.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "leqptRsLsNodeToIf" in api:
+                async with aiofiles.open('External Unmanaged Nodes Interfaces/CSV/External Unmanaged Nodes Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "lldpAdjEp" in api:
+                async with aiofiles.open('LLDP Adjacency Endpoints/CSV/LLDP Adjacency Endpoints.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "lldpEntity" in api:
+                async with aiofiles.open('LLDP Entities/CSV/LLDP Entities.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "lldpIf" in api:
+                async with aiofiles.open('LLDP Interfaces/CSV/LLDP Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "lldpInst" in api:
+                async with aiofiles.open('LLDP Instances/CSV/LLDP Instances.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "mgmtMgmtIf" in api:
+                async with aiofiles.open('Management Interfaces/CSV/Management Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ospfAdjEp" in api:
+                async with aiofiles.open('OSPF Adjacency Endpoints/CSV/OSPF Adjacency Endpoints.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ospfArea" in api:
+                async with aiofiles.open('OSPF Areas/CSV/OSPF Areas.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ospfDb" in api:
+                async with aiofiles.open('OSPF Database/CSV/OSPF Database.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ospfDom" in api:
+                async with aiofiles.open('OSPF Domains/CSV/OSPF Domains.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ospfEntity" in api:
+                async with aiofiles.open('OSPF Entities/CSV/OSPF Entities.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ospfExtP" in api:
+                async with aiofiles.open('OSPF External Profiles/CSV/OSPF External Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ospfIf" in api:
+                async with aiofiles.open('OSPF Interfaces/CSV/OSPF Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ospfInst" in api:
+                async with aiofiles.open('OSPF Instances/CSV/OSPF Instances.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ospfRoute" in api:
+                async with aiofiles.open('OSPF Routes/CSV/OSPF Routes.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "ospfUcNexthop" in api:
+                async with aiofiles.open('OSPF Unicast Next Hop/CSV/OSPF Unicast Next Hop.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "pcAggrIf" in api:
+                async with aiofiles.open('Port Channel Aggregate Interfaces/CSV/Port Channel Aggregate Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "pcRsMbrIfs" in api:
+                async with aiofiles.open('Port Channel Member Interfaces/CSV/Port Channel Member Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "sviIf" in api:
+                async with aiofiles.open('SVIs/CSV/SVIs.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "tunnelIf" in api:
+                async with aiofiles.open('Tunnel Interfaces/CSV/Tunnel Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "uribv4Db" in api:
+                async with aiofiles.open('Unicast Route Database/CSV/Unicast Route Database.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "uribv4Dom" in api:
+                async with aiofiles.open('Unicast Route Domains/CSV/Unicast Route Domains.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "uribv4Entity" in api:
+                async with aiofiles.open('Unicast Route Entities/CSV/Unicast Route Entities.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "uribv4Nexthop" in api:
+                async with aiofiles.open('Unicast Route Next Hop/CSV/Unicast Route Next Hop.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "uribv4Route" in api:
+                async with aiofiles.open('Unicast Routes/CSV/Unicast Routes.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vlanCktEp" in api:
+                async with aiofiles.open('VLAN Endpoint Group Encapsulation/CSV/VLAN Endpoint Group Encapsulation.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vmmCtrlrP" in api:
+                async with aiofiles.open('VMM Controller Profiles/CSV/VMM Controller Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vmmDomP" in api:
+                async with aiofiles.open('VMM Domain Profiles/CSV/VMM Domain Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vmmProvP" in api:
+                async with aiofiles.open('VMM Provider Profiles/CSV/VMM Provider Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vmmUsrAccP" in api:
+                async with aiofiles.open('VMM User Profiles/CSV/VMM User Profiles.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vpcDom" in api:
+                async with aiofiles.open('VPC Domains/CSV/VPC Domains.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vpcEntity" in api:
+                async with aiofiles.open('VPC Entities/CSV/VPC Entities.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vpcIf" in api:
+                async with aiofiles.open('VPC Interfaces/CSV/VPC Interfaces.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vpcInst" in api:
+                async with aiofiles.open('VPC Instances/CSV/VPC Instances.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vpcRsVpcConf" in api:
+                async with aiofiles.open('VPC Configurations/CSV/VPC Configurations.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vzAny" in api:
+                async with aiofiles.open('vzAny/CSV/vzAny.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vzFilter" in api:
+                async with aiofiles.open('vzFilters/CSV/vzFilters.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vzRsAnyToCons" in api:
+                async with aiofiles.open('vzAny To Consumers/CSV/vzAny To Consumers.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vzRsAnyToProv" in api:
+                async with aiofiles.open('vzAny To Providers/CSV/vzAny To Providers.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vzRsDenyRule" in api:
+                async with aiofiles.open('vzDeny Rules/CSV/vzDeny Rules.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vzRsIf" in api:
+                async with aiofiles.open('vzInterface Source Relationships/CSV/vzInterface Source Relationships.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vzRsSubjFiltAtt" in api:
+                async with aiofiles.open('Contract Subjects Filter Attributes/CSV/Contract Subjects Filter Attributes.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vzRtCons" in api:
+                async with aiofiles.open('Contract Consumers Root/CSV/Contract Consumers Root.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vzRtProv" in api:
+                async with aiofiles.open('Contract Providers Root/CSV/Contract Providers Root.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vzRuleOwner" in api:
+                async with aiofiles.open('vzRule Owner/CSV/vzRule Owner.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "vzTaboo" in api:
+                async with aiofiles.open('vzTaboo/CSV/vzTaboo.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+    async def markdown_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
-        env = Environment(loader=FileSystemLoader(str(template_dir)))
+        env = Environment(loader=FileSystemLoader(str(template_dir)), enable_async=True)
         markdown_template = env.get_template('aci_markdown.j2')
-        markdown_output = markdown_template.render(api = self.url,
-                                         data_to_template = json.loads(parsed_json),
-                                         url = self.aci)
-        if "Tenant" in self.url:
-            with open('Tenant/Markdown/Tenants.md', 'w' ) as f:
-                f.write(markdown_output)
+        for api, payload in json.loads(parsed_json):        
+            markdown_output = await markdown_template.render_async(api = api,
+                                         data_to_template = payload)
+            if "Tenant" in api:
+                async with aiofiles.open('Tenant/CSV/Tenants.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "AEPg" in self.url:
-            with open('EPGs/Markdown/EPGs.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "AEPg" in api:
+                async with aiofiles.open('EPGs/Markdown/EPGs.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "fvBD" in self.url:
-            with open('Bridge Domains/Markdown/Bridge Domains.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "fvBD" in api:
+                async with aiofiles.open('Bridge Domains/Markdown/Bridge Domains.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "fvCtx" in self.url:
-            with open('Contexts/Markdown/Contexts.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "fvCtx" in api:
+                async with aiofiles.open('Contexts/Markdown/Contexts.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "Ap" in self.url:
-            with open('Application Profiles/Markdown/Application Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "Ap" in api:
+                async with aiofiles.open('Application Profiles/Markdown/Application Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "l3extOut" in self.url:
-            with open('L3Outs/Markdown/L3Outs.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "l3extOut" in api:
+                async with aiofiles.open('L3Outs/Markdown/L3Outs.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "l2extOut" in self.url:
-            with open('L2Outs/Markdown/L2Outs.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "l2extOut" in api:
+                async with aiofiles.open('L2Outs/Markdown/L2Outs.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "topSystem" in self.url:
-            if "?" not in self.url:
-                with open('Top System/Markdown/Top System.md', 'w' ) as f:
-                    f.write(markdown_output)
+            if "topSystem" in api:
+                if "?" not in api:
+                    async with aiofiles.open('Top System/Markdown/Top System.md', mode='w' ) as f:
+                        await f.write(markdown_output)
 
-        if "fvSubnet" in self.url:
-            with open('Subnets/Markdown/Subnets.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "fvSubnet" in api:
+                async with aiofiles.open('Subnets/Markdown/Subnets.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "fvCEp" in self.url:
-            with open('Endpoints/Markdown/Endpoints.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "fvCEp" in api:
+                async with aiofiles.open('Endpoints/Markdown/Endpoints.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "fabricNode" in self.url:
-            with open('Fabric Nodes/Markdown/Fabric Nodes.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "fabricNode" in api:
+                async with aiofiles.open('Fabric Nodes/Markdown/Fabric Nodes.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "l1PhysIf" in self.url:
-            with open('Physical Interfaces/Markdown/Physical Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "l1PhysIf" in api:
+                async with aiofiles.open('Physical Interfaces/Markdown/Physical Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "infraAccPortP" in self.url:
-            with open('Leaf Interface Profiles/Markdown/Leaf Interface Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "infraAccPortP" in api:
+                async with aiofiles.open('Leaf Interface Profiles/Markdown/Leaf Interface Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "infraSpAccPortP" in self.url:
-            with open('Spine Interface Profiles/Markdown/Spine Interface Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "infraSpAccPortP" in api:
+                async with aiofiles.open('Spine Interface Profiles/Markdown/Spine Interface Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "infraNodeP" in self.url:
-            with open('Leaf Switch Profiles/Markdown/Leaf Switch Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "infraNodeP" in api:
+                async with aiofiles.open('Leaf Switch Profiles/Markdown/Leaf Switch Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "infraSpineP" in self.url:
-            with open('Spine Switch Profiles/Markdown/Spine Switch Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "infraSpineP" in api:
+                async with aiofiles.open('Spine Switch Profiles/Markdown/Spine Switch Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "fvnsVlanInstP" in self.url:
-            with open('VLAN Pools/Markdown/VLAN Pools.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "fvnsVlanInstP" in api:
+                async with aiofiles.open('VLAN Pools/Markdown/VLAN Pools.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "infraAttEntityP" in self.url:
-            with open('Attachable Access Entity Profiles/Markdown/Attachable Access Entity Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "infraAttEntityP" in api:
+                async with aiofiles.open('Attachable Access Entity Profiles/Markdown/Attachable Access Entity Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "vzBrCP" in self.url:
-            with open('Contracts/Markdown/Contracts.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "vzBrCP" in api:
+                async with aiofiles.open('Contracts/Markdown/Contracts.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "vzEntry" in self.url:
-            with open('vzEntries/Markdown/vzEntries.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "vzEntry" in api:
+                async with aiofiles.open('vzEntries/Markdown/vzEntries.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "physDomP" in self.url:
-            with open('Physical Domains/Markdown/Physical Domains.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "physDomP" in api:
+                async with aiofiles.open('Physical Domains/Markdown/Physical Domains.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "l3extDomP" in self.url:
-            with open('L3 Domains/Markdown/L3 Domains.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "l3extDomP" in api:
+                async with aiofiles.open('L3 Domains/Markdown/L3 Domains.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "qosClass" in self.url:
-            with open('QOS Classes/Markdown/QOS Classes.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "qosClass" in api:
+                async with aiofiles.open('QOS Classes/Markdown/QOS Classes.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "faultSummary" in self.url:
-            with open('Fault Summary/Markdown/Fault Summary.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "faultSummary" in api:
+                async with aiofiles.open('Fault Summary/Markdown/Fault Summary.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "aaaModLR" in self.url:
-            with open('Audit Log/Markdown/Audit Log.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "aaaModLR" in api:
+                async with aiofiles.open('Audit Log/Markdown/Audit Log.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "fvIp" in self.url:
-            with open('IP Addresses/Markdown/IP Addresses.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "fvIp" in api:
+                async with aiofiles.open('IP Addresses/Markdown/IP Addresses.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "eventRecord" in self.url:
-            with open('Events/Markdown/Events.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "eventRecord" in api:
+                async with aiofiles.open('Events/Markdown/Events.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "licenseEntitlement" in self.url:
-            with open('License Entitlements/Markdown/License Entitlements.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "licenseEntitlement" in api:
+                async with aiofiles.open('License Entitlements/Markdown/License Entitlements.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "bgpRRNodePEp" in self.url:
-            with open('BGP Route Reflectors/Markdown/BGP Route Reflectors.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "bgpRRNodePEp" in api:
+                async with aiofiles.open('BGP Route Reflectors/Markdown/BGP Route Reflectors.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "infraPortS" in self.url:
-            with open('Interface Policies/Markdown/Interface Policies.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "infraPortS" in api:
+                async with aiofiles.open('Interface Policies/Markdown/Interface Policies.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "infraProfile" in self.url:
-            with open('Interface Profiles/Markdown/Interface Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "infraProfile" in api:
+                async with aiofiles.open('Interface Profiles/Markdown/Interface Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "fabricPod" in self.url:
-            with open('Fabric Pods/Markdown/Fabric Pods.md', 'w' ) as f:
-                f.write(markdown_output)
+            if "fabricPod" in api:
+                async with aiofiles.open('Fabric Pods/Markdown/Fabric Pods.md', mode='w' ) as f:
+                    await f.write(markdown_output)
 
-        if "fabricPath" in self.url:
-            if "fabricPathEp" in self.url:
-                if "Cont" in self.url:
-                    with open('Fabric Path Endpoint Containers/Markdown/Fabric Path Endpoint Containers.md', 'w' ) as f:
-                        f.write(markdown_output)
+            if "fabricPath" in api:
+                if "fabricPathEp" in api:
+                    if "Cont" in api:
+                        async with aiofiles.open('Fabric Path Endpoint Containers/Markdown/Fabric Path Endpoint Containers.md', mode='w' ) as f:
+                            await f.write(markdown_output)
+                    else:
+                        async with aiofiles.open('Fabric Path Endpoints/Markdown/Fabric Path Endpoints.md', mode='w' ) as f:
+                            await f.write(markdown_output)
                 else:
-                    with open('Fabric Path Endpoints/Markdown/Fabric Path Endpoints.md', 'w' ) as f:
-                        f.write(markdown_output)
-            else:
-                with open('Fabric Paths/Markdown/Fabric Paths.md', 'w' ) as f:
-                    f.write(markdown_output)
-
-        if "rtctrlSubjP" in self.url:
-            with open('Prefix List/Markdown/Prefix List.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "rtctrlMatchRtDest" in self.url:
-            with open('Prefix List Detailed/Markdown/Prefix List Detailed.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "aaaUser" in self.url:
-            with open('Users/Markdown/Users.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "aaaDomain" in self.url:
-            with open('Security Domains/Markdown/Security Domains.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vzSubj" in self.url:
-            with open('Contract Subjects/Markdown/Contract Subjects.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "health" in self.url:
-            with open('Health/Markdown/Health.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "pkiFabricNodeSSLCertificate" in self.url:
-            with open('Fabric Node SSL Certificates/Markdown/Fabric Node SSL Certificates.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "tn-" and "health" in self.url:
-            with open('Tenant Health/Markdown/Tenant Health.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "firmwareCtrlrRunning" in self.url:
-            with open('Fabric Membership/Markdown/Fabric Membership.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "infraWiNode" in self.url:
-            with open('Cluster Health/Markdown/Cluster Health.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vnsMDev" in self.url:
-            with open('Device Packages/Markdown/Device Packages.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "cnwAggrIf" in self.url:
-            with open('Cluster Aggregate Interfaces/Markdown/Cluster Aggregate Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l3Inst" in self.url:
-            with open('L3 Interfaces/Markdown/L3 Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "actrlEntity" in self.url:
-            with open('Access Control Entities/Markdown/Access Control Entities.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "actrlInst" in self.url:
-            with open('Access Control Instances/Markdown/Access Control Instances.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "actrlRule" in self.url:
-            with open('Access Control Rules/Markdown/Access Control Rules.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "actrlScope" in self.url:
-            with open('Access Control Scopes/Markdown/Access Control Scopes.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "cnwPhysIf" in self.url:
-            with open('Cluster Physical Interfaces/Markdown/Cluster Physical Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "compCtrlr" in self.url:
-            with open('Compute Controllers/Markdown/Compute Controllers.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "compDom" in self.url:
-            with open('Compute Domains/Markdown/Compute Domains.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "compEpPD" in self.url:
-            with open('Compute Endpoint Policy Descriptions/Markdown/Compute Endpoint Policy Descriptions.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "compProv" in self.url:
-            with open('Compute Providers/Markdown/Compute Providers.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "arpAdjEp" in self.url:
-            with open('ARP Adjacency Endpoints/Markdown/ARP Adjacency Endpoints.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "arpDb" in self.url:
-            with open('ARP Database/Markdown/ARP Database.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "arpDom" in self.url:
-            with open('ARP Domain/Markdown/ARP Domain.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "arpEntity" in self.url:
-            with open('ARP Entity/Markdown/ARP Entity.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "arpIf" in self.url:
-            with open('ARP Interfaces/Markdown/ARP Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "arpInst" in self.url:
-            with open('ARP Instances/Markdown/ARP Instances.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "bgpDom" in self.url:
-            if "Af" in self.url:
-                with open('BGP Domain Address Families/Markdown/BGP Domain Address Families.md', 'w' ) as f:
-                    f.write(markdown_output)
-            else:
-                with open('BGP Domains/Markdown/BGP Domains.md', 'w' ) as f:
-                    f.write(markdown_output)
-
-        if "bgpEntity" in self.url:
-            with open('BGP Entities/Markdown/BGP Entities.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "bgpInst" in self.url:
-            if "InstPol" in self.url:
-                with open('BGP Instances Policy/Markdown/BGP Instances Policy.md', 'w' ) as f:
-                    f.write(markdown_output)
-            else:
-                with open('BGP Instances/Markdown/BGP Instances.md', 'w' ) as f:
-                    f.write(markdown_output)
-
-        if "bgpPeer" in self.url:
-            if "bgpPeerAf" in self.url:
-                with open('BGP Peers AF Entries/Markdown/BGP Peers AF Entries.md', 'w' ) as f:
-                    f.write(markdown_output)
-            elif "bgpPeerEntry" in self.url:
-                with open('BGP Peers Entries/Markdown/BGP Peers Entries.md', 'w' ) as f:
-                    f.write(markdown_output)
-            else:
-                with open('BGP Peers/Markdown/BGP Peers.md', 'w' ) as f:
-                    f.write(markdown_output)
-
-        if "bgpRRP" in self.url:
-            with open('BGP Route Reflector Policies/Markdown/BGP Route Reflector Policies.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "cdpAdjEp" in self.url:
-            with open('CDP Adjacency Endpoints/Markdown/CDP Adjacency Endpoints.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "cdpEntity" in self.url:
-            with open('CDP Entities/Markdown/CDP Entities.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "cdpIf" in self.url:
-            with open('CDP Interfaces/Markdown/CDP Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "cdpInst" in self.url:
-            with open('CDP Instances/Markdown/CDP Instances.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "cdpIntfAddr" in self.url:
-            with open('CDP Interface Addresses/Markdown/CDP Interface Addresses.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "cdpMgmtAddr" in self.url:
-            with open('CDP Management Addresses/Markdown/CDP Management Addresses.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "cnwRsMbrIfs" in self.url:
-            with open('Cluster RS Member Interfaces/Markdown/Cluster RS Member Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "compRsDomP" in self.url:
-            with open('Compute RS Domain Policies/Markdown/Compute RS Domain Policies.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptBSlot" in self.url:
-            with open('Equipment Board Slots/Markdown/Equipment Board Slots.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptBoard" in self.url:
-            with open('Equipment Boards/Markdown/Equipment Boards.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptCPU" in self.url:
-            with open('Equipment CPUs/Markdown/Equipment CPUs.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptCh" in self.url:
-            with open('Equipment Chassis/Markdown/Equipment Chassis.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptDimm" in self.url:
-            with open('Equipment DIMMs/Markdown/Equipment DIMMs.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptExtCh" in self.url:
-            with open('Equipment Fabric Extenders/Markdown/Equipment Fabric Extenders.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptFabP" in self.url:
-            with open('Equipment Fabric Ports/Markdown/Equipment Fabric Ports.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptFan" in self.url:
-            with open('Equipment Fans/Markdown/Equipment Fans.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptFpga" in self.url:
-            with open('Equipment Field Programmable Gate Arrays/Markdown/Equipment Field Programmable Gate Arrays.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptFt" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Fan Tray Slots/Markdown/Equipment Fan Tray Slots.md', 'w' ) as f:
-                    f.write(markdown_output)
-            else:
-                with open('Equipment Fan Trays/Markdown/Equipment Fan Trays.md', 'w' ) as f:
-                    f.write(markdown_output)
-
-        if "eqptIndLed" in self.url:
-            with open('Equipment Indicator LEDs/Markdown/Equipment Indicator LEDs.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptLC" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Line Card Slots/Markdown/Equipment Line Card Slots.md', 'w' ) as f:
-                    f.write(markdown_output)
-            else:
-                with open('Equipment Line Cards/Markdown/Equipment Line Cards.md', 'w' ) as f:
-                    f.write(markdown_output)
-
-        if "eqptLeafP" in self.url:
-            with open('Equipment Leaf Ports/Markdown/Equipment Leaf Ports.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptLocLed" in self.url:
-            with open('Equipment Port Locator LEDs/Markdown/Equipment Port Locator LEDs.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptPsu" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Power Supply Slots/Markdown/Equipment Power Supply Slots.md', 'w' ) as f:
-                    f.write(markdown_output)
-            else:
-                with open('Equipment Power Supplies/Markdown/Equipment Power Supplies.md', 'w' ) as f:
-                    f.write(markdown_output)
-
-        if "eqptRsIoPPhysConf" in self.url:
-            with open('Equipment RS IO Port Physical Configs/Markdown/Equipment RS IO Port Physical Configs.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptSensor" in self.url:
-            with open('Equipment Sensors/Markdown/Equipment Sensors.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptSpCmnBlk" in self.url:
-            with open('Equipment SP Common Blocks/Markdown/Equipment SP Common Blocks.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptSpromLc" in self.url:
-            with open('Equipment SPROM LCs/Markdown/Equipment SPROM LCs.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptSpromPsu" in self.url:
-            if "Blk" in self.url:
-                with open('Equipment SPROM Power Supply Blocks/Markdown/Equipment SPROM Power Supply Blocks.md', 'w' ) as f:
-                    f.write(markdown_output)
-            else:
-                with open('Equipment SPROM Power Supplies/Markdown/Equipment SPROM Power Supplies.md', 'w' ) as f:
-                    f.write(markdown_output)
-
-        if "eqptSpromSup" in self.url:
-            with open('Equipment SPROM Supervisors/Markdown/Equipment SPROM Supervisors.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptStorage" in self.url:
-            with open('Equipment Storage/Markdown/Equipment Storage.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "eqptSupC" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Supervisor Slots/Markdown/Equipment Supervisor Slots.md', 'w' ) as f:
-                    f.write(markdown_output)
-            else:
-                with open('Equipment Supervisors/Markdown/Equipment Supervisors.md', 'w' ) as f:
-                    f.write(markdown_output)
-
-        if "ethpmPhysIf" in self.url:
-            with open('Ethernet Port Manager Physical Interfaces/Markdown/Ethernet Port Manager Physical Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fabricExtPathEpCont" in self.url:
-            with open('Fabric Extended Path Endpoint Containers/Markdown/Fabric Extended Path Endpoint Containers.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fabricInst" in self.url:
-            with open('Fabric Instances/Markdown/Fabric Instances.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fabricLink" in self.url:
-            if "Cont" in self.url:
-                with open('Fabric Link Containers/Markdown/Fabric Link Containers.md', 'w' ) as f:
-                    f.write(markdown_output)
-            else:
-                with open('Fabric Links/Markdown/Fabric Links.md', 'w' ) as f:
-                    f.write(markdown_output)
-
-        if "fabricLooseLink" in self.url:
-            with open('Fabric Loose Links/Markdown/Fabric Loose Links.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fabricLooseNode" in self.url:
-            with open('Fabric Loose Nodes/Markdown/Fabric Loose Nodes.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fabricProtPathEpCont" in self.url:
-            with open('Fabric Protected Path Endpoint Containers/Markdown/Fabric Protected Path Endpoint Containers.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fcEntity" in self.url:
-            with open('Fibre Channel Entities/Markdown/Fibre Channel Entities.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "firmwareCardRunning" in self.url:
-            with open('Firmware Card Running/Markdown/Firmware Card Running.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "firmwareCompRunning" in self.url:
-            with open('Firmware Compute Running/Markdown/Firmware Compute Running.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "firmwareRunning" in self.url:
-            with open('Firmware Running/Markdown/Firmware Running.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fvEpPCont" in self.url:
-            with open('Endpoint Profile Containers/Markdown/Endpoint Profile Containers.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fvLocale" in self.url:
-            with open('Locales/Markdown/Locales.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fvRsBDToOut" in self.url:
-            with open('Bridge Domains To Outside/Markdown/Bridge Domains To Outside.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fvRsBd" in self.url:
-            with open('EPG Bridge Domain Links/Markdown/EPG Bridge Domain Links.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fvRsCEpToPathEp" in self.url:
-            with open('Endpoints To Paths/Markdown/Endpoints To Paths.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fvRsCons" in self.url:
-            if "If" in self.url:
-                with open('Contract Consumer Interfaces/Markdown/Contract Consumer Interfaces.md', 'w' ) as f:
-                    f.write(markdown_output)
-            else:
-                with open('Contract Consumers/Markdown/Contract Consumers.md', 'w' ) as f:
-                    f.write(markdown_output)
-
-        if "fvRsCtx" in self.url:
-            with open('Context Source Relationships/Markdown/Context Source Relationships.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fvRsDomAtt" in self.url:
-            with open('Domain Attachments/Markdown/Domain Attachments.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fvRsPathAtt" in self.url:
-            with open('Path Attachments/Markdown/Path Attachments.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fvRsProv" in self.url:
-            with open('Contract Providers/Markdown/Contract Providers.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fvRtBd" in self.url:
-            with open('Bridge Domains Target Relationships/Markdown/Bridge Domains Target Relationships.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fvRtCtx" in self.url:
-            with open('Contexts Target Relationships/Markdown/Contexts Target Relationships.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fvnsEncapBlk" in self.url:
-            with open('VLAN Encapsulation Blocks/Markdown/VLAN Encapsulation Blocks.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "fvnsVlanInstP" in self.url:
-            with open('VLAN Namespace Policies/Markdown/VLAN Namespace Policies.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "infraAccBndlGrp" in self.url:
-            with open('Access Bundle Groups/Markdown/Access Bundle Groups.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "infraAccPortGrp" in self.url:
-            with open('Access Port Groups/Markdown/Access Port Groups.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "infraAccPortP" in self.url:
-            with open('Access Port Profiles/Markdown/Access Port Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "infraContr" in self.url:
-            with open('Controllers/Markdown/Controllers.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "infraFexP" in self.url:
-            with open('FEX Policies/Markdown/FEX Policies.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "infraFuncP" in self.url:
-            with open('Function Policies/Markdown/Function Policies.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "infraHPortS" in self.url:
-            with open('Host Port Selectors/Markdown/Host Port Selectors.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "infraPortBlk" in self.url:
-            with open('Port Blocks/Markdown/Port Blocks.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "infraRsAccBaseGrp" in self.url:
-            with open('Access Policy Group Source Relationships/Markdown/Access Policy Group Source Relationships.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "infraRsAttEntP" in self.url:
-            with open('Attachable Access Entity Profiles Source Relationships/Markdown/Attachable Access Entity Profiles Source Relationships.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "infraRsDomP" in self.url:
-            with open('Domain Profile Source Relationships/Markdown/Domain Profile Source Relationships.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "infraRsSpAccGrp" in self.url:
-            with open('Spine Access Policy Groups/Markdown/Spine Access Policy Groups.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "infraRsVlanNs" in self.url:
-            with open('VLAN Namespace Source Relationships/Markdown/VLAN Namespace Source Relationships.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "infraSHPortS" in self.url:
-            with open('Spine Host Port Selectors/Markdown/Spine Host Port Selectors.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "infraSpAccPortP" in self.url:
-            with open('Spine Access Port Profiles/Markdown/Spine Access Port Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "infraWiNode" in self.url:
-            with open('Wired Nodes/Markdown/Wired Nodes.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ipNexthopP" in self.url:
-            with open('Static Route Next Hop Policies/Markdown/Static Route Next Hop Policies.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ipRouteP" in self.url:
-            with open('Route Policies/Markdown/Route Policies.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ipv4Addr" in self.url:
-            with open('IPv4 Addresses/Markdown/IPv4 Addresses.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ipv4Dom" in self.url:
-            with open('IPv4 Domains/Markdown/IPv4 Domains.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ipv4Entity" in self.url:
-            with open('IPv4 Entities/Markdown/IPv4 Entities.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ipv4If" in self.url:
-            with open('IPv4 Interfaces/Markdown/IPv4 Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ipv4Inst" in self.url:
-            with open('IPv4 Instances/Markdown/IPv4 Instances.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ipv4Nexthop" in self.url:
-            with open('IPv4 Next Hop/Markdown/IPv4 Next Hop.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ipv4Route" in self.url:
-            with open('IPv4 Routes/Markdown/IPv4 Routes.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "isisAdjEp" in self.url:
-            with open('ISIS Adjacency Endpoints/Markdown/ISIS Adjacency Endpoints.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "isisDTEp" in self.url:
-            with open('ISIS Discovered Tunnel Endpoints/Markdown/ISIS Discovered Tunnel Endpoints.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "isisDom" in self.url:
-            if "Lvl" in self.url:
-                with open('ISIS Domains Level/Markdown/ISIS Domains Level.md', 'w' ) as f:
-                    f.write(markdown_output)
-            else:
-                with open('ISIS Domains/Markdown/ISIS Domains.md', 'w' ) as f:
-                    f.write(markdown_output)
-
-        if "isisEntity" in self.url:
-            with open('ISIS Entities/Markdown/ISIS Entities.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "isisIf" in self.url:
-            if "Lvl" in self.url:
-                with open('ISIS Interfaces Level/Markdown/ISIS Interfaces Level.md', 'w' ) as f:
-                    f.write(markdown_output)
-            else:
-                with open('ISIS Interfaces/Markdown/ISIS Interfaces.md', 'w' ) as f:
-                    f.write(markdown_output)
-
-        if "isisInst" in self.url:
-            with open('ISIS Instances/Markdown/ISIS Instances.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "isisNexthop" in self.url:
-            with open('ISIS Next Hop/Markdown/ISIS Next Hop.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "isisRoute" in self.url:
-            with open('ISIS Routes/Markdown/ISIS Routes.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l2BD" in self.url:
-            with open('L2 Bridge Domains/Markdown/L2 Bridge Domains.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l2ExtIf" in self.url:
-            with open('L2 External Interfaces/Markdown/L2 External Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l2RsEthIf" in self.url:
-            with open('L2 Interface Source Relationships/Markdown/L2 Interface Source Relationships.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l2extInstP" in self.url:
-            with open('L2 External Instance Profiles/Markdown/L2 External Instance Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l2extLIfP" in self.url:
-            with open('L2 External Logical Interface Profiles/Markdown/L2 External Logical Interface Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l2extLNodeP" in self.url:
-            with open('L2 External Logical Node Profiles/Markdown/L2 External Logical Node Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l2extRsEBd" in self.url:
-            with open('L2 EPG Bridge Domain Source Relationships/Markdown/L2 EPG Bridge Domain Source Relationships.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l2extRsPathL2OutAtt" in self.url:
-            with open('L2Out Paths/Markdown/L2Out Paths.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l3Ctx" in self.url:
-            with open('L3 Contexts/Markdown/L3 Contexts.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l3EncRtdIf" in self.url:
-            with open('L3 Subinterfaces/Markdown/L3 Subinterfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l3Inst" in self.url:
-            with open('L3 Instances/Markdown/L3 Instances.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l3LbRtdIf" in self.url:
-            with open('L3 Routed Loopback Interfaces/Markdown/L3 Routed Loopback Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l3RsEncPhysRtdConf" in self.url:
-            with open('L3 Physical Interface Source Relationships/Markdown/L3 Physical Interface Source Relationships.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l3RtdIf" in self.url:
-            with open('L3 Routed Interfaces/Markdown/L3 Routed Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l3extInstP" in self.url:
-            with open('L3Out Profiles/Markdown/L3Out Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l3extIp" in self.url:
-            with open('L3Out IP Addresses/Markdown/L3Out IP Addresses.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l3extLIfP" in self.url:
-            with open('L3 Logical Interface Profiles/Markdown/L3 Logical Interface Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l3extLNodeP" in self.url:
-            with open('L3 Logical Node Profiles/Markdown/L3 Logical Node Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l3extMember" in self.url:
-            with open('L3Out Members/Markdown/L3Out Members.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l3extRsEctx" in self.url:
-            with open('L3 Contexts Source Relationships/Markdown/L3 Contexts Source Relationships.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l3extRsL3DomAtt" in self.url:
-            with open('L3 Domains Source Relationships/Markdown/L3 Domains Source Relationships.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l3extRsNodeL3OutAtt" in self.url:
-            with open('L3Out Node Source Relationships/Markdown/L3Out Node Source Relationships.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l3extRsPathL3OutAtt" in self.url:
-            with open('L3Out Path Source Relationships/Markdown/L3Out Path Source Relationships.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "l3extSubnet" in self.url:
-            with open('L3 Subnets/Markdown/L3 Subnets.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "lacpEntity" in self.url:
-            with open('LACP Entities/Markdown/LACP Entities.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "lacpIf" in self.url:
-            with open('LACP Interfaces/Markdown/LACP Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "lacpInst" in self.url:
-            with open('LACP Instances/Markdown/LACP Instances.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "leqptLooseNode" in self.url:
-            with open('External Unmanaged Nodes/Markdown/External Unmanaged Nodes.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "leqptRsLsNodeToIf" in self.url:
-            with open('External Unmanaged Nodes Interfaces/Markdown/External Unmanaged Nodes Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "lldpAdjEp" in self.url:
-            with open('LLDP Adjacency Endpoints/Markdown/LLDP Adjacency Endpoints.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "lldpEntity" in self.url:
-            with open('LLDP Entities/Markdown/LLDP Entities.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "lldpIf" in self.url:
-            with open('LLDP Interfaces/Markdown/LLDP Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "lldpInst" in self.url:
-            with open('LLDP Instances/Markdown/LLDP Instances.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "mgmtMgmtIf" in self.url:
-            with open('Management Interfaces/Markdown/Management Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ospfAdjEp" in self.url:
-            with open('OSPF Adjacency Endpoints/Markdown/OSPF Adjacency Endpoints.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ospfArea" in self.url:
-            with open('OSPF Areas/Markdown/OSPF Areas.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ospfDb" in self.url:
-            with open('OSPF Database/Markdown/OSPF Database.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ospfDom" in self.url:
-            with open('OSPF Domains/Markdown/OSPF Domains.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ospfEntity" in self.url:
-            with open('OSPF Entities/Markdown/OSPF Entities.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ospfExtP" in self.url:
-            with open('OSPF External Profiles/Markdown/OSPF External Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ospfIf" in self.url:
-            with open('OSPF Interfaces/Markdown/OSPF Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ospfInst" in self.url:
-            with open('OSPF Instances/Markdown/OSPF Instances.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ospfRoute" in self.url:
-            with open('OSPF Routes/Markdown/OSPF Routes.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "ospfUcNexthop" in self.url:
-            with open('OSPF Unicast Next Hop/Markdown/OSPF Unicast Next Hop.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "pcAggrIf" in self.url:
-            with open('Port Channel Aggregate Interfaces/Markdown/Port Channel Aggregate Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "pcRsMbrIfs" in self.url:
-            with open('Port Channel Member Interfaces/Markdown/Port Channel Member Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "sviIf" in self.url:
-            with open('SVIs/Markdown/SVIs.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "tunnelIf" in self.url:
-            with open('Tunnel Interfaces/Markdown/Tunnel Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "uribv4Db" in self.url:
-            with open('Unicast Route Database/Markdown/Unicast Route Database.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "uribv4Dom" in self.url:
-            with open('Unicast Route Domains/Markdown/Unicast Route Domains.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "uribv4Entity" in self.url:
-            with open('Unicast Route Entities/Markdown/Unicast Route Entities.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "uribv4Nexthop" in self.url:
-            with open('Unicast Route Next Hop/Markdown/Unicast Route Next Hop.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "uribv4Route" in self.url:
-            with open('Unicast Routes/Markdown/Unicast Routes.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vlanCktEp" in self.url:
-            with open('VLAN Endpoint Group Encapsulation/Markdown/VLAN Endpoint Group Encapsulation.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vmmCtrlrP" in self.url:
-            with open('VMM Controller Profiles/Markdown/VMM Controller Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vmmDomP" in self.url:
-            with open('VMM Domain Profiles/Markdown/VMM Domain Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vmmProvP" in self.url:
-            with open('VMM Provider Profiles/Markdown/VMM Provider Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vmmUsrAccP" in self.url:
-            with open('VMM User Profiles/Markdown/VMM User Profiles.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vpcDom" in self.url:
-            with open('VPC Domains/Markdown/VPC Domains.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vpcEntity" in self.url:
-            with open('VPC Entities/Markdown/VPC Entities.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vpcIf" in self.url:
-            with open('VPC Interfaces/Markdown/VPC Interfaces.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vpcInst" in self.url:
-            with open('VPC Instances/Markdown/VPC Instances.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vpcRsVpcConf" in self.url:
-            with open('VPC Configurations/Markdown/VPC Configurations.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vzAny" in self.url:
-            with open('vzAny/Markdown/vzAny.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vzFilter" in self.url:
-            with open('vzFilters/Markdown/vzFilters.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vzRsAnyToCons" in self.url:
-            with open('vzAny To Consumers/Markdown/vzAny To Consumers.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vzRsAnyToProv" in self.url:
-            with open('vzAny To Providers/Markdown/vzAny To Providers.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vzRsDenyRule" in self.url:
-            with open('vzDeny Rules/Markdown/vzDeny Rules.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vzRsIf" in self.url:
-            with open('vzInterface Source Relationships/Markdown/vzInterface Source Relationships.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vzRsSubjFiltAtt" in self.url:
-            with open('Contract Subjects Filter Attributes/Markdown/Contract Subjects Filter Attributes.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vzRtCons" in self.url:
-            with open('Contract Consumers Root/Markdown/Contract Consumers Root.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vzRtProv" in self.url:
-            with open('Contract Providers Root/Markdown/Contract Providers Root.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vzRuleOwner" in self.url:
-            with open('vzRule Owner/Markdown/vzRule Owner.md', 'w' ) as f:
-                f.write(markdown_output)
-
-        if "vzTaboo" in self.url:
-            with open('vzTaboo/Markdown/vzTaboo.md', 'w' ) as f:
-                f.write(markdown_output)
-
-    def html_file(self, parsed_json):
+                    async with aiofiles.open('Fabric Paths/Markdown/Fabric Paths.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+
+            if "rtctrlSubjP" in api:
+                async with aiofiles.open('Prefix List/Markdown/Prefix List.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "rtctrlMatchRtDest" in api:
+                async with aiofiles.open('Prefix List Detailed/Markdown/Prefix List Detailed.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "aaaUser" in api:
+                async with aiofiles.open('Users/Markdown/Users.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "aaaDomain" in api:
+                async with aiofiles.open('Security Domains/Markdown/Security Domains.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vzSubj" in api:
+                async with aiofiles.open('Contract Subjects/Markdown/Contract Subjects.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "topology/health" in api:
+                async with aiofiles.open('Health/Markdown/Health.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "pkiFabricNodeSSLCertificate" in api:
+                async with aiofiles.open('Fabric Node SSL Certificates/Markdown/Fabric Node SSL Certificates.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "tn-" in api:
+                if "health" in api:
+                    async with aiofiles.open('Tenant Health/Markdown/Tenant Health.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+
+            if "firmwareCtrlrRunning" in api:
+                async with aiofiles.open('Fabric Membership/Markdown/Fabric Membership.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "infraWiNode" in api:
+                async with aiofiles.open('Cluster Health/Markdown/Cluster Health.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vnsMDev" in api:
+                async with aiofiles.open('Device Packages/Markdown/Device Packages.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "cnwAggrIf" in api:
+                async with aiofiles.open('Cluster Aggregate Interfaces/Markdown/Cluster Aggregate Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l3Inst" in api:
+                async with aiofiles.open('L3 Interfaces/Markdown/L3 Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "actrlEntity" in api:
+                async with aiofiles.open('Access Control Entities/Markdown/Access Control Entities.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "actrlInst" in api:
+                async with aiofiles.open('Access Control Instances/Markdown/Access Control Instances.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "actrlRule" in api:
+                async with aiofiles.open('Access Control Rules/Markdown/Access Control Rules.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "actrlScope" in api:
+                async with aiofiles.open('Access Control Scopes/Markdown/Access Control Scopes.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "cnwPhysIf" in api:
+                async with aiofiles.open('Cluster Physical Interfaces/Markdown/Cluster Physical Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "compCtrlr" in api:
+                async with aiofiles.open('Compute Controllers/Markdown/Compute Controllers.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "compDom" in api:
+                async with aiofiles.open('Compute Domains/Markdown/Compute Domains.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "compEpPD" in api:
+                async with aiofiles.open('Compute Endpoint Policy Descriptions/Markdown/Compute Endpoint Policy Descriptions.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "compProv" in api:
+                async with aiofiles.open('Compute Providers/Markdown/Compute Providers.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "arpAdjEp" in api:
+                async with aiofiles.open('ARP Adjacency Endpoints/Markdown/ARP Adjacency Endpoints.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "arpDb" in api:
+                async with aiofiles.open('ARP Database/Markdown/ARP Database.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "arpDom" in api:
+                async with aiofiles.open('ARP Domain/Markdown/ARP Domain.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "arpEntity" in api:
+                async with aiofiles.open('ARP Entity/Markdown/ARP Entity.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "arpIf" in api:
+                async with aiofiles.open('ARP Interfaces/Markdown/ARP Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "arpInst" in api:
+                async with aiofiles.open('ARP Instances/Markdown/ARP Instances.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "bgpDom" in api:
+                if "Af" in api:
+                    async with aiofiles.open('BGP Domain Address Families/Markdown/BGP Domain Address Families.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+                else:
+                    async with aiofiles.open('BGP Domains/Markdown/BGP Domains.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+
+            if "bgpEntity" in api:
+                async with aiofiles.open('BGP Entities/Markdown/BGP Entities.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "bgpInst" in api:
+                if "InstPol" in api:
+                    async with aiofiles.open('BGP Instances Policy/Markdown/BGP Instances Policy.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+                else:
+                    async with aiofiles.open('BGP Instances/Markdown/BGP Instances.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+
+            if "bgpPeer" in api:
+                if "bgpPeerAf" in api:
+                    async with aiofiles.open('BGP Peers AF Entries/Markdown/BGP Peers AF Entries.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+                elif "bgpPeerEntry" in api:
+                    async with aiofiles.open('BGP Peers Entries/Markdown/BGP Peers Entries.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+                else:
+                    async with aiofiles.open('BGP Peers/Markdown/BGP Peers.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+
+            if "bgpRRP" in api:
+                async with aiofiles.open('BGP Route Reflector Policies/Markdown/BGP Route Reflector Policies.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "cdpAdjEp" in api:
+                async with aiofiles.open('CDP Adjacency Endpoints/Markdown/CDP Adjacency Endpoints.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "cdpEntity" in api:
+                async with aiofiles.open('CDP Entities/Markdown/CDP Entities.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "cdpIf" in api:
+                async with aiofiles.open('CDP Interfaces/Markdown/CDP Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "cdpInst" in api:
+                async with aiofiles.open('CDP Instances/Markdown/CDP Instances.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "cdpIntfAddr" in api:
+                async with aiofiles.open('CDP Interface Addresses/Markdown/CDP Interface Addresses.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "cdpMgmtAddr" in api:
+                async with aiofiles.open('CDP Management Addresses/Markdown/CDP Management Addresses.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "cnwRsMbrIfs" in api:
+                async with aiofiles.open('Cluster RS Member Interfaces/Markdown/Cluster RS Member Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "compRsDomP" in api:
+                async with aiofiles.open('Compute RS Domain Policies/Markdown/Compute RS Domain Policies.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptBSlot" in api:
+                async with aiofiles.open('Equipment Board Slots/Markdown/Equipment Board Slots.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptBoard" in api:
+                async with aiofiles.open('Equipment Boards/Markdown/Equipment Boards.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptCPU" in api:
+                async with aiofiles.open('Equipment CPUs/Markdown/Equipment CPUs.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptCh" in api:
+                async with aiofiles.open('Equipment Chassis/Markdown/Equipment Chassis.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptDimm" in api:
+                async with aiofiles.open('Equipment DIMMs/Markdown/Equipment DIMMs.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptExtCh" in api:
+                async with aiofiles.open('Equipment Fabric Extenders/Markdown/Equipment Fabric Extenders.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptFabP" in api:
+                async with aiofiles.open('Equipment Fabric Ports/Markdown/Equipment Fabric Ports.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptFan" in api:
+                async with aiofiles.open('Equipment Fans/Markdown/Equipment Fans.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptFpga" in api:
+                async with aiofiles.open('Equipment Field Programmable Gate Arrays/Markdown/Equipment Field Programmable Gate Arrays.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptFt" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Fan Tray Slots/Markdown/Equipment Fan Tray Slots.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+                else:
+                    async with aiofiles.open('Equipment Fan Trays/Markdown/Equipment Fan Trays.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+
+            if "eqptIndLed" in api:
+                async with aiofiles.open('Equipment Indicator LEDs/Markdown/Equipment Indicator LEDs.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptLC" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Line Card Slots/Markdown/Equipment Line Card Slots.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+                else:
+                    async with aiofiles.open('Equipment Line Cards/Markdown/Equipment Line Cards.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+
+            if "eqptLeafP" in api:
+                async with aiofiles.open('Equipment Leaf Ports/Markdown/Equipment Leaf Ports.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptLocLed" in api:
+                async with aiofiles.open('Equipment Port Locator LEDs/Markdown/Equipment Port Locator LEDs.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptPsu" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Power Supply Slots/Markdown/Equipment Power Supply Slots.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+                else:
+                    async with aiofiles.open('Equipment Power Supplies/Markdown/Equipment Power Supplies.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+
+            if "eqptRsIoPPhysConf" in api:
+                async with aiofiles.open('Equipment RS IO Port Physical Configs/Markdown/Equipment RS IO Port Physical Configs.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptSensor" in api:
+                async with aiofiles.open('Equipment Sensors/Markdown/Equipment Sensors.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptSpCmnBlk" in api:
+                async with aiofiles.open('Equipment SP Common Blocks/Markdown/Equipment SP Common Blocks.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptSpromLc" in api:
+                async with aiofiles.open('Equipment SPROM LCs/Markdown/Equipment SPROM LCs.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptSpromPsu" in api:
+                if "Blk" in api:
+                    async with aiofiles.open('Equipment SPROM Power Supply Blocks/Markdown/Equipment SPROM Power Supply Blocks.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+                else:
+                    async with aiofiles.open('Equipment SPROM Power Supplies/Markdown/Equipment SPROM Power Supplies.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+
+            if "eqptSpromSup" in api:
+                async with aiofiles.open('Equipment SPROM Supervisors/Markdown/Equipment SPROM Supervisors.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptStorage" in api:
+                async with aiofiles.open('Equipment Storage/Markdown/Equipment Storage.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "eqptSupC" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Supervisor Slots/Markdown/Equipment Supervisor Slots.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+                else:
+                    async with aiofiles.open('Equipment Supervisors/Markdown/Equipment Supervisors.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+
+            if "ethpmPhysIf" in api:
+                async with aiofiles.open('Ethernet Port Manager Physical Interfaces/Markdown/Ethernet Port Manager Physical Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fabricExtPathEpCont" in api:
+                async with aiofiles.open('Fabric Extended Path Endpoint Containers/Markdown/Fabric Extended Path Endpoint Containers.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fabricInst" in api:
+                async with aiofiles.open('Fabric Instances/Markdown/Fabric Instances.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fabricLink" in api:
+                if "Cont" in api:
+                    async with aiofiles.open('Fabric Link Containers/Markdown/Fabric Link Containers.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+                else:
+                    async with aiofiles.open('Fabric Links/Markdown/Fabric Links.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+
+            if "fabricLooseLink" in api:
+                async with aiofiles.open('Fabric Loose Links/Markdown/Fabric Loose Links.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fabricLooseNode" in api:
+                async with aiofiles.open('Fabric Loose Nodes/Markdown/Fabric Loose Nodes.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fabricProtPathEpCont" in api:
+                async with aiofiles.open('Fabric Protected Path Endpoint Containers/Markdown/Fabric Protected Path Endpoint Containers.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fcEntity" in api:
+                async with aiofiles.open('Fibre Channel Entities/Markdown/Fibre Channel Entities.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "firmwareCardRunning" in api:
+                async with aiofiles.open('Firmware Card Running/Markdown/Firmware Card Running.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "firmwareCompRunning" in api:
+                async with aiofiles.open('Firmware Compute Running/Markdown/Firmware Compute Running.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "firmwareRunning" in api:
+                async with aiofiles.open('Firmware Running/Markdown/Firmware Running.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fvEpPCont" in api:
+                async with aiofiles.open('Endpoint Profile Containers/Markdown/Endpoint Profile Containers.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fvLocale" in api:
+                async with aiofiles.open('Locales/Markdown/Locales.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fvRsBDToOut" in api:
+                async with aiofiles.open('Bridge Domains To Outside/Markdown/Bridge Domains To Outside.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fvRsBd" in api:
+                async with aiofiles.open('EPG Bridge Domain Links/Markdown/EPG Bridge Domain Links.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fvRsCEpToPathEp" in api:
+                async with aiofiles.open('Endpoints To Paths/Markdown/Endpoints To Paths.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fvRsCons" in api:
+                if "If" in api:
+                    async with aiofiles.open('Contract Consumer Interfaces/Markdown/Contract Consumer Interfaces.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+                else:
+                    async with aiofiles.open('Contract Consumers/Markdown/Contract Consumers.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+
+            if "fvRsCtx" in api:
+                async with aiofiles.open('Context Source Relationships/Markdown/Context Source Relationships.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fvRsDomAtt" in api:
+                async with aiofiles.open('Domain Attachments/Markdown/Domain Attachments.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fvRsPathAtt" in api:
+                async with aiofiles.open('Path Attachments/Markdown/Path Attachments.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fvRsProv" in api:
+                async with aiofiles.open('Contract Providers/Markdown/Contract Providers.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fvRtBd" in api:
+                async with aiofiles.open('Bridge Domains Target Relationships/Markdown/Bridge Domains Target Relationships.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fvRtCtx" in api:
+                async with aiofiles.open('Contexts Target Relationships/Markdown/Contexts Target Relationships.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fvnsEncapBlk" in api:
+                async with aiofiles.open('VLAN Encapsulation Blocks/Markdown/VLAN Encapsulation Blocks.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "fvnsVlanInstP" in api:
+                async with aiofiles.open('VLAN Namespace Policies/Markdown/VLAN Namespace Policies.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "infraAccBndlGrp" in api:
+                async with aiofiles.open('Access Bundle Groups/Markdown/Access Bundle Groups.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "infraAccPortGrp" in api:
+                async with aiofiles.open('Access Port Groups/Markdown/Access Port Groups.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "infraAccPortP" in api:
+                async with aiofiles.open('Access Port Profiles/Markdown/Access Port Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "infraContr" in api:
+                async with aiofiles.open('Controllers/Markdown/Controllers.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "infraFexP" in api:
+                async with aiofiles.open('FEX Policies/Markdown/FEX Policies.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "infraFuncP" in api:
+                async with aiofiles.open('Function Policies/Markdown/Function Policies.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "infraHPortS" in api:
+                async with aiofiles.open('Host Port Selectors/Markdown/Host Port Selectors.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "infraPortBlk" in api:
+                async with aiofiles.open('Port Blocks/Markdown/Port Blocks.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "infraRsAccBaseGrp" in api:
+                async with aiofiles.open('Access Policy Group Source Relationships/Markdown/Access Policy Group Source Relationships.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "infraRsAttEntP" in api:
+                async with aiofiles.open('Attachable Access Entity Profiles Source Relationships/Markdown/Attachable Access Entity Profiles Source Relationships.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "infraRsDomP" in api:
+                async with aiofiles.open('Domain Profile Source Relationships/Markdown/Domain Profile Source Relationships.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "infraRsSpAccGrp" in api:
+                async with aiofiles.open('Spine Access Policy Groups/Markdown/Spine Access Policy Groups.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "infraRsVlanNs" in api:
+                async with aiofiles.open('VLAN Namespace Source Relationships/Markdown/VLAN Namespace Source Relationships.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "infraSHPortS" in api:
+                async with aiofiles.open('Spine Host Port Selectors/Markdown/Spine Host Port Selectors.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "infraSpAccPortP" in api:
+                async with aiofiles.open('Spine Access Port Profiles/Markdown/Spine Access Port Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "infraWiNode" in api:
+                async with aiofiles.open('Wired Nodes/Markdown/Wired Nodes.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ipNexthopP" in api:
+                async with aiofiles.open('Static Route Next Hop Policies/Markdown/Static Route Next Hop Policies.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ipRouteP" in api:
+                async with aiofiles.open('Route Policies/Markdown/Route Policies.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ipv4Addr" in api:
+                async with aiofiles.open('IPv4 Addresses/Markdown/IPv4 Addresses.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ipv4Dom" in api:
+                async with aiofiles.open('IPv4 Domains/Markdown/IPv4 Domains.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ipv4Entity" in api:
+                async with aiofiles.open('IPv4 Entities/Markdown/IPv4 Entities.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ipv4If" in api:
+                async with aiofiles.open('IPv4 Interfaces/Markdown/IPv4 Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ipv4Inst" in api:
+                async with aiofiles.open('IPv4 Instances/Markdown/IPv4 Instances.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ipv4Nexthop" in api:
+                async with aiofiles.open('IPv4 Next Hop/Markdown/IPv4 Next Hop.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ipv4Route" in api:
+                async with aiofiles.open('IPv4 Routes/Markdown/IPv4 Routes.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "isisAdjEp" in api:
+                async with aiofiles.open('ISIS Adjacency Endpoints/Markdown/ISIS Adjacency Endpoints.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "isisDTEp" in api:
+                async with aiofiles.open('ISIS Discovered Tunnel Endpoints/Markdown/ISIS Discovered Tunnel Endpoints.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "isisDom" in api:
+                if "Lvl" in api:
+                    async with aiofiles.open('ISIS Domains Level/Markdown/ISIS Domains Level.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+                else:
+                    async with aiofiles.open('ISIS Domains/Markdown/ISIS Domains.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+
+            if "isisEntity" in api:
+                async with aiofiles.open('ISIS Entities/Markdown/ISIS Entities.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "isisIf" in api:
+                if "Lvl" in api:
+                    async with aiofiles.open('ISIS Interfaces Level/Markdown/ISIS Interfaces Level.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+                else:
+                    async with aiofiles.open('ISIS Interfaces/Markdown/ISIS Interfaces.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+
+            if "isisInst" in api:
+                async with aiofiles.open('ISIS Instances/Markdown/ISIS Instances.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "isisNexthop" in api:
+                async with aiofiles.open('ISIS Next Hop/Markdown/ISIS Next Hop.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "isisRoute" in api:
+                async with aiofiles.open('ISIS Routes/Markdown/ISIS Routes.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l2BD" in api:
+                async with aiofiles.open('L2 Bridge Domains/Markdown/L2 Bridge Domains.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l2ExtIf" in api:
+                async with aiofiles.open('L2 External Interfaces/Markdown/L2 External Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l2RsEthIf" in api:
+                async with aiofiles.open('L2 Interface Source Relationships/Markdown/L2 Interface Source Relationships.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l2extInstP" in api:
+                async with aiofiles.open('L2 External Instance Profiles/Markdown/L2 External Instance Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l2extLIfP" in api:
+                async with aiofiles.open('L2 External Logical Interface Profiles/Markdown/L2 External Logical Interface Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l2extLNodeP" in api:
+                async with aiofiles.open('L2 External Logical Node Profiles/Markdown/L2 External Logical Node Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l2extRsEBd" in api:
+                async with aiofiles.open('L2 EPG Bridge Domain Source Relationships/Markdown/L2 EPG Bridge Domain Source Relationships.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l2extRsPathL2OutAtt" in api:
+                async with aiofiles.open('L2Out Paths/Markdown/L2Out Paths.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l3Ctx" in api:
+                async with aiofiles.open('L3 Contexts/Markdown/L3 Contexts.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l3EncRtdIf" in api:
+                async with aiofiles.open('L3 Subinterfaces/Markdown/L3 Subinterfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l3Inst" in api:
+                async with aiofiles.open('L3 Instances/Markdown/L3 Instances.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l3LbRtdIf" in api:
+                async with aiofiles.open('L3 Routed Loopback Interfaces/Markdown/L3 Routed Loopback Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l3RsEncPhysRtdConf" in api:
+                async with aiofiles.open('L3 Physical Interface Source Relationships/Markdown/L3 Physical Interface Source Relationships.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l3RtdIf" in api:
+                async with aiofiles.open('L3 Routed Interfaces/Markdown/L3 Routed Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l3extInstP" in api:
+                async with aiofiles.open('L3Out Profiles/Markdown/L3Out Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l3extIp" in api:
+                async with aiofiles.open('L3Out IP Addresses/Markdown/L3Out IP Addresses.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l3extLIfP" in api:
+                async with aiofiles.open('L3 Logical Interface Profiles/Markdown/L3 Logical Interface Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l3extLNodeP" in api:
+                async with aiofiles.open('L3 Logical Node Profiles/Markdown/L3 Logical Node Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l3extMember" in api:
+                async with aiofiles.open('L3Out Members/Markdown/L3Out Members.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l3extRsEctx" in api:
+                async with aiofiles.open('L3 Contexts Source Relationships/Markdown/L3 Contexts Source Relationships.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l3extRsL3DomAtt" in api:
+                async with aiofiles.open('L3 Domains Source Relationships/Markdown/L3 Domains Source Relationships.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l3extRsNodeL3OutAtt" in api:
+                async with aiofiles.open('L3Out Node Source Relationships/Markdown/L3Out Node Source Relationships.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l3extRsPathL3OutAtt" in api:
+                async with aiofiles.open('L3Out Path Source Relationships/Markdown/L3Out Path Source Relationships.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "l3extSubnet" in api:
+                async with aiofiles.open('L3 Subnets/Markdown/L3 Subnets.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "lacpEntity" in api:
+                async with aiofiles.open('LACP Entities/Markdown/LACP Entities.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "lacpIf" in api:
+                async with aiofiles.open('LACP Interfaces/Markdown/LACP Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "lacpInst" in api:
+                async with aiofiles.open('LACP Instances/Markdown/LACP Instances.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "leqptLooseNode" in api:
+                async with aiofiles.open('External Unmanaged Nodes/Markdown/External Unmanaged Nodes.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "leqptRsLsNodeToIf" in api:
+                async with aiofiles.open('External Unmanaged Nodes Interfaces/Markdown/External Unmanaged Nodes Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "lldpAdjEp" in api:
+                async with aiofiles.open('LLDP Adjacency Endpoints/Markdown/LLDP Adjacency Endpoints.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "lldpEntity" in api:
+                async with aiofiles.open('LLDP Entities/Markdown/LLDP Entities.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "lldpIf" in api:
+                async with aiofiles.open('LLDP Interfaces/Markdown/LLDP Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "lldpInst" in api:
+                async with aiofiles.open('LLDP Instances/Markdown/LLDP Instances.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "mgmtMgmtIf" in api:
+                async with aiofiles.open('Management Interfaces/Markdown/Management Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ospfAdjEp" in api:
+                async with aiofiles.open('OSPF Adjacency Endpoints/Markdown/OSPF Adjacency Endpoints.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ospfArea" in api:
+                async with aiofiles.open('OSPF Areas/Markdown/OSPF Areas.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ospfDb" in api:
+                async with aiofiles.open('OSPF Database/Markdown/OSPF Database.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ospfDom" in api:
+                async with aiofiles.open('OSPF Domains/Markdown/OSPF Domains.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ospfEntity" in api:
+                async with aiofiles.open('OSPF Entities/Markdown/OSPF Entities.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ospfExtP" in api:
+                async with aiofiles.open('OSPF External Profiles/Markdown/OSPF External Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ospfIf" in api:
+                async with aiofiles.open('OSPF Interfaces/Markdown/OSPF Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ospfInst" in api:
+                async with aiofiles.open('OSPF Instances/Markdown/OSPF Instances.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ospfRoute" in api:
+                async with aiofiles.open('OSPF Routes/Markdown/OSPF Routes.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "ospfUcNexthop" in api:
+                async with aiofiles.open('OSPF Unicast Next Hop/Markdown/OSPF Unicast Next Hop.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "pcAggrIf" in api:
+                async with aiofiles.open('Port Channel Aggregate Interfaces/Markdown/Port Channel Aggregate Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "pcRsMbrIfs" in api:
+                async with aiofiles.open('Port Channel Member Interfaces/Markdown/Port Channel Member Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "sviIf" in api:
+                async with aiofiles.open('SVIs/Markdown/SVIs.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "tunnelIf" in api:
+                async with aiofiles.open('Tunnel Interfaces/Markdown/Tunnel Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "uribv4Db" in api:
+                async with aiofiles.open('Unicast Route Database/Markdown/Unicast Route Database.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "uribv4Dom" in api:
+                async with aiofiles.open('Unicast Route Domains/Markdown/Unicast Route Domains.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "uribv4Entity" in api:
+                async with aiofiles.open('Unicast Route Entities/Markdown/Unicast Route Entities.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "uribv4Nexthop" in api:
+                async with aiofiles.open('Unicast Route Next Hop/Markdown/Unicast Route Next Hop.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "uribv4Route" in api:
+                async with aiofiles.open('Unicast Routes/Markdown/Unicast Routes.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vlanCktEp" in api:
+                async with aiofiles.open('VLAN Endpoint Group Encapsulation/Markdown/VLAN Endpoint Group Encapsulation.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vmmCtrlrP" in api:
+                async with aiofiles.open('VMM Controller Profiles/Markdown/VMM Controller Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vmmDomP" in api:
+                async with aiofiles.open('VMM Domain Profiles/Markdown/VMM Domain Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vmmProvP" in api:
+                async with aiofiles.open('VMM Provider Profiles/Markdown/VMM Provider Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vmmUsrAccP" in api:
+                async with aiofiles.open('VMM User Profiles/Markdown/VMM User Profiles.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vpcDom" in api:
+                async with aiofiles.open('VPC Domains/Markdown/VPC Domains.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vpcEntity" in api:
+                async with aiofiles.open('VPC Entities/Markdown/VPC Entities.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vpcIf" in api:
+                async with aiofiles.open('VPC Interfaces/Markdown/VPC Interfaces.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vpcInst" in api:
+                async with aiofiles.open('VPC Instances/Markdown/VPC Instances.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vpcRsVpcConf" in api:
+                async with aiofiles.open('VPC Configurations/Markdown/VPC Configurations.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vzAny" in api:
+                async with aiofiles.open('vzAny/Markdown/vzAny.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vzFilter" in api:
+                async with aiofiles.open('vzFilters/Markdown/vzFilters.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vzRsAnyToCons" in api:
+                async with aiofiles.open('vzAny To Consumers/Markdown/vzAny To Consumers.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vzRsAnyToProv" in api:
+                async with aiofiles.open('vzAny To Providers/Markdown/vzAny To Providers.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vzRsDenyRule" in api:
+                async with aiofiles.open('vzDeny Rules/Markdown/vzDeny Rules.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vzRsIf" in api:
+                async with aiofiles.open('vzInterface Source Relationships/Markdown/vzInterface Source Relationships.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vzRsSubjFiltAtt" in api:
+                async with aiofiles.open('Contract Subjects Filter Attributes/Markdown/Contract Subjects Filter Attributes.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vzRtCons" in api:
+                async with aiofiles.open('Contract Consumers Root/Markdown/Contract Consumers Root.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vzRtProv" in api:
+                async with aiofiles.open('Contract Providers Root/Markdown/Contract Providers Root.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vzRuleOwner" in api:
+                async with aiofiles.open('vzRule Owner/Markdown/vzRule Owner.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "vzTaboo" in api:
+                async with aiofiles.open('vzTaboo/Markdown/vzTaboo.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+    async def html_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
-        env = Environment(loader=FileSystemLoader(str(template_dir)))
+        env = Environment(loader=FileSystemLoader(str(template_dir)), enable_async=True)
         html_template = env.get_template('aci_html.j2')
-        html_output = html_template.render(api = self.url,
-                                         data_to_template = json.loads(parsed_json),
-                                         url = self.aci)
-        if "Tenant" in self.url:
-            with open('Tenant/HTML/Tenants.html', 'w' ) as f:
-                f.write(html_output)
+        for api, payload in json.loads(parsed_json):
+            html_output = await html_template.render_async(api = api,
+                                             data_to_template = payload)
+            if "Tenant" in api:
+                async with aiofiles.open('Tenant/HTML/Tenants.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "AEPg" in self.url:
-            with open('EPGs/HTML/EPGs.html', 'w' ) as f:
-                f.write(html_output)
+            if "AEPg" in api:
+                async with aiofiles.open('EPGs/HTML/EPGs.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "fvBD" in self.url:
-            with open('Bridge Domains/HTML/Bridge Domains.html', 'w' ) as f:
-                f.write(html_output)
+            if "fvBD" in api:
+                async with aiofiles.open('Bridge Domains/HTML/Bridge Domains.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "fvCtx" in self.url:
-            with open('Contexts/HTML/Contexts.html', 'w' ) as f:
-                f.write(html_output)
+            if "fvCtx" in api:
+                async with aiofiles.open('Contexts/HTML/Contexts.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "Ap" in self.url:
-            with open('Application Profiles/HTML/Application Profiles.html', 'w' ) as f:
-                f.write(html_output)
+            if "Ap" in api:
+                async with aiofiles.open('Application Profiles/HTML/Application Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "l3extOut" in self.url:
-            with open('L3Outs/HTML/L3Outs.html', 'w' ) as f:
-                f.write(html_output)
+            if "l3extOut" in api:
+                async with aiofiles.open('L3Outs/HTML/L3Outs.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "l2extOut" in self.url:
-            with open('L2Outs/HTML/L2Outs.html', 'w' ) as f:
-                f.write(html_output)
+            if "l2extOut" in api:
+                async with aiofiles.open('L2Outs/HTML/L2Outs.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "topSystem" in self.url:
-            if "?" not in self.url:
-                with open('Top System/HTML/Top System.html', 'w' ) as f:
-                    f.write(html_output)
+            if "topSystem" in api:
+                if "?" not in api:
+                    async with aiofiles.open('Top System/HTML/Top System.html', mode='w' ) as f:
+                        await f.write(html_output)
 
-        if "fvSubnet" in self.url:
-            with open('Subnets/HTML/Subnets.html', 'w' ) as f:
-                f.write(html_output)
+            if "fvSubnet" in api:
+                async with aiofiles.open('Subnets/HTML/Subnets.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "fvCEp" in self.url:
-            with open('Endpoints/HTML/Endpoints.html', 'w' ) as f:
-                f.write(html_output)
+            if "fvCEp" in api:
+                async with aiofiles.open('Endpoints/HTML/Endpoints.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "fabricNode" in self.url:
-            with open('Fabric Nodes/HTML/Fabric Nodes.html', 'w' ) as f:
-                f.write(html_output)
+            if "fabricNode" in api:
+                async with aiofiles.open('Fabric Nodes/HTML/Fabric Nodes.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "l1PhysIf" in self.url:
-            with open('Physical Interfaces/HTML/Physical Interfaces.html', 'w' ) as f:
-                f.write(html_output)
+            if "l1PhysIf" in api:
+                async with aiofiles.open('Physical Interfaces/HTML/Physical Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "infraAccPortP" in self.url:
-            with open('Leaf Interface Profiles/HTML/Leaf Interface Profiles.html', 'w' ) as f:
-                f.write(html_output)
+            if "infraAccPortP" in api:
+                async with aiofiles.open('Leaf Interface Profiles/HTML/Leaf Interface Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "infraSpAccPortP" in self.url:
-            with open('Spine Interface Profiles/HTML/Spine Interface Profiles.html', 'w' ) as f:
-                f.write(html_output)
+            if "infraSpAccPortP" in api:
+                async with aiofiles.open('Spine Interface Profiles/HTML/Spine Interface Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "infraNodeP" in self.url:
-            with open('Leaf Switch Profiles/HTML/Leaf Switch Profiles.html', 'w' ) as f:
-                f.write(html_output)
+            if "infraNodeP" in api:
+                async with aiofiles.open('Leaf Switch Profiles/HTML/Leaf Switch Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "infraSpineP" in self.url:
-            with open('Spine Switch Profiles/HTML/Spine Switch Profiles.html', 'w' ) as f:
-                f.write(html_output)
+            if "infraSpineP" in api:
+                async with aiofiles.open('Spine Switch Profiles/HTML/Spine Switch Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "fvnsVlanInstP" in self.url:
-            with open('VLAN Pools/HTML/VLAN Pools.html', 'w' ) as f:
-                f.write(html_output)
+            if "fvnsVlanInstP" in api:
+                async with aiofiles.open('VLAN Pools/HTML/VLAN Pools.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "infraAttEntityP" in self.url:
-            with open('Attachable Access Entity Profiles/HTML/Attachable Access Entity Profiles.html', 'w' ) as f:
-                f.write(html_output)
+            if "infraAttEntityP" in api:
+                async with aiofiles.open('Attachable Access Entity Profiles/HTML/Attachable Access Entity Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "vzBrCP" in self.url:
-            with open('Contracts/HTML/Contracts.html', 'w' ) as f:
-                f.write(html_output)
+            if "vzBrCP" in api:
+                async with aiofiles.open('Contracts/HTML/Contracts.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "vzEntry" in self.url:
-            with open('vzEntries/HTML/vzEntries.html', 'w' ) as f:
-                f.write(html_output)
+            if "vzEntry" in api:
+                async with aiofiles.open('vzEntries/HTML/vzEntries.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "physDomP" in self.url:
-            with open('Physical Domains/HTML/Physical Domains.html', 'w' ) as f:
-                f.write(html_output)
+            if "physDomP" in api:
+                async with aiofiles.open('Physical Domains/HTML/Physical Domains.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "l3extDomP" in self.url:
-            with open('L3 Domains/HTML/L3 Domains.html', 'w' ) as f:
-                f.write(html_output)
+            if "l3extDomP" in api:
+                async with aiofiles.open('L3 Domains/HTML/L3 Domains.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "qosClass" in self.url:
-            with open('QOS Classes/HTML/QOS Classes.html', 'w' ) as f:
-                f.write(html_output)
+            if "qosClass" in api:
+                async with aiofiles.open('QOS Classes/HTML/QOS Classes.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "faultSummary" in self.url:
-            with open('Fault Summary/HTML/Fault Summary.html', 'w' ) as f:
-                f.write(html_output)
+            if "faultSummary" in api:
+                async with aiofiles.open('Fault Summary/HTML/Fault Summary.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "aaaModLR" in self.url:
-            with open('Audit Log/HTML/Audit Log.html', 'w' ) as f:
-                f.write(html_output)
+            if "aaaModLR" in api:
+                async with aiofiles.open('Audit Log/HTML/Audit Log.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "fvIp" in self.url:
-            with open('IP Addresses/HTML/IP Addresses.html', 'w' ) as f:
-                f.write(html_output)
+            if "fvIp" in api:
+                async with aiofiles.open('IP Addresses/HTML/IP Addresses.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "eventRecord" in self.url:
-            with open('Events/HTML/Events.html', 'w' ) as f:
-                f.write(html_output)
+            if "eventRecord" in api:
+                async with aiofiles.open('Events/HTML/Events.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "licenseEntitlement" in self.url:
-            with open('License Entitlements/HTML/License Entitlements.html', 'w' ) as f:
-                f.write(html_output)
+            if "licenseEntitlement" in api:
+                async with aiofiles.open('License Entitlements/HTML/License Entitlements.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "bgpRRNodePEp" in self.url:
-            with open('BGP Route Reflectors/HTML/BGP Route Reflectors.html', 'w' ) as f:
-                f.write(html_output)
+            if "bgpRRNodePEp" in api:
+                async with aiofiles.open('BGP Route Reflectors/HTML/BGP Route Reflectors.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "infraPortS" in self.url:
-            with open('Interface Policies/HTML/Interface Policies.html', 'w' ) as f:
-                f.write(html_output)
+            if "infraPortS" in api:
+                async with aiofiles.open('Interface Policies/HTML/Interface Policies.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "infraProfile" in self.url:
-            with open('Interface Profiles/HTML/Interface Profiles.html', 'w' ) as f:
-                f.write(html_output)
+            if "infraProfile" in api:
+                async with aiofiles.open('Interface Profiles/HTML/Interface Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "fabricPod" in self.url:
-            with open('Fabric Pods/HTML/Fabric Pods.html', 'w' ) as f:
-                f.write(html_output)
+            if "fabricPod" in api:
+                async with aiofiles.open('Fabric Pods/HTML/Fabric Pods.html', mode='w' ) as f:
+                    await f.write(html_output)
 
-        if "fabricPath" in self.url:
-            if "fabricPathEp" in self.url:
-                if "Cont" in self.url:
-                    with open('Fabric Path Endpoint Containers/HTML/Fabric Path Endpoint Containers.html', 'w' ) as f:
-                        f.write(html_output)
+            if "fabricPath" in api:
+                if "fabricPathEp" in api:
+                    if "Cont" in api:
+                        async with aiofiles.open('Fabric Path Endpoint Containers/HTML/Fabric Path Endpoint Containers.html', mode='w' ) as f:
+                            await f.write(html_output)
+                    else:
+                        async with aiofiles.open('Fabric Path Endpoints/HTML/Fabric Path Endpoints.html', mode='w' ) as f:
+                            await f.write(html_output)
                 else:
-                    with open('Fabric Path Endpoints/HTML/Fabric Path Endpoints.html', 'w' ) as f:
-                        f.write(html_output)
-            else:
-                with open('Fabric Paths/HTML/Fabric Paths.html', 'w' ) as f:
-                    f.write(html_output)
-
-        if "rtctrlSubjP" in self.url:
-            with open('Prefix List/HTML/Prefix List.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "rtctrlMatchRtDest" in self.url:
-            with open('Prefix List Detailed/HTML/Prefix List Detailed.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "aaaUser" in self.url:
-            with open('Users/HTML/Users.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "aaaDomain" in self.url:
-            with open('Security Domains/HTML/Security Domains.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vzSubj" in self.url:
-            with open('Contract Subjects/HTML/Contract Subjects.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "health" in self.url:
-            with open('Health/HTML/Health.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "pkiFabricNodeSSLCertificate" in self.url:
-            with open('Fabric Node SSL Certificates/HTML/Fabric Node SSL Certificates.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "tn-" and "health" in self.url:
-            with open('Tenant Health/HTML/Tenant Health.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "firmwareCtrlrRunning" in self.url:
-            with open('Fabric Membership/HTML/Fabric Membership.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "infraWiNode" in self.url:
-            with open('Cluster Health/HTML/Cluster Health.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vnsMDev" in self.url:
-            with open('Device Packages/HTML/Device Packages.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "cnwAggrIf" in self.url:
-            with open('Cluster Aggregate Interfaces/HTML/Cluster Aggregate Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l3Inst" in self.url:
-            with open('L3 Interfaces/HTML/L3 Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "actrlEntity" in self.url:
-            with open('Access Control Entities/HTML/Access Control Entities.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "actrlInst" in self.url:
-            with open('Access Control Instances/HTML/Access Control Instances.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "actrlRule" in self.url:
-            with open('Access Control Rules/HTML/Access Control Rules.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "actrlScope" in self.url:
-            with open('Access Control Scopes/HTML/Access Control Scopes.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "cnwPhysIf" in self.url:
-            with open('Cluster Physical Interfaces/HTML/Cluster Physical Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "compCtrlr" in self.url:
-            with open('Compute Controllers/HTML/Compute Controllers.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "compDom" in self.url:
-            with open('Compute Domains/HTML/Compute Domains.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "compEpPD" in self.url:
-            with open('Compute Endpoint Policy Descriptions/HTML/Compute Endpoint Policy Descriptions.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "compProv" in self.url:
-            with open('Compute Providers/HTML/Compute Providers.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "arpAdjEp" in self.url:
-            with open('ARP Adjacency Endpoints/HTML/ARP Adjacency Endpoints.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "arpDb" in self.url:
-            with open('ARP Database/HTML/ARP Database.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "arpDom" in self.url:
-            with open('ARP Domain/HTML/ARP Domain.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "arpEntity" in self.url:
-            with open('ARP Entity/HTML/ARP Entity.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "arpIf" in self.url:
-            with open('ARP Interfaces/HTML/ARP Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "arpInst" in self.url:
-            with open('ARP Instances/HTML/ARP Instances.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "bgpDom" in self.url:
-            if "Af" in self.url:
-                with open('BGP Domain Address Families/HTML/BGP Domain Address Families.html', 'w' ) as f:
-                    f.write(html_output)
-            else:
-                with open('BGP Domains/HTML/BGP Domains.html', 'w' ) as f:
-                    f.write(html_output)
-
-        if "bgpEntity" in self.url:
-            with open('BGP Entities/HTML/BGP Entities.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "bgpInst" in self.url:
-            if "InstPol" in self.url:
-                with open('BGP Instances Policy/HTML/BGP Instances Policy.html', 'w' ) as f:
-                    f.write(html_output)
-            else:
-                with open('BGP Instances/HTML/BGP Instances.html', 'w' ) as f:
-                    f.write(html_output)
-
-        if "bgpPeer" in self.url:
-            if "bgpPeerAf" in self.url:
-                with open('BGP Peers AF Entries/HTML/BGP Peers AF Entries.html', 'w' ) as f:
-                    f.write(html_output)
-            elif "bgpPeerEntry" in self.url:
-                with open('BGP Peers Entries/HTML/BGP Peers Entries.html', 'w' ) as f:
-                    f.write(html_output)
-            else:
-                with open('BGP Peers/HTML/BGP Peers.html', 'w' ) as f:
-                    f.write(html_output)
-
-        if "bgpRRP" in self.url:
-            with open('BGP Route Reflector Policies/HTML/BGP Route Reflector Policies.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "cdpAdjEp" in self.url:
-            with open('CDP Adjacency Endpoints/HTML/CDP Adjacency Endpoints.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "cdpEntity" in self.url:
-            with open('CDP Entities/HTML/CDP Entities.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "cdpIf" in self.url:
-            with open('CDP Interfaces/HTML/CDP Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "cdpInst" in self.url:
-            with open('CDP Instances/HTML/CDP Instances.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "cdpIntfAddr" in self.url:
-            with open('CDP Interface Addresses/HTML/CDP Interface Addresses.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "cdpMgmtAddr" in self.url:
-            with open('CDP Management Addresses/HTML/CDP Management Addresses.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "cnwRsMbrIfs" in self.url:
-            with open('Cluster RS Member Interfaces/HTML/Cluster RS Member Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "compRsDomP" in self.url:
-            with open('Compute RS Domain Policies/HTML/Compute RS Domain Policies.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptBSlot" in self.url:
-            with open('Equipment Board Slots/HTML/Equipment Board Slots.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptBoard" in self.url:
-            with open('Equipment Boards/HTML/Equipment Boards.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptCPU" in self.url:
-            with open('Equipment CPUs/HTML/Equipment CPUs.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptCh" in self.url:
-            with open('Equipment Chassis/HTML/Equipment Chassis.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptDimm" in self.url:
-            with open('Equipment DIMMs/HTML/Equipment DIMMs.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptExtCh" in self.url:
-            with open('Equipment Fabric Extenders/HTML/Equipment Fabric Extenders.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptFabP" in self.url:
-            with open('Equipment Fabric Ports/HTML/Equipment Fabric Ports.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptFan" in self.url:
-            with open('Equipment Fans/HTML/Equipment Fans.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptFpga" in self.url:
-            with open('Equipment Field Programmable Gate Arrays/HTML/Equipment Field Programmable Gate Arrays.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptFt" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Fan Tray Slots/HTML/Equipment Fan Tray Slots.html', 'w' ) as f:
-                    f.write(html_output)
-            else:
-                with open('Equipment Fan Trays/HTML/Equipment Fan Trays.html', 'w' ) as f:
-                    f.write(html_output)
-
-        if "eqptIndLed" in self.url:
-            with open('Equipment Indicator LEDs/HTML/Equipment Indicator LEDs.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptLC" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Line Card Slots/HTML/Equipment Line Card Slots.html', 'w' ) as f:
-                    f.write(html_output)
-            else:
-                with open('Equipment Line Cards/HTML/Equipment Line Cards.html', 'w' ) as f:
-                    f.write(html_output)
-
-        if "eqptLeafP" in self.url:
-            with open('Equipment Leaf Ports/HTML/Equipment Leaf Ports.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptLocLed" in self.url:
-            with open('Equipment Port Locator LEDs/HTML/Equipment Port Locator LEDs.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptPsu" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Power Supply Slots/HTML/Equipment Power Supply Slots.html', 'w' ) as f:
-                    f.write(html_output)
-            else:            
-                with open('Equipment Power Supplies/HTML/Equipment Power Supplies.html', 'w' ) as f:
-                    f.write(html_output)
-
-        if "eqptRsIoPPhysConf" in self.url:
-            with open('Equipment RS IO Port Physical Configs/HTML/Equipment RS IO Port Physical Configs.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptSensor" in self.url:
-            with open('Equipment Sensors/HTML/Equipment Sensors.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptSpCmnBlk" in self.url:
-            with open('Equipment SP Common Blocks/HTML/Equipment SP Common Blocks.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptSpromLc" in self.url:
-            with open('Equipment SPROM LCs/HTML/Equipment SPROM LCs.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptSpromPsu" in self.url:
-            if "Blk" in self.url:
-                with open('Equipment SPROM Power Supply Blocks/HTML/Equipment SPROM Power Supply Blocks.html', 'w' ) as f:
-                    f.write(html_output)
-            else:
-                with open('Equipment SPROM Power Supplies/HTML/Equipment SPROM Power Supplies.html', 'w' ) as f:
-                    f.write(html_output)
-
-        if "eqptSpromSup" in self.url:
-            with open('Equipment SPROM Supervisors/HTML/Equipment SPROM Supervisors.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptStorage" in self.url:
-            with open('Equipment Storage/HTML/Equipment Storage.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "eqptSupC" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Supervisor Slots/HTML/Equipment Supervisor Slots.html', 'w' ) as f:
-                    f.write(html_output)
-            else:
-                with open('Equipment Supervisors/HTML/Equipment Supervisors.html', 'w' ) as f:
-                    f.write(html_output)
-
-        if "ethpmPhysIf" in self.url:
-            with open('Ethernet Port Manager Physical Interfaces/HTML/Ethernet Port Manager Physical Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fabricExtPathEpCont" in self.url:
-            with open('Fabric Extended Path Endpoint Containers/HTML/Fabric Extended Path Endpoint Containers.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fabricInst" in self.url:
-            with open('Fabric Instances/HTML/Fabric Instances.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fabricLink" in self.url:
-            if "Cont" in self.url:
-                with open('Fabric Link Containers/HTML/Fabric Link Containers.html', 'w' ) as f:
-                    f.write(html_output)
-            else:
-                with open('Fabric Links/HTML/Fabric Links.html', 'w' ) as f:
-                    f.write(html_output)
-
-        if "fabricLooseLink" in self.url:
-            with open('Fabric Loose Links/HTML/Fabric Loose Links.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fabricLooseNode" in self.url:
-            with open('Fabric Loose Nodes/HTML/Fabric Loose Nodes.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fabricProtPathEpCont" in self.url:
-            with open('Fabric Protected Path Endpoint Containers/HTML/Fabric Protected Path Endpoint Containers.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fcEntity" in self.url:
-            with open('Fibre Channel Entities/HTML/Fibre Channel Entities.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "firmwareCardRunning" in self.url:
-            with open('Firmware Card Running/HTML/Firmware Card Running.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "firmwareCompRunning" in self.url:
-            with open('Firmware Compute Running/HTML/Firmware Compute Running.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "firmwareRunning" in self.url:
-            with open('Firmware Running/HTML/Firmware Running.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fvEpPCont" in self.url:
-            with open('Endpoint Profile Containers/HTML/Endpoint Profile Containers.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fvLocale" in self.url:
-            with open('Locales/HTML/Locales.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fvRsBDToOut" in self.url:
-            with open('Bridge Domains To Outside/HTML/Bridge Domains To Outside.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fvRsBd" in self.url:
-            with open('EPG Bridge Domain Links/HTML/EPG Bridge Domain Links.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fvRsCEpToPathEp" in self.url:
-            with open('Endpoints To Paths/HTML/Endpoints To Paths.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fvRsCons" in self.url:
-            if "If" in self.url:
-                with open('Contract Consumer Interfaces/HTML/Contract Consumer Interfaces.html', 'w' ) as f:
-                    f.write(html_output)
-            else:
-                with open('Contract Consumers/HTML/Contract Consumers.html', 'w' ) as f:
-                    f.write(html_output)
-
-        if "fvRsCtx" in self.url:
-            with open('Context Source Relationships/HTML/Context Source Relationships.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fvRsDomAtt" in self.url:
-            with open('Domain Attachments/HTML/Domain Attachments.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fvRsPathAtt" in self.url:
-            with open('Path Attachments/HTML/Path Attachments.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fvRsProv" in self.url:
-            with open('Contract Providers/HTML/Contract Providers.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fvRtBd" in self.url:
-            with open('Bridge Domains Target Relationships/HTML/Bridge Domains Target Relationships.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fvRtCtx" in self.url:
-            with open('Contexts Target Relationships/HTML/Contexts Target Relationships.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fvnsEncapBlk" in self.url:
-            with open('VLAN Encapsulation Blocks/HTML/VLAN Encapsulation Blocks.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "fvnsVlanInstP" in self.url:
-            with open('VLAN Namespace Policies/HTML/VLAN Namespace Policies.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "infraAccBndlGrp" in self.url:
-            with open('Access Bundle Groups/HTML/Access Bundle Groups.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "infraAccPortGrp" in self.url:
-            with open('Access Port Groups/HTML/Access Port Groups.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "infraAccPortP" in self.url:
-            with open('Access Port Profiles/HTML/Access Port Profiles.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "infraContr" in self.url:
-            with open('Controllers/HTML/Controllers.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "infraFexP" in self.url:
-            with open('FEX Policies/HTML/FEX Policies.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "infraFuncP" in self.url:
-            with open('Function Policies/HTML/Function Policies.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "infraHPortS" in self.url:
-            with open('Host Port Selectors/HTML/Host Port Selectors.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "infraPortBlk" in self.url:
-            with open('Port Blocks/HTML/Port Blocks.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "infraRsAccBaseGrp" in self.url:
-            with open('Access Policy Group Source Relationships/HTML/Access Policy Group Source Relationships.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "infraRsAttEntP" in self.url:
-            with open('Attachable Access Entity Profiles Source Relationships/HTML/Attachable Access Entity Profiles Source Relationships.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "infraRsDomP" in self.url:
-            with open('Domain Profile Source Relationships/HTML/Domain Profile Source Relationships.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "infraRsSpAccGrp" in self.url:
-            with open('Spine Access Policy Groups/HTML/Spine Access Policy Groups.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "infraRsVlanNs" in self.url:
-            with open('VLAN Namespace Source Relationships/HTML/VLAN Namespace Source Relationships.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "infraSHPortS" in self.url:
-            with open('Spine Host Port Selectors/HTML/Spine Host Port Selectors.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "infraSpAccPortP" in self.url:
-            with open('Spine Access Port Profiles/HTML/Spine Access Port Profiles.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "infraWiNode" in self.url:
-            with open('Wired Nodes/HTML/Wired Nodes.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ipNexthopP" in self.url:
-            with open('Static Route Next Hop Policies/HTML/Static Route Next Hop Policies.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ipRouteP" in self.url:
-            with open('Route Policies/HTML/Route Policies.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ipv4Addr" in self.url:
-            with open('IPv4 Addresses/HTML/IPv4 Addresses.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ipv4Dom" in self.url:
-            with open('IPv4 Domains/HTML/IPv4 Domains.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ipv4Entity" in self.url:
-            with open('IPv4 Entities/HTML/IPv4 Entities.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ipv4If" in self.url:
-            with open('IPv4 Interfaces/HTML/IPv4 Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ipv4Inst" in self.url:
-            with open('IPv4 Instances/HTML/IPv4 Instances.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ipv4Nexthop" in self.url:
-            with open('IPv4 Next Hop/HTML/IPv4 Next Hop.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ipv4Route" in self.url:
-            with open('IPv4 Routes/HTML/IPv4 Routes.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "isisAdjEp" in self.url:
-            with open('ISIS Adjacency Endpoints/HTML/ISIS Adjacency Endpoints.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "isisDTEp" in self.url:
-            with open('ISIS Discovered Tunnel Endpoints/HTML/ISIS Discovered Tunnel Endpoints.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "isisDom" in self.url:
-            if "Lvl" in self.url:
-                with open('ISIS Domains Level/HTML/ISIS Domains Level.html', 'w' ) as f:
-                    f.write(html_output)
-            else:
-                with open('ISIS Domains/HTML/ISIS Domains.html', 'w' ) as f:
-                    f.write(html_output)
-
-        if "isisEntity" in self.url:
-            with open('ISIS Entities/HTML/ISIS Entities.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "isisIf" in self.url:
-            if "Lvl" in self.url:
-                with open('ISIS Interfaces Level/HTML/ISIS Interfaces Level.html', 'w' ) as f:
-                    f.write(html_output)
-            else:
-                with open('ISIS Interfaces/HTML/ISIS Interfaces.html', 'w' ) as f:
-                    f.write(html_output)
-
-        if "isisInst" in self.url:
-            with open('ISIS Instances/HTML/ISIS Instances.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "isisNexthop" in self.url:
-            with open('ISIS Next Hop/HTML/ISIS Next Hop.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "isisRoute" in self.url:
-            with open('ISIS Routes/HTML/ISIS Routes.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l2BD" in self.url:
-            with open('L2 Bridge Domains/HTML/L2 Bridge Domains.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l2ExtIf" in self.url:
-            with open('L2 External Interfaces/HTML/L2 External Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l2RsEthIf" in self.url:
-            with open('L2 Interface Source Relationships/HTML/L2 Interface Source Relationships.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l2extInstP" in self.url:
-            with open('L2 External Instance Profiles/HTML/L2 External Instance Profiles.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l2extLIfP" in self.url:
-            with open('L2 External Logical Interface Profiles/HTML/L2 External Logical Interface Profiles.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l2extLNodeP" in self.url:
-            with open('L2 External Logical Node Profiles/HTML/L2 External Logical Node Profiles.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l2extRsEBd" in self.url:
-            with open('L2 EPG Bridge Domain Source Relationships/HTML/L2 EPG Bridge Domain Source Relationships.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l2extRsPathL2OutAtt" in self.url:
-            with open('L2Out Paths/HTML/L2Out Paths.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l3Ctx" in self.url:
-            with open('L3 Contexts/HTML/L3 Contexts.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l3EncRtdIf" in self.url:
-            with open('L3 Subinterfaces/HTML/L3 Subinterfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l3Inst" in self.url:
-            with open('L3 Instances/HTML/L3 Instances.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l3LbRtdIf" in self.url:
-            with open('L3 Routed Loopback Interfaces/HTML/L3 Routed Loopback Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l3RsEncPhysRtdConf" in self.url:
-            with open('L3 Physical Interface Source Relationships/HTML/L3 Physical Interface Source Relationships.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l3RtdIf" in self.url:
-            with open('L3 Routed Interfaces/HTML/L3 Routed Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l3extInstP" in self.url:
-            with open('L3Out Profiles/HTML/L3Out Profiles.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l3extIp" in self.url:
-            with open('L3Out IP Addresses/HTML/L3Out IP Addresses.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l3extLIfP" in self.url:
-            with open('L3 Logical Interface Profiles/HTML/L3 Logical Interface Profiles.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l3extLNodeP" in self.url:
-            with open('L3 Logical Node Profiles/HTML/L3 Logical Node Profiles.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l3extMember" in self.url:
-            with open('L3Out Members/HTML/L3Out Members.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l3extRsEctx" in self.url:
-            with open('L3 Contexts Source Relationships/HTML/L3 Contexts Source Relationships.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l3extRsL3DomAtt" in self.url:
-            with open('L3 Domains Source Relationships/HTML/L3 Domains Source Relationships.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l3extRsNodeL3OutAtt" in self.url:
-            with open('L3Out Node Source Relationships/HTML/L3Out Node Source Relationships.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l3extRsPathL3OutAtt" in self.url:
-            with open('L3Out Path Source Relationships/HTML/L3Out Path Source Relationships.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "l3extSubnet" in self.url:
-            with open('L3 Subnets/HTML/L3 Subnets.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "lacpEntity" in self.url:
-            with open('LACP Entities/HTML/LACP Entities.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "lacpIf" in self.url:
-            with open('LACP Interfaces/HTML/LACP Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "lacpInst" in self.url:
-            with open('LACP Instances/HTML/LACP Instances.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "leqptLooseNode" in self.url:
-            with open('External Unmanaged Nodes/HTML/External Unmanaged Nodes.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "leqptRsLsNodeToIf" in self.url:
-            with open('External Unmanaged Nodes Interfaces/HTML/External Unmanaged Nodes Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "lldpAdjEp" in self.url:
-            with open('LLDP Adjacency Endpoints/HTML/LLDP Adjacency Endpoints.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "lldpEntity" in self.url:
-            with open('LLDP Entities/HTML/LLDP Entities.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "lldpIf" in self.url:
-            with open('LLDP Interfaces/HTML/LLDP Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "lldpInst" in self.url:
-            with open('LLDP Instances/HTML/LLDP Instances.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "mgmtMgmtIf" in self.url:
-            with open('Management Interfaces/HTML/Management Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ospfAdjEp" in self.url:
-            with open('OSPF Adjacency Endpoints/HTML/OSPF Adjacency Endpoints.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ospfArea" in self.url:
-            with open('OSPF Areas/HTML/OSPF Areas.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ospfDb" in self.url:
-            with open('OSPF Database/HTML/OSPF Database.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ospfDom" in self.url:
-            with open('OSPF Domains/HTML/OSPF Domains.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ospfEntity" in self.url:
-            with open('OSPF Entities/HTML/OSPF Entities.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ospfExtP" in self.url:
-            with open('OSPF External Profiles/HTML/OSPF External Profiles.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ospfIf" in self.url:
-            with open('OSPF Interfaces/HTML/OSPF Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ospfInst" in self.url:
-            with open('OSPF Instances/HTML/OSPF Instances.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ospfRoute" in self.url:
-            with open('OSPF Routes/HTML/OSPF Routes.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "ospfUcNexthop" in self.url:
-            with open('OSPF Unicast Next Hop/HTML/OSPF Unicast Next Hop.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "pcAggrIf" in self.url:
-            with open('Port Channel Aggregate Interfaces/HTML/Port Channel Aggregate Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "pcRsMbrIfs" in self.url:
-            with open('Port Channel Member Interfaces/HTML/Port Channel Member Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "sviIf" in self.url:
-            with open('SVIs/HTML/SVIs.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "tunnelIf" in self.url:
-            with open('Tunnel Interfaces/HTML/Tunnel Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "uribv4Db" in self.url:
-            with open('Unicast Route Database/HTML/Unicast Route Database.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "uribv4Dom" in self.url:
-            with open('Unicast Route Domains/HTML/Unicast Route Domains.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "uribv4Entity" in self.url:
-            with open('Unicast Route Entities/HTML/Unicast Route Entities.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "uribv4Nexthop" in self.url:
-            with open('Unicast Route Next Hop/HTML/Unicast Route Next Hop.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "uribv4Route" in self.url:
-            with open('Unicast Routes/HTML/Unicast Routes.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vlanCktEp" in self.url:
-            with open('VLAN Endpoint Group Encapsulation/HTML/VLAN Endpoint Group Encapsulation.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vmmCtrlrP" in self.url:
-            with open('VMM Controller Profiles/HTML/VMM Controller Profiles.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vmmDomP" in self.url:
-            with open('VMM Domain Profiles/HTML/VMM Domain Profiles.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vmmProvP" in self.url:
-            with open('VMM Provider Profiles/HTML/VMM Provider Profiles.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vmmUsrAccP" in self.url:
-            with open('VMM User Profiles/HTML/VMM User Profiles.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vpcDom" in self.url:
-            with open('VPC Domains/HTML/VPC Domains.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vpcEntity" in self.url:
-            with open('VPC Entities/HTML/VPC Entities.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vpcIf" in self.url:
-            with open('VPC Interfaces/HTML/VPC Interfaces.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vpcInst" in self.url:
-            with open('VPC Instances/HTML/VPC Instances.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vpcRsVpcConf" in self.url:
-            with open('VPC Configurations/HTML/VPC Configurations.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vzAny" in self.url:
-            with open('vzAny/HTML/vzAny.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vzFilter" in self.url:
-            with open('vzFilters/HTML/vzFilters.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vzRsAnyToCons" in self.url:
-            with open('vzAny To Consumers/HTML/vzAny To Consumers.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vzRsAnyToProv" in self.url:
-            with open('vzAny To Providers/HTML/vzAny To Providers.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vzRsDenyRule" in self.url:
-            with open('vzDeny Rules/HTML/vzDeny Rules.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vzRsIf" in self.url:
-            with open('vzInterface Source Relationships/HTML/vzInterface Source Relationships.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vzRsSubjFiltAtt" in self.url:
-            with open('Contract Subjects Filter Attributes/HTML/Contract Subjects Filter Attributes.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vzRtCons" in self.url:
-            with open('Contract Consumers Root/HTML/Contract Consumers Root.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vzRtProv" in self.url:
-            with open('Contract Providers Root/HTML/Contract Providers Root.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vzRuleOwner" in self.url:
-            with open('vzRule Owner/HTML/vzRule Owner.html', 'w' ) as f:
-                f.write(html_output)
-
-        if "vzTaboo" in self.url:
-            with open('vzTaboo/HTML/vzTaboo.html', 'w' ) as f:
-                f.write(html_output)
-
-    def mindmap_file(self, parsed_json):
+                    async with aiofiles.open('Fabric Paths/HTML/Fabric Paths.html', mode='w' ) as f:
+                        await f.write(html_output)
+
+            if "rtctrlSubjP" in api:
+                async with aiofiles.open('Prefix List/HTML/Prefix List.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "rtctrlMatchRtDest" in api:
+                async with aiofiles.open('Prefix List Detailed/HTML/Prefix List Detailed.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "aaaUser" in api:
+                async with aiofiles.open('Users/HTML/Users.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "aaaDomain" in api:
+                async with aiofiles.open('Security Domains/HTML/Security Domains.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vzSubj" in api:
+                async with aiofiles.open('Contract Subjects/HTML/Contract Subjects.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "topology/health" in api:
+                async with aiofiles.open('Health/HTML/Health.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "pkiFabricNodeSSLCertificate" in api:
+                async with aiofiles.open('Fabric Node SSL Certificates/HTML/Fabric Node SSL Certificates.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "tn-" in api:
+                if "health" in api:
+                    async with aiofiles.open('Tenant Health/HTML/Tenant Health.html', mode='w' ) as f:
+                        await f.write(html_output)
+
+            if "firmwareCtrlrRunning" in api:
+                async with aiofiles.open('Fabric Membership/HTML/Fabric Membership.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "infraWiNode" in api:
+                async with aiofiles.open('Cluster Health/HTML/Cluster Health.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vnsMDev" in api:
+                async with aiofiles.open('Device Packages/HTML/Device Packages.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "cnwAggrIf" in api:
+                async with aiofiles.open('Cluster Aggregate Interfaces/HTML/Cluster Aggregate Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l3Inst" in api:
+                async with aiofiles.open('L3 Interfaces/HTML/L3 Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "actrlEntity" in api:
+                async with aiofiles.open('Access Control Entities/HTML/Access Control Entities.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "actrlInst" in api:
+                async with aiofiles.open('Access Control Instances/HTML/Access Control Instances.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "actrlRule" in api:
+                async with aiofiles.open('Access Control Rules/HTML/Access Control Rules.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "actrlScope" in api:
+                async with aiofiles.open('Access Control Scopes/HTML/Access Control Scopes.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "cnwPhysIf" in api:
+                async with aiofiles.open('Cluster Physical Interfaces/HTML/Cluster Physical Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "compCtrlr" in api:
+                async with aiofiles.open('Compute Controllers/HTML/Compute Controllers.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "compDom" in api:
+                async with aiofiles.open('Compute Domains/HTML/Compute Domains.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "compEpPD" in api:
+                async with aiofiles.open('Compute Endpoint Policy Descriptions/HTML/Compute Endpoint Policy Descriptions.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "compProv" in api:
+                async with aiofiles.open('Compute Providers/HTML/Compute Providers.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "arpAdjEp" in api:
+                async with aiofiles.open('ARP Adjacency Endpoints/HTML/ARP Adjacency Endpoints.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "arpDb" in api:
+                async with aiofiles.open('ARP Database/HTML/ARP Database.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "arpDom" in api:
+                async with aiofiles.open('ARP Domain/HTML/ARP Domain.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "arpEntity" in api:
+                async with aiofiles.open('ARP Entity/HTML/ARP Entity.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "arpIf" in api:
+                async with aiofiles.open('ARP Interfaces/HTML/ARP Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "arpInst" in api:
+                async with aiofiles.open('ARP Instances/HTML/ARP Instances.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "bgpDom" in api:
+                if "Af" in api:
+                    async with aiofiles.open('BGP Domain Address Families/HTML/BGP Domain Address Families.html', mode='w' ) as f:
+                        await f.write(html_output)
+                else:
+                    async with aiofiles.open('BGP Domains/HTML/BGP Domains.html', mode='w' ) as f:
+                        await f.write(html_output)
+
+            if "bgpEntity" in api:
+                async with aiofiles.open('BGP Entities/HTML/BGP Entities.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "bgpInst" in api:
+                if "InstPol" in api:
+                    async with aiofiles.open('BGP Instances Policy/HTML/BGP Instances Policy.html', mode='w' ) as f:
+                        await f.write(html_output)
+                else:
+                    async with aiofiles.open('BGP Instances/HTML/BGP Instances.html', mode='w' ) as f:
+                        await f.write(html_output)
+
+            if "bgpPeer" in api:
+                if "bgpPeerAf" in api:
+                    async with aiofiles.open('BGP Peers AF Entries/HTML/BGP Peers AF Entries.html', mode='w' ) as f:
+                        await f.write(html_output)
+                elif "bgpPeerEntry" in api:
+                    async with aiofiles.open('BGP Peers Entries/HTML/BGP Peers Entries.html', mode='w' ) as f:
+                        await f.write(html_output)
+                else:
+                    async with aiofiles.open('BGP Peers/HTML/BGP Peers.html', mode='w' ) as f:
+                        await f.write(html_output)
+
+            if "bgpRRP" in api:
+                async with aiofiles.open('BGP Route Reflector Policies/HTML/BGP Route Reflector Policies.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "cdpAdjEp" in api:
+                async with aiofiles.open('CDP Adjacency Endpoints/HTML/CDP Adjacency Endpoints.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "cdpEntity" in api:
+                async with aiofiles.open('CDP Entities/HTML/CDP Entities.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "cdpIf" in api:
+                async with aiofiles.open('CDP Interfaces/HTML/CDP Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "cdpInst" in api:
+                async with aiofiles.open('CDP Instances/HTML/CDP Instances.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "cdpIntfAddr" in api:
+                async with aiofiles.open('CDP Interface Addresses/HTML/CDP Interface Addresses.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "cdpMgmtAddr" in api:
+                async with aiofiles.open('CDP Management Addresses/HTML/CDP Management Addresses.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "cnwRsMbrIfs" in api:
+                async with aiofiles.open('Cluster RS Member Interfaces/HTML/Cluster RS Member Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "compRsDomP" in api:
+                async with aiofiles.open('Compute RS Domain Policies/HTML/Compute RS Domain Policies.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptBSlot" in api:
+                async with aiofiles.open('Equipment Board Slots/HTML/Equipment Board Slots.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptBoard" in api:
+                async with aiofiles.open('Equipment Boards/HTML/Equipment Boards.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptCPU" in api:
+                async with aiofiles.open('Equipment CPUs/HTML/Equipment CPUs.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptCh" in api:
+                async with aiofiles.open('Equipment Chassis/HTML/Equipment Chassis.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptDimm" in api:
+                async with aiofiles.open('Equipment DIMMs/HTML/Equipment DIMMs.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptExtCh" in api:
+                async with aiofiles.open('Equipment Fabric Extenders/HTML/Equipment Fabric Extenders.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptFabP" in api:
+                async with aiofiles.open('Equipment Fabric Ports/HTML/Equipment Fabric Ports.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptFan" in api:
+                async with aiofiles.open('Equipment Fans/HTML/Equipment Fans.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptFpga" in api:
+                async with aiofiles.open('Equipment Field Programmable Gate Arrays/HTML/Equipment Field Programmable Gate Arrays.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptFt" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Fan Tray Slots/HTML/Equipment Fan Tray Slots.html', mode='w' ) as f:
+                        await f.write(html_output)
+                else:
+                    async with aiofiles.open('Equipment Fan Trays/HTML/Equipment Fan Trays.html', mode='w' ) as f:
+                        await f.write(html_output)
+
+            if "eqptIndLed" in api:
+                async with aiofiles.open('Equipment Indicator LEDs/HTML/Equipment Indicator LEDs.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptLC" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Line Card Slots/HTML/Equipment Line Card Slots.html', mode='w' ) as f:
+                        await f.write(html_output)
+                else:
+                    async with aiofiles.open('Equipment Line Cards/HTML/Equipment Line Cards.html', mode='w' ) as f:
+                        await f.write(html_output)
+
+            if "eqptLeafP" in api:
+                async with aiofiles.open('Equipment Leaf Ports/HTML/Equipment Leaf Ports.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptLocLed" in api:
+                async with aiofiles.open('Equipment Port Locator LEDs/HTML/Equipment Port Locator LEDs.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptPsu" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Power Supply Slots/HTML/Equipment Power Supply Slots.html', mode='w' ) as f:
+                        await f.write(html_output)
+                else:            
+                    async with aiofiles.open('Equipment Power Supplies/HTML/Equipment Power Supplies.html', mode='w' ) as f:
+                        await f.write(html_output)
+
+            if "eqptRsIoPPhysConf" in api:
+                async with aiofiles.open('Equipment RS IO Port Physical Configs/HTML/Equipment RS IO Port Physical Configs.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptSensor" in api:
+                async with aiofiles.open('Equipment Sensors/HTML/Equipment Sensors.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptSpCmnBlk" in api:
+                async with aiofiles.open('Equipment SP Common Blocks/HTML/Equipment SP Common Blocks.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptSpromLc" in api:
+                async with aiofiles.open('Equipment SPROM LCs/HTML/Equipment SPROM LCs.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptSpromPsu" in api:
+                if "Blk" in api:
+                    async with aiofiles.open('Equipment SPROM Power Supply Blocks/HTML/Equipment SPROM Power Supply Blocks.html', mode='w' ) as f:
+                        await f.write(html_output)
+                else:
+                    async with aiofiles.open('Equipment SPROM Power Supplies/HTML/Equipment SPROM Power Supplies.html', mode='w' ) as f:
+                        await f.write(html_output)
+
+            if "eqptSpromSup" in api:
+                async with aiofiles.open('Equipment SPROM Supervisors/HTML/Equipment SPROM Supervisors.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptStorage" in api:
+                async with aiofiles.open('Equipment Storage/HTML/Equipment Storage.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "eqptSupC" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Supervisor Slots/HTML/Equipment Supervisor Slots.html', mode='w' ) as f:
+                        await f.write(html_output)
+                else:
+                    async with aiofiles.open('Equipment Supervisors/HTML/Equipment Supervisors.html', mode='w' ) as f:
+                        await f.write(html_output)
+
+            if "ethpmPhysIf" in api:
+                async with aiofiles.open('Ethernet Port Manager Physical Interfaces/HTML/Ethernet Port Manager Physical Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fabricExtPathEpCont" in api:
+                async with aiofiles.open('Fabric Extended Path Endpoint Containers/HTML/Fabric Extended Path Endpoint Containers.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fabricInst" in api:
+                async with aiofiles.open('Fabric Instances/HTML/Fabric Instances.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fabricLink" in api:
+                if "Cont" in api:
+                    async with aiofiles.open('Fabric Link Containers/HTML/Fabric Link Containers.html', mode='w' ) as f:
+                        await f.write(html_output)
+                else:
+                    async with aiofiles.open('Fabric Links/HTML/Fabric Links.html', mode='w' ) as f:
+                        await f.write(html_output)
+
+            if "fabricLooseLink" in api:
+                async with aiofiles.open('Fabric Loose Links/HTML/Fabric Loose Links.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fabricLooseNode" in api:
+                async with aiofiles.open('Fabric Loose Nodes/HTML/Fabric Loose Nodes.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fabricProtPathEpCont" in api:
+                async with aiofiles.open('Fabric Protected Path Endpoint Containers/HTML/Fabric Protected Path Endpoint Containers.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fcEntity" in api:
+                async with aiofiles.open('Fibre Channel Entities/HTML/Fibre Channel Entities.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "firmwareCardRunning" in api:
+                async with aiofiles.open('Firmware Card Running/HTML/Firmware Card Running.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "firmwareCompRunning" in api:
+                async with aiofiles.open('Firmware Compute Running/HTML/Firmware Compute Running.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "firmwareRunning" in api:
+                async with aiofiles.open('Firmware Running/HTML/Firmware Running.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fvEpPCont" in api:
+                async with aiofiles.open('Endpoint Profile Containers/HTML/Endpoint Profile Containers.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fvLocale" in api:
+                async with aiofiles.open('Locales/HTML/Locales.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fvRsBDToOut" in api:
+                async with aiofiles.open('Bridge Domains To Outside/HTML/Bridge Domains To Outside.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fvRsBd" in api:
+                async with aiofiles.open('EPG Bridge Domain Links/HTML/EPG Bridge Domain Links.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fvRsCEpToPathEp" in api:
+                async with aiofiles.open('Endpoints To Paths/HTML/Endpoints To Paths.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fvRsCons" in api:
+                if "If" in api:
+                    async with aiofiles.open('Contract Consumer Interfaces/HTML/Contract Consumer Interfaces.html', mode='w' ) as f:
+                        await f.write(html_output)
+                else:
+                    async with aiofiles.open('Contract Consumers/HTML/Contract Consumers.html', mode='w' ) as f:
+                        await f.write(html_output)
+
+            if "fvRsCtx" in api:
+                async with aiofiles.open('Context Source Relationships/HTML/Context Source Relationships.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fvRsDomAtt" in api:
+                async with aiofiles.open('Domain Attachments/HTML/Domain Attachments.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fvRsPathAtt" in api:
+                async with aiofiles.open('Path Attachments/HTML/Path Attachments.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fvRsProv" in api:
+                async with aiofiles.open('Contract Providers/HTML/Contract Providers.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fvRtBd" in api:
+                async with aiofiles.open('Bridge Domains Target Relationships/HTML/Bridge Domains Target Relationships.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fvRtCtx" in api:
+                async with aiofiles.open('Contexts Target Relationships/HTML/Contexts Target Relationships.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fvnsEncapBlk" in api:
+                async with aiofiles.open('VLAN Encapsulation Blocks/HTML/VLAN Encapsulation Blocks.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "fvnsVlanInstP" in api:
+                async with aiofiles.open('VLAN Namespace Policies/HTML/VLAN Namespace Policies.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "infraAccBndlGrp" in api:
+                async with aiofiles.open('Access Bundle Groups/HTML/Access Bundle Groups.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "infraAccPortGrp" in api:
+                async with aiofiles.open('Access Port Groups/HTML/Access Port Groups.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "infraAccPortP" in api:
+                async with aiofiles.open('Access Port Profiles/HTML/Access Port Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "infraContr" in api:
+                async with aiofiles.open('Controllers/HTML/Controllers.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "infraFexP" in api:
+                async with aiofiles.open('FEX Policies/HTML/FEX Policies.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "infraFuncP" in api:
+                async with aiofiles.open('Function Policies/HTML/Function Policies.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "infraHPortS" in api:
+                async with aiofiles.open('Host Port Selectors/HTML/Host Port Selectors.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "infraPortBlk" in api:
+                async with aiofiles.open('Port Blocks/HTML/Port Blocks.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "infraRsAccBaseGrp" in api:
+                async with aiofiles.open('Access Policy Group Source Relationships/HTML/Access Policy Group Source Relationships.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "infraRsAttEntP" in api:
+                async with aiofiles.open('Attachable Access Entity Profiles Source Relationships/HTML/Attachable Access Entity Profiles Source Relationships.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "infraRsDomP" in api:
+                async with aiofiles.open('Domain Profile Source Relationships/HTML/Domain Profile Source Relationships.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "infraRsSpAccGrp" in api:
+                async with aiofiles.open('Spine Access Policy Groups/HTML/Spine Access Policy Groups.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "infraRsVlanNs" in api:
+                async with aiofiles.open('VLAN Namespace Source Relationships/HTML/VLAN Namespace Source Relationships.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "infraSHPortS" in api:
+                async with aiofiles.open('Spine Host Port Selectors/HTML/Spine Host Port Selectors.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "infraSpAccPortP" in api:
+                async with aiofiles.open('Spine Access Port Profiles/HTML/Spine Access Port Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "infraWiNode" in api:
+                async with aiofiles.open('Wired Nodes/HTML/Wired Nodes.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ipNexthopP" in api:
+                async with aiofiles.open('Static Route Next Hop Policies/HTML/Static Route Next Hop Policies.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ipRouteP" in api:
+                async with aiofiles.open('Route Policies/HTML/Route Policies.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ipv4Addr" in api:
+                async with aiofiles.open('IPv4 Addresses/HTML/IPv4 Addresses.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ipv4Dom" in api:
+                async with aiofiles.open('IPv4 Domains/HTML/IPv4 Domains.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ipv4Entity" in api:
+                async with aiofiles.open('IPv4 Entities/HTML/IPv4 Entities.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ipv4If" in api:
+                async with aiofiles.open('IPv4 Interfaces/HTML/IPv4 Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ipv4Inst" in api:
+                async with aiofiles.open('IPv4 Instances/HTML/IPv4 Instances.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ipv4Nexthop" in api:
+                async with aiofiles.open('IPv4 Next Hop/HTML/IPv4 Next Hop.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ipv4Route" in api:
+                async with aiofiles.open('IPv4 Routes/HTML/IPv4 Routes.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "isisAdjEp" in api:
+                async with aiofiles.open('ISIS Adjacency Endpoints/HTML/ISIS Adjacency Endpoints.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "isisDTEp" in api:
+                async with aiofiles.open('ISIS Discovered Tunnel Endpoints/HTML/ISIS Discovered Tunnel Endpoints.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "isisDom" in api:
+                if "Lvl" in api:
+                    async with aiofiles.open('ISIS Domains Level/HTML/ISIS Domains Level.html', mode='w' ) as f:
+                        await f.write(html_output)
+                else:
+                    async with aiofiles.open('ISIS Domains/HTML/ISIS Domains.html', mode='w' ) as f:
+                        await f.write(html_output)
+
+            if "isisEntity" in api:
+                async with aiofiles.open('ISIS Entities/HTML/ISIS Entities.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "isisIf" in api:
+                if "Lvl" in api:
+                    async with aiofiles.open('ISIS Interfaces Level/HTML/ISIS Interfaces Level.html', mode='w' ) as f:
+                        await f.write(html_output)
+                else:
+                    async with aiofiles.open('ISIS Interfaces/HTML/ISIS Interfaces.html', mode='w' ) as f:
+                        await f.write(html_output)
+
+            if "isisInst" in api:
+                async with aiofiles.open('ISIS Instances/HTML/ISIS Instances.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "isisNexthop" in api:
+                async with aiofiles.open('ISIS Next Hop/HTML/ISIS Next Hop.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "isisRoute" in api:
+                async with aiofiles.open('ISIS Routes/HTML/ISIS Routes.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l2BD" in api:
+                async with aiofiles.open('L2 Bridge Domains/HTML/L2 Bridge Domains.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l2ExtIf" in api:
+                async with aiofiles.open('L2 External Interfaces/HTML/L2 External Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l2RsEthIf" in api:
+                async with aiofiles.open('L2 Interface Source Relationships/HTML/L2 Interface Source Relationships.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l2extInstP" in api:
+                async with aiofiles.open('L2 External Instance Profiles/HTML/L2 External Instance Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l2extLIfP" in api:
+                async with aiofiles.open('L2 External Logical Interface Profiles/HTML/L2 External Logical Interface Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l2extLNodeP" in api:
+                async with aiofiles.open('L2 External Logical Node Profiles/HTML/L2 External Logical Node Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l2extRsEBd" in api:
+                async with aiofiles.open('L2 EPG Bridge Domain Source Relationships/HTML/L2 EPG Bridge Domain Source Relationships.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l2extRsPathL2OutAtt" in api:
+                async with aiofiles.open('L2Out Paths/HTML/L2Out Paths.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l3Ctx" in api:
+                async with aiofiles.open('L3 Contexts/HTML/L3 Contexts.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l3EncRtdIf" in api:
+                async with aiofiles.open('L3 Subinterfaces/HTML/L3 Subinterfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l3Inst" in api:
+                async with aiofiles.open('L3 Instances/HTML/L3 Instances.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l3LbRtdIf" in api:
+                async with aiofiles.open('L3 Routed Loopback Interfaces/HTML/L3 Routed Loopback Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l3RsEncPhysRtdConf" in api:
+                async with aiofiles.open('L3 Physical Interface Source Relationships/HTML/L3 Physical Interface Source Relationships.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l3RtdIf" in api:
+                async with aiofiles.open('L3 Routed Interfaces/HTML/L3 Routed Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l3extInstP" in api:
+                async with aiofiles.open('L3Out Profiles/HTML/L3Out Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l3extIp" in api:
+                async with aiofiles.open('L3Out IP Addresses/HTML/L3Out IP Addresses.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l3extLIfP" in api:
+                async with aiofiles.open('L3 Logical Interface Profiles/HTML/L3 Logical Interface Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l3extLNodeP" in api:
+                async with aiofiles.open('L3 Logical Node Profiles/HTML/L3 Logical Node Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l3extMember" in api:
+                async with aiofiles.open('L3Out Members/HTML/L3Out Members.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l3extRsEctx" in api:
+                async with aiofiles.open('L3 Contexts Source Relationships/HTML/L3 Contexts Source Relationships.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l3extRsL3DomAtt" in api:
+                async with aiofiles.open('L3 Domains Source Relationships/HTML/L3 Domains Source Relationships.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l3extRsNodeL3OutAtt" in api:
+                async with aiofiles.open('L3Out Node Source Relationships/HTML/L3Out Node Source Relationships.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l3extRsPathL3OutAtt" in api:
+                async with aiofiles.open('L3Out Path Source Relationships/HTML/L3Out Path Source Relationships.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "l3extSubnet" in api:
+                async with aiofiles.open('L3 Subnets/HTML/L3 Subnets.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "lacpEntity" in api:
+                async with aiofiles.open('LACP Entities/HTML/LACP Entities.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "lacpIf" in api:
+                async with aiofiles.open('LACP Interfaces/HTML/LACP Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "lacpInst" in api:
+                async with aiofiles.open('LACP Instances/HTML/LACP Instances.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "leqptLooseNode" in api:
+                async with aiofiles.open('External Unmanaged Nodes/HTML/External Unmanaged Nodes.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "leqptRsLsNodeToIf" in api:
+                async with aiofiles.open('External Unmanaged Nodes Interfaces/HTML/External Unmanaged Nodes Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "lldpAdjEp" in api:
+                async with aiofiles.open('LLDP Adjacency Endpoints/HTML/LLDP Adjacency Endpoints.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "lldpEntity" in api:
+                async with aiofiles.open('LLDP Entities/HTML/LLDP Entities.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "lldpIf" in api:
+                async with aiofiles.open('LLDP Interfaces/HTML/LLDP Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "lldpInst" in api:
+                async with aiofiles.open('LLDP Instances/HTML/LLDP Instances.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "mgmtMgmtIf" in api:
+                async with aiofiles.open('Management Interfaces/HTML/Management Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ospfAdjEp" in api:
+                async with aiofiles.open('OSPF Adjacency Endpoints/HTML/OSPF Adjacency Endpoints.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ospfArea" in api:
+                async with aiofiles.open('OSPF Areas/HTML/OSPF Areas.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ospfDb" in api:
+                async with aiofiles.open('OSPF Database/HTML/OSPF Database.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ospfDom" in api:
+                async with aiofiles.open('OSPF Domains/HTML/OSPF Domains.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ospfEntity" in api:
+                async with aiofiles.open('OSPF Entities/HTML/OSPF Entities.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ospfExtP" in api:
+                async with aiofiles.open('OSPF External Profiles/HTML/OSPF External Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ospfIf" in api:
+                async with aiofiles.open('OSPF Interfaces/HTML/OSPF Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ospfInst" in api:
+                async with aiofiles.open('OSPF Instances/HTML/OSPF Instances.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ospfRoute" in api:
+                async with aiofiles.open('OSPF Routes/HTML/OSPF Routes.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "ospfUcNexthop" in api:
+                async with aiofiles.open('OSPF Unicast Next Hop/HTML/OSPF Unicast Next Hop.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "pcAggrIf" in api:
+                async with aiofiles.open('Port Channel Aggregate Interfaces/HTML/Port Channel Aggregate Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "pcRsMbrIfs" in api:
+                async with aiofiles.open('Port Channel Member Interfaces/HTML/Port Channel Member Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "sviIf" in api:
+                async with aiofiles.open('SVIs/HTML/SVIs.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "tunnelIf" in api:
+                async with aiofiles.open('Tunnel Interfaces/HTML/Tunnel Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "uribv4Db" in api:
+                async with aiofiles.open('Unicast Route Database/HTML/Unicast Route Database.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "uribv4Dom" in api:
+                async with aiofiles.open('Unicast Route Domains/HTML/Unicast Route Domains.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "uribv4Entity" in api:
+                async with aiofiles.open('Unicast Route Entities/HTML/Unicast Route Entities.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "uribv4Nexthop" in api:
+                async with aiofiles.open('Unicast Route Next Hop/HTML/Unicast Route Next Hop.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "uribv4Route" in api:
+                async with aiofiles.open('Unicast Routes/HTML/Unicast Routes.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vlanCktEp" in api:
+                async with aiofiles.open('VLAN Endpoint Group Encapsulation/HTML/VLAN Endpoint Group Encapsulation.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vmmCtrlrP" in api:
+                async with aiofiles.open('VMM Controller Profiles/HTML/VMM Controller Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vmmDomP" in api:
+                async with aiofiles.open('VMM Domain Profiles/HTML/VMM Domain Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vmmProvP" in api:
+                async with aiofiles.open('VMM Provider Profiles/HTML/VMM Provider Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vmmUsrAccP" in api:
+                async with aiofiles.open('VMM User Profiles/HTML/VMM User Profiles.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vpcDom" in api:
+                async with aiofiles.open('VPC Domains/HTML/VPC Domains.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vpcEntity" in api:
+                async with aiofiles.open('VPC Entities/HTML/VPC Entities.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vpcIf" in api:
+                async with aiofiles.open('VPC Interfaces/HTML/VPC Interfaces.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vpcInst" in api:
+                async with aiofiles.open('VPC Instances/HTML/VPC Instances.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vpcRsVpcConf" in api:
+                async with aiofiles.open('VPC Configurations/HTML/VPC Configurations.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vzAny" in api:
+                async with aiofiles.open('vzAny/HTML/vzAny.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vzFilter" in api:
+                async with aiofiles.open('vzFilters/HTML/vzFilters.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vzRsAnyToCons" in api:
+                async with aiofiles.open('vzAny To Consumers/HTML/vzAny To Consumers.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vzRsAnyToProv" in api:
+                async with aiofiles.open('vzAny To Providers/HTML/vzAny To Providers.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vzRsDenyRule" in api:
+                async with aiofiles.open('vzDeny Rules/HTML/vzDeny Rules.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vzRsIf" in api:
+                async with aiofiles.open('vzInterface Source Relationships/HTML/vzInterface Source Relationships.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vzRsSubjFiltAtt" in api:
+                async with aiofiles.open('Contract Subjects Filter Attributes/HTML/Contract Subjects Filter Attributes.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vzRtCons" in api:
+                async with aiofiles.open('Contract Consumers Root/HTML/Contract Consumers Root.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vzRtProv" in api:
+                async with aiofiles.open('Contract Providers Root/HTML/Contract Providers Root.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vzRuleOwner" in api:
+                async with aiofiles.open('vzRule Owner/HTML/vzRule Owner.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "vzTaboo" in api:
+                async with aiofiles.open('vzTaboo/HTML/vzTaboo.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+    async def mindmap_file(self, parsed_json):
         template_dir = Path(__file__).resolve().parent
-        env = Environment(loader=FileSystemLoader(str(template_dir)))
+        env = Environment(loader=FileSystemLoader(str(template_dir)), enable_async=True)
         mindmap_template = env.get_template('aci_mindmap.j2')
-        mindmap_output = mindmap_template.render(api = self.url,
-                                         data_to_template = json.loads(parsed_json),
-                                         url = self.aci)
-        if "Tenant" in self.url:
-            with open('Tenant/Mindmap/Tenants.md', 'w' ) as f:
-                f.write(mindmap_output)
+        for api, payload in json.loads(parsed_json):
+            mindmap_output = await mindmap_template.render_async(api = api,
+                                             data_to_template = payload)
+            if "Tenant" in api:
+                async with aiofiles.open('Tenant/Mindmap/Tenants.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "AEPg" in self.url:
-            with open('EPGs/Mindmap/EPGs.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "AEPg" in api:
+                async with aiofiles.open('EPGs/Mindmap/EPGs.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "fvBD" in self.url:
-            with open('Bridge Domains/Mindmap/Bridge Domains.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "fvBD" in api:
+                async with aiofiles.open('Bridge Domains/Mindmap/Bridge Domains.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "fvCtx" in self.url:
-            with open('Contexts/Mindmap/Contexts.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "fvCtx" in api:
+                async with aiofiles.open('Contexts/Mindmap/Contexts.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "Ap" in self.url:
-            with open('Application Profiles/Mindmap/Application Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "Ap" in api:
+                async with aiofiles.open('Application Profiles/Mindmap/Application Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "l3extOut" in self.url:
-            with open('L3Outs/Mindmap/L3Outs.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "l3extOut" in api:
+                async with aiofiles.open('L3Outs/Mindmap/L3Outs.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "l2extOut" in self.url:
-            with open('L2Outs/Mindmap/L2Outs.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "l2extOut" in api:
+                async with aiofiles.open('L2Outs/Mindmap/L2Outs.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "topSystem" in self.url:
-            if "?" not in self.url:
-                with open('Top System/Mindmap/Top System.md', 'w' ) as f:
-                    f.write(mindmap_output)
+            if "topSystem" in api:
+                if "?" not in api:
+                    async with aiofiles.open('Top System/Mindmap/Top System.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
 
-        if "fvSubnet" in self.url:
-            with open('Subnets/Mindmap/Subnets.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "fvSubnet" in api:
+                async with aiofiles.open('Subnets/Mindmap/Subnets.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "fvCEp" in self.url:
-            with open('Endpoints/Mindmap/Endpoints.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "fvCEp" in api:
+                async with aiofiles.open('Endpoints/Mindmap/Endpoints.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "fabricNode" in self.url:
-            with open('Fabric Nodes/Mindmap/Fabric Nodes.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "fabricNode" in api:
+                async with aiofiles.open('Fabric Nodes/Mindmap/Fabric Nodes.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "l1PhysIf" in self.url:
-            with open('Physical Interfaces/Mindmap/Physical Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "l1PhysIf" in api:
+                async with aiofiles.open('Physical Interfaces/Mindmap/Physical Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "infraAccPortP" in self.url:
-            with open('Leaf Interface Profiles/Mindmap/Leaf Interface Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "infraAccPortP" in api:
+                async with aiofiles.open('Leaf Interface Profiles/Mindmap/Leaf Interface Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "infraSpAccPortP" in self.url:
-            with open('Spine Interface Profiles/Mindmap/Spine Interface Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "infraSpAccPortP" in api:
+                async with aiofiles.open('Spine Interface Profiles/Mindmap/Spine Interface Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "infraNodeP" in self.url:
-            with open('Leaf Switch Profiles/Mindmap/Leaf Switch Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "infraNodeP" in api:
+                async with aiofiles.open('Leaf Switch Profiles/Mindmap/Leaf Switch Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "infraSpineP" in self.url:
-            with open('Spine Switch Profiles/Mindmap/Spine Switch Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "infraSpineP" in api:
+                async with aiofiles.open('Spine Switch Profiles/Mindmap/Spine Switch Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "fvnsVlanInstP" in self.url:
-            with open('VLAN Pools/Mindmap/VLAN Pools.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "fvnsVlanInstP" in api:
+                async with aiofiles.open('VLAN Pools/Mindmap/VLAN Pools.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "infraAttEntityP" in self.url:
-            with open('Attachable Access Entity Profiles/Mindmap/Attachable Access Entity Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "infraAttEntityP" in api:
+                async with aiofiles.open('Attachable Access Entity Profiles/Mindmap/Attachable Access Entity Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "vzBrCP" in self.url:
-            with open('Contracts/Mindmap/Contracts.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "vzBrCP" in api:
+                async with aiofiles.open('Contracts/Mindmap/Contracts.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "vzEntry" in self.url:
-            with open('vzEntries/Mindmap/vzEntries.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "vzEntry" in api:
+                async with aiofiles.open('vzEntries/Mindmap/vzEntries.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "physDomP" in self.url:
-            with open('Physical Domains/Mindmap/Physical Domains.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "physDomP" in api:
+                async with aiofiles.open('Physical Domains/Mindmap/Physical Domains.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "l3extDomP" in self.url:
-            with open('L3 Domains/Mindmap/L3 Domains.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "l3extDomP" in api:
+                async with aiofiles.open('L3 Domains/Mindmap/L3 Domains.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "qosClass" in self.url:
-            with open('QOS Classes/Mindmap/QOS Classes.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "qosClass" in api:
+                async with aiofiles.open('QOS Classes/Mindmap/QOS Classes.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "faultSummary" in self.url:
-            with open('Fault Summary/Mindmap/Fault Summary.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "faultSummary" in api:
+                async with aiofiles.open('Fault Summary/Mindmap/Fault Summary.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "aaaModLR" in self.url:
-            with open('Audit Log/Mindmap/Audit Log.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "aaaModLR" in api:
+                async with aiofiles.open('Audit Log/Mindmap/Audit Log.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "fvIp" in self.url:
-            with open('IP Addresses/Mindmap/IP Addresses.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "fvIp" in api:
+                async with aiofiles.open('IP Addresses/Mindmap/IP Addresses.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "eventRecord" in self.url:
-            with open('Events/Mindmap/Events.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "eventRecord" in api:
+                async with aiofiles.open('Events/Mindmap/Events.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "licenseEntitlement" in self.url:
-            with open('License Entitlements/Mindmap/License Entitlements.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "licenseEntitlement" in api:
+                async with aiofiles.open('License Entitlements/Mindmap/License Entitlements.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "bgpRRNodePEp" in self.url:
-            with open('BGP Route Reflectors/Mindmap/BGP Route Reflectors.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "bgpRRNodePEp" in api:
+                async with aiofiles.open('BGP Route Reflectors/Mindmap/BGP Route Reflectors.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "infraPortS" in self.url:
-            with open('Interface Policies/Mindmap/Interface Policies.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "infraPortS" in api:
+                async with aiofiles.open('Interface Policies/Mindmap/Interface Policies.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "infraProfile" in self.url:
-            with open('Interface Profiles/Mindmap/Interface Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "infraProfile" in api:
+                async with aiofiles.open('Interface Profiles/Mindmap/Interface Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "fabricPod" in self.url:
-            with open('Fabric Pods/Mindmap/Fabric Pods.md', 'w' ) as f:
-                f.write(mindmap_output)
+            if "fabricPod" in api:
+                async with aiofiles.open('Fabric Pods/Mindmap/Fabric Pods.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
 
-        if "fabricPath" in self.url:
-            if "fabricPathEp" in self.url:
-                if "Cont" in self.url:
-                    with open('Fabric Path Endpoint Containers/Mindmap/Fabric Path Endpoint Containers.md', 'w' ) as f:
-                        f.write(mindmap_output)
+            if "fabricPath" in api:
+                if "fabricPathEp" in api:
+                    if "Cont" in api:
+                        async with aiofiles.open('Fabric Path Endpoint Containers/Mindmap/Fabric Path Endpoint Containers.md', mode='w' ) as f:
+                            await f.write(mindmap_output)
+                    else:
+                        async with aiofiles.open('Fabric Path Endpoints/Mindmap/Fabric Path Endpoints.md', mode='w' ) as f:
+                            await f.write(mindmap_output)
                 else:
-                    with open('Fabric Path Endpoints/Mindmap/Fabric Path Endpoints.md', 'w' ) as f:
-                        f.write(mindmap_output)
-            else:
-                with open('Fabric Paths/Mindmap/Fabric Paths.md', 'w' ) as f:
-                    f.write(mindmap_output)
-
-        if "rtctrlSubjP" in self.url:
-            with open('Prefix List/Mindmap/Prefix List.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "rtctrlMatchRtDest" in self.url:
-            with open('Prefix List Detailed/Mindmap/Prefix List Detailed.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "aaaUser" in self.url:
-            with open('Users/Mindmap/Users.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "aaaDomain" in self.url:
-            with open('Security Domains/Mindmap/Security Domains.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vzSubj" in self.url:
-            with open('Contract Subjects/Mindmap/Contract Subjects.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "health" in self.url:
-            with open('Health/Mindmap/Health.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "pkiFabricNodeSSLCertificate" in self.url:
-            with open('Fabric Node SSL Certificates/Mindmap/Fabric Node SSL Certificates.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "tn-" and "health" in self.url:
-            with open('Tenant Health/Mindmap/Tenant Health.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "firmwareCtrlrRunning" in self.url:
-            with open('Fabric Membership/Mindmap/Fabric Membership.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "infraWiNode" in self.url:
-            with open('Cluster Health/Mindmap/Cluster Health.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vnsMDev" in self.url:
-            with open('Device Packages/Mindmap/Device Packages.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "cnwAggrIf" in self.url:
-            with open('Cluster Aggregate Interfaces/Mindmap/Cluster Aggregate Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l3Inst" in self.url:
-            with open('L3 Interfaces/Mindmap/L3 Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "actrlEntity" in self.url:
-            with open('Access Control Entities/Mindmap/Access Control Entities.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "actrlInst" in self.url:
-            with open('Access Control Instances/Mindmap/Access Control Instances.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "actrlRule" in self.url:
-            with open('Access Control Rules/Mindmap/Access Control Rules.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "actrlScope" in self.url:
-            with open('Access Control Scopes/Mindmap/Access Control Scopes.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "cnwPhysIf" in self.url:
-            with open('Cluster Physical Interfaces/Mindmap/Cluster Physical Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "compCtrlr" in self.url:
-            with open('Compute Controllers/Mindmap/Compute Controllers.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "compDom" in self.url:
-            with open('Compute Domains/Mindmap/Compute Domains.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "compEpPD" in self.url:
-            with open('Compute Endpoint Policy Descriptions/Mindmap/Compute Endpoint Policy Descriptions.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "compProv" in self.url:
-            with open('Compute Providers/Mindmap/Compute Providers.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "arpAdjEp" in self.url:
-            with open('ARP Adjacency Endpoints/Mindmap/ARP Adjacency Endpoints.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "arpDb" in self.url:
-            with open('ARP Database/Mindmap/ARP Database.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "arpDom" in self.url:
-            with open('ARP Domain/Mindmap/ARP Domain.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "arpEntity" in self.url:
-            with open('ARP Entity/Mindmap/ARP Entity.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "arpIf" in self.url:
-            with open('ARP Interfaces/Mindmap/ARP Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "arpInst" in self.url:
-            with open('ARP Instances/Mindmap/ARP Instances.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "bgpDom" in self.url:
-            if "bgpDomAf" in self.url:
-                with open('BGP Domain Address Families/Mindmap/BGP Domain Address Families.md', 'w' ) as f:
-                    f.write(mindmap_output)
-            else:
-                with open('BGP Domains/Mindmap/BGP Domains.md', 'w' ) as f:
-                    f.write(mindmap_output)
-
-        if "bgpEntity" in self.url:
-            with open('BGP Entities/Mindmap/BGP Entities.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "bgpInst" in self.url:
-            if "InstPol" in self.url:
-                with open('BGP Instances Policy/Mindmap/BGP Instances Policy.md', 'w' ) as f:
-                    f.write(mindmap_output)
-            else:
-                with open('BGP Instances/Mindmap/BGP Instances.md', 'w' ) as f:
-                    f.write(mindmap_output)
-
-        if "bgpPeer" in self.url:
-            if "bgpPeerAf" in self.url:
-                with open('BGP Peers AF Entries/Mindmap/BGP Peers AF Entries.md', 'w' ) as f:
-                    f.write(mindmap_output)
-            elif "bgpPeerEntry" in self.url:
-                with open('BGP Peers Entries/Mindmap/BGP Peers Entries.md', 'w' ) as f:
-                    f.write(mindmap_output)
-            else:
-                with open('BGP Peers/Mindmap/BGP Peers.md', 'w' ) as f:
-                    f.write(mindmap_output)
-
-        if "bgpRRP" in self.url:
-            with open('BGP Route Reflector Policies/Mindmap/BGP Route Reflector Policies.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "cdpAdjEp" in self.url:
-            with open('CDP Adjacency Endpoints/Mindmap/CDP Adjacency Endpoints.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "cdpEntity" in self.url:
-            with open('CDP Entities/Mindmap/CDP Entities.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "cdpIf" in self.url:
-            with open('CDP Interfaces/Mindmap/CDP Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "cdpInst" in self.url:
-            with open('CDP Instances/Mindmap/CDP Instances.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "cdpIntfAddr" in self.url:
-            with open('CDP Interface Addresses/Mindmap/CDP Interface Addresses.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "cdpMgmtAddr" in self.url:
-            with open('CDP Management Addresses/Mindmap/CDP Management Addresses.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "cnwRsMbrIfs" in self.url:
-            with open('Cluster RS Member Interfaces/Mindmap/Cluster RS Member Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "compRsDomP" in self.url:
-            with open('Compute RS Domain Policies/Mindmap/Compute RS Domain Policies.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptBSlot" in self.url:
-            with open('Equipment Board Slots/Mindmap/Equipment Board Slots.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptBoard" in self.url:
-            with open('Equipment Boards/Mindmap/Equipment Boards.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptCPU" in self.url:
-            with open('Equipment CPUs/Mindmap/Equipment CPUs.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptCh" in self.url:
-            with open('Equipment Chassis/Mindmap/Equipment Chassis.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptDimm" in self.url:
-            with open('Equipment DIMMs/Mindmap/Equipment DIMMs.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptExtCh" in self.url:
-            with open('Equipment Fabric Extenders/Mindmap/Equipment Fabric Extenders.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptFabP" in self.url:
-            with open('Equipment Fabric Ports/Mindmap/Equipment Fabric Ports.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptFan" in self.url:
-            with open('Equipment Fans/Mindmap/Equipment Fans.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptFpga" in self.url:
-            with open('Equipment Field Programmable Gate Arrays/Mindmap/Equipment Field Programmable Gate Arrays.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptFt" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Fan Tray Slots/Mindmap/Equipment Fan Tray Slots.md', 'w' ) as f:
-                    f.write(mindmap_output)
-            else:
-                with open('Equipment Fan Trays/Mindmap/Equipment Fan Trays.md', 'w' ) as f:
-                    f.write(mindmap_output)
-
-        if "eqptIndLed" in self.url:
-            with open('Equipment Indicator LEDs/Mindmap/Equipment Indicator LEDs.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptLC" in self.url:
-            with open('Equipment Line Cards/Mindmap/Equipment Line Cards.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptLeafP" in self.url:
-            with open('Equipment Leaf Ports/Mindmap/Equipment Leaf Ports.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptLocLed" in self.url:
-            with open('Equipment Port Locator LEDs/Mindmap/Equipment Port Locator LEDs.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptPsu" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Power Supply Slots/Mindmap/Equipment Power Supply Slots.md', 'w' ) as f:
-                    f.write(mindmap_output)
-            else:
-                with open('Equipment Power Supplies/Mindmap/Equipment Power Supplies.md', 'w' ) as f:
-                    f.write(mindmap_output)
-
-        if "eqptRsIoPPhysConf" in self.url:
-            with open('Equipment RS IO Port Physical Configs/Mindmap/Equipment RS IO Port Physical Configs.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptSensor" in self.url:
-            with open('Equipment Sensors/Mindmap/Equipment Sensors.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptSpCmnBlk" in self.url:
-            with open('Equipment SP Common Blocks/Mindmap/Equipment SP Common Blocks.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptSpromLc" in self.url:
-            with open('Equipment SPROM LCs/Mindmap/Equipment SPROM LCs.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptSpromPsu" in self.url:
-            if "Blk" in self.url:
-                with open('Equipment SPROM Power Supply Blocks/Mindmap/Equipment SPROM Power Supply Blocks.md', 'w' ) as f:
-                    f.write(mindmap_output)
-            else:
-                with open('Equipment SPROM Power Supplies/Mindmap/Equipment SPROM Power Supplies.md', 'w' ) as f:
-                    f.write(mindmap_output)
-
-        if "eqptSpromSup" in self.url:
-            with open('Equipment SPROM Supervisors/Mindmap/Equipment SPROM Supervisors.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptStorage" in self.url:
-            with open('Equipment Storage/Mindmap/Equipment Storage.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "eqptSupC" in self.url:
-            if "Slot" in self.url:
-                with open('Equipment Supervisor Slots/Mindmap/Equipment Supervisor Slots.md', 'w' ) as f:
-                    f.write(mindmap_output)
-            else:
-                with open('Equipment Supervisors/Mindmap/Equipment Supervisors.md', 'w' ) as f:
-                    f.write(mindmap_output)
-
-        if "ethpmPhysIf" in self.url:
-            with open('Ethernet Port Manager Physical Interfaces/Mindmap/Ethernet Port Manager Physical Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fabricExtPathEpCont" in self.url:
-            with open('Fabric Extended Path Endpoint Containers/Mindmap/Fabric Extended Path Endpoint Containers.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fabricInst" in self.url:
-            with open('Fabric Instances/Mindmap/Fabric Instances.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fabricLink" in self.url:
-            if "Cont" in self.url:
-                with open('Fabric Link Containers/Mindmap/Fabric Link Containers.md', 'w' ) as f:
-                    f.write(mindmap_output)
-            else:
-                with open('Fabric Links/Mindmap/Fabric Links.md', 'w' ) as f:
-                    f.write(mindmap_output)
-
-        if "fabricLooseLink" in self.url:
-            with open('Fabric Loose Links/Mindmap/Fabric Loose Links.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fabricLooseNode" in self.url:
-            with open('Fabric Loose Nodes/Mindmap/Fabric Loose Nodes.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fabricProtPathEpCont" in self.url:
-            with open('Fabric Protected Path Endpoint Containers/Mindmap/Fabric Protected Path Endpoint Containers.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fcEntity" in self.url:
-            with open('Fibre Channel Entities/Mindmap/Fibre Channel Entities.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "firmwareCardRunning" in self.url:
-            with open('Firmware Card Running/Mindmap/Firmware Card Running.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "firmwareCompRunning" in self.url:
-            with open('Firmware Compute Running/Mindmap/Firmware Compute Running.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "firmwareRunning" in self.url:
-            with open('Firmware Running/Mindmap/Firmware Running.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fvEpPCont" in self.url:
-            with open('Endpoint Profile Containers/Mindmap/Endpoint Profile Containers.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fvLocale" in self.url:
-            with open('Locales/Mindmap/Locales.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fvRsBDToOut" in self.url:
-            with open('Bridge Domains To Outside/Mindmap/Bridge Domains To Outside.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fvRsBd" in self.url:
-            with open('EPG Bridge Domain Links/Mindmap/EPG Bridge Domain Links.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fvRsCEpToPathEp" in self.url:
-            with open('Endpoints To Paths/Mindmap/Endpoints To Paths.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fvRsCons" in self.url:
-            if "If" in self.url:
-                with open('Contract Consumer Interfaces/Mindmap/Contract Consumer Interfaces.md', 'w' ) as f:
-                    f.write(mindmap_output)
-            else:
-                with open('Contract Consumers/Mindmap/Contract Consumers.md', 'w' ) as f:
-                    f.write(mindmap_output)
-
-        if "fvRsCtx" in self.url:
-            with open('Context Source Relationships/Mindmap/Context Source Relationships.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fvRsDomAtt" in self.url:
-            with open('Domain Attachments/Mindmap/Domain Attachments.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fvRsPathAtt" in self.url:
-            with open('Path Attachments/Mindmap/Path Attachments.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fvRsProv" in self.url:
-            with open('Contract Providers/Mindmap/Contract Providers.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fvRtBd" in self.url:
-            with open('Bridge Domains Target Relationships/Mindmap/Bridge Domains Target Relationships.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fvRtCtx" in self.url:
-            with open('Contexts Target Relationships/Mindmap/Contexts Target Relationships.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fvnsEncapBlk" in self.url:
-            with open('VLAN Encapsulation Blocks/Mindmap/VLAN Encapsulation Blocks.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "fvnsVlanInstP" in self.url:
-            with open('VLAN Namespace Policies/Mindmap/VLAN Namespace Policies.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "infraAccBndlGrp" in self.url:
-            with open('Access Bundle Groups/Mindmap/Access Bundle Groups.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "infraAccPortGrp" in self.url:
-            with open('Access Port Groups/Mindmap/Access Port Groups.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "infraAccPortP" in self.url:
-            with open('Access Port Profiles/Mindmap/Access Port Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "infraContr" in self.url:
-            with open('Controllers/Mindmap/Controllers.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "infraFexP" in self.url:
-            with open('FEX Policies/Mindmap/FEX Policies.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "infraFuncP" in self.url:
-            with open('Function Policies/Mindmap/Function Policies.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "infraHPortS" in self.url:
-            with open('Host Port Selectors/Mindmap/Host Port Selectors.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "infraPortBlk" in self.url:
-            with open('Port Blocks/Mindmap/Port Blocks.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "infraRsAccBaseGrp" in self.url:
-            with open('Access Policy Group Source Relationships/Mindmap/Access Policy Group Source Relationships.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "infraRsAttEntP" in self.url:
-            with open('Attachable Access Entity Profiles Source Relationships/Mindmap/Attachable Access Entity Profiles Source Relationships.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "infraRsDomP" in self.url:
-            with open('Domain Profile Source Relationships/Mindmap/Domain Profile Source Relationships.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "infraRsSpAccGrp" in self.url:
-            with open('Spine Access Policy Groups/Mindmap/Spine Access Policy Groups.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "infraRsVlanNs" in self.url:
-            with open('VLAN Namespace Source Relationships/Mindmap/VLAN Namespace Source Relationships.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "infraSHPortS" in self.url:
-            with open('Spine Host Port Selectors/Mindmap/Spine Host Port Selectors.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "infraSpAccPortP" in self.url:
-            with open('Spine Access Port Profiles/Mindmap/Spine Access Port Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "infraWiNode" in self.url:
-            with open('Wired Nodes/Mindmap/Wired Nodes.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ipNexthopP" in self.url:
-            with open('Static Route Next Hop Policies/Mindmap/Static Route Next Hop Policies.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ipRouteP" in self.url:
-            with open('Route Policies/Mindmap/Route Policies.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ipv4Addr" in self.url:
-            with open('IPv4 Addresses/Mindmap/IPv4 Addresses.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ipv4Dom" in self.url:
-            with open('IPv4 Domains/Mindmap/IPv4 Domains.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ipv4Entity" in self.url:
-            with open('IPv4 Entities/Mindmap/IPv4 Entities.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ipv4If" in self.url:
-            with open('IPv4 Interfaces/Mindmap/IPv4 Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ipv4Inst" in self.url:
-            with open('IPv4 Instances/Mindmap/IPv4 Instances.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ipv4Nexthop" in self.url:
-            with open('IPv4 Next Hop/Mindmap/IPv4 Next Hop.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ipv4Route" in self.url:
-            with open('IPv4 Routes/Mindmap/IPv4 Routes.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "isisAdjEp" in self.url:
-            with open('ISIS Adjacency Endpoints/Mindmap/ISIS Adjacency Endpoints.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "isisDTEp" in self.url:
-            with open('ISIS Discovered Tunnel Endpoints/Mindmap/ISIS Discovered Tunnel Endpoints.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "isisDom" in self.url:
-            if "Lvl" in self.url:
-                with open('ISIS Domains Level/Mindmap/ISIS Domains Level.md', 'w' ) as f:
-                    f.write(mindmap_output)
-            else:
-                with open('ISIS Domains/Mindmap/ISIS Domains.md', 'w' ) as f:
-                    f.write(mindmap_output)
-
-        if "isisEntity" in self.url:
-            with open('ISIS Entities/Mindmap/ISIS Entities.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "isisIf" in self.url:
-            if "Lvl" in self.url:
-                with open('ISIS Interfaces Level/Mindmap/ISIS Interfaces Level.md', 'w' ) as f:
-                    f.write(mindmap_output)
-            else:
-                with open('ISIS Interfaces/Mindmap/ISIS Interfaces.md', 'w' ) as f:
-                    f.write(mindmap_output)
-
-        if "isisInst" in self.url:
-            with open('ISIS Instances/Mindmap/ISIS Instances.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "isisNexthop" in self.url:
-            with open('ISIS Next Hop/Mindmap/ISIS Next Hop.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "isisRoute" in self.url:
-            with open('ISIS Routes/Mindmap/ISIS Routes.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l2BD" in self.url:
-            with open('L2 Bridge Domains/Mindmap/L2 Bridge Domains.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l2ExtIf" in self.url:
-            with open('L2 External Interfaces/Mindmap/L2 External Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l2RsEthIf" in self.url:
-            with open('L2 Interface Source Relationships/Mindmap/L2 Interface Source Relationships.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l2extInstP" in self.url:
-            with open('L2 External Instance Profiles/Mindmap/L2 External Instance Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l2extLIfP" in self.url:
-            with open('L2 External Logical Interface Profiles/Mindmap/L2 External Logical Interface Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l2extLNodeP" in self.url:
-            with open('L2 External Logical Node Profiles/Mindmap/L2 External Logical Node Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l2extRsEBd" in self.url:
-            with open('L2 EPG Bridge Domain Source Relationships/Mindmap/L2 EPG Bridge Domain Source Relationships.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l2extRsPathL2OutAtt" in self.url:
-            with open('L2Out Paths/Mindmap/L2Out Paths.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l3Ctx" in self.url:
-            with open('L3 Contexts/Mindmap/L3 Contexts.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l3EncRtdIf" in self.url:
-            with open('L3 Subinterfaces/Mindmap/L3 Subinterfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l3Inst" in self.url:
-            with open('L3 Instances/Mindmap/L3 Instances.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l3LbRtdIf" in self.url:
-            with open('L3 Routed Loopback Interfaces/Mindmap/L3 Routed Loopback Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l3RsEncPhysRtdConf" in self.url:
-            with open('L3 Physical Interface Source Relationships/Mindmap/L3 Physical Interface Source Relationships.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l3RtdIf" in self.url:
-            with open('L3 Routed Interfaces/Mindmap/L3 Routed Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l3extInstP" in self.url:
-            with open('L3Out Profiles/Mindmap/L3Out Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l3extIp" in self.url:
-            with open('L3Out IP Addresses/Mindmap/L3Out IP Addresses.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l3extLIfP" in self.url:
-            with open('L3 Logical Interface Profiles/Mindmap/L3 Logical Interface Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l3extLNodeP" in self.url:
-            with open('L3 Logical Node Profiles/Mindmap/L3 Logical Node Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l3extMember" in self.url:
-            with open('L3Out Members/Mindmap/L3Out Members.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l3extRsEctx" in self.url:
-            with open('L3 Contexts Source Relationships/Mindmap/L3 Contexts Source Relationships.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l3extRsL3DomAtt" in self.url:
-            with open('L3 Domains Source Relationships/Mindmap/L3 Domains Source Relationships.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l3extRsNodeL3OutAtt" in self.url:
-            with open('L3Out Node Source Relationships/Mindmap/L3Out Node Source Relationships.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l3extRsPathL3OutAtt" in self.url:
-            with open('L3Out Path Source Relationships/Mindmap/L3Out Path Source Relationships.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "l3extSubnet" in self.url:
-            with open('L3 Subnets/Mindmap/L3 Subnets.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "lacpEntity" in self.url:
-            with open('LACP Entities/Mindmap/LACP Entities.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "lacpIf" in self.url:
-            with open('LACP Interfaces/Mindmap/LACP Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "lacpInst" in self.url:
-            with open('LACP Instances/Mindmap/LACP Instances.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "leqptLooseNode" in self.url:
-            with open('External Unmanaged Nodes/Mindmap/External Unmanaged Nodes.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "leqptRsLsNodeToIf" in self.url:
-            with open('External Unmanaged Nodes Interfaces/Mindmap/External Unmanaged Nodes Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "lldpAdjEp" in self.url:
-            with open('LLDP Adjacency Endpoints/Mindmap/LLDP Adjacency Endpoints.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "lldpEntity" in self.url:
-            with open('LLDP Entities/Mindmap/LLDP Entities.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "lldpIf" in self.url:
-            with open('LLDP Interfaces/Mindmap/LLDP Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "lldpInst" in self.url:
-            with open('LLDP Instances/Mindmap/LLDP Instances.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "mgmtMgmtIf" in self.url:
-            with open('Management Interfaces/Mindmap/Management Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ospfAdjEp" in self.url:
-            with open('OSPF Adjacency Endpoints/Mindmap/OSPF Adjacency Endpoints.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ospfArea" in self.url:
-            with open('OSPF Areas/Mindmap/OSPF Areas.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ospfDb" in self.url:
-            with open('OSPF Database/Mindmap/OSPF Database.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ospfDom" in self.url:
-            with open('OSPF Domains/Mindmap/OSPF Domains.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ospfEntity" in self.url:
-            with open('OSPF Entities/Mindmap/OSPF Entities.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ospfExtP" in self.url:
-            with open('OSPF External Profiles/Mindmap/OSPF External Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ospfIf" in self.url:
-            with open('OSPF Interfaces/Mindmap/OSPF Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ospfInst" in self.url:
-            with open('OSPF Instances/Mindmap/OSPF Instances.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ospfRoute" in self.url:
-            with open('OSPF Routes/Mindmap/OSPF Routes.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "ospfUcNexthop" in self.url:
-            with open('OSPF Unicast Next Hop/Mindmap/OSPF Unicast Next Hop.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "pcAggrIf" in self.url:
-            with open('Port Channel Aggregate Interfaces/Mindmap/Port Channel Aggregate Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "pcRsMbrIfs" in self.url:
-            with open('Port Channel Member Interfaces/Mindmap/Port Channel Member Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "sviIf" in self.url:
-            with open('SVIs/Mindmap/SVIs.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "tunnelIf" in self.url:
-            with open('Tunnel Interfaces/Mindmap/Tunnel Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "uribv4Db" in self.url:
-            with open('Unicast Route Database/Mindmap/Unicast Route Database.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "uribv4Dom" in self.url:
-            with open('Unicast Route Domains/Mindmap/Unicast Route Domains.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "uribv4Entity" in self.url:
-            with open('Unicast Route Entities/Mindmap/Unicast Route Entities.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "uribv4Nexthop" in self.url:
-            with open('Unicast Route Next Hop/Mindmap/Unicast Route Next Hop.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "uribv4Route" in self.url:
-            with open('Unicast Routes/Mindmap/Unicast Routes.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vlanCktEp" in self.url:
-            with open('VLAN Endpoint Group Encapsulation/Mindmap/VLAN Endpoint Group Encapsulation.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vmmCtrlrP" in self.url:
-            with open('VMM Controller Profiles/Mindmap/VMM Controller Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vmmDomP" in self.url:
-            with open('VMM Domain Profiles/Mindmap/VMM Domain Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vmmProvP" in self.url:
-            with open('VMM Provider Profiles/Mindmap/VMM Provider Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vmmUsrAccP" in self.url:
-            with open('VMM User Profiles/Mindmap/VMM User Profiles.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vpcDom" in self.url:
-            with open('VPC Domains/Mindmap/VPC Domains.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vpcEntity" in self.url:
-            with open('VPC Entities/Mindmap/VPC Entities.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vpcIf" in self.url:
-            with open('VPC Interfaces/Mindmap/VPC Interfaces.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vpcInst" in self.url:
-            with open('VPC Instances/Mindmap/VPC Instances.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vpcRsVpcConf" in self.url:
-            with open('VPC Configurations/Mindmap/VPC Configurations.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vzAny" in self.url:
-            with open('vzAny/Mindmap/vzAny.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vzFilter" in self.url:
-            with open('vzFilters/Mindmap/vzFilters.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vzRsAnyToCons" in self.url:
-            with open('vzAny To Consumers/Mindmap/vzAny To Consumers.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vzRsAnyToProv" in self.url:
-            with open('vzAny To Providers/Mindmap/vzAny To Providers.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vzRsDenyRule" in self.url:
-            with open('vzDeny Rules/Mindmap/vzDeny Rules.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vzRsIf" in self.url:
-            with open('vzInterface Source Relationships/Mindmap/vzInterface Source Relationships.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vzRsSubjFiltAtt" in self.url:
-            with open('Contract Subjects Filter Attributes/Mindmap/Contract Subjects Filter Attributes.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vzRtCons" in self.url:
-            with open('Contract Consumers Root/Mindmap/Contract Consumers Root.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vzRtProv" in self.url:
-            with open('Contract Providers Root/Mindmap/Contract Providers Root.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vzRuleOwner" in self.url:
-            with open('vzRule Owner/Mindmap/vzRule Owner.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-        if "vzTaboo" in self.url:
-            with open('vzTaboo/Mindmap/vzTaboo.md', 'w' ) as f:
-                f.write(mindmap_output)
-
-    def all_files(self, parsed_json):
-        self.json_file(parsed_json)
-        self.yaml_file(parsed_json)
-        self.csv_file(parsed_json)
-        self.markdown_file(parsed_json)
-        self.html_file(parsed_json)
-        self.mindmap_file(parsed_json)
+                    async with aiofiles.open('Fabric Paths/Mindmap/Fabric Paths.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+
+            if "rtctrlSubjP" in api:
+                async with aiofiles.open('Prefix List/Mindmap/Prefix List.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "rtctrlMatchRtDest" in api:
+                async with aiofiles.open('Prefix List Detailed/Mindmap/Prefix List Detailed.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "aaaUser" in api:
+                async with aiofiles.open('Users/Mindmap/Users.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "aaaDomain" in api:
+                async with aiofiles.open('Security Domains/Mindmap/Security Domains.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vzSubj" in api:
+                async with aiofiles.open('Contract Subjects/Mindmap/Contract Subjects.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "topology/health" in api:
+                async with aiofiles.open('Health/Mindmap/Health.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "pkiFabricNodeSSLCertificate" in api:
+                async with aiofiles.open('Fabric Node SSL Certificates/Mindmap/Fabric Node SSL Certificates.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "tn-" in api:
+                if "health" in api:
+                    async with aiofiles.open('Tenant Health/Mindmap/Tenant Health.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+
+            if "firmwareCtrlrRunning" in api:
+                async with aiofiles.open('Fabric Membership/Mindmap/Fabric Membership.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "infraWiNode" in api:
+                async with aiofiles.open('Cluster Health/Mindmap/Cluster Health.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vnsMDev" in api:
+                async with aiofiles.open('Device Packages/Mindmap/Device Packages.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "cnwAggrIf" in api:
+                async with aiofiles.open('Cluster Aggregate Interfaces/Mindmap/Cluster Aggregate Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l3Inst" in api:
+                async with aiofiles.open('L3 Interfaces/Mindmap/L3 Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "actrlEntity" in api:
+                async with aiofiles.open('Access Control Entities/Mindmap/Access Control Entities.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "actrlInst" in api:
+                async with aiofiles.open('Access Control Instances/Mindmap/Access Control Instances.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "actrlRule" in api:
+                async with aiofiles.open('Access Control Rules/Mindmap/Access Control Rules.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "actrlScope" in api:
+                async with aiofiles.open('Access Control Scopes/Mindmap/Access Control Scopes.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "cnwPhysIf" in api:
+                async with aiofiles.open('Cluster Physical Interfaces/Mindmap/Cluster Physical Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "compCtrlr" in api:
+                async with aiofiles.open('Compute Controllers/Mindmap/Compute Controllers.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "compDom" in api:
+                async with aiofiles.open('Compute Domains/Mindmap/Compute Domains.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "compEpPD" in api:
+                async with aiofiles.open('Compute Endpoint Policy Descriptions/Mindmap/Compute Endpoint Policy Descriptions.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "compProv" in api:
+                async with aiofiles.open('Compute Providers/Mindmap/Compute Providers.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "arpAdjEp" in api:
+                async with aiofiles.open('ARP Adjacency Endpoints/Mindmap/ARP Adjacency Endpoints.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "arpDb" in api:
+                async with aiofiles.open('ARP Database/Mindmap/ARP Database.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "arpDom" in api:
+                async with aiofiles.open('ARP Domain/Mindmap/ARP Domain.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "arpEntity" in api:
+                async with aiofiles.open('ARP Entity/Mindmap/ARP Entity.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "arpIf" in api:
+                async with aiofiles.open('ARP Interfaces/Mindmap/ARP Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "arpInst" in api:
+                async with aiofiles.open('ARP Instances/Mindmap/ARP Instances.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "bgpDom" in api:
+                if "bgpDomAf" in api:
+                    async with aiofiles.open('BGP Domain Address Families/Mindmap/BGP Domain Address Families.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+                else:
+                    async with aiofiles.open('BGP Domains/Mindmap/BGP Domains.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+
+            if "bgpEntity" in api:
+                async with aiofiles.open('BGP Entities/Mindmap/BGP Entities.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "bgpInst" in api:
+                if "InstPol" in api:
+                    async with aiofiles.open('BGP Instances Policy/Mindmap/BGP Instances Policy.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+                else:
+                    async with aiofiles.open('BGP Instances/Mindmap/BGP Instances.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+
+            if "bgpPeer" in api:
+                if "bgpPeerAf" in api:
+                    async with aiofiles.open('BGP Peers AF Entries/Mindmap/BGP Peers AF Entries.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+                elif "bgpPeerEntry" in api:
+                    async with aiofiles.open('BGP Peers Entries/Mindmap/BGP Peers Entries.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+                else:
+                    async with aiofiles.open('BGP Peers/Mindmap/BGP Peers.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+
+            if "bgpRRP" in api:
+                async with aiofiles.open('BGP Route Reflector Policies/Mindmap/BGP Route Reflector Policies.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "cdpAdjEp" in api:
+                async with aiofiles.open('CDP Adjacency Endpoints/Mindmap/CDP Adjacency Endpoints.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "cdpEntity" in api:
+                async with aiofiles.open('CDP Entities/Mindmap/CDP Entities.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "cdpIf" in api:
+                async with aiofiles.open('CDP Interfaces/Mindmap/CDP Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "cdpInst" in api:
+                async with aiofiles.open('CDP Instances/Mindmap/CDP Instances.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "cdpIntfAddr" in api:
+                async with aiofiles.open('CDP Interface Addresses/Mindmap/CDP Interface Addresses.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "cdpMgmtAddr" in api:
+                async with aiofiles.open('CDP Management Addresses/Mindmap/CDP Management Addresses.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "cnwRsMbrIfs" in api:
+                async with aiofiles.open('Cluster RS Member Interfaces/Mindmap/Cluster RS Member Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "compRsDomP" in api:
+                async with aiofiles.open('Compute RS Domain Policies/Mindmap/Compute RS Domain Policies.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptBSlot" in api:
+                async with aiofiles.open('Equipment Board Slots/Mindmap/Equipment Board Slots.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptBoard" in api:
+                async with aiofiles.open('Equipment Boards/Mindmap/Equipment Boards.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptCPU" in api:
+                async with aiofiles.open('Equipment CPUs/Mindmap/Equipment CPUs.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptCh" in api:
+                async with aiofiles.open('Equipment Chassis/Mindmap/Equipment Chassis.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptDimm" in api:
+                async with aiofiles.open('Equipment DIMMs/Mindmap/Equipment DIMMs.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptExtCh" in api:
+                async with aiofiles.open('Equipment Fabric Extenders/Mindmap/Equipment Fabric Extenders.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptFabP" in api:
+                async with aiofiles.open('Equipment Fabric Ports/Mindmap/Equipment Fabric Ports.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptFan" in api:
+                async with aiofiles.open('Equipment Fans/Mindmap/Equipment Fans.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptFpga" in api:
+                async with aiofiles.open('Equipment Field Programmable Gate Arrays/Mindmap/Equipment Field Programmable Gate Arrays.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptFt" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Fan Tray Slots/Mindmap/Equipment Fan Tray Slots.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+                else:
+                    async with aiofiles.open('Equipment Fan Trays/Mindmap/Equipment Fan Trays.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+
+            if "eqptIndLed" in api:
+                async with aiofiles.open('Equipment Indicator LEDs/Mindmap/Equipment Indicator LEDs.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptLC" in api:
+                async with aiofiles.open('Equipment Line Cards/Mindmap/Equipment Line Cards.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptLeafP" in api:
+                async with aiofiles.open('Equipment Leaf Ports/Mindmap/Equipment Leaf Ports.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptLocLed" in api:
+                async with aiofiles.open('Equipment Port Locator LEDs/Mindmap/Equipment Port Locator LEDs.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptPsu" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Power Supply Slots/Mindmap/Equipment Power Supply Slots.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+                else:
+                    async with aiofiles.open('Equipment Power Supplies/Mindmap/Equipment Power Supplies.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+
+            if "eqptRsIoPPhysConf" in api:
+                async with aiofiles.open('Equipment RS IO Port Physical Configs/Mindmap/Equipment RS IO Port Physical Configs.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptSensor" in api:
+                async with aiofiles.open('Equipment Sensors/Mindmap/Equipment Sensors.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptSpCmnBlk" in api:
+                async with aiofiles.open('Equipment SP Common Blocks/Mindmap/Equipment SP Common Blocks.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptSpromLc" in api:
+                async with aiofiles.open('Equipment SPROM LCs/Mindmap/Equipment SPROM LCs.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptSpromPsu" in api:
+                if "Blk" in api:
+                    async with aiofiles.open('Equipment SPROM Power Supply Blocks/Mindmap/Equipment SPROM Power Supply Blocks.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+                else:
+                    async with aiofiles.open('Equipment SPROM Power Supplies/Mindmap/Equipment SPROM Power Supplies.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+
+            if "eqptSpromSup" in api:
+                async with aiofiles.open('Equipment SPROM Supervisors/Mindmap/Equipment SPROM Supervisors.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptStorage" in api:
+                async with aiofiles.open('Equipment Storage/Mindmap/Equipment Storage.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "eqptSupC" in api:
+                if "Slot" in api:
+                    async with aiofiles.open('Equipment Supervisor Slots/Mindmap/Equipment Supervisor Slots.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+                else:
+                    async with aiofiles.open('Equipment Supervisors/Mindmap/Equipment Supervisors.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+
+            if "ethpmPhysIf" in api:
+                async with aiofiles.open('Ethernet Port Manager Physical Interfaces/Mindmap/Ethernet Port Manager Physical Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fabricExtPathEpCont" in api:
+                async with aiofiles.open('Fabric Extended Path Endpoint Containers/Mindmap/Fabric Extended Path Endpoint Containers.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fabricInst" in api:
+                async with aiofiles.open('Fabric Instances/Mindmap/Fabric Instances.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fabricLink" in api:
+                if "Cont" in api:
+                    async with aiofiles.open('Fabric Link Containers/Mindmap/Fabric Link Containers.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+                else:
+                    async with aiofiles.open('Fabric Links/Mindmap/Fabric Links.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+
+            if "fabricLooseLink" in api:
+                async with aiofiles.open('Fabric Loose Links/Mindmap/Fabric Loose Links.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fabricLooseNode" in api:
+                async with aiofiles.open('Fabric Loose Nodes/Mindmap/Fabric Loose Nodes.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fabricProtPathEpCont" in api:
+                async with aiofiles.open('Fabric Protected Path Endpoint Containers/Mindmap/Fabric Protected Path Endpoint Containers.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fcEntity" in api:
+                async with aiofiles.open('Fibre Channel Entities/Mindmap/Fibre Channel Entities.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "firmwareCardRunning" in api:
+                async with aiofiles.open('Firmware Card Running/Mindmap/Firmware Card Running.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "firmwareCompRunning" in api:
+                async with aiofiles.open('Firmware Compute Running/Mindmap/Firmware Compute Running.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "firmwareRunning" in api:
+                async with aiofiles.open('Firmware Running/Mindmap/Firmware Running.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fvEpPCont" in api:
+                async with aiofiles.open('Endpoint Profile Containers/Mindmap/Endpoint Profile Containers.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fvLocale" in api:
+                async with aiofiles.open('Locales/Mindmap/Locales.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fvRsBDToOut" in api:
+                async with aiofiles.open('Bridge Domains To Outside/Mindmap/Bridge Domains To Outside.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fvRsBd" in api:
+                async with aiofiles.open('EPG Bridge Domain Links/Mindmap/EPG Bridge Domain Links.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fvRsCEpToPathEp" in api:
+                async with aiofiles.open('Endpoints To Paths/Mindmap/Endpoints To Paths.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fvRsCons" in api:
+                if "If" in api:
+                    async with aiofiles.open('Contract Consumer Interfaces/Mindmap/Contract Consumer Interfaces.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+                else:
+                    async with aiofiles.open('Contract Consumers/Mindmap/Contract Consumers.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+
+            if "fvRsCtx" in api:
+                async with aiofiles.open('Context Source Relationships/Mindmap/Context Source Relationships.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fvRsDomAtt" in api:
+                async with aiofiles.open('Domain Attachments/Mindmap/Domain Attachments.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fvRsPathAtt" in api:
+                async with aiofiles.open('Path Attachments/Mindmap/Path Attachments.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fvRsProv" in api:
+                async with aiofiles.open('Contract Providers/Mindmap/Contract Providers.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fvRtBd" in api:
+                async with aiofiles.open('Bridge Domains Target Relationships/Mindmap/Bridge Domains Target Relationships.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fvRtCtx" in api:
+                async with aiofiles.open('Contexts Target Relationships/Mindmap/Contexts Target Relationships.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fvnsEncapBlk" in api:
+                async with aiofiles.open('VLAN Encapsulation Blocks/Mindmap/VLAN Encapsulation Blocks.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "fvnsVlanInstP" in api:
+                async with aiofiles.open('VLAN Namespace Policies/Mindmap/VLAN Namespace Policies.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "infraAccBndlGrp" in api:
+                async with aiofiles.open('Access Bundle Groups/Mindmap/Access Bundle Groups.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "infraAccPortGrp" in api:
+                async with aiofiles.open('Access Port Groups/Mindmap/Access Port Groups.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "infraAccPortP" in api:
+                async with aiofiles.open('Access Port Profiles/Mindmap/Access Port Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "infraContr" in api:
+                async with aiofiles.open('Controllers/Mindmap/Controllers.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "infraFexP" in api:
+                async with aiofiles.open('FEX Policies/Mindmap/FEX Policies.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "infraFuncP" in api:
+                async with aiofiles.open('Function Policies/Mindmap/Function Policies.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "infraHPortS" in api:
+                async with aiofiles.open('Host Port Selectors/Mindmap/Host Port Selectors.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "infraPortBlk" in api:
+                async with aiofiles.open('Port Blocks/Mindmap/Port Blocks.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "infraRsAccBaseGrp" in api:
+                async with aiofiles.open('Access Policy Group Source Relationships/Mindmap/Access Policy Group Source Relationships.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "infraRsAttEntP" in api:
+                async with aiofiles.open('Attachable Access Entity Profiles Source Relationships/Mindmap/Attachable Access Entity Profiles Source Relationships.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "infraRsDomP" in api:
+                async with aiofiles.open('Domain Profile Source Relationships/Mindmap/Domain Profile Source Relationships.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "infraRsSpAccGrp" in api:
+                async with aiofiles.open('Spine Access Policy Groups/Mindmap/Spine Access Policy Groups.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "infraRsVlanNs" in api:
+                async with aiofiles.open('VLAN Namespace Source Relationships/Mindmap/VLAN Namespace Source Relationships.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "infraSHPortS" in api:
+                async with aiofiles.open('Spine Host Port Selectors/Mindmap/Spine Host Port Selectors.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "infraSpAccPortP" in api:
+                async with aiofiles.open('Spine Access Port Profiles/Mindmap/Spine Access Port Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "infraWiNode" in api:
+                async with aiofiles.open('Wired Nodes/Mindmap/Wired Nodes.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ipNexthopP" in api:
+                async with aiofiles.open('Static Route Next Hop Policies/Mindmap/Static Route Next Hop Policies.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ipRouteP" in api:
+                async with aiofiles.open('Route Policies/Mindmap/Route Policies.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ipv4Addr" in api:
+                async with aiofiles.open('IPv4 Addresses/Mindmap/IPv4 Addresses.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ipv4Dom" in api:
+                async with aiofiles.open('IPv4 Domains/Mindmap/IPv4 Domains.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ipv4Entity" in api:
+                async with aiofiles.open('IPv4 Entities/Mindmap/IPv4 Entities.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ipv4If" in api:
+                async with aiofiles.open('IPv4 Interfaces/Mindmap/IPv4 Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ipv4Inst" in api:
+                async with aiofiles.open('IPv4 Instances/Mindmap/IPv4 Instances.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ipv4Nexthop" in api:
+                async with aiofiles.open('IPv4 Next Hop/Mindmap/IPv4 Next Hop.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ipv4Route" in api:
+                async with aiofiles.open('IPv4 Routes/Mindmap/IPv4 Routes.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "isisAdjEp" in api:
+                async with aiofiles.open('ISIS Adjacency Endpoints/Mindmap/ISIS Adjacency Endpoints.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "isisDTEp" in api:
+                async with aiofiles.open('ISIS Discovered Tunnel Endpoints/Mindmap/ISIS Discovered Tunnel Endpoints.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "isisDom" in api:
+                if "Lvl" in api:
+                    async with aiofiles.open('ISIS Domains Level/Mindmap/ISIS Domains Level.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+                else:
+                    async with aiofiles.open('ISIS Domains/Mindmap/ISIS Domains.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+
+            if "isisEntity" in api:
+                async with aiofiles.open('ISIS Entities/Mindmap/ISIS Entities.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "isisIf" in api:
+                if "Lvl" in api:
+                    async with aiofiles.open('ISIS Interfaces Level/Mindmap/ISIS Interfaces Level.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+                else:
+                    async with aiofiles.open('ISIS Interfaces/Mindmap/ISIS Interfaces.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+
+            if "isisInst" in api:
+                async with aiofiles.open('ISIS Instances/Mindmap/ISIS Instances.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "isisNexthop" in api:
+                async with aiofiles.open('ISIS Next Hop/Mindmap/ISIS Next Hop.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "isisRoute" in api:
+                async with aiofiles.open('ISIS Routes/Mindmap/ISIS Routes.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l2BD" in api:
+                async with aiofiles.open('L2 Bridge Domains/Mindmap/L2 Bridge Domains.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l2ExtIf" in api:
+                async with aiofiles.open('L2 External Interfaces/Mindmap/L2 External Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l2RsEthIf" in api:
+                async with aiofiles.open('L2 Interface Source Relationships/Mindmap/L2 Interface Source Relationships.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l2extInstP" in api:
+                async with aiofiles.open('L2 External Instance Profiles/Mindmap/L2 External Instance Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l2extLIfP" in api:
+                async with aiofiles.open('L2 External Logical Interface Profiles/Mindmap/L2 External Logical Interface Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l2extLNodeP" in api:
+                async with aiofiles.open('L2 External Logical Node Profiles/Mindmap/L2 External Logical Node Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l2extRsEBd" in api:
+                async with aiofiles.open('L2 EPG Bridge Domain Source Relationships/Mindmap/L2 EPG Bridge Domain Source Relationships.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l2extRsPathL2OutAtt" in api:
+                async with aiofiles.open('L2Out Paths/Mindmap/L2Out Paths.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l3Ctx" in api:
+                async with aiofiles.open('L3 Contexts/Mindmap/L3 Contexts.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l3EncRtdIf" in api:
+                async with aiofiles.open('L3 Subinterfaces/Mindmap/L3 Subinterfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l3Inst" in api:
+                async with aiofiles.open('L3 Instances/Mindmap/L3 Instances.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l3LbRtdIf" in api:
+                async with aiofiles.open('L3 Routed Loopback Interfaces/Mindmap/L3 Routed Loopback Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l3RsEncPhysRtdConf" in api:
+                async with aiofiles.open('L3 Physical Interface Source Relationships/Mindmap/L3 Physical Interface Source Relationships.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l3RtdIf" in api:
+                async with aiofiles.open('L3 Routed Interfaces/Mindmap/L3 Routed Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l3extInstP" in api:
+                async with aiofiles.open('L3Out Profiles/Mindmap/L3Out Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l3extIp" in api:
+                async with aiofiles.open('L3Out IP Addresses/Mindmap/L3Out IP Addresses.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l3extLIfP" in api:
+                async with aiofiles.open('L3 Logical Interface Profiles/Mindmap/L3 Logical Interface Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l3extLNodeP" in api:
+                async with aiofiles.open('L3 Logical Node Profiles/Mindmap/L3 Logical Node Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l3extMember" in api:
+                async with aiofiles.open('L3Out Members/Mindmap/L3Out Members.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l3extRsEctx" in api:
+                async with aiofiles.open('L3 Contexts Source Relationships/Mindmap/L3 Contexts Source Relationships.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l3extRsL3DomAtt" in api:
+                async with aiofiles.open('L3 Domains Source Relationships/Mindmap/L3 Domains Source Relationships.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l3extRsNodeL3OutAtt" in api:
+                async with aiofiles.open('L3Out Node Source Relationships/Mindmap/L3Out Node Source Relationships.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l3extRsPathL3OutAtt" in api:
+                async with aiofiles.open('L3Out Path Source Relationships/Mindmap/L3Out Path Source Relationships.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "l3extSubnet" in api:
+                async with aiofiles.open('L3 Subnets/Mindmap/L3 Subnets.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "lacpEntity" in api:
+                async with aiofiles.open('LACP Entities/Mindmap/LACP Entities.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "lacpIf" in api:
+                async with aiofiles.open('LACP Interfaces/Mindmap/LACP Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "lacpInst" in api:
+                async with aiofiles.open('LACP Instances/Mindmap/LACP Instances.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "leqptLooseNode" in api:
+                async with aiofiles.open('External Unmanaged Nodes/Mindmap/External Unmanaged Nodes.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "leqptRsLsNodeToIf" in api:
+                async with aiofiles.open('External Unmanaged Nodes Interfaces/Mindmap/External Unmanaged Nodes Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "lldpAdjEp" in api:
+                async with aiofiles.open('LLDP Adjacency Endpoints/Mindmap/LLDP Adjacency Endpoints.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "lldpEntity" in api:
+                async with aiofiles.open('LLDP Entities/Mindmap/LLDP Entities.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "lldpIf" in api:
+                async with aiofiles.open('LLDP Interfaces/Mindmap/LLDP Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "lldpInst" in api:
+                async with aiofiles.open('LLDP Instances/Mindmap/LLDP Instances.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "mgmtMgmtIf" in api:
+                async with aiofiles.open('Management Interfaces/Mindmap/Management Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ospfAdjEp" in api:
+                async with aiofiles.open('OSPF Adjacency Endpoints/Mindmap/OSPF Adjacency Endpoints.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ospfArea" in api:
+                async with aiofiles.open('OSPF Areas/Mindmap/OSPF Areas.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ospfDb" in api:
+                async with aiofiles.open('OSPF Database/Mindmap/OSPF Database.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ospfDom" in api:
+                async with aiofiles.open('OSPF Domains/Mindmap/OSPF Domains.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ospfEntity" in api:
+                async with aiofiles.open('OSPF Entities/Mindmap/OSPF Entities.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ospfExtP" in api:
+                async with aiofiles.open('OSPF External Profiles/Mindmap/OSPF External Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ospfIf" in api:
+                async with aiofiles.open('OSPF Interfaces/Mindmap/OSPF Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ospfInst" in api:
+                async with aiofiles.open('OSPF Instances/Mindmap/OSPF Instances.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ospfRoute" in api:
+                async with aiofiles.open('OSPF Routes/Mindmap/OSPF Routes.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "ospfUcNexthop" in api:
+                async with aiofiles.open('OSPF Unicast Next Hop/Mindmap/OSPF Unicast Next Hop.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "pcAggrIf" in api:
+                async with aiofiles.open('Port Channel Aggregate Interfaces/Mindmap/Port Channel Aggregate Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "pcRsMbrIfs" in api:
+                async with aiofiles.open('Port Channel Member Interfaces/Mindmap/Port Channel Member Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "sviIf" in api:
+                async with aiofiles.open('SVIs/Mindmap/SVIs.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "tunnelIf" in api:
+                async with aiofiles.open('Tunnel Interfaces/Mindmap/Tunnel Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "uribv4Db" in api:
+                async with aiofiles.open('Unicast Route Database/Mindmap/Unicast Route Database.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "uribv4Dom" in api:
+                async with aiofiles.open('Unicast Route Domains/Mindmap/Unicast Route Domains.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "uribv4Entity" in api:
+                async with aiofiles.open('Unicast Route Entities/Mindmap/Unicast Route Entities.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "uribv4Nexthop" in api:
+                async with aiofiles.open('Unicast Route Next Hop/Mindmap/Unicast Route Next Hop.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "uribv4Route" in api:
+                async with aiofiles.open('Unicast Routes/Mindmap/Unicast Routes.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vlanCktEp" in api:
+                async with aiofiles.open('VLAN Endpoint Group Encapsulation/Mindmap/VLAN Endpoint Group Encapsulation.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vmmCtrlrP" in api:
+                async with aiofiles.open('VMM Controller Profiles/Mindmap/VMM Controller Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vmmDomP" in api:
+                async with aiofiles.open('VMM Domain Profiles/Mindmap/VMM Domain Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vmmProvP" in api:
+                async with aiofiles.open('VMM Provider Profiles/Mindmap/VMM Provider Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vmmUsrAccP" in api:
+                async with aiofiles.open('VMM User Profiles/Mindmap/VMM User Profiles.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vpcDom" in api:
+                async with aiofiles.open('VPC Domains/Mindmap/VPC Domains.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vpcEntity" in api:
+                async with aiofiles.open('VPC Entities/Mindmap/VPC Entities.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vpcIf" in api:
+                async with aiofiles.open('VPC Interfaces/Mindmap/VPC Interfaces.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vpcInst" in api:
+                async with aiofiles.open('VPC Instances/Mindmap/VPC Instances.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vpcRsVpcConf" in api:
+                async with aiofiles.open('VPC Configurations/Mindmap/VPC Configurations.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vzAny" in api:
+                async with aiofiles.open('vzAny/Mindmap/vzAny.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vzFilter" in api:
+                async with aiofiles.open('vzFilters/Mindmap/vzFilters.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vzRsAnyToCons" in api:
+                async with aiofiles.open('vzAny To Consumers/Mindmap/vzAny To Consumers.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vzRsAnyToProv" in api:
+                async with aiofiles.open('vzAny To Providers/Mindmap/vzAny To Providers.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vzRsDenyRule" in api:
+                async with aiofiles.open('vzDeny Rules/Mindmap/vzDeny Rules.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vzRsIf" in api:
+                async with aiofiles.open('vzInterface Source Relationships/Mindmap/vzInterface Source Relationships.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vzRsSubjFiltAtt" in api:
+                async with aiofiles.open('Contract Subjects Filter Attributes/Mindmap/Contract Subjects Filter Attributes.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vzRtCons" in api:
+                async with aiofiles.open('Contract Consumers Root/Mindmap/Contract Consumers Root.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vzRtProv" in api:
+                async with aiofiles.open('Contract Providers Root/Mindmap/Contract Providers Root.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vzRuleOwner" in api:
+                async with aiofiles.open('vzRule Owner/Mindmap/vzRule Owner.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "vzTaboo" in api:
+                async with aiofiles.open('vzTaboo/Mindmap/vzTaboo.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+    async def all_files(self, parsed_json):
+        await self.json_file(parsed_json)
+        await self.yaml_file(parsed_json)
+        await self.csv_file(parsed_json)
+        await self.markdown_file(parsed_json)
+        await self.html_file(parsed_json)
+        await self.mindmap_file(parsed_json)
 
 @click.command()
 @click.option('--url',
