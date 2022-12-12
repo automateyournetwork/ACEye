@@ -783,12 +783,12 @@ class ACEye():
                         await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
 
             if "rtctrlSubjP" in api:
-                async with aiofiles.open('Prefix List/JSON/Prefix List.json', mode='w' ) as f:
-                    await f.write(json.dumps(payload, indent=4, sort_keys=True))
-
-            if "rtctrlMatchRtDest" in api:
-                async with aiofiles.open('Prefix List Detailed/JSON/Prefix List Detailed.json', mode='w' ) as f:
-                    await f.write(json.dumps(payload, indent=4, sort_keys=True))
+                if "rtctrlMatchRtDest" in api:
+                    async with aiofiles.open('Prefix List Detailed/JSON/Prefix List Detailed.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload, indent=4, sort_keys=True))
+                else:
+                    async with aiofiles.open('Prefix List/JSON/Prefix List.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload, indent=4, sort_keys=True))
 
             if "aaaUser" in api:
                 async with aiofiles.open('Users/JSON/Users.json', mode='w' ) as f:
@@ -1759,12 +1759,12 @@ class ACEye():
                         await f.write(clean_yaml)
 
             if "rtctrlSubjP" in api:
-                async with aiofiles.open('Prefix List/YAML/Prefix List.yaml', mode='w' ) as f:
-                    await f.write(clean_yaml)
-
-            if "rtctrlMatchRtDest" in api:
-                async with aiofiles.open('Prefix List Detailed/YAML/Prefix List Detailed.yaml', mode='w' ) as f:
-                    await f.write(clean_yaml)
+                if "rtctrlMatchRtDest" in api:
+                    async with aiofiles.open('Prefix List Detailed/YAML/Prefix List Detailed.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
+                else:
+                    async with aiofiles.open('Prefix List/YAML/Prefix List.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
 
             if "aaaUser" in api:
                 async with aiofiles.open('Users/YAML/Users.yaml', mode='w' ) as f:
@@ -2743,12 +2743,12 @@ class ACEye():
                         await f.write(csv_output)
 
             if "rtctrlSubjP" in api:
-                async with aiofiles.open('Prefix List/CSV/Prefix List.csv', mode='w' ) as f:
-                    await f.write(csv_output)
-
-            if "rtctrlMatchRtDest" in api:
-                async with aiofiles.open('Prefix List Detailed/CSV/Prefix List Detailed.csv', mode='w' ) as f:
-                    await f.write(csv_output)
+                if "rtctrlMatchRtDest" in api:
+                    async with aiofiles.open('Prefix List Detailed/CSV/Prefix List Detailed.csv', mode='w' ) as f:
+                        await f.write(csv_output)
+                else:
+                    async with aiofiles.open('Prefix List/CSV/Prefix List.csv', mode='w' ) as f:
+                        await f.write(csv_output)
 
             if "aaaUser" in api:
                 async with aiofiles.open('Users/CSV/Users.csv', mode='w' ) as f:
@@ -3727,12 +3727,12 @@ class ACEye():
                         await f.write(markdown_output)
 
             if "rtctrlSubjP" in api:
-                async with aiofiles.open('Prefix List/Markdown/Prefix List.md', mode='w' ) as f:
-                    await f.write(markdown_output)
-
-            if "rtctrlMatchRtDest" in api:
-                async with aiofiles.open('Prefix List Detailed/Markdown/Prefix List Detailed.md', mode='w' ) as f:
-                    await f.write(markdown_output)
+                if "rtctrlMatchRtDest" in api:
+                    async with aiofiles.open('Prefix List Detailed/Markdown/Prefix List Detailed.md', mode='w' ) as f:
+                        await f.write(markdown_output)
+                else:
+                    async with aiofiles.open('Prefix List/Markdown/Prefix List.md', mode='w' ) as f:
+                        await f.write(markdown_output)
 
             if "aaaUser" in api:
                 async with aiofiles.open('Users/Markdown/Users.md', mode='w' ) as f:
@@ -4711,12 +4711,12 @@ class ACEye():
                         await f.write(html_output)
 
             if "rtctrlSubjP" in api:
-                async with aiofiles.open('Prefix List/HTML/Prefix List.html', mode='w' ) as f:
-                    await f.write(html_output)
-
-            if "rtctrlMatchRtDest" in api:
-                async with aiofiles.open('Prefix List Detailed/HTML/Prefix List Detailed.html', mode='w' ) as f:
-                    await f.write(html_output)
+                if "rtctrlMatchRtDest" in api:
+                    async with aiofiles.open('Prefix List Detailed/HTML/Prefix List Detailed.html', mode='w' ) as f:
+                        await f.write(html_output)
+                else:
+                    async with aiofiles.open('Prefix List/HTML/Prefix List.html', mode='w' ) as f:
+                        await f.write(html_output)
 
             if "aaaUser" in api:
                 async with aiofiles.open('Users/HTML/Users.html', mode='w' ) as f:
@@ -5695,12 +5695,12 @@ class ACEye():
                         await f.write(mindmap_output)
 
             if "rtctrlSubjP" in api:
-                async with aiofiles.open('Prefix List/Mindmap/Prefix List.md', mode='w' ) as f:
-                    await f.write(mindmap_output)
-
-            if "rtctrlMatchRtDest" in api:
-                async with aiofiles.open('Prefix List Detailed/Mindmap/Prefix List Detailed.md', mode='w' ) as f:
-                    await f.write(mindmap_output)
+                if "rtctrlMatchRtDest" in api:
+                    async with aiofiles.open('Prefix List Detailed/Mindmap/Prefix List Detailed.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
+                else:
+                    async with aiofiles.open('Prefix List/Mindmap/Prefix List.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
 
             if "aaaUser" in api:
                 async with aiofiles.open('Users/Mindmap/Users.md', mode='w' ) as f:
