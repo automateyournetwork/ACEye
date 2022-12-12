@@ -3755,7 +3755,7 @@ class ACEye():
                 async with aiofiles.open('Fabric Node SSL Certificates/Markdown/Fabric Node SSL Certificates.md', mode='w' ) as f:
                     await f.write(markdown_output)
 
-            if "tn-" api:
+            if "tn-" in api:
                 if "health" in api:
                     async with aiofiles.open('Tenant Health/Markdown/Tenant Health.md', mode='w' ) as f:
                         await f.write(markdown_output)
@@ -4739,7 +4739,7 @@ class ACEye():
                 async with aiofiles.open('Fabric Node SSL Certificates/HTML/Fabric Node SSL Certificates.html', mode='w' ) as f:
                     await f.write(html_output)
 
-            if "tn-" api:
+            if "tn-" in api:
                 if "health" in api:
                     async with aiofiles.open('Tenant Health/HTML/Tenant Health.html', mode='w' ) as f:
                         await f.write(html_output)
