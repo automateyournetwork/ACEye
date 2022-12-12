@@ -619,10 +619,9 @@ class ACEye():
                                         response_dict  = resp.json()
                                         ip_prefix_list_details.append(response_dict['imdata'])
                                         print(ip_prefix_list_details)
-                                return (api_url,ip_prefix_list_details)
                             else:
                                 print("No prefix lists")
-                                return(api_url,prefix_lists)
+                        return(api_url,prefix_lists)
 
     async def tenant_health(self):
 
@@ -812,9 +811,10 @@ class ACEye():
                 async with aiofiles.open('Fabric Node SSL Certificates/JSON/Fabric Node SSL Certificates.json', mode='w' ) as f:
                     await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
 
-            if "tn-" and "health" in api:
-                async with aiofiles.open('Tenant Health/JSON/Tenant Health.json', mode='w' ) as f:
-                    await f.write(json.dumps(payload, indent=4, sort_keys=True))
+            if "tn-" in api:
+                if "health" in api:
+                    async with aiofiles.open('Tenant Health/JSON/Tenant Health.json', mode='w' ) as f:
+                        await f.write(json.dumps(payload, indent=4, sort_keys=True))
 
             if "firmwareCtrlrRunning" in api:
                 async with aiofiles.open('Fabric Membership/JSON/Fabric Membership.json', mode='w' ) as f:
@@ -1787,9 +1787,10 @@ class ACEye():
                 async with aiofiles.open('Fabric Node SSL Certificates/YAML/Fabric Node SSL Certificates.yaml', mode='w' ) as f:
                     await f.write(clean_yaml)
 
-            if "tn-" and "health" in api:
-                async with aiofiles.open('Tenant Health/YAML/Tenant Health.yaml', mode='w' ) as f:
-                    await f.write(clean_yaml)
+            if "tn-" in api:
+                if "health" in api:
+                    async with aiofiles.open('Tenant Health/YAML/Tenant Health.yaml', mode='w' ) as f:
+                        await f.write(clean_yaml)
 
             if "firmwareCtrlrRunning" in api:
                 async with aiofiles.open('Fabric Membership/YAML/Fabric Membership.yaml', mode='w' ) as f:
@@ -2770,9 +2771,10 @@ class ACEye():
                 async with aiofiles.open('Fabric Node SSL Certificates/CSV/Fabric Node SSL Certificates.csv', mode='w' ) as f:
                     await f.write(csv_output)
 
-            if "tn-" and "health" in api:
-                async with aiofiles.open('Tenant Health/CSV/Tenant Health.csv', mode='w' ) as f:
-                    await f.write(csv_output)
+            if "tn-" in api:
+                if "health" in api:
+                    async with aiofiles.open('Tenant Health/CSV/Tenant Health.csv', mode='w' ) as f:
+                        await f.write(csv_output)
 
             if "firmwareCtrlrRunning" in api:
                 async with aiofiles.open('Fabric Membership/CSV/Fabric Membership.csv', mode='w' ) as f:
@@ -3753,9 +3755,10 @@ class ACEye():
                 async with aiofiles.open('Fabric Node SSL Certificates/Markdown/Fabric Node SSL Certificates.md', mode='w' ) as f:
                     await f.write(markdown_output)
 
-            if "tn-" and "health" in api:
-                async with aiofiles.open('Tenant Health/Markdown/Tenant Health.md', mode='w' ) as f:
-                    await f.write(markdown_output)
+            if "tn-" api:
+                if "health" in api:
+                    async with aiofiles.open('Tenant Health/Markdown/Tenant Health.md', mode='w' ) as f:
+                        await f.write(markdown_output)
 
             if "firmwareCtrlrRunning" in api:
                 async with aiofiles.open('Fabric Membership/Markdown/Fabric Membership.md', mode='w' ) as f:
@@ -4736,9 +4739,10 @@ class ACEye():
                 async with aiofiles.open('Fabric Node SSL Certificates/HTML/Fabric Node SSL Certificates.html', mode='w' ) as f:
                     await f.write(html_output)
 
-            if "tn-" and "health" in api:
-                async with aiofiles.open('Tenant Health/HTML/Tenant Health.html', mode='w' ) as f:
-                    await f.write(html_output)
+            if "tn-" api:
+                if "health" in api:
+                    async with aiofiles.open('Tenant Health/HTML/Tenant Health.html', mode='w' ) as f:
+                        await f.write(html_output)
 
             if "firmwareCtrlrRunning" in api:
                 async with aiofiles.open('Fabric Membership/HTML/Fabric Membership.html', mode='w' ) as f:
@@ -5719,9 +5723,10 @@ class ACEye():
                 async with aiofiles.open('Fabric Node SSL Certificates/Mindmap/Fabric Node SSL Certificates.md', mode='w' ) as f:
                     await f.write(mindmap_output)
 
-            if "tn-" and "health" in api:
-                async with aiofiles.open('Tenant Health/Mindmap/Tenant Health.md', mode='w' ) as f:
-                    await f.write(mindmap_output)
+            if "tn-" in api:
+                if "health" in api:
+                    async with aiofiles.open('Tenant Health/Mindmap/Tenant Health.md', mode='w' ) as f:
+                        await f.write(mindmap_output)
 
             if "firmwareCtrlrRunning" in api:
                 async with aiofiles.open('Fabric Membership/Mindmap/Fabric Membership.md', mode='w' ) as f:
