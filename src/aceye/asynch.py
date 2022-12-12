@@ -562,7 +562,7 @@ class ACEye():
         results = await asyncio.gather((self.prefix_list_detailed()))
         await self.all_files(json.dumps(results, indent=4, sort_keys=True))        
         results = await asyncio.gather((self.tenant_health()))
-        await self.all_files(json.dumps(results, indent=4, sort_keys=True))        
+        await self.all_files(json.dumps(results, indent=4, sort_keys=True))
 
 
     async def physical_interfaces(self):
@@ -616,9 +616,8 @@ class ACEye():
                                     api_url = f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }/subj-{ prefix['rtctrlSubjP']['attributes']['name']}.json?query-target=children&target-subtree-class=rtctrlMatchRtDest"
                                     async with session.get(f"{ self.aci }/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }/subj-{ prefix['rtctrlSubjP']['attributes']['name']}.json?query-target=children&target-subtree-class=rtctrlMatchRtDest", cookies = self.cookie, verify_ssl=False) as resp:
                                         print(f"{api_url} Status Code {resp.status}")
-                                        response_dict  = resp.json()
+                                        response_dict  = await resp.json()
                                         ip_prefix_list_details.append(response_dict['imdata'])
-                                        print(ip_prefix_list_details)
                             else:
                                 print("No prefix lists")
                         return(api_url,prefix_lists)
