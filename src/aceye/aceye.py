@@ -24,8 +24,7 @@ class ACEye():
     def aceye(self):
         self.make_directories()
         self.cookie = self.get_token()
-        loop = asyncio.get_event_loop()
-        loop.run_until_complete(self.main())
+        asyncio.run(self.main())
 
     def make_directories(self):
         api_list = ['Access Bundle Groups',
@@ -6527,12 +6526,7 @@ class ACEye():
                     await f.write(mindmap_output)
 
     async def all_files(self, parsed_json):
-        await self.json_file(parsed_json)
-        await self.yaml_file(parsed_json)
-        await self.csv_file(parsed_json)
-        await self.markdown_file(parsed_json)
-        await self.html_file(parsed_json)
-        await self.mindmap_file(parsed_json)
+        await asyncio.gather(self.json_file(parsed_json), self.yaml_file(parsed_json), self.csv_file(parsed_json), self.markdown_file(parsed_json), self.html_file(parsed_json), self.mindmap_file(parsed_json))
 
 @click.command()
 @click.option('--url',
