@@ -40,8 +40,6 @@ Attachable Access Entity Profiles
 
 Attachable Access Entity Profiles Source Relationships
 
-*Audit Log
-
 BGP Address Families
 
 BGP Domains
