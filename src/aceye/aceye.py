@@ -3585,7 +3585,7 @@ class ACEye():
             markdown_output = await markdown_template.render_async(api = api,
                                          data_to_template = payload)
             if "Tenant" in api:
-                async with aiofiles.open('Tenant/CSV/Tenants.md', mode='w' ) as f:
+                async with aiofiles.open('Tenant/Markdown/Tenants.md', mode='w' ) as f:
                     await f.write(markdown_output)
 
             if "AEPg" in api:
