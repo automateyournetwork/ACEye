@@ -544,11 +544,25 @@ class ACEye():
                 '/api/node/class/vzTaboo.json'
             ]
 
-    async def get_api(self, api_url):
+    async def get_api(self, api_url, page=0, page_size=100):
         async with aiohttp.ClientSession() as session:
-            async with session.get(f"{self.aci}{api_url}",cookies = self.cookie, verify_ssl=False) as resp:
+            params = {"page": page, "page-size": page_size}
+            async with session.get(f"{self.aci}{api_url}",params=params, cookies = self.cookie, verify_ssl=False) as resp:
                 response_dict = await resp.json()
                 print(f"{api_url} Status Code {resp.status}")
+                total_count = int(response_dict["totalCount"])
+                imdata = response_dict["imdata"]
+                # Check if there are more pages to retrieve
+                while len(imdata) < total_count:
+                    page += 1
+                    params["page"] = page
+                    async with session.get(f"{self.aci}{api_url}", params=params, cookies=self.cookie, verify_ssl=False) as resp:
+                        response_dict = await resp.json()
+                        print(f"{api_url} Page: {page} Status Code {resp.status}")
+                        # Append the results to the existing imdata list
+                        imdata.extend(response_dict["imdata"])
+                # Combine all results into a single dictionary
+                result_dict = {"totalCount": total_count, "imdata": imdata}
                 return (api_url,response_dict)
 
     async def main(self):
