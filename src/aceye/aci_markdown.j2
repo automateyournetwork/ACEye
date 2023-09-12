@@ -1229,6 +1229,18 @@
 {%-     for subnet in data_to_template['imdata'] %}
 | {{ subnet.l3extSubnet.attributes.name }} | {{ subnet.l3extSubnet.attributes.nameAlias }} | {{ subnet.l3extSubnet.attributes.aggregate }} | {{ subnet.l3extSubnet.attributes.annotation }} | {{ subnet.l3extSubnet.attributes.childAction }} | {{ subnet.l3extSubnet.attributes.descr }} | {{ subnet.l3extSubnet.attributes.dn }} | {{ subnet.l3extSubnet.attributes.extMngdBy }} | {{ subnet.l3extSubnet.attributes.ip }} | {{ subnet.l3extSubnet.attributes.lcOwn }} | {{ subnet.l3extSubnet.attributes.modTs }} | {{ subnet.l3extSubnet.attributes.monPolDn }} | {{ subnet.l3extSubnet.attributes.scope }} | {{ subnet.l3extSubnet.attributes.status }} | {{ subnet.l3extSubnet.attributes.uid }} |
 {%-     endfor %}
+{%- elif "acllogDropL3Flow" in api %}# ACLLogL3Drop
+| Source IP | Source MAC Address | Source Port | Destination IP | Destination MAC Address | Destination Port | Destination EPG Name | Protocol | Source Interface | VRF Encapsulation | Status | DN |
+| --------- | ------------------ | ----------- | -------------- | ----------------------- | ---------------- | -------------------- | -------- | ---------------- | ----------------- | ------ | -- |
+{%-     for acllogl3drop in data_to_template['imdata'] %}
+| {{ acllogl3drop.acllogDropL3Flow.attributes.srcIp }} | {{ acllogl3drop.acllogDropL3Flow.attributes.srcMacAddr }} | {{ acllogl3drop.acllogDropL3Flow.attributes.srcPort }} | {{ acllogl3drop.acllogDropL3Flow.attributes.dstIp }} | {{ acllogl3drop.acllogDropL3Flow.attributes.dstMacAddr }} | {{ acllogl3drop.acllogDropL3Flow.attributes.dstPort }} | {{ acllogl3drop.acllogDropL3Flow.attributes.dstEpgName }} | {{ acllogl3drop.acllogDropL3Flow.attributes.protocol }} | {{ acllogl3drop.acllogDropL3Flow.attributes.srcIntf }} | {{ acllogl3drop.acllogDropL3Flow.attributes.vrfEncap }} | {{ acllogl3drop.acllogDropL3Flow.attributes.status }} | {{ acllogl3drop.acllogDropL3Flow.attributes.dn }} |
+{%-     endfor %}
+{%- elif "acllogDropL3Pkt" in api %}# ACLLog L3Packet Drop
+| Source IP | Source MAC Address | Source Port | Destination IP | Destination MAC Address | Destination Port | Destination EPG Name | Protocol | Source Interface | VRF Encapsulation | Status | Packet Length | TimeStamp |
+| --------- | ------------------ | ----------- | -------------- | ----------------------- | ---------------- | -------------------- | -------- | ---------------- | ----------------- | ------ | ------------- | --------- |
+{%-     for acllogl3pktdrop in data_to_template['imdata'] %}
+| {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.srcIp }} | {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.srcMacAddr }} | {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.srcPort }} | {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.dstIp }} | {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.dstMacAddr }} | {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.dstPort }} | {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.dstEpgName }} | {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.protocol }} | {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.srcIntf }} | {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.vrfEncap }} | {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.status }} | {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.pktLen }} | {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.timeStamp }} |
+{%-     endfor %}
 {%- elif "lacpEntity" in api %}# LACP Entities
 | Name | Admin State | Child Action | DN | Local Owner | Last Modified | Oper Error | Oper State | Status |
 | ---- | ----------- | ------------ | -- | ----------- | ------------- | ---------- | ---------- | ------ |

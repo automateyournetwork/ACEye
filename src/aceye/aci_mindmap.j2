@@ -4784,6 +4784,39 @@
 ### Status: {{ subnet.l3extSubnet.attributes.status }}
 ### UID: {{ subnet.l3extSubnet.attributes.uid }}
 {%-          endfor %}
+{%- elif "acllogDropL3Flow" in api %}
+# ACLLogL3Drop
+{%-     for acllogl3drop in data_to_template['imdata'] %}
+### Source IP: {{ acllogl3drop.acllogDropL3Flow.attributes.srcIp }}
+### Source MAC Address: {{ acllogl3drop.acllogDropL3Flow.attributes.srcMacAddr }}
+### Source Port: {{ acllogl3drop.acllogDropL3Flow.attributes.srcPort }}
+### Destination IP: {{ acllogl3drop.acllogDropL3Flow.attributes.dstIp }}
+### Destination MAC Address: {{ acllogl3drop.acllogDropL3Flow.attributes.dstMacAddr }}
+### Destination Port: {{ acllogl3drop.acllogDropL3Flow.attributes.dstPort }}
+### Destination EPG Name: {{ acllogl3drop.acllogDropL3Flow.attributes.dstEpgName }}
+### Protocol: {{ acllogl3drop.acllogDropL3Flow.attributes.protocol }}
+### Source Interface: {{ acllogl3drop.acllogDropL3Flow.attributes.srcIntf }}
+### VRF Encapsulation: {{ acllogl3drop.acllogDropL3Flow.attributes.vrfEncap }}
+### Status: {{ acllogl3drop.acllogDropL3Flow.attributes.status }}
+### DN: {{ acllogl3drop.acllogDropL3Flow.attributes.dn }}
+{%-     endfor %}
+{%- elif "acllogDropL3Pkt" in api %}
+# ACL Log L3Packet Drops
+{%-     for acllogl3pktdrop in data_to_template['imdata'] %}
+### Source IP: {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.srcIp }}
+### Source MAC Address: {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.srcMacAddr }}
+### Source Port: {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.srcPort }}
+### Destination IP: {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.dstIp }}
+### Destination MAC Address: {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.dstMacAddr }}
+### Destination Port: {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.dstPort }}
+### Destination EPG Name: {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.dstEpgName }}
+### Protocol: {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.protocol }}
+### Source Interface: {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.srcIntf }}
+### VRF Encapsulation: {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.vrfEncap }}
+### Status: {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.status }}
+### Packet Length: {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.pktLen }}
+### Packet Length: {{ acllogl3pktdrop.acllogDropL3Pkt.attributes.timeStamp }}
+{%-     endfor %}
 {%- elif "lacpEntity" in api %}
 # LACP Entities
 {%-     for entity in data_to_template['imdata'] %}

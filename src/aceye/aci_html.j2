@@ -10029,6 +10029,84 @@
 {%-          endfor %}
 </tbody>
 </table>
+{%- elif "acllogDropL3Flow" in api %}
+<h1>ACLLogL3Drop</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Source IP</th>
+    <th>Source MAC Address</th>
+    <th>Source Port</th>
+    <th>Destination IP</th>
+    <th>Destination MAC Address</th>
+    <th>Destination Port</th>
+    <th>Destination EPG Name</th>
+    <th>Protocol</th>
+    <th>Source Interface</th>
+    <th>VRF Encapsulation</th>
+    <th>Status</th>
+    <th>DN</th>
+  </tr>
+</thead>
+<tbody>
+{%-     for acllogl3drop in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ acllogl3drop.acllogDropL3Flow.attributes.srcIp }}</td>
+    <td>{{ acllogl3drop.acllogDropL3Flow.attributes.srcMacAddr }}</td>
+    <td>{{ acllogl3drop.acllogDropL3Flow.attributes.srcPort }}</td>
+    <td>{{ acllogl3drop.acllogDropL3Flow.attributes.dstIp }}</td>
+    <td>{{ acllogl3drop.acllogDropL3Flow.attributes.dstMacAddr }}</td>
+    <td>{{ acllogl3drop.acllogDropL3Flow.attributes.dstPort }}</td>
+    <td>{{ acllogl3drop.acllogDropL3Flow.attributes.dstEpgName }}</td>
+    <td>{{ acllogl3drop.acllogDropL3Flow.attributes.protocol }}</td>
+    <td>{{ acllogl3drop.acllogDropL3Flow.attributes.srcIntf}}</td>
+    <td>{{ acllogl3drop.acllogDropL3Flow.attributes.vrfEncap }}</td>
+    <td>{{ acllogl3drop.acllogDropL3Flow.attributes.status }}</td>
+    <td>{{ acllogl3drop.acllogDropL3Flow.attributes.dn }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
+{%- elif "acllogDropL3Pkt" in api %}
+<h1>ACL L3 Pkt Drop</h1>
+<table id = "datatable">
+<thead>
+  <tr>
+    <th>Source IP</th>
+    <th>Source MAC Address</th>
+    <th>Source Port</th>
+    <th>Destination IP</th>
+    <th>Destination MAC Address</th>
+    <th>Destination Port</th>
+    <th>Destination EPG Name</th>
+    <th>Protocol</th>
+    <th>Source Interface</th>
+    <th>VRF Encapsulation</th>
+    <th>Status</th>
+    <th>Packet Length</th>
+    <th>TimeStamp</th>    
+  </tr>
+</thead>
+<tbody>
+{%-     for acllogl3pktdrop in data_to_template['imdata'] %}
+  <tr>
+    <td>{{ acllogl3pktdrop.acllogDropL3Pkt.attributes.srcIp }}</td>
+    <td>{{ acllogl3pktdrop.acllogDropL3Pkt.attributes.srcMacAddr }}</td>
+    <td>{{ acllogl3pktdrop.acllogDropL3Pkt.attributes.srcPort }}</td>
+    <td>{{ acllogl3pktdrop.acllogDropL3Pkt.attributes.dstIp }}</td>
+    <td>{{ acllogl3pktdrop.acllogDropL3Pkt.attributes.dstMacAddr }}</td>
+    <td>{{ acllogl3pktdrop.acllogDropL3Pkt.attributes.dstPort }}</td>
+    <td>{{ acllogl3pktdrop.acllogDropL3Pkt.attributes.dstEpgName }}</td>
+    <td>{{ acllogl3pktdrop.acllogDropL3Pkt.attributes.protocol }}</td>
+    <td>{{ acllogl3pktdrop.acllogDropL3Pkt.attributes.srcIntf}}</td>
+    <td>{{ acllogl3pktdrop.acllogDropL3Pkt.attributes.vrfEncap }}</td>
+    <td>{{ acllogl3pktdrop.acllogDropL3Pkt.attributes.status }}</td>
+    <td>{{ acllogl3pktdrop.acllogDropL3Pkt.attributes.pktLen }}</td>
+    <td>{{ acllogl3pktdrop.acllogDropL3Pkt.attributes.timeStamp }}</td>
+  </tr>
+{%-     endfor %}
+</tbody>
+</table>
 {%- elif "lacpEntity" in api %}
 <h1>LACP Entities</h1>
 <table id = "datatable">
