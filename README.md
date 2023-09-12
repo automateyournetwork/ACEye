@@ -342,6 +342,10 @@ L3Out Profiles
 
 L3Outs
 
+L3Drops
+
+L3Packet Drops
+
 LACP Entities
 
 LACP Instances

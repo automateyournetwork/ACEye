@@ -196,6 +196,8 @@ class ACEye():
                     'L3Out Path Source Relationships',
                     'L3Out Profiles',
                     'L3Outs',
+                    'L3Drops',
+                    'L3Packet Drops',
                     'LACP Entities',
                     'LACP Instances',
                     'LACP Interfaces',
@@ -492,6 +494,8 @@ class ACEye():
                 '/api/node/class/l3extRsNodeL3OutAtt.json',
                 '/api/node/class/l3extRsPathL3OutAtt.json',
                 '/api/node/class/l3extSubnet.json',
+                "/api/node/class/acllogDropL3Flow.json",
+                "/api/node/class/acllogDropL3Pkt.json",
                 '/api/node/class/lacpEntity.json',
                 '/api/node/class/lacpIf.json',
                 '/api/node/class/lacpInst.json',
@@ -1425,6 +1429,14 @@ class ACEye():
 
             if "l3extSubnet" in api:
                 async with aiofiles.open('L3 Subnets/JSON/L3 Subnets.json', mode='w' ) as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "acllogDropL3Flow" in api:
+                async with aiofiles.open('L3Drops/JSON/L3Drops.json', mode='w') as f:
+                    await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
+
+            if "acllogDropL3Pkt" in api:
+                async with aiofiles.open('L3Packet Drops/JSON/L3PktDrops.json', mode='w' ) as f:
                     await f.write(json.dumps(payload['imdata'], indent=4, sort_keys=True))
 
             if "lacpEntity" in api:
@@ -2405,6 +2417,14 @@ class ACEye():
 
             if "l3extSubnet" in api:
                 async with aiofiles.open('L3 Subnets/YAML/L3 Subnets.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "acllogDropL3Flow" in api:
+                async with aiofiles.open('L3Drops/YAML/L3Drops.yaml', mode='w' ) as f:
+                    await f.write(clean_yaml)
+
+            if "acllogDropL3Pkt" in api:
+                async with aiofiles.open('L3Packet Drops/YAML/L3PktDrops.yaml', mode='w' ) as f:
                     await f.write(clean_yaml)
 
             if "lacpEntity" in api:
@@ -3391,6 +3411,14 @@ class ACEye():
                 async with aiofiles.open('L3 Subnets/CSV/L3 Subnets.csv', mode='w' ) as f:
                     await f.write(csv_output)
 
+            if "acllogDropL3Flow" in api:
+                async with aiofiles.open('L3Drops/CSV/L3Drops.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
+            if "acllogDropL3Pkt" in api:
+                async with aiofiles.open('L3Packet Drops/CSV/L3PktDrops.csv', mode='w' ) as f:
+                    await f.write(csv_output)
+
             if "lacpEntity" in api:
                 async with aiofiles.open('LACP Entities/CSV/LACP Entities.csv', mode='w' ) as f:
                     await f.write(csv_output)
@@ -4373,6 +4401,14 @@ class ACEye():
 
             if "l3extSubnet" in api:
                 async with aiofiles.open('L3 Subnets/Markdown/L3 Subnets.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "acllogDropL3Flow" in api:
+                async with aiofiles.open('L3Drops/Markdown/L3Drops.md', mode='w' ) as f:
+                    await f.write(markdown_output)
+
+            if "acllogDropL3Pkt" in api:
+                async with aiofiles.open('L3Packet Drops/Markdown/L3PktDrops.md', mode='w' ) as f:
                     await f.write(markdown_output)
 
             if "lacpEntity" in api:
@@ -5359,6 +5395,14 @@ class ACEye():
                 async with aiofiles.open('L3 Subnets/HTML/L3 Subnets.html', mode='w' ) as f:
                     await f.write(html_output)
 
+            if "acllogDropL3Flow" in api:
+                async with aiofiles.open('L3Drops/HTML/L3Drops.html', mode='w' ) as f:
+                    await f.write(html_output)
+
+            if "acllogDropL3Pkt" in api:
+                async with aiofiles.open('L3Packet Drops/HTML/L3PktDrops.html', mode='w' ) as f:
+                    await f.write(html_output)
+
             if "lacpEntity" in api:
                 async with aiofiles.open('LACP Entities/HTML/LACP Entities.html', mode='w' ) as f:
                     await f.write(html_output)
@@ -6337,6 +6381,14 @@ class ACEye():
 
             if "l3extSubnet" in api:
                 async with aiofiles.open('L3 Subnets/Mindmap/L3 Subnets.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "acllogDropL3Flow" in api:
+                async with aiofiles.open('L3Drops/Mindmap/L3Drops.md', mode='w' ) as f:
+                    await f.write(mindmap_output)
+
+            if "acllogDropL3Pkt" in api:
+                async with aiofiles.open('L3Packet Drops/Mindmap/L3PktDrops.md', mode='w' ) as f:
                     await f.write(mindmap_output)
 
             if "lacpEntity" in api:
