@@ -6,502 +6,260 @@ Business Ready Documents for Cisco ACI
 
 ## Current API Coverage
 
-Access Bundle Groups
-
-Access Control Entities
-
-Access Control Instances
-
-Access Control Rules
-
-Access Control Scope
-
-Access Policy Group Source Relationships
-
-Access Port Groups
-
-Access Port Profiles
-
-Application Profiles
-
-ARP Adjacency Endpoints
-
-ARP Database
-
-ARP Domain
-
-ARP Entity
-
-ARP Instances
-
-ARP Interfaces
-
-Attachable Access Entity Profiles
-
-Attachable Access Entity Profiles Source Relationships
-
-BGP Address Families
-
-BGP Domains
-
-BGP Entities
-
-BGP Instances
-
-BGP Instances Policy
-
-BGP Peers
-
-BGP Peers AF Entries
-
-BGP Peers Entries
-
-BGP Route Reflector Policy
-
-BGP Route Reflectors
-
-Bridge Domains
-
-Bridge Domains Target Relationships
-
-Bridge Domains To Outside
-
-CDP Adjacency Endpoints
-
-CDP Entities
-
-CDP Instances
-
-CDP Interface Addresses
-
-CDP Interfaces
-
-CDP Management Addresses
-
-Cluster Aggregate Interfaces
-
-Cluster Health
-
-Cluster Physical Interfaces
-
-Cluster RS Member Interfaces
-
-Compute Controllers
-
-Compute Domains
-
-Compute Endpoint Policy Descriptions
-
-Compute Providers
-
-Compute RS Domain Policies
-
-Context Source Relationships
-
-Contexts (VRFs)
-
-Contexts Target Relationships
-
-Contracts
-
-Contract Consumer Interfaces
-
-Contract Consumers
-
-Contract Consumers Root
-
-Contract Providers
-
-Contract Providers Root
-
-Contract Subjects
-
-Contract Subjects Filter Attributes
-
-Controllers
-
-Device Packages
-
-Domain Attachments
-
-Domain Profile Source Relationships
-
-Endpoint Profile Containers
-
-Endpoints (All Connected Fabric Endpoints)
-
-Endpoints To Paths
-
-EPG to Bridge Domain Links
-
-EPGs (Endpoint Groups)
-
-Equipment Board Slots
-
-Equipment Boards
-
-Equipment Chassis
-
-Equipment CPUs
-
-Equipment DIMMs
-
-Equipment Fabric Extenders
-
-Equipment Fabric Ports
-
-Equipment Fan Slots
-
-Equipment Fan Trays
-
-Equipment Fans
-
-Equipment Field Programmable Gate Arrays
-
-Equipment Indicator LEDs
-
-Equipment Leaf Ports
-
-Equipment Line Card Slots
-
-Equipment Line Cards
-
-Equipment Port Locator LEDs
-
-Equipment Power Supplies
-
-Equipment Power Supply Slots
-
-Equipment RS IO Port Physical Configs
-
-Equipment Sensors
-
-Equipment SP Common Blocks
-
-Equipment SPROM LCs
-
-Equipment SPROM Power Supplies
-
-Equipment SPROM Power Supply Blocks
-
-Equipment SPROM Supervisors
-
-Equipment Storage
-
-Equipment Supervisor Slots
-
-Equipment Supervisors
-
-Ethernet Port Manager Physical Interfaces
-
-*Events
-
-External Unmanaged Nodes
-
-External Unmanaged Nodes Interfaces
-
-Fabric Extended Path Endpoint Containers
-
-Fabric Instances
-
-Fabric Link Containers
-
-Fabric Links
-
-Fabric Loose Links
-
-Fabric Loose Nodes
-
-Fabric Membership
-
-Fabric Node SSL Certifcates
-
-Fabric Nodes
-
-Fabric Path Endpoint Containers
-
-Fabric Path Endpoints
-
-Fabric Paths
-
-Fabric Pods
-
-Fabric Protected Path Endpoint Containers
-
-Fault Summary
-
-FEX Policies
-
-Fibre Channel Entity
-
-Firmware Card Running
-
-Firmware Compute Running
-
-Firmware Running
-
-Function Policies
-
-Health
-
-Host Port Selectors
-
-Interface Policies
-
-Interface Profiles
-
-IP Addresses
-
-IPv4 Addresses
-
-IPv4 Domains
-
-IPv4 Entities
-
-IPv4 Instances
-
-IPv4 Interfaces
-
-IPv4 Next Hop
-
-IPv4 Routes
-
-ISIS Adjacency Endpoints
-
-ISIS Discovered Tunnel Endpoints
-
-ISIS Domains
-
-ISIS Domains Level
-
-ISIS Entities
-
-ISIS Instances
-
-ISIS Interfaces
-
-ISIS Interfaces Level
-
-ISIS Next Hop
-
-ISIS Routes
-
-L2 Bridge Domains
-
-L2 EPG Bridge Domain Source Relationships
-
-L2 External Instance Profiles
-
-L2 External Interfaces
-
-L2 External Logical Interface Profiles
-
-L2 External Logical Node Profiles
-
-L2 Interface Source Relationships
-
-L2Out Paths
-
-L2Outs
-
-L3 Contexts
-
-L3 Contexts Source Relationships
-
-L3 Domains
-
-L3 Domains Source Relationships
-
-L3 Instances
-
-L3 Interfaces
-
-L3 Logical Interface Profiles
-
-L3 Logical Node Profiles
-
-L3 Physical Interface Source Relationships
-
-L3 Routed Interfaces
-
-L3 Routed Loopback Interfaces
-
-L3 Subinterfaces
-
-L3 Subnets
-
-L3Out IP Addresses
-
-L3Out Members
-
-L3Out Node Source Relationships
-
-L3Out Path Source Relationships
-
-L3Out Profiles
-
-L3Outs
-
-L3Drops
-
-L3Packet Drops
-
-LACP Entities
-
-LACP Instances
-
-LACP Interfaces
-
-Leaf Interface Profiles
-
-Leaf Switch Profiles
-
-License Entitlements
-
-LLDP Adjacency Endpoints
-
-LLDP Entities
-
-LLDP Instances
-
-LLDP Interfaces
-
-Locales
-
-Management Interfaces
-
-OSPF Adjacency Endpoints
-
-OSPF Areas
-
-OSPF Database
-
-OSPF Domains
-
-OSPF Entities
-
-OSPF External Profiles
-
-OSPF Instances
-
-OSPF Interfaces
-
-OSPF Routes
-
-OSPF Unicast Next Hop
-
-Path Attachments
-
-Physical Domains
-
-Physical Interfaces
-
-Port Blocks
-
-Port Channel Aggregate Interfaces
-
-Port Channel Member Interfaces
-
-Prefix List
-
-Prefix List Detailed
-
-QOS Classes
-
-Route Policies
-
-Security Domains
-
-Spine Access Policy Groups
-
-Spine Access Port Profiles
-
-Spine Host Port Selectors
-
-Spine Interface Profiles
-
-Spine Switch Profiles
-
-Static Route Next Hop Policies
-
-Subnets
-
-SVIs
-
-Tenant
-
-Tenant Health
-
-Top System
-
-Tunnel Interfaces
-
-Unicast Route Database
-
-Unicast Route Domains
-
-Unicast Route Entities
-
-Unicast Route Next Hop
-
-Unicast Routes
-
-Users
-
-VLAN Encapsulation Blocks
-
-VLAN Endpoint Group Encapsulation
-
-VLAN Namespace Policies
-
-VLAN Namespace Source Relationships
-
-VLAN Pools
-
-VMM Controller Profiles
-
-VMM Domain Profiles
-
-VMM Provider Profiles
-
-VMM User Profiles
-
-VPC Configurations
-
-VPC Domains
-
-VPC Entities
-
-VPC Instances
-
-VPC Interfaces
-
-vzAny
-
-vzAny To Consumers
-
-vzAny To Providers
-
-vzDeny Rules
-
-vzEntries
-
-vzFilters
-
-vzInterface Source Relationships
-
-vzRule Owner
-
-vzTaboo
-
-Wired Nodes
-
-* Both Audit Log and Events are commented out of the base package due to the potentially huge number of records; should you want the Audit Log / Events please uncomment out lines 72-73 (Audit Log) and 76-77 (Events)
-
+| Name                                                   | API                                                                                                                                                                                   |
+| :----------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Access Bundle Groups                                   | `/api/node/class/infraAccBndlGrp.json`                                                                                                                                                |
+| Access Control Entities                                | `/api/node/class/actrlEntity.json`                                                                                                                                                    |
+| Access Control Instances                               | `/api/node/class/actrlInst.json`                                                                                                                                                      |
+| Access Control Rules                                   | `/api/node/class/actrlRule.json`                                                                                                                                                      |
+| Access Control Scope                                   | `/api/node/class/actrlScope.json`                                                                                                                                                     |
+| Access Policy Group Source Relationships               | `/api/node/class/infraRsAccBaseGrp.json`                                                                                                                                              |
+| Access Port Groups                                     | `/api/node/class/infraAccPortGrp.json`                                                                                                                                                |
+| Access Port Profiles                                   | `/api/node/class/infraAccPortP.json`                                                                                                                                                  |
+| Application Profiles                                   | `/api/node/class/fvAp.json`                                                                                                                                                           |
+| ARP Adjacency Endpoints                                | `/api/node/class/arpAdjEp.json`                                                                                                                                                       |
+| ARP Database                                           | `/api/node/class/arpDb.json`                                                                                                                                                          |
+| ARP Domain                                             | `/api/node/class/arpDom.json`                                                                                                                                                         |
+| ARP Entity                                             | `/api/node/class/arpEntity.json`                                                                                                                                                      |
+| ARP Instances                                          | `/api/node/class/arpInst.json`                                                                                                                                                        |
+| ARP Interfaces                                         | `/api/node/class/arpIf.json`                                                                                                                                                          |
+| Attachable Access Entity Profiles                      | `/api/node/class/infraAttEntityP.json`                                                                                                                                                |
+| Attachable Access Entity Profiles Source Relationships | `/api/node/class/infraRsAttEntP.json`                                                                                                                                                 |
+| Audit Log                                              | `/api/node/class/aaaModLR.json` (Commented Out)                                                                                                                                       |
+| BGP Domain Address Families                            | `/api/node/class/bgpDomAf.json`                                                                                                                                                       |
+| BGP Domains                                            | `/api/node/class/bgpDom.json`                                                                                                                                                         |
+| BGP Entities                                           | `/api/node/class/bgpEntity.json`                                                                                                                                                      |
+| BGP Instances                                          | `/api/node/class/bgpInst.json`                                                                                                                                                        |
+| BGP Instances Policy                                   | `/api/node/class/bgpInstPol.json`                                                                                                                                                     |
+| BGP Peers                                              | `/api/node/class/bgpPeer.json`                                                                                                                                                        |
+| BGP Peers Address Families Entries                     | `/api/node/class/bgpPeerAfEntry.json`                                                                                                                                                 |
+| BGP Peers Entries                                      | `/api/node/class/bgpPeerEntry.json`                                                                                                                                                   |
+| BGP Route Reflector Policy                             | `/api/node/class/bgpRRP.json`                                                                                                                                                         |
+| BGP Route Reflectors                                   | `/api/node/class/bgpRRNodePEp.json`                                                                                                                                                   |
+| Bridge Domains                                         | `/api/node/class/fvBD.json`                                                                                                                                                           |
+| Bridge Domains Target Relationships                    | `/api/node/class/fvRtBd.json`                                                                                                                                                         |
+| Bridge Domains To Outside                              | `/api/node/class/fvRsBDToOut.json`                                                                                                                                                    |
+| CDP Adjacency Endpoints                                | `/api/node/class/cdpAdjEp.json`                                                                                                                                                       |
+| CDP Entities                                           | `/api/node/class/cdpEntity.json`                                                                                                                                                      |
+| CDP Instances                                          | `/api/node/class/cdpInst.json`                                                                                                                                                        |
+| CDP Interface Addresses                                | `/api/node/class/cdpIntfAddr.json`                                                                                                                                                    |
+| CDP Interfaces                                         | `/api/node/class/cdpIf.json`                                                                                                                                                          |
+| CDP Management Addresses                               | `/api/node/class/cdpMgmtAddr.json`                                                                                                                                                    |
+| Cluster Aggregate Interfaces                           | `/api/node/class/cnwAggrIf.json`                                                                                                                                                      |
+| Cluster Health                                         | `/api/node/mo/topology/pod-1/node-1/av.json?query-target=children&target-subtree-class=infraWiNode`                                                                                   |
+| Cluster Physical Interfaces                            | `/api/node/class/cnwPhysIf.json`                                                                                                                                                      |
+| Cluster RS Member Interfaces                           | `/api/node/class/cnwRsMbrIfs.json`                                                                                                                                                    |
+| Compute Controllers                                    | `/api/node/class/compCtrlr.json`                                                                                                                                                      |
+| Compute Domains                                        | `/api/node/class/compDom.json`                                                                                                                                                        |
+| Compute Endpoint Policy Descriptions                   | `/api/node/class/compEpPD.json`                                                                                                                                                       |
+| Compute Providers                                      | `/api/node/class/compProv.json`                                                                                                                                                       |
+| Compute RS Domain Policies                             | `/api/node/class/compRsDomP.json`                                                                                                                                                     |
+| Context Source Relationships                           | `/api/node/class/fvRsCtx.json`                                                                                                                                                        |
+| Contexts (VRFs)                                        | `/api/node/class/fvCtx.json`                                                                                                                                                          |
+| Contexts Target Relationships                          | `/api/node/class/fvRtCtx.json`                                                                                                                                                        |
+| Contracts                                              | `/api/node/class/vzBrCP.json`                                                                                                                                                         |
+| Contract Consumer Interfaces                           | `/api/node/class/fvRsConsIf.json`                                                                                                                                                     |
+| Contract Consumers                                     | `/api/node/class/fvRsCons.json`                                                                                                                                                       |
+| Contract Consumers Root                                | `/api/node/class/vzRtCons.json`                                                                                                                                                       |
+| Contract Providers                                     | `/api/node/class/fvRsProv.json`                                                                                                                                                       |
+| Contract Providers Root                                | `/api/node/class/vzRtProv.json`                                                                                                                                                       |
+| Contract Subjects                                      | `/api/node/class/vzSubj.json`                                                                                                                                                         |
+| Contract Subjects Filter Attributes                    | `/api/node/class/vzRsSubjFiltAtt.json`                                                                                                                                                |
+| Controllers                                            | `/api/node/class/infraCont.json`                                                                                                                                                      |
+| Device Packages                                        | `/api/node/class/vnsMDev.json`                                                                                                                                                        |
+| Domain Attachments                                     | `/api/node/class/fvRsDomAtt.json`                                                                                                                                                     |
+| Domain Profile Source Relationships                    | `/api/node/class/infraRsDomP.json`                                                                                                                                                    |
+| Endpoint Profile Containers                            | `/api/node/class/fvEpPCont.json`                                                                                                                                                      |
+| Endpoints (All Connected Fabric Endpoints)             | `/api/node/class/fvCEp.json`                                                                                                                                                          |
+| Endpoints To Paths                                     | `/api/node/class/fvRsCEpToPathEp.json`                                                                                                                                                |
+| EPG Bridge Domain Links                                | `/api/node/class/fvRsBd.json`                                                                                                                                                         |
+| EPGs (Endpoint Groups)                                 | `/api/node/class/fvAEPg.json`                                                                                                                                                         |
+| Equipment Board Slots                                  | `/api/node/class/eqptBSlot.json`                                                                                                                                                      |
+| Equipment Boards                                       | `/api/node/class/eqptBoard.json`                                                                                                                                                      |
+| Equipment Chassis                                      | `/api/node/class/eqptCh.json`                                                                                                                                                         |
+| Equipment CPUs                                         | `/api/node/class/eqptCPU.json`                                                                                                                                                        |
+| Equipment DIMMs                                        | `/api/node/class/eqptDimm.json`                                                                                                                                                       |
+| Equipment Fabric Extenders                             | `/api/node/class/eqptExtCh.json`                                                                                                                                                      |
+| Equipment Fabric Ports                                 | `/api/node/class/eqptFabP.json`                                                                                                                                                       |
+| Equipment Fan Slots                                    | `/api/node/class/eqptFtSlot.json`                                                                                                                                                     |
+| Equipment Fan Trays                                    | `/api/node/class/eqptFt.json`                                                                                                                                                         |
+| Equipment Fans                                         | `/api/node/class/eqptFan.json`                                                                                                                                                        |
+| Equipment Field Programmable Gate Arrays               | `/api/node/class/eqptFpga.json`                                                                                                                                                       |
+| Equipment Indicator LEDs                               | `/api/node/class/eqptIndLed.json`                                                                                                                                                     |
+| Equipment Leaf Ports                                   | `/api/node/class/eqptLeafP.json`                                                                                                                                                      |
+| Equipment Line Card Slots                              | `/api/node/class/eqptLCSlot.json`                                                                                                                                                     |
+| Equipment Line Cards                                   | `/api/node/class/eqptLC.json`                                                                                                                                                         |
+| Equipment Port Locator LEDs                            | `/api/node/class/eqptLocLed.json`                                                                                                                                                     |
+| Equipment Power Supplies                               | `/api/node/class/eqptPsu.json`                                                                                                                                                        |
+| Equipment Power Supply Slots                           | `/api/node/class/eqptPsuSlot.json`                                                                                                                                                    |
+| Equipment RS IO Port Physical Configs                  | `/api/node/class/eqptRsIoPPhysConf.json`                                                                                                                                              |
+| Equipment Sensors                                      | `/api/node/class/eqptSensor.json`                                                                                                                                                     |
+| Equipment SP Common Blocks                             | `/api/node/class/eqptSpCmnBlk.json`                                                                                                                                                   |
+| Equipment SPROM LCs                                    | `/api/node/class/eqptSpromLc.json`                                                                                                                                                    |
+| Equipment SPROM Power Supplies                         | `/api/node/class/eqptSpromPsu.json`                                                                                                                                                   |
+| Equipment SPROM Power Supply Blocks                    | `/api/node/class/eqptSpromPsuBlk.json`                                                                                                                                                |
+| Equipment SPROM Supervisors                            | `/api/node/class/eqptSpromSup.json`                                                                                                                                                   |
+| Equipment Storage                                      | `/api/node/class/eqptStorage.json`                                                                                                                                                    |
+| Equipment Supervisor Slots                             | `/api/node/class/eqptSupCSlot.jso`                                                                                                                                                    |
+| Equipment Supervisors                                  | `/api/node/class/eqptSupC.json`                                                                                                                                                       |
+| Ethernet Port Manager Physical Interfaces              | `/api/node/class/ethpmPhysIf.json`                                                                                                                                                    |
+| Events                                                 | `api/node/class/eventRecord.json` (Commented out)                                                                                                                                     |
+| External Unmanaged Nodes                               | `/api/node/class/leqptLooseNode.json`                                                                                                                                                 |
+| External Unmanaged Nodes Interfaces                    | `/api/node/class/leqptRsLsNodeToIf.json`                                                                                                                                              |
+| Fabric Extended Path Endpoint Containers               | `/api/node/class/fabricExtPathEpCont.json`                                                                                                                                            |
+| Fabric Instances                                       | `/api/node/class/fabricInst.json`                                                                                                                                                     |
+| Fabric Link Containers                                 | `/api/node/class/fabricLinkCont.json`                                                                                                                                                 |
+| Fabric Links                                           | `/api/node/class/fabricLink.json`                                                                                                                                                     |
+| Fabric Loose Links                                     | `/api/node/class/fabricLooseLink.json`                                                                                                                                                |
+| Fabric Loose Nodes                                     | `/api/node/class/fabricLooseNode.json`                                                                                                                                                |
+| Fabric Membership                                      | `/api/node/class/topSystem.json?query-target=subtree&target-subtree-class=firmwareCtrlrRunning`                                                                                       |
+| Fabric Node SSL Certificates                           | `/api/node/class/pkiFabricNodeSSLCertificate.json`                                                                                                                                    |
+| Fabric Nodes                                           | `/api/node/class/fabricNode.json`                                                                                                                                                     |
+| Fabric Path Endpoint Containers                        | `/api/node/class/fabricPathEpCont.jso`                                                                                                                                                |
+| Fabric Path Endpoints                                  | `/api/node/class/fabricPathEp.json`                                                                                                                                                   |
+| Fabric Paths                                           | `/api/node/class/fabricPath.json`                                                                                                                                                     |
+| Fabric Pods                                            | `/api/node/class/fabricPod.json`                                                                                                                                                      |
+| Fabric Protected Path Endpoint Containers              | `/api/node/class/fabricProtPathEpCont.json`                                                                                                                                           |
+| Fault Summary                                          | `/api/node/class/faultSummary.json`                                                                                                                                                   |
+| FEX Policies                                           | `/api/node/class/infraFexP.json`                                                                                                                                                      |
+| Fibre Channel Entities                                 | `/api/node/class/fcEntity.json`                                                                                                                                                       |
+| Firmware Card Running                                  | `/api/node/class/firmwareCardRunning.jso`                                                                                                                                             |
+| Firmware Compute Running                               | `/api/node/class/firmwareCompRunning.json`                                                                                                                                            |
+| Firmware Running                                       | `/api/node/class/firmwareRunning.json`                                                                                                                                                |
+| Function Policies                                      | `/api/node/class/infraFuncP.json`                                                                                                                                                     |
+| Health                                                 | `/api/node/mo/topology/health.json`                                                                                                                                                   |
+| Host Port Selectors                                    | `/api/node/class/infraHPortS.json`                                                                                                                                                    |
+| Interface Policies                                     | `/api/node/class/infraPortS.json`                                                                                                                                                     |
+| Interface Profiles                                     | `/api/node/class/infraProfile.json`                                                                                                                                                   |
+| IP Addresses                                           | `/api/node/class/fvIp.json`                                                                                                                                                           |
+| IPv4 Addresses                                         | `/api/node/class/ipv4Addr.json`                                                                                                                                                       |
+| IPv4 Domains                                           | `/api/node/class/ipv4Dom.json`                                                                                                                                                        |
+| IPv4 Entities                                          | `/api/node/class/ipv4Entity.json`                                                                                                                                                     |
+| IPv4 Instances                                         | `/api/node/class/ipv4Inst.json`                                                                                                                                                       |
+| IPv4 Interfaces                                        | `/api/node/class/ipv4If.json`                                                                                                                                                         |
+| IPv4 Next Hop                                          | `/api/node/class/ipv4Nexthop.json`                                                                                                                                                    |
+| IPv4 Routes                                            | `/api/node/class/ipv4Route.json`                                                                                                                                                      |
+| ISIS Adjacency Endpoints                               | `/api/node/class/isisAdjEp.json`                                                                                                                                                      |
+| ISIS Discovered Tunnel Endpoints                       | `/api/node/class/isisDTEp.json`                                                                                                                                                       |
+| ISIS Domains                                           | `/api/node/class/isisDom.json`                                                                                                                                                        |
+| ISIS Domains Level                                     | `/api/node/class/isisDomLvl.json`                                                                                                                                                     |
+| ISIS Entities                                          | `/api/node/class/isisEntity.json`                                                                                                                                                     |
+| ISIS Instances                                         | `/api/node/class/isisInst.json`                                                                                                                                                       |
+| ISIS Interfaces                                        | `/api/node/class/isisIf.json`                                                                                                                                                         |
+| ISIS Interfaces Level                                  | `/api/node/class/isisIfLvl.json`                                                                                                                                                      |
+| ISIS Next Hop                                          | `/api/node/class/isisNexthop.json`                                                                                                                                                    |
+| ISIS Routes                                            | `/api/node/class/isisRoute.json`                                                                                                                                                      |
+| L2 Bridge Domains                                      | `/api/node/class/l2BD.json`                                                                                                                                                           |
+| L2 EPG Bridge Domain Source Relationships              | `/api/node/class/l2extRsEBd.json`                                                                                                                                                     |
+| L2 External Instance Profiles                          | `/api/node/class/l2extInstP.json`                                                                                                                                                     |
+| L2 External Interfaces                                 | `/api/node/class/l2ExtIf.json`                                                                                                                                                        |
+| L2 External Logical Interface Profiles                 | `/api/node/class/l2extLIfP.json`                                                                                                                                                      |
+| L2 External Logical Node Profiles                      | `/api/node/class/l2extLNodeP.json`                                                                                                                                                    |
+| L2 Interface Source Relationships                      | `/api/node/class/l2RsEthIf.json`                                                                                                                                                      |
+| L2Out Paths                                            | `/api/node/class/l2extRsPathL2OutAtt.json`                                                                                                                                            |
+| L2Outs                                                 | `/api/node/class/l2extOut.json`                                                                                                                                                       |
+| L3 Contexts                                            | `/api/node/class/l3Ctx.json`                                                                                                                                                          |
+| L3 Contexts Source Relationships                       | `/api/node/class/l3extRsEctx.json`                                                                                                                                                    |
+| L3 Domains                                             | `/api/node/class/l3extDomP.json`                                                                                                                                                      |
+| L3 Domains Source Relationships                        | `/api/node/class/l3extRsL3DomAtt.json`                                                                                                                                                |
+| L3 Instances                                           | `/api/node/class/l3Inst.json`                                                                                                                                                         |
+| L3 Interfaces                                          | `/api/node/class/l3Inst.json`                                                                                                                                                         |
+| L3 Logical Interface Profiles                          | `/api/node/class/l3extLIfP.json`                                                                                                                                                      |
+| L3 Logical Node Profiles                               | `/api/node/class/l3extLNodeP.json`                                                                                                                                                    |
+| L3 Physical Interface Source Relationships             | `/api/node/class/l3RsEncPhysRtdConf.json`                                                                                                                                             |
+| L3 Routed Interfaces                                   | `/api/node/class/l3RtdIf.json`                                                                                                                                                        |
+| L3 Routed Loopback Interfaces                          | `/api/node/class/l3LbRtdIf.json`                                                                                                                                                      |
+| L3 Subinterfaces                                       | `/api/node/class/l3EncRtdIf.json`                                                                                                                                                     |
+| L3 Subnets                                             | `/api/node/class/l3extSubnet.json`                                                                                                                                                    |
+| L3Out IP Addresses                                     | `/api/node/class/l3extIp.json`                                                                                                                                                        |
+| L3Out Members                                          | `/api/node/class/l3extMember.json`                                                                                                                                                    |
+| L3Out Node Source Relationships                        | `/api/node/class/l3extRsNodeL3OutAtt.json`                                                                                                                                            |
+| L3Out Path Source Relationships                        | `/api/node/class/l3extRsPathL3OutAtt.json`                                                                                                                                            |
+| L3Out Profiles                                         | `/api/node/class/l3extInstP.json`                                                                                                                                                     |
+| L3Outs                                                 | `/api/node/class/l3extOut.json`                                                                                                                                                       |
+| L3Drops                                                | `/api/node/class/acllogDropL3Flow.json`                                                                                                                                               |
+| L3Packet Drops                                         | `/api/node/class/acllogDropL3Pkt.json`                                                                                                                                                |
+| LACP Entities                                          | `/api/node/class/lacpEntity.json`                                                                                                                                                     |
+| LACP Instances                                         | `/api/node/class/lacpInst.json`                                                                                                                                                       |
+| LACP Interfaces                                        | `/api/node/class/lacpIf.json`                                                                                                                                                         |
+| Leaf Interface Profiles                                | `/api/node/class/infraAccPortP.json`                                                                                                                                                  |
+| Leaf Switch Profiles                                   | `/api/node/class/infraNodeP.json`                                                                                                                                                     |
+| License Entitlements                                   | `/api/node/class/licenseEntitlement.json`                                                                                                                                             |
+| LLDP Adjacency Endpoints                               | `/api/node/class/lldpAdjEp.json`                                                                                                                                                      |
+| LLDP Entities                                          | `/api/node/class/lldpEntity.json`                                                                                                                                                     |
+| LLDP Instances                                         | `/api/node/class/lldpInst.json`                                                                                                                                                       |
+| LLDP Interfaces                                        | `/api/node/class/lldpIf.json`                                                                                                                                                         |
+| Locales                                                | `/api/node/class/fvLocale.json`                                                                                                                                                       |
+| Management Interfaces                                  | `/api/node/class/mgmtMgmtIf.json`                                                                                                                                                     |
+| OSPF Adjacency Endpoints                               | `/api/node/class/ospfAdjEp.json`                                                                                                                                                      |
+| OSPF Areas                                             | `/api/node/class/ospfArea.json`                                                                                                                                                       |
+| OSPF Database                                          | `/api/node/class/ospfDb.json`                                                                                                                                                         |
+| OSPF Domains                                           | `/api/node/class/ospfDom.json`                                                                                                                                                        |
+| OSPF Entities                                          | `/api/node/class/ospfEntity.json`                                                                                                                                                     |
+| OSPF External Profiles                                 | `/api/node/class/ospfExtP.json`                                                                                                                                                       |
+| OSPF Instances                                         | `/api/node/class/ospfInst.json`                                                                                                                                                       |
+| OSPF Interfaces                                        | `/api/node/class/ospfIf.json`                                                                                                                                                         |
+| OSPF Routes                                            | `/api/node/class/ospfRoute.json`                                                                                                                                                      |
+| OSPF Unicast Next Hop                                  | `/api/node/class/ospfUcNexthop.json`                                                                                                                                                  |
+| Path Attachments                                       | `/api/node/class/fvRsPathAtt.json`                                                                                                                                                    |
+| Physical Domains                                       | `/api/node/class/physDomP.json`                                                                                                                                                       |
+| Physical Interfaces                                    | `/api/node/class/{ node['fabricNode']['attributes']['dn']}/l1PhysIf.json`                                                                                                             |
+| Port Blocks                                            | `/api/node/class/infraPortBlk.json`                                                                                                                                                   |
+| Port Channel Aggregate Interfaces                      | `/api/node/class/pcAggrIf.json`                                                                                                                                                       |
+| Port Channel Member Interfaces                         | `/api/node/class/pcRsMbrIfs.json`                                                                                                                                                     |
+| Prefix List                                            | `/api/node/mo/uni/tn-{tenant['fvTenant']['attributes']['name']}.json?query-target=subtree&target-subtree-class=rtctrlSubjP`                                                           |
+| Prefix List Detailed                                   | `/api/node/mo/uni/tn-{tenant['fvTenant']['attributes']['name']}/subj-{prefix['rtctrlSubjP']['attributes']['name']}.json?query-target=children&target-subtree-class=rtctrlMatchRtDest` |
+| QOS Classes                                            | `/api/node/class/qosClass.json`                                                                                                                                                       |
+| Route Policies                                         | `/api/node/class/ipRouteP.json`                                                                                                                                                       |
+| Security Domains                                       | `/api/node/class/aaaDomain.json`                                                                                                                                                      |
+| Spine Access Policy Groups                             | `/api/node/class/infraRsSpAccGrp.json`                                                                                                                                                |
+| Spine Access Port Profiles                             | `/api/node/class/infraSpAccPortP.json`                                                                                                                                                |
+| Spine Host Port Selectors                              | `/api/node/class/infraSHPortS.json`                                                                                                                                                   |
+| Spine Interface Profiles                               | `/api/node/class/infraSpAccPortP.json`                                                                                                                                                |
+| Spine Switch Profiles                                  | `/api/node/class/infraSpineP.json`                                                                                                                                                    |
+| Static Route Next Hop Policies                         | `/api/node/class/ipNexthopP.json`                                                                                                                                                     |
+| Subnets                                                | `/api/node/class/fvSubnet.json`                                                                                                                                                       |
+| SVIs                                                   | `/api/node/class/sviIf.json`                                                                                                                                                          |
+| Tenant                                                 | `/api/node/class/fvTenant.json`                                                                                                                                                       |
+| Tenant Health                                          | `/api/mo/uni/tn-{tenant['fvTenant']['attributes']['name']}/health.json`                                                                                                               |
+| Top System                                             | `/api/node/class/topSystem.json`                                                                                                                                                      |
+| Tunnel Interfaces                                      | `/api/node/class/tunnelIf.json`                                                                                                                                                       |
+| Unicast Route Database                                 | `/api/node/class/uribv4Db.json`                                                                                                                                                       |
+| Unicast Route Domains                                  | `/api/node/class/uribv4Dom.json`                                                                                                                                                      |
+| Unicast Route Entities                                 | `/api/node/class/uribv4Entity.json`                                                                                                                                                   |
+| Unicast Route Next Hop                                 | `/api/node/class/uribv4Nexthop.json`                                                                                                                                                  |
+| Unicast Routes                                         | `/api/node/class/uribv4Route.json`                                                                                                                                                    |
+| Users                                                  | `/api/node/class/aaaUser.json`                                                                                                                                                        |
+| VLAN Encapsulation Blocks                              | `/api/node/class/fvnsEncapBlk.json`                                                                                                                                                   |
+| VLAN Endpoint Group Encapsulation                      | `/api/node/class/vlanCktEp.json`                                                                                                                                                      |
+| VLAN Namespace Policies                                | `/api/node/class/fvnsVlanInstP.json`                                                                                                                                                  |
+| VLAN Namespace Source Relationships                    | `/api/node/class/infraRsVlanNs.json`                                                                                                                                                  |
+| VLAN Pools                                             | `/api/node/class/fvnsVlanInstP.json`                                                                                                                                                  |
+| VMM Controller Profiles                                | `/api/node/class/vmmCtrlrP.json`                                                                                                                                                      |
+| VMM Domain Profiles                                    | `/api/node/class/vmmDomP.json`                                                                                                                                                        |
+| VMM Provider Profiles                                  | `/api/node/class/vmmProvP.json`                                                                                                                                                       |
+| VMM User Profiles                                      | `/api/node/class/vmmUsrAccP.json`                                                                                                                                                     |
+| vPC Configurations                                     | `/api/node/class/vpcRsVpcConf.json`                                                                                                                                                   |
+| vPC Domains                                            | `/api/node/class/vpcDom.json`                                                                                                                                                         |
+| vPC Entities                                           | `/api/node/class/vpcEntity.json`                                                                                                                                                      |
+| vPC Instances                                          | `/api/node/class/vpcInst.json`                                                                                                                                                        |
+| vPC Interfaces                                         | `/api/node/class/vpcIf.json`                                                                                                                                                          |
+| vzAny                                                  | `/api/node/class/vzAny.json`                                                                                                                                                          |
+| vzAny To Consumers                                     | `/api/node/class/vzRsAnyToCons.json`                                                                                                                                                  |
+| vzAny To Providers                                     | `/api/node/class/vzRsAnyToProv.json`                                                                                                                                                  |
+| vzDeny Rules                                           | `/api/node/class/vzRsDenyRule.json`                                                                                                                                                   |
+| vzEntries                                              | `/api/node/class/vzEntry.json`                                                                                                                                                        |
+| vzFilters                                              | `/api/node/class/vzFilter.json`                                                                                                                                                       |
+| vzInterface Source Relationships                       | `/api/node/class/vzRsIf.json`                                                                                                                                                         |
+| vzRule Owner                                           | `/api/node/class/vzRuleOwner.json`                                                                                                                                                    |
+| vzTaboo                                                | `/api/node/class/vzTaboo.json`                                                                                                                                                        |
+| Wired Nodes                                            | `/api/node/class/infraWiNode.json`                                                                                                                                                    |
+
+- Both Audit Log and Events are commented out of the base package due to the potentially huge number of records; should you want the Audit Log / Events please uncomment out lines 72-73 (Audit Log) and 76-77 (Events)
 
 ## Installation
 
-```console
+```bash
 $ python3 -m venv ACI
 $ source ACI/bin/activate
 (ACI) $ pip install aceye
@@ -509,21 +267,21 @@ $ source ACI/bin/activate
 
 ## Usage - Help
 
-```console
+```bash
 (ACI) $ aceye --help
 ```
 
 ![ACEye Help](/images/help.png)
 
-## Usage - In-line
+## Usage - Inline
 
-```console
+```bash
 (ACI) $ aceye --url <url to APIC> --username <APIC username> --password <APIC password>
 ```
 
 ## Usage - Interactive
 
-```console
+```bash
 (ACI) $ aceye
 APIC URL: <URL to APIC>
 APIC Username: <APIC Username>
@@ -532,21 +290,20 @@ APIC Password: <APIC Password>
 
 ## Usage - Environment Variables
 
-```console
+```bash
 (ACI) $ export URL=<URL to APIC>
 (ACI) $ export USERNAME=<APIC Username>
 (ACI) $ export PASSWORD=<APIC Password>
 ```
 
-## Recommended VS Code Extensions
+## Recommended VSCode Extensions
 
-Excel Viewer - CSV Files
-
-Markdown Preview - Markdown Files
-
-Markmap - Mindmap Files
-
-Open in Default Browser - HTML Files
+| Extension                                                                                                      | Files          |
+| :------------------------------------------------------------------------------------------------------------- | :------------- |
+| [Excel Viewer](https://marketplace.visualstudio.com/items?itemName=GrapeCity.gc-excelviewer)                   | CSV Files      |
+| Markdown Preview                                                                                               | Markdown Files |
+| [Markmap](https://marketplace.visualstudio.com/items?itemName=gera2ld.markmap-vscode)                          | Mindmap Files  |
+| [Open in Default Browser](https://marketplace.visualstudio.com/items?itemName=peakchen90.open-html-in-browser) | HTML Files     |
 
 ## Contact
 

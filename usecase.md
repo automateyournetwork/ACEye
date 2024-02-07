@@ -1,13 +1,13 @@
-ACeye - Transform Cisco ACI APIC REST APIs into Business Ready Documents
-=====================================
+# ACEye - Transform Cisco ACI APIC REST APIs into Business Ready Documents
 
 ACEye uses various ACI APIC REST APIs and transforms them, using Jinja2 templates into:
-RAW JSON files
-RAW YAML files
-CSV files
-Markdown files
-Dynamic HTML pages
-Mindmaps
+
+1. RAW JSON files.
+2. RAW YAML files.
+3. CSV files.
+4. Markdown files.
+5. Dynamic HTML pages.
+6. Mindmaps.
 
 ## Video
 
