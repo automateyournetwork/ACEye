@@ -1,7 +1,10 @@
-{%- include 'datatable_header.j2' %}
+{% extends "layout.html" %}
+
+{% block content %}
+
 {%- if "AEPg" in api %}
 <h1>Endpoint Groups</h1>
-<table id="datatable" class="stripe hover row-border responsive">
+<table id="datatable" class="stripe hover row-border responsive compact">
     <thead>
         <tr>
             <th scope="col">Name</th>
@@ -12668,4 +12671,5 @@
     </tbody>
 </table>
 {%- endif %}
-{%- include 'datatable_footer.j2' %}
+
+{% endblock content %}
