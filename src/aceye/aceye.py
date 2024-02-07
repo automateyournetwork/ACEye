@@ -24,6 +24,7 @@ class ACEye:
         self.make_directories()
         self.cookie = self.get_token()
         asyncio.run(self.main())
+        self.logout()
 
     def make_directories(self):
         api_list = {
@@ -294,15 +295,21 @@ class ACEye:
         payload = {
             "aaaUser": {
                 "attributes": {
-                    "name": f"{self.username}",
-                    "pwd": f"{self.password}",
+                    "name": self.username,
+                    "pwd": self.password,
                 }
             }
         }
-
         response = requests.post(url, json=payload, verify=False)
+        response.raise_for_status()
         print(f"<Authentication Status code {response.status_code} for {url}>")
         return response.cookies
+
+    def logout(self):
+        url = f"{self.aci}/api/aaaLogout.json"
+        payload = {"aaaUser": {"attributes": {"name": self.username}}}
+        response = requests.post(url, json=payload, cookies=self.cookie, verify=False)
+        print(f"<Logout Status code {response.status_code} for {url}>")
 
     api_list = {
         "/api/node/class/fvTenant.json",
