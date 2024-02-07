@@ -26,7 +26,7 @@ class ACEye:
         asyncio.run(self.main())
 
     def make_directories(self):
-        api_list = [
+        api_list = {
             "Access Bundle Groups",
             "Access Control Entities",
             "Access Control Instances",
@@ -273,7 +273,7 @@ class ACEye:
             "vzRule Owner",
             "vzTaboo",
             "Wired Nodes",
-        ]
+        }
         current_directory = Path.cwd()
         for api in api_list:
             final_directory = current_directory / api / "JSON"
@@ -301,10 +301,10 @@ class ACEye:
         }
 
         response = requests.post(url, json=payload, verify=False)
-        print(f"<Authentication Status code {response.status_code} for { url }>")
+        print(f"<Authentication Status code {response.status_code} for {url}>")
         return response.cookies
 
-    api_list = [
+    api_list = {
         "/api/node/class/fvTenant.json",
         "/api/node/class/fvAEPg.json",
         "/api/node/class/fvBD.json",
@@ -316,11 +316,8 @@ class ACEye:
         "/api/node/class/fvSubnet.json",
         "/api/node/class/fvCEp.json",
         "/api/node/class/fabricNode.json",
-        "/api/node/class/infraAccPortP.json",
-        "/api/node/class/infraSpAccPortP.json",
         "/api/node/class/infraNodeP.json",
         "/api/node/class/infraSpineP.json",
-        "/api/node/class/fvnsVlanInstP.json",
         "/api/node/class/infraAttEntityP.json",
         "/api/node/class/vzBrCP.json",
         "/api/node/class/vzEntry.json",
@@ -337,7 +334,6 @@ class ACEye:
         "/api/node/class/infraProfile.json",
         "/api/node/class/fabricPod.json",
         "/api/node/class/fabricPath.json",
-        "/api/node/class/fvTenant.json",
         "/api/node/class/aaaUser.json",
         "/api/node/class/aaaDomain.json",
         "/api/node/class/vzSubj.json",
@@ -347,7 +343,6 @@ class ACEye:
         "/api/node/mo/topology/pod-1/node-1/av.json?query-target=children&target-subtree-class=infraWiNode",
         "/api/node/class/vnsMDev.json",
         "/api/node/class/cnwAggrIf.json",
-        "/api/node/class/l3Inst.json",
         "/api/node/class/actrlEntity.json",
         "/api/node/class/actrlInst.json",
         "/api/node/class/actrlRule.json",
@@ -548,7 +543,7 @@ class ACEye:
         "/api/node/class/vzRtProv.json",
         "/api/node/class/vzRuleOwner.json",
         "/api/node/class/vzTaboo.json",
-    ]
+    }
 
     async def get_api(self, api_url: str, page: int = 0, page_size: int = 100):
         async with aiohttp.ClientSession() as session:
@@ -579,7 +574,7 @@ class ACEye:
                         imdata.extend(response_dict.get("imdata"))
                 # Combine all results into a single dictionary
                 result_dict = {"totalCount": total_count, "imdata": imdata}
-                return (api_url, response_dict)
+                return (api_url, result_dict)
 
     async def main(self):
         results = await asyncio.gather(
@@ -606,9 +601,9 @@ class ACEye:
                 print(f"{api_url} Status Code {resp.status}")
                 physical_interfaces = []
                 for node in node_response_dict.get("imdata"):
-                    api_url = f"{self.aci}/api/node/class/{ node['fabricNode']['attributes']['dn']}/l1PhysIf.json"
+                    api_url = f"{self.aci}/api/node/class/{node['fabricNode']['attributes']['dn']}/l1PhysIf.json"
                     async with session.get(
-                        f"{self.aci}/api/node/class/{ node['fabricNode']['attributes']['dn']}/l1PhysIf.json",
+                        f"{self.aci}/api/node/class/{node['fabricNode']['attributes']['dn']}/l1PhysIf.json",
                         cookies=self.cookie,
                         verify_ssl=False,
                     ) as resp:
@@ -628,9 +623,9 @@ class ACEye:
                 tenants = await resp.json()
                 prefix_lists = []
                 for tenant in tenants.get("imdata"):
-                    api_url = f"{self.aci}/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
+                    api_url = f"{self.aci}/api/node/mo/uni/tn-{tenant['fvTenant']['attributes']['name']}.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
                     async with session.get(
-                        f"{self.aci}/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }.json?query-target=subtree&target-subtree-class=rtctrlSubjP",
+                        f"{self.aci}/api/node/mo/uni/tn-{tenant['fvTenant']['attributes']['name']}.json?query-target=subtree&target-subtree-class=rtctrlSubjP",
                         cookies=self.cookie,
                         verify_ssl=False,
                     ) as resp:
@@ -650,9 +645,9 @@ class ACEye:
                 prefix_lists = []
                 ip_prefix_list_details = []
                 for tenant in tenants.get("imdata"):
-                    api_url = f"{self.aci}/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
+                    api_url = f"{self.aci}/api/node/mo/uni/tn-{tenant['fvTenant']['attributes']['name']}.json?query-target=subtree&target-subtree-class=rtctrlSubjP"
                     async with session.get(
-                        f"{self.aci}/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }.json?query-target=subtree&target-subtree-class=rtctrlSubjP",
+                        f"{self.aci}/api/node/mo/uni/tn-{tenant['fvTenant']['attributes']['name']}.json?query-target=subtree&target-subtree-class=rtctrlSubjP",
                         cookies=self.cookie,
                         verify_ssl=False,
                     ) as resp:
@@ -661,9 +656,9 @@ class ACEye:
                         for item in prefix_lists:
                             if item:
                                 for prefix in item:
-                                    api_url = f"{self.aci}/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }/subj-{ prefix['rtctrlSubjP']['attributes']['name']}.json?query-target=children&target-subtree-class=rtctrlMatchRtDest"
+                                    api_url = f"{self.aci}/api/node/mo/uni/tn-{tenant['fvTenant']['attributes']['name']}/subj-{prefix['rtctrlSubjP']['attributes']['name']}.json?query-target=children&target-subtree-class=rtctrlMatchRtDest"
                                     async with session.get(
-                                        f"{self.aci}/api/node/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }/subj-{ prefix['rtctrlSubjP']['attributes']['name']}.json?query-target=children&target-subtree-class=rtctrlMatchRtDest",
+                                        f"{self.aci}/api/node/mo/uni/tn-{tenant['fvTenant']['attributes']['name']}/subj-{prefix['rtctrlSubjP']['attributes']['name']}.json?query-target=children&target-subtree-class=rtctrlMatchRtDest",
                                         cookies=self.cookie,
                                         verify_ssl=False,
                                     ) as resp:
@@ -687,16 +682,15 @@ class ACEye:
                 tenants = await resp.json()
                 tenant_health = []
                 for tenant in tenants.get("imdata"):
-                    api_url = f"{self.aci}/api/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }/health.json"
+                    api_url = f"{self.aci}/api/mo/uni/tn-{tenant['fvTenant']['attributes']['name']}/health.json"
                     async with session.get(
-                        f"{self.aci}/api/mo/uni/tn-{ tenant['fvTenant']['attributes']['name'] }/health.json",
+                        f"{self.aci}/api/mo/uni/tn-{tenant['fvTenant']['attributes']['name']}/health.json",
                         cookies=self.cookie,
                         verify_ssl=False,
                     ) as resp:
                         print(f"{api_url} Status Code {resp.status}")
                         response_dict = await resp.json()
                         tenant_health.append(response_dict.get("imdata"))
-                        print(api_url)
                 return (api_url, tenant_health)
 
     async def json_file(self, parsed_json):
