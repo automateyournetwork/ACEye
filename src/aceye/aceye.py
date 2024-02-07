@@ -1819,7 +1819,7 @@ class ACEye:
                         json.dumps(payload.get("imdata"), indent=4, sort_keys=True)
                     )
 
-            if "infraContr" in api:
+            if "infraCont" in api:
                 async with aiofiles.open(
                     "Controllers/JSON/Controllers.json", mode="w"
                 ) as f:
@@ -3569,7 +3569,7 @@ class ACEye:
                 ) as f:
                     await f.write(clean_yaml)
 
-            if "infraContr" in api:
+            if "infraCont" in api:
                 async with aiofiles.open(
                     "Controllers/YAML/Controllers.yaml", mode="w"
                 ) as f:
@@ -5092,7 +5092,7 @@ class ACEye:
                 ) as f:
                     await f.write(csv_output)
 
-            if "infraContr" in api:
+            if "infraCont" in api:
                 async with aiofiles.open(
                     "Controllers/CSV/Controllers.csv", mode="w"
                 ) as f:
@@ -6632,7 +6632,7 @@ class ACEye:
                 ) as f:
                     await f.write(markdown_output)
 
-            if "infraContr" in api:
+            if "infraCont" in api:
                 async with aiofiles.open(
                     "Controllers/Markdown/Controllers.md", mode="w"
                 ) as f:
@@ -8176,7 +8176,7 @@ class ACEye:
                 ) as f:
                     await f.write(html_output)
 
-            if "infraContr" in api:
+            if "infraCont" in api:
                 async with aiofiles.open(
                     "Controllers/HTML/Controllers.html", mode="w"
                 ) as f:
@@ -9708,7 +9708,7 @@ class ACEye:
                 ) as f:
                     await f.write(mindmap_output)
 
-            if "infraContr" in api:
+            if "infraCont" in api:
                 async with aiofiles.open(
                     "Controllers/Mindmap/Controllers.md", mode="w"
                 ) as f:
