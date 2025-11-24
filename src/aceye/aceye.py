@@ -285,7 +285,7 @@ class ACEye:
             final_directory.mkdir(parents=True, exist_ok=True)
             final_directory = current_directory / api / "HTML"
             final_directory.mkdir(parents=True, exist_ok=True)
-            final_directory = current_directory / api / "Makrdown"
+            final_directory = current_directory / api / "Markdown"
             final_directory.mkdir(parents=True, exist_ok=True)
             final_directory = current_directory / api / "Mindmap"
             final_directory.mkdir(parents=True, exist_ok=True)
